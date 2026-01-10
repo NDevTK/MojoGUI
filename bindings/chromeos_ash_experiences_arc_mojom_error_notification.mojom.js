@@ -37,7 +37,7 @@ mojo.internal.Struct(
     arc.mojom.ErrorDetailsSpec, 'arc.mojom.ErrorDetails', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, arc.mojom.ErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, arc.mojom.ErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('buttonLabels', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
@@ -45,7 +45,7 @@ mojo.internal.Struct(
 // Interface: ErrorNotificationHost
 mojo.internal.Struct(
     arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_Params', [
-      mojo.internal.StructField('details', 0, 0, arc.mojom.ErrorDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 0, 0, arc.mojom.ErrorDetailsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('action_handler', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationActionHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -102,9 +102,8 @@ arc.mojom.ErrorNotificationHostRemoteCallHandler = class {
 
 arc.mojom.ErrorNotificationHost.getRemote = function() {
   let remote = new arc.mojom.ErrorNotificationHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ErrorNotificationHost',
     'context');
   return remote.$;
@@ -172,9 +171,8 @@ arc.mojom.ErrorNotificationInstanceRemoteCallHandler = class {
 
 arc.mojom.ErrorNotificationInstance.getRemote = function() {
   let remote = new arc.mojom.ErrorNotificationInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ErrorNotificationInstance',
     'context');
   return remote.$;
@@ -236,9 +234,8 @@ arc.mojom.ErrorNotificationItemRemoteCallHandler = class {
 
 arc.mojom.ErrorNotificationItem.getRemote = function() {
   let remote = new arc.mojom.ErrorNotificationItemRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ErrorNotificationItem',
     'context');
   return remote.$;
@@ -316,9 +313,8 @@ arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler = class {
 
 arc.mojom.ErrorNotificationActionHandler.getRemote = function() {
   let remote = new arc.mojom.ErrorNotificationActionHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ErrorNotificationActionHandler',
     'context');
   return remote.$;

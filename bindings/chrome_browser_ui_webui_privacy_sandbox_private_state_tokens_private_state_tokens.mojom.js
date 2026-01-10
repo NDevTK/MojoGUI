@@ -30,7 +30,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParams', [
-      mojo.internal.StructField('private_state_tokens_count', 0, 0, mojo.internal.Array(private_state_tokens.mojom.IssuerTokenCountSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('private_state_tokens_count', 0, 0, mojo.internal.Array(private_state_tokens.mojom.IssuerTokenCountSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -80,9 +80,8 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerRemoteCallHandler = clas
 
 private_state_tokens.mojom.PrivateStateTokensPageHandler.getRemote = function() {
   let remote = new private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'private_state_tokens.mojom.PrivateStateTokensPageHandler',
     'context');
   return remote.$;

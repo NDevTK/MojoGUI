@@ -85,17 +85,17 @@ mojo.internal.Union(
     ash.diagnostics.mojom.NetworkTypePropertiesSpec, 'ash.diagnostics.mojom.NetworkTypeProperties', {
       'cellular': {
         'ordinal': 0,
-        'type': ash.diagnostics.mojom.CellularStatePropertiesSpec,
+        'type': ash.diagnostics.mojom.CellularStatePropertiesSpec.$,
         'nullable': false,
       },
       'ethernet': {
         'ordinal': 1,
-        'type': ash.diagnostics.mojom.EthernetStatePropertiesSpec,
+        'type': ash.diagnostics.mojom.EthernetStatePropertiesSpec.$,
         'nullable': false,
       },
       'wifi': {
         'ordinal': 2,
-        'type': ash.diagnostics.mojom.WiFiStatePropertiesSpec,
+        'type': ash.diagnostics.mojom.WiFiStatePropertiesSpec.$,
         'nullable': false,
       },
     });
@@ -117,17 +117,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('eid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('network_technology', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('roaming', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('roaming_state', 28, 0, ash.diagnostics.mojom.RoamingStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('sim_locked', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('lock_type', 40, 0, ash.diagnostics.mojom.LockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('roaming_state', 32, 0, ash.diagnostics.mojom.RoamingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('sim_locked', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('lock_type', 48, 0, ash.diagnostics.mojom.LockTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Struct: EthernetStateProperties
 mojo.internal.Struct(
     ash.diagnostics.mojom.EthernetStatePropertiesSpec, 'ash.diagnostics.mojom.EthernetStateProperties', [
-      mojo.internal.StructField('authentication', 0, 0, ash.diagnostics.mojom.AuthenticationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('authentication', 0, 0, ash.diagnostics.mojom.AuthenticationTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -138,20 +138,20 @@ mojo.internal.Struct(
       mojo.internal.StructField('frequency', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('ssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('bssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('security', 24, 0, ash.diagnostics.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('security', 24, 0, ash.diagnostics.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: Network
 mojo.internal.Struct(
     ash.diagnostics.mojom.NetworkSpec, 'ash.diagnostics.mojom.Network', [
-      mojo.internal.StructField('state', 0, 0, ash.diagnostics.mojom.NetworkStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 4, 0, ash.diagnostics.mojom.NetworkTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type_properties', 8, 0, ash.diagnostics.mojom.NetworkTypePropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.diagnostics.mojom.NetworkStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ash.diagnostics.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type_properties', 16, 0, ash.diagnostics.mojom.NetworkTypePropertiesSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('observer_guid', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('mac_address', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('ip_config', 48, 0, ash.diagnostics.mojom.IPConfigPropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ip_config', 48, 0, ash.diagnostics.mojom.IPConfigPropertiesSpec.$, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -209,9 +209,8 @@ ash.diagnostics.mojom.NetworkListObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.NetworkListObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.NetworkListObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.NetworkListObserver',
     'context');
   return remote.$;
@@ -224,7 +223,7 @@ ash.diagnostics.mojom.NetworkListObserverRequest = ash.diagnostics.mojom.Network
 // Interface: NetworkStateObserver
 mojo.internal.Struct(
     ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec, 'ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_Params', [
-      mojo.internal.StructField('network', 0, 0, ash.diagnostics.mojom.NetworkSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network', 0, 0, ash.diagnostics.mojom.NetworkSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -274,9 +273,8 @@ ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.NetworkStateObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.NetworkStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.NetworkStateObserver',
     'context');
   return remote.$;
@@ -356,9 +354,8 @@ ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
 
 ash.diagnostics.mojom.NetworkHealthProvider.getRemote = function() {
   let remote = new ash.diagnostics.mojom.NetworkHealthProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.NetworkHealthProvider',
     'context');
   return remote.$;

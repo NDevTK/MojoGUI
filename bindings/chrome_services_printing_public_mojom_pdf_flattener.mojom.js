@@ -18,7 +18,7 @@ printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
 // Struct: FlattenPdfResult
 mojo.internal.Struct(
     printing.mojom.FlattenPdfResultSpec, 'printing.mojom.FlattenPdfResult', [
-      mojo.internal.StructField('flattened_pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('flattened_pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('page_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -26,13 +26,13 @@ mojo.internal.Struct(
 // Interface: PdfFlattener
 mojo.internal.Struct(
     printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec, 'printing.mojom.PdfFlattener_FlattenPdf_Params', [
-      mojo.internal.StructField('src_pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('src_pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec, 'printing.mojom.PdfFlattener_FlattenPdf_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, printing.mojom.FlattenPdfResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, printing.mojom.FlattenPdfResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -98,9 +98,8 @@ printing.mojom.PdfFlattenerRemoteCallHandler = class {
 
 printing.mojom.PdfFlattener.getRemote = function() {
   let remote = new printing.mojom.PdfFlattenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'printing.mojom.PdfFlattener',
     'context');
   return remote.$;

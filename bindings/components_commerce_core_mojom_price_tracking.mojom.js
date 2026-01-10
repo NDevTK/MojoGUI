@@ -60,7 +60,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec, 'commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParams', [
-      mojo.internal.StructField('productInfos', 0, 0, mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('productInfos', 0, 0, mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -71,7 +71,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec, 'commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParams', [
-      mojo.internal.StructField('productInfos', 0, 0, mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('productInfos', 0, 0, mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -93,7 +93,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec, 'commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParams', [
-      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -218,9 +218,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRemoteCallHandler = class {
 
 commerce.price_tracking.mojom.PriceTrackingHandler.getRemote = function() {
   let remote = new commerce.price_tracking.mojom.PriceTrackingHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'commerce.price_tracking.mojom.PriceTrackingHandler',
     'context');
   return remote.$;
@@ -233,26 +232,26 @@ commerce.price_tracking.mojom.PriceTrackingHandlerRequest = commerce.price_track
 // Interface: Page
 mojo.internal.Struct(
     commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec, 'commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_Params', [
-      mojo.internal.StructField('bookmark_product', 0, 0, commerce.shared.mojom.BookmarkProductInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bookmark_product', 0, 0, commerce.shared.mojom.BookmarkProductInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec, 'commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_Params', [
-      mojo.internal.StructField('bookmark_product', 0, 0, commerce.shared.mojom.BookmarkProductInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bookmark_product', 0, 0, commerce.shared.mojom.BookmarkProductInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec, 'commerce.price_tracking.mojom.Page_OperationFailedForBookmark_Params', [
-      mojo.internal.StructField('bookmark_product', 0, 0, commerce.shared.mojom.BookmarkProductInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bookmark_product', 0, 0, commerce.shared.mojom.BookmarkProductInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('attempted_track', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec, 'commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_Params', [
-      mojo.internal.StructField('bookmark_product', 0, 0, commerce.shared.mojom.BookmarkProductInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bookmark_product', 0, 0, commerce.shared.mojom.BookmarkProductInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -332,9 +331,8 @@ commerce.price_tracking.mojom.PageRemoteCallHandler = class {
 
 commerce.price_tracking.mojom.Page.getRemote = function() {
   let remote = new commerce.price_tracking.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'commerce.price_tracking.mojom.Page',
     'context');
   return remote.$;
@@ -398,9 +396,8 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemoteCallHandler = cla
 
 commerce.price_tracking.mojom.PriceTrackingHandlerFactory.getRemote = function() {
   let remote = new commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'commerce.price_tracking.mojom.PriceTrackingHandlerFactory',
     'context');
   return remote.$;

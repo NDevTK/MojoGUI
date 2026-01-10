@@ -42,10 +42,10 @@ arc.mojom.TimedCloudDpcOp = {
 mojo.internal.Struct(
     arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec, 'arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_Params', [
       mojo.internal.StructField('time_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('op', 8, 0, arc.mojom.TimedCloudDpcOpSpec, null, false, 0, undefined),
-      mojo.internal.StructField('success', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('op', 8, 0, arc.mojom.TimedCloudDpcOpSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 arc.mojom.EnterpriseReportingHostPendingReceiver = class {
   constructor(handle) {
@@ -93,9 +93,8 @@ arc.mojom.EnterpriseReportingHostRemoteCallHandler = class {
 
 arc.mojom.EnterpriseReportingHost.getRemote = function() {
   let remote = new arc.mojom.EnterpriseReportingHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.EnterpriseReportingHost',
     'context');
   return remote.$;
@@ -185,9 +184,8 @@ arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
 
 arc.mojom.EnterpriseReportingInstance.getRemote = function() {
   let remote = new arc.mojom.EnterpriseReportingInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.EnterpriseReportingInstance',
     'context');
   return remote.$;

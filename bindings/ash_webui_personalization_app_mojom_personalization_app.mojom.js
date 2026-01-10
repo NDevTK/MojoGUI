@@ -307,22 +307,22 @@ mojo.internal.Union(
     ash.personalization_app.mojom.UserImageSpec, 'ash.personalization_app.mojom.UserImage', {
       'default_image': {
         'ordinal': 0,
-        'type': ash.personalization_app.mojom.DefaultUserImageSpec,
+        'type': ash.personalization_app.mojom.DefaultUserImageSpec.$,
         'nullable': false,
       },
       'external_image': {
         'ordinal': 1,
-        'type': mojo_base.mojom.BigBufferSpec,
+        'type': mojo_base.mojom.BigBufferSpec.$,
         'nullable': false,
       },
       'profile_image': {
         'ordinal': 2,
-        'type': ash.personalization_app.mojom.ProfileImageSpec,
+        'type': ash.personalization_app.mojom.ProfileImageSpec.$,
         'nullable': false,
       },
       'invalid_image': {
         'ordinal': 3,
-        'type': ash.personalization_app.mojom.InvalidImageSpec,
+        'type': ash.personalization_app.mojom.InvalidImageSpec.$,
         'nullable': false,
       },
     });
@@ -332,12 +332,12 @@ mojo.internal.Union(
     ash.personalization_app.mojom.CurrentBacklightStateSpec, 'ash.personalization_app.mojom.CurrentBacklightState', {
       'color': {
         'ordinal': 0,
-        'type': ash.personalization_app.mojom.BacklightColorSpec,
+        'type': ash.personalization_app.mojom.BacklightColorSpec.$,
         'nullable': false,
       },
       'zone_colors': {
         'ordinal': 1,
-        'type': mojo.internal.Array(ash.personalization_app.mojom.BacklightColorSpec, false),
+        'type': mojo.internal.Array(ash.personalization_app.mojom.BacklightColorSpec.$, false),
         'nullable': false,
       },
     });
@@ -348,7 +348,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('description_content', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('previews', 24, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('previews', 24, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -358,8 +358,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('photo_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('preview', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preview', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_shared', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -367,7 +367,7 @@ mojo.internal.Struct(
 // Struct: FetchGooglePhotosAlbumsResponse
 mojo.internal.Struct(
     ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec, 'ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponse', [
-      mojo.internal.StructField('albums', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.GooglePhotosAlbumSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('albums', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.GooglePhotosAlbumSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('resume_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -375,11 +375,11 @@ mojo.internal.Struct(
 // Struct: WallpaperImage
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperImageSpec, 'ash.personalization_app.mojom.WallpaperImage', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('attribution', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('asset_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('unit_id', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 32, 0, ash.personalization_app.mojom.OnlineImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 32, 0, ash.personalization_app.mojom.OnlineImageTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -389,8 +389,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('dedup_key', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('date', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('date', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('location', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 56]]);
@@ -398,7 +398,7 @@ mojo.internal.Struct(
 // Struct: FetchGooglePhotosPhotosResponse
 mojo.internal.Struct(
     ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec, 'ash.personalization_app.mojom.FetchGooglePhotosPhotosResponse', [
-      mojo.internal.StructField('photos', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.GooglePhotosPhotoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('photos', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.GooglePhotosPhotoSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('resume_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -414,22 +414,22 @@ mojo.internal.Struct(
 // Struct: CurrentWallpaper
 mojo.internal.Struct(
     ash.personalization_app.mojom.CurrentWallpaperSpec, 'ash.personalization_app.mojom.CurrentWallpaper', [
-      mojo.internal.StructField('layout', 0, 0, ash.personalization_app.mojom.WallpaperLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 4, 0, ash.personalization_app.mojom.WallpaperTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('description_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('description_content', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('action_url', 32, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('layout', 0, 0, ash.personalization_app.mojom.WallpaperLayoutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ash.personalization_app.mojom.WallpaperTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description_title', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description_content', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('action_url', 40, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: SampleColorScheme
 mojo.internal.Struct(
     ash.personalization_app.mojom.SampleColorSchemeSpec, 'ash.personalization_app.mojom.SampleColorScheme', [
-      mojo.internal.StructField('scheme', 0, 0, ash.style.mojom.ColorSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('primary', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('secondary', 16, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tertiary', 24, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scheme', 0, 0, ash.style.mojom.ColorSchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('primary', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('secondary', 16, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tertiary', 24, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -444,8 +444,8 @@ mojo.internal.Struct(
 // Struct: DeprecatedSourceInfo
 mojo.internal.Struct(
     ash.personalization_app.mojom.DeprecatedSourceInfoSpec, 'ash.personalization_app.mojom.DeprecatedSourceInfo', [
-      mojo.internal.StructField('author', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('website', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('author', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('website', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -453,9 +453,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.personalization_app.mojom.DefaultUserImageSpec, 'ash.personalization_app.mojom.DefaultUserImage', [
       mojo.internal.StructField('index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source_info', 24, 0, ash.personalization_app.mojom.DeprecatedSourceInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source_info', 24, 0, ash.personalization_app.mojom.DeprecatedSourceInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -479,10 +479,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('description', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('number_of_photos', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('topic_source', 36, 0, ash.personalization_app.mojom.TopicSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 40, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('topic_source', 40, 0, ash.personalization_app.mojom.TopicSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 48, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Interface: WallpaperObserver
 mojo.internal.Struct(
@@ -492,13 +492,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec, 'ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_Params', [
-      mojo.internal.StructField('attribution', 0, 0, ash.personalization_app.mojom.CurrentAttributionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('attribution', 0, 0, ash.personalization_app.mojom.CurrentAttributionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec, 'ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_Params', [
-      mojo.internal.StructField('image', 0, 0, ash.personalization_app.mojom.CurrentWallpaperSpec, null, true, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, ash.personalization_app.mojom.CurrentWallpaperSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -568,9 +568,8 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.WallpaperObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.WallpaperObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.WallpaperObserver',
     'context');
   return remote.$;
@@ -598,7 +597,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParams', [
-      mojo.internal.StructField('collections', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.WallpaperCollectionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('collections', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.WallpaperCollectionSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -610,7 +609,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParams', [
-      mojo.internal.StructField('images', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.WallpaperImageSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('images', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.WallpaperImageSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -622,7 +621,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -634,7 +633,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -645,7 +644,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParams', [
-      mojo.internal.StructField('state', 0, 0, ash.personalization_app.mojom.GooglePhotosEnablementStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.personalization_app.mojom.GooglePhotosEnablementStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -659,7 +658,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -670,7 +669,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParams', [
-      mojo.internal.StructField('images', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('images', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -681,19 +680,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_Params', [
-      mojo.internal.StructField('file_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -729,11 +728,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('layout', 8, 0, ash.personalization_app.mojom.WallpaperLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('preview_mode', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('layout', 8, 0, ash.personalization_app.mojom.WallpaperLayoutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('preview_mode', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParams', [
@@ -744,10 +743,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_Params', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('layout', 8, 0, ash.personalization_app.mojom.WallpaperLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('preview_mode', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('layout', 8, 0, ash.personalization_app.mojom.WallpaperLayoutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('preview_mode', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParams', [
@@ -780,7 +779,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_Params', [
-      mojo.internal.StructField('layout', 0, 0, ash.personalization_app.mojom.WallpaperLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('layout', 0, 0, ash.personalization_app.mojom.WallpaperLayoutSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1146,9 +1145,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.WallpaperProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.WallpaperProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.WallpaperProvider',
     'context');
   return remote.$;
@@ -1173,19 +1171,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec, 'ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_Params', [
-      mojo.internal.StructField('color_scheme', 0, 0, ash.style.mojom.ColorSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_scheme', 0, 0, ash.style.mojom.ColorSchemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec, 'ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_Params', [
-      mojo.internal.StructField('sample_color_schemes', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SampleColorSchemeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sample_color_schemes', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SampleColorSchemeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec, 'ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_Params', [
-      mojo.internal.StructField('color', 0, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('color', 0, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1198,8 +1196,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec, 'ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_Params', [
-      mojo.internal.StructField('sunrise_time', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('sunset_time', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('sunrise_time', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sunset_time', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1309,9 +1307,8 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.ThemeObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.ThemeObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.ThemeObserver',
     'context');
   return remote.$;
@@ -1342,13 +1339,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec, 'ash.personalization_app.mojom.ThemeProvider_SetColorScheme_Params', [
-      mojo.internal.StructField('colorScheme', 0, 0, ash.style.mojom.ColorSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('colorScheme', 0, 0, ash.style.mojom.ColorSchemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec, 'ash.personalization_app.mojom.ThemeProvider_SetStaticColor_Params', [
-      mojo.internal.StructField('static_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('static_color', 0, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1364,7 +1361,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec, 'ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParams', [
-      mojo.internal.StructField('color_scheme', 0, 0, ash.style.mojom.ColorSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_scheme', 0, 0, ash.style.mojom.ColorSchemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1375,7 +1372,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec, 'ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParams', [
-      mojo.internal.StructField('static_color', 0, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('static_color', 0, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1386,7 +1383,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec, 'ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParams', [
-      mojo.internal.StructField('sample_color_schemes', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SampleColorSchemeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sample_color_schemes', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SampleColorSchemeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1600,9 +1597,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.ThemeProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.ThemeProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.ThemeProvider',
     'context');
   return remote.$;
@@ -1615,13 +1611,13 @@ ash.personalization_app.mojom.ThemeProviderRequest = ash.personalization_app.moj
 // Interface: UserImageObserver
 mojo.internal.Struct(
     ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec, 'ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_Params', [
-      mojo.internal.StructField('user_image', 0, 0, ash.personalization_app.mojom.UserImageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_image', 0, 0, ash.personalization_app.mojom.UserImageSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec, 'ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_Params', [
-      mojo.internal.StructField('profile_image', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile_image', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1713,9 +1709,8 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.UserImageObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.UserImageObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.UserImageObserver',
     'context');
   return remote.$;
@@ -1739,7 +1734,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec, 'ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParams', [
-      mojo.internal.StructField('user_info', 0, 0, ash.personalization_app.mojom.UserInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_info', 0, 0, ash.personalization_app.mojom.UserInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1750,7 +1745,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec, 'ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParams', [
-      mojo.internal.StructField('default_user_images', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.DefaultUserImageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('default_user_images', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.DefaultUserImageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1767,9 +1762,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec, 'ash.personalization_app.mojom.UserProvider_SelectCameraImage_Params', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec, 'ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_Params', [
@@ -1897,9 +1892,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.UserProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.UserProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.UserProvider',
     'context');
   return remote.$;
@@ -1918,13 +1912,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec, 'ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_Params', [
-      mojo.internal.StructField('ambient_theme', 0, 0, ash.personalization_app.mojom.AmbientThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ambient_theme', 0, 0, ash.personalization_app.mojom.AmbientThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec, 'ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_Params', [
-      mojo.internal.StructField('topic_source', 0, 0, ash.personalization_app.mojom.TopicSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('topic_source', 0, 0, ash.personalization_app.mojom.TopicSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1936,25 +1930,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec, 'ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_Params', [
-      mojo.internal.StructField('temperature_unit', 0, 0, ash.personalization_app.mojom.TemperatureUnitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('temperature_unit', 0, 0, ash.personalization_app.mojom.TemperatureUnitSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec, 'ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_Params', [
-      mojo.internal.StructField('albums', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.AmbientModeAlbumSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('albums', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.AmbientModeAlbumSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec, 'ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_Params', [
-      mojo.internal.StructField('previews', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('previews', 0, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec, 'ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_Params', [
-      mojo.internal.StructField('visibility', 0, 0, ash.personalization_app.mojom.AmbientUiVisibilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('visibility', 0, 0, ash.personalization_app.mojom.AmbientUiVisibilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1967,7 +1961,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec, 'ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_Params', [
-      mojo.internal.StructField('previews', 0, 0, mojo.internal.Map(ash.personalization_app.mojom.AmbientThemeSpec, url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('previews', 0, 0, mojo.internal.Map(ash.personalization_app.mojom.AmbientThemeSpec.$, url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2107,9 +2101,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.AmbientObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.AmbientObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.AmbientObserver',
     'context');
   return remote.$;
@@ -2145,7 +2138,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec, 'ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_Params', [
-      mojo.internal.StructField('ambient_theme', 0, 0, ash.personalization_app.mojom.AmbientThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ambient_theme', 0, 0, ash.personalization_app.mojom.AmbientThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2157,23 +2150,23 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec, 'ash.personalization_app.mojom.AmbientProvider_SetTopicSource_Params', [
-      mojo.internal.StructField('topic_source', 0, 0, ash.personalization_app.mojom.TopicSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('topic_source', 0, 0, ash.personalization_app.mojom.TopicSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec, 'ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_Params', [
-      mojo.internal.StructField('temperature_unit', 0, 0, ash.personalization_app.mojom.TemperatureUnitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('temperature_unit', 0, 0, ash.personalization_app.mojom.TemperatureUnitSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec, 'ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_Params', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('topic_source', 8, 0, ash.personalization_app.mojom.TopicSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('selected', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('topic_source', 8, 0, ash.personalization_app.mojom.TopicSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('selected', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec, 'ash.personalization_app.mojom.AmbientProvider_SetPageViewed_Params', [
@@ -2429,9 +2422,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.AmbientProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.AmbientProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.AmbientProvider',
     'context');
   return remote.$;
@@ -2444,13 +2436,13 @@ ash.personalization_app.mojom.AmbientProviderRequest = ash.personalization_app.m
 // Interface: KeyboardBacklightObserver
 mojo.internal.Struct(
     ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_Params', [
-      mojo.internal.StructField('currentBacklightState', 0, 0, ash.personalization_app.mojom.CurrentBacklightStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('currentBacklightState', 0, 0, ash.personalization_app.mojom.CurrentBacklightStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_Params', [
-      mojo.internal.StructField('wallpaper_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wallpaper_color', 0, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2510,9 +2502,8 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
 
 ash.personalization_app.mojom.KeyboardBacklightObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.KeyboardBacklightObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.KeyboardBacklightObserver',
     'context');
   return remote.$;
@@ -2531,16 +2522,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_Params', [
-      mojo.internal.StructField('backlight_color', 0, 0, ash.personalization_app.mojom.BacklightColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('backlight_color', 0, 0, ash.personalization_app.mojom.BacklightColorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_Params', [
       mojo.internal.StructField('zone', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('backlight_color', 4, 0, ash.personalization_app.mojom.BacklightColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('backlight_color', 8, 0, ash.personalization_app.mojom.BacklightColorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_Params', [
@@ -2644,9 +2635,8 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
 
 ash.personalization_app.mojom.KeyboardBacklightProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.KeyboardBacklightProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.KeyboardBacklightProvider',
     'context');
   return remote.$;

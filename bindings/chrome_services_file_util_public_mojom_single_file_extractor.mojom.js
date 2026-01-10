@@ -20,15 +20,15 @@ chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec = { $: {} };
 // Interface: SingleFileExtractor
 mojo.internal.Struct(
     chrome.mojom.SingleFileExtractor_Extract_ParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_Params', [
-      mojo.internal.StructField('src_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dst_file', 8, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('src_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dst_file', 8, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.SingleFileExtractorListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chrome.file_util.mojom.ExtractionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chrome.file_util.mojom.ExtractionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -78,9 +78,8 @@ chrome.mojom.SingleFileExtractorRemoteCallHandler = class {
 
 chrome.mojom.SingleFileExtractor.getRemote = function() {
   let remote = new chrome.mojom.SingleFileExtractorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.SingleFileExtractor',
     'context');
   return remote.$;
@@ -144,9 +143,8 @@ chrome.mojom.SingleFileExtractorListenerRemoteCallHandler = class {
 
 chrome.mojom.SingleFileExtractorListener.getRemote = function() {
   let remote = new chrome.mojom.SingleFileExtractorListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.SingleFileExtractorListener',
     'context');
   return remote.$;

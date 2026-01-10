@@ -74,9 +74,8 @@ blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
 
 blink.mojom.PaidContentMetadataObserver.getRemote = function() {
   let remote = new blink.mojom.PaidContentMetadataObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PaidContentMetadataObserver',
     'context');
   return remote.$;
@@ -89,7 +88,7 @@ blink.mojom.PaidContentMetadataObserverRequest = blink.mojom.PaidContentMetadata
 // Interface: MetaTagsObserver
 mojo.internal.Struct(
     blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec, 'blink.mojom.MetaTagsObserver_OnMetaTagsChanged_Params', [
-      mojo.internal.StructField('meta_tags', 0, 0, mojo.internal.Array(blink.mojom.MetaTagSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('meta_tags', 0, 0, mojo.internal.Array(blink.mojom.MetaTagSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -139,9 +138,8 @@ blink.mojom.MetaTagsObserverRemoteCallHandler = class {
 
 blink.mojom.MetaTagsObserver.getRemote = function() {
   let remote = new blink.mojom.MetaTagsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.MetaTagsObserver',
     'context');
   return remote.$;
@@ -221,9 +219,8 @@ blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
 
 blink.mojom.FrameMetadataObserverRegistry.getRemote = function() {
   let remote = new blink.mojom.FrameMetadataObserverRegistryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FrameMetadataObserverRegistry',
     'context');
   return remote.$;

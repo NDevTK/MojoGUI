@@ -26,7 +26,7 @@ blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = { $: {} 
 // Struct: LcpElement
 mojo.internal.Struct(
     blink.mojom.LcpElementSpec, 'blink.mojom.LcpElement', [
-      mojo.internal.StructField('locator', 0, 0, mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('locator', 0, 0, mojo_base.mojom.ByteStringSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('is_image', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('predicted_index_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'predicted_index_$value', originalFieldName: 'predicted_index' }),
       mojo.internal.StructField('predicted_index_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'predicted_index_$flag', originalFieldName: 'predicted_index' }),
@@ -36,12 +36,12 @@ mojo.internal.Struct(
 // Struct: LCPCriticalPathPredictorNavigationTimeHint
 mojo.internal.Struct(
     blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec, 'blink.mojom.LCPCriticalPathPredictorNavigationTimeHint', [
-      mojo.internal.StructField('lcp_element_locators', 0, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('lcp_element_locators_all', 8, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('lcp_influencer_scripts', 16, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('fetched_fonts', 24, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('preconnect_origins', 32, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('unused_preloads', 40, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('lcp_element_locators', 0, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('lcp_element_locators_all', 8, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('lcp_influencer_scripts', 16, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('fetched_fonts', 24, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('preconnect_origins', 32, 0, mojo.internal.Array(url.mojom.OriginSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('unused_preloads', 40, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('for_testing', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -49,46 +49,46 @@ mojo.internal.Struct(
 // Interface: LCPCriticalPathPredictorHost
 mojo.internal.Struct(
     blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec, 'blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_Params', [
-      mojo.internal.StructField('lcp_element', 0, 0, blink.mojom.LcpElementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lcp_element', 0, 0, blink.mojom.LcpElementSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec, 'blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_Params', [
-      mojo.internal.StructField('element_locator', 0, 0, mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('element_locator', 0, 0, mojo_base.mojom.ByteStringSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec, 'blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_Params', [
-      mojo.internal.StructField('lcp_influencer_scripts', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('lcp_influencer_scripts', 0, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec, 'blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_Params', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec, 'blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_Params', [
-      mojo.internal.StructField('font_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('font_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('hit', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec, 'blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_Params', [
-      mojo.internal.StructField('subresource_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('subresource_load_start', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request_destination', 16, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subresource_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('subresource_load_start', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('request_destination', 16, 0, network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec, 'blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_Params', [
-      mojo.internal.StructField('unused_preloads', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('unused_preloads', 0, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -198,9 +198,8 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
 
 blink.mojom.LCPCriticalPathPredictorHost.getRemote = function() {
   let remote = new blink.mojom.LCPCriticalPathPredictorHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.LCPCriticalPathPredictorHost',
     'context');
   return remote.$;

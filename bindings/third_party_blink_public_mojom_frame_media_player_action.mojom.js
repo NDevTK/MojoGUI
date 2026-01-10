@@ -24,7 +24,7 @@ blink.mojom.MediaPlayerActionType = {
 // Struct: MediaPlayerAction
 mojo.internal.Struct(
     blink.mojom.MediaPlayerActionSpec, 'blink.mojom.MediaPlayerAction', [
-      mojo.internal.StructField('type', 0, 0, blink.mojom.MediaPlayerActionTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('enable', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, blink.mojom.MediaPlayerActionTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('enable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

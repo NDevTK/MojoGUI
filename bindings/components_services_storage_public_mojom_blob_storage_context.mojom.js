@@ -46,7 +46,7 @@ storage.mojom.WriteBlobToFileResult = {
 // Struct: BlobDataItem
 mojo.internal.Struct(
     storage.mojom.BlobDataItemSpec, 'storage.mojom.BlobDataItem', [
-      mojo.internal.StructField('type', 0, 0, storage.mojom.BlobDataItemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, storage.mojom.BlobDataItemTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('side_data_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('content_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -77,9 +77,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec, 'storage.mojom.BlobDataItemReader_ReadSideData_ResponseParams', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 storage.mojom.BlobDataItemReaderPendingReceiver = class {
   constructor(handle) {
@@ -137,9 +137,8 @@ storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
 
 storage.mojom.BlobDataItemReader.getRemote = function() {
   let remote = new storage.mojom.BlobDataItemReaderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.BlobDataItemReader',
     'context');
   return remote.$;
@@ -154,7 +153,7 @@ mojo.internal.Struct(
     storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec, 'storage.mojom.BlobStorageContext_RegisterFromDataItem_Params', [
       mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('item', 16, 0, storage.mojom.BlobDataItemSpec, null, false, 0, undefined),
+      mojo.internal.StructField('item', 16, 0, storage.mojom.BlobDataItemSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -162,22 +161,22 @@ mojo.internal.Struct(
     storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec, 'storage.mojom.BlobStorageContext_RegisterFromMemory_Params', [
       mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 16, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec, 'storage.mojom.BlobStorageContext_WriteBlobToFile_Params', [
       mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobRemote), null, false, 0, undefined),
-      mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('flush_on_write', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('last_modified', 24, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('last_modified', 24, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec, 'storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, storage.mojom.WriteBlobToFileResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, storage.mojom.WriteBlobToFileResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -263,9 +262,8 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
 
 storage.mojom.BlobStorageContext.getRemote = function() {
   let remote = new storage.mojom.BlobStorageContextRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.BlobStorageContext',
     'context');
   return remote.$;

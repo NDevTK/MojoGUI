@@ -166,9 +166,8 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
 
 blink.mojom.StorageAreaObserver.getRemote = function() {
   let remote = new blink.mojom.StorageAreaObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.StorageAreaObserver',
     'context');
   return remote.$;
@@ -248,7 +247,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.StorageArea_GetAll_ResponseParamsSpec, 'blink.mojom.StorageArea_GetAll_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(blink.mojom.KeyValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(blink.mojom.KeyValueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -348,9 +347,8 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
 
 blink.mojom.StorageArea.getRemote = function() {
   let remote = new blink.mojom.StorageAreaRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.StorageArea',
     'context');
   return remote.$;

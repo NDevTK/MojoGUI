@@ -26,7 +26,7 @@ mojo.internal.Struct(
 // Struct: HdrMetadataSmpteSt2086
 mojo.internal.Struct(
     gfx.mojom.HdrMetadataSmpteSt2086Spec, 'gfx.mojom.HdrMetadataSmpteSt2086', [
-      mojo.internal.StructField('primaries', 0, 0, skia.mojom.SkColorSpacePrimariesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('primaries', 0, 0, skia.mojom.SkColorSpacePrimariesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('luminance_max', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('luminance_min', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
@@ -50,10 +50,10 @@ mojo.internal.Struct(
 // Struct: HDRMetadata
 mojo.internal.Struct(
     gfx.mojom.HDRMetadataSpec, 'gfx.mojom.HDRMetadata', [
-      mojo.internal.StructField('smpte_st_2086', 0, 0, gfx.mojom.HdrMetadataSmpteSt2086Spec, null, true, 0, undefined),
-      mojo.internal.StructField('cta_861_3', 8, 0, gfx.mojom.HdrMetadataCta861_3Spec, null, true, 0, undefined),
-      mojo.internal.StructField('ndwl', 16, 0, gfx.mojom.HdrMetadataNdwlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('extended_range', 24, 0, gfx.mojom.HdrMetadataExtendedRangeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('smpte_st_2086', 0, 0, gfx.mojom.HdrMetadataSmpteSt2086Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('cta_861_3', 8, 0, gfx.mojom.HdrMetadataCta861_3Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ndwl', 16, 0, gfx.mojom.HdrMetadataNdwlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('extended_range', 24, 0, gfx.mojom.HdrMetadataExtendedRangeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('agtm_serialized', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 48]]);

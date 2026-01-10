@@ -20,15 +20,15 @@ tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = { $: {}
 // Interface: TabStripExperimentService
 mojo.internal.Struct(
     tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_Params', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('visual_data', 8, 0, tabs_api.mojom.TabGroupVisualDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('visual_data', 8, 0, tabs_api.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('location', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('location', 8, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -88,9 +88,8 @@ tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler = class {
 
 tabs_api.mojom.TabStripExperimentService.getRemote = function() {
   let remote = new tabs_api.mojom.TabStripExperimentServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tabs_api.mojom.TabStripExperimentService',
     'context');
   return remote.$;

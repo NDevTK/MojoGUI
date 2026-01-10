@@ -17,7 +17,7 @@ ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec =
 // Interface: AshEventReporter
 mojo.internal.Struct(
     ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec, 'ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_Params', [
-      mojo.internal.StructField('info', 0, 0, ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -67,9 +67,8 @@ ash.cros_healthd.mojom.AshEventReporterRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.AshEventReporter.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.AshEventReporterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cros_healthd.mojom.AshEventReporter',
     'context');
   return remote.$;

@@ -30,12 +30,12 @@ mojo.internal.Union(
     paint_preview.mojom.SerializedRecordingSpec, 'paint_preview.mojom.SerializedRecording', {
       'file': {
         'ordinal': 0,
-        'type': mojo_base.mojom.FileSpec,
+        'type': mojo_base.mojom.FileSpec.$,
         'nullable': false,
       },
       'buffer': {
         'ordinal': 1,
-        'type': mojo_base.mojom.BigBufferSpec,
+        'type': mojo_base.mojom.BigBufferSpec.$,
         'nullable': false,
       },
     });

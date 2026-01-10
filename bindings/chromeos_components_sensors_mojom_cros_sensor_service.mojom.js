@@ -71,9 +71,8 @@ chromeos.sensors.mojom.SensorHalServerRemoteCallHandler = class {
 
 chromeos.sensors.mojom.SensorHalServer.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorHalServerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.sensors.mojom.SensorHalServer',
     'context');
   return remote.$;
@@ -136,9 +135,8 @@ chromeos.sensors.mojom.SensorHalClientRemoteCallHandler = class {
 
 chromeos.sensors.mojom.SensorHalClient.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorHalClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.sensors.mojom.SensorHalClient',
     'context');
   return remote.$;

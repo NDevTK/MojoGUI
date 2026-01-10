@@ -33,8 +33,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('usage', 24, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('use_count', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('last_accessed', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_modified', 48, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_accessed', 40, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_modified', 48, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -65,7 +65,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec, 'storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_Params', [
-      mojo.internal.StructField('origin_url', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin_url', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -76,7 +76,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec, 'storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParams', [
-      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(storage.mojom.BucketTableEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(storage.mojom.BucketTableEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -199,9 +199,8 @@ storage.mojom.QuotaInternalsHandlerRemoteCallHandler = class {
 
 storage.mojom.QuotaInternalsHandler.getRemote = function() {
   let remote = new storage.mojom.QuotaInternalsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.QuotaInternalsHandler',
     'context');
   return remote.$;

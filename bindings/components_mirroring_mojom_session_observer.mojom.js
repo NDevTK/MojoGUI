@@ -40,7 +40,7 @@ mirroring.mojom.SessionError = {
 // Interface: SessionObserver
 mojo.internal.Struct(
     mirroring.mojom.SessionObserver_OnError_ParamsSpec, 'mirroring.mojom.SessionObserver_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, mirroring.mojom.SessionErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, mirroring.mojom.SessionErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -183,9 +183,8 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
 
 mirroring.mojom.SessionObserver.getRemote = function() {
   let remote = new mirroring.mojom.SessionObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mirroring.mojom.SessionObserver',
     'context');
   return remote.$;

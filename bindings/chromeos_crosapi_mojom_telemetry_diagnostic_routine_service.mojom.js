@@ -180,37 +180,37 @@ mojo.internal.Union(
       },
       'memory': {
         'ordinal': 1,
-        'type': crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgumentSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgumentSpec.$,
         'nullable': false,
       },
       'volume_button': {
         'ordinal': 2,
-        'type': crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgumentSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgumentSpec.$,
         'nullable': false,
       },
       'fan': {
         'ordinal': 3,
-        'type': crosapi.mojom.TelemetryDiagnosticFanRoutineArgumentSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticFanRoutineArgumentSpec.$,
         'nullable': false,
       },
       'led_lit_up': {
         'ordinal': 4,
-        'type': crosapi.mojom.TelemetryDiagnosticLedLitUpRoutineArgumentSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticLedLitUpRoutineArgumentSpec.$,
         'nullable': false,
       },
       'network_bandwidth': {
         'ordinal': 5,
-        'type': crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgumentSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineArgumentSpec.$,
         'nullable': false,
       },
       'camera_frame_analysis': {
         'ordinal': 6,
-        'type': crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgumentSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineArgumentSpec.$,
         'nullable': false,
       },
       'keyboard_backlight': {
         'ordinal': 7,
-        'type': crosapi.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgumentSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticKeyboardBacklightRoutineArgumentSpec.$,
         'nullable': false,
       },
     });
@@ -225,7 +225,7 @@ mojo.internal.Union(
       },
       'network_bandwidth': {
         'ordinal': 1,
-        'type': crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfoSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfoSpec.$,
         'nullable': false,
       },
     });
@@ -240,12 +240,12 @@ mojo.internal.Union(
       },
       'check_led_lit_up_state': {
         'ordinal': 1,
-        'type': crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateReplySpec,
+        'type': crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateReplySpec.$,
         'nullable': false,
       },
       'check_keyboard_backlight_state': {
         'ordinal': 2,
-        'type': crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReplySpec,
+        'type': crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateReplySpec.$,
         'nullable': false,
       },
     });
@@ -260,12 +260,12 @@ mojo.internal.Union(
       },
       'check_led_lit_up_state': {
         'ordinal': 1,
-        'type': crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateInquirySpec,
+        'type': crosapi.mojom.TelemetryDiagnosticCheckLedLitUpStateInquirySpec.$,
         'nullable': false,
       },
       'check_keyboard_backlight_state': {
         'ordinal': 2,
-        'type': crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquirySpec,
+        'type': crosapi.mojom.TelemetryDiagnosticCheckKeyboardBacklightStateInquirySpec.$,
         'nullable': false,
       },
     });
@@ -280,7 +280,7 @@ mojo.internal.Union(
       },
       'inquiry': {
         'ordinal': 1,
-        'type': crosapi.mojom.TelemetryDiagnosticRoutineInquirySpec,
+        'type': crosapi.mojom.TelemetryDiagnosticRoutineInquirySpec.$,
         'nullable': false,
       },
     });
@@ -295,27 +295,27 @@ mojo.internal.Union(
       },
       'memory': {
         'ordinal': 1,
-        'type': crosapi.mojom.TelemetryDiagnosticMemoryRoutineDetailSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticMemoryRoutineDetailSpec.$,
         'nullable': false,
       },
       'volume_button': {
         'ordinal': 2,
-        'type': crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineDetailSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineDetailSpec.$,
         'nullable': false,
       },
       'fan': {
         'ordinal': 3,
-        'type': crosapi.mojom.TelemetryDiagnosticFanRoutineDetailSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticFanRoutineDetailSpec.$,
         'nullable': false,
       },
       'network_bandwidth': {
         'ordinal': 4,
-        'type': crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineDetailSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineDetailSpec.$,
         'nullable': false,
       },
       'camera_frame_analysis': {
         'ordinal': 5,
-        'type': crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetailSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticCameraFrameAnalysisRoutineDetailSpec.$,
         'nullable': false,
       },
     });
@@ -330,22 +330,22 @@ mojo.internal.Union(
       },
       'initialized': {
         'ordinal': 1,
-        'type': crosapi.mojom.TelemetryDiagnosticRoutineStateInitializedSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticRoutineStateInitializedSpec.$,
         'nullable': false,
       },
       'running': {
         'ordinal': 2,
-        'type': crosapi.mojom.TelemetryDiagnosticRoutineStateRunningSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticRoutineStateRunningSpec.$,
         'nullable': false,
       },
       'waiting': {
         'ordinal': 3,
-        'type': crosapi.mojom.TelemetryDiagnosticRoutineStateWaitingSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticRoutineStateWaitingSpec.$,
         'nullable': false,
       },
       'finished': {
         'ordinal': 4,
-        'type': crosapi.mojom.TelemetryDiagnosticRoutineStateFinishedSpec,
+        'type': crosapi.mojom.TelemetryDiagnosticRoutineStateFinishedSpec.$,
         'nullable': false,
       },
     });
@@ -374,10 +374,10 @@ mojo.internal.Struct(
 // Struct: TelemetryDiagnosticLedLitUpRoutineArgument
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticLedLitUpRoutineArgumentSpec, 'crosapi.mojom.TelemetryDiagnosticLedLitUpRoutineArgument', [
-      mojo.internal.StructField('name', 0, 0, crosapi.mojom.TelemetryDiagnosticLedNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('color', 4, 0, crosapi.mojom.TelemetryDiagnosticLedColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, crosapi.mojom.TelemetryDiagnosticLedNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('color', 8, 0, crosapi.mojom.TelemetryDiagnosticLedColorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: TelemetryDiagnosticNetworkBandwidthRoutineArgument
 mojo.internal.Struct(
@@ -413,9 +413,9 @@ mojo.internal.Struct(
 // Struct: TelemetryDiagnosticRoutineStateRunning
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineStateRunningSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineStateRunning', [
-      mojo.internal.StructField('info', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineRunningInfoSpec, null, true, 1, undefined),
+      mojo.internal.StructField('info', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineRunningInfoSpec.$, null, true, 1, undefined),
     ],
-    [[0, 8], [1, 24]]);
+    [[0, 8], [1, 16]]);
 
 // Struct: TelemetryDiagnosticCheckLedLitUpStateReply
 mojo.internal.Struct(
@@ -453,8 +453,8 @@ mojo.internal.Struct(
 // Struct: TelemetryDiagnosticMemtesterResult
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticMemtesterResultSpec, 'crosapi.mojom.TelemetryDiagnosticMemtesterResult', [
-      mojo.internal.StructField('passed_items', 0, 0, mojo.internal.Array(crosapi.mojom.TelemetryDiagnosticMemtesterTestItemEnumSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('failed_items', 8, 0, mojo.internal.Array(crosapi.mojom.TelemetryDiagnosticMemtesterTestItemEnumSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('passed_items', 0, 0, mojo.internal.Array(crosapi.mojom.TelemetryDiagnosticMemtesterTestItemEnumSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('failed_items', 8, 0, mojo.internal.Array(crosapi.mojom.TelemetryDiagnosticMemtesterTestItemEnumSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -462,7 +462,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticMemoryRoutineDetailSpec, 'crosapi.mojom.TelemetryDiagnosticMemoryRoutineDetail', [
       mojo.internal.StructField('bytes_tested', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, crosapi.mojom.TelemetryDiagnosticMemtesterResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.TelemetryDiagnosticMemtesterResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -477,7 +477,7 @@ mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticFanRoutineDetailSpec, 'crosapi.mojom.TelemetryDiagnosticFanRoutineDetail', [
       mojo.internal.StructField('passed_fan_ids', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('failed_fan_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('fan_count_status', 16, 0, crosapi.mojom.TelemetryDiagnosticHardwarePresenceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fan_count_status', 16, 0, crosapi.mojom.TelemetryDiagnosticHardwarePresenceStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -500,17 +500,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineStateFinishedSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineStateFinished', [
       mojo.internal.StructField('has_passed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('detail', 8, 0, crosapi.mojom.TelemetryDiagnosticRoutineDetailSpec, null, true, 0, undefined),
+      mojo.internal.StructField('detail', 8, 0, crosapi.mojom.TelemetryDiagnosticRoutineDetailSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: TelemetryDiagnosticRoutineState
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineStateSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineState', [
       mojo.internal.StructField('percentage', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('state_union', 8, 0, crosapi.mojom.TelemetryDiagnosticRoutineStateUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_union', 8, 0, crosapi.mojom.TelemetryDiagnosticRoutineStateUnionSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: TelemetryDiagnosticRoutineControl
 mojo.internal.Struct(
@@ -520,7 +520,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParams', [
-      mojo.internal.StructField('state', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -531,9 +531,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_Params', [
-      mojo.internal.StructField('reply', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineInquiryReplySpec, null, false, 0, undefined),
+      mojo.internal.StructField('reply', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineInquiryReplySpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver = class {
   constructor(handle) {
@@ -601,9 +601,8 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryDiagnosticRoutineControl.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryDiagnosticRoutineControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.TelemetryDiagnosticRoutineControl',
     'context');
   return remote.$;
@@ -616,7 +615,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlRequest = crosapi.mojom.Telemetry
 // Interface: TelemetryDiagnosticRoutineObserver
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_Params', [
-      mojo.internal.StructField('state', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -666,9 +665,8 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryDiagnosticRoutineObserver.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.TelemetryDiagnosticRoutineObserver',
     'context');
   return remote.$;
@@ -681,23 +679,23 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverRequest = crosapi.mojom.Telemetr
 // Interface: TelemetryDiagnosticRoutinesService
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_Params', [
-      mojo.internal.StructField('routine_argument', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('routine_receiver', 16, 0, mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutineControlRemote), null, false, 0, undefined),
-      mojo.internal.StructField('routine_observer', 24, 0, mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('routine_argument', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('routine_receiver', 8, 0, mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutineControlRemote), null, false, 0, undefined),
+      mojo.internal.StructField('routine_observer', 16, 0, mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote), null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_Params', [
-      mojo.internal.StructField('routine_argument', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('routine_argument', 0, 0, crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, crosapi.mojom.TelemetryExtensionSupportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, crosapi.mojom.TelemetryExtensionSupportStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 crosapi.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver = class {
   constructor(handle) {
@@ -755,9 +753,8 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryDiagnosticRoutinesService.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.TelemetryDiagnosticRoutinesService',
     'context');
   return remote.$;

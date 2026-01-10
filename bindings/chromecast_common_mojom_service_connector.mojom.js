@@ -16,7 +16,7 @@ chromecast.mojom.ServiceConnector_Connect_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     chromecast.mojom.ServiceConnector_Connect_ParamsSpec, 'chromecast.mojom.ServiceConnector_Connect_Params', [
       mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -66,9 +66,8 @@ chromecast.mojom.ServiceConnectorRemoteCallHandler = class {
 
 chromecast.mojom.ServiceConnector.getRemote = function() {
   let remote = new chromecast.mojom.ServiceConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.ServiceConnector',
     'context');
   return remote.$;

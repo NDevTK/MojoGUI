@@ -17,7 +17,7 @@ network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec, 'network.mojom.ProxyLookupClient_OnProxyLookupComplete_Params', [
       mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('proxy_info', 8, 0, proxy_resolver.mojom.ProxyInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('proxy_info', 8, 0, proxy_resolver.mojom.ProxyInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -67,9 +67,8 @@ network.mojom.ProxyLookupClientRemoteCallHandler = class {
 
 network.mojom.ProxyLookupClient.getRemote = function() {
   let remote = new network.mojom.ProxyLookupClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.ProxyLookupClient',
     'context');
   return remote.$;

@@ -117,24 +117,24 @@ mojo.internal.Struct(
       mojo.internal.StructField('total', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('by_ext_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('by_ext_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('danger_type', 40, 0, downloads.mojom.DangerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tailored_warning_type', 44, 0, downloads.mojom.TailoredWarningTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('date_string', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('file_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('file_path', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('file_url', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('id', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('last_reason_text', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('progress_status_text', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('show_in_folder_text', 104, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('since_string', 112, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('state', 120, 0, downloads.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('display_initiator_origin', 128, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 136, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('safe_browsing_state', 144, 0, downloads.mojom.SafeBrowsingStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('has_safe_browsing_verdict', 148, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('danger_type', 40, 0, downloads.mojom.DangerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tailored_warning_type', 48, 0, downloads.mojom.TailoredWarningTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('date_string', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('file_name', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('file_path', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('file_url', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('id', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('last_reason_text', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('progress_status_text', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('show_in_folder_text', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('since_string', 120, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('state', 128, 0, downloads.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('display_initiator_origin', 136, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 144, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('safe_browsing_state', 152, 0, downloads.mojom.SafeBrowsingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('has_safe_browsing_verdict', 160, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 160]]);
+    [[0, 176]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
@@ -190,9 +190,8 @@ downloads.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 downloads.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new downloads.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'downloads.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -623,9 +622,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
 
 downloads.mojom.PageHandler.getRemote = function() {
   let remote = new downloads.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'downloads.mojom.PageHandler',
     'context');
   return remote.$;
@@ -645,14 +643,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     downloads.mojom.Page_UpdateItem_ParamsSpec, 'downloads.mojom.Page_UpdateItem_Params', [
       mojo.internal.StructField('index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, downloads.mojom.DataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, downloads.mojom.DataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     downloads.mojom.Page_InsertItems_ParamsSpec, 'downloads.mojom.Page_InsertItems_Params', [
       mojo.internal.StructField('index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('items', 8, 0, mojo.internal.Array(downloads.mojom.DataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('items', 8, 0, mojo.internal.Array(downloads.mojom.DataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -737,9 +735,8 @@ downloads.mojom.PageRemoteCallHandler = class {
 
 downloads.mojom.Page.getRemote = function() {
   let remote = new downloads.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'downloads.mojom.Page',
     'context');
   return remote.$;

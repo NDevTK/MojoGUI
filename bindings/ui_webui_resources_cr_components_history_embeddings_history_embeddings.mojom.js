@@ -58,13 +58,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     history_embeddings.mojom.SearchResultItemSpec, 'history_embeddings.mojom.SearchResultItem', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('url_for_display', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('relative_time', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('short_date_time', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('last_url_visit_timestamp', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('source_passage', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('answer_data', 56, 0, history_embeddings.mojom.AnswerDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('answer_data', 56, 0, history_embeddings.mojom.AnswerDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('is_url_known_to_sync', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -73,7 +73,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     history_embeddings.mojom.SearchQuerySpec, 'history_embeddings.mojom.SearchQuery', [
       mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('time_range_start', 8, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('time_range_start', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -81,9 +81,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     history_embeddings.mojom.SearchResultSpec, 'history_embeddings.mojom.SearchResult', [
       mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('answer_status', 8, 0, history_embeddings.mojom.AnswerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('answer_status', 8, 0, history_embeddings.mojom.AnswerStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('answer', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('items', 24, 0, mojo.internal.Array(history_embeddings.mojom.SearchResultItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('items', 24, 0, mojo.internal.Array(history_embeddings.mojom.SearchResultItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -96,7 +96,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     history_embeddings.mojom.PageHandler_Search_ParamsSpec, 'history_embeddings.mojom.PageHandler_Search_Params', [
-      mojo.internal.StructField('query', 0, 0, history_embeddings.mojom.SearchQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, history_embeddings.mojom.SearchQuerySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -120,7 +120,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec, 'history_embeddings.mojom.PageHandler_SetUserFeedback_Params', [
-      mojo.internal.StructField('feedback', 0, 0, history_embeddings.mojom.UserFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feedback', 0, 0, history_embeddings.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -240,9 +240,8 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
 
 history_embeddings.mojom.PageHandler.getRemote = function() {
   let remote = new history_embeddings.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'history_embeddings.mojom.PageHandler',
     'context');
   return remote.$;
@@ -255,7 +254,7 @@ history_embeddings.mojom.PageHandlerRequest = history_embeddings.mojom.PageHandl
 // Interface: Page
 mojo.internal.Struct(
     history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec, 'history_embeddings.mojom.Page_SearchResultChanged_Params', [
-      mojo.internal.StructField('result', 0, 0, history_embeddings.mojom.SearchResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, history_embeddings.mojom.SearchResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -305,9 +304,8 @@ history_embeddings.mojom.PageRemoteCallHandler = class {
 
 history_embeddings.mojom.Page.getRemote = function() {
   let remote = new history_embeddings.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'history_embeddings.mojom.Page',
     'context');
   return remote.$;

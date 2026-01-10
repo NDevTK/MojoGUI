@@ -20,25 +20,25 @@ url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = { $: {} };
 // Interface: UrlTest
 mojo.internal.Struct(
     url.mojom.UrlTest_BounceUrl_ParamsSpec, 'url.mojom.UrlTest_BounceUrl_Params', [
-      mojo.internal.StructField('in', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     url.mojom.UrlTest_BounceUrl_ResponseParamsSpec, 'url.mojom.UrlTest_BounceUrl_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     url.mojom.UrlTest_BounceOrigin_ParamsSpec, 'url.mojom.UrlTest_BounceOrigin_Params', [
-      mojo.internal.StructField('in', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec, 'url.mojom.UrlTest_BounceOrigin_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -98,9 +98,8 @@ url.mojom.UrlTestRemoteCallHandler = class {
 
 url.mojom.UrlTest.getRemote = function() {
   let remote = new url.mojom.UrlTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'url.mojom.UrlTest',
     'context');
   return remote.$;

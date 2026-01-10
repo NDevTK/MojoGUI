@@ -44,9 +44,9 @@ blink.mojom.DevToolsExecutionContextType = {
 // Struct: DevToolsMessage
 mojo.internal.Struct(
     blink.mojom.DevToolsMessageSpec, 'blink.mojom.DevToolsMessage', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: DevToolsSessionState
 mojo.internal.Struct(
@@ -61,7 +61,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('host', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.DevToolsSessionHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('session', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('io_session', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('reattach_session_state', 24, 0, blink.mojom.DevToolsSessionStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('reattach_session_state', 24, 0, blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('script_to_evaluate_on_load', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('client_expects_binary_responses', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('client_is_trusted', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -72,7 +72,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DevToolsAgent_InspectElement_ParamsSpec, 'blink.mojom.DevToolsAgent_InspectElement_Params', [
-      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -154,9 +154,8 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
 
 blink.mojom.DevToolsAgent.getRemote = function() {
   let remote = new blink.mojom.DevToolsAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DevToolsAgent',
     'context');
   return remote.$;
@@ -171,13 +170,13 @@ mojo.internal.Struct(
     blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec, 'blink.mojom.DevToolsAgentHost_ChildTargetCreated_Params', [
       mojo.internal.StructField('worker_devtools_agent', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
       mojo.internal.StructField('worker_devtools_agent_host', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('devtools_worker_token', 32, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_worker_token', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('waiting_for_debugger', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('context_type', 44, 0, blink.mojom.DevToolsExecutionContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context_type', 48, 0, blink.mojom.DevToolsExecutionContextTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 mojo.internal.Struct(
     blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec, 'blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_Params', [
@@ -270,9 +269,8 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
 
 blink.mojom.DevToolsAgentHost.getRemote = function() {
   let remote = new blink.mojom.DevToolsAgentHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DevToolsAgentHost',
     'context');
   return remote.$;
@@ -287,7 +285,7 @@ mojo.internal.Struct(
     blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec, 'blink.mojom.DevToolsSession_DispatchProtocolCommand_Params', [
       mojo.internal.StructField('call_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('method', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('message', 16, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -352,9 +350,8 @@ blink.mojom.DevToolsSessionRemoteCallHandler = class {
 
 blink.mojom.DevToolsSession.getRemote = function() {
   let remote = new blink.mojom.DevToolsSessionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DevToolsSession',
     'context');
   return remote.$;
@@ -367,16 +364,16 @@ blink.mojom.DevToolsSessionRequest = blink.mojom.DevToolsSessionPendingReceiver;
 // Interface: DevToolsSessionHost
 mojo.internal.Struct(
     blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec, 'blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_Params', [
-      mojo.internal.StructField('message', 0, 0, blink.mojom.DevToolsMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, blink.mojom.DevToolsMessageSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('call_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('updates', 16, 0, blink.mojom.DevToolsSessionStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('updates', 16, 0, blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec, 'blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_Params', [
-      mojo.internal.StructField('message', 0, 0, blink.mojom.DevToolsMessageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('updates', 8, 0, blink.mojom.DevToolsSessionStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, blink.mojom.DevToolsMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('updates', 8, 0, blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -436,9 +433,8 @@ blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
 
 blink.mojom.DevToolsSessionHost.getRemote = function() {
   let remote = new blink.mojom.DevToolsSessionHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DevToolsSessionHost',
     'context');
   return remote.$;

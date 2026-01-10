@@ -64,6 +64,6 @@ mojo.internal.Struct(
     gfx.mojom.GpuMemoryBufferHandleSpec, 'gfx.mojom.GpuMemoryBufferHandle', [
       mojo.internal.StructField('offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('stride', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('platform_handle', 8, 0, gfx.mojom.GpuMemoryBufferPlatformHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('platform_handle', 8, 0, gfx.mojom.GpuMemoryBufferPlatformHandleSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);

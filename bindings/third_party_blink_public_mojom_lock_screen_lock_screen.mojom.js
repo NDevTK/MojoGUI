@@ -44,7 +44,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.LockScreenService_SetData_ResponseParamsSpec, 'blink.mojom.LockScreenService_SetData_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.LockScreenServiceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.LockScreenServiceStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -104,9 +104,8 @@ blink.mojom.LockScreenServiceRemoteCallHandler = class {
 
 blink.mojom.LockScreenService.getRemote = function() {
   let remote = new blink.mojom.LockScreenServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.LockScreenService',
     'context');
   return remote.$;

@@ -60,7 +60,7 @@ mojo.internal.Struct(
     chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParams', [
       mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('encoded_buffer_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, chromeos_camera.mojom.EncodeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, chromeos_camera.mojom.EncodeStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -68,8 +68,8 @@ mojo.internal.Struct(
     chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_Params', [
       mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('input_format', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('input_planes', 8, 0, mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('output_planes', 16, 0, mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('input_planes', 8, 0, mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('output_planes', 16, 0, mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('exif_handle', 24, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('exif_buffer_size', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('coded_size_width', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -83,9 +83,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParams', [
       mojo.internal.StructField('encoded_buffer_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 4, 0, chromeos_camera.mojom.EncodeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, chromeos_camera.mojom.EncodeStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 chromeos_camera.mojom.JpegEncodeAcceleratorPendingReceiver = class {
   constructor(handle) {
@@ -153,9 +153,8 @@ chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHandler = class {
 
 chromeos_camera.mojom.JpegEncodeAccelerator.getRemote = function() {
   let remote = new chromeos_camera.mojom.JpegEncodeAcceleratorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos_camera.mojom.JpegEncodeAccelerator',
     'context');
   return remote.$;

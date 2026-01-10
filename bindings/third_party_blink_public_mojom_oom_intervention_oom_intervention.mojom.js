@@ -75,9 +75,8 @@ blink.mojom.OomInterventionHostRemoteCallHandler = class {
 
 blink.mojom.OomInterventionHost.getRemote = function() {
   let remote = new blink.mojom.OomInterventionHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.OomInterventionHost',
     'context');
   return remote.$;
@@ -91,7 +90,7 @@ blink.mojom.OomInterventionHostRequest = blink.mojom.OomInterventionHostPendingR
 mojo.internal.Struct(
     blink.mojom.OomIntervention_StartDetection_ParamsSpec, 'blink.mojom.OomIntervention_StartDetection_Params', [
       mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.OomInterventionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('detection_args', 8, 0, blink.mojom.DetectionArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('detection_args', 8, 0, blink.mojom.DetectionArgsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('renderer_pause_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('navigate_ads_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('purge_v8_memory_enabled', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -144,9 +143,8 @@ blink.mojom.OomInterventionRemoteCallHandler = class {
 
 blink.mojom.OomIntervention.getRemote = function() {
   let remote = new blink.mojom.OomInterventionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.OomIntervention',
     'context');
   return remote.$;

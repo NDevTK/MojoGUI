@@ -63,7 +63,7 @@ mojo.internal.Struct(
     arc.mojom.PictureSpec, 'arc.mojom.Picture', [
       mojo.internal.StructField('picture_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('bitstream_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('crop_rect', 8, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('crop_rect', 8, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -71,17 +71,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.PictureBufferFormatSpec, 'arc.mojom.PictureBufferFormat', [
       mojo.internal.StructField('min_num_buffers', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: VideoDecodeAcceleratorConfig
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAcceleratorConfigSpec, 'arc.mojom.VideoDecodeAcceleratorConfig', [
-      mojo.internal.StructField('profile', 0, 0, arc.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('secure_mode', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('profile', 0, 0, arc.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('secure_mode', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: BufferModifier
 mojo.internal.Struct(
@@ -93,20 +93,20 @@ mojo.internal.Struct(
 // Interface: VideoDecodeAccelerator
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Initialize_Params', [
-      mojo.internal.StructField('config', 0, 0, arc.mojom.VideoDecodeAcceleratorConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, arc.mojom.VideoDecodeAcceleratorConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoDecodeClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Decode_Params', [
-      mojo.internal.StructField('bitstream_buffer', 0, 0, arc.mojom.BitstreamBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bitstream_buffer', 0, 0, arc.mojom.BitstreamBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -119,12 +119,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_Params', [
       mojo.internal.StructField('picture_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('format', 4, 0, arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('handle_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('planes', 16, 0, mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('modifier', 24, 0, arc.mojom.BufferModifierSpec, null, true, 4, undefined),
+      mojo.internal.StructField('format', 8, 0, arc.mojom.HalPixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('handle_fd', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('planes', 24, 0, mojo.internal.Array(arc.mojom.VideoFramePlaneSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('modifier', 32, 0, arc.mojom.BufferModifierSpec.$, null, true, 4, undefined),
     ],
-    [[0, 32], [4, 40]]);
+    [[0, 40], [4, 48]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_Params', [
@@ -139,7 +139,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Reset_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -150,7 +150,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Flush_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -260,9 +260,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
 
 arc.mojom.VideoDecodeAccelerator.getRemote = function() {
   let remote = new arc.mojom.VideoDecodeAcceleratorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.VideoDecodeAccelerator',
     'context');
   return remote.$;
@@ -275,7 +274,7 @@ arc.mojom.VideoDecodeAcceleratorRequest = arc.mojom.VideoDecodeAcceleratorPendin
 // Interface: VideoDecodeClient
 mojo.internal.Struct(
     arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec, 'arc.mojom.VideoDecodeClient_PictureReady_Params', [
-      mojo.internal.StructField('picture', 0, 0, arc.mojom.PictureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('picture', 0, 0, arc.mojom.PictureSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -287,14 +286,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec, 'arc.mojom.VideoDecodeClient_NotifyError_Params', [
-      mojo.internal.StructField('error', 0, 0, VideoDecodeAccelerator.ResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, VideoDecodeAccelerator.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec, 'arc.mojom.VideoDecodeClient_ProvidePictureBuffers_Params', [
-      mojo.internal.StructField('format', 0, 0, arc.mojom.PictureBufferFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('visible_rect', 8, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('format', 0, 0, arc.mojom.PictureBufferFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('visible_rect', 8, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -374,9 +373,8 @@ arc.mojom.VideoDecodeClientRemoteCallHandler = class {
 
 arc.mojom.VideoDecodeClient.getRemote = function() {
   let remote = new arc.mojom.VideoDecodeClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.VideoDecodeClient',
     'context');
   return remote.$;

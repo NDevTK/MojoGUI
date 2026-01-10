@@ -79,22 +79,22 @@ mojo.internal.Union(
       },
       'string_value': {
         'ordinal': 2,
-        'type': mojo_base.mojom.String16Spec,
+        'type': mojo_base.mojom.String16Spec.$,
         'nullable': false,
       },
       'singleton_value': {
         'ordinal': 3,
-        'type': blink.mojom.SingletonJavaScriptValueSpec,
+        'type': blink.mojom.SingletonJavaScriptValueSpec.$,
         'nullable': false,
       },
       'array_value': {
         'ordinal': 4,
-        'type': mojo.internal.Array(blink.mojom.RemoteInvocationArgumentSpec, false),
+        'type': mojo.internal.Array(blink.mojom.RemoteInvocationArgumentSpec.$, false),
         'nullable': false,
       },
       'typed_array_value': {
         'ordinal': 5,
-        'type': blink.mojom.RemoteTypedArraySpec,
+        'type': blink.mojom.RemoteTypedArraySpec.$,
         'nullable': false,
       },
       'object_id_value': {
@@ -119,12 +119,12 @@ mojo.internal.Union(
       },
       'string_value': {
         'ordinal': 2,
-        'type': mojo_base.mojom.String16Spec,
+        'type': mojo_base.mojom.String16Spec.$,
         'nullable': false,
       },
       'singleton_value': {
         'ordinal': 3,
-        'type': blink.mojom.SingletonJavaScriptValueSpec,
+        'type': blink.mojom.SingletonJavaScriptValueSpec.$,
         'nullable': false,
       },
       'object_id': {
@@ -137,18 +137,18 @@ mojo.internal.Union(
 // Struct: RemoteTypedArray
 mojo.internal.Struct(
     blink.mojom.RemoteTypedArraySpec, 'blink.mojom.RemoteTypedArray', [
-      mojo.internal.StructField('type', 0, 0, blink.mojom.RemoteArrayTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('buffer', 8, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, blink.mojom.RemoteArrayTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: RemoteInvocationResult
 mojo.internal.Struct(
     blink.mojom.RemoteInvocationResultSpec, 'blink.mojom.RemoteInvocationResult', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.RemoteInvocationErrorSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, blink.mojom.RemoteInvocationResultValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.RemoteInvocationErrorSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, blink.mojom.RemoteInvocationResultValueSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: RemoteObjectHost
 mojo.internal.Struct(
@@ -236,9 +236,8 @@ blink.mojom.RemoteObjectHostRemoteCallHandler = class {
 
 blink.mojom.RemoteObjectHost.getRemote = function() {
   let remote = new blink.mojom.RemoteObjectHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.RemoteObjectHost',
     'context');
   return remote.$;
@@ -275,13 +274,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.RemoteObject_InvokeMethod_ParamsSpec, 'blink.mojom.RemoteObject_InvokeMethod_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arguments', 8, 0, mojo.internal.Array(blink.mojom.RemoteInvocationArgumentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arguments', 8, 0, mojo.internal.Array(blink.mojom.RemoteInvocationArgumentSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec, 'blink.mojom.RemoteObject_InvokeMethod_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.RemoteInvocationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.RemoteInvocationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -366,9 +365,8 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
 
 blink.mojom.RemoteObject.getRemote = function() {
   let remote = new blink.mojom.RemoteObjectRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.RemoteObject',
     'context');
   return remote.$;
@@ -432,9 +430,8 @@ blink.mojom.RemoteObjectGatewayFactoryRemoteCallHandler = class {
 
 blink.mojom.RemoteObjectGatewayFactory.getRemote = function() {
   let remote = new blink.mojom.RemoteObjectGatewayFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.RemoteObjectGatewayFactory',
     'context');
   return remote.$;
@@ -514,9 +511,8 @@ blink.mojom.RemoteObjectGatewayRemoteCallHandler = class {
 
 blink.mojom.RemoteObjectGateway.getRemote = function() {
   let remote = new blink.mojom.RemoteObjectGatewayRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.RemoteObjectGateway',
     'context');
   return remote.$;

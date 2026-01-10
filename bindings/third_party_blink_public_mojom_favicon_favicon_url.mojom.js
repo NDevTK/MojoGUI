@@ -25,9 +25,9 @@ blink.mojom.FaviconIconType = {
 // Struct: FaviconURL
 mojo.internal.Struct(
     blink.mojom.FaviconURLSpec, 'blink.mojom.FaviconURL', [
-      mojo.internal.StructField('icon_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('icon_type', 8, 0, blink.mojom.FaviconIconTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('icon_sizes', 16, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('icon_type', 8, 0, blink.mojom.FaviconIconTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('icon_sizes', 16, 0, mojo.internal.Array(gfx.mojom.SizeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('is_default_icon', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);

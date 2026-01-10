@@ -96,9 +96,8 @@ on_device_translation.mojom.TranslatorRemoteCallHandler = class {
 
 on_device_translation.mojom.Translator.getRemote = function() {
   let remote = new on_device_translation.mojom.TranslatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'on_device_translation.mojom.Translator',
     'context');
   return remote.$;

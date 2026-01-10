@@ -16,7 +16,7 @@ ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = { $: {} };
 // Interface: TabOrganizationService
 mojo.internal.Struct(
     ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec, 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_Params', [
-      mojo.internal.StructField('request', 0, 0, mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ ai.mojom.TabOrganizationServiceRemoteCallHandler = class {
 
 ai.mojom.TabOrganizationService.getRemote = function() {
   let remote = new ai.mojom.TabOrganizationServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ai.mojom.TabOrganizationService',
     'context');
   return remote.$;

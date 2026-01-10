@@ -84,9 +84,8 @@ ash.media_app_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.media_app_ui.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -166,7 +165,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('payload', 8, 0, mojo.internal.Array(mojo.internal.Int8, false), null, false, 0, undefined),
       mojo.internal.StructField('header', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -283,9 +282,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.PageHandler.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.media_app_ui.mojom.PageHandler',
     'context');
   return remote.$;

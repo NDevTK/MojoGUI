@@ -40,7 +40,7 @@ ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = { $
 // Interface: AssistiveTechnologyController
 mojo.internal.Struct(
     ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec, 'ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_Params', [
-      mojo.internal.StructField('enabled_features', 0, 0, mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('enabled_features', 0, 0, mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -90,9 +90,8 @@ ax.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
 
 ax.mojom.AssistiveTechnologyController.getRemote = function() {
   let remote = new ax.mojom.AssistiveTechnologyControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.AssistiveTechnologyController',
     'context');
   return remote.$;
@@ -112,14 +111,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec, 'ax.mojom.AccessibilityService_BindAssistiveTechnologyController_Params', [
       mojo.internal.StructField('at_controller', 0, 0, mojo.internal.InterfaceRequest(ax.mojom.AssistiveTechnologyControllerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('enabled_features', 8, 0, mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('enabled_features', 8, 0, mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec, 'ax.mojom.AccessibilityService_ConnectDevToolsAgent_Params', [
       mojo.internal.StructField('agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ax.mojom.AssistiveTechnologyTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -189,9 +188,8 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
 
 ax.mojom.AccessibilityService.getRemote = function() {
   let remote = new ax.mojom.AccessibilityServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.AccessibilityService',
     'context');
   return remote.$;
@@ -366,9 +364,8 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
 
 ax.mojom.AccessibilityServiceClient.getRemote = function() {
   let remote = new ax.mojom.AccessibilityServiceClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.AccessibilityServiceClient',
     'context');
   return remote.$;

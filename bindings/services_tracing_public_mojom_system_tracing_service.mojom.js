@@ -21,7 +21,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec, 'tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParams', [
-      mojo.internal.StructField('traced_socket', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('traced_socket', 0, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -71,9 +71,8 @@ tracing.mojom.SystemTracingServiceRemoteCallHandler = class {
 
 tracing.mojom.SystemTracingService.getRemote = function() {
   let remote = new tracing.mojom.SystemTracingServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.SystemTracingService',
     'context');
   return remote.$;

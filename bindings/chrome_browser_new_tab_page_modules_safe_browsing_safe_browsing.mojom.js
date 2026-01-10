@@ -120,9 +120,8 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
 
 ntp.safe_browsing.mojom.SafeBrowsingHandler.getRemote = function() {
   let remote = new ntp.safe_browsing.mojom.SafeBrowsingHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ntp.safe_browsing.mojom.SafeBrowsingHandler',
     'context');
   return remote.$;

@@ -19,13 +19,13 @@ blink.mojom.WebSocketConnector_Connect_ParamsSpec = { $: {} };
 // Interface: WebSocketConnector
 mojo.internal.Struct(
     blink.mojom.WebSocketConnector_Connect_ParamsSpec, 'blink.mojom.WebSocketConnector_Connect_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('requested_protocols', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('site_for_cookies', 16, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 16, 0, network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('user_agent', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 32, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 32, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('handshake_client', 40, 0, mojo.internal.InterfaceProxy(network.mojom.WebSocketHandshakeClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('throttling_profile_id', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('throttling_profile_id', 48, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -75,9 +75,8 @@ blink.mojom.WebSocketConnectorRemoteCallHandler = class {
 
 blink.mojom.WebSocketConnector.getRemote = function() {
   let remote = new blink.mojom.WebSocketConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WebSocketConnector',
     'context');
   return remote.$;

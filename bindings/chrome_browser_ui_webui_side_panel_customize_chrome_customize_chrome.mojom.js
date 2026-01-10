@@ -108,10 +108,10 @@ side_panel.mojom.NewTabPageType = {
 // Struct: BackgroundImage
 mojo.internal.Struct(
     side_panel.mojom.BackgroundImageSpec, 'side_panel.mojom.BackgroundImage', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('snapshot_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('snapshot_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_uploaded_image', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('local_background_id', 24, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('local_background_id', 24, 0, mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('title', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('collection_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('daily_refresh_enabled', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -129,10 +129,10 @@ mojo.internal.Struct(
 // Struct: Theme
 mojo.internal.Struct(
     side_panel.mojom.ThemeSpec, 'side_panel.mojom.Theme', [
-      mojo.internal.StructField('background_image', 0, 0, side_panel.mojom.BackgroundImageSpec, null, true, 0, undefined),
-      mojo.internal.StructField('third_party_theme_info', 8, 0, side_panel.mojom.ThirdPartyThemeInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('background_color', 16, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('foreground_color', 24, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('background_image', 0, 0, side_panel.mojom.BackgroundImageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('third_party_theme_info', 8, 0, side_panel.mojom.ThirdPartyThemeInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('background_color', 16, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('foreground_color', 24, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('background_managed_by_policy', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('follow_device_theme', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -143,7 +143,7 @@ mojo.internal.Struct(
     side_panel.mojom.BackgroundCollectionSpec, 'side_panel.mojom.BackgroundCollection', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('preview_image_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preview_image_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('image_verified', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -153,9 +153,9 @@ mojo.internal.Struct(
     side_panel.mojom.CollectionImageSpec, 'side_panel.mojom.CollectionImage', [
       mojo.internal.StructField('attribution_1', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('attribution_2', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('attribution_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('preview_image_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('attribution_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('preview_image_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('collection_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('image_verified', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -234,9 +234,8 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryRemoteCallHandler = class {
 
 side_panel.mojom.CustomizeChromePageHandlerFactory.getRemote = function() {
   let remote = new side_panel.mojom.CustomizeChromePageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'side_panel.mojom.CustomizeChromePageHandlerFactory',
     'context');
   return remote.$;
@@ -249,7 +248,7 @@ side_panel.mojom.CustomizeChromePageHandlerFactoryRequest = side_panel.mojom.Cus
 // Interface: CustomizeChromePageHandler
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_Params', [
-      mojo.internal.StructField('shortcuts_types', 0, 0, mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('shortcuts_types', 0, 0, mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('shortcuts_visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('personal_shortcuts_visible', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -267,7 +266,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParams', [
-      mojo.internal.StructField('collections', 0, 0, mojo.internal.Array(side_panel.mojom.BackgroundCollectionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('collections', 0, 0, mojo.internal.Array(side_panel.mojom.BackgroundCollectionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -279,7 +278,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParams', [
-      mojo.internal.StructField('preview_image_url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('preview_image_url', 0, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -291,7 +290,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParams', [
-      mojo.internal.StructField('images', 0, 0, mojo.internal.Array(side_panel.mojom.CollectionImageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('images', 0, 0, mojo.internal.Array(side_panel.mojom.CollectionImageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -342,9 +341,9 @@ mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_Params', [
       mojo.internal.StructField('attribution_1', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('attribution_2', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('attribution_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('thumbnail_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('attribution_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('thumbnail_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('collection_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -373,13 +372,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_Params', [
-      mojo.internal.StructField('category', 0, 0, side_panel.mojom.ChromeWebStoreCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, side_panel.mojom.ChromeWebStoreCategorySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_Params', [
-      mojo.internal.StructField('collection', 0, 0, side_panel.mojom.ChromeWebStoreCollectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('collection', 0, 0, side_panel.mojom.ChromeWebStoreCollectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -764,9 +763,8 @@ side_panel.mojom.CustomizeChromePageHandlerRemoteCallHandler = class {
 
 side_panel.mojom.CustomizeChromePageHandler.getRemote = function() {
   let remote = new side_panel.mojom.CustomizeChromePageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'side_panel.mojom.CustomizeChromePageHandler',
     'context');
   return remote.$;
@@ -779,7 +777,7 @@ side_panel.mojom.CustomizeChromePageHandlerRequest = side_panel.mojom.CustomizeC
 // Interface: CustomizeChromePage
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_SetModulesSettings_Params', [
-      mojo.internal.StructField('modules_settings', 0, 0, mojo.internal.Array(side_panel.mojom.ModuleSettingsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('modules_settings', 0, 0, mojo.internal.Array(side_panel.mojom.ModuleSettingsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('managed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('visible', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -787,10 +785,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_Params', [
-      mojo.internal.StructField('shortcuts_types', 0, 0, mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('shortcuts_types', 0, 0, mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('personal_shortcuts_visible', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('disabled_shortcuts', 16, 0, mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('disabled_shortcuts', 16, 0, mojo.internal.Array(ntp_tiles.mojom.TileTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -804,13 +802,13 @@ mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_SetFooterSettings_Params', [
       mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('extension_policy_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('management_notice_state', 8, 0, side_panel.mojom.ManagementNoticeStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('management_notice_state', 8, 0, side_panel.mojom.ManagementNoticeStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_SetTheme_Params', [
-      mojo.internal.StructField('theme', 0, 0, side_panel.mojom.ThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('theme', 0, 0, side_panel.mojom.ThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -822,13 +820,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_ScrollToSection_Params', [
-      mojo.internal.StructField('section', 0, 0, side_panel.mojom.CustomizeChromeSectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('section', 0, 0, side_panel.mojom.CustomizeChromeSectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_Params', [
-      mojo.internal.StructField('ntp_type', 0, 0, side_panel.mojom.NewTabPageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ntp_type', 0, 0, side_panel.mojom.NewTabPageTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -965,9 +963,8 @@ side_panel.mojom.CustomizeChromePageRemoteCallHandler = class {
 
 side_panel.mojom.CustomizeChromePage.getRemote = function() {
   let remote = new side_panel.mojom.CustomizeChromePageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'side_panel.mojom.CustomizeChromePage',
     'context');
   return remote.$;

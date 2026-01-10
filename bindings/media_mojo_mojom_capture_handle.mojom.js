@@ -14,7 +14,7 @@ media.mojom.CaptureHandleSpec = { $: {} };
 // Struct: CaptureHandle
 mojo.internal.Struct(
     media.mojom.CaptureHandleSpec, 'media.mojom.CaptureHandle', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('capture_handle', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('capture_handle', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -90,9 +90,8 @@ network.mojom.DataPipeGetterRemoteCallHandler = class {
 
 network.mojom.DataPipeGetter.getRemote = function() {
   let remote = new network.mojom.DataPipeGetterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.DataPipeGetter',
     'context');
   return remote.$;

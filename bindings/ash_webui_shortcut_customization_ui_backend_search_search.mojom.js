@@ -23,8 +23,8 @@ ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObser
 // Struct: SearchResult
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.SearchResultSpec, 'ash.shortcut_customization.mojom.SearchResult', [
-      mojo.internal.StructField('accelerator_layout_info', 0, 0, ash.mojom.AcceleratorLayoutInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('accelerator_infos', 8, 0, mojo.internal.Array(ash.mojom.AcceleratorInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('accelerator_layout_info', 0, 0, ash.mojom.AcceleratorLayoutInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('accelerator_infos', 8, 0, mojo.internal.Array(ash.mojom.AcceleratorInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('relevance_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -81,9 +81,8 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemoteCallHand
 
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.getRemote = function() {
   let remote = new ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver',
     'context');
   return remote.$;
@@ -96,14 +95,14 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRequest = ash.
 // Interface: SearchHandler
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_Params', [
-      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.shortcut_customization.mojom.SearchResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.shortcut_customization.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -169,9 +168,8 @@ ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
 
 ash.shortcut_customization.mojom.SearchHandler.getRemote = function() {
   let remote = new ash.shortcut_customization.mojom.SearchHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shortcut_customization.mojom.SearchHandler',
     'context');
   return remote.$;

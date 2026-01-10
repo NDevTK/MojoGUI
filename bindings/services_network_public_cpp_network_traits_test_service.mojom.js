@@ -17,13 +17,13 @@ network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec = { $:
 // Interface: TraitsTestService
 mojo.internal.Struct(
     network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec, 'network.mojom.TraitsTestService_EchoHttpRequestHeaders_Params', [
-      mojo.internal.StructField('headers', 0, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 0, 0, network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec, 'network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ network.mojom.TraitsTestServiceRemoteCallHandler = class {
 
 network.mojom.TraitsTestService.getRemote = function() {
   let remote = new network.mojom.TraitsTestServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.TraitsTestService',
     'context');
   return remote.$;

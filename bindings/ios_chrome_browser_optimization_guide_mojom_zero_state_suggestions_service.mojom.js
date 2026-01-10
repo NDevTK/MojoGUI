@@ -19,7 +19,7 @@ mojo.internal.Union(
     ai.mojom.ZeroStateSuggestionsResponseResultSpec, 'ai.mojom.ZeroStateSuggestionsResponseResult', {
       'response': {
         'ordinal': 0,
-        'type': mojo_base.mojom.ProtoWrapperSpec,
+        'type': mojo_base.mojom.ProtoWrapperSpec.$,
         'nullable': false,
       },
       'error': {
@@ -37,9 +37,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec, 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ai.mojom.ZeroStateSuggestionsResponseResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ai.mojom.ZeroStateSuggestionsResponseResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 ai.mojom.ZeroStateSuggestionsServicePendingReceiver = class {
   constructor(handle) {
@@ -87,9 +87,8 @@ ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = class {
 
 ai.mojom.ZeroStateSuggestionsService.getRemote = function() {
   let remote = new ai.mojom.ZeroStateSuggestionsServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ai.mojom.ZeroStateSuggestionsService',
     'context');
   return remote.$;

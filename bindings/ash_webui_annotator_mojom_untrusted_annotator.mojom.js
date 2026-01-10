@@ -42,7 +42,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_Params', [
-      mojo.internal.StructField('tool', 0, 0, ash.annotator.mojom.AnnotatorToolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tool', 0, 0, ash.annotator.mojom.AnnotatorToolSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -122,9 +122,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
 
 ash.annotator.mojom.UntrustedAnnotatorPage.getRemote = function() {
   let remote = new ash.annotator.mojom.UntrustedAnnotatorPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.annotator.mojom.UntrustedAnnotatorPage',
     'context');
   return remote.$;
@@ -204,9 +203,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
 
 ash.annotator.mojom.UntrustedAnnotatorPageHandler.getRemote = function() {
   let remote = new ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.annotator.mojom.UntrustedAnnotatorPageHandler',
     'context');
   return remote.$;
@@ -270,9 +268,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler = clas
 
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.getRemote = function() {
   let remote = new ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory',
     'context');
   return remote.$;

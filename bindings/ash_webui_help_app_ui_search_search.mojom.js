@@ -26,8 +26,8 @@ ash.help_app.mojom.SearchHandler_Observe_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     ash.help_app.mojom.SearchResultSpec, 'ash.help_app.mojom.SearchResult', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('main_category', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('main_category', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('url_path_with_parameters', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('relevance_score', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
@@ -38,9 +38,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.help_app.mojom.SearchConceptSpec, 'ash.help_app.mojom.SearchConcept', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('main_category', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('tags', 24, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('main_category', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tags', 24, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('tag_locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('url_path_with_parameters', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('locale', 48, 0, mojo.internal.String, null, false, 0, undefined),
@@ -99,9 +99,8 @@ ash.help_app.mojom.SearchResultsObserverRemoteCallHandler = class {
 
 ash.help_app.mojom.SearchResultsObserver.getRemote = function() {
   let remote = new ash.help_app.mojom.SearchResultsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.help_app.mojom.SearchResultsObserver',
     'context');
   return remote.$;
@@ -114,20 +113,20 @@ ash.help_app.mojom.SearchResultsObserverRequest = ash.help_app.mojom.SearchResul
 // Interface: SearchHandler
 mojo.internal.Struct(
     ash.help_app.mojom.SearchHandler_Search_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_Params', [
-      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.help_app.mojom.SearchResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.help_app.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.help_app.mojom.SearchHandler_Update_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_Params', [
-      mojo.internal.StructField('concepts', 0, 0, mojo.internal.Array(ash.help_app.mojom.SearchConceptSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('concepts', 0, 0, mojo.internal.Array(ash.help_app.mojom.SearchConceptSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -208,9 +207,8 @@ ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
 
 ash.help_app.mojom.SearchHandler.getRemote = function() {
   let remote = new ash.help_app.mojom.SearchHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.help_app.mojom.SearchHandler',
     'context');
   return remote.$;

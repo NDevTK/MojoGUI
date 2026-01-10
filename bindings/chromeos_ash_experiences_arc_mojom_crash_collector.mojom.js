@@ -24,7 +24,7 @@ mojo.internal.Struct(
     arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpCrash_Params', [
       mojo.internal.StructField('type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('uptime', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 6, undefined),
+      mojo.internal.StructField('uptime', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 6, undefined),
     ],
     [[0, 24], [6, 32]]);
 
@@ -128,9 +128,8 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
 
 arc.mojom.CrashCollectorHost.getRemote = function() {
   let remote = new arc.mojom.CrashCollectorHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.CrashCollectorHost',
     'context');
   return remote.$;
@@ -198,9 +197,8 @@ arc.mojom.CrashCollectorInstanceRemoteCallHandler = class {
 
 arc.mojom.CrashCollectorInstance.getRemote = function() {
   let remote = new arc.mojom.CrashCollectorInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.CrashCollectorInstance',
     'context');
   return remote.$;

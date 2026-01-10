@@ -20,17 +20,17 @@ blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = { $
 mojo.internal.Struct(
     blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactory_CreateStream_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.RendererAudioInputStreamFactoryClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('session_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('params', 16, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('params', 16, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('automatic_gain_control', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('shared_memory_count', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('processing_config', 32, 0, media.mojom.AudioProcessingConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('processing_config', 32, 0, media.mojom.AudioProcessingConfigSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_Params', [
-      mojo.internal.StructField('input_stream_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_stream_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('output_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -91,9 +91,8 @@ blink.mojom.RendererAudioInputStreamFactoryRemoteCallHandler = class {
 
 blink.mojom.RendererAudioInputStreamFactory.getRemote = function() {
   let remote = new blink.mojom.RendererAudioInputStreamFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.RendererAudioInputStreamFactory',
     'context');
   return remote.$;
@@ -108,9 +107,9 @@ mojo.internal.Struct(
     blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_Params', [
       mojo.internal.StructField('stream', 0, 0, mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
       mojo.internal.StructField('client_request', 8, 0, mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('data_pipe', 16, 0, media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_pipe', 16, 0, media.mojom.ReadWriteAudioDataPipeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('initially_muted', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('stream_id', 32, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('stream_id', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -160,9 +159,8 @@ blink.mojom.RendererAudioInputStreamFactoryClientRemoteCallHandler = class {
 
 blink.mojom.RendererAudioInputStreamFactoryClient.getRemote = function() {
   let remote = new blink.mojom.RendererAudioInputStreamFactoryClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.RendererAudioInputStreamFactoryClient',
     'context');
   return remote.$;

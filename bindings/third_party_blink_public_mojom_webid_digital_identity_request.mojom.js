@@ -34,46 +34,46 @@ blink.mojom.RequestDigitalIdentityStatus = {
 mojo.internal.Struct(
     blink.mojom.DigitalCredentialGetRequestSpec, 'blink.mojom.DigitalCredentialGetRequest', [
       mojo.internal.StructField('protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: DigitalCredentialCreateRequest
 mojo.internal.Struct(
     blink.mojom.DigitalCredentialCreateRequestSpec, 'blink.mojom.DigitalCredentialCreateRequest', [
       mojo.internal.StructField('protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: DigitalIdentityRequest
 mojo.internal.Struct(
     blink.mojom.DigitalIdentityRequest_Get_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Get_Params', [
-      mojo.internal.StructField('digital_credential_requests', 0, 0, mojo.internal.Array(blink.mojom.DigitalCredentialGetRequestSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('digital_credential_requests', 0, 0, mojo.internal.Array(blink.mojom.DigitalCredentialGetRequestSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Get_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.RequestDigitalIdentityStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('protocol', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('token', 16, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('token', 16, 0, mojo_base.mojom.ValueSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.DigitalIdentityRequest_Create_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Create_Params', [
-      mojo.internal.StructField('digital_credential_requests', 0, 0, mojo.internal.Array(blink.mojom.DigitalCredentialCreateRequestSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('digital_credential_requests', 0, 0, mojo.internal.Array(blink.mojom.DigitalCredentialCreateRequestSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Create_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.RequestDigitalIdentityStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('protocol', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('token', 16, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('token', 16, 0, mojo_base.mojom.ValueSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Abort_Params', [
@@ -146,9 +146,8 @@ blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {
 
 blink.mojom.DigitalIdentityRequest.getRemote = function() {
   let remote = new blink.mojom.DigitalIdentityRequestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DigitalIdentityRequest',
     'context');
   return remote.$;

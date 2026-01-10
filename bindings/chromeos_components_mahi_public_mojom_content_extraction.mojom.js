@@ -46,17 +46,17 @@ mojo.internal.Struct(
     mahi.mojom.ExtractionRequestSpec, 'mahi.mojom.ExtractionRequest', [
       mojo.internal.StructField('deprecated_ukm_source_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'deprecated_ukm_source_id_$value', originalFieldName: 'deprecated_ukm_source_id' }),
       mojo.internal.StructField('deprecated_ukm_source_id_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'deprecated_ukm_source_id_$flag', originalFieldName: 'deprecated_ukm_source_id' }),
-      mojo.internal.StructField('snapshot', 16, 0, ax.mojom.AXTreeUpdateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('extraction_methods', 24, 0, mahi.mojom.ExtractionMethodsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('updates', 32, 0, mojo.internal.Array(ax.mojom.AXTreeUpdateSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('snapshot', 16, 0, ax.mojom.AXTreeUpdateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('extraction_methods', 24, 0, mahi.mojom.ExtractionMethodsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('updates', 32, 0, mojo.internal.Array(ax.mojom.AXTreeUpdateSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: ExtractionResponse
 mojo.internal.Struct(
     mahi.mojom.ExtractionResponseSpec, 'mahi.mojom.ExtractionResponse', [
-      mojo.internal.StructField('contents', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, mahi.mojom.ResponseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('contents', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -64,32 +64,32 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mahi.mojom.ContentSizeResponseSpec, 'mahi.mojom.ContentSizeResponse', [
       mojo.internal.StructField('word_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 4, 0, mahi.mojom.ResponseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: ContentExtractionService
 mojo.internal.Struct(
     mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_Params', [
-      mojo.internal.StructField('extraction_request', 0, 0, mahi.mojom.ExtractionRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extraction_request', 0, 0, mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_ResponseParams', [
-      mojo.internal.StructField('extraction_response', 0, 0, mahi.mojom.ExtractionResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extraction_response', 0, 0, mahi.mojom.ExtractionResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_Params', [
-      mojo.internal.StructField('extraction_request', 0, 0, mahi.mojom.ExtractionRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extraction_request', 0, 0, mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_ResponseParams', [
-      mojo.internal.StructField('contents_size_response', 0, 0, mahi.mojom.ContentSizeResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('contents_size_response', 0, 0, mahi.mojom.ContentSizeResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -149,9 +149,8 @@ mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
 
 mahi.mojom.ContentExtractionService.getRemote = function() {
   let remote = new mahi.mojom.ContentExtractionServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mahi.mojom.ContentExtractionService',
     'context');
   return remote.$;
@@ -230,9 +229,8 @@ mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
 
 mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
   let remote = new mahi.mojom.ContentExtractionServiceFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mahi.mojom.ContentExtractionServiceFactory',
     'context');
   return remote.$;

@@ -261,112 +261,112 @@ mojo.internal.Union(
       },
       'memory': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.MemoryRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.MemoryRoutineArgumentSpec.$,
         'nullable': false,
       },
       'volume_button': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.VolumeButtonRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.VolumeButtonRoutineArgumentSpec.$,
         'nullable': false,
       },
       'fan': {
         'ordinal': 3,
-        'type': ash.cros_healthd.mojom.FanRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.FanRoutineArgumentSpec.$,
         'nullable': false,
       },
       'audio_driver': {
         'ordinal': 4,
-        'type': ash.cros_healthd.mojom.AudioDriverRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.AudioDriverRoutineArgumentSpec.$,
         'nullable': false,
       },
       'cpu_stress': {
         'ordinal': 5,
-        'type': ash.cros_healthd.mojom.CpuStressRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.CpuStressRoutineArgumentSpec.$,
         'nullable': false,
       },
       'ufs_lifetime': {
         'ordinal': 6,
-        'type': ash.cros_healthd.mojom.UfsLifetimeRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.UfsLifetimeRoutineArgumentSpec.$,
         'nullable': false,
       },
       'disk_read': {
         'ordinal': 7,
-        'type': ash.cros_healthd.mojom.DiskReadRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.DiskReadRoutineArgumentSpec.$,
         'nullable': false,
       },
       'cpu_cache': {
         'ordinal': 8,
-        'type': ash.cros_healthd.mojom.CpuCacheRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.CpuCacheRoutineArgumentSpec.$,
         'nullable': false,
       },
       'prime_search': {
         'ordinal': 9,
-        'type': ash.cros_healthd.mojom.PrimeSearchRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.PrimeSearchRoutineArgumentSpec.$,
         'nullable': false,
       },
       'led_lit_up': {
         'ordinal': 10,
-        'type': ash.cros_healthd.mojom.LedLitUpRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.LedLitUpRoutineArgumentSpec.$,
         'nullable': false,
       },
       'floating_point': {
         'ordinal': 11,
-        'type': ash.cros_healthd.mojom.FloatingPointRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.FloatingPointRoutineArgumentSpec.$,
         'nullable': false,
       },
       'bluetooth_power': {
         'ordinal': 12,
-        'type': ash.cros_healthd.mojom.BluetoothPowerRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.BluetoothPowerRoutineArgumentSpec.$,
         'nullable': false,
       },
       'bluetooth_discovery': {
         'ordinal': 13,
-        'type': ash.cros_healthd.mojom.BluetoothDiscoveryRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.BluetoothDiscoveryRoutineArgumentSpec.$,
         'nullable': false,
       },
       'bluetooth_scanning': {
         'ordinal': 14,
-        'type': ash.cros_healthd.mojom.BluetoothScanningRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.BluetoothScanningRoutineArgumentSpec.$,
         'nullable': false,
       },
       'bluetooth_pairing': {
         'ordinal': 15,
-        'type': ash.cros_healthd.mojom.BluetoothPairingRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.BluetoothPairingRoutineArgumentSpec.$,
         'nullable': false,
       },
       'camera_availability': {
         'ordinal': 16,
-        'type': ash.cros_healthd.mojom.CameraAvailabilityRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.CameraAvailabilityRoutineArgumentSpec.$,
         'nullable': false,
       },
       'urandom': {
         'ordinal': 17,
-        'type': ash.cros_healthd.mojom.UrandomRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.UrandomRoutineArgumentSpec.$,
         'nullable': false,
       },
       'network_bandwidth': {
         'ordinal': 18,
-        'type': ash.cros_healthd.mojom.NetworkBandwidthRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.NetworkBandwidthRoutineArgumentSpec.$,
         'nullable': false,
       },
       'sensitive_sensor': {
         'ordinal': 19,
-        'type': ash.cros_healthd.mojom.SensitiveSensorRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.SensitiveSensorRoutineArgumentSpec.$,
         'nullable': false,
       },
       'camera_frame_analysis': {
         'ordinal': 20,
-        'type': ash.cros_healthd.mojom.CameraFrameAnalysisRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.CameraFrameAnalysisRoutineArgumentSpec.$,
         'nullable': false,
       },
       'battery_discharge': {
         'ordinal': 21,
-        'type': ash.cros_healthd.mojom.BatteryDischargeRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.BatteryDischargeRoutineArgumentSpec.$,
         'nullable': false,
       },
       'keyboard_backlight': {
         'ordinal': 22,
-        'type': ash.cros_healthd.mojom.KeyboardBacklightRoutineArgumentSpec,
+        'type': ash.cros_healthd.mojom.KeyboardBacklightRoutineArgumentSpec.$,
         'nullable': false,
       },
     });
@@ -381,22 +381,22 @@ mojo.internal.Union(
       },
       'initialized': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.RoutineStateInitializedSpec,
+        'type': ash.cros_healthd.mojom.RoutineStateInitializedSpec.$,
         'nullable': false,
       },
       'running': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.RoutineStateRunningSpec,
+        'type': ash.cros_healthd.mojom.RoutineStateRunningSpec.$,
         'nullable': false,
       },
       'waiting': {
         'ordinal': 3,
-        'type': ash.cros_healthd.mojom.RoutineStateWaitingSpec,
+        'type': ash.cros_healthd.mojom.RoutineStateWaitingSpec.$,
         'nullable': false,
       },
       'finished': {
         'ordinal': 4,
-        'type': ash.cros_healthd.mojom.RoutineStateFinishedSpec,
+        'type': ash.cros_healthd.mojom.RoutineStateFinishedSpec.$,
         'nullable': false,
       },
     });
@@ -411,7 +411,7 @@ mojo.internal.Union(
       },
       'network_bandwidth': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfoSpec,
+        'type': ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfoSpec.$,
         'nullable': false,
       },
     });
@@ -426,7 +426,7 @@ mojo.internal.Union(
       },
       'inquiry': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.RoutineInquirySpec,
+        'type': ash.cros_healthd.mojom.RoutineInquirySpec.$,
         'nullable': false,
       },
     });
@@ -441,17 +441,17 @@ mojo.internal.Union(
       },
       'check_led_lit_up_state': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.CheckLedLitUpStateInquirySpec,
+        'type': ash.cros_healthd.mojom.CheckLedLitUpStateInquirySpec.$,
         'nullable': false,
       },
       'unplug_ac_adapter_inquiry': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.UnplugAcAdapterInquirySpec,
+        'type': ash.cros_healthd.mojom.UnplugAcAdapterInquirySpec.$,
         'nullable': false,
       },
       'check_keyboard_backlight_state': {
         'ordinal': 3,
-        'type': ash.cros_healthd.mojom.CheckKeyboardBacklightStateInquirySpec,
+        'type': ash.cros_healthd.mojom.CheckKeyboardBacklightStateInquirySpec.$,
         'nullable': false,
       },
     });
@@ -466,17 +466,17 @@ mojo.internal.Union(
       },
       'check_led_lit_up_state': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.CheckLedLitUpStateReplySpec,
+        'type': ash.cros_healthd.mojom.CheckLedLitUpStateReplySpec.$,
         'nullable': false,
       },
       'unplug_ac_adapter': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.UnplugAcAdapterReplySpec,
+        'type': ash.cros_healthd.mojom.UnplugAcAdapterReplySpec.$,
         'nullable': false,
       },
       'check_keyboard_backlight_state': {
         'ordinal': 3,
-        'type': ash.cros_healthd.mojom.CheckKeyboardBacklightStateReplySpec,
+        'type': ash.cros_healthd.mojom.CheckKeyboardBacklightStateReplySpec.$,
         'nullable': false,
       },
     });
@@ -491,67 +491,67 @@ mojo.internal.Union(
       },
       'memory': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.MemoryRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.MemoryRoutineDetailSpec.$,
         'nullable': false,
       },
       'fan': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.FanRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.FanRoutineDetailSpec.$,
         'nullable': false,
       },
       'audio_driver': {
         'ordinal': 3,
-        'type': ash.cros_healthd.mojom.AudioDriverRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.AudioDriverRoutineDetailSpec.$,
         'nullable': false,
       },
       'ufs_lifetime': {
         'ordinal': 4,
-        'type': ash.cros_healthd.mojom.UfsLifetimeRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.UfsLifetimeRoutineDetailSpec.$,
         'nullable': false,
       },
       'bluetooth_power': {
         'ordinal': 5,
-        'type': ash.cros_healthd.mojom.BluetoothPowerRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.BluetoothPowerRoutineDetailSpec.$,
         'nullable': false,
       },
       'bluetooth_discovery': {
         'ordinal': 6,
-        'type': ash.cros_healthd.mojom.BluetoothDiscoveryRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.BluetoothDiscoveryRoutineDetailSpec.$,
         'nullable': false,
       },
       'bluetooth_scanning': {
         'ordinal': 7,
-        'type': ash.cros_healthd.mojom.BluetoothScanningRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.BluetoothScanningRoutineDetailSpec.$,
         'nullable': false,
       },
       'bluetooth_pairing': {
         'ordinal': 8,
-        'type': ash.cros_healthd.mojom.BluetoothPairingRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.BluetoothPairingRoutineDetailSpec.$,
         'nullable': false,
       },
       'camera_availability': {
         'ordinal': 9,
-        'type': ash.cros_healthd.mojom.CameraAvailabilityRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.CameraAvailabilityRoutineDetailSpec.$,
         'nullable': false,
       },
       'network_bandwidth': {
         'ordinal': 10,
-        'type': ash.cros_healthd.mojom.NetworkBandwidthRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.NetworkBandwidthRoutineDetailSpec.$,
         'nullable': false,
       },
       'sensitive_sensor': {
         'ordinal': 11,
-        'type': ash.cros_healthd.mojom.SensitiveSensorRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.SensitiveSensorRoutineDetailSpec.$,
         'nullable': false,
       },
       'camera_frame_analysis': {
         'ordinal': 12,
-        'type': ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetailSpec.$,
         'nullable': false,
       },
       'battery_discharge': {
         'ordinal': 13,
-        'type': ash.cros_healthd.mojom.BatteryDischargeRoutineDetailSpec,
+        'type': ash.cros_healthd.mojom.BatteryDischargeRoutineDetailSpec.$,
         'nullable': false,
       },
     });
@@ -573,7 +573,7 @@ mojo.internal.Struct(
 // Struct: CpuStressRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CpuStressRoutineArgumentSpec, 'ash.cros_healthd.mojom.CpuStressRoutineArgument', [
-      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -586,8 +586,8 @@ mojo.internal.Struct(
 // Struct: DiskReadRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.DiskReadRoutineArgumentSpec, 'ash.cros_healthd.mojom.DiskReadRoutineArgument', [
-      mojo.internal.StructField('type', 0, 0, ash.cros_healthd.mojom.DiskReadTypeEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('disk_read_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.cros_healthd.mojom.DiskReadTypeEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('disk_read_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('file_size_mib', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -595,14 +595,14 @@ mojo.internal.Struct(
 // Struct: CpuCacheRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CpuCacheRoutineArgumentSpec, 'ash.cros_healthd.mojom.CpuCacheRoutineArgument', [
-      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PrimeSearchRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.PrimeSearchRoutineArgumentSpec, 'ash.cros_healthd.mojom.PrimeSearchRoutineArgument', [
-      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -616,10 +616,10 @@ mojo.internal.Struct(
 // Struct: LedLitUpRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.LedLitUpRoutineArgumentSpec, 'ash.cros_healthd.mojom.LedLitUpRoutineArgument', [
-      mojo.internal.StructField('name', 0, 0, ash.cros_healthd.mojom.LedNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('color', 4, 0, ash.cros_healthd.mojom.LedColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, ash.cros_healthd.mojom.LedNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('color', 8, 0, ash.cros_healthd.mojom.LedColorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: KeyboardBacklightRoutineArgument
 mojo.internal.Struct(
@@ -630,7 +630,7 @@ mojo.internal.Struct(
 // Struct: FloatingPointRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.FloatingPointRoutineArgumentSpec, 'ash.cros_healthd.mojom.FloatingPointRoutineArgument', [
-      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -655,7 +655,7 @@ mojo.internal.Struct(
 // Struct: BluetoothScanningRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BluetoothScanningRoutineArgumentSpec, 'ash.cros_healthd.mojom.BluetoothScanningRoutineArgument', [
-      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -677,7 +677,7 @@ mojo.internal.Struct(
 // Struct: UrandomRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.UrandomRoutineArgumentSpec, 'ash.cros_healthd.mojom.UrandomRoutineArgument', [
-      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -702,7 +702,7 @@ mojo.internal.Struct(
 // Struct: BatteryDischargeRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BatteryDischargeRoutineArgumentSpec, 'ash.cros_healthd.mojom.BatteryDischargeRoutineArgument', [
-      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('exec_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('maximum_discharge_percent_allowed', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -711,9 +711,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineStateSpec, 'ash.cros_healthd.mojom.RoutineState', [
       mojo.internal.StructField('percentage', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('state_union', 8, 0, ash.cros_healthd.mojom.RoutineStateUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_union', 8, 0, ash.cros_healthd.mojom.RoutineStateUnionSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: RoutineStateInitialized
 mojo.internal.Struct(
@@ -724,9 +724,9 @@ mojo.internal.Struct(
 // Struct: RoutineStateRunning
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineStateRunningSpec, 'ash.cros_healthd.mojom.RoutineStateRunning', [
-      mojo.internal.StructField('info', 0, 0, ash.cros_healthd.mojom.RoutineRunningInfoSpec, null, true, 1, undefined),
+      mojo.internal.StructField('info', 0, 0, ash.cros_healthd.mojom.RoutineRunningInfoSpec.$, null, true, 1, undefined),
     ],
-    [[0, 8], [1, 24]]);
+    [[0, 8], [1, 16]]);
 
 // Struct: NetworkBandwidthRoutineRunningInfo
 mojo.internal.Struct(
@@ -784,15 +784,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineStateFinishedSpec, 'ash.cros_healthd.mojom.RoutineStateFinished', [
       mojo.internal.StructField('has_passed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('detail', 8, 0, ash.cros_healthd.mojom.RoutineDetailSpec, null, true, 0, undefined),
+      mojo.internal.StructField('detail', 8, 0, ash.cros_healthd.mojom.RoutineDetailSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: MemoryRoutineDetail
 mojo.internal.Struct(
     ash.cros_healthd.mojom.MemoryRoutineDetailSpec, 'ash.cros_healthd.mojom.MemoryRoutineDetail', [
       mojo.internal.StructField('bytes_tested', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, ash.cros_healthd.mojom.MemtesterResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, ash.cros_healthd.mojom.MemtesterResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -816,8 +816,8 @@ mojo.internal.Struct(
 // Struct: MemtesterResult
 mojo.internal.Struct(
     ash.cros_healthd.mojom.MemtesterResultSpec, 'ash.cros_healthd.mojom.MemtesterResult', [
-      mojo.internal.StructField('passed_items', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.MemtesterTestItemEnumSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('failed_items', 8, 0, mojo.internal.Array(ash.cros_healthd.mojom.MemtesterTestItemEnumSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('passed_items', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.MemtesterTestItemEnumSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('failed_items', 8, 0, mojo.internal.Array(ash.cros_healthd.mojom.MemtesterTestItemEnumSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -832,8 +832,8 @@ mojo.internal.Struct(
 // Struct: BluetoothPowerRoutineDetail
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BluetoothPowerRoutineDetailSpec, 'ash.cros_healthd.mojom.BluetoothPowerRoutineDetail', [
-      mojo.internal.StructField('power_off_result', 0, 0, ash.cros_healthd.mojom.BluetoothPoweredDetailSpec, null, true, 0, undefined),
-      mojo.internal.StructField('power_on_result', 8, 0, ash.cros_healthd.mojom.BluetoothPoweredDetailSpec, null, true, 0, undefined),
+      mojo.internal.StructField('power_off_result', 0, 0, ash.cros_healthd.mojom.BluetoothPoweredDetailSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('power_on_result', 8, 0, ash.cros_healthd.mojom.BluetoothPoweredDetailSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -848,8 +848,8 @@ mojo.internal.Struct(
 // Struct: BluetoothDiscoveryRoutineDetail
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BluetoothDiscoveryRoutineDetailSpec, 'ash.cros_healthd.mojom.BluetoothDiscoveryRoutineDetail', [
-      mojo.internal.StructField('start_discovery_result', 0, 0, ash.cros_healthd.mojom.BluetoothDiscoveringDetailSpec, null, true, 0, undefined),
-      mojo.internal.StructField('stop_discovery_result', 8, 0, ash.cros_healthd.mojom.BluetoothDiscoveringDetailSpec, null, true, 0, undefined),
+      mojo.internal.StructField('start_discovery_result', 0, 0, ash.cros_healthd.mojom.BluetoothDiscoveringDetailSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('stop_discovery_result', 8, 0, ash.cros_healthd.mojom.BluetoothDiscoveringDetailSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -859,14 +859,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('rssi_history', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('peripheral_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('uuids', 24, 0, mojo.internal.Array(mojo_base.mojom.UuidSpec, false), null, true, 1, undefined),
+      mojo.internal.StructField('uuids', 24, 0, mojo.internal.Array(mojo_base.mojom.UuidSpec.$, false), null, true, 1, undefined),
     ],
     [[0, 32], [1, 40]]);
 
 // Struct: BluetoothScanningRoutineDetail
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BluetoothScanningRoutineDetailSpec, 'ash.cros_healthd.mojom.BluetoothScanningRoutineDetail', [
-      mojo.internal.StructField('peripherals', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.BluetoothScannedPeripheralInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('peripherals', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.BluetoothScannedPeripheralInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -880,17 +880,17 @@ mojo.internal.Struct(
 // Struct: BluetoothPairingRoutineDetail
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BluetoothPairingRoutineDetailSpec, 'ash.cros_healthd.mojom.BluetoothPairingRoutineDetail', [
-      mojo.internal.StructField('pairing_peripheral', 0, 0, ash.cros_healthd.mojom.BluetoothPairingPeripheralInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pairing_peripheral', 0, 0, ash.cros_healthd.mojom.BluetoothPairingPeripheralInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: CameraAvailabilityRoutineDetail
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CameraAvailabilityRoutineDetailSpec, 'ash.cros_healthd.mojom.CameraAvailabilityRoutineDetail', [
-      mojo.internal.StructField('camera_service_available_check', 0, 0, ash.cros_healthd.mojom.CameraSubtestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('camera_diagnostic_service_available_check', 4, 0, ash.cros_healthd.mojom.CameraSubtestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('camera_service_available_check', 0, 0, ash.cros_healthd.mojom.CameraSubtestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('camera_diagnostic_service_available_check', 8, 0, ash.cros_healthd.mojom.CameraSubtestResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: BatteryDischargeRoutineDetail
 mojo.internal.Struct(
@@ -904,7 +904,7 @@ mojo.internal.Struct(
     ash.cros_healthd.mojom.FanRoutineDetailSpec, 'ash.cros_healthd.mojom.FanRoutineDetail', [
       mojo.internal.StructField('passed_fan_ids', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('failed_fan_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('fan_count_status', 16, 0, ash.cros_healthd.mojom.HardwarePresenceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fan_count_status', 16, 0, ash.cros_healthd.mojom.HardwarePresenceStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -927,23 +927,23 @@ mojo.internal.Struct(
 // Struct: SensitiveSensorReport
 mojo.internal.Struct(
     ash.cros_healthd.mojom.SensitiveSensorReportSpec, 'ash.cros_healthd.mojom.SensitiveSensorReport', [
-      mojo.internal.StructField('passed_sensors', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.SensitiveSensorInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('failed_sensors', 8, 0, mojo.internal.Array(ash.cros_healthd.mojom.SensitiveSensorInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('sensor_presence_status', 16, 0, ash.cros_healthd.mojom.HardwarePresenceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passed_sensors', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.SensitiveSensorInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('failed_sensors', 8, 0, mojo.internal.Array(ash.cros_healthd.mojom.SensitiveSensorInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('sensor_presence_status', 16, 0, ash.cros_healthd.mojom.HardwarePresenceStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SensitiveSensorRoutineDetail
 mojo.internal.Struct(
     ash.cros_healthd.mojom.SensitiveSensorRoutineDetailSpec, 'ash.cros_healthd.mojom.SensitiveSensorRoutineDetail', [
-      mojo.internal.StructField('base_accelerometer', 0, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('lid_accelerometer', 8, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('base_gyroscope', 16, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('lid_gyroscope', 24, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('base_magnetometer', 32, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('lid_magnetometer', 40, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('base_gravity_sensor', 48, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('lid_gravity_sensor', 56, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('base_accelerometer', 0, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('lid_accelerometer', 8, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('base_gyroscope', 16, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('lid_gyroscope', 24, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('base_magnetometer', 32, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('lid_magnetometer', 40, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('base_gravity_sensor', 48, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('lid_gravity_sensor', 56, 0, ash.cros_healthd.mojom.SensitiveSensorReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -957,23 +957,23 @@ mojo.internal.Struct(
 // Interface: CrosHealthdRoutinesService
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_Params', [
-      mojo.internal.StructField('routine_argument', 0, 0, ash.cros_healthd.mojom.RoutineArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('routine_receiver', 16, 0, mojo.internal.InterfaceRequest(ash.cros_healthd.mojom.RoutineControlRemote), null, false, 0, undefined),
-      mojo.internal.StructField('routine_observer', 24, 0, mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.RoutineObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('routine_argument', 0, 0, ash.cros_healthd.mojom.RoutineArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('routine_receiver', 8, 0, mojo.internal.InterfaceRequest(ash.cros_healthd.mojom.RoutineControlRemote), null, false, 0, undefined),
+      mojo.internal.StructField('routine_observer', 16, 0, mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.RoutineObserverRemote), null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_Params', [
-      mojo.internal.StructField('routine_argument', 0, 0, ash.cros_healthd.mojom.RoutineArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('routine_argument', 0, 0, ash.cros_healthd.mojom.RoutineArgumentSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, ash.cros_healthd.mojom.SupportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.cros_healthd.mojom.SupportStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver = class {
   constructor(handle) {
@@ -1031,9 +1031,8 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.CrosHealthdRoutinesService.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cros_healthd.mojom.CrosHealthdRoutinesService',
     'context');
   return remote.$;
@@ -1051,7 +1050,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec, 'ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParams', [
-      mojo.internal.StructField('state', 0, 0, ash.cros_healthd.mojom.RoutineStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.cros_healthd.mojom.RoutineStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1062,9 +1061,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec, 'ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_Params', [
-      mojo.internal.StructField('reply', 0, 0, ash.cros_healthd.mojom.RoutineInquiryReplySpec, null, false, 0, undefined),
+      mojo.internal.StructField('reply', 0, 0, ash.cros_healthd.mojom.RoutineInquiryReplySpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 ash.cros_healthd.mojom.RoutineControlPendingReceiver = class {
   constructor(handle) {
@@ -1132,9 +1131,8 @@ ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.RoutineControl.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.RoutineControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cros_healthd.mojom.RoutineControl',
     'context');
   return remote.$;
@@ -1147,7 +1145,7 @@ ash.cros_healthd.mojom.RoutineControlRequest = ash.cros_healthd.mojom.RoutineCon
 // Interface: RoutineObserver
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec, 'ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_Params', [
-      mojo.internal.StructField('state', 0, 0, ash.cros_healthd.mojom.RoutineStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.cros_healthd.mojom.RoutineStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1197,9 +1195,8 @@ ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler = class {
 
 ash.cros_healthd.mojom.RoutineObserver.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.RoutineObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cros_healthd.mojom.RoutineObserver',
     'context');
   return remote.$;

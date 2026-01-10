@@ -43,7 +43,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('renderer_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('titles', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('private_memory_footprint_kb', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('extension_info', 72, 0, mojo.internal.Array(chromeos.cfm.mojom.ExtensionDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('extension_info', 72, 0, mojo.internal.Array(chromeos.cfm.mojom.ExtensionDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -52,7 +52,7 @@ mojo.internal.Struct(
     chromeos.cfm.mojom.ProcessDataSpec, 'chromeos.cfm.mojom.ProcessData', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('process_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('processes', 16, 0, mojo.internal.Array(chromeos.cfm.mojom.ProcessMemoryInformationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('processes', 16, 0, mojo.internal.Array(chromeos.cfm.mojom.ProcessMemoryInformationSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -78,7 +78,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParams', [
-      mojo.internal.StructField('process_data', 0, 0, mojo.internal.Array(chromeos.cfm.mojom.ProcessDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('process_data', 0, 0, mojo.internal.Array(chromeos.cfm.mojom.ProcessDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('gpu_memory_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -139,9 +139,8 @@ chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
 
 chromeos.cfm.mojom.CfmBrowser.getRemote = function() {
   let remote = new chromeos.cfm.mojom.CfmBrowserRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.cfm.mojom.CfmBrowser',
     'context');
   return remote.$;

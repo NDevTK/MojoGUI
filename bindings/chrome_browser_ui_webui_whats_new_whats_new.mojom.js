@@ -120,9 +120,8 @@ whats_new.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 whats_new.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new whats_new.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'whats_new.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -141,13 +140,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec, 'whats_new.mojom.PageHandler_GetServerUrl_ResponseParams', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec, 'whats_new.mojom.PageHandler_RecordTimeToLoadContent_Params', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -167,7 +166,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleImpression_Params', [
       mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -179,55 +178,55 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec, 'whats_new.mojom.PageHandler_RecordScrollDepth_Params', [
-      mojo.internal.StructField('depth', 0, 0, whats_new.mojom.ScrollDepthSpec, null, false, 0, undefined),
+      mojo.internal.StructField('depth', 0, 0, whats_new.mojom.ScrollDepthSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec, 'whats_new.mojom.PageHandler_RecordTimeOnPage_Params', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleLinkClicked_Params', [
       mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleVideoStarted_Params', [
       mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleVideoEnded_Params', [
       mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModulePlayClicked_Params', [
       mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModulePauseClicked_Params', [
       mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleRestartClicked_Params', [
       mojo.internal.StructField('module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -530,9 +529,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
 
 whats_new.mojom.PageHandler.getRemote = function() {
   let remote = new whats_new.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'whats_new.mojom.PageHandler',
     'context');
   return remote.$;
@@ -579,9 +577,8 @@ whats_new.mojom.PageRemoteCallHandler = class {
 
 whats_new.mojom.Page.getRemote = function() {
   let remote = new whats_new.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'whats_new.mojom.Page',
     'context');
   return remote.$;

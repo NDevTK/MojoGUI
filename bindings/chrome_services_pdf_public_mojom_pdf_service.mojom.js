@@ -26,13 +26,13 @@ pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = { $: {} };
 // Interface: Ocr
 mojo.internal.Struct(
     pdf.mojom.Ocr_PerformOcr_ParamsSpec, 'pdf.mojom.Ocr_PerformOcr_Params', [
-      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec, 'pdf.mojom.Ocr_PerformOcr_ResponseParams', [
-      mojo.internal.StructField('visual_annotation', 0, 0, screen_ai.mojom.VisualAnnotationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visual_annotation', 0, 0, screen_ai.mojom.VisualAnnotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -82,9 +82,8 @@ pdf.mojom.OcrRemoteCallHandler = class {
 
 pdf.mojom.Ocr.getRemote = function() {
   let remote = new pdf.mojom.OcrRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'pdf.mojom.Ocr',
     'context');
   return remote.$;
@@ -181,9 +180,8 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
 
 pdf.mojom.PdfService.getRemote = function() {
   let remote = new pdf.mojom.PdfServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'pdf.mojom.PdfService',
     'context');
   return remote.$;

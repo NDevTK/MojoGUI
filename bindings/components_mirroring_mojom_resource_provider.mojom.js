@@ -27,7 +27,7 @@ mojo.internal.Struct(
     mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec, 'mirroring.mojom.AudioStreamCreatorClient_StreamCreated_Params', [
       mojo.internal.StructField('stream', 0, 0, mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
       mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('data_pipe', 16, 0, media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_pipe', 16, 0, media.mojom.ReadWriteAudioDataPipeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -77,9 +77,8 @@ mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
 
 mirroring.mojom.AudioStreamCreatorClient.getRemote = function() {
   let remote = new mirroring.mojom.AudioStreamCreatorClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mirroring.mojom.AudioStreamCreatorClient',
     'context');
   return remote.$;
@@ -117,7 +116,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec, 'mirroring.mojom.ResourceProvider_CreateAudioStream_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(mirroring.mojom.AudioStreamCreatorClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('param', 8, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('param', 8, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('shared_memory_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -225,9 +224,8 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
 
 mirroring.mojom.ResourceProvider.getRemote = function() {
   let remote = new mirroring.mojom.ResourceProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mirroring.mojom.ResourceProvider',
     'context');
   return remote.$;

@@ -129,9 +129,8 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
 
 blink.mojom.NonPersistentNotificationListener.getRemote = function() {
   let remote = new blink.mojom.NonPersistentNotificationListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.NonPersistentNotificationListener',
     'context');
   return remote.$;
@@ -149,15 +148,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec, 'blink.mojom.NotificationService_GetPermissionStatus_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec, 'blink.mojom.NotificationService_DisplayNonPersistentNotification_Params', [
       mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('notification_resources', 16, 0, blink.mojom.NotificationResourcesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('notification_resources', 16, 0, blink.mojom.NotificationResourcesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('event_listener', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.NonPersistentNotificationListenerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -171,14 +170,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec, 'blink.mojom.NotificationService_DisplayPersistentNotification_Params', [
       mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('notification_resources', 16, 0, blink.mojom.NotificationResourcesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('notification_resources', 16, 0, blink.mojom.NotificationResourcesSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec, 'blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.PersistentNotificationErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.PersistentNotificationErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -199,7 +198,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec, 'blink.mojom.NotificationService_GetNotifications_ResponseParams', [
       mojo.internal.StructField('notification_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('notification_datas', 8, 0, mojo.internal.Array(blink.mojom.NotificationDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('notification_datas', 8, 0, mojo.internal.Array(blink.mojom.NotificationDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -299,9 +298,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
 
 blink.mojom.NotificationService.getRemote = function() {
   let remote = new blink.mojom.NotificationServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.NotificationService',
     'context');
   return remote.$;

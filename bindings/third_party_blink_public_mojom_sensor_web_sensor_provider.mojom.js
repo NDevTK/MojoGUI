@@ -18,14 +18,14 @@ blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = { $: {} };
 // Interface: WebSensorProvider
 mojo.internal.Struct(
     blink.mojom.WebSensorProvider_GetSensor_ParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_Params', [
-      mojo.internal.StructField('type', 0, 0, device.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.SensorTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('init_params', 8, 0, device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, device.mojom.SensorCreationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('init_params', 8, 0, device.mojom.SensorInitParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -75,9 +75,8 @@ blink.mojom.WebSensorProviderRemoteCallHandler = class {
 
 blink.mojom.WebSensorProvider.getRemote = function() {
   let remote = new blink.mojom.WebSensorProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WebSensorProvider',
     'context');
   return remote.$;

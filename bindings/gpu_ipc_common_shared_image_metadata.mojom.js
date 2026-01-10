@@ -20,11 +20,11 @@ gpu.mojom.SharedImageMetadataSpec = { $: {} };
 // Struct: SharedImageMetadata
 mojo.internal.Struct(
     gpu.mojom.SharedImageMetadataSpec, 'gpu.mojom.SharedImageMetadata', [
-      mojo.internal.StructField('format', 0, 0, viz.mojom.SharedImageFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('color_space', 24, 0, gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('surface_origin', 32, 0, skia.mojom.SurfaceOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha_type', 36, 0, skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('format', 0, 0, viz.mojom.SharedImageFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('color_space', 16, 0, gfx.mojom.ColorSpaceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('surface_origin', 24, 0, skia.mojom.SurfaceOriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('alpha_type', 32, 0, skia.mojom.AlphaTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('usage', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);

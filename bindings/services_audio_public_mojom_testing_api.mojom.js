@@ -64,9 +64,8 @@ audio.mojom.TestingApiRemoteCallHandler = class {
 
 audio.mojom.TestingApi.getRemote = function() {
   let remote = new audio.mojom.TestingApiRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'audio.mojom.TestingApi',
     'context');
   return remote.$;

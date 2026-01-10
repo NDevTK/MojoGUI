@@ -109,34 +109,34 @@ dlp_internals.mojom.UserType = {
 // Struct: DataTransferEndpoint
 mojo.internal.Struct(
     dlp_internals.mojom.DataTransferEndpointSpec, 'dlp_internals.mojom.DataTransferEndpoint', [
-      mojo.internal.StructField('type', 0, 0, dlp_internals.mojom.EndpointTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, dlp_internals.mojom.EndpointTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ContentRestrictionInfo
 mojo.internal.Struct(
     dlp_internals.mojom.ContentRestrictionInfoSpec, 'dlp_internals.mojom.ContentRestrictionInfo', [
-      mojo.internal.StructField('restriction', 0, 0, dlp_internals.mojom.ContentRestrictionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('level', 4, 0, dlp_internals.mojom.LevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('restriction', 0, 0, dlp_internals.mojom.ContentRestrictionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('level', 8, 0, dlp_internals.mojom.LevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: RenderFrameHostInfo
 mojo.internal.Struct(
     dlp_internals.mojom.RenderFrameHostInfoSpec, 'dlp_internals.mojom.RenderFrameHostInfo', [
-      mojo.internal.StructField('last_committed_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('restrictions_info', 8, 0, mojo.internal.Array(dlp_internals.mojom.ContentRestrictionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('last_committed_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('restrictions_info', 8, 0, mojo.internal.Array(dlp_internals.mojom.ContentRestrictionInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: WebContentsInfo
 mojo.internal.Struct(
     dlp_internals.mojom.WebContentsInfoSpec, 'dlp_internals.mojom.WebContentsInfo', [
-      mojo.internal.StructField('last_committed_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('restrictions_info', 8, 0, mojo.internal.Array(dlp_internals.mojom.ContentRestrictionInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('frames_info', 16, 0, mojo.internal.Array(dlp_internals.mojom.RenderFrameHostInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('last_committed_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('restrictions_info', 8, 0, mojo.internal.Array(dlp_internals.mojom.ContentRestrictionInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('frames_info', 16, 0, mojo.internal.Array(dlp_internals.mojom.RenderFrameHostInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -169,7 +169,7 @@ mojo.internal.Struct(
 // Interface: ReportingObserver
 mojo.internal.Struct(
     dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec, 'dlp_internals.mojom.ReportingObserver_OnReportEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, dlp_internals.mojom.DlpEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, dlp_internals.mojom.DlpEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -219,9 +219,8 @@ dlp_internals.mojom.ReportingObserverRemoteCallHandler = class {
 
 dlp_internals.mojom.ReportingObserver.getRemote = function() {
   let remote = new dlp_internals.mojom.ReportingObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'dlp_internals.mojom.ReportingObserver',
     'context');
   return remote.$;
@@ -239,7 +238,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParams', [
-      mojo.internal.StructField('source', 0, 0, dlp_internals.mojom.DataTransferEndpointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, dlp_internals.mojom.DataTransferEndpointSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -250,7 +249,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParams', [
-      mojo.internal.StructField('web_contents_info', 0, 0, mojo.internal.Array(dlp_internals.mojom.WebContentsInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('web_contents_info', 0, 0, mojo.internal.Array(dlp_internals.mojom.WebContentsInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -267,7 +266,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParams', [
-      mojo.internal.StructField('db_entries', 0, 0, mojo.internal.Array(dlp_internals.mojom.FileDatabaseEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('db_entries', 0, 0, mojo.internal.Array(dlp_internals.mojom.FileDatabaseEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -369,9 +368,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 dlp_internals.mojom.PageHandler.getRemote = function() {
   let remote = new dlp_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'dlp_internals.mojom.PageHandler',
     'context');
   return remote.$;

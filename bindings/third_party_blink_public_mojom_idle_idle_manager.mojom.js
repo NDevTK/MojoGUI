@@ -29,7 +29,7 @@ blink.mojom.IdleManagerError = {
 // Struct: IdleState
 mojo.internal.Struct(
     blink.mojom.IdleStateSpec, 'blink.mojom.IdleState', [
-      mojo.internal.StructField('idle_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('idle_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('screen_locked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -37,7 +37,7 @@ mojo.internal.Struct(
 // Interface: IdleMonitor
 mojo.internal.Struct(
     blink.mojom.IdleMonitor_Update_ParamsSpec, 'blink.mojom.IdleMonitor_Update_Params', [
-      mojo.internal.StructField('state', 0, 0, blink.mojom.IdleStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, blink.mojom.IdleStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_overridden_by_devtools', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -88,9 +88,8 @@ blink.mojom.IdleMonitorRemoteCallHandler = class {
 
 blink.mojom.IdleMonitor.getRemote = function() {
   let remote = new blink.mojom.IdleMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.IdleMonitor',
     'context');
   return remote.$;
@@ -109,8 +108,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec, 'blink.mojom.IdleManager_AddMonitor_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.IdleManagerErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('state', 8, 0, blink.mojom.IdleStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.IdleManagerErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, blink.mojom.IdleStateSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -160,9 +159,8 @@ blink.mojom.IdleManagerRemoteCallHandler = class {
 
 blink.mojom.IdleManager.getRemote = function() {
   let remote = new blink.mojom.IdleManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.IdleManager',
     'context');
   return remote.$;

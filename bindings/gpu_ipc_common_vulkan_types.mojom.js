@@ -176,11 +176,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('driverVersion', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('vendorID', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('deviceID', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('deviceType', 16, 0, gpu.mojom.VkPhysicalDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('deviceType', 16, 0, gpu.mojom.VkPhysicalDeviceTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('deviceName', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('pipelineCacheUUID', 32, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('limits', 40, 0, gpu.mojom.VkPhysicalDeviceLimitsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sparseProperties', 48, 0, gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('limits', 40, 0, gpu.mojom.VkPhysicalDeviceLimitsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sparseProperties', 48, 0, gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -260,6 +260,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('queueFlags', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('queueCount', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('timestampValidBits', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('minImageTransferGranularity', 16, 0, gpu.mojom.VkExtent3DSpec, null, false, 0, undefined),
+      mojo.internal.StructField('minImageTransferGranularity', 16, 0, gpu.mojom.VkExtent3DSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

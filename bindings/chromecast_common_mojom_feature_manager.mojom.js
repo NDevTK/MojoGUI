@@ -18,14 +18,14 @@ chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     chromecast.shell.mojom.FeatureSpec, 'chromecast.shell.mojom.Feature', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('config', 8, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 8, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: FeatureManager
 mojo.internal.Struct(
     chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec, 'chromecast.shell.mojom.FeatureManager_ConfigureFeatures_Params', [
-      mojo.internal.StructField('features', 0, 0, mojo.internal.Array(chromecast.shell.mojom.FeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('features', 0, 0, mojo.internal.Array(chromecast.shell.mojom.FeatureSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -75,9 +75,8 @@ chromecast.shell.mojom.FeatureManagerRemoteCallHandler = class {
 
 chromecast.shell.mojom.FeatureManager.getRemote = function() {
   let remote = new chromecast.shell.mojom.FeatureManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.shell.mojom.FeatureManager',
     'context');
   return remote.$;

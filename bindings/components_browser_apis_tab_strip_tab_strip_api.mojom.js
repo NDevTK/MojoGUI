@@ -32,27 +32,27 @@ mojo.internal.Union(
     tabs_api.mojom.TabsEventSpec, 'tabs_api.mojom.TabsEvent', {
       'tabs_created_event': {
         'ordinal': 0,
-        'type': tabs_api.mojom.OnTabsCreatedEventSpec,
+        'type': tabs_api.mojom.OnTabsCreatedEventSpec.$,
         'nullable': false,
       },
       'tabs_closed_event': {
         'ordinal': 1,
-        'type': tabs_api.mojom.OnTabsClosedEventSpec,
+        'type': tabs_api.mojom.OnTabsClosedEventSpec.$,
         'nullable': false,
       },
       'node_moved_event': {
         'ordinal': 2,
-        'type': tabs_api.mojom.OnNodeMovedEventSpec,
+        'type': tabs_api.mojom.OnNodeMovedEventSpec.$,
         'nullable': false,
       },
       'data_changed_event': {
         'ordinal': 3,
-        'type': tabs_api.mojom.OnDataChangedEventSpec,
+        'type': tabs_api.mojom.OnDataChangedEventSpec.$,
         'nullable': false,
       },
       'collection_created_event': {
         'ordinal': 4,
-        'type': tabs_api.mojom.OnCollectionCreatedEventSpec,
+        'type': tabs_api.mojom.OnCollectionCreatedEventSpec.$,
         'nullable': false,
       },
     });
@@ -60,7 +60,7 @@ mojo.internal.Union(
 // Struct: TabsSnapshot
 mojo.internal.Struct(
     tabs_api.mojom.TabsSnapshotSpec, 'tabs_api.mojom.TabsSnapshot', [
-      mojo.internal.StructField('tab_strip', 0, 0, tabs_api.mojom.ContainerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_strip', 0, 0, tabs_api.mojom.ContainerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('stream', 8, 0, mojo.internal.AssociatedInterfaceRequest(tabs_api.mojom.TabsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -73,40 +73,40 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tabs_api.mojom.TabStripService_GetTab_ParamsSpec, 'tabs_api.mojom.TabStripService_GetTab_Params', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec, 'tabs_api.mojom.TabStripService_CreateTabAt_Params', [
-      mojo.internal.StructField('pos', 0, 0, tabs_api.mojom.PositionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pos', 0, 0, tabs_api.mojom.PositionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_CloseTabs_Params', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Array(tabs_api.mojom.NodeIdSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec, 'tabs_api.mojom.TabStripService_ActivateTab_Params', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_SetSelectedTabs_Params', [
-      mojo.internal.StructField('selection', 0, 0, mojo.internal.Array(tabs_api.mojom.NodeIdSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('tab_to_activate', 8, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection', 0, 0, mojo.internal.Array(tabs_api.mojom.NodeIdSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('tab_to_activate', 8, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     tabs_api.mojom.TabStripService_MoveNode_ParamsSpec, 'tabs_api.mojom.TabStripService_MoveNode_Params', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, tabs_api.mojom.PositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, tabs_api.mojom.PositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -216,9 +216,8 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
 
 tabs_api.mojom.TabStripService.getRemote = function() {
   let remote = new tabs_api.mojom.TabStripServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tabs_api.mojom.TabStripService',
     'context');
   return remote.$;
@@ -231,7 +230,7 @@ tabs_api.mojom.TabStripServiceRequest = tabs_api.mojom.TabStripServicePendingRec
 // Interface: TabsObserver
 mojo.internal.Struct(
     tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec, 'tabs_api.mojom.TabsObserver_OnTabEvents_Params', [
-      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(tabs_api.mojom.TabsEventSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(tabs_api.mojom.TabsEventSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -281,9 +280,8 @@ tabs_api.mojom.TabsObserverRemoteCallHandler = class {
 
 tabs_api.mojom.TabsObserver.getRemote = function() {
   let remote = new tabs_api.mojom.TabsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tabs_api.mojom.TabsObserver',
     'context');
   return remote.$;

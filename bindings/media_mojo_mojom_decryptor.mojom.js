@@ -39,27 +39,27 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Decryptor_Decrypt_ParamsSpec, 'media.mojom.Decryptor_Decrypt_Params', [
-      mojo.internal.StructField('stream_type', 0, 0, media.mojom.StreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('encrypted', 8, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 0, 0, media.mojom.StreamTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('encrypted', 8, 0, media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.Decryptor_Decrypt_ResponseParamsSpec, 'media.mojom.Decryptor_Decrypt_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('buffer', 8, 0, media.mojom.DecoderBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, media.mojom.DecoderBufferSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.Decryptor_CancelDecrypt_ParamsSpec, 'media.mojom.Decryptor_CancelDecrypt_Params', [
-      mojo.internal.StructField('stream_type', 0, 0, media.mojom.StreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 0, 0, media.mojom.StreamTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec, 'media.mojom.Decryptor_InitializeAudioDecoder_Params', [
-      mojo.internal.StructField('config', 0, 0, media.mojom.AudioDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, media.mojom.AudioDecoderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -71,7 +71,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec, 'media.mojom.Decryptor_InitializeVideoDecoder_Params', [
-      mojo.internal.StructField('config', 0, 0, media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, media.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -83,40 +83,40 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeAudio_Params', [
-      mojo.internal.StructField('encrypted', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encrypted', 0, 0, media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('audio_buffers', 8, 0, mojo.internal.Array(media.mojom.AudioBufferSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('audio_buffers', 8, 0, mojo.internal.Array(media.mojom.AudioBufferSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_Params', [
-      mojo.internal.StructField('encrypted', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encrypted', 0, 0, media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('video_frame', 8, 0, media.mojom.VideoFrameSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('video_frame', 8, 0, media.mojom.VideoFrameSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('releaser', 16, 0, mojo.internal.InterfaceProxy(media.mojom.FrameResourceReleaserRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     media.mojom.Decryptor_ResetDecoder_ParamsSpec, 'media.mojom.Decryptor_ResetDecoder_Params', [
-      mojo.internal.StructField('stream_type', 0, 0, media.mojom.StreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 0, 0, media.mojom.StreamTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec, 'media.mojom.Decryptor_DeinitializeDecoder_Params', [
-      mojo.internal.StructField('stream_type', 0, 0, media.mojom.StreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 0, 0, media.mojom.StreamTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -246,9 +246,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
 
 media.mojom.Decryptor.getRemote = function() {
   let remote = new media.mojom.DecryptorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.Decryptor',
     'context');
   return remote.$;
@@ -295,9 +294,8 @@ media.mojom.FrameResourceReleaserRemoteCallHandler = class {
 
 media.mojom.FrameResourceReleaser.getRemote = function() {
   let remote = new media.mojom.FrameResourceReleaserRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.FrameResourceReleaser',
     'context');
   return remote.$;

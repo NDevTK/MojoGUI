@@ -41,15 +41,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SubAppsServiceAddResultSpec, 'blink.mojom.SubAppsServiceAddResult', [
       mojo.internal.StructField('manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result_code', 8, 0, blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result_code', 8, 0, blink.mojom.SubAppsServiceResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SubAppsServiceListResult
 mojo.internal.Struct(
     blink.mojom.SubAppsServiceListResultSpec, 'blink.mojom.SubAppsServiceListResult', [
-      mojo.internal.StructField('result_code', 0, 0, blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sub_apps_list', 8, 0, mojo.internal.Array(blink.mojom.SubAppsServiceListResultEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result_code', 0, 0, blink.mojom.SubAppsServiceResultCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sub_apps_list', 8, 0, mojo.internal.Array(blink.mojom.SubAppsServiceListResultEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -65,20 +65,20 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SubAppsServiceRemoveResultSpec, 'blink.mojom.SubAppsServiceRemoveResult', [
       mojo.internal.StructField('manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result_code', 8, 0, blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result_code', 8, 0, blink.mojom.SubAppsServiceResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: SubAppsService
 mojo.internal.Struct(
     blink.mojom.SubAppsService_Add_ParamsSpec, 'blink.mojom.SubAppsService_Add_Params', [
-      mojo.internal.StructField('sub_apps_to_add', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceAddParametersSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sub_apps_to_add', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceAddParametersSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.SubAppsService_Add_ResponseParamsSpec, 'blink.mojom.SubAppsService_Add_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceAddResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceAddResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -89,7 +89,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SubAppsService_List_ResponseParamsSpec, 'blink.mojom.SubAppsService_List_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.SubAppsServiceListResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.SubAppsServiceListResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -101,7 +101,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SubAppsService_Remove_ResponseParamsSpec, 'blink.mojom.SubAppsService_Remove_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceRemoveResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceRemoveResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -171,9 +171,8 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
 
 blink.mojom.SubAppsService.getRemote = function() {
   let remote = new blink.mojom.SubAppsServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SubAppsService',
     'context');
   return remote.$;

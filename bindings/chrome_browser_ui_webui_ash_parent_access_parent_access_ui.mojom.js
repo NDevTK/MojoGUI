@@ -68,12 +68,12 @@ mojo.internal.Union(
     parent_access_ui.mojom.FlowTypeParamsSpec, 'parent_access_ui.mojom.FlowTypeParams', {
       'web_approvals_params': {
         'ordinal': 0,
-        'type': parent_access_ui.mojom.WebApprovalsParamsSpec,
+        'type': parent_access_ui.mojom.WebApprovalsParamsSpec.$,
         'nullable': false,
       },
       'extension_approvals_params': {
         'ordinal': 1,
-        'type': parent_access_ui.mojom.ExtensionApprovalsParamsSpec,
+        'type': parent_access_ui.mojom.ExtensionApprovalsParamsSpec.$,
         'nullable': false,
       },
     });
@@ -81,7 +81,7 @@ mojo.internal.Union(
 // Struct: ParentAccessServerMessage
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessServerMessageSpec, 'parent_access_ui.mojom.ParentAccessServerMessage', [
-      mojo.internal.StructField('type', 0, 0, parent_access_ui.mojom.ParentAccessServerMessageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, parent_access_ui.mojom.ParentAccessServerMessageTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -95,8 +95,8 @@ mojo.internal.Struct(
 // Struct: WebApprovalsParams
 mojo.internal.Struct(
     parent_access_ui.mojom.WebApprovalsParamsSpec, 'parent_access_ui.mojom.WebApprovalsParams', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('child_display_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('child_display_name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('favicon_png_bytes', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -104,18 +104,18 @@ mojo.internal.Struct(
 // Struct: ExtensionApprovalsParams
 mojo.internal.Struct(
     parent_access_ui.mojom.ExtensionApprovalsParamsSpec, 'parent_access_ui.mojom.ExtensionApprovalsParams', [
-      mojo.internal.StructField('extension_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('extension_name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('icon_png_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('child_display_name', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('permissions', 24, 0, mojo.internal.Array(parent_access_ui.mojom.ExtensionPermissionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('child_display_name', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('permissions', 24, 0, mojo.internal.Array(parent_access_ui.mojom.ExtensionPermissionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: ExtensionPermission
 mojo.internal.Struct(
     parent_access_ui.mojom.ExtensionPermissionSpec, 'parent_access_ui.mojom.ExtensionPermission', [
-      mojo.internal.StructField('permission', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('details', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -127,7 +127,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, parent_access_ui.mojom.GetOauthTokenStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, parent_access_ui.mojom.GetOauthTokenStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -140,7 +140,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParams', [
-      mojo.internal.StructField('message', 0, 0, parent_access_ui.mojom.ParentAccessServerMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, parent_access_ui.mojom.ParentAccessServerMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -151,7 +151,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParams', [
-      mojo.internal.StructField('params', 0, 0, parent_access_ui.mojom.ParentAccessParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, parent_access_ui.mojom.ParentAccessParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -168,7 +168,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_Params', [
-      mojo.internal.StructField('result', 0, 0, parent_access_ui.mojom.ParentAccessResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, parent_access_ui.mojom.ParentAccessResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -283,9 +283,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
 
 parent_access_ui.mojom.ParentAccessUiHandler.getRemote = function() {
   let remote = new parent_access_ui.mojom.ParentAccessUiHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'parent_access_ui.mojom.ParentAccessUiHandler',
     'context');
   return remote.$;

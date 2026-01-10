@@ -53,7 +53,7 @@ mojo.internal.Struct(
 // Struct: OnDeviceTranslationServiceConfig
 mojo.internal.Struct(
     on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec, 'on_device_translation.mojom.OnDeviceTranslationServiceConfig', [
-      mojo.internal.StructField('packages', 0, 0, mojo.internal.Array(on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('packages', 0, 0, mojo.internal.Array(on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('file_operation_proxy', 8, 0, mojo.internal.InterfaceProxy(on_device_translation.mojom.FileOperationProxyRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -62,7 +62,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec, 'on_device_translation.mojom.FileOperationProxy_FileExists_Params', [
       mojo.internal.StructField('package_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('relative_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relative_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -76,13 +76,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec, 'on_device_translation.mojom.FileOperationProxy_Open_Params', [
       mojo.internal.StructField('package_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('relative_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relative_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec, 'on_device_translation.mojom.FileOperationProxy_Open_ResponseParams', [
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -142,9 +142,8 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
 
 on_device_translation.mojom.FileOperationProxy.getRemote = function() {
   let remote = new on_device_translation.mojom.FileOperationProxyRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'on_device_translation.mojom.FileOperationProxy',
     'context');
   return remote.$;
@@ -157,7 +156,7 @@ on_device_translation.mojom.FileOperationProxyRequest = on_device_translation.mo
 // Interface: OnDeviceTranslationService
 mojo.internal.Struct(
     on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec, 'on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_Params', [
-      mojo.internal.StructField('config', 0, 0, on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -171,7 +170,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec, 'on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, on_device_translation.mojom.CreateTranslatorResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, on_device_translation.mojom.CreateTranslatorResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -254,9 +253,8 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
 
 on_device_translation.mojom.OnDeviceTranslationService.getRemote = function() {
   let remote = new on_device_translation.mojom.OnDeviceTranslationServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'on_device_translation.mojom.OnDeviceTranslationService',
     'context');
   return remote.$;

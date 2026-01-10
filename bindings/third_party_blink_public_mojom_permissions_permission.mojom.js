@@ -102,27 +102,27 @@ mojo.internal.Union(
     blink.mojom.PermissionDescriptorExtensionSpec, 'blink.mojom.PermissionDescriptorExtension', {
       'midi': {
         'ordinal': 0,
-        'type': blink.mojom.MidiPermissionDescriptorSpec,
+        'type': blink.mojom.MidiPermissionDescriptorSpec.$,
         'nullable': false,
       },
       'clipboard': {
         'ordinal': 1,
-        'type': blink.mojom.ClipboardPermissionDescriptorSpec,
+        'type': blink.mojom.ClipboardPermissionDescriptorSpec.$,
         'nullable': false,
       },
       'camera_device': {
         'ordinal': 2,
-        'type': blink.mojom.CameraDevicePermissionDescriptorSpec,
+        'type': blink.mojom.CameraDevicePermissionDescriptorSpec.$,
         'nullable': false,
       },
       'top_level_storage_access': {
         'ordinal': 3,
-        'type': blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec,
+        'type': blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec.$,
         'nullable': false,
       },
       'fullscreen': {
         'ordinal': 4,
-        'type': blink.mojom.FullscreenPermissionDescriptorSpec,
+        'type': blink.mojom.FullscreenPermissionDescriptorSpec.$,
         'nullable': false,
       },
     });
@@ -152,7 +152,7 @@ mojo.internal.Struct(
 // Struct: TopLevelStorageAccessPermissionDescriptor
 mojo.internal.Struct(
     blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec, 'blink.mojom.TopLevelStorageAccessPermissionDescriptor', [
-      mojo.internal.StructField('requestedOrigin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('requestedOrigin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -166,10 +166,10 @@ mojo.internal.Struct(
 // Struct: PermissionDescriptor
 mojo.internal.Struct(
     blink.mojom.PermissionDescriptorSpec, 'blink.mojom.PermissionDescriptor', [
-      mojo.internal.StructField('name', 0, 0, blink.mojom.PermissionNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('extension', 8, 0, blink.mojom.PermissionDescriptorExtensionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, blink.mojom.PermissionNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('extension', 8, 0, blink.mojom.PermissionDescriptorExtensionSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: GeolocationEmbeddedPermissionRequestDescriptor
 mojo.internal.Struct(
@@ -181,15 +181,15 @@ mojo.internal.Struct(
 // Struct: EmbeddedPermissionRequestDescriptor
 mojo.internal.Struct(
     blink.mojom.EmbeddedPermissionRequestDescriptorSpec, 'blink.mojom.EmbeddedPermissionRequestDescriptor', [
-      mojo.internal.StructField('element_position', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('geolocation', 8, 0, blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('element_position', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('geolocation', 8, 0, blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: PermissionObserver
 mojo.internal.Struct(
     blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec, 'blink.mojom.PermissionObserver_OnPermissionStatusChange_Params', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -239,9 +239,8 @@ blink.mojom.PermissionObserverRemoteCallHandler = class {
 
 blink.mojom.PermissionObserver.getRemote = function() {
   let remote = new blink.mojom.PermissionObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PermissionObserver',
     'context');
   return remote.$;
@@ -255,7 +254,7 @@ blink.mojom.PermissionObserverRequest = blink.mojom.PermissionObserverPendingRec
 mojo.internal.Struct(
     blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec, 'blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_Params', [
       mojo.internal.StructField('allow', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('statuses', 8, 0, mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('statuses', 8, 0, mojo.internal.Array(blink.mojom.PermissionStatusSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -305,9 +304,8 @@ blink.mojom.EmbeddedPermissionControlClientRemoteCallHandler = class {
 
 blink.mojom.EmbeddedPermissionControlClient.getRemote = function() {
   let remote = new blink.mojom.EmbeddedPermissionControlClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.EmbeddedPermissionControlClient',
     'context');
   return remote.$;
@@ -320,94 +318,94 @@ blink.mojom.EmbeddedPermissionControlClientRequest = blink.mojom.EmbeddedPermiss
 // Interface: PermissionService
 mojo.internal.Struct(
     blink.mojom.PermissionService_HasPermission_ParamsSpec, 'blink.mojom.PermissionService_HasPermission_Params', [
-      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_HasPermission_ResponseParamsSpec, 'blink.mojom.PermissionService_HasPermission_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec, 'blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_Params', [
-      mojo.internal.StructField('permissions', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('descriptor', 8, 0, blink.mojom.EmbeddedPermissionRequestDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permissions', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('descriptor', 8, 0, blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.EmbeddedPermissionControlClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec, 'blink.mojom.PermissionService_RequestPageEmbeddedPermission_Params', [
-      mojo.internal.StructField('permissions', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('descriptor', 8, 0, blink.mojom.EmbeddedPermissionRequestDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permissions', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('descriptor', 8, 0, blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec, 'blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.EmbeddedPermissionControlResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.EmbeddedPermissionControlResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_RequestPermission_ParamsSpec, 'blink.mojom.PermissionService_RequestPermission_Params', [
-      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('user_gesture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec, 'blink.mojom.PermissionService_RequestPermission_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_RequestPermissions_ParamsSpec, 'blink.mojom.PermissionService_RequestPermissions_Params', [
-      mojo.internal.StructField('permission', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('permission', 0, 0, mojo.internal.Array(blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('user_gesture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec, 'blink.mojom.PermissionService_RequestPermissions_ResponseParams', [
-      mojo.internal.StructField('statuses', 0, 0, mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('statuses', 0, 0, mojo.internal.Array(blink.mojom.PermissionStatusSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_RevokePermission_ParamsSpec, 'blink.mojom.PermissionService_RevokePermission_Params', [
-      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec, 'blink.mojom.PermissionService_RevokePermission_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPermissionObserver_Params', [
-      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_known_status', 8, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_known_status', 8, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_Params', [
-      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_known_status', 8, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_known_status', 8, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PermissionService_NotifyEventListener_ParamsSpec, 'blink.mojom.PermissionService_NotifyEventListener_Params', [
-      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 0, 0, blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('event_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('is_added', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -539,9 +537,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
 
 blink.mojom.PermissionService.getRemote = function() {
   let remote = new blink.mojom.PermissionServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PermissionService',
     'context');
   return remote.$;

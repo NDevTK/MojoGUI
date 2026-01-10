@@ -27,32 +27,32 @@ mojo.internal.Union(
     blink.mojom.FileSystemAccessChangeTypeSpec, 'blink.mojom.FileSystemAccessChangeType', {
       'appeared': {
         'ordinal': 0,
-        'type': blink.mojom.FileSystemAccessChangeTypeAppearedSpec,
+        'type': blink.mojom.FileSystemAccessChangeTypeAppearedSpec.$,
         'nullable': false,
       },
       'disappeared': {
         'ordinal': 1,
-        'type': blink.mojom.FileSystemAccessChangeTypeDisappearedSpec,
+        'type': blink.mojom.FileSystemAccessChangeTypeDisappearedSpec.$,
         'nullable': false,
       },
       'errored': {
         'ordinal': 2,
-        'type': blink.mojom.FileSystemAccessChangeTypeErroredSpec,
+        'type': blink.mojom.FileSystemAccessChangeTypeErroredSpec.$,
         'nullable': false,
       },
       'modified': {
         'ordinal': 3,
-        'type': blink.mojom.FileSystemAccessChangeTypeModifiedSpec,
+        'type': blink.mojom.FileSystemAccessChangeTypeModifiedSpec.$,
         'nullable': false,
       },
       'moved': {
         'ordinal': 4,
-        'type': blink.mojom.FileSystemAccessChangeTypeMovedSpec,
+        'type': blink.mojom.FileSystemAccessChangeTypeMovedSpec.$,
         'nullable': false,
       },
       'unknown': {
         'ordinal': 5,
-        'type': blink.mojom.FileSystemAccessChangeTypeUnknownSpec,
+        'type': blink.mojom.FileSystemAccessChangeTypeUnknownSpec.$,
         'nullable': false,
       },
     });
@@ -97,8 +97,8 @@ mojo.internal.Struct(
 // Struct: FileSystemAccessChangeMetadata
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessChangeMetadataSpec, 'blink.mojom.FileSystemAccessChangeMetadata', [
-      mojo.internal.StructField('root', 0, 0, blink.mojom.FileSystemAccessEntrySpec, null, false, 0, undefined),
-      mojo.internal.StructField('changed_entry', 8, 0, blink.mojom.FileSystemAccessEntrySpec, null, false, 0, undefined),
+      mojo.internal.StructField('root', 0, 0, blink.mojom.FileSystemAccessEntrySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('changed_entry', 8, 0, blink.mojom.FileSystemAccessEntrySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('relative_path', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -106,15 +106,15 @@ mojo.internal.Struct(
 // Struct: FileSystemAccessChange
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessChangeSpec, 'blink.mojom.FileSystemAccessChange', [
-      mojo.internal.StructField('metadata', 0, 0, blink.mojom.FileSystemAccessChangeMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, blink.mojom.FileSystemAccessChangeTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, blink.mojom.FileSystemAccessChangeMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, blink.mojom.FileSystemAccessChangeTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: FileSystemAccessObserver
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec, 'blink.mojom.FileSystemAccessObserver_OnFileChanges_Params', [
-      mojo.internal.StructField('changes', 0, 0, mojo.internal.Array(blink.mojom.FileSystemAccessChangeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('changes', 0, 0, mojo.internal.Array(blink.mojom.FileSystemAccessChangeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -164,9 +164,8 @@ blink.mojom.FileSystemAccessObserverRemoteCallHandler = class {
 
 blink.mojom.FileSystemAccessObserver.getRemote = function() {
   let remote = new blink.mojom.FileSystemAccessObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FileSystemAccessObserver',
     'context');
   return remote.$;

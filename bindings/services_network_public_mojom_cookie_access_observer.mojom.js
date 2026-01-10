@@ -36,7 +36,7 @@ mojo.internal.Struct(
 // Interface: CookieAccessObserver
 mojo.internal.Struct(
     network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec, 'network.mojom.CookieAccessObserver_OnCookiesAccessed_Params', [
-      mojo.internal.StructField('details', 0, 0, mojo.internal.Array(network.mojom.CookieAccessDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('details', 0, 0, mojo.internal.Array(network.mojom.CookieAccessDetailsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -102,9 +102,8 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
 
 network.mojom.CookieAccessObserver.getRemote = function() {
   let remote = new network.mojom.CookieAccessObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.CookieAccessObserver',
     'context');
   return remote.$;

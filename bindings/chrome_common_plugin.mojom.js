@@ -38,26 +38,26 @@ chrome.mojom.PluginStatus = {
 // Struct: PluginInfo
 mojo.internal.Struct(
     chrome.mojom.PluginInfoSpec, 'chrome.mojom.PluginInfo', [
-      mojo.internal.StructField('status', 0, 0, chrome.mojom.PluginStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('plugin', 8, 0, content.mojom.WebPluginInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, chrome.mojom.PluginStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('plugin', 8, 0, content.mojom.WebPluginInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('actual_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('group_identifier', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('group_name', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('group_name', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: PluginParam
 mojo.internal.Struct(
     chrome.mojom.PluginParamSpec, 'chrome.mojom.PluginParam', [
-      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: PluginHost
 mojo.internal.Struct(
     chrome.mojom.PluginHost_OpenPDF_ParamsSpec, 'chrome.mojom.PluginHost_OpenPDF_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -107,9 +107,8 @@ chrome.mojom.PluginHostRemoteCallHandler = class {
 
 chrome.mojom.PluginHost.getRemote = function() {
   let remote = new chrome.mojom.PluginHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.PluginHost',
     'context');
   return remote.$;
@@ -122,7 +121,7 @@ chrome.mojom.PluginHostRequest = chrome.mojom.PluginHostPendingReceiver;
 // Interface: PluginAuthHost
 mojo.internal.Struct(
     chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec, 'chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_Params', [
-      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -173,9 +172,8 @@ chrome.mojom.PluginAuthHostRemoteCallHandler = class {
 
 chrome.mojom.PluginAuthHost.getRemote = function() {
   let remote = new chrome.mojom.PluginAuthHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.PluginAuthHost',
     'context');
   return remote.$;
@@ -188,15 +186,15 @@ chrome.mojom.PluginAuthHostRequest = chrome.mojom.PluginAuthHostPendingReceiver;
 // Interface: PluginInfoHost
 mojo.internal.Struct(
     chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec, 'chrome.mojom.PluginInfoHost_GetPluginInfo_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec, 'chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParams', [
-      mojo.internal.StructField('plugin_info', 0, 0, chrome.mojom.PluginInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('plugin_info', 0, 0, chrome.mojom.PluginInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -246,9 +244,8 @@ chrome.mojom.PluginInfoHostRemoteCallHandler = class {
 
 chrome.mojom.PluginInfoHost.getRemote = function() {
   let remote = new chrome.mojom.PluginInfoHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.PluginInfoHost',
     'context');
   return remote.$;

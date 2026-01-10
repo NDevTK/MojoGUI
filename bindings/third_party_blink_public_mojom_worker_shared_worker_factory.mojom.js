@@ -35,23 +35,23 @@ blink.mojom.kNavigation_SharedWorkerSpec = "navigation:shared_worker";
 // Interface: SharedWorkerFactory
 mojo.internal.Struct(
     blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec, 'blink.mojom.SharedWorkerFactory_CreateSharedWorker_Params', [
-      mojo.internal.StructField('info', 0, 0, blink.mojom.SharedWorkerInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('token', 8, 0, blink.mojom.SharedWorkerTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('constructor_key', 16, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 24, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, blink.mojom.SharedWorkerInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('token', 8, 0, blink.mojom.SharedWorkerTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('constructor_key', 16, 0, blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 24, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_constructor_secure_context', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('user_agent', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('ua_metadata', 48, 0, blink.mojom.UserAgentMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ua_metadata', 48, 0, blink.mojom.UserAgentMetadataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('pause_on_start', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('devtools_worker_token', 64, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('renderer_preferences', 72, 0, blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_worker_token', 64, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('renderer_preferences', 72, 0, blink.mojom.RendererPreferencesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('preference_watcher_receiver', 80, 0, mojo.internal.InterfaceRequest(blink.mojom.RendererPreferenceWatcherRemote), null, false, 0, undefined),
       mojo.internal.StructField('content_settings', 88, 0, mojo.internal.InterfaceProxy(blink.mojom.WorkerContentSettingsProxyRemote), null, false, 0, undefined),
-      mojo.internal.StructField('service_worker_container_info', 96, 0, blink.mojom.ServiceWorkerContainerInfoForClientSpec, null, true, 0, undefined),
-      mojo.internal.StructField('main_script_load_params', 104, 0, blink.mojom.WorkerMainScriptLoadParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('subresource_loader_factories', 112, 0, blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('controller_info', 120, 0, blink.mojom.ControllerServiceWorkerInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('policy_container', 128, 0, blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_container_info', 96, 0, blink.mojom.ServiceWorkerContainerInfoForClientSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('main_script_load_params', 104, 0, blink.mojom.WorkerMainScriptLoadParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('subresource_loader_factories', 112, 0, blink.mojom.URLLoaderFactoryBundleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('controller_info', 120, 0, blink.mojom.ControllerServiceWorkerInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('policy_container', 128, 0, blink.mojom.PolicyContainerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('host', 136, 0, mojo.internal.InterfaceProxy(blink.mojom.SharedWorkerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('shared_worker', 144, 0, mojo.internal.InterfaceRequest(blink.mojom.SharedWorkerRemote), null, false, 0, undefined),
       mojo.internal.StructField('browser_interface_broker', 152, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
@@ -108,9 +108,8 @@ blink.mojom.SharedWorkerFactoryRemoteCallHandler = class {
 
 blink.mojom.SharedWorkerFactory.getRemote = function() {
   let remote = new blink.mojom.SharedWorkerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SharedWorkerFactory',
     'context');
   return remote.$;

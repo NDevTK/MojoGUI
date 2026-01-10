@@ -16,7 +16,7 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = { $: {} };
 // Interface: VideoDecodePerfHistory
 mojo.internal.Struct(
     media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_Params', [
-      mojo.internal.StructField('features', 0, 0, media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('features', 0, 0, media.mojom.PredictionFeaturesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ media.mojom.VideoDecodePerfHistoryRemoteCallHandler = class {
 
 media.mojom.VideoDecodePerfHistory.getRemote = function() {
   let remote = new media.mojom.VideoDecodePerfHistoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoDecodePerfHistory',
     'context');
   return remote.$;

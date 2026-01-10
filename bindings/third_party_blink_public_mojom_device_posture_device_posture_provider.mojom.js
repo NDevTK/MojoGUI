@@ -34,13 +34,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec, 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParams', [
-      mojo.internal.StructField('posture', 0, 0, blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('posture', 0, 0, blink.mojom.DevicePostureTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_Params', [
-      mojo.internal.StructField('posture', 0, 0, blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('posture', 0, 0, blink.mojom.DevicePostureTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -115,9 +115,8 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
 
 blink.mojom.DevicePostureProvider.getRemote = function() {
   let remote = new blink.mojom.DevicePostureProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DevicePostureProvider',
     'context');
   return remote.$;
@@ -130,7 +129,7 @@ blink.mojom.DevicePostureProviderRequest = blink.mojom.DevicePostureProviderPend
 // Interface: DevicePostureClient
 mojo.internal.Struct(
     blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec, 'blink.mojom.DevicePostureClient_OnPostureChanged_Params', [
-      mojo.internal.StructField('posture', 0, 0, blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('posture', 0, 0, blink.mojom.DevicePostureTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -180,9 +179,8 @@ blink.mojom.DevicePostureClientRemoteCallHandler = class {
 
 blink.mojom.DevicePostureClient.getRemote = function() {
   let remote = new blink.mojom.DevicePostureClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DevicePostureClient',
     'context');
   return remote.$;

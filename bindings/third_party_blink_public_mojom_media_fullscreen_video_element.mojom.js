@@ -64,9 +64,8 @@ blink.mojom.FullscreenVideoElementHandlerRemoteCallHandler = class {
 
 blink.mojom.FullscreenVideoElementHandler.getRemote = function() {
   let remote = new blink.mojom.FullscreenVideoElementHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FullscreenVideoElementHandler',
     'context');
   return remote.$;

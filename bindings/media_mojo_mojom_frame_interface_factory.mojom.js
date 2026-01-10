@@ -75,9 +75,8 @@ media.mojom.MuteStateObserverRemoteCallHandler = class {
 
 media.mojom.MuteStateObserver.getRemote = function() {
   let remote = new media.mojom.MuteStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MuteStateObserver',
     'context');
   return remote.$;
@@ -119,13 +118,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec, 'media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParams', [
-      mojo.internal.StructField('cdm_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -225,9 +224,8 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
 
 media.mojom.FrameInterfaceFactory.getRemote = function() {
   let remote = new media.mojom.FrameInterfaceFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.FrameInterfaceFactory',
     'context');
   return remote.$;

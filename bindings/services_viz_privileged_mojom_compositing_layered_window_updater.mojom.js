@@ -19,8 +19,8 @@ viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec = { $: {} };
 // Interface: LayeredWindowUpdater
 mojo.internal.Struct(
     viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec, 'viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_Params', [
-      mojo.internal.StructField('pixel_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('region', 8, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('region', 8, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -90,9 +90,8 @@ viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
 
 viz.mojom.LayeredWindowUpdater.getRemote = function() {
   let remote = new viz.mojom.LayeredWindowUpdaterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.LayeredWindowUpdater',
     'context');
   return remote.$;

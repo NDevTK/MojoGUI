@@ -22,7 +22,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec, 'network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParams', [
-      mojo.internal.StructField('encryptor', 0, 0, os_crypt_async.mojom.EncryptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encryptor', 0, 0, os_crypt_async.mojom.EncryptorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ network.mojom.CacheEncryptionProviderRemoteCallHandler = class {
 
 network.mojom.CacheEncryptionProvider.getRemote = function() {
   let remote = new network.mojom.CacheEncryptionProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.CacheEncryptionProvider',
     'context');
   return remote.$;

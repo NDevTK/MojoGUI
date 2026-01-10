@@ -116,9 +116,8 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
 
 blink.mojom.AudioContextManager.getRemote = function() {
   let remote = new blink.mojom.AudioContextManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AudioContextManager',
     'context');
   return remote.$;

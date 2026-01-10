@@ -96,10 +96,10 @@ mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimProfilePropertiesSpec, 'ash.cellular_setup.mojom.ESimProfileProperties', [
       mojo.internal.StructField('eid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('iccid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('name', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('nickname', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('service_provider', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('state', 40, 0, ash.cellular_setup.mojom.ProfileStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('nickname', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('service_provider', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('state', 40, 0, ash.cellular_setup.mojom.ProfileStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('activation_code', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -212,9 +212,8 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.ESimManagerObserver.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.ESimManagerObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cellular_setup.mojom.ESimManagerObserver',
     'context');
   return remote.$;
@@ -298,9 +297,8 @@ ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.ESimManager.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.ESimManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cellular_setup.mojom.ESimManager',
     'context');
   return remote.$;
@@ -318,7 +316,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParams', [
-      mojo.internal.StructField('properties', 0, 0, ash.cellular_setup.mojom.EuiccPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 0, 0, ash.cellular_setup.mojom.EuiccPropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -340,8 +338,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('profiles', 8, 0, mojo.internal.Array(ash.cellular_setup.mojom.ESimProfilePropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('profiles', 8, 0, mojo.internal.Array(ash.cellular_setup.mojom.ESimProfilePropertiesSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -352,7 +350,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -360,13 +358,13 @@ mojo.internal.Struct(
     ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec, 'ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_Params', [
       mojo.internal.StructField('activation_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('confirmation_code', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('install_method', 16, 0, ash.cellular_setup.mojom.ProfileInstallMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('install_method', 16, 0, ash.cellular_setup.mojom.ProfileInstallMethodSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ProfileInstallResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ProfileInstallResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('profile', 8, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -378,7 +376,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParams', [
-      mojo.internal.StructField('qr_code', 0, 0, ash.cellular_setup.mojom.QRCodeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('qr_code', 0, 0, ash.cellular_setup.mojom.QRCodeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -478,9 +476,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.Euicc.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.EuiccRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cellular_setup.mojom.Euicc',
     'context');
   return remote.$;
@@ -498,7 +495,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParams', [
-      mojo.internal.StructField('properties', 0, 0, ash.cellular_setup.mojom.ESimProfilePropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 0, 0, ash.cellular_setup.mojom.ESimProfilePropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -510,7 +507,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ProfileInstallResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ProfileInstallResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -521,19 +518,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_Params', [
-      mojo.internal.StructField('nickname', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('nickname', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec, 'ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ESimOperationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -613,9 +610,8 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.ESimProfile.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.ESimProfileRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cellular_setup.mojom.ESimProfile',
     'context');
   return remote.$;

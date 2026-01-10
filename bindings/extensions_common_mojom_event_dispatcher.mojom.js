@@ -19,7 +19,7 @@ extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = { $: {} };
 // Struct: EventFilteringInfo
 mojo.internal.Struct(
     extensions.mojom.EventFilteringInfoSpec, 'extensions.mojom.EventFilteringInfo', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('service_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('has_instance_id', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('instance_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -33,19 +33,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions.mojom.DispatchEventParamsSpec, 'extensions.mojom.DispatchEventParams', [
       mojo.internal.StructField('worker_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('host_id', 8, 0, extensions.mojom.HostIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_id', 8, 0, extensions.mojom.HostIDSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('event_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('event_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('is_user_gesture', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('filtering_info', 32, 0, extensions.mojom.EventFilteringInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filtering_info', 32, 0, extensions.mojom.EventFilteringInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Interface: EventDispatcher
 mojo.internal.Struct(
     extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec, 'extensions.mojom.EventDispatcher_DispatchEvent_Params', [
-      mojo.internal.StructField('params', 0, 0, extensions.mojom.DispatchEventParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('event_args', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, extensions.mojom.DispatchEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('event_args', 8, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -101,9 +101,8 @@ extensions.mojom.EventDispatcherRemoteCallHandler = class {
 
 extensions.mojom.EventDispatcher.getRemote = function() {
   let remote = new extensions.mojom.EventDispatcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions.mojom.EventDispatcher',
     'context');
   return remote.$;

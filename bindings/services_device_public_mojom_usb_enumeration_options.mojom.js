@@ -24,13 +24,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('subclass_code', 11, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('has_protocol_code', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('protocol_code', 13, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('serial_number', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('serial_number', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: UsbEnumerationOptions
 mojo.internal.Struct(
     device.mojom.UsbEnumerationOptionsSpec, 'device.mojom.UsbEnumerationOptions', [
-      mojo.internal.StructField('filters', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('filters', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceFilterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

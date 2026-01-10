@@ -16,7 +16,7 @@ media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec 
 // Interface: VideoDecoderFactoryProcess
 mojo.internal.Struct(
     media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec, 'media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_Params', [
-      mojo.internal.StructField('gpu_feature_info', 0, 0, gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gpu_feature_info', 0, 0, gpu.mojom.GpuFeatureInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('gpu_remote', 16, 0, mojo.internal.InterfaceProxy(viz.mojom.GpuRemote), null, true, 0, undefined),
     ],
@@ -68,9 +68,8 @@ media.mojom.VideoDecoderFactoryProcessRemoteCallHandler = class {
 
 media.mojom.VideoDecoderFactoryProcess.getRemote = function() {
   let remote = new media.mojom.VideoDecoderFactoryProcessRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoDecoderFactoryProcess',
     'context');
   return remote.$;

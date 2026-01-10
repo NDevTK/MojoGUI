@@ -31,7 +31,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec, 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParams', [
-      mojo.internal.StructField('cast_application_media_info', 0, 0, media.mojom.CastApplicationMediaInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cast_application_media_info', 0, 0, media.mojom.CastApplicationMediaInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -81,9 +81,8 @@ media.mojom.CastApplicationMediaInfoManagerRemoteCallHandler = class {
 
 media.mojom.CastApplicationMediaInfoManager.getRemote = function() {
   let remote = new media.mojom.CastApplicationMediaInfoManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.CastApplicationMediaInfoManager',
     'context');
   return remote.$;

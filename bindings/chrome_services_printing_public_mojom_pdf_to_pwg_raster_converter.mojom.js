@@ -43,15 +43,15 @@ mojo.internal.Struct(
 // Interface: PdfToPwgRasterConverter
 mojo.internal.Struct(
     printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_Convert_Params', [
-      mojo.internal.StructField('pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pdf_settings', 8, 0, printing.mojom.PdfRenderSettingsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pwg_raster_settings', 16, 0, printing.mojom.PwgRasterSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_settings', 8, 0, printing.mojom.PdfRenderSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pwg_raster_settings', 16, 0, printing.mojom.PwgRasterSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParams', [
-      mojo.internal.StructField('pwg_raster_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pwg_raster_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('page_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -118,9 +118,8 @@ printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
 
 printing.mojom.PdfToPwgRasterConverter.getRemote = function() {
   let remote = new printing.mojom.PdfToPwgRasterConverterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'printing.mojom.PdfToPwgRasterConverter',
     'context');
   return remote.$;

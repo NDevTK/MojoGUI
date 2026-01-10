@@ -23,6 +23,6 @@ mojo.internal.Struct(
 // Struct: GpuExtraInfo
 mojo.internal.Struct(
     gfx.mojom.GpuExtraInfoSpec, 'gfx.mojom.GpuExtraInfo', [
-      mojo.internal.StructField('angle_features', 0, 0, mojo.internal.Array(gfx.mojom.ANGLEFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('angle_features', 0, 0, mojo.internal.Array(gfx.mojom.ANGLEFeatureSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

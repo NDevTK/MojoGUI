@@ -29,10 +29,10 @@ storage.mojom.DisallowInactiveClientReason = {
 mojo.internal.Struct(
     storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_Params', [
       mojo.internal.StructField('connection_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('reason', 4, 0, storage.mojom.DisallowInactiveClientReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('keep_active', 8, 0, mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientKeepActiveRemote), null, true, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, storage.mojom.DisallowInactiveClientReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('keep_active', 16, 0, mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientKeepActiveRemote), null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParams', [
@@ -102,9 +102,8 @@ storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
 
 storage.mojom.IndexedDBClientStateChecker.getRemote = function() {
   let remote = new storage.mojom.IndexedDBClientStateCheckerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.IndexedDBClientStateChecker',
     'context');
   return remote.$;
@@ -151,9 +150,8 @@ storage.mojom.IndexedDBClientKeepActiveRemoteCallHandler = class {
 
 storage.mojom.IndexedDBClientKeepActive.getRemote = function() {
   let remote = new storage.mojom.IndexedDBClientKeepActiveRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.IndexedDBClientKeepActive',
     'context');
   return remote.$;

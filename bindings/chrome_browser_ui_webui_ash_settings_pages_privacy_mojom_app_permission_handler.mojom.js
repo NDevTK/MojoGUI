@@ -34,8 +34,8 @@ mojo.internal.Struct(
     ash.settings.app_permission.mojom.AppSpec, 'ash.settings.app_permission.mojom.App', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, app_management.mojom.AppTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('permissions', 24, 0, mojo.internal.Map(app_management.mojom.PermissionTypeSpec, app_management.mojom.PermissionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, app_management.mojom.AppTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('permissions', 24, 0, mojo.internal.Map(app_management.mojom.PermissionTypeSpec.$, app_management.mojom.PermissionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -53,7 +53,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParams', [
-      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -64,7 +64,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParams', [
-      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -75,13 +75,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParams', [
-      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_Params', [
-      mojo.internal.StructField('permission_type', 0, 0, app_management.mojom.PermissionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission_type', 0, 0, app_management.mojom.PermissionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -94,7 +94,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_Params', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('permission', 8, 0, app_management.mojom.PermissionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 8, 0, app_management.mojom.PermissionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -204,9 +204,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
 
 ash.settings.app_permission.mojom.AppPermissionsHandler.getRemote = function() {
   let remote = new ash.settings.app_permission.mojom.AppPermissionsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.app_permission.mojom.AppPermissionsHandler',
     'context');
   return remote.$;
@@ -225,7 +224,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_Params', [
-      mojo.internal.StructField('app', 0, 0, ash.settings.app_permission.mojom.AppSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app', 0, 0, ash.settings.app_permission.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -285,9 +284,8 @@ ash.settings.app_permission.mojom.AppPermissionsObserverRemoteCallHandler = clas
 
 ash.settings.app_permission.mojom.AppPermissionsObserver.getRemote = function() {
   let remote = new ash.settings.app_permission.mojom.AppPermissionsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.app_permission.mojom.AppPermissionsObserver',
     'context');
   return remote.$;

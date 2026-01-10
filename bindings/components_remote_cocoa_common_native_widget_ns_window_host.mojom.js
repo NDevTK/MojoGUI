@@ -107,7 +107,7 @@ mojo.internal.Struct(
     remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec, 'remote_cocoa.mojom.ValidateUserInterfaceItemResult', [
       mojo.internal.StructField('enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('disable_if_has_no_key_equivalent', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_title', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('new_title', 8, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('set_hidden_state', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('new_hidden_state', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('set_toggle_state', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -135,7 +135,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_Params', [
-      mojo.internal.StructField('new_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -170,25 +170,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_Params', [
-      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -200,7 +200,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_Params', [
-      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -213,7 +213,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ui.mojom.EventSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('target_is_this_window', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -237,25 +237,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_Params', [
-      mojo.internal.StructField('location_in_content', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('location_in_content', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParams', [
-      mojo.internal.StructField('hit_test_result', 0, 0, remote_cocoa.mojom.HitTestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hit_test_result', 0, 0, remote_cocoa.mojom.HitTestResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_Params', [
-      mojo.internal.StructField('location_in_content', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('location_in_content', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParams', [
-      mojo.internal.StructField('new_tooltip_text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('new_tooltip_text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -283,8 +283,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_Params', [
-      mojo.internal.StructField('window_bounds_in_screen_dips', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_bounds_in_screen_dips', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('window_bounds_in_screen_dips', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('content_bounds_in_screen_dips', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -324,7 +324,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_Params', [
-      mojo.internal.StructField('display', 0, 0, display.mojom.DisplaySpec, null, false, 0, undefined),
+      mojo.internal.StructField('display', 0, 0, display.mojom.DisplaySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -382,20 +382,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_Params', [
-      mojo.internal.StructField('button', 0, 0, ui.mojom.DialogButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('button', 0, 0, ui.mojom.DialogButtonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_Params', [
-      mojo.internal.StructField('button', 0, 0, ui.mojom.DialogButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('button', 0, 0, ui.mojom.DialogButtonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParams', [
       mojo.internal.StructField('button_exists', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_button_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_button_default', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -487,7 +487,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParams', [
-      mojo.internal.StructField('host_pid', 0, 0, mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_pid', 0, 0, mojo_base.mojom.ProcessIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('element_token', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -500,17 +500,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_Params', [
       mojo.internal.StructField('command', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('window_open_disposition', 4, 0, ui.mojom.WindowOpenDispositionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_before_first_responder', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('window_open_disposition', 8, 0, ui.mojom.WindowOpenDispositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_before_first_responder', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParams', [
@@ -521,10 +521,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_Params', [
       mojo.internal.StructField('command', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('window_open_disposition', 4, 0, ui.mojom.WindowOpenDispositionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_before_first_responder', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('window_open_disposition', 8, 0, ui.mojom.WindowOpenDispositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_before_first_responder', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParams', [
@@ -534,7 +534,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_Params', [
-      mojo.internal.StructField('accelerator', 0, 0, ui.mojom.AcceleratorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('accelerator', 0, 0, ui.mojom.AcceleratorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('require_priority_handler', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1091,9 +1091,8 @@ remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHandler = class {
 
 remote_cocoa.mojom.NativeWidgetNSWindowHost.getRemote = function() {
   let remote = new remote_cocoa.mojom.NativeWidgetNSWindowHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remote_cocoa.mojom.NativeWidgetNSWindowHost',
     'context');
   return remote.$;

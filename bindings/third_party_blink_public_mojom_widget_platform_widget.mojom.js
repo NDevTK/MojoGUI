@@ -107,9 +107,8 @@ blink.mojom.WidgetCompositorRemoteCallHandler = class {
 
 blink.mojom.WidgetCompositor.getRemote = function() {
   let remote = new blink.mojom.WidgetCompositorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WidgetCompositor',
     'context');
   return remote.$;
@@ -122,22 +121,22 @@ blink.mojom.WidgetCompositorRequest = blink.mojom.WidgetCompositorPendingReceive
 // Interface: WidgetHost
 mojo.internal.Struct(
     blink.mojom.WidgetHost_SetCursor_ParamsSpec, 'blink.mojom.WidgetHost_SetCursor_Params', [
-      mojo.internal.StructField('cursor', 0, 0, ui.mojom.CursorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cursor', 0, 0, ui.mojom.CursorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec, 'blink.mojom.WidgetHost_UpdateTooltipUnderCursor_Params', [
-      mojo.internal.StructField('tooltip_text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('text_direction_hint', 8, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tooltip_text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text_direction_hint', 8, 0, mojo_base.mojom.TextDirectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec, 'blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_Params', [
-      mojo.internal.StructField('tooltip_text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('text_direction_hint', 8, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bounds', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tooltip_text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text_direction_hint', 8, 0, mojo_base.mojom.TextDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 16, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -148,17 +147,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec, 'blink.mojom.WidgetHost_TextInputStateChanged_Params', [
-      mojo.internal.StructField('state', 0, 0, ui.mojom.TextInputStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ui.mojom.TextInputStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec, 'blink.mojom.WidgetHost_SelectionBoundsChanged_Params', [
-      mojo.internal.StructField('anchor_rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('anchor_dir', 8, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('focus_rect', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('focus_dir', 24, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bounding_box_rect', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_rect', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_dir', 8, 0, mojo_base.mojom.TextDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('focus_rect', 16, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('focus_dir', 24, 0, mojo_base.mojom.TextDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box_rect', 32, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_anchor_first', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -294,9 +293,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
 
 blink.mojom.WidgetHost.getRemote = function() {
   let remote = new blink.mojom.WidgetHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WidgetHost',
     'context');
   return remote.$;
@@ -319,14 +317,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.Widget_UpdateVisualProperties_ParamsSpec, 'blink.mojom.Widget_UpdateVisualProperties_Params', [
-      mojo.internal.StructField('visual_properties', 0, 0, blink.mojom.VisualPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visual_properties', 0, 0, blink.mojom.VisualPropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.Widget_UpdateScreenRects_ParamsSpec, 'blink.mojom.Widget_UpdateScreenRects_Params', [
-      mojo.internal.StructField('widget_screen_rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('window_screen_rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('widget_screen_rect', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('window_screen_rect', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -343,13 +341,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.Widget_WasShown_ParamsSpec, 'blink.mojom.Widget_WasShown_Params', [
       mojo.internal.StructField('was_evicted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('record_tab_switch_time_request', 8, 0, blink.mojom.RecordContentToVisibleTimeRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('record_tab_switch_time_request', 8, 0, blink.mojom.RecordContentToVisibleTimeRequestSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec, 'blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_Params', [
-      mojo.internal.StructField('visible_time_request', 0, 0, blink.mojom.RecordContentToVisibleTimeRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_time_request', 0, 0, blink.mojom.RecordContentToVisibleTimeRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -480,9 +478,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
 
 blink.mojom.Widget.getRemote = function() {
   let remote = new blink.mojom.WidgetRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.Widget',
     'context');
   return remote.$;
@@ -503,8 +500,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec, 'blink.mojom.RenderInputRouterClient_ShowContextMenu_Params', [
-      mojo.internal.StructField('source_type', 0, 0, ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('location', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_type', 0, 0, ui.mojom.MenuSourceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('location', 8, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -580,9 +577,8 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
 
 blink.mojom.RenderInputRouterClient.getRemote = function() {
   let remote = new blink.mojom.RenderInputRouterClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.RenderInputRouterClient',
     'context');
   return remote.$;

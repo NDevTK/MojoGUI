@@ -69,9 +69,8 @@ chromecast.mojom.BluetoothDeviceAccessProviderRemoteCallHandler = class {
 
 chromecast.mojom.BluetoothDeviceAccessProvider.getRemote = function() {
   let remote = new chromecast.mojom.BluetoothDeviceAccessProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.BluetoothDeviceAccessProvider',
     'context');
   return remote.$;
@@ -149,9 +148,8 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientRemoteCallHandler = class {
 
 chromecast.mojom.BluetoothDeviceAccessProviderClient.getRemote = function() {
   let remote = new chromecast.mojom.BluetoothDeviceAccessProviderClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.BluetoothDeviceAccessProviderClient',
     'context');
   return remote.$;

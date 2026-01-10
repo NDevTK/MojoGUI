@@ -26,16 +26,16 @@ auction_worklet.mojom.AuctionWorkletFunction = {
 // Interface: AuctionSharedStorageHost
 mojo.internal.Struct(
     auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_Params', [
-      mojo.internal.StructField('method_with_options', 0, 0, network.mojom.SharedStorageModifierMethodWithOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source_auction_worklet_function', 8, 0, auction_worklet.mojom.AuctionWorkletFunctionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('method_with_options', 0, 0, network.mojom.SharedStorageModifierMethodWithOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source_auction_worklet_function', 8, 0, auction_worklet.mojom.AuctionWorkletFunctionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_Params', [
-      mojo.internal.StructField('methods_with_options', 0, 0, network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('with_lock', 8, 0, network.mojom.LockNameSpec, null, true, 0, undefined),
-      mojo.internal.StructField('source_auction_worklet_function', 16, 0, auction_worklet.mojom.AuctionWorkletFunctionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('methods_with_options', 0, 0, network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('with_lock', 8, 0, network.mojom.LockNameSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('source_auction_worklet_function', 16, 0, auction_worklet.mojom.AuctionWorkletFunctionSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -95,9 +95,8 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
 
 auction_worklet.mojom.AuctionSharedStorageHost.getRemote = function() {
   let remote = new auction_worklet.mojom.AuctionSharedStorageHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'auction_worklet.mojom.AuctionSharedStorageHost',
     'context');
   return remote.$;

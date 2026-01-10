@@ -80,7 +80,7 @@ mojo.internal.Union(
       },
       'template_query': {
         'ordinal': 1,
-        'type': ash.personalization_app.mojom.SeaPenTemplateQuerySpec,
+        'type': ash.personalization_app.mojom.SeaPenTemplateQuerySpec.$,
         'nullable': false,
       },
     });
@@ -88,7 +88,7 @@ mojo.internal.Union(
 // Struct: SeaPenThumbnail
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenThumbnailSpec, 'ash.personalization_app.mojom.SeaPenThumbnail', [
-      mojo.internal.StructField('image', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -104,9 +104,9 @@ mojo.internal.Struct(
 // Struct: SeaPenTemplateQuery
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenTemplateQuerySpec, 'ash.personalization_app.mojom.SeaPenTemplateQuery', [
-      mojo.internal.StructField('id', 0, 0, ash.personalization_app.mojom.SeaPenTemplateIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, mojo.internal.Map(ash.personalization_app.mojom.SeaPenTemplateChipSpec, ash.personalization_app.mojom.SeaPenTemplateOptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('user_visible_query', 16, 0, ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, ash.personalization_app.mojom.SeaPenTemplateIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, mojo.internal.Map(ash.personalization_app.mojom.SeaPenTemplateChipSpec.$, ash.personalization_app.mojom.SeaPenTemplateOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_visible_query', 16, 0, ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -122,16 +122,16 @@ mojo.internal.Struct(
 // Struct: RecentSeaPenImageInfo
 mojo.internal.Struct(
     ash.personalization_app.mojom.RecentSeaPenImageInfoSpec, 'ash.personalization_app.mojom.RecentSeaPenImageInfo', [
-      mojo.internal.StructField('query', 0, 0, ash.personalization_app.mojom.SeaPenQuerySpec, null, false, 0, undefined),
-      mojo.internal.StructField('creation_time', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, ash.personalization_app.mojom.SeaPenQuerySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 8, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: RecentSeaPenThumbnailData
 mojo.internal.Struct(
     ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec, 'ash.personalization_app.mojom.RecentSeaPenThumbnailData', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_info', 8, 0, ash.personalization_app.mojom.RecentSeaPenImageInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_info', 8, 0, ash.personalization_app.mojom.RecentSeaPenImageInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -139,7 +139,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.personalization_app.mojom.TextQueryHistoryEntrySpec, 'ash.personalization_app.mojom.TextQueryHistoryEntry', [
       mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('thumbnails', 8, 0, mojo.internal.Array(ash.personalization_app.mojom.SeaPenThumbnailSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('thumbnails', 8, 0, mojo.internal.Array(ash.personalization_app.mojom.SeaPenThumbnailSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec, 'ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_Params', [
-      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.TextQueryHistoryEntrySpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.TextQueryHistoryEntrySpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -213,9 +213,8 @@ ash.personalization_app.mojom.SeaPenObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.SeaPenObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.SeaPenObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.SeaPenObserver',
     'context');
   return remote.$;
@@ -234,14 +233,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_Params', [
-      mojo.internal.StructField('query', 0, 0, ash.personalization_app.mojom.SeaPenQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, ash.personalization_app.mojom.SeaPenQuerySpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParams', [
-      mojo.internal.StructField('thumbnails', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SeaPenThumbnailSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('statusCode', 8, 0, ash.personalization_app.mojom.MantaStatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thumbnails', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SeaPenThumbnailSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('statusCode', 8, 0, ash.personalization_app.mojom.MantaStatusCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -290,7 +289,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParams', [
-      mojo.internal.StructField('thumbnail_data', 0, 0, ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('thumbnail_data', 0, 0, ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -308,7 +307,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_Params', [
-      mojo.internal.StructField('metadata', 0, 0, ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -536,9 +535,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
 
 ash.personalization_app.mojom.SeaPenProvider.getRemote = function() {
   let remote = new ash.personalization_app.mojom.SeaPenProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.SeaPenProvider',
     'context');
   return remote.$;

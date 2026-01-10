@@ -39,8 +39,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, video_capture.mojom.GetSourceInfosResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source_infos', 8, 0, mojo.internal.Array(media.mojom.VideoCaptureDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, video_capture.mojom.GetSourceInfosResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source_infos', 8, 0, mojo.internal.Array(media.mojom.VideoCaptureDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -53,7 +53,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_Params', [
-      mojo.internal.StructField('device_info', 0, 0, media.mojom.VideoCaptureDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, media.mojom.VideoCaptureDeviceInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('producer', 8, 0, mojo.internal.InterfaceProxy(video_capture.mojom.ProducerRemote), null, false, 0, undefined),
       mojo.internal.StructField('virtual_device_receiver', 16, 0, mojo.internal.InterfaceRequest(video_capture.mojom.SharedMemoryVirtualDeviceRemote), null, false, 0, undefined),
     ],
@@ -61,7 +61,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_Params', [
-      mojo.internal.StructField('device_info', 0, 0, media.mojom.VideoCaptureDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, media.mojom.VideoCaptureDeviceInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('virtual_device_receiver', 8, 0, mojo.internal.InterfaceRequest(video_capture.mojom.TextureVirtualDeviceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -195,9 +195,8 @@ video_capture.mojom.VideoSourceProviderRemoteCallHandler = class {
 
 video_capture.mojom.VideoSourceProvider.getRemote = function() {
   let remote = new video_capture.mojom.VideoSourceProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'video_capture.mojom.VideoSourceProvider',
     'context');
   return remote.$;

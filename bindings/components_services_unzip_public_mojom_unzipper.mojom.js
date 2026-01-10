@@ -51,7 +51,7 @@ mojo.internal.Struct(
 // Interface: UnzipFilter
 mojo.internal.Struct(
     unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec, 'unzip.mojom.UnzipFilter_ShouldUnzipFile_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -107,9 +107,8 @@ unzip.mojom.UnzipFilterRemoteCallHandler = class {
 
 unzip.mojom.UnzipFilter.getRemote = function() {
   let remote = new unzip.mojom.UnzipFilterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'unzip.mojom.UnzipFilter',
     'context');
   return remote.$;
@@ -172,9 +171,8 @@ unzip.mojom.UnzipListenerRemoteCallHandler = class {
 
 unzip.mojom.UnzipListener.getRemote = function() {
   let remote = new unzip.mojom.UnzipListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'unzip.mojom.UnzipListener',
     'context');
   return remote.$;
@@ -187,9 +185,9 @@ unzip.mojom.UnzipListenerRequest = unzip.mojom.UnzipListenerPendingReceiver;
 // Interface: Unzipper
 mojo.internal.Struct(
     unzip.mojom.Unzipper_Unzip_ParamsSpec, 'unzip.mojom.Unzipper_Unzip_Params', [
-      mojo.internal.StructField('zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('output_dir', 8, 0, mojo.internal.InterfaceProxy(storage.mojom.DirectoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('options', 16, 0, unzip.mojom.UnzipOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, unzip.mojom.UnzipOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('filter', 24, 0, mojo.internal.InterfaceProxy(unzip.mojom.UnzipFilterRemote), null, true, 0, undefined),
       mojo.internal.StructField('listener', 32, 0, mojo.internal.InterfaceProxy(unzip.mojom.UnzipListenerRemote), null, true, 0, undefined),
     ],
@@ -203,7 +201,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     unzip.mojom.Unzipper_DetectEncoding_ParamsSpec, 'unzip.mojom.Unzipper_DetectEncoding_Params', [
-      mojo.internal.StructField('zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -215,20 +213,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec, 'unzip.mojom.Unzipper_GetExtractedInfo_Params', [
-      mojo.internal.StructField('zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec, 'unzip.mojom.Unzipper_GetExtractedInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, unzip.mojom.InfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, unzip.mojom.InfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     unzip.mojom.Unzipper_DecodeXz_ParamsSpec, 'unzip.mojom.Unzipper_DecodeXz_Params', [
-      mojo.internal.StructField('in_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('out_file', 8, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('out_file', 8, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -314,9 +312,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
 
 unzip.mojom.Unzipper.getRemote = function() {
   let remote = new unzip.mojom.UnzipperRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'unzip.mojom.Unzipper',
     'context');
   return remote.$;

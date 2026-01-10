@@ -29,8 +29,8 @@ blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = { $: {} };
 // Struct: DWriteStringPair
 mojo.internal.Struct(
     blink.mojom.DWriteStringPairSpec, 'blink.mojom.DWriteStringPair', [
-      mojo.internal.StructField('first', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('second', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('first', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('second', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -47,17 +47,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.MapCharactersResultSpec, 'blink.mojom.MapCharactersResult', [
       mojo.internal.StructField('family_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('family_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('family_name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('mapped_length', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('scale', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('font_style', 24, 0, blink.mojom.DWriteFontStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('font_style', 24, 0, blink.mojom.DWriteFontStyleSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Interface: DWriteFontProxy
 mojo.internal.Struct(
     blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec, 'blink.mojom.DWriteFontProxy_FindFamily_Params', [
-      mojo.internal.StructField('family_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('family_name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -86,7 +86,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec, 'blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParams', [
-      mojo.internal.StructField('out_family_names', 0, 0, mojo.internal.Array(blink.mojom.DWriteStringPairSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('out_family_names', 0, 0, mojo.internal.Array(blink.mojom.DWriteStringPairSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -98,36 +98,36 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec, 'blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParams', [
-      mojo.internal.StructField('file_handles', 0, 0, mojo.internal.Array(mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('file_handles', 0, 0, mojo.internal.Array(mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec, 'blink.mojom.DWriteFontProxy_MatchUniqueFont_Params', [
-      mojo.internal.StructField('font_unique_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('font_unique_name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec, 'blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParams', [
-      mojo.internal.StructField('file_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('file_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('ttc_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec, 'blink.mojom.DWriteFontProxy_MapCharacters_Params', [
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('font_style', 8, 0, blink.mojom.DWriteFontStyleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('locale_name', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('font_style', 8, 0, blink.mojom.DWriteFontStyleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('locale_name', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('reading_direction', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('base_family_name', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('base_family_name', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec, 'blink.mojom.DWriteFontProxy_MapCharacters_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, blink.mojom.MapCharactersResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, blink.mojom.MapCharactersResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -227,9 +227,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
 
 blink.mojom.DWriteFontProxy.getRemote = function() {
   let remote = new blink.mojom.DWriteFontProxyRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DWriteFontProxy',
     'context');
   return remote.$;

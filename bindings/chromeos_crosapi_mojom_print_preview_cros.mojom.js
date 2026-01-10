@@ -57,11 +57,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('imageable_area_left_microns', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('imageable_area_right_microns', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('imageable_area_top_microns', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('vendor_id', 24, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('custom_display_name', 32, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('vendor_id', 24, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('custom_display_name', 32, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('is_default_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'is_default_$value', originalFieldName: 'is_default' }),
       mojo.internal.StructField('is_default_$value', 40, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'is_default_$flag', originalFieldName: 'is_default' }),
-      mojo.internal.StructField('name', 48, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('name', 48, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -71,62 +71,62 @@ mojo.internal.Struct(
       mojo.internal.StructField('preview_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('request_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('is_first_request', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('printer_type', 12, 0, printing.mojom.PrinterTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('margin_type', 16, 0, printing.mojom.MarginTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scaling_type', 20, 0, crosapi.mojom.ScalingTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('collate', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('copies', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('color', 32, 0, printing.mojom.ColorModelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duplex', 36, 0, printing.mojom.DuplexModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('landscape', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('device_name', 48, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('scale_factor', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('rasterize_pdf', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('pages_per_sheet', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('dpi_horizontal', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('dpi_vertical', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('margins_custom', 80, 0, crosapi.mojom.MarginsCustomSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_range', 88, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('header_footer_enabled', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('title', 104, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('url', 112, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('media_size', 120, 0, crosapi.mojom.MediaSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('should_print_backgrounds', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('should_print_selection_only', 128, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('advanced_settings', 136, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.ValueSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('rasterize_pdf_dpi_$flag', 144, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'rasterize_pdf_dpi_$value', originalFieldName: 'rasterize_pdf_dpi' }),
-      mojo.internal.StructField('rasterize_pdf_dpi_$value', 148, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'rasterize_pdf_dpi_$flag', originalFieldName: 'rasterize_pdf_dpi' }),
-      mojo.internal.StructField('borderless_$flag', 152, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'borderless_$value', originalFieldName: 'borderless' }),
-      mojo.internal.StructField('borderless_$value', 152, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'borderless_$flag', originalFieldName: 'borderless' }),
-      mojo.internal.StructField('media_type', 160, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('preview_modifiable_$flag', 168, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'preview_modifiable_$value', originalFieldName: 'preview_modifiable' }),
-      mojo.internal.StructField('preview_modifiable_$value', 168, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'preview_modifiable_$flag', originalFieldName: 'preview_modifiable' }),
-      mojo.internal.StructField('send_user_info_$flag', 168, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'send_user_info_$value', originalFieldName: 'send_user_info' }),
-      mojo.internal.StructField('send_user_info_$value', 168, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'send_user_info_$flag', originalFieldName: 'send_user_info' }),
-      mojo.internal.StructField('user_name', 176, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('chromeos_access_oauth_token', 184, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('pin_value', 192, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('ipp_client_info', 200, 0, mojo.internal.Array(printing.mojom.IppClientInfoSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('printer_manually_selected_$flag', 208, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'printer_manually_selected_$value', originalFieldName: 'printer_manually_selected' }),
-      mojo.internal.StructField('printer_manually_selected_$value', 208, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'printer_manually_selected_$flag', originalFieldName: 'printer_manually_selected' }),
-      mojo.internal.StructField('printer_status_reason', 216, 0, StatusReason.ReasonSpec, null, true, 0, undefined),
-      mojo.internal.StructField('capabilities', 224, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('open_pdf_in_preview_$flag', 232, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'open_pdf_in_preview_$value', originalFieldName: 'open_pdf_in_preview' }),
-      mojo.internal.StructField('open_pdf_in_preview_$value', 232, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'open_pdf_in_preview_$flag', originalFieldName: 'open_pdf_in_preview' }),
-      mojo.internal.StructField('dpi_default_$flag', 232, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'dpi_default_$value', originalFieldName: 'dpi_default' }),
-      mojo.internal.StructField('dpi_default_$value', 232, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'dpi_default_$flag', originalFieldName: 'dpi_default' }),
-      mojo.internal.StructField('page_count_$flag', 232, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'page_count_$value', originalFieldName: 'page_count' }),
-      mojo.internal.StructField('page_count_$value', 236, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'page_count_$flag', originalFieldName: 'page_count' }),
-      mojo.internal.StructField('show_system_dialog_$flag', 240, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'show_system_dialog_$value', originalFieldName: 'show_system_dialog' }),
-      mojo.internal.StructField('show_system_dialog_$value', 240, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'show_system_dialog_$flag', originalFieldName: 'show_system_dialog' }),
+      mojo.internal.StructField('printer_type', 16, 0, printing.mojom.PrinterTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('margin_type', 24, 0, printing.mojom.MarginTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scaling_type', 32, 0, crosapi.mojom.ScalingTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('collate', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('copies', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('color', 48, 0, printing.mojom.ColorModelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('duplex', 56, 0, printing.mojom.DuplexModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('landscape', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device_name', 72, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('scale_factor', 80, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('rasterize_pdf', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pages_per_sheet', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('dpi_horizontal', 92, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('dpi_vertical', 96, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('margins_custom', 104, 0, crosapi.mojom.MarginsCustomSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('page_range', 112, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('header_footer_enabled', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('title', 128, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('url', 136, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('media_size', 144, 0, crosapi.mojom.MediaSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('should_print_backgrounds', 152, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_print_selection_only', 152, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('advanced_settings', 160, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.ValueSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('rasterize_pdf_dpi_$flag', 168, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'rasterize_pdf_dpi_$value', originalFieldName: 'rasterize_pdf_dpi' }),
+      mojo.internal.StructField('rasterize_pdf_dpi_$value', 172, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'rasterize_pdf_dpi_$flag', originalFieldName: 'rasterize_pdf_dpi' }),
+      mojo.internal.StructField('borderless_$flag', 176, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'borderless_$value', originalFieldName: 'borderless' }),
+      mojo.internal.StructField('borderless_$value', 176, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'borderless_$flag', originalFieldName: 'borderless' }),
+      mojo.internal.StructField('media_type', 184, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('preview_modifiable_$flag', 192, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'preview_modifiable_$value', originalFieldName: 'preview_modifiable' }),
+      mojo.internal.StructField('preview_modifiable_$value', 192, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'preview_modifiable_$flag', originalFieldName: 'preview_modifiable' }),
+      mojo.internal.StructField('send_user_info_$flag', 192, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'send_user_info_$value', originalFieldName: 'send_user_info' }),
+      mojo.internal.StructField('send_user_info_$value', 192, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'send_user_info_$flag', originalFieldName: 'send_user_info' }),
+      mojo.internal.StructField('user_name', 200, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('chromeos_access_oauth_token', 208, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('pin_value', 216, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ipp_client_info', 224, 0, mojo.internal.Array(printing.mojom.IppClientInfoSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('printer_manually_selected_$flag', 232, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'printer_manually_selected_$value', originalFieldName: 'printer_manually_selected' }),
+      mojo.internal.StructField('printer_manually_selected_$value', 232, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'printer_manually_selected_$flag', originalFieldName: 'printer_manually_selected' }),
+      mojo.internal.StructField('printer_status_reason', 240, 0, StatusReason.ReasonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('capabilities', 248, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('open_pdf_in_preview_$flag', 256, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'open_pdf_in_preview_$value', originalFieldName: 'open_pdf_in_preview' }),
+      mojo.internal.StructField('open_pdf_in_preview_$value', 256, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'open_pdf_in_preview_$flag', originalFieldName: 'open_pdf_in_preview' }),
+      mojo.internal.StructField('dpi_default_$flag', 256, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'dpi_default_$value', originalFieldName: 'dpi_default' }),
+      mojo.internal.StructField('dpi_default_$value', 256, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'dpi_default_$flag', originalFieldName: 'dpi_default' }),
+      mojo.internal.StructField('page_count_$flag', 256, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'page_count_$value', originalFieldName: 'page_count' }),
+      mojo.internal.StructField('page_count_$value', 260, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'page_count_$flag', originalFieldName: 'page_count' }),
+      mojo.internal.StructField('show_system_dialog_$flag', 264, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'show_system_dialog_$value', originalFieldName: 'show_system_dialog' }),
+      mojo.internal.StructField('show_system_dialog_$value', 264, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'show_system_dialog_$flag', originalFieldName: 'show_system_dialog' }),
     ],
-    [[0, 256]]);
+    [[0, 280]]);
 
 // Interface: PrintPreviewCrosDelegate
 mojo.internal.Struct(
     crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec, 'crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('params', 8, 0, printing.mojom.RequestPrintPreviewParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, printing.mojom.RequestPrintPreviewParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -138,7 +138,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec, 'crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -204,9 +204,8 @@ crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler = class {
 
 crosapi.mojom.PrintPreviewCrosDelegate.getRemote = function() {
   let remote = new crosapi.mojom.PrintPreviewCrosDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.PrintPreviewCrosDelegate',
     'context');
   return remote.$;
@@ -219,8 +218,8 @@ crosapi.mojom.PrintPreviewCrosDelegateRequest = crosapi.mojom.PrintPreviewCrosDe
 // Interface: PrintPreviewCrosClient
 mojo.internal.Struct(
     crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec, 'crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, crosapi.mojom.PrintSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, crosapi.mojom.PrintSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -232,7 +231,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec, 'crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -298,9 +297,8 @@ crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler = class {
 
 crosapi.mojom.PrintPreviewCrosClient.getRemote = function() {
   let remote = new crosapi.mojom.PrintPreviewCrosClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.PrintPreviewCrosClient',
     'context');
   return remote.$;

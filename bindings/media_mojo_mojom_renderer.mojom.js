@@ -65,7 +65,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Renderer_StartPlayingFrom_ParamsSpec, 'media.mojom.Renderer_StartPlayingFrom_Params', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -83,7 +83,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Renderer_SetCdm_ParamsSpec, 'media.mojom.Renderer_SetCdm_Params', [
-      mojo.internal.StructField('cdm_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cdm_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -95,7 +95,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Renderer_SetLatencyHint_ParamsSpec, 'media.mojom.Renderer_SetLatencyHint_Params', [
-      mojo.internal.StructField('latency_hint', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('latency_hint', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -205,9 +205,8 @@ media.mojom.RendererRemoteCallHandler = class {
 
 media.mojom.Renderer.getRemote = function() {
   let remote = new media.mojom.RendererRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.Renderer',
     'context');
   return remote.$;
@@ -220,16 +219,16 @@ media.mojom.RendererRequest = media.mojom.RendererPendingReceiver;
 // Interface: RendererClient
 mojo.internal.Struct(
     media.mojom.RendererClient_OnTimeUpdate_ParamsSpec, 'media.mojom.RendererClient_OnTimeUpdate_Params', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('max_time', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('capture_time', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_time', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('capture_time', 16, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec, 'media.mojom.RendererClient_OnBufferingStateChange_Params', [
-      mojo.internal.StructField('state', 0, 0, media.mojom.BufferingStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, media.mojom.BufferingStateChangeReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, media.mojom.BufferingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, media.mojom.BufferingStateChangeReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -240,25 +239,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.RendererClient_OnError_ParamsSpec, 'media.mojom.RendererClient_OnError_Params', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.PipelineStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.PipelineStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec, 'media.mojom.RendererClient_OnAudioConfigChange_Params', [
-      mojo.internal.StructField('config', 0, 0, media.mojom.AudioDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, media.mojom.AudioDecoderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec, 'media.mojom.RendererClient_OnVideoConfigChange_Params', [
-      mojo.internal.StructField('config', 0, 0, media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, media.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec, 'media.mojom.RendererClient_OnVideoNaturalSizeChange_Params', [
-      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -270,13 +269,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec, 'media.mojom.RendererClient_OnStatisticsUpdate_Params', [
-      mojo.internal.StructField('stats', 0, 0, media.mojom.PipelineStatisticsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stats', 0, 0, media.mojom.PipelineStatisticsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.RendererClient_OnWaiting_ParamsSpec, 'media.mojom.RendererClient_OnWaiting_Params', [
-      mojo.internal.StructField('reason', 0, 0, media.mojom.WaitingReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, media.mojom.WaitingReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -416,9 +415,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
 
 media.mojom.RendererClient.getRemote = function() {
   let remote = new media.mojom.RendererClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.RendererClient',
     'context');
   return remote.$;

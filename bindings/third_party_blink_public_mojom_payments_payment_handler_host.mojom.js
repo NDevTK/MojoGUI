@@ -33,33 +33,33 @@ mojo.internal.Struct(
 // Struct: PaymentHandlerModifier
 mojo.internal.Struct(
     payments.mojom.PaymentHandlerModifierSpec, 'payments.mojom.PaymentHandlerModifier', [
-      mojo.internal.StructField('total', 0, 0, payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
-      mojo.internal.StructField('method_data', 8, 0, payments.mojom.PaymentHandlerMethodDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('total', 0, 0, payments.mojom.PaymentCurrencyAmountSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('method_data', 8, 0, payments.mojom.PaymentHandlerMethodDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PaymentRequestDetailsUpdate
 mojo.internal.Struct(
     payments.mojom.PaymentRequestDetailsUpdateSpec, 'payments.mojom.PaymentRequestDetailsUpdate', [
-      mojo.internal.StructField('total', 0, 0, payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
-      mojo.internal.StructField('shipping_options', 8, 0, mojo.internal.Array(payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('modifiers', 16, 0, mojo.internal.Array(payments.mojom.PaymentHandlerModifierSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('total', 0, 0, payments.mojom.PaymentCurrencyAmountSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('shipping_options', 8, 0, mojo.internal.Array(payments.mojom.PaymentShippingOptionSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('modifiers', 16, 0, mojo.internal.Array(payments.mojom.PaymentHandlerModifierSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('error', 24, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('stringified_payment_method_errors', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('shipping_address_errors', 40, 0, payments.mojom.AddressErrorsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('shipping_address_errors', 40, 0, payments.mojom.AddressErrorsSpec.$, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
 // Interface: PaymentHandlerHost
 mojo.internal.Struct(
     payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_Params', [
-      mojo.internal.StructField('method_data', 0, 0, payments.mojom.PaymentHandlerMethodDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('method_data', 0, 0, payments.mojom.PaymentHandlerMethodDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParams', [
-      mojo.internal.StructField('response_data', 0, 0, payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_data', 0, 0, payments.mojom.PaymentRequestDetailsUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -71,19 +71,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParams', [
-      mojo.internal.StructField('response_data', 0, 0, payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_data', 0, 0, payments.mojom.PaymentRequestDetailsUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_Params', [
-      mojo.internal.StructField('shipping_address', 0, 0, payments.mojom.PaymentAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shipping_address', 0, 0, payments.mojom.PaymentAddressSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParams', [
-      mojo.internal.StructField('response_data', 0, 0, payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_data', 0, 0, payments.mojom.PaymentRequestDetailsUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,9 +153,8 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
 
 payments.mojom.PaymentHandlerHost.getRemote = function() {
   let remote = new payments.mojom.PaymentHandlerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'payments.mojom.PaymentHandlerHost',
     'context');
   return remote.$;

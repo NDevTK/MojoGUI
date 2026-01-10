@@ -28,8 +28,8 @@ media_router.mojom.PlayState = {
 // Struct: MediaImage
 mojo.internal.Struct(
     media_router.mojom.MediaImageSpec, 'media_router.mojom.MediaImage', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -43,7 +43,7 @@ mojo.internal.Struct(
 // Interface: MediaStatusObserver
 mojo.internal.Struct(
     media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec, 'media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_Params', [
-      mojo.internal.StructField('status', 0, 0, media_router.mojom.MediaStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media_router.mojom.MediaStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -93,9 +93,8 @@ media_router.mojom.MediaStatusObserverRemoteCallHandler = class {
 
 media_router.mojom.MediaStatusObserver.getRemote = function() {
   let remote = new media_router.mojom.MediaStatusObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_router.mojom.MediaStatusObserver',
     'context');
   return remote.$;

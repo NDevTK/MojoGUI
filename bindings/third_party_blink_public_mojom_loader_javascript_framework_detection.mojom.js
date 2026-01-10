@@ -34,6 +34,6 @@ blink.mojom.JavaScriptFramework = {
 // Struct: JavaScriptFrameworkDetectionResult
 mojo.internal.Struct(
     blink.mojom.JavaScriptFrameworkDetectionResultSpec, 'blink.mojom.JavaScriptFrameworkDetectionResult', [
-      mojo.internal.StructField('detected_versions', 0, 0, mojo.internal.Map(blink.mojom.JavaScriptFrameworkSpec, mojo.internal.Int16, false), null, false, 0, undefined),
+      mojo.internal.StructField('detected_versions', 0, 0, mojo.internal.Map(blink.mojom.JavaScriptFrameworkSpec.$, mojo.internal.Int16, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

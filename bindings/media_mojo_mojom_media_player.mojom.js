@@ -66,19 +66,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec, 'media.mojom.MediaPlayer_RequestSeekForward_Params', [
-      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec, 'media.mojom.MediaPlayer_RequestSeekBackward_Params', [
-      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec, 'media.mojom.MediaPlayer_RequestSeekTo_Params', [
-      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -140,7 +140,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec, 'media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_Params', [
-      mojo.internal.StructField('auto_picture_in_picture_info', 0, 0, media.mojom.AutoPipInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('auto_picture_in_picture_info', 0, 0, media.mojom.AutoPipInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -330,9 +330,8 @@ media.mojom.MediaPlayerRemoteCallHandler = class {
 
 media.mojom.MediaPlayer.getRemote = function() {
   let remote = new media.mojom.MediaPlayerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaPlayer',
     'context');
   return remote.$;
@@ -400,9 +399,8 @@ media.mojom.MediaPlayerObserverClientRemoteCallHandler = class {
 
 media.mojom.MediaPlayerObserverClient.getRemote = function() {
   let remote = new media.mojom.MediaPlayerObserverClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaPlayerObserverClient',
     'context');
   return remote.$;
@@ -434,25 +432,25 @@ mojo.internal.Struct(
     media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_Params', [
       mojo.internal.StructField('has_audio', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_video', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('content_type', 8, 0, media.mojom.MediaContentTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_type', 8, 0, media.mojom.MediaContentTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_Params', [
-      mojo.internal.StructField('media_position', 0, 0, media_session.mojom.MediaPositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media_position', 0, 0, media_session.mojom.MediaPositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_Params', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.FullscreenVideoStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.FullscreenVideoStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnMediaSizeChanged_Params', [
-      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -481,7 +479,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_Params', [
-      mojo.internal.StructField('remote_playback_metadata', 0, 0, media_session.mojom.RemotePlaybackMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote_playback_metadata', 0, 0, media_session.mojom.RemotePlaybackMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -657,9 +655,8 @@ media.mojom.MediaPlayerObserverRemoteCallHandler = class {
 
 media.mojom.MediaPlayerObserver.getRemote = function() {
   let remote = new media.mojom.MediaPlayerObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaPlayerObserver',
     'context');
   return remote.$;
@@ -724,9 +721,8 @@ media.mojom.MediaPlayerHostRemoteCallHandler = class {
 
 media.mojom.MediaPlayerHost.getRemote = function() {
   let remote = new media.mojom.MediaPlayerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaPlayerHost',
     'context');
   return remote.$;

@@ -97,9 +97,8 @@ blink.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
 
 blink.mojom.ManagedConfigurationObserver.getRemote = function() {
   let remote = new blink.mojom.ManagedConfigurationObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ManagedConfigurationObserver',
     'context');
   return remote.$;
@@ -117,9 +116,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetHostname_ParamsSpec, 'blink.mojom.DeviceAPIService_GetHostname_Params', [
@@ -128,9 +127,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetHostname_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec, 'blink.mojom.DeviceAPIService_GetSerialNumber_Params', [
@@ -139,9 +138,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedAssetId_Params', [
@@ -150,9 +149,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedLocation_Params', [
@@ -161,9 +160,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 blink.mojom.DeviceAPIServicePendingReceiver = class {
   constructor(handle) {
@@ -251,9 +250,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
 
 blink.mojom.DeviceAPIService.getRemote = function() {
   let remote = new blink.mojom.DeviceAPIServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DeviceAPIService',
     'context');
   return remote.$;
@@ -338,9 +336,8 @@ blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
 
 blink.mojom.ManagedConfigurationService.getRemote = function() {
   let remote = new blink.mojom.ManagedConfigurationServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ManagedConfigurationService',
     'context');
   return remote.$;

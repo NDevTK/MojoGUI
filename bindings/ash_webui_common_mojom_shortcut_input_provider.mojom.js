@@ -22,15 +22,15 @@ ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = {
 // Interface: ShortcutInputObserver
 mojo.internal.Struct(
     ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec, 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_Params', [
-      mojo.internal.StructField('prerewritten_key_event', 0, 0, ash.mojom.KeyEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_event', 8, 0, ash.mojom.KeyEventSpec, null, true, 0, undefined),
+      mojo.internal.StructField('prerewritten_key_event', 0, 0, ash.mojom.KeyEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_event', 8, 0, ash.mojom.KeyEventSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec, 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_Params', [
-      mojo.internal.StructField('prerewritten_key_event', 0, 0, ash.mojom.KeyEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_event', 8, 0, ash.mojom.KeyEventSpec, null, true, 0, undefined),
+      mojo.internal.StructField('prerewritten_key_event', 0, 0, ash.mojom.KeyEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_event', 8, 0, ash.mojom.KeyEventSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -90,9 +90,8 @@ ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
 
 ash.common.mojom.ShortcutInputObserver.getRemote = function() {
   let remote = new ash.common.mojom.ShortcutInputObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.common.mojom.ShortcutInputObserver',
     'context');
   return remote.$;
@@ -170,9 +169,8 @@ ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
 
 ash.common.mojom.ShortcutInputProvider.getRemote = function() {
   let remote = new ash.common.mojom.ShortcutInputProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.common.mojom.ShortcutInputProvider',
     'context');
   return remote.$;

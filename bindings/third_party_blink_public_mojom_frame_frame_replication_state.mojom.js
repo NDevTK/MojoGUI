@@ -19,11 +19,11 @@ blink.mojom.FrameReplicationStateSpec = { $: {} };
 // Struct: FrameReplicationState
 mojo.internal.Struct(
     blink.mojom.FrameReplicationStateSpec, 'blink.mojom.FrameReplicationState', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('unique_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('permissions_policy_header', 24, 0, mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('frame_policy', 32, 0, blink.mojom.FramePolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('permissions_policy_header', 24, 0, mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('frame_policy', 32, 0, blink.mojom.FramePolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('insecure_navigations_set', 40, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('has_potentially_trustworthy_unique_origin', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_active_user_gesture', 48, 1, mojo.internal.Bool, false, false, 0, undefined),

@@ -89,9 +89,8 @@ zero_state_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 zero_state_promo.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new zero_state_promo.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'zero_state_promo.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -104,7 +103,7 @@ zero_state_promo.mojom.PageHandlerFactoryRequest = zero_state_promo.mojom.PageHa
 // Interface: PageHandler
 mojo.internal.Struct(
     zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec, 'zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_Params', [
-      mojo.internal.StructField('link', 0, 0, zero_state_promo.mojom.WebStoreLinkClickedSpec, null, false, 0, undefined),
+      mojo.internal.StructField('link', 0, 0, zero_state_promo.mojom.WebStoreLinkClickedSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -154,9 +153,8 @@ zero_state_promo.mojom.PageHandlerRemoteCallHandler = class {
 
 zero_state_promo.mojom.PageHandler.getRemote = function() {
   let remote = new zero_state_promo.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'zero_state_promo.mojom.PageHandler',
     'context');
   return remote.$;

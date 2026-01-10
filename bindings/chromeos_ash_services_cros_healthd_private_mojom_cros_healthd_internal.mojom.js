@@ -36,7 +36,7 @@ ash.cros_healthd.internal.mojom.ConnectionType = {
 // Struct: TouchscreenDevice
 mojo.internal.Struct(
     ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec, 'ash.cros_healthd.internal.mojom.TouchscreenDevice', [
-      mojo.internal.StructField('input_device', 0, 0, ash.cros_healthd.internal.mojom.InputDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_device', 0, 0, ash.cros_healthd.internal.mojom.InputDeviceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('touch_points', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('has_stylus', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_stylus_garage_switch', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -59,7 +59,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParams', [
-      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -174,9 +174,8 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
 
 ash.cros_healthd.internal.mojom.ChromiumDataCollector.getRemote = function() {
   let remote = new ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cros_healthd.internal.mojom.ChromiumDataCollector',
     'context');
   return remote.$;

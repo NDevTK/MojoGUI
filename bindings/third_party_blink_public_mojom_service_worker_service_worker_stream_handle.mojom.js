@@ -89,9 +89,8 @@ blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerStreamCallback.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerStreamCallbackRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ServiceWorkerStreamCallback',
     'context');
   return remote.$;

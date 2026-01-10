@@ -16,7 +16,7 @@ on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec
 // Interface: OnLoadScriptInjector
 mojo.internal.Struct(
     on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec, 'on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_Params', [
-      mojo.internal.StructField('script', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -81,9 +81,8 @@ on_load_script_injector.mojom.OnLoadScriptInjectorRemoteCallHandler = class {
 
 on_load_script_injector.mojom.OnLoadScriptInjector.getRemote = function() {
   let remote = new on_load_script_injector.mojom.OnLoadScriptInjectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'on_load_script_injector.mojom.OnLoadScriptInjector',
     'context');
   return remote.$;

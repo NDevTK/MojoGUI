@@ -17,7 +17,7 @@ content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = { 
 // Interface: RendererVariationsConfiguration
 mojo.internal.Struct(
     content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec, 'content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_Params', [
-      mojo.internal.StructField('variations_headers', 0, 0, variations.mojom.VariationsHeadersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('variations_headers', 0, 0, variations.mojom.VariationsHeadersSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -84,9 +84,8 @@ content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
 
 content.mojom.RendererVariationsConfiguration.getRemote = function() {
   let remote = new content.mojom.RendererVariationsConfigurationRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.RendererVariationsConfiguration',
     'context');
   return remote.$;

@@ -34,11 +34,11 @@ lens.mojom.Phase = {
 // Struct: LatencyLog
 mojo.internal.Struct(
     lens.mojom.LatencyLogSpec, 'lens.mojom.LatencyLog', [
-      mojo.internal.StructField('phase', 0, 0, lens.mojom.PhaseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('original_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('downscaled_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_format', 24, 0, lens.mojom.ImageFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('phase', 0, 0, lens.mojom.PhaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('original_size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('downscaled_size', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_format', 24, 0, lens.mojom.ImageFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('time', 32, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('encoded_bytes_size', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);

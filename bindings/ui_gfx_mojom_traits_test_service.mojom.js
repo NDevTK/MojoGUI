@@ -30,49 +30,49 @@ gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = { $: {} };
 // Interface: TraitsTestService
 mojo.internal.Struct(
     gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoSelectionBound_Params', [
-      mojo.internal.StructField('s', 0, 0, gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, gfx.mojom.SelectionBoundSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.SelectionBoundSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoTransform_Params', [
-      mojo.internal.StructField('t', 0, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('t', 0, 0, gfx.mojom.TransformSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoTransform_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.TransformSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_Params', [
-      mojo.internal.StructField('g', 0, 0, gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('g', 0, 0, gfx.mojom.GpuMemoryBufferHandleSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.GpuMemoryBufferHandleSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec, 'gfx.mojom.TraitsTestService_EchoRRectF_Params', [
-      mojo.internal.StructField('t', 0, 0, gfx.mojom.RRectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('t', 0, 0, gfx.mojom.RRectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec, 'gfx.mojom.TraitsTestService_EchoRRectF_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, gfx.mojom.RRectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.RRectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -152,9 +152,8 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
 
 gfx.mojom.TraitsTestService.getRemote = function() {
   let remote = new gfx.mojom.TraitsTestServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'gfx.mojom.TraitsTestService',
     'context');
   return remote.$;

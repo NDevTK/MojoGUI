@@ -103,16 +103,16 @@ ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcome = {
 // Struct: HelpContent
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.HelpContentSpec, 'ash.os_feedback_ui.mojom.HelpContent', [
-      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_type', 16, 0, ash.os_feedback_ui.mojom.HelpContentTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('content_type', 16, 0, ash.os_feedback_ui.mojom.HelpContentTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SearchRequest
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.SearchRequestSpec, 'ash.os_feedback_ui.mojom.SearchRequest', [
-      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -120,7 +120,7 @@ mojo.internal.Struct(
 // Struct: SearchResponse
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.SearchResponseSpec, 'ash.os_feedback_ui.mojom.SearchResponse', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.os_feedback_ui.mojom.HelpContentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.os_feedback_ui.mojom.HelpContentSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('total_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -135,7 +135,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('settings_search_do_not_record_metrics', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('from_autofill', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('autofill_metadata', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('page_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('page_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('extra_diagnostics', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('category_tag', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('trace_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -145,17 +145,17 @@ mojo.internal.Struct(
 // Struct: AttachedFile
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.AttachedFileSpec, 'ash.os_feedback_ui.mojom.AttachedFile', [
-      mojo.internal.StructField('file_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file_name', 16, 0, mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('file_name', 8, 0, mojo_base.mojom.SafeBaseNameSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: Report
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.ReportSpec, 'ash.os_feedback_ui.mojom.Report', [
-      mojo.internal.StructField('feedback_context', 0, 0, ash.os_feedback_ui.mojom.FeedbackContextSpec, null, false, 0, undefined),
-      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('attached_file', 16, 0, ash.os_feedback_ui.mojom.AttachedFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('feedback_context', 0, 0, ash.os_feedback_ui.mojom.FeedbackContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('attached_file', 16, 0, ash.os_feedback_ui.mojom.AttachedFileSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('include_system_logs_and_histograms', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('include_screenshot', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('contact_user_consent_granted', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -168,13 +168,13 @@ mojo.internal.Struct(
 // Interface: HelpContentProvider
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec, 'ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_Params', [
-      mojo.internal.StructField('request', 0, 0, ash.os_feedback_ui.mojom.SearchRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, ash.os_feedback_ui.mojom.SearchRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.os_feedback_ui.mojom.SearchResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, ash.os_feedback_ui.mojom.SearchResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -224,9 +224,8 @@ ash.os_feedback_ui.mojom.HelpContentProviderRemoteCallHandler = class {
 
 ash.os_feedback_ui.mojom.HelpContentProvider.getRemote = function() {
   let remote = new ash.os_feedback_ui.mojom.HelpContentProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.os_feedback_ui.mojom.HelpContentProvider',
     'context');
   return remote.$;
@@ -244,7 +243,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParams', [
-      mojo.internal.StructField('feedback_context', 0, 0, ash.os_feedback_ui.mojom.FeedbackContextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feedback_context', 0, 0, ash.os_feedback_ui.mojom.FeedbackContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -261,13 +260,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_Params', [
-      mojo.internal.StructField('report', 0, 0, ash.os_feedback_ui.mojom.ReportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report', 0, 0, ash.os_feedback_ui.mojom.ReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, ash.os_feedback_ui.mojom.SendReportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.os_feedback_ui.mojom.SendReportStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -299,25 +298,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_Params', [
-      mojo.internal.StructField('action', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_Params', [
-      mojo.internal.StructField('action', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_Params', [
-      mojo.internal.StructField('exit_path', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('exit_path', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_Params', [
-      mojo.internal.StructField('outcome', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outcome', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -493,9 +492,8 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCallHandler = class {
 
 ash.os_feedback_ui.mojom.FeedbackServiceProvider.getRemote = function() {
   let remote = new ash.os_feedback_ui.mojom.FeedbackServiceProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.os_feedback_ui.mojom.FeedbackServiceProvider',
     'context');
   return remote.$;

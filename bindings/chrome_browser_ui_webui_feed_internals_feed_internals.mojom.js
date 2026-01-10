@@ -49,9 +49,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('is_web_feed_follow_intro_debug_enabled', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('use_feed_query_requests', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('load_stream_status', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('feed_fetch_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('feed_actions_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('following_feed_order', 32, 0, feed_internals.mojom.FeedOrderSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feed_fetch_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('feed_actions_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('following_feed_order', 32, 0, feed_internals.mojom.FeedOrderSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -60,11 +60,11 @@ mojo.internal.Struct(
     feed_internals.mojom.LastFetchPropertiesSpec, 'feed_internals.mojom.LastFetchProperties', [
       mojo.internal.StructField('last_fetch_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('last_fetch_trigger', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('last_fetch_time', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('refresh_suppress_time', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_fetch_time', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('refresh_suppress_time', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('last_bless_nonce', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('last_action_upload_status', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('last_action_upload_time', 48, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_action_upload_time', 48, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -76,7 +76,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec, 'feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParams', [
-      mojo.internal.StructField('properties', 0, 0, feed_internals.mojom.PropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 0, 0, feed_internals.mojom.PropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -87,7 +87,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec, 'feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParams', [
-      mojo.internal.StructField('properties', 0, 0, feed_internals.mojom.LastFetchPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 0, 0, feed_internals.mojom.LastFetchPropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -130,13 +130,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec, 'feed_internals.mojom.PageHandler_OverrideFeedHost_Params', [
-      mojo.internal.StructField('host', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec, 'feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_Params', [
-      mojo.internal.StructField('endpoint_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -160,7 +160,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec, 'feed_internals.mojom.PageHandler_SetFollowingFeedOrder_Params', [
-      mojo.internal.StructField('order', 0, 0, feed_internals.mojom.FeedOrderSpec, null, false, 0, undefined),
+      mojo.internal.StructField('order', 0, 0, feed_internals.mojom.FeedOrderSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -330,9 +330,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 feed_internals.mojom.PageHandler.getRemote = function() {
   let remote = new feed_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'feed_internals.mojom.PageHandler',
     'context');
   return remote.$;

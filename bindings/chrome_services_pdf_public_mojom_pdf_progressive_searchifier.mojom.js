@@ -19,7 +19,7 @@ pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = { $: {} };
 // Interface: PdfProgressiveSearchifier
 mojo.internal.Struct(
     pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_AddPage_Params', [
-      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -107,9 +107,8 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
 
 pdf.mojom.PdfProgressiveSearchifier.getRemote = function() {
   let remote = new pdf.mojom.PdfProgressiveSearchifierRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'pdf.mojom.PdfProgressiveSearchifier',
     'context');
   return remote.$;

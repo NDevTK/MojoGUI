@@ -38,13 +38,13 @@ storage.mojom.CacheStorageOwner = {
 // Interface: CacheStorageObserver
 mojo.internal.Struct(
     storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheListChanged_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheContentChanged_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('cache_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -105,9 +105,8 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
 
 storage.mojom.CacheStorageObserver.getRemote = function() {
   let remote = new storage.mojom.CacheStorageObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.CacheStorageObserver',
     'context');
   return remote.$;
@@ -120,12 +119,12 @@ storage.mojom.CacheStorageObserverRequest = storage.mojom.CacheStorageObserverPe
 // Interface: CacheStorageControl
 mojo.internal.Struct(
     storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec, 'storage.mojom.CacheStorageControl_AddReceiver_Params', [
-      mojo.internal.StructField('cross_origin_embedder_policy', 0, 0, network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('cross_origin_embedder_policy', 0, 0, network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('coep_reporter', 8, 0, mojo.internal.InterfaceProxy(network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('document_isolation_policy', 16, 0, network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_isolation_policy', 16, 0, network.mojom.DocumentIsolationPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('dip_reporter', 24, 0, mojo.internal.InterfaceProxy(network.mojom.DocumentIsolationPolicyReporterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('bucket_locator', 32, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('owner', 40, 0, storage.mojom.CacheStorageOwnerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 32, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('owner', 40, 0, storage.mojom.CacheStorageOwnerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver', 48, 0, mojo.internal.InterfaceRequest(blink.mojom.CacheStorageRemote), null, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -138,7 +137,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.CacheStorageControl_ApplyPolicyUpdates_Params', [
-      mojo.internal.StructField('policy_updates', 0, 0, mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('policy_updates', 0, 0, mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -208,9 +207,8 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
 
 storage.mojom.CacheStorageControl.getRemote = function() {
   let remote = new storage.mojom.CacheStorageControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.CacheStorageControl',
     'context');
   return remote.$;

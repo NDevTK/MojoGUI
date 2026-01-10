@@ -18,9 +18,9 @@ device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
 // Interface: PublicIpAddressGeolocationProvider
 mojo.internal.Struct(
     device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec, 'device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_Params', [
-      mojo.internal.StructField('tag', 0, 0, network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tag', 0, 0, network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client_id', 16, 0, device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 16, 0, device.mojom.GeolocationClientIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -70,9 +70,8 @@ device.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler = class {
 
 device.mojom.PublicIpAddressGeolocationProvider.getRemote = function() {
   let remote = new device.mojom.PublicIpAddressGeolocationProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.PublicIpAddressGeolocationProvider',
     'context');
   return remote.$;

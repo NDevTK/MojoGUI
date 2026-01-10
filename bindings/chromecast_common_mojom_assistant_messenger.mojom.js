@@ -21,9 +21,9 @@ chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = { $: {} 
 // Interface: AssistantMessagePipe
 mojo.internal.Struct(
     chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec, 'chromecast.mojom.AssistantMessagePipe_SendMessage_Params', [
-      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 chromecast.mojom.AssistantMessagePipePendingReceiver = class {
   constructor(handle) {
@@ -71,9 +71,8 @@ chromecast.mojom.AssistantMessagePipeRemoteCallHandler = class {
 
 chromecast.mojom.AssistantMessagePipe.getRemote = function() {
   let remote = new chromecast.mojom.AssistantMessagePipeRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.AssistantMessagePipe',
     'context');
   return remote.$;
@@ -86,9 +85,9 @@ chromecast.mojom.AssistantMessagePipeRequest = chromecast.mojom.AssistantMessage
 // Interface: AssistantMessageClient
 mojo.internal.Struct(
     chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec, 'chromecast.mojom.AssistantMessageClient_OnMessage_Params', [
-      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 chromecast.mojom.AssistantMessageClientPendingReceiver = class {
   constructor(handle) {
@@ -136,9 +135,8 @@ chromecast.mojom.AssistantMessageClientRemoteCallHandler = class {
 
 chromecast.mojom.AssistantMessageClient.getRemote = function() {
   let remote = new chromecast.mojom.AssistantMessageClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.AssistantMessageClient',
     'context');
   return remote.$;
@@ -203,9 +201,8 @@ chromecast.mojom.AssistantMessageServiceRemoteCallHandler = class {
 
 chromecast.mojom.AssistantMessageService.getRemote = function() {
   let remote = new chromecast.mojom.AssistantMessageServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.AssistantMessageService',
     'context');
   return remote.$;

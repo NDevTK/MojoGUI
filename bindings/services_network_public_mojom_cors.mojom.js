@@ -51,11 +51,11 @@ network.mojom.CorsError = {
 // Struct: CorsErrorStatus
 mojo.internal.Struct(
     network.mojom.CorsErrorStatusSpec, 'network.mojom.CorsErrorStatus', [
-      mojo.internal.StructField('cors_error', 0, 0, network.mojom.CorsErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cors_error', 0, 0, network.mojom.CorsErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('failed_parameter', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('resource_address_space', 16, 0, network.mojom.IPAddressSpaceSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('inconsistent_address_space', 20, 0, network.mojom.IPAddressSpaceSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('has_authorization_covered_by_wildcard_on_preflight', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('issue_id', 32, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resource_address_space', 16, 0, network.mojom.IPAddressSpaceSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('inconsistent_address_space', 24, 0, network.mojom.IPAddressSpaceSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('has_authorization_covered_by_wildcard_on_preflight', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('issue_id', 40, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);

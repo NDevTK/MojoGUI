@@ -44,9 +44,9 @@ network.mojom.NetLogEventPhase = {
 // Interface: NetLogExporter
 mojo.internal.Struct(
     network.mojom.NetLogExporter_Start_ParamsSpec, 'network.mojom.NetLogExporter_Start_Params', [
-      mojo.internal.StructField('destination', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('extra_constants', 8, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('capture_mode', 16, 0, network.mojom.NetLogCaptureModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 0, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('extra_constants', 8, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('capture_mode', 16, 0, network.mojom.NetLogCaptureModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_file_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -59,7 +59,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetLogExporter_Stop_ParamsSpec, 'network.mojom.NetLogExporter_Stop_Params', [
-      mojo.internal.StructField('polled_values', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('polled_values', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -125,9 +125,8 @@ network.mojom.NetLogExporterRemoteCallHandler = class {
 
 network.mojom.NetLogExporter.getRemote = function() {
   let remote = new network.mojom.NetLogExporterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetLogExporter',
     'context');
   return remote.$;
@@ -190,9 +189,8 @@ network.mojom.NetLogProxySourceRemoteCallHandler = class {
 
 network.mojom.NetLogProxySource.getRemote = function() {
   let remote = new network.mojom.NetLogProxySourceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetLogProxySource',
     'context');
   return remote.$;
@@ -206,10 +204,10 @@ network.mojom.NetLogProxySourceRequest = network.mojom.NetLogProxySourcePendingR
 mojo.internal.Struct(
     network.mojom.NetLogProxySink_AddEntry_ParamsSpec, 'network.mojom.NetLogProxySink_AddEntry_Params', [
       mojo.internal.StructField('type', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('net_log_source', 8, 0, network.mojom.NetLogSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('phase', 16, 0, network.mojom.NetLogEventPhaseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('time', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('params', 32, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('net_log_source', 8, 0, network.mojom.NetLogSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('phase', 16, 0, network.mojom.NetLogEventPhaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('time', 24, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('params', 32, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -259,9 +257,8 @@ network.mojom.NetLogProxySinkRemoteCallHandler = class {
 
 network.mojom.NetLogProxySink.getRemote = function() {
   let remote = new network.mojom.NetLogProxySinkRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetLogProxySink',
     'context');
   return remote.$;

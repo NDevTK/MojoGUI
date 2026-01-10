@@ -86,9 +86,8 @@ ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
 
 ash.settings.graduation.mojom.GraduationHandler.getRemote = function() {
   let remote = new ash.settings.graduation.mojom.GraduationHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.graduation.mojom.GraduationHandler',
     'context');
   return remote.$;
@@ -151,9 +150,8 @@ ash.settings.graduation.mojom.GraduationObserverRemoteCallHandler = class {
 
 ash.settings.graduation.mojom.GraduationObserver.getRemote = function() {
   let remote = new ash.settings.graduation.mojom.GraduationObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.graduation.mojom.GraduationObserver',
     'context');
   return remote.$;

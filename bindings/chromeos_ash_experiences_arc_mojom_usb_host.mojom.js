@@ -47,7 +47,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec, 'arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParams', [
       mojo.internal.StructField('device_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('info', 8, 0, device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 8, 0, device.mojom.UsbDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -131,9 +131,8 @@ arc.mojom.UsbHostHostRemoteCallHandler = class {
 
 arc.mojom.UsbHostHost.getRemote = function() {
   let remote = new arc.mojom.UsbHostHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.UsbHostHost',
     'context');
   return remote.$;
@@ -235,9 +234,8 @@ arc.mojom.UsbHostInstanceRemoteCallHandler = class {
 
 arc.mojom.UsbHostInstance.getRemote = function() {
   let remote = new arc.mojom.UsbHostInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.UsbHostInstance',
     'context');
   return remote.$;

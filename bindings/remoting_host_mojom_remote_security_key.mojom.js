@@ -16,13 +16,13 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = { 
 // Interface: SecurityKeyForwarder
 mojo.internal.Struct(
     remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec, 'remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_Params', [
-      mojo.internal.StructField('request_data', 0, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_data', 0, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec, 'remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParams', [
-      mojo.internal.StructField('response_data', 0, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_data', 0, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ remoting.mojom.SecurityKeyForwarderRemoteCallHandler = class {
 
 remoting.mojom.SecurityKeyForwarder.getRemote = function() {
   let remote = new remoting.mojom.SecurityKeyForwarderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.SecurityKeyForwarder',
     'context');
   return remote.$;

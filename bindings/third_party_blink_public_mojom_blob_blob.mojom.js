@@ -100,9 +100,8 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
 
 blink.mojom.BlobReaderClient.getRemote = function() {
   let remote = new blink.mojom.BlobReaderClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BlobReaderClient',
     'context');
   return remote.$;
@@ -145,7 +144,7 @@ mojo.internal.Struct(
     blink.mojom.Blob_Load_ParamsSpec, 'blink.mojom.Blob_Load_Params', [
       mojo.internal.StructField('loader', 0, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderRemote), null, false, 0, undefined),
       mojo.internal.StructField('request_method', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('headers', 16, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 16, 0, network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -157,9 +156,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.Blob_ReadSideData_ResponseParamsSpec, 'blink.mojom.Blob_ReadSideData_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.Blob_CaptureSnapshot_ParamsSpec, 'blink.mojom.Blob_CaptureSnapshot_Params', [
@@ -169,7 +168,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec, 'blink.mojom.Blob_CaptureSnapshot_ResponseParams', [
       mojo.internal.StructField('length', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('modification_time', 8, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('modification_time', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -300,9 +299,8 @@ blink.mojom.BlobRemoteCallHandler = class {
 
 blink.mojom.Blob.getRemote = function() {
   let remote = new blink.mojom.BlobRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.Blob',
     'context');
   return remote.$;

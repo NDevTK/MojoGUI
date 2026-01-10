@@ -14,6 +14,6 @@ blink.mojom.OpenGraphMetadataSpec = { $: {} };
 // Struct: OpenGraphMetadata
 mojo.internal.Struct(
     blink.mojom.OpenGraphMetadataSpec, 'blink.mojom.OpenGraphMetadata', [
-      mojo.internal.StructField('image', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);

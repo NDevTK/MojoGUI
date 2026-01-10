@@ -27,15 +27,15 @@ network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec
 // Struct: ProxyConfigWithAnnotation
 mojo.internal.Struct(
     network.mojom.ProxyConfigWithAnnotationSpec, 'network.mojom.ProxyConfigWithAnnotation', [
-      mojo.internal.StructField('value', 0, 0, network.mojom.ProxyConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('traffic_annotation', 8, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, network.mojom.ProxyConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 8, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: ProxyConfigClient
 mojo.internal.Struct(
     network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec, 'network.mojom.ProxyConfigClient_OnProxyConfigUpdated_Params', [
-      mojo.internal.StructField('proxy_config', 0, 0, network.mojom.ProxyConfigWithAnnotationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('proxy_config', 0, 0, network.mojom.ProxyConfigWithAnnotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -105,9 +105,8 @@ network.mojom.ProxyConfigClientRemoteCallHandler = class {
 
 network.mojom.ProxyConfigClient.getRemote = function() {
   let remote = new network.mojom.ProxyConfigClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.ProxyConfigClient',
     'context');
   return remote.$;
@@ -169,9 +168,8 @@ network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
 
 network.mojom.ProxyConfigPollerClient.getRemote = function() {
   let remote = new network.mojom.ProxyConfigPollerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.ProxyConfigPollerClient',
     'context');
   return remote.$;
@@ -251,9 +249,8 @@ network.mojom.ProxyErrorClientRemoteCallHandler = class {
 
 network.mojom.ProxyErrorClient.getRemote = function() {
   let remote = new network.mojom.ProxyErrorClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.ProxyErrorClient',
     'context');
   return remote.$;

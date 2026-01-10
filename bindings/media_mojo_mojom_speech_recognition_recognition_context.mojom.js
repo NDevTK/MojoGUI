@@ -22,6 +22,6 @@ mojo.internal.Struct(
 // Struct: SpeechRecognitionRecognitionContext
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionRecognitionContextSpec, 'media.mojom.SpeechRecognitionRecognitionContext', [
-      mojo.internal.StructField('phrases', 0, 0, mojo.internal.Array(media.mojom.SpeechRecognitionPhraseSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('phrases', 0, 0, mojo.internal.Array(media.mojom.SpeechRecognitionPhraseSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

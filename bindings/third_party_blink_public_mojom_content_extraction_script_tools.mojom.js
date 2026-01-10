@@ -24,6 +24,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('input_schema', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('annotations', 24, 0, blink.mojom.ScriptToolAnnotationsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('annotations', 24, 0, blink.mojom.ScriptToolAnnotationsSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);

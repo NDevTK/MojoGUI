@@ -18,8 +18,8 @@ feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = { $: {} };
 // Struct: RssLinks
 mojo.internal.Struct(
     feed.mojom.RssLinksSpec, 'feed.mojom.RssLinks', [
-      mojo.internal.StructField('page_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('links', 8, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('page_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('links', 8, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -31,7 +31,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec, 'feed.mojom.RssLinkReader_GetRssLinks_ResponseParams', [
-      mojo.internal.StructField('rss_links', 0, 0, feed.mojom.RssLinksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rss_links', 0, 0, feed.mojom.RssLinksSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -81,9 +81,8 @@ feed.mojom.RssLinkReaderRemoteCallHandler = class {
 
 feed.mojom.RssLinkReader.getRemote = function() {
   let remote = new feed.mojom.RssLinkReaderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'feed.mojom.RssLinkReader',
     'context');
   return remote.$;

@@ -19,12 +19,12 @@ mojo.internal.Union(
     network.mojom.NetworkIsolationKeySpec, 'network.mojom.NetworkIsolationKey', {
       'empty': {
         'ordinal': 0,
-        'type': network.mojom.EmptyNetworkIsolationKeySpec,
+        'type': network.mojom.EmptyNetworkIsolationKeySpec.$,
         'nullable': false,
       },
       'non_empty': {
         'ordinal': 1,
-        'type': network.mojom.NonEmptyNetworkIsolationKeySpec,
+        'type': network.mojom.NonEmptyNetworkIsolationKeySpec.$,
         'nullable': false,
       },
     });
@@ -38,9 +38,9 @@ mojo.internal.Struct(
 // Struct: NonEmptyNetworkIsolationKey
 mojo.internal.Struct(
     network.mojom.NonEmptyNetworkIsolationKeySpec, 'network.mojom.NonEmptyNetworkIsolationKey', [
-      mojo.internal.StructField('top_frame_site', 0, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_site', 8, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('nonce', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('network_isolation_partition', 24, 0, network.mojom.NetworkIsolationPartitionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_site', 0, 0, network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_site', 8, 0, network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('nonce', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('network_isolation_partition', 24, 0, network.mojom.NetworkIsolationPartitionSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);

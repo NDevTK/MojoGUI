@@ -43,11 +43,11 @@ android_webview.mojom.HitTestDataType = {
 // Struct: HitTestData
 mojo.internal.Struct(
     android_webview.mojom.HitTestDataSpec, 'android_webview.mojom.HitTestData', [
-      mojo.internal.StructField('type', 0, 0, android_webview.mojom.HitTestDataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, android_webview.mojom.HitTestDataTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('extra_data_for_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('href', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('anchor_text', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('img_src', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('href', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_text', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('img_src', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -84,7 +84,7 @@ mojo.internal.Struct(
     android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec, 'android_webview.mojom.LocalMainFrame_SmoothScroll_Params', [
       mojo.internal.StructField('target_x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('target_y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -174,9 +174,8 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
 
 android_webview.mojom.LocalMainFrame.getRemote = function() {
   let remote = new android_webview.mojom.LocalMainFrameRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'android_webview.mojom.LocalMainFrame',
     'context');
   return remote.$;
@@ -189,19 +188,19 @@ android_webview.mojom.LocalMainFrameRequest = android_webview.mojom.LocalMainFra
 // Interface: FrameHost
 mojo.internal.Struct(
     android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec, 'android_webview.mojom.FrameHost_UpdateHitTestData_Params', [
-      mojo.internal.StructField('data', 0, 0, android_webview.mojom.HitTestDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, android_webview.mojom.HitTestDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec, 'android_webview.mojom.FrameHost_ContentsSizeChanged_Params', [
-      mojo.internal.StructField('contents_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('contents_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec, 'android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_Params', [
-      mojo.internal.StructField('url', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('has_user_gesture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_redirect', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_outermost_main_frame', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -280,9 +279,8 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
 
 android_webview.mojom.FrameHost.getRemote = function() {
   let remote = new android_webview.mojom.FrameHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'android_webview.mojom.FrameHost',
     'context');
   return remote.$;

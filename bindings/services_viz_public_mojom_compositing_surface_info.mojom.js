@@ -16,8 +16,8 @@ viz.mojom.SurfaceInfoSpec = { $: {} };
 // Struct: SurfaceInfo
 mojo.internal.Struct(
     viz.mojom.SurfaceInfoSpec, 'viz.mojom.SurfaceInfo', [
-      mojo.internal.StructField('surface_id', 0, 0, viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('surface_id', 0, 0, viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('size_in_pixels', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size_in_pixels', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

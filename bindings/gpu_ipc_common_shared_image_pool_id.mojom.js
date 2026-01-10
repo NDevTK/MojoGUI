@@ -13,6 +13,6 @@ gpu.mojom.SharedImagePoolIdSpec = { $: {} };
 // Struct: SharedImagePoolId
 mojo.internal.Struct(
     gpu.mojom.SharedImagePoolIdSpec, 'gpu.mojom.SharedImagePoolId', [
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);

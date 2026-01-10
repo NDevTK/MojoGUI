@@ -55,13 +55,13 @@ mojo.internal.Struct(
 // Interface: ChromeKioskLaunchController
 mojo.internal.Struct(
     crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_Params', [
-      mojo.internal.StructField('params', 0, 0, crosapi.mojom.AppInstallParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, crosapi.mojom.AppInstallParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.ChromeKioskInstallResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.ChromeKioskInstallResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -74,7 +74,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.ChromeKioskLaunchResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.ChromeKioskLaunchResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -134,9 +134,8 @@ crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
 
 crosapi.mojom.ChromeKioskLaunchController.getRemote = function() {
   let remote = new crosapi.mojom.ChromeKioskLaunchControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.ChromeKioskLaunchController',
     'context');
   return remote.$;
@@ -199,9 +198,8 @@ crosapi.mojom.ChromeAppKioskServiceRemoteCallHandler = class {
 
 crosapi.mojom.ChromeAppKioskService.getRemote = function() {
   let remote = new crosapi.mojom.ChromeAppKioskServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.ChromeAppKioskService',
     'context');
   return remote.$;

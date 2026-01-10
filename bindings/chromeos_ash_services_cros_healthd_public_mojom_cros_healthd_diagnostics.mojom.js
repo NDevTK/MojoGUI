@@ -164,12 +164,12 @@ mojo.internal.Union(
     ash.cros_healthd.mojom.RoutineUpdateUnionSpec, 'ash.cros_healthd.mojom.RoutineUpdateUnion', {
       'interactive_update': {
         'ordinal': 0,
-        'type': ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec,
+        'type': ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec.$,
         'nullable': false,
       },
       'noninteractive_update': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec,
+        'type': ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec.$,
         'nullable': false,
       },
     });
@@ -178,21 +178,21 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RunRoutineResponseSpec, 'ash.cros_healthd.mojom.RunRoutineResponse', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 4, 0, ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: InteractiveRoutineUpdate
 mojo.internal.Struct(
     ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.InteractiveRoutineUpdate', [
-      mojo.internal.StructField('user_message', 0, 0, ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_message', 0, 0, ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: NonInteractiveRoutineUpdate
 mojo.internal.Struct(
     ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.NonInteractiveRoutineUpdate', [
-      mojo.internal.StructField('status', 0, 0, ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('status_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -202,9 +202,9 @@ mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineUpdateSpec, 'ash.cros_healthd.mojom.RoutineUpdate', [
       mojo.internal.StructField('progress_percent', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('output', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
-      mojo.internal.StructField('routine_update_union', 8, 0, ash.cros_healthd.mojom.RoutineUpdateUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('routine_update_union', 8, 0, ash.cros_healthd.mojom.RoutineUpdateUnionSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: DEPRECATED_LedLitUpRoutineReplier
 mojo.internal.Struct(
@@ -264,9 +264,8 @@ ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemoteCallHandler = clas
 
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.getRemote = function() {
   let remote = new ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier',
     'context');
   return remote.$;

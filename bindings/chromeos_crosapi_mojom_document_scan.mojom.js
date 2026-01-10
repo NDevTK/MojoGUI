@@ -170,12 +170,12 @@ mojo.internal.Union(
     crosapi.mojom.OptionConstraintRestrictionSpec, 'crosapi.mojom.OptionConstraintRestriction', {
       'int_range': {
         'ordinal': 0,
-        'type': crosapi.mojom.IntRangeSpec,
+        'type': crosapi.mojom.IntRangeSpec.$,
         'nullable': false,
       },
       'fixed_range': {
         'ordinal': 1,
-        'type': crosapi.mojom.FixedRangeSpec,
+        'type': crosapi.mojom.FixedRangeSpec.$,
         'nullable': false,
       },
       'valid_int': {
@@ -203,12 +203,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('manufacturer', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('model', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('device_uuid', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('connection_type', 40, 0, crosapi.mojom.ConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('secure', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('image_formats', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('kUnspecified', 56, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('connection_type', 40, 0, crosapi.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('secure', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('image_formats', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('kUnspecified', 64, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);
 
 // Struct: ScannerEnumFilter
 mojo.internal.Struct(
@@ -239,10 +239,10 @@ mojo.internal.Struct(
 // Struct: OptionConstraint
 mojo.internal.Struct(
     crosapi.mojom.OptionConstraintSpec, 'crosapi.mojom.OptionConstraint', [
-      mojo.internal.StructField('type', 0, 0, crosapi.mojom.OptionConstraintTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('restriction', 8, 0, crosapi.mojom.OptionConstraintRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, crosapi.mojom.OptionConstraintTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('restriction', 8, 0, crosapi.mojom.OptionConstraintRestrictionSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: ScannerOption
 mojo.internal.Struct(
@@ -250,25 +250,25 @@ mojo.internal.Struct(
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, crosapi.mojom.OptionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('unit', 28, 0, crosapi.mojom.OptionUnitSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 32, 0, crosapi.mojom.OptionValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('constraint', 48, 0, crosapi.mojom.OptionConstraintSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, crosapi.mojom.OptionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('unit', 32, 0, crosapi.mojom.OptionUnitSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 40, 0, crosapi.mojom.OptionValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('constraint', 48, 0, crosapi.mojom.OptionConstraintSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('isDetectable', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('configurability', 60, 0, crosapi.mojom.OptionConfigurabilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('isAutoSettable', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('isEmulated', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('isActive', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('isAdvanced', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('isInternal', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('configurability', 64, 0, crosapi.mojom.OptionConfigurabilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('isAutoSettable', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('isEmulated', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('isActive', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('isAdvanced', 72, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('isInternal', 72, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Struct: GetScannerListResponse
 mojo.internal.Struct(
     crosapi.mojom.GetScannerListResponseSpec, 'crosapi.mojom.GetScannerListResponse', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scanners', 8, 0, mojo.internal.Array(crosapi.mojom.ScannerInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.ScannerOperationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scanners', 8, 0, mojo.internal.Array(crosapi.mojom.ScannerInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -276,9 +276,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.OpenScannerResponseSpec, 'crosapi.mojom.OpenScannerResponse', [
       mojo.internal.StructField('scanner_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('scanner_handle', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('options', 24, 0, mojo.internal.Map(mojo.internal.String, crosapi.mojom.ScannerOptionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('options', 24, 0, mojo.internal.Map(mojo.internal.String, crosapi.mojom.ScannerOptionSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -286,7 +286,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.CloseScannerResponseSpec, 'crosapi.mojom.CloseScannerResponse', [
       mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -303,7 +303,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.StartPreparedScanResponseSpec, 'crosapi.mojom.StartPreparedScanResponse', [
       mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('job_handle', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -312,7 +312,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.ReadScanDataResponseSpec, 'crosapi.mojom.ReadScanDataResponse', [
       mojo.internal.StructField('job_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data', 16, 0, mojo.internal.Array(mojo.internal.Int8, false), null, true, 0, undefined),
       mojo.internal.StructField('estimated_completion_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'estimated_completion_$value', originalFieldName: 'estimated_completion' }),
       mojo.internal.StructField('estimated_completion_$value', 28, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'estimated_completion_$flag', originalFieldName: 'estimated_completion' }),
@@ -323,10 +323,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.OptionSettingSpec, 'crosapi.mojom.OptionSetting', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, crosapi.mojom.OptionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 16, 0, crosapi.mojom.OptionValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, crosapi.mojom.OptionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 16, 0, crosapi.mojom.OptionValueSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: OptionGroup
 mojo.internal.Struct(
@@ -340,7 +340,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.SetOptionResultSpec, 'crosapi.mojom.SetOptionResult', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -348,8 +348,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.SetOptionsResponseSpec, 'crosapi.mojom.SetOptionsResponse', [
       mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(crosapi.mojom.SetOptionResultSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('options', 16, 0, mojo.internal.Map(mojo.internal.String, crosapi.mojom.ScannerOptionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(crosapi.mojom.SetOptionResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, mojo.internal.Map(mojo.internal.String, crosapi.mojom.ScannerOptionSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -357,8 +357,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.GetOptionGroupsResponseSpec, 'crosapi.mojom.GetOptionGroupsResponse', [
       mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('groups', 16, 0, mojo.internal.Array(crosapi.mojom.OptionGroupSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('groups', 16, 0, mojo.internal.Array(crosapi.mojom.OptionGroupSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -366,7 +366,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.CancelScanResponseSpec, 'crosapi.mojom.CancelScanResponse', [
       mojo.internal.StructField('job_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -380,7 +380,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_OpenScanner_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.OpenScannerResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.OpenScannerResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -392,20 +392,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_CloseScanner_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.CloseScannerResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.CloseScannerResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec, 'crosapi.mojom.DocumentScan_StartPreparedScan_Params', [
       mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, crosapi.mojom.StartScanOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, crosapi.mojom.StartScanOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.StartPreparedScanResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.StartPreparedScanResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -417,20 +417,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_ReadScanData_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.ReadScanDataResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.ReadScanDataResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DocumentScan_SetOptions_ParamsSpec, 'crosapi.mojom.DocumentScan_SetOptions_Params', [
       mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, mojo.internal.Array(crosapi.mojom.OptionSettingSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, mojo.internal.Array(crosapi.mojom.OptionSettingSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_SetOptions_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.SetOptionsResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.SetOptionsResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -442,7 +442,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.GetOptionGroupsResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.GetOptionGroupsResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -454,7 +454,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_CancelScan_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.CancelScanResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.CancelScanResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -564,9 +564,8 @@ crosapi.mojom.DocumentScanRemoteCallHandler = class {
 
 crosapi.mojom.DocumentScan.getRemote = function() {
   let remote = new crosapi.mojom.DocumentScanRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.DocumentScan',
     'context');
   return remote.$;

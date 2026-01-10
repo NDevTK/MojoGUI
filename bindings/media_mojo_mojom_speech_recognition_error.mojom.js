@@ -20,7 +20,7 @@ media.mojom.SpeechAudioErrorDetails = {
 // Struct: SpeechRecognitionError
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionErrorSpec, 'media.mojom.SpeechRecognitionError', [
-      mojo.internal.StructField('code', 0, 0, media.mojom.SpeechRecognitionErrorCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('details', 4, 0, media.mojom.SpeechAudioErrorDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, media.mojom.SpeechRecognitionErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, media.mojom.SpeechAudioErrorDetailsSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

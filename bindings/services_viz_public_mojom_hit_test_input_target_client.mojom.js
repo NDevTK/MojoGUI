@@ -19,15 +19,15 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = { $: {} };
 // Interface: InputTargetClient
 mojo.internal.Struct(
     viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec, 'viz.mojom.InputTargetClient_FrameSinkIdAt_Params', [
-      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('trace_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec, 'viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParams', [
-      mojo.internal.StructField('id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_point', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('local_point', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -77,9 +77,8 @@ viz.mojom.InputTargetClientRemoteCallHandler = class {
 
 viz.mojom.InputTargetClient.getRemote = function() {
   let remote = new viz.mojom.InputTargetClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.InputTargetClient',
     'context');
   return remote.$;

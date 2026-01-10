@@ -27,8 +27,8 @@ chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = { $: {}
 // Interface: VideoGeometryChangeClient
 mojo.internal.Struct(
     chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_Params', [
-      mojo.internal.StructField('rect_f', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('transform', 8, 0, gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect_f', 0, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('transform', 8, 0, gfx.mojom.OverlayTransformSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -78,9 +78,8 @@ chromecast.media.mojom.VideoGeometryChangeClientRemoteCallHandler = class {
 
 chromecast.media.mojom.VideoGeometryChangeClient.getRemote = function() {
   let remote = new chromecast.media.mojom.VideoGeometryChangeClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.media.mojom.VideoGeometryChangeClient',
     'context');
   return remote.$;
@@ -93,7 +92,7 @@ chromecast.media.mojom.VideoGeometryChangeClientRequest = chromecast.media.mojom
 // Interface: VideoGeometryChangeSubscriber
 mojo.internal.Struct(
     chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_Params', [
-      mojo.internal.StructField('overlay_plane_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('overlay_plane_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client_pending_remote', 8, 0, mojo.internal.InterfaceProxy(chromecast.media.mojom.VideoGeometryChangeClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -149,9 +148,8 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberRemoteCallHandler = class {
 
 chromecast.media.mojom.VideoGeometryChangeSubscriber.getRemote = function() {
   let remote = new chromecast.media.mojom.VideoGeometryChangeSubscriberRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.media.mojom.VideoGeometryChangeSubscriber',
     'context');
   return remote.$;
@@ -164,9 +162,9 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberRequest = chromecast.media.m
 // Interface: VideoGeometrySetter
 mojo.internal.Struct(
     chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec, 'chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_Params', [
-      mojo.internal.StructField('rect_f', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('transform', 8, 0, gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
-      mojo.internal.StructField('overlay_plane_id', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect_f', 0, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('transform', 8, 0, gfx.mojom.OverlayTransformSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('overlay_plane_id', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -216,9 +214,8 @@ chromecast.media.mojom.VideoGeometrySetterRemoteCallHandler = class {
 
 chromecast.media.mojom.VideoGeometrySetter.getRemote = function() {
   let remote = new chromecast.media.mojom.VideoGeometrySetterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.media.mojom.VideoGeometrySetter',
     'context');
   return remote.$;

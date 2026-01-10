@@ -28,12 +28,12 @@ cros.mojom.EntryType = {
 mojo.internal.Struct(
     cros.mojom.CameraMetadataEntrySpec, 'cros.mojom.CameraMetadataEntry', [
       mojo.internal.StructField('index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('tag', 4, 0, cros.mojom.CameraMetadataTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, cros.mojom.EntryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('tag', 8, 0, cros.mojom.CameraMetadataTagSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, cros.mojom.EntryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 // Struct: CameraMetadata
 mojo.internal.Struct(
@@ -43,6 +43,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('entry_capacity', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data_capacity', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('entries', 24, 0, mojo.internal.Array(cros.mojom.CameraMetadataEntrySpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('entries', 24, 0, mojo.internal.Array(cros.mojom.CameraMetadataEntrySpec.$, false), null, true, 0, undefined),
     ],
     [[0, 40]]);

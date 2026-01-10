@@ -40,7 +40,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('accept_button_label', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('cancel_button_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('verify_button_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('account_extensions', 40, 0, mojo.internal.Array(signout_confirmation.mojom.ExtensionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('account_extensions', 40, 0, mojo.internal.Array(signout_confirmation.mojom.ExtensionInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('has_unsynced_data', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -99,9 +99,8 @@ signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 signout_confirmation.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new signout_confirmation.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'signout_confirmation.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -226,9 +225,8 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
 
 signout_confirmation.mojom.PageHandler.getRemote = function() {
   let remote = new signout_confirmation.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'signout_confirmation.mojom.PageHandler',
     'context');
   return remote.$;
@@ -241,7 +239,7 @@ signout_confirmation.mojom.PageHandlerRequest = signout_confirmation.mojom.PageH
 // Interface: Page
 mojo.internal.Struct(
     signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec, 'signout_confirmation.mojom.Page_SendSignoutConfirmationData_Params', [
-      mojo.internal.StructField('data', 0, 0, signout_confirmation.mojom.SignoutConfirmationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, signout_confirmation.mojom.SignoutConfirmationDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -291,9 +289,8 @@ signout_confirmation.mojom.PageRemoteCallHandler = class {
 
 signout_confirmation.mojom.Page.getRemote = function() {
   let remote = new signout_confirmation.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'signout_confirmation.mojom.Page',
     'context');
   return remote.$;

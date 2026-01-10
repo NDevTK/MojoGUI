@@ -29,7 +29,7 @@ mojo.internal.Struct(
 // Struct: Position
 mojo.internal.Struct(
     tabs_api.mojom.PositionSpec, 'tabs_api.mojom.Position', [
-      mojo.internal.StructField('parent_id', 0, 0, tabs_api.mojom.NodeIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('parent_id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

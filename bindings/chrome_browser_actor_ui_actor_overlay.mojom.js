@@ -34,10 +34,10 @@ actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec = { $: 
 // Struct: Theme
 mojo.internal.Struct(
     actor.ui.mojom.ThemeSpec, 'actor.ui.mojom.Theme', [
-      mojo.internal.StructField('border_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('border_glow_color', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scrim_colors', 16, 0, mojo.internal.Array(skia.mojom.SkColor, 3Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('magic_cursor_color', 24, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('border_color', 0, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('border_glow_color', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scrim_colors', 16, 0, mojo.internal.Array(skia.mojom.SkColor, 3Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('magic_cursor_color', 24, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -95,9 +95,8 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
 
 actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
   let remote = new actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'actor.ui.mojom.ActorOverlayPageHandlerFactory',
     'context');
   return remote.$;
@@ -181,9 +180,8 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
 
 actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
   let remote = new actor.ui.mojom.ActorOverlayPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'actor.ui.mojom.ActorOverlayPageHandler',
     'context');
   return remote.$;
@@ -208,13 +206,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetTheme_Params', [
-      mojo.internal.StructField('theme', 0, 0, actor.ui.mojom.ThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('theme', 0, 0, actor.ui.mojom.ThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_Params', [
-      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -319,9 +317,8 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
 
 actor.ui.mojom.ActorOverlayPage.getRemote = function() {
   let remote = new actor.ui.mojom.ActorOverlayPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'actor.ui.mojom.ActorOverlayPage',
     'context');
   return remote.$;

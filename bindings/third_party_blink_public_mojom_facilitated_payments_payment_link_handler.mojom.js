@@ -17,7 +17,7 @@ payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = { $
 // Interface: PaymentLinkHandler
 mojo.internal.Struct(
     payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec, 'payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -67,9 +67,8 @@ payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHandler = class {
 
 payments.facilitated.mojom.PaymentLinkHandler.getRemote = function() {
   let remote = new payments.facilitated.mojom.PaymentLinkHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'payments.facilitated.mojom.PaymentLinkHandler',
     'context');
   return remote.$;

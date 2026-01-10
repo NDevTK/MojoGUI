@@ -30,8 +30,8 @@ mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kService;
 // Interface: MirroringService
 mojo.internal.Struct(
     mirroring.mojom.MirroringService_Start_ParamsSpec, 'mirroring.mojom.MirroringService_Start_Params', [
-      mojo.internal.StructField('params', 0, 0, mirroring.mojom.SessionParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('max_resolution', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, mirroring.mojom.SessionParametersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_resolution', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(mirroring.mojom.SessionObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('resource_provider', 24, 0, mojo.internal.InterfaceProxy(mirroring.mojom.ResourceProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('outbound_channel', 32, 0, mojo.internal.InterfaceProxy(mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
@@ -51,9 +51,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_ResponseParams', [
-      mojo.internal.StructField('json_stats', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('json_stats', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mirroring.mojom.MirroringServicePendingReceiver = class {
   constructor(handle) {
@@ -121,9 +121,8 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
 
 mirroring.mojom.MirroringService.getRemote = function() {
   let remote = new mirroring.mojom.MirroringServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mirroring.mojom.MirroringService',
     'context');
   return remote.$;

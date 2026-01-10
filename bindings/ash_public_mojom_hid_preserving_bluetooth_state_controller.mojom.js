@@ -23,9 +23,9 @@ ash.mojom.HidWarningDialogSource = {
 mojo.internal.Struct(
     ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec, 'ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_Params', [
       mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('source', 4, 0, ash.mojom.HidWarningDialogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, ash.mojom.HidWarningDialogSourceSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 ash.mojom.HidPreservingBluetoothStateControllerPendingReceiver = class {
   constructor(handle) {
@@ -73,9 +73,8 @@ ash.mojom.HidPreservingBluetoothStateControllerRemoteCallHandler = class {
 
 ash.mojom.HidPreservingBluetoothStateController.getRemote = function() {
   let remote = new ash.mojom.HidPreservingBluetoothStateControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mojom.HidPreservingBluetoothStateController',
     'context');
   return remote.$;

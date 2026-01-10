@@ -28,7 +28,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('KeyType', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('key_set_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('key_type', 24, 0, media.mojom.KeyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_type', 24, 0, media.mojom.KeyTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -41,7 +41,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec, 'media.mojom.MediaDrmStorage_Initialize_ResponseParams', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('origin_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('origin_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -59,7 +59,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec, 'media.mojom.MediaDrmStorage_SavePersistentSession_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('session_data', 8, 0, media.mojom.SessionDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_data', 8, 0, media.mojom.SessionDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -77,7 +77,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec, 'media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParams', [
-      mojo.internal.StructField('session_data', 0, 0, media.mojom.SessionDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('session_data', 0, 0, media.mojom.SessionDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -179,9 +179,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
 
 media.mojom.MediaDrmStorage.getRemote = function() {
   let remote = new media.mojom.MediaDrmStorageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaDrmStorage',
     'context');
   return remote.$;

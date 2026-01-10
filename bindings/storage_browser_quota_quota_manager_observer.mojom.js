@@ -20,13 +20,13 @@ storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = { $: {} };
 // Interface: QuotaManagerObserver
 mojo.internal.Struct(
     storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_Params', [
-      mojo.internal.StructField('bucket_info', 0, 0, storage.mojom.BucketInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_info', 0, 0, storage.mojom.BucketInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnDeleteBucket_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -86,9 +86,8 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
 
 storage.mojom.QuotaManagerObserver.getRemote = function() {
   let remote = new storage.mojom.QuotaManagerObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.QuotaManagerObserver',
     'context');
   return remote.$;

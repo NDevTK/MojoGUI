@@ -28,17 +28,17 @@ blink.mojom.PrerenderTriggerType = {
 // Struct: PrerenderAttributes
 mojo.internal.Struct(
     blink.mojom.PrerenderAttributesSpec, 'blink.mojom.PrerenderAttributes', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('trigger_type', 8, 0, blink.mojom.PrerenderTriggerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('referrer', 16, 0, blink.mojom.ReferrerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('view_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('trigger_type', 8, 0, blink.mojom.PrerenderTriggerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('referrer', 16, 0, blink.mojom.ReferrerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('view_size', 24, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Interface: NoStatePrefetchProcessor
 mojo.internal.Struct(
     blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec, 'blink.mojom.NoStatePrefetchProcessor_Start_Params', [
-      mojo.internal.StructField('prerender_attribute', 0, 0, blink.mojom.PrerenderAttributesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prerender_attribute', 0, 0, blink.mojom.PrerenderAttributesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -103,9 +103,8 @@ blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
 
 blink.mojom.NoStatePrefetchProcessor.getRemote = function() {
   let remote = new blink.mojom.NoStatePrefetchProcessorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.NoStatePrefetchProcessor',
     'context');
   return remote.$;

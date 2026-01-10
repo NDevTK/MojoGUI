@@ -121,8 +121,8 @@ mojo.internal.Struct(
     nearby_share.mojom.ContactRecordSpec, 'nearby_share.mojom.ContactRecord', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('person_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('image_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('identifiers', 24, 0, mojo.internal.Array(nearby_share.mojom.ContactIdentifierSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('identifiers', 24, 0, mojo.internal.Array(nearby_share.mojom.ContactIdentifierSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -135,7 +135,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec, 'nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_Params', [
-      mojo.internal.StructField('state', 0, 0, nearby_share.mojom.FastInitiationNotificationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, nearby_share.mojom.FastInitiationNotificationStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,13 +153,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec, 'nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_Params', [
-      mojo.internal.StructField('data_usage', 0, 0, nearby_share.mojom.DataUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_usage', 0, 0, nearby_share.mojom.DataUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec, 'nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_Params', [
-      mojo.internal.StructField('visibility', 0, 0, nearby_share.mojom.VisibilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('visibility', 0, 0, nearby_share.mojom.VisibilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -291,9 +291,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
 
 nearby_share.mojom.NearbyShareSettingsObserver.getRemote = function() {
   let remote = new nearby_share.mojom.NearbyShareSettingsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.NearbyShareSettingsObserver',
     'context');
   return remote.$;
@@ -351,13 +350,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParams', [
-      mojo.internal.StructField('state', 0, 0, nearby_share.mojom.FastInitiationNotificationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, nearby_share.mojom.FastInitiationNotificationStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec, 'nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_Params', [
-      mojo.internal.StructField('state', 0, 0, nearby_share.mojom.FastInitiationNotificationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, nearby_share.mojom.FastInitiationNotificationStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -391,7 +390,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.DeviceNameValidationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.DeviceNameValidationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -403,7 +402,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.DeviceNameValidationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.DeviceNameValidationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -414,13 +413,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParams', [
-      mojo.internal.StructField('data_usage', 0, 0, nearby_share.mojom.DataUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_usage', 0, 0, nearby_share.mojom.DataUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec, 'nearby_share.mojom.NearbyShareSettings_SetDataUsage_Params', [
-      mojo.internal.StructField('data_usage', 0, 0, nearby_share.mojom.DataUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_usage', 0, 0, nearby_share.mojom.DataUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -431,13 +430,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParams', [
-      mojo.internal.StructField('visibility', 0, 0, nearby_share.mojom.VisibilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('visibility', 0, 0, nearby_share.mojom.VisibilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec, 'nearby_share.mojom.NearbyShareSettings_SetVisibility_Params', [
-      mojo.internal.StructField('visibility', 0, 0, nearby_share.mojom.VisibilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('visibility', 0, 0, nearby_share.mojom.VisibilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -664,9 +663,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
 
 nearby_share.mojom.NearbyShareSettings.getRemote = function() {
   let remote = new nearby_share.mojom.NearbyShareSettingsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.NearbyShareSettings',
     'context');
   return remote.$;
@@ -680,7 +678,7 @@ nearby_share.mojom.NearbyShareSettingsRequest = nearby_share.mojom.NearbyShareSe
 mojo.internal.Struct(
     nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec, 'nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_Params', [
       mojo.internal.StructField('allowed_contacts', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('contacts', 8, 0, mojo.internal.Array(nearby_share.mojom.ContactRecordSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('contacts', 8, 0, mojo.internal.Array(nearby_share.mojom.ContactRecordSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('num_unreachable_contacts_filtered_out', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -746,9 +744,8 @@ nearby_share.mojom.DownloadContactsObserverRemoteCallHandler = class {
 
 nearby_share.mojom.DownloadContactsObserver.getRemote = function() {
   let remote = new nearby_share.mojom.DownloadContactsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.DownloadContactsObserver',
     'context');
   return remote.$;
@@ -842,9 +839,8 @@ nearby_share.mojom.ContactManagerRemoteCallHandler = class {
 
 nearby_share.mojom.ContactManager.getRemote = function() {
   let remote = new nearby_share.mojom.ContactManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.ContactManager',
     'context');
   return remote.$;

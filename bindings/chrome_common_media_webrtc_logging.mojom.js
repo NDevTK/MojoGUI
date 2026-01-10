@@ -21,7 +21,7 @@ chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = { $: {} };
 // Struct: WebRtcLoggingMessage
 mojo.internal.Struct(
     chrome.mojom.WebRtcLoggingMessageSpec, 'chrome.mojom.WebRtcLoggingMessage', [
-      mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -29,7 +29,7 @@ mojo.internal.Struct(
 // Interface: WebRtcLoggingClient
 mojo.internal.Struct(
     chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec, 'chrome.mojom.WebRtcLoggingClient_OnAddMessages_Params', [
-      mojo.internal.StructField('messages', 0, 0, mojo.internal.Array(chrome.mojom.WebRtcLoggingMessageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('messages', 0, 0, mojo.internal.Array(chrome.mojom.WebRtcLoggingMessageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -94,9 +94,8 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
 
 chrome.mojom.WebRtcLoggingClient.getRemote = function() {
   let remote = new chrome.mojom.WebRtcLoggingClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.WebRtcLoggingClient',
     'context');
   return remote.$;
@@ -174,9 +173,8 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
 
 chrome.mojom.WebRtcLoggingAgent.getRemote = function() {
   let remote = new chrome.mojom.WebRtcLoggingAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.WebRtcLoggingAgent',
     'context');
   return remote.$;

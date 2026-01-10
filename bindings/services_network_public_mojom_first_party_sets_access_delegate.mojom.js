@@ -27,15 +27,15 @@ mojo.internal.Struct(
 // Struct: FirstPartySetsReadyEvent
 mojo.internal.Struct(
     network.mojom.FirstPartySetsReadyEventSpec, 'network.mojom.FirstPartySetsReadyEvent', [
-      mojo.internal.StructField('config', 0, 0, network.mojom.FirstPartySetsContextConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('cache_filter', 8, 0, network.mojom.FirstPartySetsCacheFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, network.mojom.FirstPartySetsContextConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cache_filter', 8, 0, network.mojom.FirstPartySetsCacheFilterSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: FirstPartySetsAccessDelegate
 mojo.internal.Struct(
     network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec, 'network.mojom.FirstPartySetsAccessDelegate_NotifyReady_Params', [
-      mojo.internal.StructField('ready_event', 0, 0, network.mojom.FirstPartySetsReadyEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ready_event', 0, 0, network.mojom.FirstPartySetsReadyEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -101,9 +101,8 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
 
 network.mojom.FirstPartySetsAccessDelegate.getRemote = function() {
   let remote = new network.mojom.FirstPartySetsAccessDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.FirstPartySetsAccessDelegate',
     'context');
   return remote.$;

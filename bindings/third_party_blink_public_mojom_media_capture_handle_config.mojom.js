@@ -15,8 +15,8 @@ blink.mojom.CaptureHandleConfigSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.CaptureHandleConfigSpec, 'blink.mojom.CaptureHandleConfig', [
       mojo.internal.StructField('expose_origin', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('capture_handle', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_handle', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('all_origins_permitted', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('permitted_origins', 24, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('permitted_origins', 24, 0, mojo.internal.Array(url.mojom.OriginSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);

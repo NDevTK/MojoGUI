@@ -63,9 +63,8 @@ mojom.ResetPasswordHandlerRemoteCallHandler = class {
 
 mojom.ResetPasswordHandler.getRemote = function() {
   let remote = new mojom.ResetPasswordHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mojom.ResetPasswordHandler',
     'context');
   return remote.$;

@@ -44,17 +44,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('port', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('domain_match_mode', 20, 0, network.mojom.CorsDomainMatchModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('port_match_mode', 24, 0, network.mojom.CorsPortMatchModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 28, 0, network.mojom.CorsOriginAccessMatchPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('domain_match_mode', 24, 0, network.mojom.CorsDomainMatchModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('port_match_mode', 32, 0, network.mojom.CorsPortMatchModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 40, 0, network.mojom.CorsOriginAccessMatchPrioritySpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 56]]);
 
 // Struct: CorsOriginAccessPatterns
 mojo.internal.Struct(
     network.mojom.CorsOriginAccessPatternsSpec, 'network.mojom.CorsOriginAccessPatterns', [
-      mojo.internal.StructField('source_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('allow_patterns', 8, 0, mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('block_patterns', 16, 0, mojo.internal.Array(network.mojom.CorsOriginPatternSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('source_origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('allow_patterns', 8, 0, mojo.internal.Array(network.mojom.CorsOriginPatternSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('block_patterns', 16, 0, mojo.internal.Array(network.mojom.CorsOriginPatternSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

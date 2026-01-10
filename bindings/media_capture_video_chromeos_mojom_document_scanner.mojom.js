@@ -20,20 +20,20 @@ cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
 mojo.internal.Struct(
     cros.mojom.DetectCornersResultSpec, 'cros.mojom.DetectCornersResult', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('corners', 8, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('corners', 8, 0, mojo.internal.Array(gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: CrosDocumentScanner
 mojo.internal.Struct(
     cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec, 'cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_Params', [
-      mojo.internal.StructField('nv12_image', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('nv12_image', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec, 'cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, cros.mojom.DetectCornersResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, cros.mojom.DetectCornersResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -83,9 +83,8 @@ cros.mojom.CrosDocumentScannerRemoteCallHandler = class {
 
 cros.mojom.CrosDocumentScanner.getRemote = function() {
   let remote = new cros.mojom.CrosDocumentScannerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CrosDocumentScanner',
     'context');
   return remote.$;

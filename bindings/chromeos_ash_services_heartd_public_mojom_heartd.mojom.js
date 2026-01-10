@@ -56,7 +56,7 @@ ash.heartd.mojom.ActionType = {
 // Struct: HeartbeatServiceArgument
 mojo.internal.Struct(
     ash.heartd.mojom.HeartbeatServiceArgumentSpec, 'ash.heartd.mojom.HeartbeatServiceArgument', [
-      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(ash.heartd.mojom.ActionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(ash.heartd.mojom.ActionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('verification_window_seconds', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -65,9 +65,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.heartd.mojom.ActionSpec, 'ash.heartd.mojom.Action', [
       mojo.internal.StructField('failure_count', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('action', 4, 0, ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 8, 0, ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: HeartdControl
 mojo.internal.Struct(
@@ -82,7 +82,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_Params', [
-      mojo.internal.StructField('action', 0, 0, ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -158,9 +158,8 @@ ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
 
 ash.heartd.mojom.HeartdControl.getRemote = function() {
   let remote = new ash.heartd.mojom.HeartdControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.heartd.mojom.HeartdControl',
     'context');
   return remote.$;
@@ -173,8 +172,8 @@ ash.heartd.mojom.HeartdControlRequest = ash.heartd.mojom.HeartdControlPendingRec
 // Interface: HeartbeatService
 mojo.internal.Struct(
     ash.heartd.mojom.HeartbeatService_Register_ParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_Params', [
-      mojo.internal.StructField('name', 0, 0, ash.heartd.mojom.ServiceNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('argument', 8, 0, ash.heartd.mojom.HeartbeatServiceArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, ash.heartd.mojom.ServiceNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('argument', 8, 0, ash.heartd.mojom.HeartbeatServiceArgumentSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver', 16, 0, mojo.internal.InterfaceRequest(ash.heartd.mojom.PacemakerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -231,9 +230,8 @@ ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = class {
 
 ash.heartd.mojom.HeartbeatService.getRemote = function() {
   let remote = new ash.heartd.mojom.HeartbeatServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.heartd.mojom.HeartbeatService',
     'context');
   return remote.$;
@@ -251,7 +249,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.heartd.mojom.HeartbeatResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, ash.heartd.mojom.HeartbeatResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -321,9 +319,8 @@ ash.heartd.mojom.PacemakerRemoteCallHandler = class {
 
 ash.heartd.mojom.Pacemaker.getRemote = function() {
   let remote = new ash.heartd.mojom.PacemakerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.heartd.mojom.Pacemaker',
     'context');
   return remote.$;

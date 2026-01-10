@@ -28,7 +28,7 @@ arc.mojom.ArcResizeLockState = {
 mojo.internal.Struct(
     arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec, 'arc.mojom.CompatibilityModeInstance_SetResizeLockState_Params', [
       mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('state', 8, 0, arc.mojom.ArcResizeLockStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, arc.mojom.ArcResizeLockStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -100,9 +100,8 @@ arc.mojom.CompatibilityModeInstanceRemoteCallHandler = class {
 
 arc.mojom.CompatibilityModeInstance.getRemote = function() {
   let remote = new arc.mojom.CompatibilityModeInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.CompatibilityModeInstance',
     'context');
   return remote.$;

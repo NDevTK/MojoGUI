@@ -102,12 +102,12 @@ mojo.internal.Union(
     crosapi.mojom.AccessTokenResultSpec, 'crosapi.mojom.AccessTokenResult', {
       'access_token_info': {
         'ordinal': 0,
-        'type': crosapi.mojom.AccessTokenInfoSpec,
+        'type': crosapi.mojom.AccessTokenInfoSpec.$,
         'nullable': false,
       },
       'error': {
         'ordinal': 1,
-        'type': crosapi.mojom.GoogleServiceAuthErrorSpec,
+        'type': crosapi.mojom.GoogleServiceAuthErrorSpec.$,
         'nullable': false,
       },
     });
@@ -116,14 +116,14 @@ mojo.internal.Union(
 mojo.internal.Struct(
     crosapi.mojom.AccountKeySpec, 'crosapi.mojom.AccountKey', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('account_type', 8, 0, crosapi.mojom.AccountTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_type', 8, 0, crosapi.mojom.AccountTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Account
 mojo.internal.Struct(
     crosapi.mojom.AccountSpec, 'crosapi.mojom.Account', [
-      mojo.internal.StructField('key', 0, 0, crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 0, 0, crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('raw_email', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -154,7 +154,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.AccessTokenInfoSpec, 'crosapi.mojom.AccessTokenInfo', [
       mojo.internal.StructField('access_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('expiration_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expiration_time', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('id_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -162,20 +162,20 @@ mojo.internal.Struct(
 // Interface: AccountManagerObserver
 mojo.internal.Struct(
     crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnTokenUpserted_Params', [
-      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnAccountRemoved_Params', [
-      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_Params', [
-      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, crosapi.mojom.GoogleServiceAuthErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, crosapi.mojom.GoogleServiceAuthErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -260,9 +260,8 @@ crosapi.mojom.AccountManagerObserverRemoteCallHandler = class {
 
 crosapi.mojom.AccountManagerObserver.getRemote = function() {
   let remote = new crosapi.mojom.AccountManagerObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.AccountManagerObserver',
     'context');
   return remote.$;
@@ -302,19 +301,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec, 'crosapi.mojom.AccountManager_GetAccounts_ResponseParams', [
-      mojo.internal.StructField('accounts', 0, 0, mojo.internal.Array(crosapi.mojom.AccountSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('accounts', 0, 0, mojo.internal.Array(crosapi.mojom.AccountSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_Params', [
-      mojo.internal.StructField('add_account_options', 0, 0, crosapi.mojom.AccountAdditionOptionsSpec, null, true, 8, undefined),
+      mojo.internal.StructField('add_account_options', 0, 0, crosapi.mojom.AccountAdditionOptionsSpec.$, null, true, 8, undefined),
     ],
     [[0, 8], [8, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.AccountUpsertionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.AccountUpsertionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -326,7 +325,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.AccountUpsertionResultSpec, null, true, 13, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.AccountUpsertionResultSpec.$, null, true, 13, undefined),
     ],
     [[0, 8], [13, 16]]);
 
@@ -337,19 +336,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec, 'crosapi.mojom.AccountManager_GetPersistentErrorForAccount_Params', [
-      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec, 'crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, crosapi.mojom.GoogleServiceAuthErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, crosapi.mojom.GoogleServiceAuthErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec, 'crosapi.mojom.AccountManager_CreateAccessTokenFetcher_Params', [
-      mojo.internal.StructField('account_key', 0, 0, crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_key', 0, 0, crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('oauth_consumer_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -362,8 +361,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec, 'crosapi.mojom.AccountManager_ReportAuthError_Params', [
-      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, crosapi.mojom.GoogleServiceAuthErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, crosapi.mojom.GoogleServiceAuthErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -493,9 +492,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
 
 crosapi.mojom.AccountManager.getRemote = function() {
   let remote = new crosapi.mojom.AccountManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.AccountManager',
     'context');
   return remote.$;
@@ -514,9 +512,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec, 'crosapi.mojom.AccessTokenFetcher_Start_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.AccessTokenResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.AccessTokenResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 crosapi.mojom.AccessTokenFetcherPendingReceiver = class {
   constructor(handle) {
@@ -564,9 +562,8 @@ crosapi.mojom.AccessTokenFetcherRemoteCallHandler = class {
 
 crosapi.mojom.AccessTokenFetcher.getRemote = function() {
   let remote = new crosapi.mojom.AccessTokenFetcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.AccessTokenFetcher',
     'context');
   return remote.$;

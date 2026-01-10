@@ -89,9 +89,8 @@ network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
 
 network.mojom.ChunkedDataPipeGetter.getRemote = function() {
   let remote = new network.mojom.ChunkedDataPipeGetterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.ChunkedDataPipeGetter',
     'context');
   return remote.$;

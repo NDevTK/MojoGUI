@@ -29,9 +29,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_router.mojom.Debugger_OnMirroringStats_ParamsSpec, 'media_router.mojom.Debugger_OnMirroringStats_Params', [
-      mojo.internal.StructField('json_stats', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('json_stats', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     media_router.mojom.Debugger_BindReceiver_ParamsSpec, 'media_router.mojom.Debugger_BindReceiver_Params', [
@@ -105,9 +105,8 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
 
 media_router.mojom.Debugger.getRemote = function() {
   let remote = new media_router.mojom.DebuggerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_router.mojom.Debugger',
     'context');
   return remote.$;

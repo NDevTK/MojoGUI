@@ -28,17 +28,17 @@ mojo.internal.Union(
     blink.mojom.DataElementSpec, 'blink.mojom.DataElement', {
       'bytes': {
         'ordinal': 0,
-        'type': blink.mojom.DataElementBytesSpec,
+        'type': blink.mojom.DataElementBytesSpec.$,
         'nullable': false,
       },
       'file': {
         'ordinal': 1,
-        'type': blink.mojom.DataElementFileSpec,
+        'type': blink.mojom.DataElementFileSpec.$,
         'nullable': false,
       },
       'blob': {
         'ordinal': 2,
-        'type': blink.mojom.DataElementBlobSpec,
+        'type': blink.mojom.DataElementBlobSpec.$,
         'nullable': false,
       },
     });
@@ -56,10 +56,10 @@ mojo.internal.Struct(
 // Struct: DataElementFile
 mojo.internal.Struct(
     blink.mojom.DataElementFileSpec, 'blink.mojom.DataElementFile', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('expected_modification_time', 24, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('expected_modification_time', 24, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -94,14 +94,14 @@ mojo.internal.Struct(
     blink.mojom.BytesProvider_RequestAsFile_ParamsSpec, 'blink.mojom.BytesProvider_RequestAsFile_Params', [
       mojo.internal.StructField('source_offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('source_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('file', 16, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file', 16, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('file_offset', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec, 'blink.mojom.BytesProvider_RequestAsFile_ResponseParams', [
-      mojo.internal.StructField('time_file_modified', 0, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('time_file_modified', 0, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -171,9 +171,8 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
 
 blink.mojom.BytesProvider.getRemote = function() {
   let remote = new blink.mojom.BytesProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BytesProvider',
     'context');
   return remote.$;

@@ -46,7 +46,7 @@ new_tab_footer.mojom.NewTabPageType = {
 mojo.internal.Struct(
     new_tab_footer.mojom.ManagementNoticeSpec, 'new_tab_footer.mojom.ManagementNotice', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('custom_bitmap_data_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('custom_bitmap_data_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -54,7 +54,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     new_tab_footer.mojom.BackgroundAttributionSpec, 'new_tab_footer.mojom.BackgroundAttribution', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -112,9 +112,8 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryRemoteCallHandler = class {
 
 new_tab_footer.mojom.NewTabFooterHandlerFactory.getRemote = function() {
   let remote = new new_tab_footer.mojom.NewTabFooterHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'new_tab_footer.mojom.NewTabFooterHandlerFactory',
     'context');
   return remote.$;
@@ -157,13 +156,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_Params', [
-      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -298,9 +297,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
 
 new_tab_footer.mojom.NewTabFooterHandler.getRemote = function() {
   let remote = new new_tab_footer.mojom.NewTabFooterHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'new_tab_footer.mojom.NewTabFooterHandler',
     'context');
   return remote.$;
@@ -319,20 +317,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_Params', [
-      mojo.internal.StructField('notice', 0, 0, new_tab_footer.mojom.ManagementNoticeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('notice', 0, 0, new_tab_footer.mojom.ManagementNoticeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_Params', [
-      mojo.internal.StructField('ntp_type', 0, 0, new_tab_footer.mojom.NewTabPageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('can_customize_chrome', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ntp_type', 0, 0, new_tab_footer.mojom.NewTabPageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('can_customize_chrome', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_Params', [
-      mojo.internal.StructField('background_image_attribution', 0, 0, new_tab_footer.mojom.BackgroundAttributionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('background_image_attribution', 0, 0, new_tab_footer.mojom.BackgroundAttributionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -412,9 +410,8 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
 
 new_tab_footer.mojom.NewTabFooterDocument.getRemote = function() {
   let remote = new new_tab_footer.mojom.NewTabFooterDocumentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'new_tab_footer.mojom.NewTabFooterDocument',
     'context');
   return remote.$;

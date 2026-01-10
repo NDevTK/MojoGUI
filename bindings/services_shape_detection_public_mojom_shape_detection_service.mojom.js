@@ -108,9 +108,8 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
 
 shape_detection.mojom.ShapeDetectionService.getRemote = function() {
   let remote = new shape_detection.mojom.ShapeDetectionServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'shape_detection.mojom.ShapeDetectionService',
     'context');
   return remote.$;

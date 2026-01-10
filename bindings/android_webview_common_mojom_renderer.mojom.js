@@ -81,9 +81,8 @@ android_webview.mojom.RendererRemoteCallHandler = class {
 
 android_webview.mojom.Renderer.getRemote = function() {
   let remote = new android_webview.mojom.RendererRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'android_webview.mojom.Renderer',
     'context');
   return remote.$;

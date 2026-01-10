@@ -36,13 +36,13 @@ mojo.internal.Struct(
 // Interface: MdnsObserver
 mojo.internal.Struct(
     sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceFound_Params', [
-      mojo.internal.StructField('service_info', 0, 0, sharing.mojom.NsdServiceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_info', 0, 0, sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceLost_Params', [
-      mojo.internal.StructField('service_info', 0, 0, sharing.mojom.NsdServiceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_info', 0, 0, sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -102,9 +102,8 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
 
 sharing.mojom.MdnsObserver.getRemote = function() {
   let remote = new sharing.mojom.MdnsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.MdnsObserver',
     'context');
   return remote.$;
@@ -211,9 +210,8 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
 
 sharing.mojom.MdnsManager.getRemote = function() {
   let remote = new sharing.mojom.MdnsManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.MdnsManager',
     'context');
   return remote.$;

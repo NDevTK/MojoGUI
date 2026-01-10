@@ -122,17 +122,17 @@ mojo.internal.Union(
     crosapi.mojom.KeystoreAlgorithmSpec, 'crosapi.mojom.KeystoreAlgorithm', {
       'rsassa_pkcs115': {
         'ordinal': 0,
-        'type': crosapi.mojom.KeystoreRsaParamsSpec,
+        'type': crosapi.mojom.KeystoreRsaParamsSpec.$,
         'nullable': false,
       },
       'rsa_oaep': {
         'ordinal': 1,
-        'type': crosapi.mojom.KeystoreRsaParamsSpec,
+        'type': crosapi.mojom.KeystoreRsaParamsSpec.$,
         'nullable': false,
       },
       'ecdsa': {
         'ordinal': 2,
-        'type': crosapi.mojom.KeystoreEcdsaParamsSpec,
+        'type': crosapi.mojom.KeystoreEcdsaParamsSpec.$,
         'nullable': false,
       },
     });
@@ -157,7 +157,7 @@ mojo.internal.Union(
     crosapi.mojom.KeystoreBinaryResultSpec, 'crosapi.mojom.KeystoreBinaryResult', {
       'error': {
         'ordinal': 0,
-        'type': crosapi.mojom.KeystoreErrorSpec,
+        'type': crosapi.mojom.KeystoreErrorSpec.$,
         'nullable': false,
       },
       'blob': {
@@ -172,7 +172,7 @@ mojo.internal.Union(
     crosapi.mojom.GetCertificatesResultSpec, 'crosapi.mojom.GetCertificatesResult', {
       'error': {
         'ordinal': 0,
-        'type': crosapi.mojom.KeystoreErrorSpec,
+        'type': crosapi.mojom.KeystoreErrorSpec.$,
         'nullable': false,
       },
       'certificates': {
@@ -187,7 +187,7 @@ mojo.internal.Union(
     crosapi.mojom.KeystoreSelectClientCertificatesResultSpec, 'crosapi.mojom.KeystoreSelectClientCertificatesResult', {
       'error': {
         'ordinal': 0,
-        'type': crosapi.mojom.KeystoreErrorSpec,
+        'type': crosapi.mojom.KeystoreErrorSpec.$,
         'nullable': false,
       },
       'certificates': {
@@ -202,12 +202,12 @@ mojo.internal.Union(
     crosapi.mojom.GetKeyStoresResultSpec, 'crosapi.mojom.GetKeyStoresResult', {
       'error': {
         'ordinal': 0,
-        'type': crosapi.mojom.KeystoreErrorSpec,
+        'type': crosapi.mojom.KeystoreErrorSpec.$,
         'nullable': false,
       },
       'key_stores': {
         'ordinal': 1,
-        'type': mojo.internal.Array(crosapi.mojom.KeystoreTypeSpec, false),
+        'type': mojo.internal.Array(crosapi.mojom.KeystoreTypeSpec.$, false),
         'nullable': false,
       },
     });
@@ -217,12 +217,12 @@ mojo.internal.Union(
     crosapi.mojom.GetPublicKeyResultSpec, 'crosapi.mojom.GetPublicKeyResult', {
       'error': {
         'ordinal': 0,
-        'type': crosapi.mojom.KeystoreErrorSpec,
+        'type': crosapi.mojom.KeystoreErrorSpec.$,
         'nullable': false,
       },
       'success_result': {
         'ordinal': 1,
-        'type': crosapi.mojom.GetPublicKeySuccessResultSpec,
+        'type': crosapi.mojom.GetPublicKeySuccessResultSpec.$,
         'nullable': false,
       },
     });
@@ -232,7 +232,7 @@ mojo.internal.Union(
     crosapi.mojom.GetKeyTagsResultSpec, 'crosapi.mojom.GetKeyTagsResult', {
       'error': {
         'ordinal': 0,
-        'type': crosapi.mojom.KeystoreErrorSpec,
+        'type': crosapi.mojom.KeystoreErrorSpec.$,
         'nullable': false,
       },
       'tags': {
@@ -267,7 +267,7 @@ mojo.internal.Union(
       },
       'success_result': {
         'ordinal': 1,
-        'type': crosapi.mojom.GetPublicKeySuccessResultSpec,
+        'type': crosapi.mojom.GetPublicKeySuccessResultSpec.$,
         'nullable': false,
       },
     });
@@ -282,7 +282,7 @@ mojo.internal.Union(
       },
       'key_stores': {
         'ordinal': 1,
-        'type': mojo.internal.Array(crosapi.mojom.KeystoreTypeSpec, false),
+        'type': mojo.internal.Array(crosapi.mojom.KeystoreTypeSpec.$, false),
         'nullable': false,
       },
     });
@@ -337,25 +337,25 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.GetPublicKeySuccessResultSpec, 'crosapi.mojom.GetPublicKeySuccessResult', [
       mojo.internal.StructField('public_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('algorithm_properties', 8, 0, crosapi.mojom.KeystoreAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm_properties', 8, 0, crosapi.mojom.KeystoreAlgorithmSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: KeystoreService
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec, 'crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_Params', [
-      mojo.internal.StructField('type', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('challenge', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('migrate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('algorithm', 20, 0, crosapi.mojom.KeystoreAlgorithmNameSpec, null, false, 17, undefined),
+      mojo.internal.StructField('algorithm', 24, 0, crosapi.mojom.KeystoreAlgorithmNameSpec.$, null, false, 17, undefined),
     ],
-    [[0, 32], [17, 32]]);
+    [[0, 32], [17, 40]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec, 'crosapi.mojom.KeystoreService_GetKeyStores_Params', [
@@ -364,9 +364,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_GetKeyStores_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.GetKeyStoresResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.GetKeyStoresResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec, 'crosapi.mojom.KeystoreService_SelectClientCertificates_Params', [
@@ -376,25 +376,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.KeystoreSelectClientCertificatesResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.KeystoreSelectClientCertificatesResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec, 'crosapi.mojom.KeystoreService_GetCertificates_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_GetCertificates_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.GetCertificatesResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.GetCertificatesResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec, 'crosapi.mojom.KeystoreService_AddCertificate_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('certificate', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -402,13 +402,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_AddCertificate_ResponseParams', [
       mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 4, 0, crosapi.mojom.KeystoreErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec, 'crosapi.mojom.KeystoreService_RemoveCertificate_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('certificate', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -416,39 +416,39 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParams', [
       mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 4, 0, crosapi.mojom.KeystoreErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec, 'crosapi.mojom.KeystoreService_GetPublicKey_Params', [
       mojo.internal.StructField('certificate', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('algorithm_name', 8, 0, crosapi.mojom.KeystoreAlgorithmNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm_name', 8, 0, crosapi.mojom.KeystoreAlgorithmNameSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_GetPublicKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.GetPublicKeyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.GetPublicKeyResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec, 'crosapi.mojom.KeystoreService_GenerateKey_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('algorithm', 8, 0, crosapi.mojom.KeystoreAlgorithmSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_GenerateKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.KeystoreBinaryResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm', 8, 0, crosapi.mojom.KeystoreAlgorithmSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
+    crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_GenerateKey_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.KeystoreBinaryResultSpec.$, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec, 'crosapi.mojom.KeystoreService_RemoveKey_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -456,25 +456,25 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_RemoveKey_ResponseParams', [
       mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 4, 0, crosapi.mojom.KeystoreErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_Sign_ParamsSpec, 'crosapi.mojom.KeystoreService_Sign_Params', [
       mojo.internal.StructField('is_keystore_provided', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keystore', 4, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('scheme', 16, 0, crosapi.mojom.KeystoreSigningSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 8, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('public_key', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('scheme', 24, 0, crosapi.mojom.KeystoreSigningSchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_Sign_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.KeystoreBinaryResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.KeystoreBinaryResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec, 'crosapi.mojom.KeystoreService_GetKeyTags_Params', [
@@ -484,9 +484,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_GetKeyTags_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.GetKeyTagsResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.GetKeyTagsResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec, 'crosapi.mojom.KeystoreService_AddKeyTags_Params', [
@@ -498,9 +498,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_AddKeyTags_ResponseParams', [
       mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 4, 0, crosapi.mojom.KeystoreErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec, 'crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_Params', [
@@ -516,9 +516,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec, 'crosapi.mojom.KeystoreService_SetAttributeForKey_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('attribute_type', 16, 0, crosapi.mojom.KeystoreKeyAttributeTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('attribute_type', 16, 0, crosapi.mojom.KeystoreKeyAttributeTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('attribute_value', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -526,29 +526,29 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParams', [
       mojo.internal.StructField('is_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 4, 0, crosapi.mojom.KeystoreErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('algorithm', 8, 0, crosapi.mojom.KeystoreAlgorithmSpec, null, false, 0, undefined),
-      mojo.internal.StructField('extension_id', 24, 0, mojo.internal.String, null, true, 5, undefined),
-    ],
-    [[0, 32], [5, 40]]);
-
-mojo.internal.Struct(
-    crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, crosapi.mojom.KeystoreErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
+    crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_Params', [
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm', 8, 0, crosapi.mojom.KeystoreAlgorithmSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('extension_id', 16, 0, mojo.internal.String, null, true, 5, undefined),
+    ],
+    [[0, 24], [5, 32]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec.$, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('scheme', 16, 0, crosapi.mojom.KeystoreSigningSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scheme', 16, 0, crosapi.mojom.KeystoreSigningSchemeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('extension_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -556,22 +556,22 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_Params', [
       mojo.internal.StructField('certificate', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('algorithm_name', 8, 0, crosapi.mojom.KeystoreAlgorithmNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm_name', 8, 0, crosapi.mojom.KeystoreAlgorithmNameSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_Params', [
@@ -580,25 +580,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_GetCertificatesResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_GetCertificatesResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('certificate', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -611,7 +611,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_Params', [
-      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keystore', 0, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('certificate', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -625,16 +625,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_Params', [
       mojo.internal.StructField('challenge', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, crosapi.mojom.KeystoreTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('migrate', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('migrate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_KeystoreStringResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.DEPRECATED_KeystoreStringResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 crosapi.mojom.KeystoreServicePendingReceiver = class {
   constructor(handle) {
@@ -892,9 +892,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
 
 crosapi.mojom.KeystoreService.getRemote = function() {
   let remote = new crosapi.mojom.KeystoreServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.KeystoreService',
     'context');
   return remote.$;

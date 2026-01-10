@@ -45,8 +45,8 @@ ash.multidevice.mojom.SoftwareFeatureState = {
 mojo.internal.Struct(
     ash.multidevice.mojom.BeaconSeedSpec, 'ash.multidevice.mojom.BeaconSeed', [
       mojo.internal.StructField('data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('start_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('end_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('end_time', 16, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -59,9 +59,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('device_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('pii_free_device_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('persistent_symmetric_key', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('last_update_time', 48, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('software_features', 56, 0, mojo.internal.Map(ash.multidevice.mojom.SoftwareFeatureSpec, ash.multidevice.mojom.SoftwareFeatureStateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('beacon_seeds', 64, 0, mojo.internal.Array(ash.multidevice.mojom.BeaconSeedSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('last_update_time', 48, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('software_features', 56, 0, mojo.internal.Map(ash.multidevice.mojom.SoftwareFeatureSpec.$, ash.multidevice.mojom.SoftwareFeatureStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('beacon_seeds', 64, 0, mojo.internal.Array(ash.multidevice.mojom.BeaconSeedSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('bluetooth_public_address', 72, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 88]]);

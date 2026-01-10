@@ -41,7 +41,7 @@ mojo.internal.Union(
     media.mojom.CdmSpec, 'media.mojom.Cdm', {
       'cdm_id': {
         'ordinal': 0,
-        'type': mojo_base.mojom.UnguessableTokenSpec,
+        'type': mojo_base.mojom.UnguessableTokenSpec.$,
         'nullable': false,
       },
       'cdm_context': {
@@ -54,10 +54,10 @@ mojo.internal.Union(
 // Struct: SupportedVideoDecoderConfig
 mojo.internal.Struct(
     media.mojom.SupportedVideoDecoderConfigSpec, 'media.mojom.SupportedVideoDecoderConfig', [
-      mojo.internal.StructField('profile_min', 0, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('profile_max', 8, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size_min', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size_max', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile_min', 0, 0, media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('profile_max', 8, 0, media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size_min', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size_max', 24, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('allow_encrypted', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('require_encrypted', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -66,7 +66,7 @@ mojo.internal.Struct(
 // Struct: CommandBufferId
 mojo.internal.Struct(
     media.mojom.CommandBufferIdSpec, 'media.mojom.CommandBufferId', [
-      mojo.internal.StructField('channel_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('route_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -74,8 +74,8 @@ mojo.internal.Struct(
 // Interface: VideoFrameHandleReleaser
 mojo.internal.Struct(
     media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec, 'media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_Params', [
-      mojo.internal.StructField('release_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('release_sync_token', 8, 0, gpu.mojom.SyncTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('release_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('release_sync_token', 8, 0, gpu.mojom.SyncTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -125,9 +125,8 @@ media.mojom.VideoFrameHandleReleaserRemoteCallHandler = class {
 
 media.mojom.VideoFrameHandleReleaser.getRemote = function() {
   let remote = new media.mojom.VideoFrameHandleReleaserRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoFrameHandleReleaser',
     'context');
   return remote.$;
@@ -145,8 +144,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec, 'media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParams', [
-      mojo.internal.StructField('supported_configs', 0, 0, mojo.internal.Array(media.mojom.SupportedVideoDecoderConfigSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('decoder_type', 8, 0, media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('supported_configs', 0, 0, mojo.internal.Array(media.mojom.SupportedVideoDecoderConfigSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('decoder_type', 8, 0, media.mojom.VideoDecoderTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -156,38 +155,38 @@ mojo.internal.Struct(
       mojo.internal.StructField('media_log', 8, 0, mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), null, false, 0, undefined),
       mojo.internal.StructField('video_frame_handle_releaser', 16, 0, mojo.internal.InterfaceRequest(media.mojom.VideoFrameHandleReleaserRemote), null, false, 0, undefined),
       mojo.internal.StructField('decoder_buffer_pipe', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('command_buffer_id', 32, 0, media.mojom.CommandBufferIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('target_color_space', 40, 0, gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('command_buffer_id', 32, 0, media.mojom.CommandBufferIdSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('target_color_space', 40, 0, gfx.mojom.ColorSpaceSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_Initialize_ParamsSpec, 'media.mojom.VideoDecoder_Initialize_Params', [
-      mojo.internal.StructField('config', 0, 0, media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, media.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('low_delay', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cdm', 16, 0, media.mojom.CdmSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cdm', 16, 0, media.mojom.CdmSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_Initialize_ResponseParamsSpec, 'media.mojom.VideoDecoder_Initialize_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.DecoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('needs_bitstream_conversion', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('max_decode_requests', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('decoder_type', 16, 0, media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('decoder_type', 16, 0, media.mojom.VideoDecoderTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('needs_transcryption', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_Decode_ParamsSpec, 'media.mojom.VideoDecoder_Decode_Params', [
-      mojo.internal.StructField('buffer', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_Decode_ResponseParamsSpec, 'media.mojom.VideoDecoder_Decode_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.DecoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -203,7 +202,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec, 'media.mojom.VideoDecoder_OnOverlayInfoChanged_Params', [
-      mojo.internal.StructField('overlay_info', 0, 0, media.mojom.OverlayInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('overlay_info', 0, 0, media.mojom.OverlayInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -303,9 +302,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
 
 media.mojom.VideoDecoder.getRemote = function() {
   let remote = new media.mojom.VideoDecoderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoDecoder',
     'context');
   return remote.$;
@@ -318,15 +316,15 @@ media.mojom.VideoDecoderRequest = media.mojom.VideoDecoderPendingReceiver;
 // Interface: VideoDecoderClient
 mojo.internal.Struct(
     media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec, 'media.mojom.VideoDecoderClient_OnVideoFrameDecoded_Params', [
-      mojo.internal.StructField('frame', 0, 0, media.mojom.VideoFrameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame', 0, 0, media.mojom.VideoFrameSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('can_read_without_stalling', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('release_token', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('release_token', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec, 'media.mojom.VideoDecoderClient_OnWaiting_Params', [
-      mojo.internal.StructField('reason', 0, 0, media.mojom.WaitingReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, media.mojom.WaitingReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -401,9 +399,8 @@ media.mojom.VideoDecoderClientRemoteCallHandler = class {
 
 media.mojom.VideoDecoderClient.getRemote = function() {
   let remote = new media.mojom.VideoDecoderClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoDecoderClient',
     'context');
   return remote.$;

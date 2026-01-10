@@ -20,7 +20,7 @@ chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = { $: {} };
 // Interface: NetworkDiagnostics
 mojo.internal.Struct(
     chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec, 'chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_Params', [
-      mojo.internal.StructField('failed_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('failed_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -70,9 +70,8 @@ chrome.mojom.NetworkDiagnosticsRemoteCallHandler = class {
 
 chrome.mojom.NetworkDiagnostics.getRemote = function() {
   let remote = new chrome.mojom.NetworkDiagnosticsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.NetworkDiagnostics',
     'context');
   return remote.$;
@@ -151,9 +150,8 @@ chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = class {
 
 chrome.mojom.NetworkDiagnosticsClient.getRemote = function() {
   let remote = new chrome.mojom.NetworkDiagnosticsClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.NetworkDiagnosticsClient',
     'context');
   return remote.$;

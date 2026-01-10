@@ -21,7 +21,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec, 'content.mojom.PowerMonitorTest_QueryNextState_ResponseParams', [
-      mojo.internal.StructField('battery_power_status', 0, 0, mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('battery_power_status', 0, 0, mojo_base.mojom.BatteryPowerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -71,9 +71,8 @@ content.mojom.PowerMonitorTestRemoteCallHandler = class {
 
 content.mojom.PowerMonitorTest.getRemote = function() {
   let remote = new content.mojom.PowerMonitorTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.PowerMonitorTest',
     'context');
   return remote.$;

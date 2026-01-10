@@ -21,7 +21,7 @@ mojo.internal.Union(
       },
       'token': {
         'ordinal': 1,
-        'type': mojo_base.mojom.UnguessableTokenSpec,
+        'type': mojo_base.mojom.UnguessableTokenSpec.$,
         'nullable': false,
       },
     });

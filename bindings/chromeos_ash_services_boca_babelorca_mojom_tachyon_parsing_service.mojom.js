@@ -43,8 +43,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('init_timestamp_ms', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('order', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('previous_transcript', 32, 0, ash.babelorca.mojom.TranscriptPartSpec, null, true, 0, undefined),
-      mojo.internal.StructField('current_transcript', 40, 0, ash.babelorca.mojom.TranscriptPartSpec, null, false, 0, undefined),
+      mojo.internal.StructField('previous_transcript', 32, 0, ash.babelorca.mojom.TranscriptPartSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('current_transcript', 40, 0, ash.babelorca.mojom.TranscriptPartSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -65,9 +65,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec, 'ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParams', [
-      mojo.internal.StructField('state', 0, 0, ash.babelorca.mojom.ParsingStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('messages', 8, 0, mojo.internal.Array(ash.babelorca.mojom.BabelOrcaMessageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('stream_status', 16, 0, ash.babelorca.mojom.StreamStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.babelorca.mojom.ParsingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('messages', 8, 0, mojo.internal.Array(ash.babelorca.mojom.BabelOrcaMessageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('stream_status', 16, 0, ash.babelorca.mojom.StreamStatusSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -117,9 +117,8 @@ ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandler = class {
 
 ash.babelorca.mojom.TachyonParsingService.getRemote = function() {
   let remote = new ash.babelorca.mojom.TachyonParsingServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.babelorca.mojom.TachyonParsingService',
     'context');
   return remote.$;

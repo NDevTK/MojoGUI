@@ -25,7 +25,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('serial_number', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('landing_page', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('landing_page', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -63,7 +63,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParams', [
-      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.TestDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.TestDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -133,9 +133,8 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
 
 device.mojom.UsbDeviceManagerTest.getRemote = function() {
   let remote = new device.mojom.UsbDeviceManagerTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.UsbDeviceManagerTest',
     'context');
   return remote.$;

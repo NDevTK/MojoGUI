@@ -32,7 +32,7 @@ on_device_translation_internals.mojom.LanguagePackStatus = {
 mojo.internal.Struct(
     on_device_translation_internals.mojom.LanguagePackInfoSpec, 'on_device_translation_internals.mojom.LanguagePackInfo', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, on_device_translation_internals.mojom.LanguagePackStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, on_device_translation_internals.mojom.LanguagePackStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -90,9 +90,8 @@ on_device_translation_internals.mojom.PageHandlerFactoryRemoteCallHandler = clas
 
 on_device_translation_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new on_device_translation_internals.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'on_device_translation_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -171,9 +170,8 @@ on_device_translation_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 on_device_translation_internals.mojom.PageHandler.getRemote = function() {
   let remote = new on_device_translation_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'on_device_translation_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -186,7 +184,7 @@ on_device_translation_internals.mojom.PageHandlerRequest = on_device_translation
 // Interface: Page
 mojo.internal.Struct(
     on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec, 'on_device_translation_internals.mojom.Page_OnLanguagePackStatus_Params', [
-      mojo.internal.StructField('status', 0, 0, mojo.internal.Array(on_device_translation_internals.mojom.LanguagePackInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, mojo.internal.Array(on_device_translation_internals.mojom.LanguagePackInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -236,9 +234,8 @@ on_device_translation_internals.mojom.PageRemoteCallHandler = class {
 
 on_device_translation_internals.mojom.Page.getRemote = function() {
   let remote = new on_device_translation_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'on_device_translation_internals.mojom.Page',
     'context');
   return remote.$;

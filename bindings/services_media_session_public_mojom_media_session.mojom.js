@@ -161,29 +161,29 @@ media_session.mojom.SuspendType = {
 // Struct: MediaImage
 mojo.internal.Struct(
     media_session.mojom.MediaImageSpec, 'media_session.mojom.MediaImage', [
-      mojo.internal.StructField('src', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('sizes', 16, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('src', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sizes', 16, 0, mojo.internal.Array(gfx.mojom.SizeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ChapterInformation
 mojo.internal.Struct(
     media_session.mojom.ChapterInformationSpec, 'media_session.mojom.ChapterInformation', [
-      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('startTime', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('artwork', 16, 0, mojo.internal.Array(media_session.mojom.MediaImageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('startTime', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('artwork', 16, 0, mojo.internal.Array(media_session.mojom.MediaImageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: MediaMetadata
 mojo.internal.Struct(
     media_session.mojom.MediaMetadataSpec, 'media_session.mojom.MediaMetadata', [
-      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('artist', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('album', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('source_title', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('chapters', 32, 0, mojo.internal.Array(media_session.mojom.ChapterInformationSpec, false), null, true, 21, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('artist', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('album', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source_title', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('chapters', 32, 0, mojo.internal.Array(media_session.mojom.ChapterInformationSpec.$, false), null, true, 21, undefined),
     ],
     [[0, 40], [21, 48]]);
 
@@ -193,7 +193,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('pixel_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('color_type', 16, 0, media_session.mojom.MediaImageBitmapColorTypeSpec, null, false, 5, undefined),
+      mojo.internal.StructField('color_type', 16, 0, media_session.mojom.MediaImageBitmapColorTypeSpec.$, null, false, 5, undefined),
     ],
     [[0, 24], [5, 32]]);
 
@@ -201,9 +201,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.MediaPositionSpec, 'media_session.mojom.MediaPosition', [
       mojo.internal.StructField('playback_rate', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('position', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_updated_time', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('position', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_updated_time', 24, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('end_of_media', 32, 0, mojo.internal.Bool, false, false, 13, undefined),
     ],
     [[0, 40], [13, 48]]);
@@ -239,31 +239,31 @@ mojo.internal.Struct(
 // Interface: MediaSessionObserver
 mojo.internal.Struct(
     media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_Params', [
-      mojo.internal.StructField('info', 0, 0, media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, media_session.mojom.MediaSessionInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_Params', [
-      mojo.internal.StructField('metadata', 0, 0, media_session.mojom.MediaMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, media_session.mojom.MediaMetadataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_Params', [
-      mojo.internal.StructField('action', 0, 0, mojo.internal.Array(media_session.mojom.MediaSessionActionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, mojo.internal.Array(media_session.mojom.MediaSessionActionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_Params', [
-      mojo.internal.StructField('images', 0, 0, mojo.internal.Map(media_session.mojom.MediaSessionImageTypeSpec, mojo.internal.Array(media_session.mojom.MediaImageSpec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('images', 0, 0, mojo.internal.Map(media_session.mojom.MediaSessionImageTypeSpec.$, mojo.internal.Array(media_session.mojom.MediaImageSpec.$, false), false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_Params', [
-      mojo.internal.StructField('position', 0, 0, media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('position', 0, 0, media_session.mojom.MediaPositionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -353,9 +353,8 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
 
 media_session.mojom.MediaSessionObserver.getRemote = function() {
   let remote = new media_session.mojom.MediaSessionObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_session.mojom.MediaSessionObserver',
     'context');
   return remote.$;
@@ -373,7 +372,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, media_session.mojom.MediaSessionInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -384,7 +383,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetDebugInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, media_session.mojom.MediaSessionDebugInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, media_session.mojom.MediaSessionDebugInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -400,13 +399,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_Suspend_ParamsSpec, 'media_session.mojom.MediaSession_Suspend_Params', [
-      mojo.internal.StructField('suspend_type', 0, 0, media_session.mojom.SuspendTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('suspend_type', 0, 0, media_session.mojom.SuspendTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_Resume_ParamsSpec, 'media_session.mojom.MediaSession_Resume_Params', [
-      mojo.internal.StructField('suspend_type', 0, 0, media_session.mojom.SuspendTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('suspend_type', 0, 0, media_session.mojom.SuspendTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -428,13 +427,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_Seek_ParamsSpec, 'media_session.mojom.MediaSession_Seek_Params', [
-      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_Stop_ParamsSpec, 'media_session.mojom.MediaSession_Stop_Params', [
-      mojo.internal.StructField('suspend_type', 0, 0, media_session.mojom.SuspendTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('suspend_type', 0, 0, media_session.mojom.SuspendTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -445,7 +444,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec, 'media_session.mojom.MediaSession_GetMediaImageBitmap_Params', [
-      mojo.internal.StructField('image', 0, 0, media_session.mojom.MediaImageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, media_session.mojom.MediaImageSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('minimum_size_px', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('desired_size_px', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -453,19 +452,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParams', [
-      mojo.internal.StructField('image', 0, 0, media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, media_session.mojom.MediaImageBitmapSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_SeekTo_ParamsSpec, 'media_session.mojom.MediaSession_SeekTo_Params', [
-      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_ScrubTo_ParamsSpec, 'media_session.mojom.MediaSession_ScrubTo_Params', [
-      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -858,9 +857,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
 
 media_session.mojom.MediaSession.getRemote = function() {
   let remote = new media_session.mojom.MediaSessionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_session.mojom.MediaSession',
     'context');
   return remote.$;

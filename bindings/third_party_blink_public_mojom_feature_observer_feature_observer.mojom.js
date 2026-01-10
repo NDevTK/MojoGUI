@@ -58,9 +58,8 @@ blink.mojom.ObservedFeatureRemoteCallHandler = class {
 
 blink.mojom.ObservedFeature.getRemote = function() {
   let remote = new blink.mojom.ObservedFeatureRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ObservedFeature',
     'context');
   return remote.$;
@@ -74,7 +73,7 @@ blink.mojom.ObservedFeatureRequest = blink.mojom.ObservedFeaturePendingReceiver;
 mojo.internal.Struct(
     blink.mojom.FeatureObserver_Register_ParamsSpec, 'blink.mojom.FeatureObserver_Register_Params', [
       mojo.internal.StructField('feature', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ObservedFeatureRemote), null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, blink.mojom.ObservedFeatureTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, blink.mojom.ObservedFeatureTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -124,9 +123,8 @@ blink.mojom.FeatureObserverRemoteCallHandler = class {
 
 blink.mojom.FeatureObserver.getRemote = function() {
   let remote = new blink.mojom.FeatureObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FeatureObserver',
     'context');
   return remote.$;

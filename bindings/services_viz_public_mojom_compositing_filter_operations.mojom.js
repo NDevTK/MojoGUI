@@ -14,6 +14,6 @@ viz.mojom.FilterOperationsSpec = { $: {} };
 // Struct: FilterOperations
 mojo.internal.Struct(
     viz.mojom.FilterOperationsSpec, 'viz.mojom.FilterOperations', [
-      mojo.internal.StructField('operations', 0, 0, mojo.internal.Array(viz.mojom.FilterOperationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('operations', 0, 0, mojo.internal.Array(viz.mojom.FilterOperationSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

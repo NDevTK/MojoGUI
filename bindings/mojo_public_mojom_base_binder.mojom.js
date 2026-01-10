@@ -15,7 +15,7 @@ mojo_base.mojom.Binder_Bind_ParamsSpec = { $: {} };
 // Interface: Binder
 mojo.internal.Struct(
     mojo_base.mojom.Binder_Bind_ParamsSpec, 'mojo_base.mojom.Binder_Bind_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -65,9 +65,8 @@ mojo_base.mojom.BinderRemoteCallHandler = class {
 
 mojo_base.mojom.Binder.getRemote = function() {
   let remote = new mojo_base.mojom.BinderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mojo_base.mojom.Binder',
     'context');
   return remote.$;

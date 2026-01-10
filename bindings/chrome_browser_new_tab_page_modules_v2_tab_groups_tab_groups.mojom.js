@@ -29,11 +29,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('update_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('device_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('total_tab_count', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('color', 36, 0, tab_groups.mojom.ColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('favicon_urls', 40, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('is_shared_tab_group', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color', 40, 0, tab_groups.mojom.ColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_urls', 48, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_shared_tab_group', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Interface: PageHandler
 mojo.internal.Struct(
@@ -48,7 +48,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec, 'ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParams', [
-      mojo.internal.StructField('tab_groups', 0, 0, mojo.internal.Array(ntp.tab_groups.mojom.TabGroupSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('tab_groups', 0, 0, mojo.internal.Array(ntp.tab_groups.mojom.TabGroupSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('showZeroState', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -155,9 +155,8 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
 
 ntp.tab_groups.mojom.PageHandler.getRemote = function() {
   let remote = new ntp.tab_groups.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ntp.tab_groups.mojom.PageHandler',
     'context');
   return remote.$;

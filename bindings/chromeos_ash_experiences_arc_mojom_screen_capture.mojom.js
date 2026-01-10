@@ -59,7 +59,7 @@ mojo.internal.Struct(
     arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec, 'arc.mojom.ScreenCaptureHost_OpenSession_Params', [
       mojo.internal.StructField('notifier', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionNotifierRemote), null, false, 0, undefined),
       mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('size', 16, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -135,9 +135,8 @@ arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
 
 arc.mojom.ScreenCaptureHost.getRemote = function() {
   let remote = new arc.mojom.ScreenCaptureHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ScreenCaptureHost',
     'context');
   return remote.$;
@@ -163,11 +162,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_Params', [
       mojo.internal.StructField('graphics_buffer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('buffer_format', 4, 0, gfx.mojom.BufferFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('buffer_format_modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('stride', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer_format', 8, 0, gfx.mojom.BufferFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_format_modifier', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('stride', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParams', [
@@ -230,9 +229,8 @@ arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
 
 arc.mojom.ScreenCaptureSession.getRemote = function() {
   let remote = new arc.mojom.ScreenCaptureSessionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ScreenCaptureSession',
     'context');
   return remote.$;
@@ -300,9 +298,8 @@ arc.mojom.ScreenCaptureInstanceRemoteCallHandler = class {
 
 arc.mojom.ScreenCaptureInstance.getRemote = function() {
   let remote = new arc.mojom.ScreenCaptureInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ScreenCaptureInstance',
     'context');
   return remote.$;
@@ -364,9 +361,8 @@ arc.mojom.ScreenCaptureSessionNotifierRemoteCallHandler = class {
 
 arc.mojom.ScreenCaptureSessionNotifier.getRemote = function() {
   let remote = new arc.mojom.ScreenCaptureSessionNotifierRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ScreenCaptureSessionNotifier',
     'context');
   return remote.$;

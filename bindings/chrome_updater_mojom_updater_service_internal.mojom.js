@@ -92,9 +92,8 @@ updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
 
 updater.mojom.UpdateServiceInternal.getRemote = function() {
   let remote = new updater.mojom.UpdateServiceInternalRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'updater.mojom.UpdateServiceInternal',
     'context');
   return remote.$;

@@ -75,9 +75,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec, 'pdf.mojom.SaveDataBufferHandler_Read_ResponseParams', [
-      mojo.internal.StructField('block', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('block', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 pdf.mojom.SaveDataBufferHandlerPendingReceiver = class {
   constructor(handle) {
@@ -125,9 +125,8 @@ pdf.mojom.SaveDataBufferHandlerRemoteCallHandler = class {
 
 pdf.mojom.SaveDataBufferHandler.getRemote = function() {
   let remote = new pdf.mojom.SaveDataBufferHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'pdf.mojom.SaveDataBufferHandler',
     'context');
   return remote.$;
@@ -140,20 +139,20 @@ pdf.mojom.SaveDataBufferHandlerRequest = pdf.mojom.SaveDataBufferHandlerPendingR
 // Interface: PdfListener
 mojo.internal.Struct(
     pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec, 'pdf.mojom.PdfListener_SetCaretPosition_Params', [
-      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec, 'pdf.mojom.PdfListener_MoveRangeSelectionExtent_Params', [
-      mojo.internal.StructField('extent', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extent', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec, 'pdf.mojom.PdfListener_SetSelectionBounds_Params', [
-      mojo.internal.StructField('base', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('extent', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('base', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('extent', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -165,7 +164,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetPdfBytes_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, pdf.mojom.GetPdfBytesStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, pdf.mojom.GetPdfBytesStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('page_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -179,7 +178,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetPageText_ResponseParams', [
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -197,13 +196,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec, 'pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_Params', [
-      mojo.internal.StructField('request_type', 0, 0, pdf.mojom.SaveRequestTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_type', 0, 0, pdf.mojom.SaveRequestTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, pdf.mojom.SaveDataBufferHandlerGetResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, pdf.mojom.SaveDataBufferHandlerGetResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -313,9 +312,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
 
 pdf.mojom.PdfListener.getRemote = function() {
   let remote = new pdf.mojom.PdfListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'pdf.mojom.PdfListener',
     'context');
   return remote.$;
@@ -345,16 +343,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec, 'pdf.mojom.PdfHost_SaveUrlAs_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('policy', 8, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('policy', 8, 0, network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     pdf.mojom.PdfHost_SelectionChanged_ParamsSpec, 'pdf.mojom.PdfHost_SelectionChanged_Params', [
-      mojo.internal.StructField('left', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('left', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('left_height', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('right', 16, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('right', 16, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('right_height', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -476,9 +474,8 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
 
 pdf.mojom.PdfHost.getRemote = function() {
   let remote = new pdf.mojom.PdfHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'pdf.mojom.PdfHost',
     'context');
   return remote.$;

@@ -176,7 +176,7 @@ mojo.internal.Union(
       },
       'coordinate_dip': {
         'ordinal': 1,
-        'type': gfx.mojom.PointSpec,
+        'type': gfx.mojom.PointSpec.$,
         'nullable': false,
       },
     });
@@ -186,42 +186,42 @@ mojo.internal.Union(
     actor.mojom.ToolActionSpec, 'actor.mojom.ToolAction', {
       'click': {
         'ordinal': 0,
-        'type': actor.mojom.ClickActionSpec,
+        'type': actor.mojom.ClickActionSpec.$,
         'nullable': false,
       },
       'drag_and_release': {
         'ordinal': 1,
-        'type': actor.mojom.DragAndReleaseActionSpec,
+        'type': actor.mojom.DragAndReleaseActionSpec.$,
         'nullable': false,
       },
       'mouse_move': {
         'ordinal': 2,
-        'type': actor.mojom.MouseMoveActionSpec,
+        'type': actor.mojom.MouseMoveActionSpec.$,
         'nullable': false,
       },
       'scroll': {
         'ordinal': 3,
-        'type': actor.mojom.ScrollActionSpec,
+        'type': actor.mojom.ScrollActionSpec.$,
         'nullable': false,
       },
       'select': {
         'ordinal': 4,
-        'type': actor.mojom.SelectActionSpec,
+        'type': actor.mojom.SelectActionSpec.$,
         'nullable': false,
       },
       'type': {
         'ordinal': 5,
-        'type': actor.mojom.TypeActionSpec,
+        'type': actor.mojom.TypeActionSpec.$,
         'nullable': false,
       },
       'script_tool': {
         'ordinal': 6,
-        'type': actor.mojom.ScriptToolActionSpec,
+        'type': actor.mojom.ScriptToolActionSpec.$,
         'nullable': false,
       },
       'scroll_to': {
         'ordinal': 7,
-        'type': actor.mojom.ScrollToActionSpec,
+        'type': actor.mojom.ScrollToActionSpec.$,
         'nullable': false,
       },
     });
@@ -229,7 +229,7 @@ mojo.internal.Union(
 // Struct: ObservedToolTarget
 mojo.internal.Struct(
     actor.mojom.ObservedToolTargetSpec, 'actor.mojom.ObservedToolTarget', [
-      mojo.internal.StructField('node_attribute', 0, 0, blink.mojom.AIPageContentAttributesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('node_attribute', 0, 0, blink.mojom.AIPageContentAttributesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -276,9 +276,9 @@ mojo.internal.Struct(
 // Struct: DragAndReleaseAction
 mojo.internal.Struct(
     actor.mojom.DragAndReleaseActionSpec, 'actor.mojom.DragAndReleaseAction', [
-      mojo.internal.StructField('to_target', 0, 0, actor.mojom.ToolTargetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('to_target', 0, 0, actor.mojom.ToolTargetSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: ScriptToolAction
 mojo.internal.Struct(
@@ -298,23 +298,23 @@ mojo.internal.Struct(
 // Struct: ToolInvocation
 mojo.internal.Struct(
     actor.mojom.ToolInvocationSpec, 'actor.mojom.ToolInvocation', [
-      mojo.internal.StructField('task_id', 0, 0, actor.mojom.TaskIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('action', 8, 0, actor.mojom.ToolActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('target', 24, 0, actor.mojom.ToolTargetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('observed_target', 40, 0, actor.mojom.ObservedToolTargetSpec, null, true, 0, undefined),
+      mojo.internal.StructField('task_id', 0, 0, actor.mojom.TaskIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('action', 8, 0, actor.mojom.ToolActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('target', 16, 0, actor.mojom.ToolTargetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('observed_target', 24, 0, actor.mojom.ObservedToolTargetSpec.$, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 40]]);
 
 // Struct: ActionResult
 mojo.internal.Struct(
     actor.mojom.ActionResultSpec, 'actor.mojom.ActionResult', [
-      mojo.internal.StructField('code', 0, 0, actor.mojom.ActionResultCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('requires_page_stabilization', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('script_tool_response', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('execution_end_time', 24, 0, mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, actor.mojom.ActionResultCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('requires_page_stabilization', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('script_tool_response', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('execution_end_time', 32, 0, mojo_base.mojom.TimeTicksSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: JournalDetails
 mojo.internal.Struct(
@@ -327,19 +327,19 @@ mojo.internal.Struct(
 // Struct: JournalEntry
 mojo.internal.Struct(
     actor.mojom.JournalEntrySpec, 'actor.mojom.JournalEntry', [
-      mojo.internal.StructField('type', 0, 0, actor.mojom.JournalEntryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('task_id', 8, 0, actor.mojom.TaskIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, actor.mojom.JournalEntryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('task_id', 8, 0, actor.mojom.TaskIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('event', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('track_uuid', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('details', 40, 0, mojo.internal.Array(actor.mojom.JournalDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('details', 40, 0, mojo.internal.Array(actor.mojom.JournalDetailsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Interface: JournalClient
 mojo.internal.Struct(
     actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec, 'actor.mojom.JournalClient_AddEntriesToJournal_Params', [
-      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(actor.mojom.JournalEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(actor.mojom.JournalEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -389,9 +389,8 @@ actor.mojom.JournalClientRemoteCallHandler = class {
 
 actor.mojom.JournalClient.getRemote = function() {
   let remote = new actor.mojom.JournalClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'actor.mojom.JournalClient',
     'context');
   return remote.$;
@@ -404,7 +403,7 @@ actor.mojom.JournalClientRequest = actor.mojom.JournalClientPendingReceiver;
 // Interface: PageStabilityMonitor
 mojo.internal.Struct(
     actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec, 'actor.mojom.PageStabilityMonitor_NotifyWhenStable_Params', [
-      mojo.internal.StructField('observation_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observation_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -459,9 +458,8 @@ actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
 
 actor.mojom.PageStabilityMonitor.getRemote = function() {
   let remote = new actor.mojom.PageStabilityMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'actor.mojom.PageStabilityMonitor',
     'context');
   return remote.$;

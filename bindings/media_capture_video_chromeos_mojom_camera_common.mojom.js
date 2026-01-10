@@ -98,11 +98,11 @@ mojo.internal.Struct(
 // Struct: CameraInfo
 mojo.internal.Struct(
     cros.mojom.CameraInfoSpec, 'cros.mojom.CameraInfo', [
-      mojo.internal.StructField('facing', 0, 0, cros.mojom.CameraFacingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('orientation', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('device_version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('static_camera_characteristics', 16, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('resource_cost', 24, 0, cros.mojom.CameraResourceCostSpec, null, true, 1, undefined),
+      mojo.internal.StructField('facing', 0, 0, cros.mojom.CameraFacingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('orientation', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_version', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('static_camera_characteristics', 16, 0, cros.mojom.CameraMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('resource_cost', 24, 0, cros.mojom.CameraResourceCostSpec.$, null, true, 1, undefined),
       mojo.internal.StructField('conflicting_devices', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 1, undefined),
     ],
     [[0, 32], [1, 48]]);
@@ -111,16 +111,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec, 'cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_Params', [
       mojo.internal.StructField('camera_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('new_status', 4, 0, cros.mojom.CameraDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_status', 8, 0, cros.mojom.CameraDeviceStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec, 'cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_Params', [
       mojo.internal.StructField('camera_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('new_status', 4, 0, cros.mojom.TorchModeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_status', 8, 0, cros.mojom.TorchModeStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 cros.mojom.CameraModuleCallbacksPendingReceiver = class {
   constructor(handle) {
@@ -178,9 +178,8 @@ cros.mojom.CameraModuleCallbacksRemoteCallHandler = class {
 
 cros.mojom.CameraModuleCallbacks.getRemote = function() {
   let remote = new cros.mojom.CameraModuleCallbacksRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CameraModuleCallbacks',
     'context');
   return remote.$;
@@ -335,9 +334,8 @@ cros.mojom.VendorTagOpsRemoteCallHandler = class {
 
 cros.mojom.VendorTagOps.getRemote = function() {
   let remote = new cros.mojom.VendorTagOpsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.VendorTagOps',
     'context');
   return remote.$;
@@ -381,7 +379,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec, 'cros.mojom.CameraModule_GetCameraInfo_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('camera_info', 8, 0, cros.mojom.CameraInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('camera_info', 8, 0, cros.mojom.CameraInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -560,9 +558,8 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
 
 cros.mojom.CameraModule.getRemote = function() {
   let remote = new cros.mojom.CameraModuleRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CameraModule',
     'context');
   return remote.$;

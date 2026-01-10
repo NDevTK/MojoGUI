@@ -44,8 +44,8 @@ ash.personalization_app.mojom.SearchConceptId = {
 // Struct: SearchResult
 mojo.internal.Struct(
     ash.personalization_app.mojom.SearchResultSpec, 'ash.personalization_app.mojom.SearchResult', [
-      mojo.internal.StructField('search_concept_id', 0, 0, ash.personalization_app.mojom.SearchConceptIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('search_concept_id', 0, 0, ash.personalization_app.mojom.SearchConceptIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('relative_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('relevance_score', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
@@ -103,9 +103,8 @@ ash.personalization_app.mojom.SearchResultsObserverRemoteCallHandler = class {
 
 ash.personalization_app.mojom.SearchResultsObserver.getRemote = function() {
   let remote = new ash.personalization_app.mojom.SearchResultsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.SearchResultsObserver',
     'context');
   return remote.$;
@@ -118,14 +117,14 @@ ash.personalization_app.mojom.SearchResultsObserverRequest = ash.personalization
 // Interface: SearchHandler
 mojo.internal.Struct(
     ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec, 'ash.personalization_app.mojom.SearchHandler_Search_Params', [
-      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.personalization_app.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SearchResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -191,9 +190,8 @@ ash.personalization_app.mojom.SearchHandlerRemoteCallHandler = class {
 
 ash.personalization_app.mojom.SearchHandler.getRemote = function() {
   let remote = new ash.personalization_app.mojom.SearchHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.personalization_app.mojom.SearchHandler',
     'context');
   return remote.$;

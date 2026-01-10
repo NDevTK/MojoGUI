@@ -83,9 +83,8 @@ launcher_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 launcher_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new launcher_internals.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'launcher_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -100,7 +99,7 @@ mojo.internal.Struct(
     launcher_internals.mojom.Page_UpdateResults_ParamsSpec, 'launcher_internals.mojom.Page_UpdateResults_Params', [
       mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('keywords', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('results', 16, 0, mojo.internal.Array(launcher_internals.mojom.ResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 16, 0, mojo.internal.Array(launcher_internals.mojom.ResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -150,9 +149,8 @@ launcher_internals.mojom.PageRemoteCallHandler = class {
 
 launcher_internals.mojom.Page.getRemote = function() {
   let remote = new launcher_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'launcher_internals.mojom.Page',
     'context');
   return remote.$;

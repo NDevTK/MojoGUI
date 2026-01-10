@@ -45,7 +45,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec, 'media.mojom.FuchsiaMediaCdmProvider_CreateCdm_Params', [
       mojo.internal.StructField('key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('cdm_request', 8, 0, media.mojom.CdmRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_request', 8, 0, media.mojom.CdmRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -95,9 +95,8 @@ media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = class {
 
 media.mojom.FuchsiaMediaCdmProvider.getRemote = function() {
   let remote = new media.mojom.FuchsiaMediaCdmProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.FuchsiaMediaCdmProvider',
     'context');
   return remote.$;
@@ -110,9 +109,9 @@ media.mojom.FuchsiaMediaCdmProviderRequest = media.mojom.FuchsiaMediaCdmProvider
 // Interface: FuchsiaMediaCodecProvider
 mojo.internal.Struct(
     media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_Params', [
-      mojo.internal.StructField('codec', 0, 0, media.mojom.VideoCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('secure_mode', 8, 0, media.mojom.VideoDecoderSecureMemoryModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('stream_processor_request', 16, 0, media.mojom.StreamProcessorRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('codec', 0, 0, media.mojom.VideoCodecSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('secure_mode', 8, 0, media.mojom.VideoDecoderSecureMemoryModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('stream_processor_request', 16, 0, media.mojom.StreamProcessorRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -123,7 +122,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParams', [
-      mojo.internal.StructField('supported_configs', 0, 0, mojo.internal.Array(media.mojom.SupportedVideoDecoderConfigSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('supported_configs', 0, 0, mojo.internal.Array(media.mojom.SupportedVideoDecoderConfigSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -183,9 +182,8 @@ media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
 
 media.mojom.FuchsiaMediaCodecProvider.getRemote = function() {
   let remote = new media.mojom.FuchsiaMediaCodecProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.FuchsiaMediaCodecProvider',
     'context');
   return remote.$;

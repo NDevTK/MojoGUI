@@ -36,19 +36,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManager_GetDevices_ParamsSpec, 'device.mojom.UsbDeviceManager_GetDevices_Params', [
-      mojo.internal.StructField('options', 0, 0, device.mojom.UsbEnumerationOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, device.mojom.UsbEnumerationOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_GetDevices_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -77,7 +77,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParams', [
-      mojo.internal.StructField('device_info', 0, 0, device.mojom.UsbDeviceInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.UsbDeviceInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -103,7 +103,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParams', [
-      mojo.internal.StructField('fd', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('fd', 0, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -229,9 +229,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
 
 device.mojom.UsbDeviceManager.getRemote = function() {
   let remote = new device.mojom.UsbDeviceManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.UsbDeviceManager',
     'context');
   return remote.$;

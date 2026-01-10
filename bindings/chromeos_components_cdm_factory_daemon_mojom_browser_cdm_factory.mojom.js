@@ -71,7 +71,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParams', [
-      mojo.internal.StructField('resolutions', 0, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resolutions', 0, 0, mojo.internal.Array(gfx.mojom.SizeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -84,7 +84,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, chromeos.cdm.mojom.DecryptStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -222,9 +222,8 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {
 
 chromeos.cdm.mojom.BrowserCdmFactory.getRemote = function() {
   let remote = new chromeos.cdm.mojom.BrowserCdmFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.cdm.mojom.BrowserCdmFactory',
     'context');
   return remote.$;

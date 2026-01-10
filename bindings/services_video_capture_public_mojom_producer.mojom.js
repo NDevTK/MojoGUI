@@ -18,9 +18,9 @@ video_capture.mojom.Producer_OnBufferRetired_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     video_capture.mojom.Producer_OnNewBuffer_ParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_Params', [
       mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer_handle', 8, 0, media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 8, 0, media.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_ResponseParams', [
@@ -89,9 +89,8 @@ video_capture.mojom.ProducerRemoteCallHandler = class {
 
 video_capture.mojom.Producer.getRemote = function() {
   let remote = new video_capture.mojom.ProducerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'video_capture.mojom.Producer',
     'context');
   return remote.$;

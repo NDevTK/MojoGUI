@@ -34,15 +34,15 @@ chromeos.machine_learning.mojom.ExecuteResult = {
 // Interface: GraphExecutor
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec, 'chromeos.machine_learning.mojom.GraphExecutor_Execute_Params', [
-      mojo.internal.StructField('inputs', 0, 0, mojo.internal.Map(mojo.internal.String, chromeos.machine_learning.mojom.TensorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('inputs', 0, 0, mojo.internal.Map(mojo.internal.String, chromeos.machine_learning.mojom.TensorSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('output_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec, 'chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.ExecuteResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('outputs', 8, 0, mojo.internal.Array(chromeos.machine_learning.mojom.TensorSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.ExecuteResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('outputs', 8, 0, mojo.internal.Array(chromeos.machine_learning.mojom.TensorSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -92,9 +92,8 @@ chromeos.machine_learning.mojom.GraphExecutorRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.GraphExecutor.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.GraphExecutorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.machine_learning.mojom.GraphExecutor',
     'context');
   return remote.$;

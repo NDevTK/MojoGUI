@@ -77,19 +77,19 @@ screen_ai.mojom.MceClientType = {
 // Struct: VisualAnnotation
 mojo.internal.Struct(
     screen_ai.mojom.VisualAnnotationSpec, 'screen_ai.mojom.VisualAnnotation', [
-      mojo.internal.StructField('lines', 0, 0, mojo.internal.Array(screen_ai.mojom.LineBoxSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('lines', 0, 0, mojo.internal.Array(screen_ai.mojom.LineBoxSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: LineBox
 mojo.internal.Struct(
     screen_ai.mojom.LineBoxSpec, 'screen_ai.mojom.LineBox', [
-      mojo.internal.StructField('words', 0, 0, mojo.internal.Array(screen_ai.mojom.WordBoxSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('words', 0, 0, mojo.internal.Array(screen_ai.mojom.WordBoxSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('text_line', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('language', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('block_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('paragraph_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('bounding_box', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box', 32, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('bounding_box_angle', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('confidence', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
@@ -100,43 +100,43 @@ mojo.internal.Struct(
     screen_ai.mojom.WordBoxSpec, 'screen_ai.mojom.WordBox', [
       mojo.internal.StructField('word', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('bounding_box', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box', 16, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('bounding_box_angle', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('direction', 28, 0, screen_ai.mojom.DirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('whitespace_bounding_box', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('whitespace_bounding_box_angle', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('confidence', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('direction', 32, 0, screen_ai.mojom.DirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('whitespace_bounding_box', 40, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('whitespace_bounding_box_angle', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('confidence', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Interface: ScreenAIAnnotator
 mojo.internal.Struct(
     screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_Params', [
-      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParams', [
-      mojo.internal.StructField('update', 0, 0, ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update', 0, 0, ax.mojom.AXTreeUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_Params', [
-      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParams', [
-      mojo.internal.StructField('visual_annotation', 0, 0, screen_ai.mojom.VisualAnnotationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visual_annotation', 0, 0, screen_ai.mojom.VisualAnnotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_SetClientType_Params', [
-      mojo.internal.StructField('client_type', 0, 0, screen_ai.mojom.OcrClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_type', 0, 0, screen_ai.mojom.OcrClientTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -264,9 +264,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
 
 screen_ai.mojom.ScreenAIAnnotator.getRemote = function() {
   let remote = new screen_ai.mojom.ScreenAIAnnotatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'screen_ai.mojom.ScreenAIAnnotator',
     'context');
   return remote.$;
@@ -279,7 +278,7 @@ screen_ai.mojom.ScreenAIAnnotatorRequest = screen_ai.mojom.ScreenAIAnnotatorPend
 // Interface: Screen2xMainContentExtractor
 mojo.internal.Struct(
     screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_Params', [
-      mojo.internal.StructField('snapshot', 0, 0, ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('snapshot', 0, 0, ax.mojom.AXTreeUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -291,7 +290,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_Params', [
-      mojo.internal.StructField('snapshot', 0, 0, ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('snapshot', 0, 0, ax.mojom.AXTreeUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -303,20 +302,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_Params', [
-      mojo.internal.StructField('ax_tree', 0, 0, ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ax_tree', 0, 0, ax.mojom.AXTreeUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParams', [
-      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_Params', [
-      mojo.internal.StructField('client_type', 0, 0, screen_ai.mojom.MceClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_type', 0, 0, screen_ai.mojom.MceClientTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -396,9 +395,8 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
 
 screen_ai.mojom.Screen2xMainContentExtractor.getRemote = function() {
   let remote = new screen_ai.mojom.Screen2xMainContentExtractorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'screen_ai.mojom.Screen2xMainContentExtractor',
     'context');
   return remote.$;
@@ -461,9 +459,8 @@ screen_ai.mojom.OCRServiceRemoteCallHandler = class {
 
 screen_ai.mojom.OCRService.getRemote = function() {
   let remote = new screen_ai.mojom.OCRServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'screen_ai.mojom.OCRService',
     'context');
   return remote.$;
@@ -526,9 +523,8 @@ screen_ai.mojom.MainContentExtractionServiceRemoteCallHandler = class {
 
 screen_ai.mojom.MainContentExtractionService.getRemote = function() {
   let remote = new screen_ai.mojom.MainContentExtractionServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'screen_ai.mojom.MainContentExtractionService',
     'context');
   return remote.$;

@@ -143,17 +143,17 @@ mojo.internal.Struct(
 // Struct: QuadF
 mojo.internal.Struct(
     gfx.mojom.QuadFSpec, 'gfx.mojom.QuadF', [
-      mojo.internal.StructField('p1', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('p2', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('p3', 16, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('p4', 24, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('p1', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('p2', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('p3', 16, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('p4', 24, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: AxisTransform2d
 mojo.internal.Struct(
     gfx.mojom.AxisTransform2dSpec, 'gfx.mojom.AxisTransform2d', [
-      mojo.internal.StructField('scale', 0, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('translation', 8, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale', 0, 0, gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('translation', 8, 0, gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

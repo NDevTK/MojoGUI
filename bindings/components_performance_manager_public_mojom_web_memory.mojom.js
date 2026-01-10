@@ -39,9 +39,9 @@ mojo.internal.Struct(
 // Struct: WebMemoryBreakdownEntry
 mojo.internal.Struct(
     performance_manager.mojom.WebMemoryBreakdownEntrySpec, 'performance_manager.mojom.WebMemoryBreakdownEntry', [
-      mojo.internal.StructField('memory', 0, 0, mojo_base.mojom.ByteSizeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('canvas_memory', 8, 0, mojo_base.mojom.ByteSizeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('attribution', 16, 0, mojo.internal.Array(performance_manager.mojom.WebMemoryAttributionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('memory', 0, 0, mojo_base.mojom.ByteSizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('canvas_memory', 8, 0, mojo_base.mojom.ByteSizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('attribution', 16, 0, mojo.internal.Array(performance_manager.mojom.WebMemoryAttributionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

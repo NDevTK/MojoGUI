@@ -33,19 +33,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, enterprise_companion.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, enterprise_companion.mojom.StatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_Params', [
-      mojo.internal.StructField('reason', 0, 0, enterprise_companion.mojom.PolicyFetchReasonSpec, null, false, 1, undefined),
+      mojo.internal.StructField('reason', 0, 0, enterprise_companion.mojom.PolicyFetchReasonSpec.$, null, false, 1, undefined),
     ],
     [[0, 8], [1, 16]]);
 
 mojo.internal.Struct(
     enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, enterprise_companion.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, enterprise_companion.mojom.StatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -105,9 +105,8 @@ enterprise_companion.mojom.EnterpriseCompanionRemoteCallHandler = class {
 
 enterprise_companion.mojom.EnterpriseCompanion.getRemote = function() {
   let remote = new enterprise_companion.mojom.EnterpriseCompanionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'enterprise_companion.mojom.EnterpriseCompanion',
     'context');
   return remote.$;

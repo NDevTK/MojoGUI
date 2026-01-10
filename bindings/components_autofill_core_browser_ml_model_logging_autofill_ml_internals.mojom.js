@@ -44,7 +44,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('autocomplete', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('form_control_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('select_options', 48, 0, mojo.internal.Array(autofill_ml_internals.mojom.SelectOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('select_options', 48, 0, mojo.internal.Array(autofill_ml_internals.mojom.SelectOptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('probabilities', 56, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
       mojo.internal.StructField('tokenized_field_representation', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
@@ -54,20 +54,20 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     autofill_ml_internals.mojom.MlPredictionLogSpec, 'autofill_ml_internals.mojom.MlPredictionLog', [
       mojo.internal.StructField('form_signature', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('form_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('form_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('model_output_types', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('field_predictions', 24, 0, mojo.internal.Array(autofill_ml_internals.mojom.MlFieldPredictionLogSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('start_time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('end_time', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duration', 48, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('optimization_target', 56, 0, autofill_ml_internals.mojom.OptimizationTargetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_predictions', 24, 0, mojo.internal.Array(autofill_ml_internals.mojom.MlFieldPredictionLogSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 32, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('end_time', 40, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 48, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('optimization_target', 56, 0, autofill_ml_internals.mojom.OptimizationTargetSpec.$, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
 // Interface: Page
 mojo.internal.Struct(
     autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec, 'autofill_ml_internals.mojom.Page_OnLogAdded_Params', [
-      mojo.internal.StructField('log', 0, 0, autofill_ml_internals.mojom.MlPredictionLogSpec, null, false, 0, undefined),
+      mojo.internal.StructField('log', 0, 0, autofill_ml_internals.mojom.MlPredictionLogSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -117,9 +117,8 @@ autofill_ml_internals.mojom.PageRemoteCallHandler = class {
 
 autofill_ml_internals.mojom.Page.getRemote = function() {
   let remote = new autofill_ml_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'autofill_ml_internals.mojom.Page',
     'context');
   return remote.$;
@@ -182,9 +181,8 @@ autofill_ml_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 autofill_ml_internals.mojom.PageHandler.getRemote = function() {
   let remote = new autofill_ml_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'autofill_ml_internals.mojom.PageHandler',
     'context');
   return remote.$;

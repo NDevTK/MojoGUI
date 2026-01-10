@@ -21,27 +21,27 @@ blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.DateTimeSuggestionSpec, 'blink.mojom.DateTimeSuggestion', [
       mojo.internal.StructField('value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('localized_value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('label', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('localized_value', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('label', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: DateTimeDialogValue
 mojo.internal.Struct(
     blink.mojom.DateTimeDialogValueSpec, 'blink.mojom.DateTimeDialogValue', [
-      mojo.internal.StructField('dialog_type', 0, 0, ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dialog_type', 0, 0, ui.mojom.TextInputTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('dialog_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('minimum', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('maximum', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('step', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('suggestions', 40, 0, mojo.internal.Array(blink.mojom.DateTimeSuggestionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('suggestions', 40, 0, mojo.internal.Array(blink.mojom.DateTimeSuggestionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Interface: DateTimeChooser
 mojo.internal.Struct(
     blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec, 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_Params', [
-      mojo.internal.StructField('value', 0, 0, blink.mojom.DateTimeDialogValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, blink.mojom.DateTimeDialogValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -113,9 +113,8 @@ blink.mojom.DateTimeChooserRemoteCallHandler = class {
 
 blink.mojom.DateTimeChooser.getRemote = function() {
   let remote = new blink.mojom.DateTimeChooserRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DateTimeChooser',
     'context');
   return remote.$;

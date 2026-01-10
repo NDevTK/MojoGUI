@@ -32,8 +32,8 @@ ax.mojom.SyntheticMouseEventButton = {
 // Struct: SyntheticKeyEvent
 mojo.internal.Struct(
     ax.mojom.SyntheticKeyEventSpec, 'ax.mojom.SyntheticKeyEvent', [
-      mojo.internal.StructField('type', 0, 0, ui.mojom.EventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_data', 8, 0, ui.mojom.KeyDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ui.mojom.EventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 8, 0, ui.mojom.KeyDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('flags', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -41,24 +41,24 @@ mojo.internal.Struct(
 // Struct: SyntheticMouseEvent
 mojo.internal.Struct(
     ax.mojom.SyntheticMouseEventSpec, 'ax.mojom.SyntheticMouseEvent', [
-      mojo.internal.StructField('type', 0, 0, ui.mojom.EventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mouse_button', 16, 0, ax.mojom.SyntheticMouseEventButtonSpec, null, true, 0, undefined),
-      mojo.internal.StructField('touch_accessibility_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'touch_accessibility_$value', originalFieldName: 'touch_accessibility' }),
-      mojo.internal.StructField('touch_accessibility_$value', 20, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'touch_accessibility_$flag', originalFieldName: 'touch_accessibility' }),
+      mojo.internal.StructField('type', 0, 0, ui.mojom.EventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mouse_button', 16, 0, ax.mojom.SyntheticMouseEventButtonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('touch_accessibility_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'touch_accessibility_$value', originalFieldName: 'touch_accessibility' }),
+      mojo.internal.StructField('touch_accessibility_$value', 24, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'touch_accessibility_$flag', originalFieldName: 'touch_accessibility' }),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Interface: UserInput
 mojo.internal.Struct(
     ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec, 'ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_Params', [
-      mojo.internal.StructField('key_event', 0, 0, ax.mojom.SyntheticKeyEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_event', 0, 0, ax.mojom.SyntheticKeyEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec, 'ax.mojom.UserInput_SendSyntheticMouseEvent_Params', [
-      mojo.internal.StructField('mouse_event', 0, 0, ax.mojom.SyntheticMouseEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mouse_event', 0, 0, ax.mojom.SyntheticMouseEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -118,9 +118,8 @@ ax.mojom.UserInputRemoteCallHandler = class {
 
 ax.mojom.UserInput.getRemote = function() {
   let remote = new ax.mojom.UserInputRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.UserInput',
     'context');
   return remote.$;

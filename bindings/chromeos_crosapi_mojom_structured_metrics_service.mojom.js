@@ -16,7 +16,7 @@ crosapi.mojom.StructuredMetricsService_Record_ParamsSpec = { $: {} };
 // Interface: StructuredMetricsService
 mojo.internal.Struct(
     crosapi.mojom.StructuredMetricsService_Record_ParamsSpec, 'crosapi.mojom.StructuredMetricsService_Record_Params', [
-      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(metrics.structured.mojom.EventSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(metrics.structured.mojom.EventSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -66,9 +66,8 @@ crosapi.mojom.StructuredMetricsServiceRemoteCallHandler = class {
 
 crosapi.mojom.StructuredMetricsService.getRemote = function() {
   let remote = new crosapi.mojom.StructuredMetricsServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.StructuredMetricsService',
     'context');
   return remote.$;

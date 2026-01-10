@@ -67,7 +67,7 @@ mojo.internal.Struct(
 // Struct: StartOptions
 mojo.internal.Struct(
     ax.mojom.StartOptionsSpec, 'ax.mojom.StartOptions', [
-      mojo.internal.StructField('type', 0, 0, ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ax.mojom.AssistiveTechnologyTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('locale', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('interim_results_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'interim_results_$value', originalFieldName: 'interim_results' }),
       mojo.internal.StructField('interim_results_$value', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'interim_results_$flag', originalFieldName: 'interim_results' }),
@@ -77,17 +77,17 @@ mojo.internal.Struct(
 // Struct: StopOptions
 mojo.internal.Struct(
     ax.mojom.StopOptionsSpec, 'ax.mojom.StopOptions', [
-      mojo.internal.StructField('type', 0, 0, ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ax.mojom.AssistiveTechnologyTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SpeechRecognitionStartInfo
 mojo.internal.Struct(
     ax.mojom.SpeechRecognitionStartInfoSpec, 'ax.mojom.SpeechRecognitionStartInfo', [
-      mojo.internal.StructField('type', 0, 0, ax.mojom.SpeechRecognitionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('observer_or_error', 8, 0, ax.mojom.ObserverOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ax.mojom.SpeechRecognitionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('observer_or_error', 8, 0, ax.mojom.ObserverOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: SpeechRecognitionEventObserver
 mojo.internal.Struct(
@@ -97,13 +97,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec, 'ax.mojom.SpeechRecognitionEventObserver_OnResult_Params', [
-      mojo.internal.StructField('event', 0, 0, ax.mojom.SpeechRecognitionResultEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ax.mojom.SpeechRecognitionResultEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec, 'ax.mojom.SpeechRecognitionEventObserver_OnError_Params', [
-      mojo.internal.StructField('event', 0, 0, ax.mojom.SpeechRecognitionErrorEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ax.mojom.SpeechRecognitionErrorEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -173,9 +173,8 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
 
 ax.mojom.SpeechRecognitionEventObserver.getRemote = function() {
   let remote = new ax.mojom.SpeechRecognitionEventObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.SpeechRecognitionEventObserver',
     'context');
   return remote.$;
@@ -188,19 +187,19 @@ ax.mojom.SpeechRecognitionEventObserverRequest = ax.mojom.SpeechRecognitionEvent
 // Interface: SpeechRecognition
 mojo.internal.Struct(
     ax.mojom.SpeechRecognition_Start_ParamsSpec, 'ax.mojom.SpeechRecognition_Start_Params', [
-      mojo.internal.StructField('options', 0, 0, ax.mojom.StartOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, ax.mojom.StartOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ax.mojom.SpeechRecognition_Start_ResponseParamsSpec, 'ax.mojom.SpeechRecognition_Start_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, ax.mojom.SpeechRecognitionStartInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, ax.mojom.SpeechRecognitionStartInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ax.mojom.SpeechRecognition_Stop_ParamsSpec, 'ax.mojom.SpeechRecognition_Stop_Params', [
-      mojo.internal.StructField('options', 0, 0, ax.mojom.StopOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, ax.mojom.StopOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -266,9 +265,8 @@ ax.mojom.SpeechRecognitionRemoteCallHandler = class {
 
 ax.mojom.SpeechRecognition.getRemote = function() {
   let remote = new ax.mojom.SpeechRecognitionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.SpeechRecognition',
     'context');
   return remote.$;

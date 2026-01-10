@@ -36,7 +36,7 @@ metrics.mojom.UmaPingCallSource = {
 // Interface: ChildHistogramFetcherFactory
 mojo.internal.Struct(
     metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec, 'metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_Params', [
-      mojo.internal.StructField('shared_memory', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('shared_memory', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('child_histogram_fetcher', 8, 0, mojo.internal.InterfaceRequest(metrics.mojom.ChildHistogramFetcherRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -87,9 +87,8 @@ metrics.mojom.ChildHistogramFetcherFactoryRemoteCallHandler = class {
 
 metrics.mojom.ChildHistogramFetcherFactory.getRemote = function() {
   let remote = new metrics.mojom.ChildHistogramFetcherFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'metrics.mojom.ChildHistogramFetcherFactory',
     'context');
   return remote.$;
@@ -107,13 +106,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec, 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParams', [
-      mojo.internal.StructField('deltas', 0, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('deltas', 0, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec, 'metrics.mojom.ChildHistogramFetcher_Ping_Params', [
-      mojo.internal.StructField('call_source', 0, 0, metrics.mojom.UmaPingCallSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('call_source', 0, 0, metrics.mojom.UmaPingCallSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -178,9 +177,8 @@ metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
 
 metrics.mojom.ChildHistogramFetcher.getRemote = function() {
   let remote = new metrics.mojom.ChildHistogramFetcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'metrics.mojom.ChildHistogramFetcher',
     'context');
   return remote.$;

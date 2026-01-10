@@ -27,7 +27,7 @@ network.mojom.DocumentIsolationPolicyValue = {
 // Struct: DocumentIsolationPolicy
 mojo.internal.Struct(
     network.mojom.DocumentIsolationPolicySpec, 'network.mojom.DocumentIsolationPolicy', [
-      mojo.internal.StructField('value', 0, 0, network.mojom.DocumentIsolationPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, network.mojom.DocumentIsolationPolicyValueSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('report_only_reporting_endpoint', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -36,11 +36,11 @@ mojo.internal.Struct(
 // Interface: DocumentIsolationPolicyReporter
 mojo.internal.Struct(
     network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec, 'network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_Params', [
-      mojo.internal.StructField('blocked_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('destination', 8, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('report_only', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('blocked_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 8, 0, network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('report_only', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec, 'network.mojom.DocumentIsolationPolicyReporter_Clone_Params', [
@@ -104,9 +104,8 @@ network.mojom.DocumentIsolationPolicyReporterRemoteCallHandler = class {
 
 network.mojom.DocumentIsolationPolicyReporter.getRemote = function() {
   let remote = new network.mojom.DocumentIsolationPolicyReporterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.DocumentIsolationPolicyReporter',
     'context');
   return remote.$;

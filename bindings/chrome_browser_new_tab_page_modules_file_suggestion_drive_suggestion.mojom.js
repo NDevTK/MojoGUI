@@ -23,7 +23,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParams', [
-      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(file_suggestion.mojom.FileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(file_suggestion.mojom.FileSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -103,9 +103,8 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
 
 file_suggestion.mojom.DriveSuggestionHandler.getRemote = function() {
   let remote = new file_suggestion.mojom.DriveSuggestionHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'file_suggestion.mojom.DriveSuggestionHandler',
     'context');
   return remote.$;

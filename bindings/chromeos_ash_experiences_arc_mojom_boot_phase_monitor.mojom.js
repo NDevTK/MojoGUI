@@ -68,9 +68,8 @@ arc.mojom.BootPhaseMonitorHostRemoteCallHandler = class {
 
 arc.mojom.BootPhaseMonitorHost.getRemote = function() {
   let remote = new arc.mojom.BootPhaseMonitorHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.BootPhaseMonitorHost',
     'context');
   return remote.$;
@@ -138,9 +137,8 @@ arc.mojom.BootPhaseMonitorInstanceRemoteCallHandler = class {
 
 arc.mojom.BootPhaseMonitorInstance.getRemote = function() {
   let remote = new arc.mojom.BootPhaseMonitorInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.BootPhaseMonitorInstance',
     'context');
   return remote.$;

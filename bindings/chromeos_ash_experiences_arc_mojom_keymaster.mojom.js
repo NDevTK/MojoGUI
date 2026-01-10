@@ -119,15 +119,15 @@ mojo.internal.Union(
 mojo.internal.Struct(
     arc.mojom.KeyParameterSpec, 'arc.mojom.KeyParameter', [
       mojo.internal.StructField('tag', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('param', 8, 0, arc.mojom.IntegerKeyParamSpec, null, false, 0, undefined),
+      mojo.internal.StructField('param', 8, 0, arc.mojom.IntegerKeyParamSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: KeyCharacteristics
 mojo.internal.Struct(
     arc.mojom.KeyCharacteristicsSpec, 'arc.mojom.KeyCharacteristics', [
-      mojo.internal.StructField('software_enforced', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('tee_enforced', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('software_enforced', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('tee_enforced', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -143,7 +143,7 @@ mojo.internal.Struct(
 // Struct: GetKeyCharacteristicsResult
 mojo.internal.Struct(
     arc.mojom.GetKeyCharacteristicsResultSpec, 'arc.mojom.GetKeyCharacteristicsResult', [
-      mojo.internal.StructField('key_characteristics', 0, 0, arc.mojom.KeyCharacteristicsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_characteristics', 0, 0, arc.mojom.KeyCharacteristicsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -152,7 +152,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.GenerateKeyResultSpec, 'arc.mojom.GenerateKeyResult', [
       mojo.internal.StructField('key_blob', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_characteristics', 8, 0, arc.mojom.KeyCharacteristicsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_characteristics', 8, 0, arc.mojom.KeyCharacteristicsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -160,8 +160,8 @@ mojo.internal.Struct(
 // Struct: ImportKeyRequest
 mojo.internal.Struct(
     arc.mojom.ImportKeyRequestSpec, 'arc.mojom.ImportKeyRequest', [
-      mojo.internal.StructField('key_description', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_format', 8, 0, arc.mojom.KeyFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_description', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_format', 8, 0, arc.mojom.KeyFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -170,7 +170,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ImportKeyResultSpec, 'arc.mojom.ImportKeyResult', [
       mojo.internal.StructField('key_blob', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_characteristics', 8, 0, arc.mojom.KeyCharacteristicsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_characteristics', 8, 0, arc.mojom.KeyCharacteristicsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -178,7 +178,7 @@ mojo.internal.Struct(
 // Struct: ExportKeyRequest
 mojo.internal.Struct(
     arc.mojom.ExportKeyRequestSpec, 'arc.mojom.ExportKeyRequest', [
-      mojo.internal.StructField('key_format', 0, 0, arc.mojom.KeyFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_format', 0, 0, arc.mojom.KeyFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_blob', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('client_id', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('app_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
@@ -197,7 +197,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.AttestKeyRequestSpec, 'arc.mojom.AttestKeyRequest', [
       mojo.internal.StructField('key_to_attest', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('attest_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('attest_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -213,7 +213,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.UpgradeKeyRequestSpec, 'arc.mojom.UpgradeKeyRequest', [
       mojo.internal.StructField('key_blob_to_upgrade', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('upgrade_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('upgrade_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -228,16 +228,16 @@ mojo.internal.Struct(
 // Struct: BeginRequest
 mojo.internal.Struct(
     arc.mojom.BeginRequestSpec, 'arc.mojom.BeginRequest', [
-      mojo.internal.StructField('purpose', 0, 0, arc.mojom.KeyPurposeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purpose', 0, 0, arc.mojom.KeyPurposeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('in_params', 16, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('in_params', 16, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: BeginResult
 mojo.internal.Struct(
     arc.mojom.BeginResultSpec, 'arc.mojom.BeginResult', [
-      mojo.internal.StructField('out_params', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('out_params', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('op_handle', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('error', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -247,7 +247,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.UpdateRequestSpec, 'arc.mojom.UpdateRequest', [
       mojo.internal.StructField('op_handle', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('in_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('in_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('input', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -256,7 +256,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.UpdateResultSpec, 'arc.mojom.UpdateResult', [
       mojo.internal.StructField('input_consumed', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('out_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('out_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('output', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('error', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -266,7 +266,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.FinishRequestSpec, 'arc.mojom.FinishRequest', [
       mojo.internal.StructField('op_handle', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('in_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('in_params', 8, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('input', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('signature', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
@@ -275,7 +275,7 @@ mojo.internal.Struct(
 // Struct: FinishResult
 mojo.internal.Struct(
     arc.mojom.FinishResultSpec, 'arc.mojom.FinishResult', [
-      mojo.internal.StructField('out_params', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('out_params', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('output', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('error', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -339,9 +339,8 @@ arc.mojom.KeymasterHostRemoteCallHandler = class {
 
 arc.mojom.KeymasterHost.getRemote = function() {
   let remote = new arc.mojom.KeymasterHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.KeymasterHost',
     'context');
   return remote.$;
@@ -409,9 +408,8 @@ arc.mojom.KeymasterInstanceRemoteCallHandler = class {
 
 arc.mojom.KeymasterInstance.getRemote = function() {
   let remote = new arc.mojom.KeymasterInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.KeymasterInstance',
     'context');
   return remote.$;
@@ -443,73 +441,73 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec, 'arc.mojom.KeymasterServer_GetKeyCharacteristics_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.GetKeyCharacteristicsRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.GetKeyCharacteristicsRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec, 'arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.GetKeyCharacteristicsResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.GetKeyCharacteristicsResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_GenerateKey_ParamsSpec, 'arc.mojom.KeymasterServer_GenerateKey_Params', [
-      mojo.internal.StructField('key_params', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_params', 0, 0, mojo.internal.Array(arc.mojom.KeyParameterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec, 'arc.mojom.KeymasterServer_GenerateKey_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.GenerateKeyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.GenerateKeyResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_ImportKey_ParamsSpec, 'arc.mojom.KeymasterServer_ImportKey_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.ImportKeyRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.ImportKeyRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec, 'arc.mojom.KeymasterServer_ImportKey_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.ImportKeyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.ImportKeyResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_ExportKey_ParamsSpec, 'arc.mojom.KeymasterServer_ExportKey_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.ExportKeyRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.ExportKeyRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec, 'arc.mojom.KeymasterServer_ExportKey_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.ExportKeyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.ExportKeyResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_AttestKey_ParamsSpec, 'arc.mojom.KeymasterServer_AttestKey_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.AttestKeyRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.AttestKeyRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec, 'arc.mojom.KeymasterServer_AttestKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.AttestKeyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.AttestKeyResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec, 'arc.mojom.KeymasterServer_UpgradeKey_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.UpgradeKeyRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.UpgradeKeyRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec, 'arc.mojom.KeymasterServer_UpgradeKey_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.UpgradeKeyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.UpgradeKeyResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -538,37 +536,37 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_Begin_ParamsSpec, 'arc.mojom.KeymasterServer_Begin_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.BeginRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.BeginRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_Begin_ResponseParamsSpec, 'arc.mojom.KeymasterServer_Begin_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.BeginResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.BeginResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_Update_ParamsSpec, 'arc.mojom.KeymasterServer_Update_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.UpdateRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.UpdateRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_Update_ResponseParamsSpec, 'arc.mojom.KeymasterServer_Update_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.UpdateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.UpdateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_Finish_ParamsSpec, 'arc.mojom.KeymasterServer_Finish_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.FinishRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.FinishRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.KeymasterServer_Finish_ResponseParamsSpec, 'arc.mojom.KeymasterServer_Finish_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.FinishResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.FinishResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -760,9 +758,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
 
 arc.mojom.KeymasterServer.getRemote = function() {
   let remote = new arc.mojom.KeymasterServerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.KeymasterServer',
     'context');
   return remote.$;

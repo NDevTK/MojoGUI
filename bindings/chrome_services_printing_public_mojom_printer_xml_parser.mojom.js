@@ -65,9 +65,8 @@ printing.mojom.PrinterXmlParserRemoteCallHandler = class {
 
 printing.mojom.PrinterXmlParser.getRemote = function() {
   let remote = new printing.mojom.PrinterXmlParserRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'printing.mojom.PrinterXmlParser',
     'context');
   return remote.$;

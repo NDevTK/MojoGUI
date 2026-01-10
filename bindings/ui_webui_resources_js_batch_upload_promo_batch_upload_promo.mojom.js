@@ -74,9 +74,8 @@ batch_upload_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 batch_upload_promo.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new batch_upload_promo.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'batch_upload_promo.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -159,9 +158,8 @@ batch_upload_promo.mojom.PageHandlerRemoteCallHandler = class {
 
 batch_upload_promo.mojom.PageHandler.getRemote = function() {
   let remote = new batch_upload_promo.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'batch_upload_promo.mojom.PageHandler',
     'context');
   return remote.$;
@@ -224,9 +222,8 @@ batch_upload_promo.mojom.PageRemoteCallHandler = class {
 
 batch_upload_promo.mojom.Page.getRemote = function() {
   let remote = new batch_upload_promo.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'batch_upload_promo.mojom.Page',
     'context');
   return remote.$;

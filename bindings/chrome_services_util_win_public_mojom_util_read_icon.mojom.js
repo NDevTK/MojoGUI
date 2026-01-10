@@ -26,15 +26,15 @@ chrome.mojom.IconSize = {
 // Interface: UtilReadIcon
 mojo.internal.Struct(
     chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_Params', [
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, chrome.mojom.IconSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, chrome.mojom.IconSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scale', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_ResponseParams', [
-      mojo.internal.StructField('icon', 0, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('icon', 0, 0, gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -84,9 +84,8 @@ chrome.mojom.UtilReadIconRemoteCallHandler = class {
 
 chrome.mojom.UtilReadIcon.getRemote = function() {
   let remote = new chrome.mojom.UtilReadIconRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.UtilReadIcon',
     'context');
   return remote.$;

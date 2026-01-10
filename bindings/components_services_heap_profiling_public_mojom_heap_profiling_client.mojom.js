@@ -35,15 +35,15 @@ heap_profiling.mojom.AllocatorType = {
 // Struct: ProfilingParams
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingParamsSpec, 'heap_profiling.mojom.ProfilingParams', [
-      mojo.internal.StructField('stack_mode', 0, 0, heap_profiling.mojom.StackModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sampling_rate', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('stack_mode', 0, 0, heap_profiling.mojom.StackModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sampling_rate', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: HeapProfileSample
 mojo.internal.Struct(
     heap_profiling.mojom.HeapProfileSampleSpec, 'heap_profiling.mojom.HeapProfileSample', [
-      mojo.internal.StructField('allocator', 0, 0, heap_profiling.mojom.AllocatorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allocator', 0, 0, heap_profiling.mojom.AllocatorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('total', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('context_id', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
@@ -54,7 +54,7 @@ mojo.internal.Struct(
 // Struct: HeapProfile
 mojo.internal.Struct(
     heap_profiling.mojom.HeapProfileSpec, 'heap_profiling.mojom.HeapProfile', [
-      mojo.internal.StructField('samples', 0, 0, mojo.internal.Array(heap_profiling.mojom.HeapProfileSampleSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('samples', 0, 0, mojo.internal.Array(heap_profiling.mojom.HeapProfileSampleSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('strings', 8, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -62,7 +62,7 @@ mojo.internal.Struct(
 // Interface: ProfilingClient
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec, 'heap_profiling.mojom.ProfilingClient_StartProfiling_Params', [
-      mojo.internal.StructField('params', 0, 0, heap_profiling.mojom.ProfilingParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, heap_profiling.mojom.ProfilingParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -78,7 +78,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParams', [
-      mojo.internal.StructField('profile', 0, 0, heap_profiling.mojom.HeapProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 0, 0, heap_profiling.mojom.HeapProfileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -138,9 +138,8 @@ heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
 
 heap_profiling.mojom.ProfilingClient.getRemote = function() {
   let remote = new heap_profiling.mojom.ProfilingClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'heap_profiling.mojom.ProfilingClient',
     'context');
   return remote.$;

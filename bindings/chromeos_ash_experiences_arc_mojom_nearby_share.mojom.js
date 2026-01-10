@@ -28,7 +28,7 @@ arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec = { $: {} };
 // Struct: FileInfo
 mojo.internal.Struct(
     arc.mojom.FileInfoSpec, 'arc.mojom.FileInfo', [
-      mojo.internal.StructField('content_uri', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_uri', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('size', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
@@ -41,7 +41,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('extras', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('files', 24, 0, mojo.internal.Array(arc.mojom.FileInfoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('files', 24, 0, mojo.internal.Array(arc.mojom.FileInfoSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -82,9 +82,8 @@ arc.mojom.NearbyShareSessionHostRemoteCallHandler = class {
 
 arc.mojom.NearbyShareSessionHost.getRemote = function() {
   let remote = new arc.mojom.NearbyShareSessionHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.NearbyShareSessionHost',
     'context');
   return remote.$;
@@ -146,9 +145,8 @@ arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = class {
 
 arc.mojom.NearbyShareSessionInstance.getRemote = function() {
   let remote = new arc.mojom.NearbyShareSessionInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.NearbyShareSessionInstance',
     'context');
   return remote.$;
@@ -162,7 +160,7 @@ arc.mojom.NearbyShareSessionInstanceRequest = arc.mojom.NearbyShareSessionInstan
 mojo.internal.Struct(
     arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec, 'arc.mojom.NearbyShareHost_StartNearbyShare_Params', [
       mojo.internal.StructField('task_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('info', 8, 0, arc.mojom.ShareIntentInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 8, 0, arc.mojom.ShareIntentInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('instance', 16, 0, mojo.internal.InterfaceProxy(arc.mojom.NearbyShareSessionInstanceRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -219,9 +217,8 @@ arc.mojom.NearbyShareHostRemoteCallHandler = class {
 
 arc.mojom.NearbyShareHost.getRemote = function() {
   let remote = new arc.mojom.NearbyShareHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.NearbyShareHost',
     'context');
   return remote.$;
@@ -289,9 +286,8 @@ arc.mojom.NearbyShareInstanceRemoteCallHandler = class {
 
 arc.mojom.NearbyShareInstance.getRemote = function() {
   let remote = new arc.mojom.NearbyShareInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.NearbyShareInstance',
     'context');
   return remote.$;

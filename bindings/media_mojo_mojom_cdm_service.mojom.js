@@ -74,9 +74,8 @@ media.mojom.CdmServiceRemoteCallHandler = class {
 
 media.mojom.CdmService.getRemote = function() {
   let remote = new media.mojom.CdmServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.CdmService',
     'context');
   return remote.$;
@@ -94,7 +93,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParams', [
-      mojo.internal.StructField('tokens', 0, 0, mojo.internal.Array(sandbox.mac.mojom.SeatbeltExtensionTokenSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tokens', 0, 0, mojo.internal.Array(sandbox.mac.mojom.SeatbeltExtensionTokenSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -144,9 +143,8 @@ media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
 
 media.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
   let remote = new media.mojom.SeatbeltExtensionTokenProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.SeatbeltExtensionTokenProvider',
     'context');
   return remote.$;
@@ -159,7 +157,7 @@ media.mojom.SeatbeltExtensionTokenProviderRequest = media.mojom.SeatbeltExtensio
 // Interface: CdmServiceBroker
 mojo.internal.Struct(
     media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
-      mojo.internal.StructField('cdm_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('token_provider', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SeatbeltExtensionTokenProviderRemote), null, true, 0, undefined),
       mojo.internal.StructField('receiver', 16, 0, mojo.internal.InterfaceRequest(media.mojom.CdmServiceRemote), null, false, 0, undefined),
     ],
@@ -211,9 +209,8 @@ media.mojom.CdmServiceBrokerRemoteCallHandler = class {
 
 media.mojom.CdmServiceBroker.getRemote = function() {
   let remote = new media.mojom.CdmServiceBrokerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.CdmServiceBroker',
     'context');
   return remote.$;

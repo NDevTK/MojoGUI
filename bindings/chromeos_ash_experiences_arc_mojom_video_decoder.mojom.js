@@ -46,7 +46,7 @@ mojo.internal.Union(
     arc.mojom.DecoderBufferSpec, 'arc.mojom.DecoderBuffer', {
       'buffer': {
         'ordinal': 0,
-        'type': arc.mojom.BufferSpec,
+        'type': arc.mojom.BufferSpec.$,
         'nullable': false,
       },
       'end_of_stream': {
@@ -69,15 +69,15 @@ mojo.internal.Struct(
 // Struct: VideoDecoderConfig
 mojo.internal.Struct(
     arc.mojom.VideoDecoderConfigSpec, 'arc.mojom.VideoDecoderConfig', [
-      mojo.internal.StructField('profile', 0, 0, arc.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 0, 0, arc.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: VideoDecoder
 mojo.internal.Struct(
     arc.mojom.VideoDecoder_Initialize_ParamsSpec, 'arc.mojom.VideoDecoder_Initialize_Params', [
-      mojo.internal.StructField('config', 0, 0, arc.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, arc.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoDecoderClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('video_frame_pool', 16, 0, mojo.internal.AssociatedInterfaceRequest(arc.mojom.VideoFramePoolRemote), null, false, 0, undefined),
     ],
@@ -85,19 +85,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec, 'arc.mojom.VideoDecoder_Initialize_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, arc.mojom.DecoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecoder_Decode_ParamsSpec, 'arc.mojom.VideoDecoder_Decode_Params', [
-      mojo.internal.StructField('buffer', 0, 0, arc.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, arc.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecoder_Decode_ResponseParamsSpec, 'arc.mojom.VideoDecoder_Decode_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, arc.mojom.DecoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -193,9 +193,8 @@ arc.mojom.VideoDecoderRemoteCallHandler = class {
 
 arc.mojom.VideoDecoder.getRemote = function() {
   let remote = new arc.mojom.VideoDecoderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.VideoDecoder',
     'context');
   return remote.$;
@@ -209,14 +208,14 @@ arc.mojom.VideoDecoderRequest = arc.mojom.VideoDecoderPendingReceiver;
 mojo.internal.Struct(
     arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec, 'arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_Params', [
       mojo.internal.StructField('video_frame_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('visible_rect', 8, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_rect', 8, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('timestamp', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoDecoderClient_OnError_ParamsSpec, 'arc.mojom.VideoDecoderClient_OnError_Params', [
-      mojo.internal.StructField('status', 0, 0, arc.mojom.DecoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -276,9 +275,8 @@ arc.mojom.VideoDecoderClientRemoteCallHandler = class {
 
 arc.mojom.VideoDecoderClient.getRemote = function() {
   let remote = new arc.mojom.VideoDecoderClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.VideoDecoderClient',
     'context');
   return remote.$;

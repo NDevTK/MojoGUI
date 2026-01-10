@@ -50,7 +50,7 @@ mojo.internal.Struct(
     commerce.mojom.ShoppingEligibilityDetailsSpec, 'commerce.mojom.ShoppingEligibilityDetails', [
       mojo.internal.StructField('country', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('locale', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('details', 16, 0, mojo.internal.Array(commerce.mojom.EligibilityDetailSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('details', 16, 0, mojo.internal.Array(commerce.mojom.EligibilityDetailSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -58,7 +58,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     commerce.mojom.SubscriptionSpec, 'commerce.mojom.Subscription', [
       mojo.internal.StructField('cluster_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('product_infos', 8, 0, mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('product_infos', 8, 0, mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -69,7 +69,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('creation_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('update_time', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url_infos', 32, 0, mojo.internal.Array(shopping_service.mojom.UrlInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('url_infos', 32, 0, mojo.internal.Array(shopping_service.mojom.UrlInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -127,9 +127,8 @@ commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
 
 commerce.mojom.CommerceInternalsHandlerFactory.getRemote = function() {
   let remote = new commerce.mojom.CommerceInternalsHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'commerce.mojom.CommerceInternalsHandlerFactory',
     'context');
   return remote.$;
@@ -158,13 +157,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, commerce.shared.mojom.ProductInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, commerce.shared.mojom.ProductInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -175,7 +174,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParams', [
-      mojo.internal.StructField('subscriptions', 0, 0, mojo.internal.Array(commerce.mojom.SubscriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('subscriptions', 0, 0, mojo.internal.Array(commerce.mojom.SubscriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -186,7 +185,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParams', [
-      mojo.internal.StructField('product_specifications_set', 0, 0, mojo.internal.Array(commerce.mojom.ProductSpecificationsSetSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('product_specifications_set', 0, 0, mojo.internal.Array(commerce.mojom.ProductSpecificationsSetSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -202,7 +201,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec, 'commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParams', [
-      mojo.internal.StructField('details', 0, 0, commerce.mojom.ShoppingEligibilityDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 0, 0, commerce.mojom.ShoppingEligibilityDetailsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -312,9 +311,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
 
 commerce.mojom.CommerceInternalsHandler.getRemote = function() {
   let remote = new commerce.mojom.CommerceInternalsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'commerce.mojom.CommerceInternalsHandler',
     'context');
   return remote.$;
@@ -377,9 +375,8 @@ commerce.mojom.CommerceInternalsPageRemoteCallHandler = class {
 
 commerce.mojom.CommerceInternalsPage.getRemote = function() {
   let remote = new commerce.mojom.CommerceInternalsPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'commerce.mojom.CommerceInternalsPage',
     'context');
   return remote.$;

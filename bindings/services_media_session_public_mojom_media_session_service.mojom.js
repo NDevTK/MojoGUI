@@ -118,9 +118,8 @@ media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
 
 media_session.mojom.MediaSessionService.getRemote = function() {
   let remote = new media_session.mojom.MediaSessionServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_session.mojom.MediaSessionService',
     'context');
   return remote.$;

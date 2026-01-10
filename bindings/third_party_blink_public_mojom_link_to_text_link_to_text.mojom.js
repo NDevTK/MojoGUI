@@ -65,10 +65,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec, 'blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParams', [
       mojo.internal.StructField('selector', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, blink.mojom.LinkGenerationErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ready_status', 12, 0, blink.mojom.LinkGenerationReadyStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, blink.mojom.LinkGenerationErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ready_status', 16, 0, blink.mojom.LinkGenerationReadyStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec, 'blink.mojom.TextFragmentReceiver_RemoveFragments_Params', [
@@ -104,7 +104,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec, 'blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParams', [
-      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -204,9 +204,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
 
 blink.mojom.TextFragmentReceiver.getRemote = function() {
   let remote = new blink.mojom.TextFragmentReceiverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.TextFragmentReceiver',
     'context');
   return remote.$;

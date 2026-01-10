@@ -16,7 +16,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec = {
 // Interface: GaiaCredentialProviderHidBroker
 mojo.internal.Struct(
     gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec, 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_Params', [
-      mojo.internal.StructField('device_path', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('device_path', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemoteCallHandler = class {
 
 gcpw_hid.mojom.GaiaCredentialProviderHidBroker.getRemote = function() {
   let remote = new gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'gcpw_hid.mojom.GaiaCredentialProviderHidBroker',
     'context');
   return remote.$;

@@ -96,9 +96,8 @@ ash.cfm.mojom.DataWatchDogRemoteCallHandler = class {
 
 ash.cfm.mojom.DataWatchDog.getRemote = function() {
   let remote = new ash.cfm.mojom.DataWatchDogRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cfm.mojom.DataWatchDog',
     'context');
   return remote.$;
@@ -122,7 +121,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_Params', [
-      mojo.internal.StructField('filter', 0, 0, ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filter', 0, 0, ash.cfm.mojom.DataFilterSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('watch_dog', 8, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -204,9 +203,8 @@ ash.cfm.mojom.DataSourceRemoteCallHandler = class {
 
 ash.cfm.mojom.DataSource.getRemote = function() {
   let remote = new ash.cfm.mojom.DataSourceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cfm.mojom.DataSource',
     'context');
   return remote.$;
@@ -244,7 +242,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_Params', [
       mojo.internal.StructField('source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('filter', 8, 0, ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filter', 8, 0, ash.cfm.mojom.DataFilterSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('watch_dog', 16, 0, mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -321,9 +319,8 @@ ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
 
 ash.cfm.mojom.DataAggregator.getRemote = function() {
   let remote = new ash.cfm.mojom.DataAggregatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cfm.mojom.DataAggregator',
     'context');
   return remote.$;

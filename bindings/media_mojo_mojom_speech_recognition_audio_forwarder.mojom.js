@@ -15,7 +15,7 @@ media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec = { 
 // Interface: SpeechRecognitionAudioForwarder
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec, 'media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_Params', [
-      mojo.internal.StructField('buffer', 0, 0, media.mojom.AudioDataS16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, media.mojom.AudioDataS16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -65,9 +65,8 @@ media.mojom.SpeechRecognitionAudioForwarderRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionAudioForwarder.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionAudioForwarderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.SpeechRecognitionAudioForwarder',
     'context');
   return remote.$;

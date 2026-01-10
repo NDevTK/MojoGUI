@@ -14,7 +14,7 @@ network.mojom.SiteForCookiesSpec = { $: {} };
 // Struct: SiteForCookies
 mojo.internal.Struct(
     network.mojom.SiteForCookiesSpec, 'network.mojom.SiteForCookies', [
-      mojo.internal.StructField('site', 0, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('site', 0, 0, network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('schemefully_same', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

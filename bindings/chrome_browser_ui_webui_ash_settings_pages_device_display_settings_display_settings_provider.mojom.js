@@ -80,16 +80,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('is_internal_display_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'is_internal_display_$flag', originalFieldName: 'is_internal_display' }),
       mojo.internal.StructField('display_id_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'display_id_$value', originalFieldName: 'display_id' }),
       mojo.internal.StructField('display_id_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'display_id_$flag', originalFieldName: 'display_id' }),
-      mojo.internal.StructField('orientation', 16, 0, ash.settings.mojom.DisplaySettingsOrientationOptionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('night_light_status_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'night_light_status_$value', originalFieldName: 'night_light_status' }),
-      mojo.internal.StructField('night_light_status_$value', 20, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'night_light_status_$flag', originalFieldName: 'night_light_status' }),
-      mojo.internal.StructField('night_light_schedule', 24, 0, ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('mirror_mode_status_$flag', 28, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'mirror_mode_status_$value', originalFieldName: 'mirror_mode_status' }),
-      mojo.internal.StructField('mirror_mode_status_$value', 28, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'mirror_mode_status_$flag', originalFieldName: 'mirror_mode_status' }),
-      mojo.internal.StructField('unified_mode_status_$flag', 28, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'unified_mode_status_$value', originalFieldName: 'unified_mode_status' }),
-      mojo.internal.StructField('unified_mode_status_$value', 28, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'unified_mode_status_$flag', originalFieldName: 'unified_mode_status' }),
+      mojo.internal.StructField('orientation', 16, 0, ash.settings.mojom.DisplaySettingsOrientationOptionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('night_light_status_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'night_light_status_$value', originalFieldName: 'night_light_status' }),
+      mojo.internal.StructField('night_light_status_$value', 24, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'night_light_status_$flag', originalFieldName: 'night_light_status' }),
+      mojo.internal.StructField('night_light_schedule', 32, 0, ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('mirror_mode_status_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'mirror_mode_status_$value', originalFieldName: 'mirror_mode_status' }),
+      mojo.internal.StructField('mirror_mode_status_$value', 40, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'mirror_mode_status_$flag', originalFieldName: 'mirror_mode_status' }),
+      mojo.internal.StructField('unified_mode_status_$flag', 40, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'unified_mode_status_$value', originalFieldName: 'unified_mode_status' }),
+      mojo.internal.StructField('unified_mode_status_$value', 40, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'unified_mode_status_$flag', originalFieldName: 'unified_mode_status' }),
     ],
-    [[0, 40]]);
+    [[0, 56]]);
 
 // Interface: TabletModeObserver
 mojo.internal.Struct(
@@ -144,9 +144,8 @@ ash.settings.mojom.TabletModeObserverRemoteCallHandler = class {
 
 ash.settings.mojom.TabletModeObserver.getRemote = function() {
   let remote = new ash.settings.mojom.TabletModeObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.TabletModeObserver',
     'context');
   return remote.$;
@@ -208,9 +207,8 @@ ash.settings.mojom.DisplayConfigurationObserverRemoteCallHandler = class {
 
 ash.settings.mojom.DisplayConfigurationObserver.getRemote = function() {
   let remote = new ash.settings.mojom.DisplayConfigurationObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.DisplayConfigurationObserver',
     'context');
   return remote.$;
@@ -274,9 +272,8 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.DisplayBrightnessSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.DisplayBrightnessSettingsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.DisplayBrightnessSettingsObserver',
     'context');
   return remote.$;
@@ -339,9 +336,8 @@ ash.settings.mojom.AmbientLightSensorObserverRemoteCallHandler = class {
 
 ash.settings.mojom.AmbientLightSensorObserver.getRemote = function() {
   let remote = new ash.settings.mojom.AmbientLightSensorObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.AmbientLightSensorObserver',
     'context');
   return remote.$;
@@ -396,8 +392,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_Params', [
-      mojo.internal.StructField('type', 0, 0, ash.settings.mojom.DisplaySettingsTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, ash.settings.mojom.DisplaySettingsValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.settings.mojom.DisplaySettingsTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, ash.settings.mojom.DisplaySettingsValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -571,9 +567,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
 
 ash.settings.mojom.DisplaySettingsProvider.getRemote = function() {
   let remote = new ash.settings.mojom.DisplaySettingsProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.DisplaySettingsProvider',
     'context');
   return remote.$;

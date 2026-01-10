@@ -17,13 +17,13 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpe
 // Interface: TraitsTestService
 mojo.internal.Struct(
     sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_Params', [
-      mojo.internal.StructField('in', 0, 0, sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in', 0, 0, sandbox.mac.mojom.SeatbeltExtensionTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, sandbox.mac.mojom.SeatbeltExtensionTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler = class {
 
 sandbox.mac.mojom.TraitsTestService.getRemote = function() {
   let remote = new sandbox.mac.mojom.TraitsTestServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sandbox.mac.mojom.TraitsTestService',
     'context');
   return remote.$;

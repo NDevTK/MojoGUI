@@ -76,29 +76,29 @@ mojo.internal.Struct(
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('group_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('control_support', 24, 0, media.mojom.VideoCaptureControlSupportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('facing_mode', 32, 0, blink.mojom.FacingModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('availability', 36, 0, media.mojom.CameraAvailabilitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('control_support', 24, 0, media.mojom.VideoCaptureControlSupportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('facing_mode', 32, 0, blink.mojom.FacingModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('availability', 40, 0, media.mojom.CameraAvailabilitySpec.$, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: VideoInputDeviceCapabilities
 mojo.internal.Struct(
     blink.mojom.VideoInputDeviceCapabilitiesSpec, 'blink.mojom.VideoInputDeviceCapabilities', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('control_support', 16, 0, media.mojom.VideoCaptureControlSupportSpec, null, false, 0, undefined),
-      mojo.internal.StructField('formats', 24, 0, mojo.internal.Array(media.mojom.VideoCaptureFormatSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('facing_mode', 32, 0, blink.mojom.FacingModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('availability', 36, 0, media.mojom.CameraAvailabilitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('control_support', 16, 0, media.mojom.VideoCaptureControlSupportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('formats', 24, 0, mojo.internal.Array(media.mojom.VideoCaptureFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('facing_mode', 32, 0, blink.mojom.FacingModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('availability', 40, 0, media.mojom.CameraAvailabilitySpec.$, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: SelectAudioOutputResult
 mojo.internal.Struct(
     blink.mojom.SelectAudioOutputResultSpec, 'blink.mojom.SelectAudioOutputResult', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.AudioOutputStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_info', 8, 0, blink.mojom.MediaDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.AudioOutputStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 8, 0, blink.mojom.MediaDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -107,11 +107,11 @@ mojo.internal.Struct(
     blink.mojom.AudioInputDeviceCapabilitiesSpec, 'blink.mojom.AudioInputDeviceCapabilities', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('parameters', 16, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parameters', 16, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_valid', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('channels', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('sample_rate', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('latency', 40, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('latency', 40, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -128,9 +128,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParams', [
-      mojo.internal.StructField('enumeration', 0, 0, mojo.internal.Array(mojo.internal.Array(blink.mojom.MediaDeviceInfoSpec, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('video_input_device_capabilities', 8, 0, mojo.internal.Array(blink.mojom.VideoInputDeviceCapabilitiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('audio_input_device_capabilities', 16, 0, mojo.internal.Array(blink.mojom.AudioInputDeviceCapabilitiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('enumeration', 0, 0, mojo.internal.Array(mojo.internal.Array(blink.mojom.MediaDeviceInfoSpec.$, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('video_input_device_capabilities', 8, 0, mojo.internal.Array(blink.mojom.VideoInputDeviceCapabilitiesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('audio_input_device_capabilities', 16, 0, mojo.internal.Array(blink.mojom.AudioInputDeviceCapabilitiesSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -141,7 +141,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParams', [
-      mojo.internal.StructField('video_input_device_capabilities', 0, 0, mojo.internal.Array(blink.mojom.VideoInputDeviceCapabilitiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('video_input_device_capabilities', 0, 0, mojo.internal.Array(blink.mojom.VideoInputDeviceCapabilitiesSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParams', [
-      mojo.internal.StructField('formats', 0, 0, mojo.internal.Array(media.mojom.VideoCaptureFormatSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('formats', 0, 0, mojo.internal.Array(media.mojom.VideoCaptureFormatSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -165,7 +165,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParams', [
-      mojo.internal.StructField('formats', 0, 0, mojo.internal.Array(media.mojom.VideoCaptureFormatSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('formats', 0, 0, mojo.internal.Array(media.mojom.VideoCaptureFormatSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -176,7 +176,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParams', [
-      mojo.internal.StructField('audio_input_device_capabilities', 0, 0, mojo.internal.Array(blink.mojom.AudioInputDeviceCapabilitiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('audio_input_device_capabilities', 0, 0, mojo.internal.Array(blink.mojom.AudioInputDeviceCapabilitiesSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -191,7 +191,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_Params', [
-      mojo.internal.StructField('config', 0, 0, blink.mojom.CaptureHandleConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, blink.mojom.CaptureHandleConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -203,7 +203,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_Params', [
-      mojo.internal.StructField('type', 0, 0, media.mojom.SubCaptureTargetTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, media.mojom.SubCaptureTargetTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -221,7 +221,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.OutputDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.OutputDeviceStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -233,7 +233,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec, 'blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.SelectAudioOutputResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.SelectAudioOutputResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -383,9 +383,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
 
 blink.mojom.MediaDevicesDispatcherHost.getRemote = function() {
   let remote = new blink.mojom.MediaDevicesDispatcherHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.MediaDevicesDispatcherHost',
     'context');
   return remote.$;
@@ -398,8 +397,8 @@ blink.mojom.MediaDevicesDispatcherHostRequest = blink.mojom.MediaDevicesDispatch
 // Interface: MediaDevicesListener
 mojo.internal.Struct(
     blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec, 'blink.mojom.MediaDevicesListener_OnDevicesChanged_Params', [
-      mojo.internal.StructField('type', 0, 0, blink.mojom.MediaDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_infos', 8, 0, mojo.internal.Array(blink.mojom.MediaDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, blink.mojom.MediaDeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('device_infos', 8, 0, mojo.internal.Array(blink.mojom.MediaDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -449,9 +448,8 @@ blink.mojom.MediaDevicesListenerRemoteCallHandler = class {
 
 blink.mojom.MediaDevicesListener.getRemote = function() {
   let remote = new blink.mojom.MediaDevicesListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.MediaDevicesListener',
     'context');
   return remote.$;

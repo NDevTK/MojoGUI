@@ -25,7 +25,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpe
 mojo.internal.Struct(
     new_tab_page.mojom.AccessTokenSpec, 'new_tab_page.mojom.AccessToken', [
       mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('expiration', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expiration', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -99,9 +99,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHand
 
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.getRemote = function() {
   let remote = new new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory',
     'context');
   return remote.$;
@@ -124,7 +123,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_Params', [
-      mojo.internal.StructField('access_token', 0, 0, new_tab_page.mojom.AccessTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('access_token', 0, 0, new_tab_page.mojom.AccessTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -211,9 +210,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
 
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.getRemote = function() {
   let remote = new new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler',
     'context');
   return remote.$;

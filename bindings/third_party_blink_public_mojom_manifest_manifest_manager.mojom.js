@@ -24,8 +24,8 @@ blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = { $: {}
 // Struct: RequestManifestError
 mojo.internal.Struct(
     blink.mojom.RequestManifestErrorSpec, 'blink.mojom.RequestManifestError', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('details', 8, 0, mojo.internal.Array(blink.mojom.ManifestErrorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ManifestRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, mojo.internal.Array(blink.mojom.ManifestErrorSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -37,9 +37,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('manifest', 16, 0, blink.mojom.ManifestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.ManifestRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('manifest', 16, 0, blink.mojom.ManifestSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -55,23 +55,23 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParams', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('parsed_manifest', 8, 0, blink.mojom.ManifestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('debug_info', 16, 0, blink.mojom.ManifestDebugInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('parsed_manifest', 8, 0, blink.mojom.ManifestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('debug_info', 16, 0, blink.mojom.ManifestDebugInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec, 'blink.mojom.ManifestManager_ParseManifestFromString_Params', [
-      mojo.internal.StructField('document_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('manifest_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('manifest_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('manifest_content', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec, 'blink.mojom.ManifestManager_ParseManifestFromString_ResponseParams', [
-      mojo.internal.StructField('parsed_manifest', 0, 0, blink.mojom.ManifestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('parsed_manifest', 0, 0, blink.mojom.ManifestSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -151,9 +151,8 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
 
 blink.mojom.ManifestManager.getRemote = function() {
   let remote = new blink.mojom.ManifestManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ManifestManager',
     'context');
   return remote.$;

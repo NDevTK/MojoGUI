@@ -75,17 +75,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     help_bubble.mojom.HelpBubbleParamsSpec, 'help_bubble.mojom.HelpBubbleParams', [
       mojo.internal.StructField('native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, help_bubble.mojom.HelpBubbleArrowPositionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, help_bubble.mojom.HelpBubbleArrowPositionSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('title_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('body_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('close_button_alt_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('body_icon_name', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('body_icon_alt_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 56, 0, help_bubble.mojom.ProgressSpec, null, true, 0, undefined),
-      mojo.internal.StructField('buttons', 64, 0, mojo.internal.Array(help_bubble.mojom.HelpBubbleButtonParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('progress', 56, 0, help_bubble.mojom.ProgressSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('buttons', 64, 0, mojo.internal.Array(help_bubble.mojom.HelpBubbleButtonParamsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('focus_on_show_hint_$flag', 72, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'focus_on_show_hint_$value', originalFieldName: 'focus_on_show_hint' }),
       mojo.internal.StructField('focus_on_show_hint_$value', 72, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'focus_on_show_hint_$flag', originalFieldName: 'focus_on_show_hint' }),
-      mojo.internal.StructField('timeout', 80, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('timeout', 80, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 96]]);
 
@@ -143,9 +143,8 @@ help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
 
 help_bubble.mojom.HelpBubbleHandlerFactory.getRemote = function() {
   let remote = new help_bubble.mojom.HelpBubbleHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'help_bubble.mojom.HelpBubbleHandlerFactory',
     'context');
   return remote.$;
@@ -209,9 +208,8 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler = class {
 
 help_bubble.mojom.PdfHelpBubbleHandlerFactory.getRemote = function() {
   let remote = new help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'help_bubble.mojom.PdfHelpBubbleHandlerFactory',
     'context');
   return remote.$;
@@ -238,7 +236,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_Params', [
       mojo.internal.StructField('native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, help_bubble.mojom.HelpBubbleClosedReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, help_bubble.mojom.HelpBubbleClosedReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -308,9 +306,8 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
 
 help_bubble.mojom.HelpBubbleHandler.getRemote = function() {
   let remote = new help_bubble.mojom.HelpBubbleHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'help_bubble.mojom.HelpBubbleHandler',
     'context');
   return remote.$;
@@ -323,7 +320,7 @@ help_bubble.mojom.HelpBubbleHandlerRequest = help_bubble.mojom.HelpBubbleHandler
 // Interface: HelpBubbleClient
 mojo.internal.Struct(
     help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_Params', [
-      mojo.internal.StructField('params', 0, 0, help_bubble.mojom.HelpBubbleParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, help_bubble.mojom.HelpBubbleParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -422,9 +419,8 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
 
 help_bubble.mojom.HelpBubbleClient.getRemote = function() {
   let remote = new help_bubble.mojom.HelpBubbleClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'help_bubble.mojom.HelpBubbleClient',
     'context');
   return remote.$;

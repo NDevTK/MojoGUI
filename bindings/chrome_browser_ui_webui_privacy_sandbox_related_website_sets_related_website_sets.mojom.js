@@ -29,7 +29,7 @@ mojo.internal.Union(
     related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, 'related_website_sets.mojom.GetRelatedWebsiteSetsResponse', {
       'related_website_sets': {
         'ordinal': 0,
-        'type': mojo.internal.Array(related_website_sets.mojom.RelatedWebsiteSetSpec, false),
+        'type': mojo.internal.Array(related_website_sets.mojom.RelatedWebsiteSetSpec.$, false),
         'nullable': false,
       },
       'error_message': {
@@ -43,7 +43,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     related_website_sets.mojom.MemberSpec, 'related_website_sets.mojom.Member', [
       mojo.internal.StructField('site', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, related_website_sets.mojom.SiteTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, related_website_sets.mojom.SiteTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -51,7 +51,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     related_website_sets.mojom.RelatedWebsiteSetSpec, 'related_website_sets.mojom.RelatedWebsiteSet', [
       mojo.internal.StructField('primary_site', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('member_sites', 8, 0, mojo.internal.Array(related_website_sets.mojom.MemberSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('member_sites', 8, 0, mojo.internal.Array(related_website_sets.mojom.MemberSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('managed_by_enterprise', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -64,9 +64,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec, 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParams', [
-      mojo.internal.StructField('related_website_sets_info', 0, 0, related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('related_website_sets_info', 0, 0, related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 related_website_sets.mojom.RelatedWebsiteSetsPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -114,9 +114,8 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler = clas
 
 related_website_sets.mojom.RelatedWebsiteSetsPageHandler.getRemote = function() {
   let remote = new related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'related_website_sets.mojom.RelatedWebsiteSetsPageHandler',
     'context');
   return remote.$;

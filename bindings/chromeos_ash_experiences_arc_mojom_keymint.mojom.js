@@ -300,47 +300,47 @@ mojo.internal.Union(
       },
       'algorithm': {
         'ordinal': 1,
-        'type': arc.mojom.keymint.AlgorithmSpec,
+        'type': arc.mojom.keymint.AlgorithmSpec.$,
         'nullable': false,
       },
       'block_mode': {
         'ordinal': 2,
-        'type': arc.mojom.keymint.BlockModeSpec,
+        'type': arc.mojom.keymint.BlockModeSpec.$,
         'nullable': false,
       },
       'padding_mode': {
         'ordinal': 3,
-        'type': arc.mojom.keymint.PaddingModeSpec,
+        'type': arc.mojom.keymint.PaddingModeSpec.$,
         'nullable': false,
       },
       'digest': {
         'ordinal': 4,
-        'type': arc.mojom.keymint.DigestSpec,
+        'type': arc.mojom.keymint.DigestSpec.$,
         'nullable': false,
       },
       'ec_curve': {
         'ordinal': 5,
-        'type': arc.mojom.keymint.EcCurveSpec,
+        'type': arc.mojom.keymint.EcCurveSpec.$,
         'nullable': false,
       },
       'origin': {
         'ordinal': 6,
-        'type': arc.mojom.keymint.KeyOriginSpec,
+        'type': arc.mojom.keymint.KeyOriginSpec.$,
         'nullable': false,
       },
       'key_purpose': {
         'ordinal': 7,
-        'type': arc.mojom.keymint.KeyPurposeSpec,
+        'type': arc.mojom.keymint.KeyPurposeSpec.$,
         'nullable': false,
       },
       'hardware_authenticator_type': {
         'ordinal': 8,
-        'type': arc.mojom.keymint.HardwareAuthenticatorTypeSpec,
+        'type': arc.mojom.keymint.HardwareAuthenticatorTypeSpec.$,
         'nullable': false,
       },
       'security_level': {
         'ordinal': 9,
-        'type': arc.mojom.keymint.SecurityLevelSpec,
+        'type': arc.mojom.keymint.SecurityLevelSpec.$,
         'nullable': false,
       },
       'bool_value': {
@@ -375,7 +375,7 @@ mojo.internal.Union(
     arc.mojom.keymint.GenerateEcdsaP256KeyPairResultOrErrorSpec, 'arc.mojom.keymint.GenerateEcdsaP256KeyPairResultOrError', {
       'key_pair_result': {
         'ordinal': 0,
-        'type': arc.mojom.keymint.GenerateEcdsaP256KeyPairResultSpec,
+        'type': arc.mojom.keymint.GenerateEcdsaP256KeyPairResultSpec.$,
         'nullable': false,
       },
       'error': {
@@ -390,7 +390,7 @@ mojo.internal.Union(
     arc.mojom.keymint.GenerateCertificateRequestResultOrErrorSpec, 'arc.mojom.keymint.GenerateCertificateRequestResultOrError', {
       'certificate_request_result': {
         'ordinal': 0,
-        'type': arc.mojom.keymint.GenerateCertificateRequestResultSpec,
+        'type': arc.mojom.keymint.GenerateCertificateRequestResultSpec.$,
         'nullable': false,
       },
       'error': {
@@ -405,7 +405,7 @@ mojo.internal.Union(
     arc.mojom.keymint.KeyCharacteristicsArrayOrErrorSpec, 'arc.mojom.keymint.KeyCharacteristicsArrayOrError', {
       'key_characteristics': {
         'ordinal': 0,
-        'type': mojo.internal.Array(arc.mojom.keymint.KeyCharacteristicsSpec, false),
+        'type': mojo.internal.Array(arc.mojom.keymint.KeyCharacteristicsSpec.$, false),
         'nullable': false,
       },
       'error': {
@@ -420,7 +420,7 @@ mojo.internal.Union(
     arc.mojom.keymint.BeginResultOrErrorSpec, 'arc.mojom.keymint.BeginResultOrError', {
       'begin_result': {
         'ordinal': 0,
-        'type': arc.mojom.keymint.BeginResultSpec,
+        'type': arc.mojom.keymint.BeginResultSpec.$,
         'nullable': false,
       },
       'error': {
@@ -435,7 +435,7 @@ mojo.internal.Union(
     arc.mojom.keymint.KeyCreationResultOrErrorSpec, 'arc.mojom.keymint.KeyCreationResultOrError', {
       'key_creation_result': {
         'ordinal': 0,
-        'type': arc.mojom.keymint.KeyCreationResultSpec,
+        'type': arc.mojom.keymint.KeyCreationResultSpec.$,
         'nullable': false,
       },
       'error': {
@@ -465,7 +465,7 @@ mojo.internal.Union(
     arc.mojom.keymint.SharedSecretParametersOrErrorSpec, 'arc.mojom.keymint.SharedSecretParametersOrError', {
       'secret_parameters': {
         'ordinal': 0,
-        'type': arc.mojom.keymint.SharedSecretParametersSpec,
+        'type': arc.mojom.keymint.SharedSecretParametersSpec.$,
         'nullable': false,
       },
       'error': {
@@ -480,7 +480,7 @@ mojo.internal.Union(
     arc.mojom.keymint.TimeStampTokenOrErrorSpec, 'arc.mojom.keymint.TimeStampTokenOrError', {
       'timestamp_token': {
         'ordinal': 0,
-        'type': arc.mojom.keymint.TimeStampTokenSpec,
+        'type': arc.mojom.keymint.TimeStampTokenSpec.$,
         'nullable': false,
       },
       'error': {
@@ -494,7 +494,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     arc.mojom.keymint.AttestationKeySpec, 'arc.mojom.keymint.AttestationKey', [
       mojo.internal.StructField('key_blob', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('attest_key_params', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('attest_key_params', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('issuer_subject_name', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -502,10 +502,10 @@ mojo.internal.Struct(
 // Struct: KeyParameter
 mojo.internal.Struct(
     arc.mojom.keymint.KeyParameterSpec, 'arc.mojom.keymint.KeyParameter', [
-      mojo.internal.StructField('tag', 0, 0, arc.mojom.keymint.TagSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, arc.mojom.keymint.KeyParameterValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tag', 0, 0, arc.mojom.keymint.TagSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, arc.mojom.keymint.KeyParameterValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: SharedSecretParameters
 mojo.internal.Struct(
@@ -519,8 +519,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.keymint.KeyCreationResultSpec, 'arc.mojom.keymint.KeyCreationResult', [
       mojo.internal.StructField('key_blob', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_characteristics', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyCharacteristicsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('certificate_chain', 16, 0, mojo.internal.Array(arc.mojom.keymint.CertificateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_characteristics', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyCharacteristicsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('certificate_chain', 16, 0, mojo.internal.Array(arc.mojom.keymint.CertificateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -534,26 +534,26 @@ mojo.internal.Struct(
 // Struct: KeyCharacteristics
 mojo.internal.Struct(
     arc.mojom.keymint.KeyCharacteristicsSpec, 'arc.mojom.keymint.KeyCharacteristics', [
-      mojo.internal.StructField('security_level', 0, 0, arc.mojom.keymint.SecurityLevelSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('authorizations', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('security_level', 0, 0, arc.mojom.keymint.SecurityLevelSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('authorizations', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: GenerateKeyRequest
 mojo.internal.Struct(
     arc.mojom.keymint.GenerateKeyRequestSpec, 'arc.mojom.keymint.GenerateKeyRequest', [
-      mojo.internal.StructField('key_params', 0, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('attestation_key', 8, 0, arc.mojom.keymint.AttestationKeySpec, null, true, 0, undefined),
+      mojo.internal.StructField('key_params', 0, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('attestation_key', 8, 0, arc.mojom.keymint.AttestationKeySpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ImportKeyRequest
 mojo.internal.Struct(
     arc.mojom.keymint.ImportKeyRequestSpec, 'arc.mojom.keymint.ImportKeyRequest', [
-      mojo.internal.StructField('key_params', 0, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_format', 8, 0, arc.mojom.keymint.KeyFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_params', 0, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_format', 8, 0, arc.mojom.keymint.KeyFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('attestation_key', 24, 0, arc.mojom.keymint.AttestationKeySpec, null, true, 0, undefined),
+      mojo.internal.StructField('attestation_key', 24, 0, arc.mojom.keymint.AttestationKeySpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -563,7 +563,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('wrapped_key_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('wrapping_key_blob', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('masking_key', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('unwrapping_params', 24, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('unwrapping_params', 24, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('password_sid', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('biometric_sid', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
@@ -573,17 +573,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.keymint.UpgradeKeyRequestSpec, 'arc.mojom.keymint.UpgradeKeyRequest', [
       mojo.internal.StructField('key_blob_to_upgrade', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('upgrade_params', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('upgrade_params', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: BeginRequest
 mojo.internal.Struct(
     arc.mojom.keymint.BeginRequestSpec, 'arc.mojom.keymint.BeginRequest', [
-      mojo.internal.StructField('key_purpose', 0, 0, arc.mojom.keymint.KeyPurposeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_purpose', 0, 0, arc.mojom.keymint.KeyPurposeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_blob', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('params', 16, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('auth_token', 24, 0, arc.mojom.keymint.HardwareAuthTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('params', 16, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('auth_token', 24, 0, arc.mojom.keymint.HardwareAuthTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -591,7 +591,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.keymint.BeginResultSpec, 'arc.mojom.keymint.BeginResult', [
       mojo.internal.StructField('challenge', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('params', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('op_handle', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -602,8 +602,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('challenge', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('user_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('authenticator_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('authenticator_type', 24, 0, arc.mojom.keymint.HardwareAuthenticatorTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 32, 0, arc.mojom.keymint.TimestampSpec, null, false, 0, undefined),
+      mojo.internal.StructField('authenticator_type', 24, 0, arc.mojom.keymint.HardwareAuthenticatorTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 32, 0, arc.mojom.keymint.TimestampSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('mac', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -619,7 +619,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.keymint.TimeStampTokenSpec, 'arc.mojom.keymint.TimeStampToken', [
       mojo.internal.StructField('challenge', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 8, 0, arc.mojom.keymint.TimestampSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, arc.mojom.keymint.TimestampSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('mac', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -638,8 +638,8 @@ mojo.internal.Struct(
     arc.mojom.keymint.UpdateRequestSpec, 'arc.mojom.keymint.UpdateRequest', [
       mojo.internal.StructField('op_handle', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('input', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('auth_token', 16, 0, arc.mojom.keymint.HardwareAuthTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('timestamp_token', 24, 0, arc.mojom.keymint.TimeStampTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('auth_token', 16, 0, arc.mojom.keymint.HardwareAuthTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('timestamp_token', 24, 0, arc.mojom.keymint.TimeStampTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -649,8 +649,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('op_handle', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('input', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('signature', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('auth_token', 24, 0, arc.mojom.keymint.HardwareAuthTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('timestamp_token', 32, 0, arc.mojom.keymint.TimeStampTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('auth_token', 24, 0, arc.mojom.keymint.HardwareAuthTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('timestamp_token', 32, 0, arc.mojom.keymint.TimeStampTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('confirmation_token', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 56]]);
@@ -672,8 +672,8 @@ mojo.internal.Struct(
 // Struct: GenerateEcdsaP256KeyPairResult
 mojo.internal.Struct(
     arc.mojom.keymint.GenerateEcdsaP256KeyPairResultSpec, 'arc.mojom.keymint.GenerateEcdsaP256KeyPairResult', [
-      mojo.internal.StructField('maced_public_key', 0, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
-      mojo.internal.StructField('handle_to_private_key', 8, 0, arc.mojom.keymint.KeyMintKeyBlobSpec, null, false, 0, undefined),
+      mojo.internal.StructField('maced_public_key', 0, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('handle_to_private_key', 8, 0, arc.mojom.keymint.KeyMintKeyBlobSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -681,18 +681,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.keymint.CertificateRequestSpec, 'arc.mojom.keymint.CertificateRequest', [
       mojo.internal.StructField('test_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keys_to_sign', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyMintBlobSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('encryption_cert_chain', 16, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
-      mojo.internal.StructField('challenge', 24, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keys_to_sign', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyMintBlobSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('encryption_cert_chain', 16, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('challenge', 24, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: GenerateCertificateRequestResult
 mojo.internal.Struct(
     arc.mojom.keymint.GenerateCertificateRequestResultSpec, 'arc.mojom.keymint.GenerateCertificateRequestResult', [
-      mojo.internal.StructField('device_info', 0, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
-      mojo.internal.StructField('protected_data', 8, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mac_of_keys_to_sign', 16, 0, arc.mojom.keymint.KeyMintBlobSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('protected_data', 8, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mac_of_keys_to_sign', 16, 0, arc.mojom.keymint.KeyMintBlobSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -754,9 +754,8 @@ arc.mojom.keymint.KeyMintHostRemoteCallHandler = class {
 
 arc.mojom.keymint.KeyMintHost.getRemote = function() {
   let remote = new arc.mojom.keymint.KeyMintHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.keymint.KeyMintHost',
     'context');
   return remote.$;
@@ -824,9 +823,8 @@ arc.mojom.keymint.KeyMintInstanceRemoteCallHandler = class {
 
 arc.mojom.keymint.KeyMintInstance.getRemote = function() {
   let remote = new arc.mojom.keymint.KeyMintInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.keymint.KeyMintInstance',
     'context');
   return remote.$;
@@ -858,51 +856,51 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_GenerateKey_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.GenerateKeyRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.GenerateKeyRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.KeyCreationResultOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.KeyCreationResultOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_ImportKey_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.ImportKeyRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.ImportKeyRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.KeyCreationResultOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.KeyCreationResultOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_ImportWrappedKey_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.ImportWrappedKeyRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.ImportWrappedKeyRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.KeyCreationResultOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.KeyCreationResultOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_UpgradeKey_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.UpgradeKeyRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.UpgradeKeyRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_DeleteKey_Params', [
@@ -940,20 +938,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_Begin_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.BeginRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.BeginRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_Begin_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.BeginResultOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.BeginResultOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_DeviceLocked_Params', [
       mojo.internal.StructField('password_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('timestamp_token', 8, 0, arc.mojom.keymint.TimeStampTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('timestamp_token', 8, 0, arc.mojom.keymint.TimeStampTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -982,21 +980,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.GetKeyCharacteristicsRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.GetKeyCharacteristicsRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.KeyCharacteristicsArrayOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.KeyCharacteristicsArrayOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_Params', [
@@ -1005,9 +1003,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_GetRootOfTrust_Params', [
@@ -1017,9 +1015,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_SendRootOfTrust_Params', [
@@ -1035,7 +1033,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_UpdateAad_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.UpdateRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.UpdateRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1047,27 +1045,27 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_Update_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_Update_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.UpdateRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.UpdateRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_Update_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_Finish_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.FinishRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.FinishRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_Finish_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_Abort_Params', [
@@ -1088,21 +1086,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.SharedSecretParametersOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.SharedSecretParametersOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_Params', [
-      mojo.internal.StructField('secret_params', 0, 0, mojo.internal.Array(arc.mojom.keymint.SharedSecretParametersSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('secret_params', 0, 0, mojo.internal.Array(arc.mojom.keymint.SharedSecretParametersSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.ByteArrayOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_Params', [
@@ -1112,9 +1110,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.TimeStampTokenOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.TimeStampTokenOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_Params', [
@@ -1124,21 +1122,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.GenerateEcdsaP256KeyPairResultOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.GenerateEcdsaP256KeyPairResultOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.CertificateRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.keymint.CertificateRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec, 'arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.GenerateCertificateRequestResultOrErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, arc.mojom.keymint.GenerateCertificateRequestResultOrErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec, 'arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_Params', [
@@ -1452,9 +1450,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
 
 arc.mojom.keymint.KeyMintServer.getRemote = function() {
   let remote = new arc.mojom.keymint.KeyMintServerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.keymint.KeyMintServer',
     'context');
   return remote.$;

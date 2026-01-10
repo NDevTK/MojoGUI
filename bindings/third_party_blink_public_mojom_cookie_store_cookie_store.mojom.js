@@ -23,8 +23,8 @@ blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = { $: {} };
 // Struct: CookieChangeSubscription
 mojo.internal.Struct(
     blink.mojom.CookieChangeSubscriptionSpec, 'blink.mojom.CookieChangeSubscription', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('match_type', 8, 0, network.mojom.CookieMatchTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('match_type', 8, 0, network.mojom.CookieMatchTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -33,7 +33,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.CookieStore_AddSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_AddSubscriptions_Params', [
       mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('subscription', 8, 0, mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('subscription', 8, 0, mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -46,7 +46,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_RemoveSubscriptions_Params', [
       mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('subscription', 8, 0, mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('subscription', 8, 0, mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -64,7 +64,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec, 'blink.mojom.CookieStore_GetSubscriptions_ResponseParams', [
-      mojo.internal.StructField('subscriptions', 0, 0, mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('subscriptions', 0, 0, mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -135,9 +135,8 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
 
 blink.mojom.CookieStore.getRemote = function() {
   let remote = new blink.mojom.CookieStoreRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.CookieStore',
     'context');
   return remote.$;

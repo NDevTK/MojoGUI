@@ -62,12 +62,12 @@ mojo.internal.Union(
       },
       'tab': {
         'ordinal': 1,
-        'type': coral.mojom.TabSpec,
+        'type': coral.mojom.TabSpec.$,
         'nullable': false,
       },
       'app': {
         'ordinal': 2,
-        'type': coral.mojom.AppSpec,
+        'type': coral.mojom.AppSpec.$,
         'nullable': false,
       },
     });
@@ -77,12 +77,12 @@ mojo.internal.Union(
     coral.mojom.GroupResultSpec, 'coral.mojom.GroupResult', {
       'error': {
         'ordinal': 0,
-        'type': coral.mojom.CoralErrorSpec,
+        'type': coral.mojom.CoralErrorSpec.$,
         'nullable': false,
       },
       'response': {
         'ordinal': 1,
-        'type': coral.mojom.GroupResponseSpec,
+        'type': coral.mojom.GroupResponseSpec.$,
         'nullable': false,
       },
     });
@@ -92,12 +92,12 @@ mojo.internal.Union(
     coral.mojom.CacheEmbeddingsResultSpec, 'coral.mojom.CacheEmbeddingsResult', {
       'error': {
         'ordinal': 0,
-        'type': coral.mojom.CoralErrorSpec,
+        'type': coral.mojom.CoralErrorSpec.$,
         'nullable': false,
       },
       'response': {
         'ordinal': 1,
-        'type': coral.mojom.CacheEmbeddingsResponseSpec,
+        'type': coral.mojom.CacheEmbeddingsResponseSpec.$,
         'nullable': false,
       },
     });
@@ -106,7 +106,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     coral.mojom.TabSpec, 'coral.mojom.Tab', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -146,35 +146,35 @@ mojo.internal.Struct(
 // Struct: Group
 mojo.internal.Struct(
     coral.mojom.GroupSpec, 'coral.mojom.Group', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('entities', 16, 0, mojo.internal.Array(coral.mojom.EntitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('entities', 16, 0, mojo.internal.Array(coral.mojom.EntitySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: GroupRequest
 mojo.internal.Struct(
     coral.mojom.GroupRequestSpec, 'coral.mojom.GroupRequest', [
-      mojo.internal.StructField('entities', 0, 0, mojo.internal.Array(coral.mojom.EntitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('embedding_options', 8, 0, coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('clustering_options', 16, 0, coral.mojom.ClusteringOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('title_generation_options', 24, 0, coral.mojom.TitleGenerationOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('suppression_context', 32, 0, mojo.internal.Array(coral.mojom.EntitySpec, false), null, true, 1, undefined),
+      mojo.internal.StructField('entities', 0, 0, mojo.internal.Array(coral.mojom.EntitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('embedding_options', 8, 0, coral.mojom.EmbeddingOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('clustering_options', 16, 0, coral.mojom.ClusteringOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('title_generation_options', 24, 0, coral.mojom.TitleGenerationOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('suppression_context', 32, 0, mojo.internal.Array(coral.mojom.EntitySpec.$, false), null, true, 1, undefined),
     ],
     [[0, 40], [1, 48]]);
 
 // Struct: GroupResponse
 mojo.internal.Struct(
     coral.mojom.GroupResponseSpec, 'coral.mojom.GroupResponse', [
-      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(coral.mojom.GroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(coral.mojom.GroupSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: CacheEmbeddingsRequest
 mojo.internal.Struct(
     coral.mojom.CacheEmbeddingsRequestSpec, 'coral.mojom.CacheEmbeddingsRequest', [
-      mojo.internal.StructField('entities', 0, 0, mojo.internal.Array(coral.mojom.EntitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('embedding_options', 8, 0, coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('entities', 0, 0, mojo.internal.Array(coral.mojom.EntitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('embedding_options', 8, 0, coral.mojom.EmbeddingOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -187,7 +187,7 @@ mojo.internal.Struct(
 // Interface: TitleObserver
 mojo.internal.Struct(
     coral.mojom.TitleObserver_TitleUpdated_ParamsSpec, 'coral.mojom.TitleObserver_TitleUpdated_Params', [
-      mojo.internal.StructField('group_id', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_id', 0, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -238,9 +238,8 @@ coral.mojom.TitleObserverRemoteCallHandler = class {
 
 coral.mojom.TitleObserver.getRemote = function() {
   let remote = new coral.mojom.TitleObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'coral.mojom.TitleObserver',
     'context');
   return remote.$;
@@ -253,28 +252,28 @@ coral.mojom.TitleObserverRequest = coral.mojom.TitleObserverPendingReceiver;
 // Interface: CoralProcessor
 mojo.internal.Struct(
     coral.mojom.CoralProcessor_Group_ParamsSpec, 'coral.mojom.CoralProcessor_Group_Params', [
-      mojo.internal.StructField('request', 0, 0, coral.mojom.GroupRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, coral.mojom.GroupRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     coral.mojom.CoralProcessor_Group_ResponseParamsSpec, 'coral.mojom.CoralProcessor_Group_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, coral.mojom.GroupResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, coral.mojom.GroupResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec, 'coral.mojom.CoralProcessor_CacheEmbeddings_Params', [
-      mojo.internal.StructField('request', 0, 0, coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, coral.mojom.CacheEmbeddingsRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec, 'coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, coral.mojom.CacheEmbeddingsResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, coral.mojom.CacheEmbeddingsResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 coral.mojom.CoralProcessorPendingReceiver = class {
   constructor(handle) {
@@ -332,9 +331,8 @@ coral.mojom.CoralProcessorRemoteCallHandler = class {
 
 coral.mojom.CoralProcessor.getRemote = function() {
   let remote = new coral.mojom.CoralProcessorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'coral.mojom.CoralProcessor',
     'context');
   return remote.$;
@@ -347,28 +345,28 @@ coral.mojom.CoralProcessorRequest = coral.mojom.CoralProcessorPendingReceiver;
 // Interface: CoralService
 mojo.internal.Struct(
     coral.mojom.CoralService_GroupDeprecated_ParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_Params', [
-      mojo.internal.StructField('request', 0, 0, coral.mojom.GroupRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, coral.mojom.GroupRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, coral.mojom.GroupResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, coral.mojom.GroupResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec, 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_Params', [
-      mojo.internal.StructField('request', 0, 0, coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, coral.mojom.CacheEmbeddingsRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec, 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, coral.mojom.CacheEmbeddingsResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, coral.mojom.CacheEmbeddingsResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     coral.mojom.CoralService_PrepareResource_ParamsSpec, 'coral.mojom.CoralService_PrepareResource_Params', [
@@ -459,9 +457,8 @@ coral.mojom.CoralServiceRemoteCallHandler = class {
 
 coral.mojom.CoralService.getRemote = function() {
   let remote = new coral.mojom.CoralServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'coral.mojom.CoralService',
     'context');
   return remote.$;

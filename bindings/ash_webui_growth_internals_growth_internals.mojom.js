@@ -88,9 +88,8 @@ ash.growth.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.growth.mojom.PageHandler.getRemote = function() {
   let remote = new ash.growth.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.growth.mojom.PageHandler',
     'context');
   return remote.$;

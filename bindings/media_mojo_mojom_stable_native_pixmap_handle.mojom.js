@@ -25,7 +25,7 @@ mojo.internal.Struct(
 // Struct: NativePixmapHandle
 mojo.internal.Struct(
     media.stable.mojom.NativePixmapHandleSpec, 'media.stable.mojom.NativePixmapHandle', [
-      mojo.internal.StructField('planes', 0, 0, mojo.internal.Array(media.stable.mojom.NativePixmapPlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('planes', 0, 0, mojo.internal.Array(media.stable.mojom.NativePixmapPlaneSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);

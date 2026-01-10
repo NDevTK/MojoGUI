@@ -80,7 +80,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec, 'arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_Params', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('package_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -161,9 +161,8 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
 
 arc.mojom.PolicyHost.getRemote = function() {
   let remote = new arc.mojom.PolicyHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.PolicyHost',
     'context');
   return remote.$;
@@ -198,7 +197,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec, 'arc.mojom.PolicyInstance_OnCommandReceived_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.CommandResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.CommandResultTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -268,9 +267,8 @@ arc.mojom.PolicyInstanceRemoteCallHandler = class {
 
 arc.mojom.PolicyInstance.getRemote = function() {
   let remote = new arc.mojom.PolicyInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.PolicyInstance',
     'context');
   return remote.$;

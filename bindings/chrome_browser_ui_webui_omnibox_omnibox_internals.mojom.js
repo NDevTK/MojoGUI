@@ -121,14 +121,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('deletable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('fill_into_edit', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('inline_autocompletion', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('destination_url', 40, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('stripped_destination_url', 48, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('icon', 56, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image', 64, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('destination_url', 40, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('stripped_destination_url', 48, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 56, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image', 64, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('contents', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('contents_class', 80, 0, mojo.internal.Array(mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('contents_class', 80, 0, mojo.internal.Array(mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('description', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('description_class', 96, 0, mojo.internal.Array(mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('description_class', 96, 0, mojo.internal.Array(mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('swap_contents_and_description', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('answer', 112, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('transition', 120, 0, mojo.internal.String, null, false, 0, undefined),
@@ -143,7 +143,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('duplicates', 188, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('from_previous', 192, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('pedal_id', 196, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('scoring_signals', 200, 0, mojom.SignalsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scoring_signals', 200, 0, mojom.SignalsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('additional_info', 208, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 224]]);
@@ -152,7 +152,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.AutocompleteResultsForProviderSpec, 'mojom.AutocompleteResultsForProvider', [
       mojo.internal.StructField('provider_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -166,8 +166,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('host', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('is_typed_host', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('input_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('combined_results', 48, 0, mojo.internal.Array(mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('results_by_provider', 56, 0, mojo.internal.Array(mojom.AutocompleteResultsForProviderSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('combined_results', 48, 0, mojo.internal.Array(mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('results_by_provider', 56, 0, mojo.internal.Array(mojom.AutocompleteResultsForProviderSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -204,7 +204,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.OmniboxPageHandler_StartMl_ParamsSpec, 'mojom.OmniboxPageHandler_StartMl_Params', [
-      mojo.internal.StructField('signals', 0, 0, mojom.SignalsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signals', 0, 0, mojom.SignalsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -290,9 +290,8 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
 
 mojom.OmniboxPageHandler.getRemote = function() {
   let remote = new mojom.OmniboxPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mojom.OmniboxPageHandler',
     'context');
   return remote.$;
@@ -305,30 +304,30 @@ mojom.OmniboxPageHandlerRequest = mojom.OmniboxPageHandlerPendingReceiver;
 // Interface: OmniboxPage
 mojo.internal.Struct(
     mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec, 'mojom.OmniboxPage_HandleNewAutocompleteQuery_Params', [
-      mojo.internal.StructField('autocomplete_controller_type', 0, 0, mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('autocomplete_controller_type', 0, 0, mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('input_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec, 'mojom.OmniboxPage_HandleNewAutocompleteResponse_Params', [
-      mojo.internal.StructField('autocomplete_controller_type', 0, 0, mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('response', 8, 0, mojom.OmniboxResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('autocomplete_controller_type', 0, 0, mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, mojom.OmniboxResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec, 'mojom.OmniboxPage_HandleNewMlResponse_Params', [
-      mojo.internal.StructField('autocomplete_controller_type', 0, 0, mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('autocomplete_controller_type', 0, 0, mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('input_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('matches', 16, 0, mojo.internal.Array(mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('matches', 16, 0, mojo.internal.Array(mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec, 'mojom.OmniboxPage_HandleAnswerIconImageData_Params', [
-      mojo.internal.StructField('autocomplete_controller_type', 0, 0, mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('autocomplete_controller_type', 0, 0, mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('image_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -409,9 +408,8 @@ mojom.OmniboxPageRemoteCallHandler = class {
 
 mojom.OmniboxPage.getRemote = function() {
   let remote = new mojom.OmniboxPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mojom.OmniboxPage',
     'context');
   return remote.$;

@@ -108,9 +108,8 @@ browser_command.mojom.CommandHandlerFactoryRemoteCallHandler = class {
 
 browser_command.mojom.CommandHandlerFactory.getRemote = function() {
   let remote = new browser_command.mojom.CommandHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'browser_command.mojom.CommandHandlerFactory',
     'context');
   return remote.$;
@@ -123,7 +122,7 @@ browser_command.mojom.CommandHandlerFactoryRequest = browser_command.mojom.Comma
 // Interface: CommandHandler
 mojo.internal.Struct(
     browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_CanExecuteCommand_Params', [
-      mojo.internal.StructField('command_id', 0, 0, browser_command.mojom.CommandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('command_id', 0, 0, browser_command.mojom.CommandSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -135,8 +134,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_ExecuteCommand_Params', [
-      mojo.internal.StructField('command_id', 0, 0, browser_command.mojom.CommandSpec, null, false, 0, undefined),
-      mojo.internal.StructField('click_info', 8, 0, browser_command.mojom.ClickInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('command_id', 0, 0, browser_command.mojom.CommandSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('click_info', 8, 0, browser_command.mojom.ClickInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -202,9 +201,8 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
 
 browser_command.mojom.CommandHandler.getRemote = function() {
   let remote = new browser_command.mojom.CommandHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'browser_command.mojom.CommandHandler',
     'context');
   return remote.$;

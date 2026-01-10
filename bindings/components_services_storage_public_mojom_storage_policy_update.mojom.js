@@ -14,7 +14,7 @@ storage.mojom.StoragePolicyUpdateSpec = { $: {} };
 // Struct: StoragePolicyUpdate
 mojo.internal.Struct(
     storage.mojom.StoragePolicyUpdateSpec, 'storage.mojom.StoragePolicyUpdate', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('purge_on_shutdown', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -86,7 +86,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('title', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('url', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('children', 40, 0, mojo.internal.Array(side_panel.mojom.BookmarksTreeNodeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('children', 40, 0, mojo.internal.Array(side_panel.mojom.BookmarksTreeNodeSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('date_added_$flag', 48, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'date_added_$value', originalFieldName: 'date_added' }),
       mojo.internal.StructField('date_added_$value', 56, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'date_added_$flag', originalFieldName: 'date_added' }),
       mojo.internal.StructField('date_last_used_$flag', 64, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'date_last_used_$value', originalFieldName: 'date_last_used' }),
@@ -149,9 +149,8 @@ side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHandler = class {
 
 side_panel.mojom.BookmarksPageHandlerFactory.getRemote = function() {
   let remote = new side_panel.mojom.BookmarksPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'side_panel.mojom.BookmarksPageHandlerFactory',
     'context');
   return remote.$;
@@ -195,70 +194,70 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_Params', [
       mojo.internal.StructField('node_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_Params', [
       mojo.internal.StructField('node_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_Params', [
       mojo.internal.StructField('side_panel_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_Params', [
       mojo.internal.StructField('side_panel_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_Params', [
       mojo.internal.StructField('side_panel_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_Params', [
       mojo.internal.StructField('side_panel_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_Params', [
       mojo.internal.StructField('node_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_Params', [
       mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_Params', [
       mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_Params', [
       mojo.internal.StructField('node_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -266,8 +265,8 @@ mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_OpenBookmark_Params', [
       mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('parent_folder_depth', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('click_modifiers', 16, 0, ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source', 24, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('click_modifiers', 16, 0, ui.mojom.ClickModifiersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source', 24, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -303,21 +302,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_SetSortOrder_Params', [
-      mojo.internal.StructField('sort_order', 0, 0, side_panel.mojom.SortOrderSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sort_order', 0, 0, side_panel.mojom.SortOrderSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_SetViewType_Params', [
-      mojo.internal.StructField('view_type', 0, 0, side_panel.mojom.ViewTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('view_type', 0, 0, side_panel.mojom.ViewTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_ShowContextMenu_Params', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source', 16, 0, side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source', 16, 0, side_panel.mojom.ActionSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -333,7 +332,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec, 'side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParams', [
-      mojo.internal.StructField('nodes', 0, 0, mojo.internal.Array(side_panel.mojom.BookmarksTreeNodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('nodes', 0, 0, mojo.internal.Array(side_panel.mojom.BookmarksTreeNodeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -603,9 +602,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
 
 side_panel.mojom.BookmarksPageHandler.getRemote = function() {
   let remote = new side_panel.mojom.BookmarksPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'side_panel.mojom.BookmarksPageHandler',
     'context');
   return remote.$;
@@ -618,7 +616,7 @@ side_panel.mojom.BookmarksPageHandlerRequest = side_panel.mojom.BookmarksPageHan
 // Interface: BookmarksPage
 mojo.internal.Struct(
     side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec, 'side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_Params', [
-      mojo.internal.StructField('node', 0, 0, side_panel.mojom.BookmarksTreeNodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('node', 0, 0, side_panel.mojom.BookmarksTreeNodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -738,9 +736,8 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
 
 side_panel.mojom.BookmarksPage.getRemote = function() {
   let remote = new side_panel.mojom.BookmarksPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'side_panel.mojom.BookmarksPage',
     'context');
   return remote.$;

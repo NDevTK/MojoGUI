@@ -115,26 +115,26 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     safe_browsing.mojom.ThreatDOMDetailsNodeSpec, 'safe_browsing.mojom.ThreatDOMDetailsNode', [
       mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('tag_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('parent', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parent', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('parent_node_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('children', 40, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('children', 40, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('child_node_ids', 48, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('attributes', 56, 0, mojo.internal.Array(safe_browsing.mojom.AttributeNameValueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('child_frame_token', 64, 0, blink.mojom.FrameTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('inner_html', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('attributes', 56, 0, mojo.internal.Array(safe_browsing.mojom.AttributeNameValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('child_frame_token', 64, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('inner_html', 72, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 88]]);
 
 // Interface: SafeBrowsing
 mojo.internal.Struct(
     safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_Params', [
-      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(safe_browsing.mojom.SafeBrowsingUrlCheckerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('method', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('headers', 32, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 32, 0, network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('load_flags', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('has_user_gesture', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('originated_from_service_worker', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -210,9 +210,8 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
 
 safe_browsing.mojom.SafeBrowsing.getRemote = function() {
   let remote = new safe_browsing.mojom.SafeBrowsingRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'safe_browsing.mojom.SafeBrowsing',
     'context');
   return remote.$;
@@ -230,7 +229,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, 'safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParams', [
-      mojo.internal.StructField('nodes', 0, 0, mojo.internal.Array(safe_browsing.mojom.ThreatDOMDetailsNodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('nodes', 0, 0, mojo.internal.Array(safe_browsing.mojom.ThreatDOMDetailsNodeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -280,9 +279,8 @@ safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
 
 safe_browsing.mojom.ThreatReporter.getRemote = function() {
   let remote = new safe_browsing.mojom.ThreatReporterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'safe_browsing.mojom.ThreatReporter',
     'context');
   return remote.$;
@@ -295,15 +293,15 @@ safe_browsing.mojom.ThreatReporterRequest = safe_browsing.mojom.ThreatReporterPe
 // Interface: PhishingDetector
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request_type', 8, 0, safe_browsing.mojom.ClientSideDetectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('request_type', 8, 0, safe_browsing.mojom.ClientSideDetectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, safe_browsing.mojom.PhishingDetectorResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request', 8, 0, mojo_base.mojom.ProtoWrapperSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, safe_browsing.mojom.PhishingDetectorResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('request', 8, 0, mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -353,9 +351,8 @@ safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
 
 safe_browsing.mojom.PhishingDetector.getRemote = function() {
   let remote = new safe_browsing.mojom.PhishingDetectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'safe_browsing.mojom.PhishingDetector',
     'context');
   return remote.$;
@@ -368,22 +365,22 @@ safe_browsing.mojom.PhishingDetectorRequest = safe_browsing.mojom.PhishingDetect
 // Interface: PhishingModelSetter
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_Params', [
-      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tflite_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-      mojo.internal.StructField('image_embedding_model', 16, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tflite_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('image_embedding_model', 16, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_Params', [
-      mojo.internal.StructField('image_embedding_model', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('image_embedding_model', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_Params', [
-      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tflite_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tflite_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -489,9 +486,8 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
 
 safe_browsing.mojom.PhishingModelSetter.getRemote = function() {
   let remote = new safe_browsing.mojom.PhishingModelSetterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'safe_browsing.mojom.PhishingModelSetter',
     'context');
   return remote.$;
@@ -553,9 +549,8 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
 
 safe_browsing.mojom.PhishingModelSetterTestObserver.getRemote = function() {
   let remote = new safe_browsing.mojom.PhishingModelSetterTestObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'safe_browsing.mojom.PhishingModelSetterTestObserver',
     'context');
   return remote.$;
@@ -568,14 +563,14 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRequest = safe_browsing.mojom
 // Interface: PhishingImageEmbedderDetector
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, safe_browsing.mojom.PhishingImageEmbeddingResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_embedding_request', 8, 0, mojo_base.mojom.ProtoWrapperSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, safe_browsing.mojom.PhishingImageEmbeddingResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_embedding_request', 8, 0, mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -625,9 +620,8 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
 
 safe_browsing.mojom.PhishingImageEmbedderDetector.getRemote = function() {
   let remote = new safe_browsing.mojom.PhishingImageEmbedderDetectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'safe_browsing.mojom.PhishingImageEmbedderDetector',
     'context');
   return remote.$;
@@ -641,11 +635,11 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRequest = safe_browsing.mojom.P
 mojo.internal.Struct(
     safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_Params', [
       mojo.internal.StructField('origin_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('telemetry_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('protocol_type', 16, 0, safe_browsing.mojom.WebRequestProtocolTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('contact_initiator_type', 20, 0, safe_browsing.mojom.WebRequestContactInitiatorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('telemetry_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('protocol_type', 16, 0, safe_browsing.mojom.WebRequestProtocolTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('contact_initiator_type', 24, 0, safe_browsing.mojom.WebRequestContactInitiatorTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_Clone_Params', [
@@ -709,9 +703,8 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
 
 safe_browsing.mojom.ExtensionWebRequestReporter.getRemote = function() {
   let remote = new safe_browsing.mojom.ExtensionWebRequestReporterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'safe_browsing.mojom.ExtensionWebRequestReporter',
     'context');
   return remote.$;

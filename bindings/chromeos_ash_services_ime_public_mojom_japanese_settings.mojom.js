@@ -79,21 +79,21 @@ ash.ime.mojom.JpUnusedEnum6 = {
 // Struct: JpUnusedStruct
 mojo.internal.Struct(
     ash.ime.mojom.JpUnusedStructSpec, 'ash.ime.mojom.JpUnusedStruct', [
-      mojo.internal.StructField('unused0', 0, 0, ash.ime.mojom.JpUnusedEnum0Spec, null, false, 0, undefined),
-      mojo.internal.StructField('unused1', 4, 0, ash.ime.mojom.JpUnusedEnum1Spec, null, false, 0, undefined),
-      mojo.internal.StructField('unused2', 8, 0, ash.ime.mojom.JpUnusedEnum2Spec, null, false, 0, undefined),
-      mojo.internal.StructField('unused3', 12, 0, ash.ime.mojom.JpUnusedEnum3Spec, null, false, 0, undefined),
-      mojo.internal.StructField('unused4', 16, 0, ash.ime.mojom.JpUnusedEnum4Spec, null, false, 0, undefined),
-      mojo.internal.StructField('unused5', 20, 0, ash.ime.mojom.JpUnusedEnum5Spec, null, false, 0, undefined),
-      mojo.internal.StructField('unused6', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('unused7', 28, 0, ash.ime.mojom.JpUnusedEnum6Spec, null, false, 0, undefined),
-      mojo.internal.StructField('unused8', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('unused9', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('unused10', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('unused11', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('unused12', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unused0', 0, 0, ash.ime.mojom.JpUnusedEnum0Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('unused1', 8, 0, ash.ime.mojom.JpUnusedEnum1Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('unused2', 16, 0, ash.ime.mojom.JpUnusedEnum2Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('unused3', 24, 0, ash.ime.mojom.JpUnusedEnum3Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('unused4', 32, 0, ash.ime.mojom.JpUnusedEnum4Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('unused5', 40, 0, ash.ime.mojom.JpUnusedEnum5Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('unused6', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unused7', 56, 0, ash.ime.mojom.JpUnusedEnum6Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('unused8', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unused9', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unused10', 72, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('unused11', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unused12', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 96]]);
 
 // Interface: JpUnused
 mojo.internal.Struct(
@@ -103,7 +103,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec, 'ash.ime.mojom.JpUnused_Unused_ResponseParams', [
-      mojo.internal.StructField('unused', 0, 0, ash.ime.mojom.JpUnusedStructSpec, null, false, 0, undefined),
+      mojo.internal.StructField('unused', 0, 0, ash.ime.mojom.JpUnusedStructSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,9 +153,8 @@ ash.ime.mojom.JpUnusedRemoteCallHandler = class {
 
 ash.ime.mojom.JpUnused.getRemote = function() {
   let remote = new ash.ime.mojom.JpUnusedRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.ime.mojom.JpUnused',
     'context');
   return remote.$;

@@ -82,9 +82,8 @@ ash.settings.one_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.settings.one_drive.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.settings.one_drive.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.one_drive.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -215,9 +214,8 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.settings.one_drive.mojom.PageHandler.getRemote = function() {
   let remote = new ash.settings.one_drive.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.one_drive.mojom.PageHandler',
     'context');
   return remote.$;
@@ -295,9 +293,8 @@ ash.settings.one_drive.mojom.PageRemoteCallHandler = class {
 
 ash.settings.one_drive.mojom.Page.getRemote = function() {
   let remote = new ash.settings.one_drive.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.one_drive.mojom.Page',
     'context');
   return remote.$;

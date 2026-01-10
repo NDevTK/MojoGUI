@@ -85,9 +85,8 @@ ash.extended_updates.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.extended_updates.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.extended_updates.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.extended_updates.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -121,7 +120,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParams', [
-      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.extended_updates.mojom.AppSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.extended_updates.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -191,9 +190,8 @@ ash.extended_updates.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.extended_updates.mojom.PageHandler.getRemote = function() {
   let remote = new ash.extended_updates.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.extended_updates.mojom.PageHandler',
     'context');
   return remote.$;
@@ -240,9 +238,8 @@ ash.extended_updates.mojom.PageRemoteCallHandler = class {
 
 ash.extended_updates.mojom.Page.getRemote = function() {
   let remote = new ash.extended_updates.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.extended_updates.mojom.Page',
     'context');
   return remote.$;

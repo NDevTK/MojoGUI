@@ -17,13 +17,13 @@ device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = { $: {} };
 // Interface: UsbDeviceManagerClient
 mojo.internal.Struct(
     device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceAdded_Params', [
-      mojo.internal.StructField('device_info', 0, 0, device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.UsbDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_Params', [
-      mojo.internal.StructField('device_info', 0, 0, device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.UsbDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -83,9 +83,8 @@ device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
 
 device.mojom.UsbDeviceManagerClient.getRemote = function() {
   let remote = new device.mojom.UsbDeviceManagerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.UsbDeviceManagerClient',
     'context');
   return remote.$;

@@ -30,14 +30,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec, 'printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParams', [
-      mojo.internal.StructField('emf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('emf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec, 'printing.mojom.PdfToEmfConverter_SetWebContentsURL_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -113,9 +113,8 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
 
 printing.mojom.PdfToEmfConverter.getRemote = function() {
   let remote = new printing.mojom.PdfToEmfConverterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'printing.mojom.PdfToEmfConverter',
     'context');
   return remote.$;
@@ -128,8 +127,8 @@ printing.mojom.PdfToEmfConverterRequest = printing.mojom.PdfToEmfConverterPendin
 // Interface: PdfToEmfConverterFactory
 mojo.internal.Struct(
     printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec, 'printing.mojom.PdfToEmfConverterFactory_CreateConverter_Params', [
-      mojo.internal.StructField('pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('render_settings', 8, 0, printing.mojom.PdfRenderSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('render_settings', 8, 0, printing.mojom.PdfRenderSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -186,9 +185,8 @@ printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
 
 printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
   let remote = new printing.mojom.PdfToEmfConverterFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'printing.mojom.PdfToEmfConverterFactory',
     'context');
   return remote.$;

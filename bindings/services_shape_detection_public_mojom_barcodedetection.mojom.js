@@ -40,22 +40,22 @@ shape_detection.mojom.BarcodeFormat = {
 mojo.internal.Struct(
     shape_detection.mojom.BarcodeDetectionResultSpec, 'shape_detection.mojom.BarcodeDetectionResult', [
       mojo.internal.StructField('raw_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('bounding_box', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('format', 16, 0, shape_detection.mojom.BarcodeFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('corner_points', 24, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box', 8, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('format', 16, 0, shape_detection.mojom.BarcodeFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('corner_points', 24, 0, mojo.internal.Array(gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Interface: BarcodeDetection
 mojo.internal.Struct(
     shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec, 'shape_detection.mojom.BarcodeDetection_Detect_Params', [
-      mojo.internal.StructField('bitmap_data', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('bitmap_data', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.BarcodeDetection_Detect_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(shape_detection.mojom.BarcodeDetectionResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(shape_detection.mojom.BarcodeDetectionResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -105,9 +105,8 @@ shape_detection.mojom.BarcodeDetectionRemoteCallHandler = class {
 
 shape_detection.mojom.BarcodeDetection.getRemote = function() {
   let remote = new shape_detection.mojom.BarcodeDetectionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'shape_detection.mojom.BarcodeDetection',
     'context');
   return remote.$;

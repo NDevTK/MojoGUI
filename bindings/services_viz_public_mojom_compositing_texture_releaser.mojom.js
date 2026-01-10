@@ -15,7 +15,7 @@ viz.mojom.TextureReleaser_Release_ParamsSpec = { $: {} };
 // Interface: TextureReleaser
 mojo.internal.Struct(
     viz.mojom.TextureReleaser_Release_ParamsSpec, 'viz.mojom.TextureReleaser_Release_Params', [
-      mojo.internal.StructField('sync_token', 0, 0, gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sync_token', 0, 0, gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_lost', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -66,9 +66,8 @@ viz.mojom.TextureReleaserRemoteCallHandler = class {
 
 viz.mojom.TextureReleaser.getRemote = function() {
   let remote = new viz.mojom.TextureReleaserRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.TextureReleaser',
     'context');
   return remote.$;

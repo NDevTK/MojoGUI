@@ -85,13 +85,13 @@ network.mojom.IPAddressChangeType = {
 // Interface: NetworkChangeManagerClient
 mojo.internal.Struct(
     network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_Params', [
-      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnNetworkChanged_Params', [
-      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -151,9 +151,8 @@ network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
 
 network.mojom.NetworkChangeManagerClient.getRemote = function() {
   let remote = new network.mojom.NetworkChangeManagerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetworkChangeManagerClient',
     'context');
   return remote.$;
@@ -173,13 +172,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManager_OnNetworkChanged_Params', [
       mojo.internal.StructField('dns_changed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ip_address_change_type', 4, 0, network.mojom.IPAddressChangeTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('connection_type_changed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_connection_type', 12, 0, network.mojom.ConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('connection_subtype_changed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_connection_subtype', 20, 0, network.mojom.ConnectionSubtypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ip_address_change_type', 8, 0, network.mojom.IPAddressChangeTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('connection_type_changed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('new_connection_type', 24, 0, network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('connection_subtype_changed', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('new_connection_subtype', 40, 0, network.mojom.ConnectionSubtypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec, 'network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_Params', [
@@ -253,9 +252,8 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
 
 network.mojom.NetworkChangeManager.getRemote = function() {
   let remote = new network.mojom.NetworkChangeManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetworkChangeManager',
     'context');
   return remote.$;

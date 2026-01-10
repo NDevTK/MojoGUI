@@ -16,7 +16,7 @@ media.mojom.VideoEncoderInfoSpec = { $: {} };
 // Struct: ResolutionRateLimit
 mojo.internal.Struct(
     media.mojom.ResolutionRateLimitSpec, 'media.mojom.ResolutionRateLimit', [
-      mojo.internal.StructField('frame_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('min_start_bitrate_bps', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('min_bitrate_bps', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('max_bitrate_bps', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -43,8 +43,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('supports_frame_size_change', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('number_of_manual_reference_buffers', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('fps_allocation', 48, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Pointer, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('resolution_rate_limits', 56, 0, mojo.internal.Array(media.mojom.ResolutionRateLimitSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('gpu_supported_pixel_formats', 64, 0, mojo.internal.Array(media.mojom.VideoPixelFormatSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resolution_rate_limits', 56, 0, mojo.internal.Array(media.mojom.ResolutionRateLimitSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('gpu_supported_pixel_formats', 64, 0, mojo.internal.Array(media.mojom.VideoPixelFormatSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('supports_gpu_shared_images', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 88]]);

@@ -52,8 +52,8 @@ mojo.internal.Struct(
     metrics.structured.mojom.EventSpec, 'metrics.structured.mojom.Event', [
       mojo.internal.StructField('project_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('metrics', 16, 0, mojo.internal.Map(mojo.internal.String, metrics.structured.mojom.MetricValueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('system_uptime', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 1, undefined),
+      mojo.internal.StructField('metrics', 16, 0, mojo.internal.Map(mojo.internal.String, metrics.structured.mojom.MetricValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('system_uptime', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 1, undefined),
       mojo.internal.StructField('is_event_sequence', 32, 0, mojo.internal.Bool, false, false, 1, undefined),
     ],
     [[0, 32], [1, 48]]);

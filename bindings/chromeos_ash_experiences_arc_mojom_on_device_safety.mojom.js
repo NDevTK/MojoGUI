@@ -90,9 +90,8 @@ arc.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
 
 arc.mojom.OnDeviceSafetyHost.getRemote = function() {
   let remote = new arc.mojom.OnDeviceSafetyHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.OnDeviceSafetyHost',
     'context');
   return remote.$;
@@ -111,7 +110,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec, 'arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, arc.mojom.GetArcSafetySessionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.GetArcSafetySessionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -182,9 +181,8 @@ arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
 
 arc.mojom.OnDeviceSafetyInstance.getRemote = function() {
   let remote = new arc.mojom.OnDeviceSafetyInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.OnDeviceSafetyInstance',
     'context');
   return remote.$;

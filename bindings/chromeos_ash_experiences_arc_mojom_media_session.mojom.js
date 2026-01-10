@@ -82,9 +82,8 @@ arc.mojom.MediaSessionInstanceRemoteCallHandler = class {
 
 arc.mojom.MediaSessionInstance.getRemote = function() {
   let remote = new arc.mojom.MediaSessionInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.MediaSessionInstance',
     'context');
   return remote.$;

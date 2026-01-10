@@ -26,8 +26,8 @@ subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpe
 // Interface: SubresourceFilterAgent
 mojo.internal.Struct(
     subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_Params', [
-      mojo.internal.StructField('activation_state', 0, 0, subresource_filter.mojom.ActivationStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ad_evidence', 8, 0, blink.mojom.FrameAdEvidenceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('activation_state', 0, 0, subresource_filter.mojom.ActivationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ad_evidence', 8, 0, blink.mojom.FrameAdEvidenceSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -77,9 +77,8 @@ subresource_filter.mojom.SubresourceFilterAgentRemoteCallHandler = class {
 
 subresource_filter.mojom.SubresourceFilterAgent.getRemote = function() {
   let remote = new subresource_filter.mojom.SubresourceFilterAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'subresource_filter.mojom.SubresourceFilterAgent',
     'context');
   return remote.$;
@@ -107,19 +106,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_Params', [
-      mojo.internal.StructField('fenced_frame_root_placeholder_token', 0, 0, blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fenced_frame_root_placeholder_token', 0, 0, blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_Params', [
-      mojo.internal.StructField('statistics', 0, 0, subresource_filter.mojom.DocumentLoadStatisticsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('statistics', 0, 0, subresource_filter.mojom.DocumentLoadStatisticsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec, 'subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_Params', [
-      mojo.internal.StructField('violation', 0, 0, subresource_filter.mojom.AdsViolationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('violation', 0, 0, subresource_filter.mojom.AdsViolationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -219,9 +218,8 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
 
 subresource_filter.mojom.SubresourceFilterHost.getRemote = function() {
   let remote = new subresource_filter.mojom.SubresourceFilterHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'subresource_filter.mojom.SubresourceFilterHost',
     'context');
   return remote.$;

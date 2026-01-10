@@ -43,13 +43,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec, 'chromecast.mojom.GestureHandler_OnBackGestureProgress_Params', [
-      mojo.internal.StructField('touch_location', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('touch_location', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec, 'chromecast.mojom.GestureHandler_OnTopDragGestureProgress_Params', [
-      mojo.internal.StructField('touch_location', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('touch_location', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -60,7 +60,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec, 'chromecast.mojom.GestureHandler_OnRightDragGestureProgress_Params', [
-      mojo.internal.StructField('touch_location', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('touch_location', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -210,9 +210,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
 
 chromecast.mojom.GestureHandler.getRemote = function() {
   let remote = new chromecast.mojom.GestureHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.GestureHandler',
     'context');
   return remote.$;
@@ -323,9 +322,8 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
 
 chromecast.mojom.GestureSource.getRemote = function() {
   let remote = new chromecast.mojom.GestureSourceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.GestureSource',
     'context');
   return remote.$;

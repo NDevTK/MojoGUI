@@ -38,8 +38,8 @@ mojo.internal.Struct(
     ash.focus_mode.mojom.TrackDefinitionSpec, 'ash.focus_mode.mojom.TrackDefinition', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('artist', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('thumbnail_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('media_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thumbnail_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('media_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('enable_playback_reporting', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -47,15 +47,15 @@ mojo.internal.Struct(
 // Struct: PlaybackData
 mojo.internal.Struct(
     ash.focus_mode.mojom.PlaybackDataSpec, 'ash.focus_mode.mojom.PlaybackData', [
-      mojo.internal.StructField('state', 0, 0, ash.focus_mode.mojom.PlaybackStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.focus_mode.mojom.PlaybackStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('client_current_time', 24, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('client_current_time', 24, 0, mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('playback_start_offset', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('media_time_current', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('media_start', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('media_end', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('client_start_time', 48, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_start_time', 48, 0, mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('initial_playback', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 72]]);
@@ -63,7 +63,7 @@ mojo.internal.Struct(
 // Interface: MediaClient
 mojo.internal.Struct(
     ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec, 'ash.focus_mode.mojom.MediaClient_StartPlay_Params', [
-      mojo.internal.StructField('track', 0, 0, ash.focus_mode.mojom.TrackDefinitionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('track', 0, 0, ash.focus_mode.mojom.TrackDefinitionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -113,9 +113,8 @@ ash.focus_mode.mojom.MediaClientRemoteCallHandler = class {
 
 ash.focus_mode.mojom.MediaClient.getRemote = function() {
   let remote = new ash.focus_mode.mojom.MediaClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.focus_mode.mojom.MediaClient',
     'context');
   return remote.$;
@@ -133,7 +132,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec, 'ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParams', [
-      mojo.internal.StructField('track', 0, 0, ash.focus_mode.mojom.TrackDefinitionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('track', 0, 0, ash.focus_mode.mojom.TrackDefinitionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -145,7 +144,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec, 'ash.focus_mode.mojom.TrackProvider_ReportPlayback_Params', [
-      mojo.internal.StructField('data', 0, 0, ash.focus_mode.mojom.PlaybackDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, ash.focus_mode.mojom.PlaybackDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -230,9 +229,8 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
 
 ash.focus_mode.mojom.TrackProvider.getRemote = function() {
   let remote = new ash.focus_mode.mojom.TrackProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.focus_mode.mojom.TrackProvider',
     'context');
   return remote.$;

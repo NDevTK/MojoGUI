@@ -50,10 +50,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     discards.mojom.SiteDataValueSpec, 'discards.mojom.SiteDataValue', [
       mojo.internal.StructField('last_loaded', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('updates_favicon_in_background', 8, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('updates_title_in_background', 16, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('uses_audio_in_background', 24, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('load_time_estimates', 32, 0, discards.mojom.SiteDataPerformanceMeasurementSpec, null, true, 0, undefined),
+      mojo.internal.StructField('updates_favicon_in_background', 8, 0, discards.mojom.SiteDataFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('updates_title_in_background', 16, 0, discards.mojom.SiteDataFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('uses_audio_in_background', 24, 0, discards.mojom.SiteDataFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('load_time_estimates', 32, 0, discards.mojom.SiteDataPerformanceMeasurementSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -62,14 +62,14 @@ mojo.internal.Struct(
     discards.mojom.SiteDataEntrySpec, 'discards.mojom.SiteDataEntry', [
       mojo.internal.StructField('origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('is_dirty', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('value', 16, 0, discards.mojom.SiteDataValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('value', 16, 0, discards.mojom.SiteDataValueSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SiteDataArray
 mojo.internal.Struct(
     discards.mojom.SiteDataArraySpec, 'discards.mojom.SiteDataArray', [
-      mojo.internal.StructField('db_rows', 0, 0, mojo.internal.Array(discards.mojom.SiteDataEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('db_rows', 0, 0, mojo.internal.Array(discards.mojom.SiteDataEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -82,7 +82,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, discards.mojom.SiteDataArraySpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, discards.mojom.SiteDataArraySpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -93,7 +93,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParams', [
-      mojo.internal.StructField('db_size', 0, 0, discards.mojom.SiteDataDatabaseSizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('db_size', 0, 0, discards.mojom.SiteDataDatabaseSizeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,9 +153,8 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
 
 discards.mojom.SiteDataProvider.getRemote = function() {
   let remote = new discards.mojom.SiteDataProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'discards.mojom.SiteDataProvider',
     'context');
   return remote.$;

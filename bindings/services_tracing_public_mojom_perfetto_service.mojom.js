@@ -121,7 +121,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.ChunkPatchSpec, 'tracing.mojom.ChunkPatch', [
       mojo.internal.StructField('offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -131,7 +131,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('target_buffer', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('writer_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('chunk_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('patches', 16, 0, mojo.internal.Array(tracing.mojom.ChunkPatchSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('patches', 16, 0, mojo.internal.Array(tracing.mojom.ChunkPatchSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('has_more_patches', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -139,8 +139,8 @@ mojo.internal.Struct(
 // Struct: CommitDataRequest
 mojo.internal.Struct(
     tracing.mojom.CommitDataRequestSpec, 'tracing.mojom.CommitDataRequest', [
-      mojo.internal.StructField('chunks_to_move', 0, 0, mojo.internal.Array(tracing.mojom.ChunksToMoveSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('chunks_to_patch', 8, 0, mojo.internal.Array(tracing.mojom.ChunksToPatchSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('chunks_to_move', 0, 0, mojo.internal.Array(tracing.mojom.ChunksToMoveSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('chunks_to_patch', 8, 0, mojo.internal.Array(tracing.mojom.ChunksToPatchSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('flush_request_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -158,16 +158,16 @@ mojo.internal.Struct(
 // Struct: ConsoleConfig
 mojo.internal.Struct(
     tracing.mojom.ConsoleConfigSpec, 'tracing.mojom.ConsoleConfig', [
-      mojo.internal.StructField('output', 0, 0, tracing.mojom.ConsoleOutputSpec, null, false, 0, undefined),
-      mojo.internal.StructField('enable_colors', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('output', 0, 0, tracing.mojom.ConsoleOutputSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('enable_colors', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: InterceptorConfig
 mojo.internal.Struct(
     tracing.mojom.InterceptorConfigSpec, 'tracing.mojom.InterceptorConfig', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('console_config', 8, 0, tracing.mojom.ConsoleConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('console_config', 8, 0, tracing.mojom.ConsoleConfigSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -178,13 +178,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('target_buffer', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('trace_duration_ms', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('tracing_session_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('chrome_config', 24, 0, tracing.mojom.ChromeConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('interceptor_config', 32, 0, tracing.mojom.InterceptorConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('chrome_config', 24, 0, tracing.mojom.ChromeConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('interceptor_config', 32, 0, tracing.mojom.InterceptorConfigSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('legacy_config', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('track_event_config_raw', 48, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('etw_config_raw', 56, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('system_metrics_config_raw', 64, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('histogram_samples_config_raw', 72, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('track_event_config_raw', 48, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('etw_config_raw', 56, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('system_metrics_config_raw', 64, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('histogram_samples_config_raw', 72, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -203,14 +203,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.BufferConfigSpec, 'tracing.mojom.BufferConfig', [
       mojo.internal.StructField('size_kb', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('fill_policy', 4, 0, tracing.mojom.BufferFillPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('fill_policy', 8, 0, tracing.mojom.BufferFillPolicySpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: DataSource
 mojo.internal.Struct(
     tracing.mojom.DataSourceSpec, 'tracing.mojom.DataSource', [
-      mojo.internal.StructField('config', 0, 0, tracing.mojom.DataSourceConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, tracing.mojom.DataSourceConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('producer_name_filter', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -236,21 +236,21 @@ mojo.internal.Struct(
 // Struct: TraceConfig
 mojo.internal.Struct(
     tracing.mojom.TraceConfigSpec, 'tracing.mojom.TraceConfig', [
-      mojo.internal.StructField('data_sources', 0, 0, mojo.internal.Array(tracing.mojom.DataSourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('perfetto_builtin_data_source', 8, 0, tracing.mojom.PerfettoBuiltinDataSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('buffers', 16, 0, mojo.internal.Array(tracing.mojom.BufferConfigSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('incremental_state_config', 24, 0, tracing.mojom.IncrementalStateConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_sources', 0, 0, mojo.internal.Array(tracing.mojom.DataSourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('perfetto_builtin_data_source', 8, 0, tracing.mojom.PerfettoBuiltinDataSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('buffers', 16, 0, mojo.internal.Array(tracing.mojom.BufferConfigSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('incremental_state_config', 24, 0, tracing.mojom.IncrementalStateConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('duration_ms', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('write_into_file', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('trace_uuid', 40, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('unique_session_name', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('trace_uuid', 40, 0, mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('unique_session_name', 48, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
 // Interface: ProducerHost
 mojo.internal.Struct(
     tracing.mojom.ProducerHost_CommitData_ParamsSpec, 'tracing.mojom.ProducerHost_CommitData_Params', [
-      mojo.internal.StructField('data_request', 0, 0, tracing.mojom.CommitDataRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_request', 0, 0, tracing.mojom.CommitDataRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -261,13 +261,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec, 'tracing.mojom.ProducerHost_RegisterDataSource_Params', [
-      mojo.internal.StructField('registration_info', 0, 0, tracing.mojom.DataSourceRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('registration_info', 0, 0, tracing.mojom.DataSourceRegistrationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec, 'tracing.mojom.ProducerHost_UpdateDataSource_Params', [
-      mojo.internal.StructField('registration_info', 0, 0, tracing.mojom.DataSourceRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('registration_info', 0, 0, tracing.mojom.DataSourceRegistrationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -370,9 +370,8 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
 
 tracing.mojom.ProducerHost.getRemote = function() {
   let remote = new tracing.mojom.ProducerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.ProducerHost',
     'context');
   return remote.$;
@@ -391,7 +390,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tracing.mojom.ProducerClient_StartDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_Params', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('data_source_config', 8, 0, tracing.mojom.DataSourceConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_source_config', 8, 0, tracing.mojom.DataSourceConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -509,9 +508,8 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
 
 tracing.mojom.ProducerClient.getRemote = function() {
   let remote = new tracing.mojom.ProducerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.ProducerClient',
     'context');
   return remote.$;
@@ -526,7 +524,7 @@ mojo.internal.Struct(
     tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec, 'tracing.mojom.PerfettoService_ConnectToProducerHost_Params', [
       mojo.internal.StructField('producer_client', 0, 0, mojo.internal.InterfaceProxy(tracing.mojom.ProducerClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('producer_host_receiver', 8, 0, mojo.internal.InterfaceRequest(tracing.mojom.ProducerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('shared_memory', 16, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_memory', 16, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('shared_memory_buffer_page_size_bytes', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -577,9 +575,8 @@ tracing.mojom.PerfettoServiceRemoteCallHandler = class {
 
 tracing.mojom.PerfettoService.getRemote = function() {
   let remote = new tracing.mojom.PerfettoServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.PerfettoService',
     'context');
   return remote.$;
@@ -594,8 +591,8 @@ mojo.internal.Struct(
     tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec, 'tracing.mojom.ConsumerHost_EnableTracing_Params', [
       mojo.internal.StructField('tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('config', 16, 0, tracing.mojom.TraceConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_file', 24, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('config', 16, 0, tracing.mojom.TraceConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 24, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -603,7 +600,7 @@ mojo.internal.Struct(
     tracing.mojom.ConsumerHost_CloneSession_ParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_Params', [
       mojo.internal.StructField('tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('unguessable_name', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('unguessable_name', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('privacy_filtering_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -612,7 +609,7 @@ mojo.internal.Struct(
     tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_ResponseParams', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('error', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('uuid', 16, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uuid', 16, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -672,9 +669,8 @@ tracing.mojom.ConsumerHostRemoteCallHandler = class {
 
 tracing.mojom.ConsumerHost.getRemote = function() {
   let remote = new tracing.mojom.ConsumerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.ConsumerHost',
     'context');
   return remote.$;
@@ -687,7 +683,7 @@ tracing.mojom.ConsumerHostRequest = tracing.mojom.ConsumerHostPendingReceiver;
 // Interface: TracingSessionHost
 mojo.internal.Struct(
     tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec, 'tracing.mojom.TracingSessionHost_ChangeTraceConfig_Params', [
-      mojo.internal.StructField('config', 0, 0, tracing.mojom.TraceConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, tracing.mojom.TraceConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -819,9 +815,8 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
 
 tracing.mojom.TracingSessionHost.getRemote = function() {
   let remote = new tracing.mojom.TracingSessionHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.TracingSessionHost',
     'context');
   return remote.$;
@@ -899,9 +894,8 @@ tracing.mojom.TracingSessionClientRemoteCallHandler = class {
 
 tracing.mojom.TracingSessionClient.getRemote = function() {
   let remote = new tracing.mojom.TracingSessionClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.TracingSessionClient',
     'context');
   return remote.$;

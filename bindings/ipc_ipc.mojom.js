@@ -20,7 +20,7 @@ IPC.mojom.ChannelBootstrap.$interfaceName = 'IPC.mojom.ChannelBootstrap';
 mojo.internal.Struct(
     IPC.mojom.MessageSpec, 'IPC.mojom.Message', [
       mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('handles', 8, 0, mojo.internal.Array(mojo.native.SerializedHandleSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('handles', 8, 0, mojo.internal.Array(mojo.native.SerializedHandleSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -33,7 +33,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec, 'IPC.mojom.Channel_GetAssociatedInterface_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingAssociatedReceiverSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingAssociatedReceiverSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -93,9 +93,8 @@ IPC.mojom.ChannelRemoteCallHandler = class {
 
 IPC.mojom.Channel.getRemote = function() {
   let remote = new IPC.mojom.ChannelRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'IPC.mojom.Channel',
     'context');
   return remote.$;
@@ -142,9 +141,8 @@ IPC.mojom.ChannelBootstrapRemoteCallHandler = class {
 
 IPC.mojom.ChannelBootstrap.getRemote = function() {
   let remote = new IPC.mojom.ChannelBootstrapRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'IPC.mojom.ChannelBootstrap',
     'context');
   return remote.$;

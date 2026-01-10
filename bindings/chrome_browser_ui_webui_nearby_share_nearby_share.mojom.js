@@ -129,18 +129,18 @@ mojo.internal.Struct(
     nearby_share.mojom.PayloadPreviewSpec, 'nearby_share.mojom.PayloadPreview', [
       mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('file_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('share_type', 12, 0, nearby_share.mojom.ShareTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('share_type', 16, 0, nearby_share.mojom.ShareTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: ShareTarget
 mojo.internal.Struct(
     nearby_share.mojom.ShareTargetSpec, 'nearby_share.mojom.ShareTarget', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, nearby_share.mojom.ShareTargetTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('payload_preview', 32, 0, nearby_share.mojom.PayloadPreviewSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, nearby_share.mojom.ShareTargetTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('payload_preview', 32, 0, nearby_share.mojom.PayloadPreviewSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('for_self_share', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -148,24 +148,24 @@ mojo.internal.Struct(
 // Struct: TransferMetadata
 mojo.internal.Struct(
     nearby_share.mojom.TransferMetadataSpec, 'nearby_share.mojom.TransferMetadata', [
-      mojo.internal.StructField('status', 0, 0, nearby_share.mojom.TransferStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('token', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('is_original', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_final_status', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, nearby_share.mojom.TransferStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('token', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_original', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_final_status', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Interface: ShareTargetListener
 mojo.internal.Struct(
     nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_Params', [
-      mojo.internal.StructField('share_target', 0, 0, nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('share_target', 0, 0, nearby_share.mojom.ShareTargetSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetLost_Params', [
-      mojo.internal.StructField('share_target', 0, 0, nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('share_target', 0, 0, nearby_share.mojom.ShareTargetSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -225,9 +225,8 @@ nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
 
 nearby_share.mojom.ShareTargetListener.getRemote = function() {
   let remote = new nearby_share.mojom.ShareTargetListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.ShareTargetListener',
     'context');
   return remote.$;
@@ -240,7 +239,7 @@ nearby_share.mojom.ShareTargetListenerRequest = nearby_share.mojom.ShareTargetLi
 // Interface: TransferUpdateListener
 mojo.internal.Struct(
     nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_Params', [
-      mojo.internal.StructField('status', 0, 0, nearby_share.mojom.TransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, nearby_share.mojom.TransferStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('token', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -291,9 +290,8 @@ nearby_share.mojom.TransferUpdateListenerRemoteCallHandler = class {
 
 nearby_share.mojom.TransferUpdateListener.getRemote = function() {
   let remote = new nearby_share.mojom.TransferUpdateListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.TransferUpdateListener',
     'context');
   return remote.$;
@@ -371,9 +369,8 @@ nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
 
 nearby_share.mojom.DiscoveryObserver.getRemote = function() {
   let remote = new nearby_share.mojom.DiscoveryObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.DiscoveryObserver',
     'context');
   return remote.$;
@@ -398,7 +395,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.StartDiscoveryResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.StartDiscoveryResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -414,13 +411,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_Params', [
-      mojo.internal.StructField('share_target_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('share_target_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.SelectShareTargetResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.SelectShareTargetResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('transfer_update_listener', 8, 0, mojo.internal.InterfaceRequest(nearby_share.mojom.TransferUpdateListenerRemote), null, true, 0, undefined),
       mojo.internal.StructField('confirmation_manager', 16, 0, mojo.internal.InterfaceProxy(nearby_share.mojom.ConfirmationManagerRemote), null, true, 0, undefined),
     ],
@@ -433,7 +430,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParams', [
-      mojo.internal.StructField('payload_preview', 0, 0, nearby_share.mojom.PayloadPreviewSpec, null, false, 0, undefined),
+      mojo.internal.StructField('payload_preview', 0, 0, nearby_share.mojom.PayloadPreviewSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -523,9 +520,8 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
 
 nearby_share.mojom.DiscoveryManager.getRemote = function() {
   let remote = new nearby_share.mojom.DiscoveryManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.DiscoveryManager',
     'context');
   return remote.$;
@@ -635,9 +631,8 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
 
 nearby_share.mojom.ConfirmationManager.getRemote = function() {
   let remote = new nearby_share.mojom.ConfirmationManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.ConfirmationManager',
     'context');
   return remote.$;
@@ -656,8 +651,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnTransferUpdate_Params', [
-      mojo.internal.StructField('share_target', 0, 0, nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('metadata', 8, 0, nearby_share.mojom.TransferMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('share_target', 0, 0, nearby_share.mojom.ShareTargetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, nearby_share.mojom.TransferMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -747,9 +742,8 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
 
 nearby_share.mojom.ReceiveObserver.getRemote = function() {
   let remote = new nearby_share.mojom.ReceiveObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.ReceiveObserver',
     'context');
   return remote.$;
@@ -784,7 +778,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.RegisterReceiveSurfaceResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.RegisterReceiveSurfaceResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -801,7 +795,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveManager_Accept_ParamsSpec, 'nearby_share.mojom.ReceiveManager_Accept_Params', [
-      mojo.internal.StructField('share_target_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('share_target_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -813,7 +807,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     nearby_share.mojom.ReceiveManager_Reject_ParamsSpec, 'nearby_share.mojom.ReceiveManager_Reject_Params', [
-      mojo.internal.StructField('share_target_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('share_target_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -935,9 +929,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
 
 nearby_share.mojom.ReceiveManager.getRemote = function() {
   let remote = new nearby_share.mojom.ReceiveManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'nearby_share.mojom.ReceiveManager',
     'context');
   return remote.$;

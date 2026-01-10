@@ -28,7 +28,7 @@ mojo.internal.Union(
     blink.mojom.InnerTextSegmentSpec, 'blink.mojom.InnerTextSegment', {
       'node_location': {
         'ordinal': 0,
-        'type': blink.mojom.NodeLocationTypeSpec,
+        'type': blink.mojom.NodeLocationTypeSpec.$,
         'nullable': false,
       },
       'text': {
@@ -38,7 +38,7 @@ mojo.internal.Union(
       },
       'frame': {
         'ordinal': 2,
-        'type': blink.mojom.InnerTextFrameSpec,
+        'type': blink.mojom.InnerTextFrameSpec.$,
         'nullable': false,
       },
     });
@@ -46,8 +46,8 @@ mojo.internal.Union(
 // Struct: InnerTextFrame
 mojo.internal.Struct(
     blink.mojom.InnerTextFrameSpec, 'blink.mojom.InnerTextFrame', [
-      mojo.internal.StructField('token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('segments', 8, 0, mojo.internal.Array(blink.mojom.InnerTextSegmentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('segments', 8, 0, mojo.internal.Array(blink.mojom.InnerTextSegmentSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -69,13 +69,13 @@ mojo.internal.Struct(
 // Interface: InnerTextAgent
 mojo.internal.Struct(
     blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_Params', [
-      mojo.internal.StructField('params', 0, 0, blink.mojom.InnerTextParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, blink.mojom.InnerTextParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_ResponseParams', [
-      mojo.internal.StructField('frame', 0, 0, blink.mojom.InnerTextFrameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame', 0, 0, blink.mojom.InnerTextFrameSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -125,9 +125,8 @@ blink.mojom.InnerTextAgentRemoteCallHandler = class {
 
 blink.mojom.InnerTextAgent.getRemote = function() {
   let remote = new blink.mojom.InnerTextAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.InnerTextAgent',
     'context');
   return remote.$;

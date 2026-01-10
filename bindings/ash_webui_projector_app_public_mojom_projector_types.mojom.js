@@ -92,7 +92,7 @@ mojo.internal.Union(
     ash.projector.mojom.GetVideoResultSpec, 'ash.projector.mojom.GetVideoResult', {
       'video': {
         'ordinal': 0,
-        'type': ash.projector.mojom.VideoInfoSpec,
+        'type': ash.projector.mojom.VideoInfoSpec.$,
         'nullable': false,
       },
       'error_message': {
@@ -105,8 +105,8 @@ mojo.internal.Union(
 // Struct: NewScreencastPrecondition
 mojo.internal.Struct(
     ash.projector.mojom.NewScreencastPreconditionSpec, 'ash.projector.mojom.NewScreencastPrecondition', [
-      mojo.internal.StructField('state', 0, 0, ash.projector.mojom.NewScreencastPreconditionStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reasons', 8, 0, mojo.internal.Array(ash.projector.mojom.NewScreencastPreconditionReasonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.projector.mojom.NewScreencastPreconditionStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reasons', 8, 0, mojo.internal.Array(ash.projector.mojom.NewScreencastPreconditionReasonSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -124,10 +124,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.projector.mojom.XhrResponseSpec, 'ash.projector.mojom.XhrResponse', [
       mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('response_code', 8, 0, ash.projector.mojom.XhrResponseCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('net_error_code', 12, 0, ash.projector.mojom.JsNetErrorCodeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('response_code', 8, 0, ash.projector.mojom.XhrResponseCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('net_error_code', 16, 0, ash.projector.mojom.JsNetErrorCodeSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: Account
 mojo.internal.Struct(

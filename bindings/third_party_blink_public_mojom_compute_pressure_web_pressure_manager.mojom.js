@@ -22,14 +22,14 @@ blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = { $: {} };
 // Interface: WebPressureManager
 mojo.internal.Struct(
     blink.mojom.WebPressureManager_AddClient_ParamsSpec, 'blink.mojom.WebPressureManager_AddClient_Params', [
-      mojo.internal.StructField('source', 0, 0, device.mojom.PressureSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec, 'blink.mojom.WebPressureManager_AddClient_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, device.mojom.PressureManagerAddClientResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, device.mojom.PressureManagerAddClientResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -79,9 +79,8 @@ blink.mojom.WebPressureManagerRemoteCallHandler = class {
 
 blink.mojom.WebPressureManager.getRemote = function() {
   let remote = new blink.mojom.WebPressureManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WebPressureManager',
     'context');
   return remote.$;
@@ -94,7 +93,7 @@ blink.mojom.WebPressureManagerRequest = blink.mojom.WebPressureManagerPendingRec
 // Interface: WebPressureClient
 mojo.internal.Struct(
     blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec, 'blink.mojom.WebPressureClient_OnPressureUpdated_Params', [
-      mojo.internal.StructField('update', 0, 0, blink.mojom.WebPressureUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update', 0, 0, blink.mojom.WebPressureUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -144,9 +143,8 @@ blink.mojom.WebPressureClientRemoteCallHandler = class {
 
 blink.mojom.WebPressureClient.getRemote = function() {
   let remote = new blink.mojom.WebPressureClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WebPressureClient',
     'context');
   return remote.$;

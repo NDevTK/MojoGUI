@@ -24,7 +24,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec, 'discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParams', [
-      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -90,9 +90,8 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
 
 discardable_memory.mojom.DiscardableSharedMemoryManager.getRemote = function() {
   let remote = new discardable_memory.mojom.DiscardableSharedMemoryManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'discardable_memory.mojom.DiscardableSharedMemoryManager',
     'context');
   return remote.$;

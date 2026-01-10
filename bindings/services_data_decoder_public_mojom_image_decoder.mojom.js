@@ -29,40 +29,40 @@ data_decoder.mojom.ImageCodec = {
 // Struct: AnimationFrame
 mojo.internal.Struct(
     data_decoder.mojom.AnimationFrameSpec, 'data_decoder.mojom.AnimationFrame', [
-      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.InlineBitmapSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.InlineBitmapSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: ImageDecoder
 mojo.internal.Struct(
     data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_Params', [
-      mojo.internal.StructField('encoded_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('codec', 16, 0, data_decoder.mojom.ImageCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shrink_to_fit', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('encoded_data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('codec', 8, 0, data_decoder.mojom.ImageCodecSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('shrink_to_fit', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('max_size_in_bytes', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('desired_image_frame_size', 32, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('desired_image_frame_size', 32, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParams', [
-      mojo.internal.StructField('decoding_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('decoded_image', 8, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('decoding_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('decoded_image', 8, 0, skia.mojom.BitmapN32Spec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_Params', [
-      mojo.internal.StructField('encoded_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shrink_to_fit', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_size_in_bytes', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('encoded_data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('shrink_to_fit', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_size_in_bytes', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParams', [
-      mojo.internal.StructField('decoded_image', 0, 0, mojo.internal.Array(data_decoder.mojom.AnimationFrameSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('decoded_image', 0, 0, mojo.internal.Array(data_decoder.mojom.AnimationFrameSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -122,9 +122,8 @@ data_decoder.mojom.ImageDecoderRemoteCallHandler = class {
 
 data_decoder.mojom.ImageDecoder.getRemote = function() {
   let remote = new data_decoder.mojom.ImageDecoderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'data_decoder.mojom.ImageDecoder',
     'context');
   return remote.$;

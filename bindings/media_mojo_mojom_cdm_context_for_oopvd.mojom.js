@@ -47,7 +47,7 @@ media.mojom.CdmContextEvent = {
 // Interface: CdmContextEventCallback
 mojo.internal.Struct(
     media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec, 'media.mojom.CdmContextEventCallback_EventCallback_Params', [
-      mojo.internal.StructField('event', 0, 0, media.mojom.CdmContextEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, media.mojom.CdmContextEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -97,9 +97,8 @@ media.mojom.CdmContextEventCallbackRemoteCallHandler = class {
 
 media.mojom.CdmContextEventCallback.getRemote = function() {
   let remote = new media.mojom.CdmContextEventCallbackRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.CdmContextEventCallback',
     'context');
   return remote.$;
@@ -112,14 +111,14 @@ media.mojom.CdmContextEventCallbackRequest = media.mojom.CdmContextEventCallback
 // Interface: CdmContextForOOPVD
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec, 'media.mojom.CdmContextForOOPVD_GetHwKeyData_Params', [
-      mojo.internal.StructField('decrypt_config', 0, 0, media.mojom.DecryptConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('decrypt_config', 0, 0, media.mojom.DecryptConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('hw_identifier', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec, 'media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.DecryptStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -149,7 +148,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec, 'media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParams', [
-      mojo.internal.StructField('resolutions', 0, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resolutions', 0, 0, mojo.internal.Array(gfx.mojom.SizeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -182,18 +181,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec, 'media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_Params', [
-      mojo.internal.StructField('buffer', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bytes', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec, 'media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.DecryptStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('decoder_buffer', 8, 0, media.mojom.DecoderBufferSpec, null, true, 0, undefined),
-      mojo.internal.StructField('bytes', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.DecryptStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('decoder_buffer', 8, 0, media.mojom.DecoderBufferSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('bytes', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 media.mojom.CdmContextForOOPVDPendingReceiver = class {
   constructor(handle) {
@@ -301,9 +300,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
 
 media.mojom.CdmContextForOOPVD.getRemote = function() {
   let remote = new media.mojom.CdmContextForOOPVDRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.CdmContextForOOPVD',
     'context');
   return remote.$;

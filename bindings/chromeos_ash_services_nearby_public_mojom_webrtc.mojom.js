@@ -27,7 +27,7 @@ sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = { $: {} };
 // Struct: IceServer
 mojo.internal.Struct(
     sharing.mojom.IceServerSpec, 'sharing.mojom.IceServer', [
-      mojo.internal.StructField('urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('username', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('credential', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -51,7 +51,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec, 'sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParams', [
-      mojo.internal.StructField('ice_servers', 0, 0, mojo.internal.Array(sharing.mojom.IceServerSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('ice_servers', 0, 0, mojo.internal.Array(sharing.mojom.IceServerSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -101,9 +101,8 @@ sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
 
 sharing.mojom.IceConfigFetcher.getRemote = function() {
   let remote = new sharing.mojom.IceConfigFetcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.IceConfigFetcher',
     'context');
   return remote.$;
@@ -166,9 +165,8 @@ sharing.mojom.MdnsResponderFactoryRemoteCallHandler = class {
 
 sharing.mojom.MdnsResponderFactory.getRemote = function() {
   let remote = new sharing.mojom.MdnsResponderFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.MdnsResponderFactory',
     'context');
   return remote.$;

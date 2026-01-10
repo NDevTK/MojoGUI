@@ -68,9 +68,8 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemoteCallHandler = class {
 
 ash.mojom.sample_swa.UntrustedPageInterfacesFactory.getRemote = function() {
   let remote = new ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mojom.sample_swa.UntrustedPageInterfacesFactory',
     'context');
   return remote.$;

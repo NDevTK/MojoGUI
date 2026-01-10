@@ -36,7 +36,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec, 'viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_Params', [
-      mojo.internal.StructField('result_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -47,7 +47,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec, 'viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_Params', [
-      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -59,7 +59,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec, 'viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_Params', [
-      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -144,9 +144,8 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
 
 viz.mojom.FrameSinkManagerTestApi.getRemote = function() {
   let remote = new viz.mojom.FrameSinkManagerTestApiRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.FrameSinkManagerTestApi',
     'context');
   return remote.$;

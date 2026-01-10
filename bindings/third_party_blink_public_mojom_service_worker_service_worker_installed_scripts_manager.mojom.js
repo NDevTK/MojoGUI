@@ -23,14 +23,14 @@ mojo.internal.Struct(
     blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, 'blink.mojom.ServiceWorkerInstalledScriptsInfo', [
       mojo.internal.StructField('manager_receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), null, false, 0, undefined),
       mojo.internal.StructField('manager_host_remote', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('installed_urls', 16, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('installed_urls', 16, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ServiceWorkerScriptInfo
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerScriptInfoSpec, 'blink.mojom.ServiceWorkerScriptInfo', [
-      mojo.internal.StructField('script_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('encoding', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('headers', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('body', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
@@ -43,7 +43,7 @@ mojo.internal.Struct(
 // Interface: ServiceWorkerInstalledScriptsManagerHost
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Params', [
-      mojo.internal.StructField('script_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -93,9 +93,8 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerInstalledScriptsManagerHost.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ServiceWorkerInstalledScriptsManagerHost',
     'context');
   return remote.$;
@@ -108,7 +107,7 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHostRequest = blink.mojom.Servic
 // Interface: ServiceWorkerInstalledScriptsManager
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_Params', [
-      mojo.internal.StructField('script_info', 0, 0, blink.mojom.ServiceWorkerScriptInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_info', 0, 0, blink.mojom.ServiceWorkerScriptInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -158,9 +157,8 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerInstalledScriptsManager.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerInstalledScriptsManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ServiceWorkerInstalledScriptsManager',
     'context');
   return remote.$;

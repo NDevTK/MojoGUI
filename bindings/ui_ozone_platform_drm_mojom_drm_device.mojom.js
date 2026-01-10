@@ -54,21 +54,21 @@ ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = { $: {} };
 // Interface: DrmDevice
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec, 'ui.ozone.mojom.DrmDevice_CreateWindow_Params', [
-      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('initial_bounds', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('initial_bounds', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec, 'ui.ozone.mojom.DrmDevice_DestroyWindow_Params', [
-      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetWindowBounds_Params', [
-      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bounds', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -101,20 +101,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParams', [
-      mojo.internal.StructField('display_snapshots', 0, 0, mojo.internal.Array(display.mojom.DisplaySnapshotSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('display_snapshots', 0, 0, mojo.internal.Array(display.mojom.DisplaySnapshotSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec, 'ui.ozone.mojom.DrmDevice_AddGraphicsDevice_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('fd_mojo_handle', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec, 'ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -132,14 +132,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec, 'ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_Params', [
-      mojo.internal.StructField('config_requests', 0, 0, mojo.internal.Array(display.mojom.DisplayConfigurationParamsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('modeset_flags', 8, 0, display.mojom.ModesetFlagsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config_requests', 0, 0, mojo.internal.Array(display.mojom.DisplayConfigurationParamsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('modeset_flags', 8, 0, display.mojom.ModesetFlagsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParams', [
-      mojo.internal.StructField('request_results', 0, 0, mojo.internal.Array(display.mojom.DisplayConfigurationParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('request_results', 0, 0, mojo.internal.Array(display.mojom.DisplayConfigurationParamsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('config_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -168,18 +168,18 @@ mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParams', [
       mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('state', 12, 0, display.mojom.HDCPStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('protection_method', 16, 0, display.mojom.ContentProtectionMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 16, 0, display.mojom.HDCPStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('protection_method', 24, 0, display.mojom.ContentProtectionMethodSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetHDCPState_Params', [
       mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 8, 0, display.mojom.HDCPStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('protection_method', 12, 0, display.mojom.ContentProtectionMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, display.mojom.HDCPStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('protection_method', 16, 0, display.mojom.ContentProtectionMethodSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec, 'ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParams', [
@@ -191,21 +191,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_Params', [
       mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('cta', 8, 0, display.mojom.ColorTemperatureAdjustmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cta', 8, 0, display.mojom.ColorTemperatureAdjustmentSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetColorCalibration_Params', [
       mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('calibration', 8, 0, display.mojom.ColorCalibrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('calibration', 8, 0, display.mojom.ColorCalibrationSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec, 'ui.ozone.mojom.DrmDevice_SetGammaAdjustment_Params', [
       mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('adjustment', 8, 0, display.mojom.GammaAdjustmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('adjustment', 8, 0, display.mojom.GammaAdjustmentSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -466,9 +466,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
 
 ui.ozone.mojom.DrmDevice.getRemote = function() {
   let remote = new ui.ozone.mojom.DrmDeviceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ui.ozone.mojom.DrmDevice',
     'context');
   return remote.$;

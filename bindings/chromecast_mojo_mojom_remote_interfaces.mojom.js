@@ -83,9 +83,8 @@ chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
 
 chromecast.mojom.RemoteInterfaces.getRemote = function() {
   let remote = new chromecast.mojom.RemoteInterfacesRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.RemoteInterfaces',
     'context');
   return remote.$;

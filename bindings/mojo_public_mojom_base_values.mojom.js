@@ -47,12 +47,12 @@ mojo.internal.Union(
       },
       'dictionary_value': {
         'ordinal': 6,
-        'type': mojo_base.mojom.DictionaryValueSpec,
+        'type': mojo_base.mojom.DictionaryValueSpec.$,
         'nullable': false,
       },
       'list_value': {
         'ordinal': 7,
-        'type': mojo_base.mojom.ListValueSpec,
+        'type': mojo_base.mojom.ListValueSpec.$,
         'nullable': false,
       },
     });
@@ -60,13 +60,13 @@ mojo.internal.Union(
 // Struct: DictionaryValue
 mojo.internal.Struct(
     mojo_base.mojom.DictionaryValueSpec, 'mojo_base.mojom.DictionaryValue', [
-      mojo.internal.StructField('storage', 0, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.ValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('storage', 0, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.ValueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ListValue
 mojo.internal.Struct(
     mojo_base.mojom.ListValueSpec, 'mojo_base.mojom.ListValue', [
-      mojo.internal.StructField('storage', 0, 0, mojo.internal.Array(mojo_base.mojom.ValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('storage', 0, 0, mojo.internal.Array(mojo_base.mojom.ValueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

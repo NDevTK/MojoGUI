@@ -39,16 +39,16 @@ translate.mojom.TranslateError = {
 // Struct: LanguageDetectionDetails
 mojo.internal.Struct(
     translate.mojom.LanguageDetectionDetailsSpec, 'translate.mojom.LanguageDetectionDetails', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('adopted_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('has_notranslate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_run_lang_detection', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 24, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('content_language', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('model_detected_language', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('is_model_reliable', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('html_root_language', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('contents', 64, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('contents', 64, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('model_reliability_score', 72, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('detection_model_version', 80, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -68,7 +68,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('cancelled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('original_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('translated_lang', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error', 24, 0, translate.mojom.TranslateErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 24, 0, translate.mojom.TranslateErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -133,9 +133,8 @@ translate.mojom.TranslateAgentRemoteCallHandler = class {
 
 translate.mojom.TranslateAgent.getRemote = function() {
   let remote = new translate.mojom.TranslateAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'translate.mojom.TranslateAgent',
     'context');
   return remote.$;
@@ -149,7 +148,7 @@ translate.mojom.TranslateAgentRequest = translate.mojom.TranslateAgentPendingRec
 mojo.internal.Struct(
     translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec, 'translate.mojom.ContentTranslateDriver_RegisterPage_Params', [
       mojo.internal.StructField('translate_agent', 0, 0, mojo.internal.InterfaceProxy(translate.mojom.TranslateAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('details', 8, 0, translate.mojom.LanguageDetectionDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, translate.mojom.LanguageDetectionDetailsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('translation_critiera_met', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -200,9 +199,8 @@ translate.mojom.ContentTranslateDriverRemoteCallHandler = class {
 
 translate.mojom.ContentTranslateDriver.getRemote = function() {
   let remote = new translate.mojom.ContentTranslateDriverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'translate.mojom.ContentTranslateDriver',
     'context');
   return remote.$;

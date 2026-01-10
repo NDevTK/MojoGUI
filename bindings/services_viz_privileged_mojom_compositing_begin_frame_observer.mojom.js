@@ -16,7 +16,7 @@ viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = { $: {} };
 // Interface: BeginFrameObserver
 mojo.internal.Struct(
     viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec, 'viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_Params', [
-      mojo.internal.StructField('args', 0, 0, viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('args', 0, 0, viz.mojom.BeginFrameArgsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -66,9 +66,8 @@ viz.mojom.BeginFrameObserverRemoteCallHandler = class {
 
 viz.mojom.BeginFrameObserver.getRemote = function() {
   let remote = new viz.mojom.BeginFrameObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.BeginFrameObserver',
     'context');
   return remote.$;

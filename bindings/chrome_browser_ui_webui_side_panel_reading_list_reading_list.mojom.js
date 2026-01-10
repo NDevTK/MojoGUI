@@ -47,8 +47,8 @@ reading_list.mojom.CurrentPageActionButtonState = {
 // Struct: ReadLaterEntriesByStatus
 mojo.internal.Struct(
     reading_list.mojom.ReadLaterEntriesByStatusSpec, 'reading_list.mojom.ReadLaterEntriesByStatus', [
-      mojo.internal.StructField('unread_entries', 0, 0, mojo.internal.Array(reading_list.mojom.ReadLaterEntrySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('read_entries', 8, 0, mojo.internal.Array(reading_list.mojom.ReadLaterEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('unread_entries', 0, 0, mojo.internal.Array(reading_list.mojom.ReadLaterEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('read_entries', 8, 0, mojo.internal.Array(reading_list.mojom.ReadLaterEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -56,7 +56,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     reading_list.mojom.ReadLaterEntrySpec, 'reading_list.mojom.ReadLaterEntry', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('display_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('update_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('read', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -126,9 +126,8 @@ reading_list.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 reading_list.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new reading_list.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'reading_list.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -146,21 +145,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec, 'reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParams', [
-      mojo.internal.StructField('entries', 0, 0, reading_list.mojom.ReadLaterEntriesByStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('entries', 0, 0, reading_list.mojom.ReadLaterEntriesByStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     reading_list.mojom.PageHandler_OpenURL_ParamsSpec, 'reading_list.mojom.PageHandler_OpenURL_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('mark_as_read', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('click_modifiers', 16, 0, ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('click_modifiers', 16, 0, ui.mojom.ClickModifiersSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec, 'reading_list.mojom.PageHandler_UpdateReadStatus_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('read', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -177,13 +176,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec, 'reading_list.mojom.PageHandler_RemoveEntry_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec, 'reading_list.mojom.PageHandler_ShowContextMenuForURL_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('x', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('y', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -211,7 +210,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec, 'reading_list.mojom.PageHandler_GetWindowData_ResponseParams', [
-      mojo.internal.StructField('windows', 0, 0, mojo.internal.Array(reading_list.mojom.WindowSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('windows', 0, 0, mojo.internal.Array(reading_list.mojom.WindowSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -361,9 +360,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
 
 reading_list.mojom.PageHandler.getRemote = function() {
   let remote = new reading_list.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'reading_list.mojom.PageHandler',
     'context');
   return remote.$;
@@ -376,13 +374,13 @@ reading_list.mojom.PageHandlerRequest = reading_list.mojom.PageHandlerPendingRec
 // Interface: Page
 mojo.internal.Struct(
     reading_list.mojom.Page_ItemsChanged_ParamsSpec, 'reading_list.mojom.Page_ItemsChanged_Params', [
-      mojo.internal.StructField('entries', 0, 0, reading_list.mojom.ReadLaterEntriesByStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('entries', 0, 0, reading_list.mojom.ReadLaterEntriesByStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec, 'reading_list.mojom.Page_CurrentPageActionButtonStateChanged_Params', [
-      mojo.internal.StructField('state', 0, 0, reading_list.mojom.CurrentPageActionButtonStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, reading_list.mojom.CurrentPageActionButtonStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -442,9 +440,8 @@ reading_list.mojom.PageRemoteCallHandler = class {
 
 reading_list.mojom.Page.getRemote = function() {
   let remote = new reading_list.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'reading_list.mojom.Page',
     'context');
   return remote.$;

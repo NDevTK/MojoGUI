@@ -17,9 +17,9 @@ chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec, 'chromecast.shell.mojom.QueryableDataStore_Set_Params', [
       mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 chromecast.shell.mojom.QueryableDataStorePendingReceiver = class {
   constructor(handle) {
@@ -67,9 +67,8 @@ chromecast.shell.mojom.QueryableDataStoreRemoteCallHandler = class {
 
 chromecast.shell.mojom.QueryableDataStore.getRemote = function() {
   let remote = new chromecast.shell.mojom.QueryableDataStoreRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.shell.mojom.QueryableDataStore',
     'context');
   return remote.$;

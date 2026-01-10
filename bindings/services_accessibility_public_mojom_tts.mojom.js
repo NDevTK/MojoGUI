@@ -63,7 +63,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('lang', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('remote', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('engine_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('event_types', 32, 0, mojo.internal.Array(ax.mojom.TtsEventTypeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('event_types', 32, 0, mojo.internal.Array(ax.mojom.TtsEventTypeSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -84,18 +84,18 @@ mojo.internal.Struct(
 // Struct: TtsEvent
 mojo.internal.Struct(
     ax.mojom.TtsEventSpec, 'ax.mojom.TtsEvent', [
-      mojo.internal.StructField('type', 0, 0, ax.mojom.TtsEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('char_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_final', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ax.mojom.TtsEventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('char_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('error_message', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('length', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_final', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: TtsSpeakResult
 mojo.internal.Struct(
     ax.mojom.TtsSpeakResultSpec, 'ax.mojom.TtsSpeakResult', [
-      mojo.internal.StructField('error', 0, 0, ax.mojom.TtsErrorSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ax.mojom.TtsErrorSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('utterance_client', 8, 0, mojo.internal.InterfaceRequest(ax.mojom.TtsUtteranceClientRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -103,7 +103,7 @@ mojo.internal.Struct(
 // Interface: TtsUtteranceClient
 mojo.internal.Struct(
     ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec, 'ax.mojom.TtsUtteranceClient_OnEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, ax.mojom.TtsEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ax.mojom.TtsEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,9 +153,8 @@ ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
 
 ax.mojom.TtsUtteranceClient.getRemote = function() {
   let remote = new ax.mojom.TtsUtteranceClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.TtsUtteranceClient',
     'context');
   return remote.$;
@@ -169,13 +168,13 @@ ax.mojom.TtsUtteranceClientRequest = ax.mojom.TtsUtteranceClientPendingReceiver;
 mojo.internal.Struct(
     ax.mojom.Tts_Speak_ParamsSpec, 'ax.mojom.Tts_Speak_Params', [
       mojo.internal.StructField('utterance', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, ax.mojom.TtsOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, ax.mojom.TtsOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ax.mojom.Tts_Speak_ResponseParamsSpec, 'ax.mojom.Tts_Speak_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ax.mojom.TtsSpeakResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ax.mojom.TtsSpeakResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -212,7 +211,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ax.mojom.Tts_GetVoices_ResponseParamsSpec, 'ax.mojom.Tts_GetVoices_ResponseParams', [
-      mojo.internal.StructField('voices', 0, 0, mojo.internal.Array(ax.mojom.TtsVoiceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('voices', 0, 0, mojo.internal.Array(ax.mojom.TtsVoiceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -312,9 +311,8 @@ ax.mojom.TtsRemoteCallHandler = class {
 
 ax.mojom.Tts.getRemote = function() {
   let remote = new ax.mojom.TtsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.Tts',
     'context');
   return remote.$;

@@ -18,14 +18,14 @@ blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec = { $: {}
 // Struct: UnhandledTapInfo
 mojo.internal.Struct(
     blink.mojom.UnhandledTapInfoSpec, 'blink.mojom.UnhandledTapInfo', [
-      mojo.internal.StructField('tapped_position_in_viewport', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tapped_position_in_viewport', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: UnhandledTapNotifier
 mojo.internal.Struct(
     blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec, 'blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_Params', [
-      mojo.internal.StructField('unhandled_tap_info', 0, 0, blink.mojom.UnhandledTapInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('unhandled_tap_info', 0, 0, blink.mojom.UnhandledTapInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -75,9 +75,8 @@ blink.mojom.UnhandledTapNotifierRemoteCallHandler = class {
 
 blink.mojom.UnhandledTapNotifier.getRemote = function() {
   let remote = new blink.mojom.UnhandledTapNotifierRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.UnhandledTapNotifier',
     'context');
   return remote.$;

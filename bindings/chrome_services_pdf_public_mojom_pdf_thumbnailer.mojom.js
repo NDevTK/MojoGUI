@@ -25,8 +25,8 @@ pdf.mojom.kMaxHeightPixels = 512;
 // Struct: ThumbParams
 mojo.internal.Struct(
     pdf.mojom.ThumbParamsSpec, 'pdf.mojom.ThumbParams', [
-      mojo.internal.StructField('size_px', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dpi', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size_px', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dpi', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('stretch', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('keep_aspect', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -35,14 +35,14 @@ mojo.internal.Struct(
 // Interface: PdfThumbnailer
 mojo.internal.Struct(
     pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_Params', [
-      mojo.internal.StructField('params', 0, 0, pdf.mojom.ThumbParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pdf_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, pdf.mojom.ThumbParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParams', [
-      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -108,9 +108,8 @@ pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
 
 pdf.mojom.PdfThumbnailer.getRemote = function() {
   let remote = new pdf.mojom.PdfThumbnailerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'pdf.mojom.PdfThumbnailer',
     'context');
   return remote.$;

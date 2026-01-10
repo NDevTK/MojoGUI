@@ -42,23 +42,23 @@ mojo.internal.Struct(
     device.mojom.InputDeviceInfoSpec, 'device.mojom.InputDeviceInfo', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('subsystem', 16, 0, device.mojom.InputDeviceSubsystemSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 20, 0, device.mojom.InputDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_accelerometer', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_joystick', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_key', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_keyboard', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_mouse', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_tablet', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_touchpad', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_touchscreen', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subsystem', 16, 0, device.mojom.InputDeviceSubsystemSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, device.mojom.InputDeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_accelerometer', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_joystick', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_key', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_keyboard', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_mouse', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_tablet', 32, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_touchpad', 32, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_touchscreen', 32, 7, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Interface: InputDeviceManagerClient
 mojo.internal.Struct(
     device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec, 'device.mojom.InputDeviceManagerClient_InputDeviceAdded_Params', [
-      mojo.internal.StructField('device_info', 0, 0, device.mojom.InputDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.InputDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -124,9 +124,8 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
 
 device.mojom.InputDeviceManagerClient.getRemote = function() {
   let remote = new device.mojom.InputDeviceManagerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.InputDeviceManagerClient',
     'context');
   return remote.$;
@@ -145,7 +144,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParams', [
-      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.InputDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -156,7 +155,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_ResponseParams', [
-      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.InputDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -216,9 +215,8 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
 
 device.mojom.InputDeviceManager.getRemote = function() {
   let remote = new device.mojom.InputDeviceManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.InputDeviceManager',
     'context');
   return remote.$;

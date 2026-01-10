@@ -39,11 +39,11 @@ chromecast.mojom.SideSwipeOrigin = {
 // Interface: SettingsClient
 mojo.internal.Struct(
     chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec, 'chromecast.mojom.SettingsClient_HandleSideSwipe_Params', [
-      mojo.internal.StructField('event', 0, 0, chromecast.mojom.SideSwipeEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 4, 0, chromecast.mojom.SideSwipeOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('touch_location', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, chromecast.mojom.SideSwipeEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, chromecast.mojom.SideSwipeOriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('touch_location', 16, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec, 'chromecast.mojom.SettingsClient_SendPlatformInfo_Params', [
@@ -107,9 +107,8 @@ chromecast.mojom.SettingsClientRemoteCallHandler = class {
 
 chromecast.mojom.SettingsClient.getRemote = function() {
   let remote = new chromecast.mojom.SettingsClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.SettingsClient',
     'context');
   return remote.$;
@@ -188,9 +187,8 @@ chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
 
 chromecast.mojom.SettingsPlatform.getRemote = function() {
   let remote = new chromecast.mojom.SettingsPlatformRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.SettingsPlatform',
     'context');
   return remote.$;

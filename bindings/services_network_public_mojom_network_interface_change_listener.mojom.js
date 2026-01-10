@@ -32,7 +32,7 @@ mojo.internal.Struct(
 // Struct: AddressMap
 mojo.internal.Struct(
     network.mojom.AddressMapSpec, 'network.mojom.AddressMap', [
-      mojo.internal.StructField('address_map', 0, 0, mojo.internal.Map(network.mojom.IPAddressSpec, network.mojom.IfAddrMsgSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('address_map', 0, 0, mojo.internal.Map(network.mojom.IPAddressSpec.$, network.mojom.IfAddrMsgSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -46,15 +46,15 @@ mojo.internal.Struct(
 // Struct: InitialAddressMap
 mojo.internal.Struct(
     network.mojom.InitialAddressMapSpec, 'network.mojom.InitialAddressMap', [
-      mojo.internal.StructField('address_map', 0, 0, network.mojom.AddressMapSpec, null, false, 0, undefined),
-      mojo.internal.StructField('online_links', 8, 0, network.mojom.OnlineLinksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('address_map', 0, 0, network.mojom.AddressMapSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('online_links', 8, 0, network.mojom.OnlineLinksSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NetworkInterfaceChangeParams
 mojo.internal.Struct(
     network.mojom.NetworkInterfaceChangeParamsSpec, 'network.mojom.NetworkInterfaceChangeParams', [
-      mojo.internal.StructField('address_map', 0, 0, mojo.internal.Map(network.mojom.IPAddressSpec, network.mojom.IfAddrMsgSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('address_map', 0, 0, mojo.internal.Map(network.mojom.IPAddressSpec.$, network.mojom.IfAddrMsgSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('online_links', 8, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -62,7 +62,7 @@ mojo.internal.Struct(
 // Interface: NetworkInterfaceChangeListener
 mojo.internal.Struct(
     network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec, 'network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_Params', [
-      mojo.internal.StructField('params', 0, 0, network.mojom.NetworkInterfaceChangeParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, network.mojom.NetworkInterfaceChangeParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -112,9 +112,8 @@ network.mojom.NetworkInterfaceChangeListenerRemoteCallHandler = class {
 
 network.mojom.NetworkInterfaceChangeListener.getRemote = function() {
   let remote = new network.mojom.NetworkInterfaceChangeListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetworkInterfaceChangeListener',
     'context');
   return remote.$;

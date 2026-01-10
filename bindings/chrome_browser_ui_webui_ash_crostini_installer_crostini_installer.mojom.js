@@ -82,9 +82,8 @@ ash.crostini_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.crostini_installer.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.crostini_installer.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.crostini_installer.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -124,7 +123,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec, 'ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParams', [
-      mojo.internal.StructField('ticks', 0, 0, mojo.internal.Array(crostini.mojom.DiskSliderTickSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('ticks', 0, 0, mojo.internal.Array(crostini.mojom.DiskSliderTickSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('default_index', 8, 0, mojo.internal.Int8, 0, false, 0, undefined),
       mojo.internal.StructField('is_low_space_available', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -216,9 +215,8 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.crostini_installer.mojom.PageHandler.getRemote = function() {
   let remote = new ash.crostini_installer.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.crostini_installer.mojom.PageHandler',
     'context');
   return remote.$;
@@ -231,14 +229,14 @@ ash.crostini_installer.mojom.PageHandlerRequest = ash.crostini_installer.mojom.P
 // Interface: Page
 mojo.internal.Struct(
     ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec, 'ash.crostini_installer.mojom.Page_OnProgressUpdate_Params', [
-      mojo.internal.StructField('install_state', 0, 0, crostini.mojom.InstallerStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('install_state', 0, 0, crostini.mojom.InstallerStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('progress_fraction', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec, 'ash.crostini_installer.mojom.Page_OnInstallFinished_Params', [
-      mojo.internal.StructField('error', 0, 0, crostini.mojom.InstallerErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, crostini.mojom.InstallerErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -328,9 +326,8 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
 
 ash.crostini_installer.mojom.Page.getRemote = function() {
   let remote = new ash.crostini_installer.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.crostini_installer.mojom.Page',
     'context');
   return remote.$;

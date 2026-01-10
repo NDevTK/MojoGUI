@@ -31,14 +31,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec, 'chromecast.mojom.ApiBindings_GetAll_ResponseParams', [
-      mojo.internal.StructField('bindings', 0, 0, mojo.internal.Array(chromecast.mojom.ApiBindingSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bindings', 0, 0, mojo.internal.Array(chromecast.mojom.ApiBindingSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromecast.mojom.ApiBindings_Connect_ParamsSpec, 'chromecast.mojom.ApiBindings_Connect_Params', [
       mojo.internal.StructField('port_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('port', 8, 0, blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port', 8, 0, blink.mojom.MessagePortDescriptorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -98,9 +98,8 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
 
 chromecast.mojom.ApiBindings.getRemote = function() {
   let remote = new chromecast.mojom.ApiBindingsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.ApiBindings',
     'context');
   return remote.$;

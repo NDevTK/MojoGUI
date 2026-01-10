@@ -69,9 +69,8 @@ chromecast.metrics.mojom.MetricsHelperRemoteCallHandler = class {
 
 chromecast.metrics.mojom.MetricsHelper.getRemote = function() {
   let remote = new chromecast.metrics.mojom.MetricsHelperRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.metrics.mojom.MetricsHelper',
     'context');
   return remote.$;

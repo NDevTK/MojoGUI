@@ -64,7 +64,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParams', [
-      mojo.internal.StructField('downloaded_models_info', 0, 0, mojo.internal.Array(optimization_guide_internals.mojom.DownloadedModelInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('downloaded_models_info', 0, 0, mojo.internal.Array(optimization_guide_internals.mojom.DownloadedModelInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -75,7 +75,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParams', [
-      mojo.internal.StructField('logged_client_ids', 0, 0, mojo.internal.Array(optimization_guide_internals.mojom.LoggedClientIdsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('logged_client_ids', 0, 0, mojo.internal.Array(optimization_guide_internals.mojom.LoggedClientIdsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -86,7 +86,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParams', [
-      mojo.internal.StructField('mqls_logs', 0, 0, mojo.internal.Array(optimization_guide_internals.mojom.MqlsLogSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('mqls_logs', 0, 0, mojo.internal.Array(optimization_guide_internals.mojom.MqlsLogSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -166,9 +166,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 optimization_guide_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new optimization_guide_internals.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'optimization_guide_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -181,8 +180,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryRequest = optimization_guid
 // Interface: Page
 mojo.internal.Struct(
     optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'optimization_guide_internals.mojom.Page_OnLogMessageAdded_Params', [
-      mojo.internal.StructField('event_time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('log_source', 8, 0, optimization_guide_common.mojom.LogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_time', 0, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('log_source', 8, 0, optimization_guide_common.mojom.LogSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('source_file', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('source_line', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('message', 32, 0, mojo.internal.String, null, false, 0, undefined),
@@ -235,9 +234,8 @@ optimization_guide_internals.mojom.PageRemoteCallHandler = class {
 
 optimization_guide_internals.mojom.Page.getRemote = function() {
   let remote = new optimization_guide_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'optimization_guide_internals.mojom.Page',
     'context');
   return remote.$;

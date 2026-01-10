@@ -61,7 +61,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('start_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('scope', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('icon_hash', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('share_info', 64, 0, arc.mojom.WebShareTargetInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('share_info', 64, 0, arc.mojom.WebShareTargetInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -77,7 +77,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec, 'arc.mojom.WebApkInstance_InstallWebApk_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.WebApkInstallResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.WebApkInstallResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -89,7 +89,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec, 'arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.WebApkInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.WebApkInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -149,9 +149,8 @@ arc.mojom.WebApkInstanceRemoteCallHandler = class {
 
 arc.mojom.WebApkInstance.getRemote = function() {
   let remote = new arc.mojom.WebApkInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.WebApkInstance',
     'context');
   return remote.$;

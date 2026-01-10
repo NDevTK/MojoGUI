@@ -64,9 +64,8 @@ video_capture.mojom.TestingControlsRemoteCallHandler = class {
 
 video_capture.mojom.TestingControls.getRemote = function() {
   let remote = new video_capture.mojom.TestingControlsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'video_capture.mojom.TestingControls',
     'context');
   return remote.$;

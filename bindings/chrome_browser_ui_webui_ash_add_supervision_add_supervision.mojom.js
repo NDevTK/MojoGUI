@@ -57,7 +57,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, add_supervision.mojom.OAuthTokenFetchStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, add_supervision.mojom.OAuthTokenFetchStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -174,9 +174,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
 
 add_supervision.mojom.AddSupervisionHandler.getRemote = function() {
   let remote = new add_supervision.mojom.AddSupervisionHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'add_supervision.mojom.AddSupervisionHandler',
     'context');
   return remote.$;

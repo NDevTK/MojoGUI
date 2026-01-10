@@ -111,7 +111,7 @@ mojo.internal.Union(
     bluetooth.mojom.LocalCharacteristicReadResultSpec, 'bluetooth.mojom.LocalCharacteristicReadResult', {
       'error_code': {
         'ordinal': 0,
-        'type': bluetooth.mojom.GattServiceErrorCodeSpec,
+        'type': bluetooth.mojom.GattServiceErrorCodeSpec.$,
         'nullable': false,
       },
       'data': {
@@ -133,7 +133,7 @@ mojo.internal.Struct(
 // Struct: AcceptConnectionResult
 mojo.internal.Struct(
     bluetooth.mojom.AcceptConnectionResultSpec, 'bluetooth.mojom.AcceptConnectionResult', [
-      mojo.internal.StructField('device', 0, 0, bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device', 0, 0, bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('socket', 8, 0, mojo.internal.InterfaceProxy(bluetooth.mojom.SocketRemote), null, false, 0, undefined),
       mojo.internal.StructField('receive_stream', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('send_stream', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
@@ -213,9 +213,8 @@ bluetooth.mojom.AdvertisementRemoteCallHandler = class {
 
 bluetooth.mojom.Advertisement.getRemote = function() {
   let remote = new bluetooth.mojom.AdvertisementRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.Advertisement',
     'context');
   return remote.$;
@@ -304,9 +303,8 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
 
 bluetooth.mojom.DiscoverySession.getRemote = function() {
   let remote = new bluetooth.mojom.DiscoverySessionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.DiscoverySession',
     'context');
   return remote.$;
@@ -373,9 +371,8 @@ bluetooth.mojom.SocketRemoteCallHandler = class {
 
 bluetooth.mojom.Socket.getRemote = function() {
   let remote = new bluetooth.mojom.SocketRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.Socket',
     'context');
   return remote.$;
@@ -393,7 +390,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec, 'bluetooth.mojom.ServerSocket_Accept_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, bluetooth.mojom.AcceptConnectionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, bluetooth.mojom.AcceptConnectionResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -463,9 +460,8 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
 
 bluetooth.mojom.ServerSocket.getRemote = function() {
   let remote = new bluetooth.mojom.ServerSocketRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.ServerSocket',
     'context');
   return remote.$;
@@ -478,9 +474,9 @@ bluetooth.mojom.ServerSocketRequest = bluetooth.mojom.ServerSocketPendingReceive
 // Interface: GattService
 mojo.internal.Struct(
     bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec, 'bluetooth.mojom.GattService_CreateCharacteristic_Params', [
-      mojo.internal.StructField('characteristic_uuid', 0, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('permissions', 8, 0, bluetooth.mojom.GattCharacteristicPermissionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('properties', 16, 0, bluetooth.mojom.GattCharacteristicPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('characteristic_uuid', 0, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('permissions', 8, 0, bluetooth.mojom.GattCharacteristicPermissionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 16, 0, bluetooth.mojom.GattCharacteristicPropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -497,7 +493,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.GattService_Register_ResponseParamsSpec, 'bluetooth.mojom.GattService_Register_ResponseParams', [
-      mojo.internal.StructField('error_code', 0, 0, bluetooth.mojom.GattServiceErrorCodeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error_code', 0, 0, bluetooth.mojom.GattServiceErrorCodeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -557,9 +553,8 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
 
 bluetooth.mojom.GattService.getRemote = function() {
   let remote = new bluetooth.mojom.GattServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.GattService',
     'context');
   return remote.$;
@@ -572,18 +567,18 @@ bluetooth.mojom.GattServiceRequest = bluetooth.mojom.GattServicePendingReceiver;
 // Interface: GattServiceObserver
 mojo.internal.Struct(
     bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec, 'bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_Params', [
-      mojo.internal.StructField('remote_device', 0, 0, bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('characteristic_uuid', 8, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('service_uuid', 16, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote_device', 0, 0, bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('characteristic_uuid', 8, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('service_uuid', 16, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('offset', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec, 'bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParams', [
-      mojo.internal.StructField('read_result', 0, 0, bluetooth.mojom.LocalCharacteristicReadResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('read_result', 0, 0, bluetooth.mojom.LocalCharacteristicReadResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 bluetooth.mojom.GattServiceObserverPendingReceiver = class {
   constructor(handle) {
@@ -631,9 +626,8 @@ bluetooth.mojom.GattServiceObserverRemoteCallHandler = class {
 
 bluetooth.mojom.GattServiceObserver.getRemote = function() {
   let remote = new bluetooth.mojom.GattServiceObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.GattServiceObserver',
     'context');
   return remote.$;
@@ -652,7 +646,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec, 'bluetooth.mojom.Adapter_ConnectToDevice_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, bluetooth.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, bluetooth.mojom.ConnectResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(bluetooth.mojom.DeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -664,7 +658,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec, 'bluetooth.mojom.Adapter_GetDevices_ResponseParams', [
-      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(bluetooth.mojom.DeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(bluetooth.mojom.DeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -675,7 +669,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec, 'bluetooth.mojom.Adapter_GetInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, bluetooth.mojom.AdapterInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, bluetooth.mojom.AdapterInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -692,7 +686,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec, 'bluetooth.mojom.Adapter_RegisterAdvertisement_Params', [
-      mojo.internal.StructField('service_id', 0, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_id', 0, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('service_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('use_scan_response', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('connectable', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -744,21 +738,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec, 'bluetooth.mojom.Adapter_ConnectToServiceInsecurely_Params', [
       mojo.internal.StructField('address', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_uuid', 8, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_uuid', 8, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('should_unbond_on_error', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec, 'bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, bluetooth.mojom.ConnectToServiceResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, bluetooth.mojom.ConnectToServiceResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec, 'bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_Params', [
       mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_uuid', 8, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_uuid', 8, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -770,7 +764,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec, 'bluetooth.mojom.Adapter_CreateLocalGattService_Params', [
-      mojo.internal.StructField('service_id', 0, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_id', 0, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(bluetooth.mojom.GattServiceObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -948,9 +942,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
 
 bluetooth.mojom.Adapter.getRemote = function() {
   let remote = new bluetooth.mojom.AdapterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.Adapter',
     'context');
   return remote.$;
@@ -987,19 +980,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec, 'bluetooth.mojom.AdapterObserver_DeviceAdded_Params', [
-      mojo.internal.StructField('device', 0, 0, bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device', 0, 0, bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec, 'bluetooth.mojom.AdapterObserver_DeviceChanged_Params', [
-      mojo.internal.StructField('device', 0, 0, bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device', 0, 0, bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec, 'bluetooth.mojom.AdapterObserver_DeviceRemoved_Params', [
-      mojo.internal.StructField('device', 0, 0, bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device', 0, 0, bluetooth.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1109,9 +1102,8 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
 
 bluetooth.mojom.AdapterObserver.getRemote = function() {
   let remote = new bluetooth.mojom.AdapterObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.AdapterObserver',
     'context');
   return remote.$;

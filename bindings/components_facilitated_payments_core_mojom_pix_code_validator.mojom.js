@@ -31,7 +31,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec, 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParams', [
-      mojo.internal.StructField('pix_qr_code_type', 0, 0, payments.facilitated.mojom.PixQrCodeTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pix_qr_code_type', 0, 0, payments.facilitated.mojom.PixQrCodeTypeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -81,9 +81,8 @@ payments.facilitated.mojom.PixCodeValidatorRemoteCallHandler = class {
 
 payments.facilitated.mojom.PixCodeValidator.getRemote = function() {
   let remote = new payments.facilitated.mojom.PixCodeValidatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'payments.facilitated.mojom.PixCodeValidator',
     'context');
   return remote.$;

@@ -61,12 +61,12 @@ mojo.internal.Union(
     ash.diagnostics.mojom.RoutineResultSpec, 'ash.diagnostics.mojom.RoutineResult', {
       'simple_result': {
         'ordinal': 0,
-        'type': ash.diagnostics.mojom.StandardRoutineResultSpec,
+        'type': ash.diagnostics.mojom.StandardRoutineResultSpec.$,
         'nullable': false,
       },
       'power_result': {
         'ordinal': 1,
-        'type': ash.diagnostics.mojom.PowerRoutineResultSpec,
+        'type': ash.diagnostics.mojom.PowerRoutineResultSpec.$,
         'nullable': false,
       },
     });
@@ -74,7 +74,7 @@ mojo.internal.Union(
 // Struct: PowerRoutineResult
 mojo.internal.Struct(
     ash.diagnostics.mojom.PowerRoutineResultSpec, 'ash.diagnostics.mojom.PowerRoutineResult', [
-      mojo.internal.StructField('simple_result', 0, 0, ash.diagnostics.mojom.StandardRoutineResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('simple_result', 0, 0, ash.diagnostics.mojom.StandardRoutineResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('percent_change', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('time_elapsed_seconds', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -83,15 +83,15 @@ mojo.internal.Struct(
 // Struct: RoutineResultInfo
 mojo.internal.Struct(
     ash.diagnostics.mojom.RoutineResultInfoSpec, 'ash.diagnostics.mojom.RoutineResultInfo', [
-      mojo.internal.StructField('type', 0, 0, ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, ash.diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.diagnostics.mojom.RoutineTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, ash.diagnostics.mojom.RoutineResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: RoutineRunner
 mojo.internal.Struct(
     ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec, 'ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_Params', [
-      mojo.internal.StructField('info', 0, 0, ash.diagnostics.mojom.RoutineResultInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, ash.diagnostics.mojom.RoutineResultInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -141,9 +141,8 @@ ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
 
 ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
   let remote = new ash.diagnostics.mojom.RoutineRunnerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.RoutineRunner',
     'context');
   return remote.$;
@@ -161,13 +160,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParams', [
-      mojo.internal.StructField('routines', 0, 0, mojo.internal.Array(ash.diagnostics.mojom.RoutineTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('routines', 0, 0, mojo.internal.Array(ash.diagnostics.mojom.RoutineTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params', [
-      mojo.internal.StructField('type', 0, 0, ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.diagnostics.mojom.RoutineTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('runner', 8, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.RoutineRunnerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -228,9 +227,8 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
 
 ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
   let remote = new ash.diagnostics.mojom.SystemRoutineControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.SystemRoutineController',
     'context');
   return remote.$;

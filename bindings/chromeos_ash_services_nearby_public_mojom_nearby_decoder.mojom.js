@@ -27,7 +27,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParams', [
-      mojo.internal.StructField('advertisement', 0, 0, sharing.mojom.AdvertisementSpec, null, true, 0, undefined),
+      mojo.internal.StructField('advertisement', 0, 0, sharing.mojom.AdvertisementSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -39,9 +39,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParams', [
-      mojo.internal.StructField('frame', 0, 0, sharing.mojom.FrameSpec, null, true, 0, undefined),
+      mojo.internal.StructField('frame', 0, 0, sharing.mojom.FrameSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 sharing.mojom.NearbySharingDecoderPendingReceiver = class {
   constructor(handle) {
@@ -99,9 +99,8 @@ sharing.mojom.NearbySharingDecoderRemoteCallHandler = class {
 
 sharing.mojom.NearbySharingDecoder.getRemote = function() {
   let remote = new sharing.mojom.NearbySharingDecoderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.NearbySharingDecoder',
     'context');
   return remote.$;

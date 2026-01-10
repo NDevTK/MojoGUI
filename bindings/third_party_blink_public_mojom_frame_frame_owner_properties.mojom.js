@@ -17,13 +17,13 @@ blink.mojom.FrameOwnerPropertiesSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.FrameOwnerPropertiesSpec, 'blink.mojom.FrameOwnerProperties', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('scrollbar_mode', 8, 0, blink.mojom.ScrollbarModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('margin_width', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('margin_height', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('allow_fullscreen', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_payment_request', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_display_none', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('color_scheme', 24, 0, blink.mojom.ColorSchemeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('preferred_color_scheme', 28, 0, blink.mojom.PreferredColorSchemeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('scrollbar_mode', 8, 0, blink.mojom.ScrollbarModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('margin_width', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('margin_height', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('allow_fullscreen', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_payment_request', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_display_none', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color_scheme', 32, 0, blink.mojom.ColorSchemeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('preferred_color_scheme', 40, 0, blink.mojom.PreferredColorSchemeSpec.$, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 56]]);

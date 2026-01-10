@@ -100,9 +100,8 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
 
 remoting.mojom.AgentProcess.getRemote = function() {
   let remote = new remoting.mojom.AgentProcessRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.AgentProcess',
     'context');
   return remote.$;
@@ -165,9 +164,8 @@ remoting.mojom.AgentProcessBrokerRemoteCallHandler = class {
 
 remoting.mojom.AgentProcessBroker.getRemote = function() {
   let remote = new remoting.mojom.AgentProcessBrokerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.AgentProcessBroker',
     'context');
   return remote.$;

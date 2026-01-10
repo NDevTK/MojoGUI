@@ -16,7 +16,7 @@ audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = {
 // Interface: MlModelManager
 mojo.internal.Struct(
     audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec, 'audio.mojom.MlModelManager_SetResidualEchoEstimationModel_Params', [
-      mojo.internal.StructField('tflite_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tflite_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -81,9 +81,8 @@ audio.mojom.MlModelManagerRemoteCallHandler = class {
 
 audio.mojom.MlModelManager.getRemote = function() {
   let remote = new audio.mojom.MlModelManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'audio.mojom.MlModelManager',
     'context');
   return remote.$;

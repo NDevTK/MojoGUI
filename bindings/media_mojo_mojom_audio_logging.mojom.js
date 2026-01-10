@@ -33,7 +33,7 @@ media.mojom.AudioLogComponent = {
 // Interface: AudioLog
 mojo.internal.Struct(
     media.mojom.AudioLog_OnCreated_ParamsSpec, 'media.mojom.AudioLog_OnCreated_Params', [
-      mojo.internal.StructField('params', 0, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -192,9 +192,8 @@ media.mojom.AudioLogRemoteCallHandler = class {
 
 media.mojom.AudioLog.getRemote = function() {
   let remote = new media.mojom.AudioLogRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AudioLog',
     'context');
   return remote.$;
@@ -207,11 +206,11 @@ media.mojom.AudioLogRequest = media.mojom.AudioLogPendingReceiver;
 // Interface: AudioLogFactory
 mojo.internal.Struct(
     media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec, 'media.mojom.AudioLogFactory_CreateAudioLog_Params', [
-      mojo.internal.StructField('component', 0, 0, media.mojom.AudioLogComponentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('component_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('audio_log_receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.AudioLogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('component', 0, 0, media.mojom.AudioLogComponentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('component_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('audio_log_receiver', 16, 0, mojo.internal.InterfaceRequest(media.mojom.AudioLogRemote), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 media.mojom.AudioLogFactoryPendingReceiver = class {
   constructor(handle) {
@@ -259,9 +258,8 @@ media.mojom.AudioLogFactoryRemoteCallHandler = class {
 
 media.mojom.AudioLogFactory.getRemote = function() {
   let remote = new media.mojom.AudioLogFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AudioLogFactory',
     'context');
   return remote.$;

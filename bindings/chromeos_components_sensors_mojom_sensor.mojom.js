@@ -124,7 +124,7 @@ chromeos.sensors.mojom.SensorDeviceDisconnectReason = {
 // Interface: SensorService
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDeviceIds_Params', [
-      mojo.internal.StructField('type', 0, 0, chromeos.sensors.mojom.DeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, chromeos.sensors.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -141,7 +141,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParams', [
-      mojo.internal.StructField('iio_device_ids_types', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('iio_device_ids_types', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec.$, false), false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -218,9 +218,8 @@ chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
 
 chromeos.sensors.mojom.SensorService.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.sensors.mojom.SensorService',
     'context');
   return remote.$;
@@ -424,9 +423,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
 
 chromeos.sensors.mojom.SensorDevice.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorDeviceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.sensors.mojom.SensorDevice',
     'context');
   return remote.$;
@@ -445,7 +443,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec, 'chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_Params', [
-      mojo.internal.StructField('type', 0, 0, chromeos.sensors.mojom.ObserverErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, chromeos.sensors.mojom.ObserverErrorTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -505,9 +503,8 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
 
 chromeos.sensors.mojom.SensorDeviceSamplesObserver.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.sensors.mojom.SensorDeviceSamplesObserver',
     'context');
   return remote.$;
@@ -521,7 +518,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRequest = chromeos.sensors.moj
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec, 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_Params', [
       mojo.internal.StructField('iio_device_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('types', 8, 0, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('types', 8, 0, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -571,9 +568,8 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemoteCallHandler = class 
 
 chromeos.sensors.mojom.SensorServiceNewDevicesObserver.getRemote = function() {
   let remote = new chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.sensors.mojom.SensorServiceNewDevicesObserver',
     'context');
   return remote.$;

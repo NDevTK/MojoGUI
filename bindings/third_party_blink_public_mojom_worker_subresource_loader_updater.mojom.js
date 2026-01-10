@@ -16,7 +16,7 @@ blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec
 // Interface: SubresourceLoaderUpdater
 mojo.internal.Struct(
     blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec, 'blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_Params', [
-      mojo.internal.StructField('subresource_loader_factories', 0, 0, blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subresource_loader_factories', 0, 0, blink.mojom.URLLoaderFactoryBundleSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -66,9 +66,8 @@ blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {
 
 blink.mojom.SubresourceLoaderUpdater.getRemote = function() {
   let remote = new blink.mojom.SubresourceLoaderUpdaterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SubresourceLoaderUpdater',
     'context');
   return remote.$;

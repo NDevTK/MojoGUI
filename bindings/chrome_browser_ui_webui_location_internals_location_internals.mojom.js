@@ -65,9 +65,8 @@ mojom.LocationInternalsHandlerRemoteCallHandler = class {
 
 mojom.LocationInternalsHandler.getRemote = function() {
   let remote = new mojom.LocationInternalsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mojom.LocationInternalsHandler',
     'context');
   return remote.$;

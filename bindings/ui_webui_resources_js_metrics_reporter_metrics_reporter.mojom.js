@@ -36,7 +36,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParams', [
-      mojo.internal.StructField('marked_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('marked_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -49,7 +49,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('time', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -129,9 +129,8 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
 
 metrics_reporter.mojom.PageMetricsHost.getRemote = function() {
   let remote = new metrics_reporter.mojom.PageMetricsHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'metrics_reporter.mojom.PageMetricsHost',
     'context');
   return remote.$;
@@ -150,7 +149,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParams', [
-      mojo.internal.StructField('marked_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('marked_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -216,9 +215,8 @@ metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
 
 metrics_reporter.mojom.PageMetrics.getRemote = function() {
   let remote = new metrics_reporter.mojom.PageMetricsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'metrics_reporter.mojom.PageMetrics',
     'context');
   return remote.$;

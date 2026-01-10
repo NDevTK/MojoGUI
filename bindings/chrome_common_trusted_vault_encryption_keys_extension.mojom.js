@@ -28,7 +28,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_Params', [
       mojo.internal.StructField('gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('encryption_keys', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(chrome.mojom.TrustedVaultKeySpec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('encryption_keys', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(chrome.mojom.TrustedVaultKeySpec.$, false), false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -106,9 +106,8 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
 
 chrome.mojom.TrustedVaultEncryptionKeysExtension.getRemote = function() {
   let remote = new chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.TrustedVaultEncryptionKeysExtension',
     'context');
   return remote.$;

@@ -87,8 +87,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateWriterClient_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -148,9 +148,8 @@ blink.mojom.AIManagerCreateWriterClientRemoteCallHandler = class {
 
 blink.mojom.AIManagerCreateWriterClient.getRemote = function() {
   let remote = new blink.mojom.AIManagerCreateWriterClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AIManagerCreateWriterClient',
     'context');
   return remote.$;
@@ -169,8 +168,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateRewriterClient_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -230,9 +229,8 @@ blink.mojom.AIManagerCreateRewriterClientRemoteCallHandler = class {
 
 blink.mojom.AIManagerCreateRewriterClient.getRemote = function() {
   let remote = new blink.mojom.AIManagerCreateRewriterClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AIManagerCreateRewriterClient',
     'context');
   return remote.$;
@@ -251,8 +249,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateSummarizerClient_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -312,9 +310,8 @@ blink.mojom.AIManagerCreateSummarizerClientRemoteCallHandler = class {
 
 blink.mojom.AIManagerCreateSummarizerClient.getRemote = function() {
   let remote = new blink.mojom.AIManagerCreateSummarizerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AIManagerCreateSummarizerClient',
     'context');
   return remote.$;
@@ -333,8 +330,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateProofreaderClient_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.AIManagerCreateClientErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -394,9 +391,8 @@ blink.mojom.AIManagerCreateProofreaderClientRemoteCallHandler = class {
 
 blink.mojom.AIManagerCreateProofreaderClient.getRemote = function() {
   let remote = new blink.mojom.AIManagerCreateProofreaderClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AIManagerCreateProofreaderClient',
     'context');
   return remote.$;
@@ -409,39 +405,39 @@ blink.mojom.AIManagerCreateProofreaderClientRequest = blink.mojom.AIManagerCreat
 // Interface: AIManager
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec, 'blink.mojom.AIManager_CanCreateLanguageModel_Params', [
-      mojo.internal.StructField('options', 0, 0, blink.mojom.AILanguageModelCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, blink.mojom.AILanguageModelCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec, 'blink.mojom.AIManager_CanCreateLanguageModel_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CreateLanguageModel_ParamsSpec, 'blink.mojom.AIManager_CreateLanguageModel_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateLanguageModelClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, blink.mojom.AILanguageModelCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.AILanguageModelCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec, 'blink.mojom.AIManager_CanCreateSummarizer_Params', [
-      mojo.internal.StructField('options', 0, 0, blink.mojom.AISummarizerCreateOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, blink.mojom.AISummarizerCreateOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec, 'blink.mojom.AIManager_CanCreateSummarizer_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CreateSummarizer_ParamsSpec, 'blink.mojom.AIManager_CreateSummarizer_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateSummarizerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, blink.mojom.AISummarizerCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.AISummarizerCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -452,64 +448,64 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec, 'blink.mojom.AIManager_GetLanguageModelParams_ResponseParams', [
-      mojo.internal.StructField('language_model_params', 0, 0, blink.mojom.AILanguageModelParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('language_model_params', 0, 0, blink.mojom.AILanguageModelParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateWriter_ParamsSpec, 'blink.mojom.AIManager_CanCreateWriter_Params', [
-      mojo.internal.StructField('options', 0, 0, blink.mojom.AIWriterCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, blink.mojom.AIWriterCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec, 'blink.mojom.AIManager_CanCreateWriter_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CreateWriter_ParamsSpec, 'blink.mojom.AIManager_CreateWriter_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateWriterClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, blink.mojom.AIWriterCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.AIWriterCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateRewriter_ParamsSpec, 'blink.mojom.AIManager_CanCreateRewriter_Params', [
-      mojo.internal.StructField('options', 0, 0, blink.mojom.AIRewriterCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, blink.mojom.AIRewriterCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec, 'blink.mojom.AIManager_CanCreateRewriter_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CreateRewriter_ParamsSpec, 'blink.mojom.AIManager_CreateRewriter_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateRewriterClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, blink.mojom.AIRewriterCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.AIRewriterCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateProofreader_ParamsSpec, 'blink.mojom.AIManager_CanCreateProofreader_Params', [
-      mojo.internal.StructField('options', 0, 0, blink.mojom.AIProofreaderCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, blink.mojom.AIProofreaderCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec, 'blink.mojom.AIManager_CanCreateProofreader_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.ModelAvailabilityCheckResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CreateProofreader_ParamsSpec, 'blink.mojom.AIManager_CreateProofreader_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateProofreaderClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, blink.mojom.AIProofreaderCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.AIProofreaderCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -675,9 +671,8 @@ blink.mojom.AIManagerRemoteCallHandler = class {
 
 blink.mojom.AIManager.getRemote = function() {
   let remote = new blink.mojom.AIManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AIManager',
     'context');
   return remote.$;

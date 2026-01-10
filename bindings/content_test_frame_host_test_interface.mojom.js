@@ -16,7 +16,7 @@ content.mojom.FrameHostTestInterface_Ping_ParamsSpec = { $: {} };
 // Interface: FrameHostTestInterface
 mojo.internal.Struct(
     content.mojom.FrameHostTestInterface_Ping_ParamsSpec, 'content.mojom.FrameHostTestInterface_Ping_Params', [
-      mojo.internal.StructField('source_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('source_event', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -67,9 +67,8 @@ content.mojom.FrameHostTestInterfaceRemoteCallHandler = class {
 
 content.mojom.FrameHostTestInterface.getRemote = function() {
   let remote = new content.mojom.FrameHostTestInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.FrameHostTestInterface',
     'context');
   return remote.$;

@@ -60,7 +60,7 @@ mojo.internal.Struct(
 // Interface: UntrustedPage
 mojo.internal.Struct(
     ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_Params', [
-      mojo.internal.StructField('receiver_info', 0, 0, ash.boca_receiver.mojom.ReceiverInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver_info', 0, 0, ash.boca_receiver.mojom.ReceiverInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -71,26 +71,26 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_Params', [
-      mojo.internal.StructField('frame_data', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_data', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_Params', [
-      mojo.internal.StructField('audio_packet', 0, 0, ash.boca_receiver.mojom.DecodedAudioPacketSpec, null, false, 0, undefined),
+      mojo.internal.StructField('audio_packet', 0, 0, ash.boca_receiver.mojom.DecodedAudioPacketSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnConnecting_Params', [
-      mojo.internal.StructField('initiator', 0, 0, ash.boca_receiver.mojom.UserInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('presenter', 8, 0, ash.boca_receiver.mojom.UserInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('initiator', 0, 0, ash.boca_receiver.mojom.UserInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('presenter', 8, 0, ash.boca_receiver.mojom.UserInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_Params', [
-      mojo.internal.StructField('reason', 0, 0, ash.boca_receiver.mojom.ConnectionClosedReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, ash.boca_receiver.mojom.ConnectionClosedReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -190,9 +190,8 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
 
 ash.boca_receiver.mojom.UntrustedPage.getRemote = function() {
   let remote = new ash.boca_receiver.mojom.UntrustedPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.boca_receiver.mojom.UntrustedPage',
     'context');
   return remote.$;
@@ -255,9 +254,8 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
 
 ash.boca_receiver.mojom.UntrustedPageHandlerFactory.getRemote = function() {
   let remote = new ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.boca_receiver.mojom.UntrustedPageHandlerFactory',
     'context');
   return remote.$;

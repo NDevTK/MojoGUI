@@ -27,7 +27,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, network.mojom.StructuredHeadersParameterizedItemSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, network.mojom.StructuredHeadersParameterizedItemSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -39,7 +39,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(network.mojom.StructuredHeadersParameterizedMemberSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(network.mojom.StructuredHeadersParameterizedMemberSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -51,7 +51,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, network.mojom.StructuredHeadersDictionarySpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, network.mojom.StructuredHeadersDictionarySpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -121,9 +121,8 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
 
 data_decoder.mojom.StructuredHeadersParser.getRemote = function() {
   let remote = new data_decoder.mojom.StructuredHeadersParserRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'data_decoder.mojom.StructuredHeadersParser',
     'context');
   return remote.$;

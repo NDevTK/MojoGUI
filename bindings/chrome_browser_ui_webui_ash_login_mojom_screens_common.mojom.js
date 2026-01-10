@@ -113,9 +113,8 @@ ash.screens_common.mojom.AiIntroPageHandlerRemoteCallHandler = class {
 
 ash.screens_common.mojom.AiIntroPageHandler.getRemote = function() {
   let remote = new ash.screens_common.mojom.AiIntroPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.AiIntroPageHandler',
     'context');
   return remote.$;
@@ -178,9 +177,8 @@ ash.screens_common.mojom.AiIntroPageRemoteCallHandler = class {
 
 ash.screens_common.mojom.AiIntroPage.getRemote = function() {
   let remote = new ash.screens_common.mojom.AiIntroPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.AiIntroPage',
     'context');
   return remote.$;
@@ -242,9 +240,8 @@ ash.screens_common.mojom.AppDownloadingPageHandlerRemoteCallHandler = class {
 
 ash.screens_common.mojom.AppDownloadingPageHandler.getRemote = function() {
   let remote = new ash.screens_common.mojom.AppDownloadingPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.AppDownloadingPageHandler',
     'context');
   return remote.$;
@@ -323,9 +320,8 @@ ash.screens_common.mojom.DrivePinningPageHandlerRemoteCallHandler = class {
 
 ash.screens_common.mojom.DrivePinningPageHandler.getRemote = function() {
   let remote = new ash.screens_common.mojom.DrivePinningPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.DrivePinningPageHandler',
     'context');
   return remote.$;
@@ -338,8 +334,8 @@ ash.screens_common.mojom.DrivePinningPageHandlerRequest = ash.screens_common.moj
 // Interface: DrivePinningPage
 mojo.internal.Struct(
     ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_Params', [
-      mojo.internal.StructField('required_space', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('free_space', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('required_space', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('free_space', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -389,9 +385,8 @@ ash.screens_common.mojom.DrivePinningPageRemoteCallHandler = class {
 
 ash.screens_common.mojom.DrivePinningPage.getRemote = function() {
   let remote = new ash.screens_common.mojom.DrivePinningPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.DrivePinningPage',
     'context');
   return remote.$;
@@ -453,9 +448,8 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerRemoteCallHandler = class {
 
 ash.screens_common.mojom.FjordStationSetupPageHandler.getRemote = function() {
   let remote = new ash.screens_common.mojom.FjordStationSetupPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.FjordStationSetupPageHandler',
     'context');
   return remote.$;
@@ -473,7 +467,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_Params', [
-      mojo.internal.StructField('user_flow', 0, 0, ash.screens_common.mojom.UserCreationFlowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_flow', 0, 0, ash.screens_common.mojom.UserCreationFlowTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -533,9 +527,8 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHandler = class {
 
 ash.screens_common.mojom.GaiaInfoPageHandler.getRemote = function() {
   let remote = new ash.screens_common.mojom.GaiaInfoPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.GaiaInfoPageHandler',
     'context');
   return remote.$;
@@ -597,9 +590,8 @@ ash.screens_common.mojom.GaiaInfoPageRemoteCallHandler = class {
 
 ash.screens_common.mojom.GaiaInfoPage.getRemote = function() {
   let remote = new ash.screens_common.mojom.GaiaInfoPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.GaiaInfoPage',
     'context');
   return remote.$;
@@ -612,7 +604,7 @@ ash.screens_common.mojom.GaiaInfoPageRequest = ash.screens_common.mojom.GaiaInfo
 // Interface: GestureNavigationPageHandler
 mojo.internal.Struct(
     ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_Params', [
-      mojo.internal.StructField('page', 0, 0, ash.screens_common.mojom.GesturePagesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, ash.screens_common.mojom.GesturePagesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -692,9 +684,8 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
 
 ash.screens_common.mojom.GestureNavigationPageHandler.getRemote = function() {
   let remote = new ash.screens_common.mojom.GestureNavigationPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.GestureNavigationPageHandler',
     'context');
   return remote.$;
@@ -771,9 +762,8 @@ ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCallHandler = class {
 
 ash.screens_common.mojom.GeminiIntroPageHandler.getRemote = function() {
   let remote = new ash.screens_common.mojom.GeminiIntroPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_common.mojom.GeminiIntroPageHandler',
     'context');
   return remote.$;

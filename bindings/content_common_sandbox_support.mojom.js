@@ -51,14 +51,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec, 'content.mojom.SandboxSupport_GetSystemColors_ResponseParams', [
-      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec, 'content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_Params', [
-      mojo.internal.StructField('locale', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('default_language', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('locale', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('default_language', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('defaults', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -80,10 +80,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec, 'content.mojom.SandboxSupport_DigitsAndSigns_ResponseParams', [
       mojo.internal.StructField('digit_substitution', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('digits', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('decimal', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('thousand', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('negative_sign', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('digits', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('decimal', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('thousand', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('negative_sign', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('negnumber', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -92,13 +92,13 @@ mojo.internal.Struct(
     content.mojom.SandboxSupport_LocaleString_ParamsSpec, 'content.mojom.SandboxSupport_LocaleString_Params', [
       mojo.internal.StructField('lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, content.mojom.LcTypeStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, content.mojom.LcTypeStringSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec, 'content.mojom.SandboxSupport_LocaleString_ResponseParams', [
-      mojo.internal.StructField('str', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('str', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -106,13 +106,13 @@ mojo.internal.Struct(
     content.mojom.SandboxSupport_LocaleStrings_ParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_Params', [
       mojo.internal.StructField('lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('collection', 8, 0, content.mojom.LcTypeStringsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('collection', 8, 0, content.mojom.LcTypeStringsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_ResponseParams', [
-      mojo.internal.StructField('strings', 0, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('strings', 0, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -202,9 +202,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
 
 content.mojom.SandboxSupport.getRemote = function() {
   let remote = new content.mojom.SandboxSupportRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.SandboxSupport',
     'context');
   return remote.$;

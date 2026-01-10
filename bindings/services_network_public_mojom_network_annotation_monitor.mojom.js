@@ -65,9 +65,8 @@ network.mojom.NetworkAnnotationMonitorRemoteCallHandler = class {
 
 network.mojom.NetworkAnnotationMonitor.getRemote = function() {
   let remote = new network.mojom.NetworkAnnotationMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetworkAnnotationMonitor',
     'context');
   return remote.$;

@@ -40,14 +40,14 @@ viz.mojom.FilterType = {
 // Struct: FilterOperation
 mojo.internal.Struct(
     viz.mojom.FilterOperationSpec, 'viz.mojom.FilterOperation', [
-      mojo.internal.StructField('type', 0, 0, viz.mojom.FilterTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('amount', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('offset', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('drop_shadow_color', 16, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_filter', 24, 0, viz.mojom.PaintFilterSpec, null, false, 0, undefined),
-      mojo.internal.StructField('matrix', 32, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
-      mojo.internal.StructField('zoom_inset', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('blur_tile_mode', 44, 0, skia.mojom.TileModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shape', 48, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, viz.mojom.FilterTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('amount', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 16, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('drop_shadow_color', 24, 0, skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_filter', 32, 0, viz.mojom.PaintFilterSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('matrix', 40, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('zoom_inset', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('blur_tile_mode', 56, 0, skia.mojom.TileModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('shape', 64, 0, mojo.internal.Array(gfx.mojom.RectSpec.$, false), null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 80]]);

@@ -33,10 +33,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('hex_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('frequency', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('security', 20, 0, arc.mojom.SecurityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('rssi', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('security', 24, 0, arc.mojom.SecurityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('rssi', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Interface: ArcWifiHost
 mojo.internal.Struct(
@@ -74,7 +74,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec, 'arc.mojom.ArcWifiHost_GetScanResults_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, mojo.internal.Array(arc.mojom.WifiScanResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, mojo.internal.Array(arc.mojom.WifiScanResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -154,9 +154,8 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
 
 arc.mojom.ArcWifiHost.getRemote = function() {
   let remote = new arc.mojom.ArcWifiHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ArcWifiHost',
     'context');
   return remote.$;
@@ -255,9 +254,8 @@ arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
 
 arc.mojom.ArcWifiInstance.getRemote = function() {
   let remote = new arc.mojom.ArcWifiInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ArcWifiInstance',
     'context');
   return remote.$;

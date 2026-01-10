@@ -67,7 +67,7 @@ mojo.internal.Struct(
 // Struct: WifiDirectConnectionProperties
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec, 'ash.wifi_direct.mojom.WifiDirectConnectionProperties', [
-      mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frequency', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('ipv4_address', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -76,20 +76,20 @@ mojo.internal.Struct(
 // Interface: WifiDirectManager
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_Params', [
-      mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.wifi_direct.mojom.WifiDirectOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.wifi_direct.mojom.WifiDirectOperationResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('wifi_direct_connection', 8, 0, mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_Params', [
-      mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frequency_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'frequency_$value', originalFieldName: 'frequency' }),
       mojo.internal.StructField('frequency_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'frequency_$flag', originalFieldName: 'frequency' }),
     ],
@@ -97,7 +97,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.wifi_direct.mojom.WifiDirectOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.wifi_direct.mojom.WifiDirectOperationResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('wifi_direct_connection', 8, 0, mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -109,7 +109,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParams', [
-      mojo.internal.StructField('capabilities', 0, 0, ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capabilities', 0, 0, ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -179,9 +179,8 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
 
 ash.wifi_direct.mojom.WifiDirectManager.getRemote = function() {
   let remote = new ash.wifi_direct.mojom.WifiDirectManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.wifi_direct.mojom.WifiDirectManager',
     'context');
   return remote.$;
@@ -199,7 +198,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParams', [
-      mojo.internal.StructField('properties', 0, 0, ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 0, 0, ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -271,9 +270,8 @@ ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler = class {
 
 ash.wifi_direct.mojom.WifiDirectConnection.getRemote = function() {
   let remote = new ash.wifi_direct.mojom.WifiDirectConnectionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.wifi_direct.mojom.WifiDirectConnection',
     'context');
   return remote.$;

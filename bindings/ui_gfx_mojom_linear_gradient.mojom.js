@@ -24,6 +24,6 @@ mojo.internal.Struct(
     gfx.mojom.LinearGradientSpec, 'gfx.mojom.LinearGradient', [
       mojo.internal.StructField('angle', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
       mojo.internal.StructField('step_count', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('steps', 8, 0, mojo.internal.Array(gfx.mojom.Step, 8Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('steps', 8, 0, mojo.internal.Array(gfx.mojom.Step, 8Spec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

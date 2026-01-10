@@ -39,13 +39,13 @@ mojo.internal.Struct(
 // Interface: PasspointEventsListener
 mojo.internal.Struct(
     chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec, 'chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_Params', [
-      mojo.internal.StructField('subscription', 0, 0, chromeos.connectivity.mojom.PasspointSubscriptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subscription', 0, 0, chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec, 'chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_Params', [
-      mojo.internal.StructField('subscription', 0, 0, chromeos.connectivity.mojom.PasspointSubscriptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subscription', 0, 0, chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -105,9 +105,8 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
 
 chromeos.connectivity.mojom.PasspointEventsListener.getRemote = function() {
   let remote = new chromeos.connectivity.mojom.PasspointEventsListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.connectivity.mojom.PasspointEventsListener',
     'context');
   return remote.$;
@@ -126,7 +125,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec, 'chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.connectivity.mojom.PasspointSubscriptionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -137,7 +136,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec, 'chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(chromeos.connectivity.mojom.PasspointSubscriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -235,9 +234,8 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
 
 chromeos.connectivity.mojom.PasspointService.getRemote = function() {
   let remote = new chromeos.connectivity.mojom.PasspointServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.connectivity.mojom.PasspointService',
     'context');
   return remote.$;

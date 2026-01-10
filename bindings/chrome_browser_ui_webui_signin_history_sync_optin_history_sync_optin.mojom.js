@@ -43,7 +43,7 @@ history_sync_optin.mojom.ScreenMode = {
 // Struct: AccountInfo
 mojo.internal.Struct(
     history_sync_optin.mojom.AccountInfoSpec, 'history_sync_optin.mojom.AccountInfo', [
-      mojo.internal.StructField('account_image_src', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_image_src', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -101,9 +101,8 @@ history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 history_sync_optin.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new history_sync_optin.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'history_sync_optin.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -211,9 +210,8 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
 
 history_sync_optin.mojom.PageHandler.getRemote = function() {
   let remote = new history_sync_optin.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'history_sync_optin.mojom.PageHandler',
     'context');
   return remote.$;
@@ -226,13 +224,13 @@ history_sync_optin.mojom.PageHandlerRequest = history_sync_optin.mojom.PageHandl
 // Interface: Page
 mojo.internal.Struct(
     history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec, 'history_sync_optin.mojom.Page_SendAccountInfo_Params', [
-      mojo.internal.StructField('account_info', 0, 0, history_sync_optin.mojom.AccountInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_info', 0, 0, history_sync_optin.mojom.AccountInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec, 'history_sync_optin.mojom.Page_SendScreenMode_Params', [
-      mojo.internal.StructField('screen_mode', 0, 0, history_sync_optin.mojom.ScreenModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('screen_mode', 0, 0, history_sync_optin.mojom.ScreenModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -292,9 +290,8 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
 
 history_sync_optin.mojom.Page.getRemote = function() {
   let remote = new history_sync_optin.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'history_sync_optin.mojom.Page',
     'context');
   return remote.$;

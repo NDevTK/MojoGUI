@@ -20,26 +20,26 @@ network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = { $: {} };
 // Interface: SocketBroker
 mojo.internal.Struct(
     network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_Params', [
-      mojo.internal.StructField('address_family', 0, 0, network.mojom.AddressFamilySpec, null, false, 0, undefined),
+      mojo.internal.StructField('address_family', 0, 0, network.mojom.AddressFamilySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_ResponseParams', [
-      mojo.internal.StructField('created_socket', 0, 0, network.mojom.TransferableSocketSpec, null, false, 0, undefined),
+      mojo.internal.StructField('created_socket', 0, 0, network.mojom.TransferableSocketSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_Params', [
-      mojo.internal.StructField('address_family', 0, 0, network.mojom.AddressFamilySpec, null, false, 0, undefined),
+      mojo.internal.StructField('address_family', 0, 0, network.mojom.AddressFamilySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_ResponseParams', [
-      mojo.internal.StructField('created_socket', 0, 0, network.mojom.TransferableSocketSpec, null, false, 0, undefined),
+      mojo.internal.StructField('created_socket', 0, 0, network.mojom.TransferableSocketSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -100,9 +100,8 @@ network.mojom.SocketBrokerRemoteCallHandler = class {
 
 network.mojom.SocketBroker.getRemote = function() {
   let remote = new network.mojom.SocketBrokerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.SocketBroker',
     'context');
   return remote.$;

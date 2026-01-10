@@ -23,8 +23,8 @@ mojo.internal.Struct(
 // Struct: UserAgentMetadata
 mojo.internal.Struct(
     blink.mojom.UserAgentMetadataSpec, 'blink.mojom.UserAgentMetadata', [
-      mojo.internal.StructField('brand_version_list', 0, 0, mojo.internal.Array(blink.mojom.UserAgentBrandVersionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('brand_full_version_list', 8, 0, mojo.internal.Array(blink.mojom.UserAgentBrandVersionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('brand_version_list', 0, 0, mojo.internal.Array(blink.mojom.UserAgentBrandVersionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('brand_full_version_list', 8, 0, mojo.internal.Array(blink.mojom.UserAgentBrandVersionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('full_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('platform', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('platform_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
@@ -41,6 +41,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.UserAgentOverrideSpec, 'blink.mojom.UserAgentOverride', [
       mojo.internal.StructField('ua_string_override', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('ua_metadata_override', 8, 0, blink.mojom.UserAgentMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ua_metadata_override', 8, 0, blink.mojom.UserAgentMetadataSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

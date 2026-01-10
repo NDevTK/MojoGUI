@@ -60,7 +60,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.SRIMessageSignatureComponentSpec, 'network.mojom.SRIMessageSignatureComponent', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('params', 8, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureComponentParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureComponentParameterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -69,7 +69,7 @@ mojo.internal.Struct(
     network.mojom.SRIMessageSignatureSpec, 'network.mojom.SRIMessageSignature', [
       mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('components', 16, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureComponentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('components', 16, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureComponentSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('created_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'created_$value', originalFieldName: 'created' }),
       mojo.internal.StructField('created_$value', 32, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'created_$flag', originalFieldName: 'created' }),
       mojo.internal.StructField('expires_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'expires_$value', originalFieldName: 'expires' }),
@@ -84,7 +84,7 @@ mojo.internal.Struct(
 // Struct: SRIMessageSignatureIssue
 mojo.internal.Struct(
     network.mojom.SRIMessageSignatureIssueSpec, 'network.mojom.SRIMessageSignatureIssue', [
-      mojo.internal.StructField('error', 0, 0, network.mojom.SRIMessageSignatureErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, network.mojom.SRIMessageSignatureErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('signature_base', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('integrity_assertions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
@@ -93,7 +93,7 @@ mojo.internal.Struct(
 // Struct: SRIMessageSignatures
 mojo.internal.Struct(
     network.mojom.SRIMessageSignaturesSpec, 'network.mojom.SRIMessageSignatures', [
-      mojo.internal.StructField('signatures', 0, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('issues', 8, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureIssueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('signatures', 0, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('issues', 8, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureIssueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

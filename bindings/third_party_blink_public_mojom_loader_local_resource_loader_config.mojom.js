@@ -33,7 +33,7 @@ mojo.internal.Struct(
     blink.mojom.LocalResourceSourceSpec, 'blink.mojom.LocalResourceSource', [
       mojo.internal.StructField('headers', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('should_replace_i18n_in_js', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('path_to_resource_map', 16, 0, mojo.internal.Map(mojo.internal.String, blink.mojom.LocalResourceValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('path_to_resource_map', 16, 0, mojo.internal.Map(mojo.internal.String, blink.mojom.LocalResourceValueSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('replacement_strings', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -41,6 +41,6 @@ mojo.internal.Struct(
 // Struct: LocalResourceLoaderConfig
 mojo.internal.Struct(
     blink.mojom.LocalResourceLoaderConfigSpec, 'blink.mojom.LocalResourceLoaderConfig', [
-      mojo.internal.StructField('sources', 0, 0, mojo.internal.Map(url.mojom.OriginSpec, blink.mojom.LocalResourceSourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sources', 0, 0, mojo.internal.Map(url.mojom.OriginSpec.$, blink.mojom.LocalResourceSourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

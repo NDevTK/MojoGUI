@@ -55,10 +55,10 @@ mojo.internal.Struct(
 // Struct: DebugInfo
 mojo.internal.Struct(
     mojom.app_service_internals.DebugInfoSpec, 'mojom.app_service_internals.DebugInfo', [
-      mojo.internal.StructField('app_list', 0, 0, mojo.internal.Array(mojom.app_service_internals.AppInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('preferred_app_list', 8, 0, mojo.internal.Array(mojom.app_service_internals.PreferredAppInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('promise_app_list', 16, 0, mojo.internal.Array(mojom.app_service_internals.PromiseAppInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('app_capability_list', 24, 0, mojo.internal.Array(mojom.app_service_internals.AppCapabilityInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('app_list', 0, 0, mojo.internal.Array(mojom.app_service_internals.AppInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('preferred_app_list', 8, 0, mojo.internal.Array(mojom.app_service_internals.PreferredAppInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('promise_app_list', 16, 0, mojo.internal.Array(mojom.app_service_internals.PromiseAppInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('app_capability_list', 24, 0, mojo.internal.Array(mojom.app_service_internals.AppCapabilityInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -70,7 +70,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec, 'mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParams', [
-      mojo.internal.StructField('debug_info', 0, 0, mojom.app_service_internals.DebugInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('debug_info', 0, 0, mojom.app_service_internals.DebugInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -120,9 +120,8 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = cl
 
 mojom.app_service_internals.AppServiceInternalsPageHandler.getRemote = function() {
   let remote = new mojom.app_service_internals.AppServiceInternalsPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mojom.app_service_internals.AppServiceInternalsPageHandler',
     'context');
   return remote.$;

@@ -52,17 +52,17 @@ mojo.internal.Union(
     ash.settings.mojom.SearchResultIdentifierSpec, 'ash.settings.mojom.SearchResultIdentifier', {
       'section': {
         'ordinal': 0,
-        'type': chromeos.settings.mojom.SectionSpec,
+        'type': chromeos.settings.mojom.SectionSpec.$,
         'nullable': false,
       },
       'subpage': {
         'ordinal': 1,
-        'type': chromeos.settings.mojom.SubpageSpec,
+        'type': chromeos.settings.mojom.SubpageSpec.$,
         'nullable': false,
       },
       'setting': {
         'ordinal': 2,
-        'type': chromeos.settings.mojom.SettingSpec,
+        'type': chromeos.settings.mojom.SettingSpec.$,
         'nullable': false,
       },
     });
@@ -70,16 +70,16 @@ mojo.internal.Union(
 // Struct: SearchResult
 mojo.internal.Struct(
     ash.settings.mojom.SearchResultSpec, 'ash.settings.mojom.SearchResult', [
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('canonical_text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('canonical_text', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('url_path_with_parameters', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon', 24, 0, ash.settings.mojom.SearchResultIconSpec, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 24, 0, ash.settings.mojom.SearchResultIconSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('relevance_score', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('settings_page_hierarchy', 40, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('default_rank', 48, 0, ash.settings.mojom.SearchResultDefaultRankSpec, null, false, 0, undefined),
-      mojo.internal.StructField('was_generated_from_text_match', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 56, 0, ash.settings.mojom.SearchResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('id', 64, 0, ash.settings.mojom.SearchResultIdentifierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings_page_hierarchy', 40, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('default_rank', 48, 0, ash.settings.mojom.SearchResultDefaultRankSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('was_generated_from_text_match', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 64, 0, ash.settings.mojom.SearchResultTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('id', 72, 0, ash.settings.mojom.SearchResultIdentifierSpec.$, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -135,9 +135,8 @@ ash.settings.mojom.SearchResultsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.SearchResultsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.SearchResultsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.SearchResultsObserver',
     'context');
   return remote.$;
@@ -150,15 +149,15 @@ ash.settings.mojom.SearchResultsObserverRequest = ash.settings.mojom.SearchResul
 // Interface: SearchHandler
 mojo.internal.Struct(
     ash.settings.mojom.SearchHandler_Search_ParamsSpec, 'ash.settings.mojom.SearchHandler_Search_Params', [
-      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('parent_result_behavior', 12, 0, ash.settings.mojom.ParentResultBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parent_result_behavior', 16, 0, ash.settings.mojom.ParentResultBehaviorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.settings.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.settings.mojom.SearchResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.settings.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -224,9 +223,8 @@ ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
 
 ash.settings.mojom.SearchHandler.getRemote = function() {
   let remote = new ash.settings.mojom.SearchHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.SearchHandler',
     'context');
   return remote.$;

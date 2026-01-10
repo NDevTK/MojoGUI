@@ -36,7 +36,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_Params', [
-      mojo.internal.StructField('rule', 0, 0, tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rule', 0, 0, tracing.mojom.BackgroundTracingRuleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('histogram_value_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'histogram_value_$value', originalFieldName: 'histogram_value' }),
       mojo.internal.StructField('histogram_value_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'histogram_value_$flag', originalFieldName: 'histogram_value' }),
       mojo.internal.StructField('flow_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
@@ -99,9 +99,8 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
 
 tracing.mojom.BackgroundTracingAgentClient.getRemote = function() {
   let remote = new tracing.mojom.BackgroundTracingAgentClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.BackgroundTracingAgentClient',
     'context');
   return remote.$;
@@ -114,7 +113,7 @@ tracing.mojom.BackgroundTracingAgentClientRequest = tracing.mojom.BackgroundTrac
 // Interface: BackgroundTracingAgent
 mojo.internal.Struct(
     tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_SetUMACallback_Params', [
-      mojo.internal.StructField('rule', 0, 0, tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rule', 0, 0, tracing.mojom.BackgroundTracingRuleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('histogram_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('histogram_lower_value', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('histogram_upper_value', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -123,7 +122,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_ClearUMACallback_Params', [
-      mojo.internal.StructField('rule', 0, 0, tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rule', 0, 0, tracing.mojom.BackgroundTracingRuleSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -183,9 +182,8 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
 
 tracing.mojom.BackgroundTracingAgent.getRemote = function() {
   let remote = new tracing.mojom.BackgroundTracingAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.BackgroundTracingAgent',
     'context');
   return remote.$;
@@ -250,9 +248,8 @@ tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
 
 tracing.mojom.BackgroundTracingAgentProvider.getRemote = function() {
   let remote = new tracing.mojom.BackgroundTracingAgentProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.BackgroundTracingAgentProvider',
     'context');
   return remote.$;

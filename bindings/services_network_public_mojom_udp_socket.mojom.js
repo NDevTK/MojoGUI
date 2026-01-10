@@ -58,29 +58,29 @@ mojo.internal.Struct(
 // Interface: UDPSocket
 mojo.internal.Struct(
     network.mojom.UDPSocket_Bind_ParamsSpec, 'network.mojom.UDPSocket_Bind_Params', [
-      mojo.internal.StructField('local_addr', 0, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('socket_options', 8, 0, network.mojom.UDPSocketOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('local_addr', 0, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('socket_options', 8, 0, network.mojom.UDPSocketOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.UDPSocket_Bind_ResponseParamsSpec, 'network.mojom.UDPSocket_Bind_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('local_addr_out', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('local_addr_out', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.UDPSocket_Connect_ParamsSpec, 'network.mojom.UDPSocket_Connect_Params', [
-      mojo.internal.StructField('remote_addr', 0, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('socket_options', 8, 0, network.mojom.UDPSocketOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('remote_addr', 0, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('socket_options', 8, 0, network.mojom.UDPSocketOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.UDPSocket_Connect_ResponseParamsSpec, 'network.mojom.UDPSocket_Connect_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('local_addr_out', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('local_addr_out', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -122,7 +122,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.UDPSocket_JoinGroup_ParamsSpec, 'network.mojom.UDPSocket_JoinGroup_Params', [
-      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -134,7 +134,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.UDPSocket_LeaveGroup_ParamsSpec, 'network.mojom.UDPSocket_LeaveGroup_Params', [
-      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -159,9 +159,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.UDPSocket_SendTo_ParamsSpec, 'network.mojom.UDPSocket_SendTo_Params', [
-      mojo.internal.StructField('dest_addr', 0, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('traffic_annotation', 16, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dest_addr', 0, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 16, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -173,8 +173,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.UDPSocket_Send_ParamsSpec, 'network.mojom.UDPSocket_Send_Params', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('traffic_annotation', 8, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 8, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -345,9 +345,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
 
 network.mojom.UDPSocket.getRemote = function() {
   let remote = new network.mojom.UDPSocketRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.UDPSocket',
     'context');
   return remote.$;
@@ -361,8 +360,8 @@ network.mojom.UDPSocketRequest = network.mojom.UDPSocketPendingReceiver;
 mojo.internal.Struct(
     network.mojom.UDPSocketListener_OnReceived_ParamsSpec, 'network.mojom.UDPSocketListener_OnReceived_Params', [
       mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('src_addr', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('data', 16, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('src_addr', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo_base.mojom.ReadOnlyBufferSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -412,9 +411,8 @@ network.mojom.UDPSocketListenerRemoteCallHandler = class {
 
 network.mojom.UDPSocketListener.getRemote = function() {
   let remote = new network.mojom.UDPSocketListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.UDPSocketListener',
     'context');
   return remote.$;

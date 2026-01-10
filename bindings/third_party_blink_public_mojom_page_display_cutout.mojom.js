@@ -30,7 +30,7 @@ blink.mojom.ViewportFit = {
 // Interface: DisplayCutoutHost
 mojo.internal.Struct(
     blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec, 'blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_Params', [
-      mojo.internal.StructField('value', 0, 0, blink.mojom.ViewportFitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, blink.mojom.ViewportFitSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -96,9 +96,8 @@ blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
 
 blink.mojom.DisplayCutoutHost.getRemote = function() {
   let remote = new blink.mojom.DisplayCutoutHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DisplayCutoutHost',
     'context');
   return remote.$;
@@ -111,7 +110,7 @@ blink.mojom.DisplayCutoutHostRequest = blink.mojom.DisplayCutoutHostPendingRecei
 // Interface: DisplayCutoutClient
 mojo.internal.Struct(
     blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec, 'blink.mojom.DisplayCutoutClient_SetSafeArea_Params', [
-      mojo.internal.StructField('safe_area', 0, 0, gfx.mojom.InsetsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('safe_area', 0, 0, gfx.mojom.InsetsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -161,9 +160,8 @@ blink.mojom.DisplayCutoutClientRemoteCallHandler = class {
 
 blink.mojom.DisplayCutoutClient.getRemote = function() {
   let remote = new blink.mojom.DisplayCutoutClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DisplayCutoutClient',
     'context');
   return remote.$;

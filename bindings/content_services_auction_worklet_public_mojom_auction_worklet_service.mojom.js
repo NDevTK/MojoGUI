@@ -39,8 +39,8 @@ auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec = { $: 
 // Struct: BrowserSignals
 mojo.internal.Struct(
     auction_worklet.mojom.BrowserSignalsSpec, 'auction_worklet.mojom.BrowserSignals', [
-      mojo.internal.StructField('top_frame_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('seller', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('seller', 8, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -113,9 +113,8 @@ auction_worklet.mojom.LoadSellerWorkletClientRemoteCallHandler = class {
 
 auction_worklet.mojom.LoadSellerWorkletClient.getRemote = function() {
   let remote = new auction_worklet.mojom.LoadSellerWorkletClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'auction_worklet.mojom.LoadSellerWorkletClient',
     'context');
   return remote.$;
@@ -139,15 +138,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('pause_for_debugger_on_start', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('url_loader_factory', 24, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('auction_network_events_handler', 32, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.AuctionNetworkEventsHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('script_source_load', 40, 0, auction_worklet.mojom.InProgressAuctionDownloadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('wasm_helper_load', 48, 0, auction_worklet.mojom.InProgressAuctionDownloadSpec, null, true, 0, undefined),
-      mojo.internal.StructField('trusted_bidding_signals_url', 56, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('script_source_load', 40, 0, auction_worklet.mojom.InProgressAuctionDownloadSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('wasm_helper_load', 48, 0, auction_worklet.mojom.InProgressAuctionDownloadSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('trusted_bidding_signals_url', 56, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('trusted_bidding_signals_slot_size_param', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('top_window_origin', 72, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('permissions_policy_state', 80, 0, auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_window_origin', 72, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('permissions_policy_state', 80, 0, auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('experiment_group_id_$flag', 88, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'experiment_group_id_$value', originalFieldName: 'experiment_group_id' }),
       mojo.internal.StructField('experiment_group_id_$value', 90, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'experiment_group_id_$flag', originalFieldName: 'experiment_group_id' }),
-      mojo.internal.StructField('public_key', 96, 0, auction_worklet.mojom.TrustedSignalsPublicKeySpec, null, true, 0, undefined),
+      mojo.internal.StructField('public_key', 96, 0, auction_worklet.mojom.TrustedSignalsPublicKeySpec.$, null, true, 0, undefined),
     ],
     [[0, 112]]);
 
@@ -158,15 +157,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('pause_for_debugger_on_start', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('url_loader_factory', 24, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('auction_network_events_handler', 32, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.AuctionNetworkEventsHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('script_source_load', 40, 0, auction_worklet.mojom.InProgressAuctionDownloadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('trusted_scoring_signals_url', 48, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('top_window_origin', 56, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('permissions_policy_state', 64, 0, auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_source_load', 40, 0, auction_worklet.mojom.InProgressAuctionDownloadSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('trusted_scoring_signals_url', 48, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('top_window_origin', 56, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('permissions_policy_state', 64, 0, auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('experiment_group_id_$flag', 72, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'experiment_group_id_$value', originalFieldName: 'experiment_group_id' }),
       mojo.internal.StructField('experiment_group_id_$value', 74, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'experiment_group_id_$flag', originalFieldName: 'experiment_group_id' }),
       mojo.internal.StructField('send_creative_scanning_metadata_$flag', 76, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'send_creative_scanning_metadata_$value', originalFieldName: 'send_creative_scanning_metadata' }),
       mojo.internal.StructField('send_creative_scanning_metadata_$value', 76, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'send_creative_scanning_metadata_$flag', originalFieldName: 'send_creative_scanning_metadata' }),
-      mojo.internal.StructField('public_key', 80, 0, auction_worklet.mojom.TrustedSignalsPublicKeySpec, null, true, 0, undefined),
+      mojo.internal.StructField('public_key', 80, 0, auction_worklet.mojom.TrustedSignalsPublicKeySpec.$, null, true, 0, undefined),
       mojo.internal.StructField('load_seller_worklet_client', 88, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.LoadSellerWorkletClientRemote), null, true, 0, undefined),
     ],
     [[0, 104]]);
@@ -237,9 +236,8 @@ auction_worklet.mojom.AuctionWorkletServiceRemoteCallHandler = class {
 
 auction_worklet.mojom.AuctionWorkletService.getRemote = function() {
   let remote = new auction_worklet.mojom.AuctionWorkletServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'auction_worklet.mojom.AuctionWorkletService',
     'context');
   return remote.$;

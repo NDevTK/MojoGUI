@@ -17,7 +17,7 @@ shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec = { $
 mojo.internal.Struct(
     shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec, 'shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_Params', [
       mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(shape_detection.mojom.FaceDetectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, shape_detection.mojom.FaceDetectorOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, shape_detection.mojom.FaceDetectorOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -67,9 +67,8 @@ shape_detection.mojom.FaceDetectionProviderRemoteCallHandler = class {
 
 shape_detection.mojom.FaceDetectionProvider.getRemote = function() {
   let remote = new shape_detection.mojom.FaceDetectionProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'shape_detection.mojom.FaceDetectionProvider',
     'context');
   return remote.$;

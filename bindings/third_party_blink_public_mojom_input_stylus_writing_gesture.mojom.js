@@ -32,11 +32,11 @@ blink.mojom.StylusWritingGestureGranularity = {
 // Struct: StylusWritingGestureData
 mojo.internal.Struct(
     blink.mojom.StylusWritingGestureDataSpec, 'blink.mojom.StylusWritingGestureData', [
-      mojo.internal.StructField('action', 0, 0, blink.mojom.StylusWritingGestureActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('granularity', 4, 0, blink.mojom.StylusWritingGestureGranularitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('start_rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('end_rect', 16, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('text_alternative', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('text_to_insert', 32, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, blink.mojom.StylusWritingGestureActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('granularity', 8, 0, blink.mojom.StylusWritingGestureGranularitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('start_rect', 16, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('end_rect', 24, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('text_alternative', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text_to_insert', 40, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);

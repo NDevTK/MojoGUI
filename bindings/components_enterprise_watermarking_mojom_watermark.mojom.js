@@ -13,7 +13,7 @@ watermark.mojom.WatermarkBlockSpec = { $: {} };
 // Struct: WatermarkBlock
 mojo.internal.Struct(
     watermark.mojom.WatermarkBlockSpec, 'watermark.mojom.WatermarkBlock', [
-      mojo.internal.StructField('serialized_skpicture', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('serialized_skpicture', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

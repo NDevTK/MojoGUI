@@ -19,7 +19,7 @@ blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec = { $: {} };
 // Interface: BroadcastChannelClient
 mojo.internal.Struct(
     blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec, 'blink.mojom.BroadcastChannelClient_OnMessage_Params', [
-      mojo.internal.StructField('message', 0, 0, blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, blink.mojom.CloneableMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -69,9 +69,8 @@ blink.mojom.BroadcastChannelClientRemoteCallHandler = class {
 
 blink.mojom.BroadcastChannelClient.getRemote = function() {
   let remote = new blink.mojom.BroadcastChannelClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BroadcastChannelClient',
     'context');
   return remote.$;
@@ -136,9 +135,8 @@ blink.mojom.BroadcastChannelProviderRemoteCallHandler = class {
 
 blink.mojom.BroadcastChannelProvider.getRemote = function() {
   let remote = new blink.mojom.BroadcastChannelProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BroadcastChannelProvider',
     'context');
   return remote.$;

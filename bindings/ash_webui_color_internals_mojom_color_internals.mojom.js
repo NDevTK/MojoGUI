@@ -21,15 +21,15 @@ ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Para
 // Struct: WallpaperCalculatedColors
 mojo.internal.Struct(
     ash.color_internals.mojom.WallpaperCalculatedColorsSpec, 'ash.color_internals.mojom.WallpaperCalculatedColors', [
-      mojo.internal.StructField('k_mean_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('celebi_color', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('k_mean_color', 0, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('celebi_color', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: WallpaperColorsObserver
 mojo.internal.Struct(
     ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Params', [
-      mojo.internal.StructField('colors', 0, 0, ash.color_internals.mojom.WallpaperCalculatedColorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('colors', 0, 0, ash.color_internals.mojom.WallpaperCalculatedColorsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -79,9 +79,8 @@ ash.color_internals.mojom.WallpaperColorsObserverRemoteCallHandler = class {
 
 ash.color_internals.mojom.WallpaperColorsObserver.getRemote = function() {
   let remote = new ash.color_internals.mojom.WallpaperColorsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.color_internals.mojom.WallpaperColorsObserver',
     'context');
   return remote.$;
@@ -144,9 +143,8 @@ ash.color_internals.mojom.WallpaperColorsHandlerRemoteCallHandler = class {
 
 ash.color_internals.mojom.WallpaperColorsHandler.getRemote = function() {
   let remote = new ash.color_internals.mojom.WallpaperColorsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.color_internals.mojom.WallpaperColorsHandler',
     'context');
   return remote.$;

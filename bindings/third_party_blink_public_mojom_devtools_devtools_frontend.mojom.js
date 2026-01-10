@@ -86,9 +86,8 @@ blink.mojom.DevToolsFrontendRemoteCallHandler = class {
 
 blink.mojom.DevToolsFrontend.getRemote = function() {
   let remote = new blink.mojom.DevToolsFrontendRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DevToolsFrontend',
     'context');
   return remote.$;
@@ -101,7 +100,7 @@ blink.mojom.DevToolsFrontendRequest = blink.mojom.DevToolsFrontendPendingReceive
 // Interface: DevToolsFrontendHost
 mojo.internal.Struct(
     blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec, 'blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_Params', [
-      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -151,9 +150,8 @@ blink.mojom.DevToolsFrontendHostRemoteCallHandler = class {
 
 blink.mojom.DevToolsFrontendHost.getRemote = function() {
   let remote = new blink.mojom.DevToolsFrontendHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DevToolsFrontendHost',
     'context');
   return remote.$;

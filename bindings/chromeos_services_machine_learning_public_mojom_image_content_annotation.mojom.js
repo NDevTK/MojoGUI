@@ -43,7 +43,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('mid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('score', 24, 0, mojo.internal.Float, 0, false, 1, undefined),
-      mojo.internal.StructField('bounding_box', 32, 0, gfx.mojom.RectSpec, null, true, 1, undefined),
+      mojo.internal.StructField('bounding_box', 32, 0, gfx.mojom.RectSpec.$, null, true, 1, undefined),
     ],
     [[0, 32], [1, 48]]);
 
@@ -57,7 +57,7 @@ mojo.internal.Struct(
 // Interface: ImageContentAnnotator
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec, 'chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_Params', [
-      mojo.internal.StructField('rgb_bytes', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rgb_bytes', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('line_stride', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -66,19 +66,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec, 'chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.ImageAnnotationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.ImageAnnotationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec, 'chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_Params', [
-      mojo.internal.StructField('encoded_image', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encoded_image', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec, 'chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.ImageAnnotationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.ImageAnnotationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -138,9 +138,8 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.ImageContentAnnotator.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.ImageContentAnnotatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.machine_learning.mojom.ImageContentAnnotator',
     'context');
   return remote.$;

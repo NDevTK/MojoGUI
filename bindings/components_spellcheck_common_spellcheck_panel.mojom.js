@@ -85,9 +85,8 @@ spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
 
 spellcheck.mojom.SpellCheckPanel.getRemote = function() {
   let remote = new spellcheck.mojom.SpellCheckPanelRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'spellcheck.mojom.SpellCheckPanel',
     'context');
   return remote.$;
@@ -106,7 +105,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec, 'spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Params', [
-      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -166,9 +165,8 @@ spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
 
 spellcheck.mojom.SpellCheckPanelHost.getRemote = function() {
   let remote = new spellcheck.mojom.SpellCheckPanelHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'spellcheck.mojom.SpellCheckPanelHost',
     'context');
   return remote.$;

@@ -40,7 +40,7 @@ gl.mojom.ANGLEImplementation = {
 // Struct: GLImplementationParts
 mojo.internal.Struct(
     gl.mojom.GLImplementationPartsSpec, 'gl.mojom.GLImplementationParts', [
-      mojo.internal.StructField('gl', 0, 0, gl.mojom.GLImplementationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('angle', 4, 0, gl.mojom.ANGLEImplementationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gl', 0, 0, gl.mojom.GLImplementationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('angle', 8, 0, gl.mojom.ANGLEImplementationSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

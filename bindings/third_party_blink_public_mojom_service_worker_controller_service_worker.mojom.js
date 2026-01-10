@@ -36,8 +36,8 @@ blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = { $: 
 // Struct: ServiceWorkerRouterData
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterDataSpec, 'blink.mojom.ServiceWorkerRouterData', [
-      mojo.internal.StructField('router_rules', 0, 0, blink.mojom.ServiceWorkerRouterRulesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('initial_running_status', 8, 0, blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('router_rules', 0, 0, blink.mojom.ServiceWorkerRouterRulesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('initial_running_status', 8, 0, blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('running_status_receiver', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerRunningStatusCallbackRemote), null, true, 0, undefined),
       mojo.internal.StructField('remote_cache_storage', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.CacheStorageRemote), null, false, 0, undefined),
     ],
@@ -46,38 +46,38 @@ mojo.internal.Struct(
 // Struct: ControllerServiceWorkerInfo
 mojo.internal.Struct(
     blink.mojom.ControllerServiceWorkerInfoSpec, 'blink.mojom.ControllerServiceWorkerInfo', [
-      mojo.internal.StructField('fetch_handler_bypass_option', 0, 0, blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('fetch_handler_bypass_option', 0, 0, blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('sha256_script_checksum', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('need_router_evaluate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('router_data', 24, 0, blink.mojom.ServiceWorkerRouterDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('router_data', 24, 0, blink.mojom.ServiceWorkerRouterDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('remote_controller', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.ControllerServiceWorkerRemote), null, true, 0, undefined),
       mojo.internal.StructField('client_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('fetch_request_window_id', 48, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('object_info', 56, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('used_features', 64, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('fetch_request_window_id', 48, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('object_info', 56, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('used_features', 64, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Interface: ControllerServiceWorker
 mojo.internal.Struct(
     blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec, 'blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_Params', [
-      mojo.internal.StructField('params', 0, 0, blink.mojom.DispatchFetchEventParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, blink.mojom.DispatchFetchEventParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('response_callback', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerFetchResponseCallbackRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec, 'blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEventStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.ControllerServiceWorker_Clone_ParamsSpec, 'blink.mojom.ControllerServiceWorker_Clone_Params', [
       mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('cross_origin_embedder_policy', 8, 0, network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('cross_origin_embedder_policy', 8, 0, network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('coep_reporter', 16, 0, mojo.internal.InterfaceProxy(network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('document_isolation_policy', 24, 0, network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_isolation_policy', 24, 0, network.mojom.DocumentIsolationPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('dip_reporter', 32, 0, mojo.internal.InterfaceProxy(network.mojom.DocumentIsolationPolicyReporterRemote), null, true, 0, undefined),
     ],
     [[0, 48]]);
@@ -138,9 +138,8 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
 
 blink.mojom.ControllerServiceWorker.getRemote = function() {
   let remote = new blink.mojom.ControllerServiceWorkerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ControllerServiceWorker',
     'context');
   return remote.$;
@@ -203,9 +202,8 @@ blink.mojom.ControllerServiceWorkerConnectorRemoteCallHandler = class {
 
 blink.mojom.ControllerServiceWorkerConnector.getRemote = function() {
   let remote = new blink.mojom.ControllerServiceWorkerConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ControllerServiceWorkerConnector',
     'context');
   return remote.$;

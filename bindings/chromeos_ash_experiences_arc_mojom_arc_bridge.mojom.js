@@ -1149,9 +1149,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
 
 arc.mojom.ArcBridgeHost.getRemote = function() {
   let remote = new arc.mojom.ArcBridgeHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ArcBridgeHost',
     'context');
   return remote.$;

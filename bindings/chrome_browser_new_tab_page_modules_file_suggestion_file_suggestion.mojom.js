@@ -24,9 +24,9 @@ mojo.internal.Struct(
     file_suggestion.mojom.FileSpec, 'file_suggestion.mojom.File', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('justification_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('item_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('recommendation_type', 40, 0, file_suggestion.mojom.RecommendationTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('item_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('recommendation_type', 40, 0, file_suggestion.mojom.RecommendationTypeSpec.$, null, true, 0, undefined),
     ],
     [[0, 56]]);

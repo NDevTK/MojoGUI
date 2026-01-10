@@ -36,7 +36,7 @@ network.mojom.RestrictedUDPSocketMode = {
 // Struct: RestrictedUDPSocketParams
 mojo.internal.Struct(
     network.mojom.RestrictedUDPSocketParamsSpec, 'network.mojom.RestrictedUDPSocketParams', [
-      mojo.internal.StructField('socket_options', 0, 0, network.mojom.UDPSocketOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('socket_options', 0, 0, network.mojom.UDPSocketOptionsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('connection_tracker', 8, 0, mojo.internal.InterfaceProxy(network.mojom.SocketConnectionTrackerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -44,7 +44,7 @@ mojo.internal.Struct(
 // Interface: RestrictedUDPSocket
 mojo.internal.Struct(
     network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec, 'network.mojom.RestrictedUDPSocket_JoinGroup_Params', [
-      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -56,7 +56,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec, 'network.mojom.RestrictedUDPSocket_LeaveGroup_Params', [
-      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -74,7 +74,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.RestrictedUDPSocket_Send_ParamsSpec, 'network.mojom.RestrictedUDPSocket_Send_Params', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -86,9 +86,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec, 'network.mojom.RestrictedUDPSocket_SendTo_Params', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dest_addr', 8, 0, network.mojom.HostPortPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dns_query_type', 16, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dest_addr', 8, 0, network.mojom.HostPortPairSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dns_query_type', 16, 0, network.mojom.DnsQueryTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -184,9 +184,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
 
 network.mojom.RestrictedUDPSocket.getRemote = function() {
   let remote = new network.mojom.RestrictedUDPSocketRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.RestrictedUDPSocket',
     'context');
   return remote.$;

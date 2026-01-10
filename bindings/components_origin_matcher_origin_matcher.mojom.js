@@ -24,13 +24,13 @@ mojo.internal.Struct(
 // Struct: OriginMatcherRule
 mojo.internal.Struct(
     origin_matcher.mojom.OriginMatcherRuleSpec, 'origin_matcher.mojom.OriginMatcherRule', [
-      mojo.internal.StructField('subdomain_matching_rule', 0, 0, origin_matcher.mojom.SubdomainMatchingRuleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('subdomain_matching_rule', 0, 0, origin_matcher.mojom.SubdomainMatchingRuleSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: OriginMatcher
 mojo.internal.Struct(
     origin_matcher.mojom.OriginMatcherSpec, 'origin_matcher.mojom.OriginMatcher', [
-      mojo.internal.StructField('rules', 0, 0, mojo.internal.Array(origin_matcher.mojom.OriginMatcherRuleSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('rules', 0, 0, mojo.internal.Array(origin_matcher.mojom.OriginMatcherRuleSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

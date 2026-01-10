@@ -51,14 +51,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_Params', [
       mojo.internal.StructField('dmabuf_fd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('modifiers', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
       mojo.internal.StructField('format', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('planes_count', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('color_space', 48, 0, gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hdr_metadata', 56, 0, gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_space', 48, 0, gfx.mojom.ColorSpaceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('hdr_metadata', 56, 0, gfx.mojom.HDRMetadataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('buffer_id', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -67,14 +67,14 @@ mojo.internal.Struct(
     ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_Params', [
       mojo.internal.StructField('shm_fd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('buffer_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_Params', [
-      mojo.internal.StructField('color', 0, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color', 0, 0, skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -87,10 +87,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_Params', [
-      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 16, 0, gfx.mojom.FrameDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('overlays', 24, 0, mojo.internal.Array(wl.mojom.WaylandOverlayConfigSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, gfx.mojom.FrameDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('overlays', 24, 0, mojo.internal.Array(wl.mojom.WaylandOverlayConfigSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -190,9 +190,8 @@ ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
 
 ui.ozone.mojom.WaylandBufferManagerHost.getRemote = function() {
   let remote = new ui.ozone.mojom.WaylandBufferManagerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ui.ozone.mojom.WaylandBufferManagerHost',
     'context');
   return remote.$;
@@ -206,7 +205,7 @@ ui.ozone.mojom.WaylandBufferManagerHostRequest = ui.ozone.mojom.WaylandBufferMan
 mojo.internal.Struct(
     ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_Params', [
       mojo.internal.StructField('remote_host', 0, 0, mojo.internal.InterfaceProxy(ui.ozone.mojom.WaylandBufferManagerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('shared_image_formats_with_modifiers', 8, 0, mojo.internal.Map(viz.mojom.SharedImageFormatSpec, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('shared_image_formats_with_modifiers', 8, 0, mojo.internal.Map(viz.mojom.SharedImageFormatSpec.$, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
       mojo.internal.StructField('supports_dma_buf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('supports_viewporter', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('supports_acquire_fence', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -217,18 +216,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_Params', [
-      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('swap_result', 12, 0, gfx.mojom.SwapResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('release_fence_handle', 16, 0, gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('presentation_infos', 24, 0, mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('swap_result', 16, 0, gfx.mojom.SwapResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('release_fence_handle', 24, 0, gfx.mojom.GpuFenceHandleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('presentation_infos', 32, 0, mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec.$, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_Params', [
-      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('presentation_infos', 8, 0, mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('widget', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_infos', 8, 0, mojo.internal.Array(wl.mojom.WaylandPresentationInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -298,9 +297,8 @@ ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler = class {
 
 ui.ozone.mojom.WaylandBufferManagerGpu.getRemote = function() {
   let remote = new ui.ozone.mojom.WaylandBufferManagerGpuRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ui.ozone.mojom.WaylandBufferManagerGpu',
     'context');
   return remote.$;

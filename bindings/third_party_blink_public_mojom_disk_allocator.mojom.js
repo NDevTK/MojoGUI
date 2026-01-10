@@ -15,7 +15,7 @@ blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec = { $: {} };
 // Interface: DiskAllocator
 mojo.internal.Struct(
     blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec, 'blink.mojom.DiskAllocator_ProvideTemporaryFile_Params', [
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -65,9 +65,8 @@ blink.mojom.DiskAllocatorRemoteCallHandler = class {
 
 blink.mojom.DiskAllocator.getRemote = function() {
   let remote = new blink.mojom.DiskAllocatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DiskAllocator',
     'context');
   return remote.$;

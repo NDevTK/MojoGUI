@@ -68,9 +68,8 @@ color_change_listener.mojom.PageHandlerRemoteCallHandler = class {
 
 color_change_listener.mojom.PageHandler.getRemote = function() {
   let remote = new color_change_listener.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'color_change_listener.mojom.PageHandler',
     'context');
   return remote.$;
@@ -132,9 +131,8 @@ color_change_listener.mojom.PageRemoteCallHandler = class {
 
 color_change_listener.mojom.Page.getRemote = function() {
   let remote = new color_change_listener.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'color_change_listener.mojom.Page',
     'context');
   return remote.$;

@@ -22,17 +22,17 @@ ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = { $: {} };
 // Interface: DeviceCursor
 mojo.internal.Struct(
     ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_SetCursor_Params', [
-      mojo.internal.StructField('window', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bitmaps', 8, 0, mojo.internal.Array(skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('point', 16, 0, gfx.mojom.PointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('frame_delay', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('window', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bitmaps', 8, 0, mojo.internal.Array(skia.mojom.BitmapN32Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('point', 16, 0, gfx.mojom.PointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('frame_delay', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_MoveCursor_Params', [
-      mojo.internal.StructField('window', 0, 0, gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('window', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -92,9 +92,8 @@ ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
 
 ui.ozone.mojom.DeviceCursor.getRemote = function() {
   let remote = new ui.ozone.mojom.DeviceCursorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ui.ozone.mojom.DeviceCursor',
     'context');
   return remote.$;

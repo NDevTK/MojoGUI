@@ -31,51 +31,51 @@ network.mojom.ReportingApiReportStatus = {
 // Struct: ReportingApiReport
 mojo.internal.Struct(
     network.mojom.ReportingApiReportSpec, 'network.mojom.ReportingApiReport', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('group', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('depth', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('attempts', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('body', 48, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 56, 0, network.mojom.ReportingApiReportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('body', 48, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 56, 0, network.mojom.ReportingApiReportStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
 // Struct: ReportingApiEndpoint
 mojo.internal.Struct(
     network.mojom.ReportingApiEndpointSpec, 'network.mojom.ReportingApiEndpoint', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('attempted_uploads', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('successful_uploads', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('attempted_reports', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('successful_reports', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('priority', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('weight', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('origin', 32, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 32, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('group_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('network_anonymization_key', 48, 0, network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('reporting_source', 64, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('network_anonymization_key', 48, 0, network.mojom.NetworkAnonymizationKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_source', 56, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Interface: ReportingApiObserver
 mojo.internal.Struct(
     network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec, 'network.mojom.ReportingApiObserver_OnReportAdded_Params', [
-      mojo.internal.StructField('report', 0, 0, network.mojom.ReportingApiReportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report', 0, 0, network.mojom.ReportingApiReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec, 'network.mojom.ReportingApiObserver_OnReportUpdated_Params', [
-      mojo.internal.StructField('report', 0, 0, network.mojom.ReportingApiReportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report', 0, 0, network.mojom.ReportingApiReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec, 'network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_Params', [
-      mojo.internal.StructField('endpoints', 0, 0, mojo.internal.Array(network.mojom.ReportingApiEndpointSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('endpoints', 0, 0, mojo.internal.Array(network.mojom.ReportingApiEndpointSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -145,9 +145,8 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
 
 network.mojom.ReportingApiObserver.getRemote = function() {
   let remote = new network.mojom.ReportingApiObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.ReportingApiObserver',
     'context');
   return remote.$;

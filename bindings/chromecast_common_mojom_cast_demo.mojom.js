@@ -86,9 +86,8 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverRemoteCallHandler = class {
 
 chromecast.shell.mojom.CastDemoVolumeChangeObserver.getRemote = function() {
   let remote = new chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.shell.mojom.CastDemoVolumeChangeObserver',
     'context');
   return remote.$;
@@ -102,9 +101,9 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverRequest = chromecast.shell.mo
 mojo.internal.Struct(
     chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec, 'chromecast.shell.mojom.CastDemo_RecordEvent_Params', [
       mojo.internal.StructField('event_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec, 'chromecast.shell.mojom.CastDemo_SetRetailerName_Params', [
@@ -176,9 +175,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec, 'chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParams', [
-      mojo.internal.StructField('network_list', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_list', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec, 'chromecast.shell.mojom.CastDemo_GetConnectionStatus_Params', [
@@ -187,9 +186,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec, 'chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec, 'chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_Params', [
@@ -368,9 +367,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
 
 chromecast.shell.mojom.CastDemo.getRemote = function() {
   let remote = new chromecast.shell.mojom.CastDemoRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.shell.mojom.CastDemo',
     'context');
   return remote.$;

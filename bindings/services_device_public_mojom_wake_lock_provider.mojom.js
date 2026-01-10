@@ -31,23 +31,23 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec, 'device.mojom.WakeLockProvider_GetWakeLockWithoutContext_Params', [
-      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 4, 0, device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('wake_lock', 16, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, device.mojom.WakeLockReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('wake_lock', 24, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec, 'device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_Params', [
-      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(device.mojom.WakeLockObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec, 'device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_Params', [
-      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -133,9 +133,8 @@ device.mojom.WakeLockProviderRemoteCallHandler = class {
 
 device.mojom.WakeLockProvider.getRemote = function() {
   let remote = new device.mojom.WakeLockProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.WakeLockProvider',
     'context');
   return remote.$;
@@ -148,7 +147,7 @@ device.mojom.WakeLockProviderRequest = device.mojom.WakeLockProviderPendingRecei
 // Interface: WakeLockObserver
 mojo.internal.Struct(
     device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec, 'device.mojom.WakeLockObserver_OnWakeLockDeactivated_Params', [
-      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -198,9 +197,8 @@ device.mojom.WakeLockObserverRemoteCallHandler = class {
 
 device.mojom.WakeLockObserver.getRemote = function() {
   let remote = new device.mojom.WakeLockObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.WakeLockObserver',
     'context');
   return remote.$;

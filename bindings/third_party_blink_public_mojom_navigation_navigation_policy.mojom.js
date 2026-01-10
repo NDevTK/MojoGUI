@@ -27,7 +27,7 @@ mojo.internal.Struct(
 // Struct: NavigationDownloadPolicy
 mojo.internal.Struct(
     blink.mojom.NavigationDownloadPolicySpec, 'blink.mojom.NavigationDownloadPolicy', [
-      mojo.internal.StructField('observed_types', 0, 0, blink.mojom.NavigationDownloadTypesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('disallowed_types', 8, 0, blink.mojom.NavigationDownloadTypesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observed_types', 0, 0, blink.mojom.NavigationDownloadTypesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('disallowed_types', 8, 0, blink.mojom.NavigationDownloadTypesSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

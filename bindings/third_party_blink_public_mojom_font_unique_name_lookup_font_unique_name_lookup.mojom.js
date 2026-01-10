@@ -24,7 +24,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParams', [
       mojo.internal.StructField('sync_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('font_lookup_table', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('font_lookup_table', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -35,7 +35,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParams', [
-      mojo.internal.StructField('font_lookup_table', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('font_lookup_table', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -95,9 +95,8 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
 
 blink.mojom.FontUniqueNameLookup.getRemote = function() {
   let remote = new blink.mojom.FontUniqueNameLookupRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FontUniqueNameLookup',
     'context');
   return remote.$;

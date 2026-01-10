@@ -16,8 +16,8 @@ chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDo
 // Interface: OpenSearchDescriptionDocumentHandler
 mojo.internal.Struct(
     chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec, 'chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_Params', [
-      mojo.internal.StructField('page_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('osdd_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('osdd_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -67,9 +67,8 @@ chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
 
 chrome.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
   let remote = new chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.OpenSearchDescriptionDocumentHandler',
     'context');
   return remote.$;

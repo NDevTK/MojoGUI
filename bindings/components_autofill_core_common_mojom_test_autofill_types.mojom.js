@@ -31,97 +31,97 @@ autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec =
 // Interface: TypeTraitsTest
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormData_Params', [
-      mojo.internal.StructField('s', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, autofill.mojom.FormDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormData_ResponseParams', [
-      mojo.internal.StructField('passed', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passed', 0, 0, autofill.mojom.FormDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldData_Params', [
-      mojo.internal.StructField('s', 0, 0, autofill.mojom.FormFieldDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, autofill.mojom.FormFieldDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParams', [
-      mojo.internal.StructField('passed', 0, 0, autofill.mojom.FormFieldDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passed', 0, 0, autofill.mojom.FormFieldDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormDataPredictions_Params', [
-      mojo.internal.StructField('s', 0, 0, autofill.mojom.FormDataPredictionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, autofill.mojom.FormDataPredictionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParams', [
-      mojo.internal.StructField('passed', 0, 0, autofill.mojom.FormDataPredictionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passed', 0, 0, autofill.mojom.FormDataPredictionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_Params', [
-      mojo.internal.StructField('s', 0, 0, autofill.mojom.FormFieldDataPredictionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, autofill.mojom.FormFieldDataPredictionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParams', [
-      mojo.internal.StructField('passed', 0, 0, autofill.mojom.FormFieldDataPredictionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passed', 0, 0, autofill.mojom.FormFieldDataPredictionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_Params', [
-      mojo.internal.StructField('s', 0, 0, autofill.mojom.PasswordFormFillDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, autofill.mojom.PasswordFormFillDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParams', [
-      mojo.internal.StructField('passed', 0, 0, autofill.mojom.PasswordFormFillDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passed', 0, 0, autofill.mojom.PasswordFormFillDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_Params', [
-      mojo.internal.StructField('s', 0, 0, autofill.mojom.PasswordFormGenerationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, autofill.mojom.PasswordFormGenerationDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParams', [
-      mojo.internal.StructField('passed', 0, 0, autofill.mojom.PasswordFormGenerationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passed', 0, 0, autofill.mojom.PasswordFormGenerationDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_Params', [
-      mojo.internal.StructField('s', 0, 0, autofill.mojom.PasswordGenerationUIDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, autofill.mojom.PasswordGenerationUIDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParams', [
-      mojo.internal.StructField('passed', 0, 0, autofill.mojom.PasswordGenerationUIDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passed', 0, 0, autofill.mojom.PasswordGenerationUIDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_Params', [
-      mojo.internal.StructField('s', 0, 0, autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, autofill.mojom.PasswordSuggestionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParams', [
-      mojo.internal.StructField('passed', 0, 0, autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('passed', 0, 0, autofill.mojom.PasswordSuggestionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -241,9 +241,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
 
 autofill.mojom.TypeTraitsTest.getRemote = function() {
   let remote = new autofill.mojom.TypeTraitsTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'autofill.mojom.TypeTraitsTest',
     'context');
   return remote.$;

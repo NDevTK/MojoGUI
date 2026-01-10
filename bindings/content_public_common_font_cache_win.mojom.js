@@ -17,7 +17,7 @@ content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = { $: {} };
 // Interface: FontCacheWin
 mojo.internal.Struct(
     content.mojom.FontCacheWin_PreCacheFont_ParamsSpec, 'content.mojom.FontCacheWin_PreCacheFont_Params', [
-      mojo.internal.StructField('log_font', 0, 0, mojo_base.mojom.LOGFONTSpec, null, false, 0, undefined),
+      mojo.internal.StructField('log_font', 0, 0, mojo_base.mojom.LOGFONTSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -87,9 +87,8 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
 
 content.mojom.FontCacheWin.getRemote = function() {
   let remote = new content.mojom.FontCacheWinRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.FontCacheWin',
     'context');
   return remote.$;

@@ -78,9 +78,8 @@ ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.office_fallback.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.office_fallback.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.office_fallback.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -93,7 +92,7 @@ ash.office_fallback.mojom.PageHandlerFactoryRequest = ash.office_fallback.mojom.
 // Interface: PageHandler
 mojo.internal.Struct(
     ash.office_fallback.mojom.PageHandler_Close_ParamsSpec, 'ash.office_fallback.mojom.PageHandler_Close_Params', [
-      mojo.internal.StructField('choice', 0, 0, ash.office_fallback.mojom.DialogChoiceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('choice', 0, 0, ash.office_fallback.mojom.DialogChoiceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -143,9 +142,8 @@ ash.office_fallback.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.office_fallback.mojom.PageHandler.getRemote = function() {
   let remote = new ash.office_fallback.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.office_fallback.mojom.PageHandler',
     'context');
   return remote.$;

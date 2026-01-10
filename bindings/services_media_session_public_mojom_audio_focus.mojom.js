@@ -66,30 +66,30 @@ media_session.mojom.AudioFocusType = {
 // Struct: AudioFocusRequestState
 mojo.internal.Struct(
     media_session.mojom.AudioFocusRequestStateSpec, 'media_session.mojom.AudioFocusRequestState', [
-      mojo.internal.StructField('session_info', 0, 0, media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('audio_focus_type', 8, 0, media_session.mojom.AudioFocusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_info', 0, 0, media_session.mojom.MediaSessionInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('audio_focus_type', 8, 0, media_session.mojom.AudioFocusTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('source_name', 16, 0, mojo.internal.String, null, true, 2, undefined),
-      mojo.internal.StructField('request_id', 24, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 3, undefined),
-      mojo.internal.StructField('source_id', 32, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 9, undefined),
+      mojo.internal.StructField('request_id', 24, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 3, undefined),
+      mojo.internal.StructField('source_id', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 9, undefined),
     ],
     [[0, 24], [2, 32], [3, 40], [9, 48]]);
 
 // Interface: AudioFocusObserver
 mojo.internal.Struct(
     media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec, 'media_session.mojom.AudioFocusObserver_OnFocusGained_Params', [
-      mojo.internal.StructField('state', 0, 0, media_session.mojom.AudioFocusRequestStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, media_session.mojom.AudioFocusRequestStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec, 'media_session.mojom.AudioFocusObserver_OnFocusLost_Params', [
-      mojo.internal.StructField('state', 0, 0, media_session.mojom.AudioFocusRequestStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, media_session.mojom.AudioFocusRequestStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec, 'media_session.mojom.AudioFocusObserver_OnRequestIdReleased_Params', [
-      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -159,9 +159,8 @@ media_session.mojom.AudioFocusObserverRemoteCallHandler = class {
 
 media_session.mojom.AudioFocusObserver.getRemote = function() {
   let remote = new media_session.mojom.AudioFocusObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_session.mojom.AudioFocusObserver',
     'context');
   return remote.$;
@@ -174,8 +173,8 @@ media_session.mojom.AudioFocusObserverRequest = media_session.mojom.AudioFocusOb
 // Interface: AudioFocusRequestClient
 mojo.internal.Struct(
     media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec, 'media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_Params', [
-      mojo.internal.StructField('session_info', 0, 0, media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, media_session.mojom.AudioFocusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_info', 0, 0, media_session.mojom.MediaSessionInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, media_session.mojom.AudioFocusTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -191,7 +190,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec, 'media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_Params', [
-      mojo.internal.StructField('session_info', 0, 0, media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_info', 0, 0, media_session.mojom.MediaSessionInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -261,9 +260,8 @@ media_session.mojom.AudioFocusRequestClientRemoteCallHandler = class {
 
 media_session.mojom.AudioFocusRequestClient.getRemote = function() {
   let remote = new media_session.mojom.AudioFocusRequestClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_session.mojom.AudioFocusRequestClient',
     'context');
   return remote.$;
@@ -278,25 +276,25 @@ mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec, 'media_session.mojom.AudioFocusManager_RequestAudioFocus_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('session', 8, 0, mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('session_info', 16, 0, media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, media_session.mojom.AudioFocusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_info', 16, 0, media_session.mojom.MediaSessionInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, media_session.mojom.AudioFocusTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec, 'media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParams', [
-      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec, 'media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_Params', [
-      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('session', 16, 0, mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('session_info', 24, 0, media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 32, 0, media_session.mojom.AudioFocusTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('group_id', 40, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_info', 24, 0, media_session.mojom.MediaSessionInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 32, 0, media_session.mojom.AudioFocusTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('group_id', 40, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -313,7 +311,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec, 'media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParams', [
-      mojo.internal.StructField('requests', 0, 0, mojo.internal.Array(media_session.mojom.AudioFocusRequestStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('requests', 0, 0, mojo.internal.Array(media_session.mojom.AudioFocusRequestStateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -325,45 +323,45 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_SetSource_ParamsSpec, 'media_session.mojom.AudioFocusManager_SetSource_Params', [
-      mojo.internal.StructField('identity', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec, 'media_session.mojom.AudioFocusManager_SetEnforcementMode_Params', [
-      mojo.internal.StructField('mode', 0, 0, media_session.mojom.EnforcementModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, media_session.mojom.EnforcementModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec, 'media_session.mojom.AudioFocusManager_AddSourceObserver_Params', [
-      mojo.internal.StructField('source_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec, 'media_session.mojom.AudioFocusManager_GetSourceFocusRequests_Params', [
-      mojo.internal.StructField('source_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec, 'media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParams', [
-      mojo.internal.StructField('requests', 0, 0, mojo.internal.Array(media_session.mojom.AudioFocusRequestStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('requests', 0, 0, mojo.internal.Array(media_session.mojom.AudioFocusRequestStateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec, 'media_session.mojom.AudioFocusManager_RequestIdReleased_Params', [
-      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec, 'media_session.mojom.AudioFocusManager_StartDuckingAllAudio_Params', [
-      mojo.internal.StructField('exempted_request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('exempted_request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -538,9 +536,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
 
 media_session.mojom.AudioFocusManager.getRemote = function() {
   let remote = new media_session.mojom.AudioFocusManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_session.mojom.AudioFocusManager',
     'context');
   return remote.$;
@@ -553,13 +550,13 @@ media_session.mojom.AudioFocusManagerRequest = media_session.mojom.AudioFocusMan
 // Interface: AudioFocusManagerDebug
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec, 'media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_Params', [
-      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec, 'media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParams', [
-      mojo.internal.StructField('debug_info', 0, 0, media_session.mojom.MediaSessionDebugInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('debug_info', 0, 0, media_session.mojom.MediaSessionDebugInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -609,9 +606,8 @@ media_session.mojom.AudioFocusManagerDebugRemoteCallHandler = class {
 
 media_session.mojom.AudioFocusManagerDebug.getRemote = function() {
   let remote = new media_session.mojom.AudioFocusManagerDebugRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_session.mojom.AudioFocusManagerDebug',
     'context');
   return remote.$;

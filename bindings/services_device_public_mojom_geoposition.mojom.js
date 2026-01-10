@@ -39,12 +39,12 @@ mojo.internal.Union(
     device.mojom.GeopositionResultSpec, 'device.mojom.GeopositionResult', {
       'position': {
         'ordinal': 0,
-        'type': device.mojom.GeopositionSpec,
+        'type': device.mojom.GeopositionSpec.$,
         'nullable': false,
       },
       'error': {
         'ordinal': 1,
-        'type': device.mojom.GeopositionErrorSpec,
+        'type': device.mojom.GeopositionErrorSpec.$,
         'nullable': false,
       },
     });
@@ -59,7 +59,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('altitude_accuracy', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('heading', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('speed', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 56, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 56, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_precise', 64, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -67,7 +67,7 @@ mojo.internal.Struct(
 // Struct: GeopositionError
 mojo.internal.Struct(
     device.mojom.GeopositionErrorSpec, 'device.mojom.GeopositionError', [
-      mojo.internal.StructField('error_code', 0, 0, device.mojom.GeopositionErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_code', 0, 0, device.mojom.GeopositionErrorCodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('error_technical', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],

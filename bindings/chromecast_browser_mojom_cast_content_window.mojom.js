@@ -49,7 +49,7 @@ chromecast.mojom.VisibilityPriority = {
 // Interface: CastContentWindowObserver
 mojo.internal.Struct(
     chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_Params', [
-      mojo.internal.StructField('visibility_type', 0, 0, chromecast.mojom.VisibilityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visibility_type', 0, 0, chromecast.mojom.VisibilityTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -114,9 +114,8 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
 
 chromecast.mojom.CastContentWindowObserver.getRemote = function() {
   let remote = new chromecast.mojom.CastContentWindowObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.CastContentWindowObserver',
     'context');
   return remote.$;
@@ -129,10 +128,10 @@ chromecast.mojom.CastContentWindowObserverRequest = chromecast.mojom.CastContent
 // Interface: CastContentWindow
 mojo.internal.Struct(
     chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec, 'chromecast.mojom.CastContentWindow_CreateWindow_Params', [
-      mojo.internal.StructField('z_order', 0, 0, chromecast.mojom.ZOrderSpec, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 4, 0, chromecast.mojom.VisibilityPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('z_order', 0, 0, chromecast.mojom.ZOrderSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 8, 0, chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec, 'chromecast.mojom.CastContentWindow_AddObserver_Params', [
@@ -152,7 +151,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec, 'chromecast.mojom.CastContentWindow_RequestVisibility_Params', [
-      mojo.internal.StructField('priority', 0, 0, chromecast.mojom.VisibilityPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 0, 0, chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -258,9 +257,8 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
 
 chromecast.mojom.CastContentWindow.getRemote = function() {
   let remote = new chromecast.mojom.CastContentWindowRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.CastContentWindow',
     'context');
   return remote.$;

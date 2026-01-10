@@ -23,16 +23,16 @@ metrics.mojom.ProfileType = {
 // Struct: SampledProfile
 mojo.internal.Struct(
     metrics.mojom.SampledProfileSpec, 'metrics.mojom.SampledProfile', [
-      mojo.internal.StructField('contents', 0, 0, mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+      mojo.internal.StructField('contents', 0, 0, mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: CallStackProfileCollector
 mojo.internal.Struct(
     metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec, 'metrics.mojom.CallStackProfileCollector_Collect_Params', [
-      mojo.internal.StructField('start_timestamp', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('profile_type', 8, 0, metrics.mojom.ProfileTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('profile', 16, 0, metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_timestamp', 0, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('profile_type', 8, 0, metrics.mojom.ProfileTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 16, 0, metrics.mojom.SampledProfileSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -82,9 +82,8 @@ metrics.mojom.CallStackProfileCollectorRemoteCallHandler = class {
 
 metrics.mojom.CallStackProfileCollector.getRemote = function() {
   let remote = new metrics.mojom.CallStackProfileCollectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'metrics.mojom.CallStackProfileCollector',
     'context');
   return remote.$;

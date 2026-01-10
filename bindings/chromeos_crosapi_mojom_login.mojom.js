@@ -93,9 +93,8 @@ crosapi.mojom.ExternalLogoutRequestObserverRemoteCallHandler = class {
 
 crosapi.mojom.ExternalLogoutRequestObserver.getRemote = function() {
   let remote = new crosapi.mojom.ExternalLogoutRequestObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.ExternalLogoutRequestObserver',
     'context');
   return remote.$;
@@ -179,7 +178,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.Login_REMOVED_10_ParamsSpec, 'crosapi.mojom.Login_REMOVED_10_Params', [
-      mojo.internal.StructField('properties', 0, 0, crosapi.mojom.SamlUserSessionPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 0, 0, crosapi.mojom.SamlUserSessionPropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -327,9 +326,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
 
 crosapi.mojom.Login.getRemote = function() {
   let remote = new crosapi.mojom.LoginRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.Login',
     'context');
   return remote.$;

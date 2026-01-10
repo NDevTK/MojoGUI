@@ -68,32 +68,32 @@ mojo.internal.Union(
     tabs_api.mojom.DataSpec, 'tabs_api.mojom.Data', {
       'tab': {
         'ordinal': 0,
-        'type': tabs_api.mojom.TabSpec,
+        'type': tabs_api.mojom.TabSpec.$,
         'nullable': false,
       },
       'tab_strip': {
         'ordinal': 1,
-        'type': tabs_api.mojom.TabStripSpec,
+        'type': tabs_api.mojom.TabStripSpec.$,
         'nullable': false,
       },
       'pinned_tabs': {
         'ordinal': 2,
-        'type': tabs_api.mojom.PinnedTabsSpec,
+        'type': tabs_api.mojom.PinnedTabsSpec.$,
         'nullable': false,
       },
       'unpinned_tabs': {
         'ordinal': 3,
-        'type': tabs_api.mojom.UnpinnedTabsSpec,
+        'type': tabs_api.mojom.UnpinnedTabsSpec.$,
         'nullable': false,
       },
       'tab_group': {
         'ordinal': 4,
-        'type': tabs_api.mojom.TabGroupSpec,
+        'type': tabs_api.mojom.TabGroupSpec.$,
         'nullable': false,
       },
       'split_tab': {
         'ordinal': 5,
-        'type': tabs_api.mojom.SplitTabSpec,
+        'type': tabs_api.mojom.SplitTabSpec.$,
         'nullable': false,
       },
     });
@@ -101,51 +101,51 @@ mojo.internal.Union(
 // Struct: Image
 mojo.internal.Struct(
     tabs_api.mojom.ImageSpec, 'tabs_api.mojom.Image', [
-      mojo.internal.StructField('data_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: Tab
 mojo.internal.Struct(
     tabs_api.mojom.TabSpec, 'tabs_api.mojom.Tab', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('favicon', 24, 0, tabs_api.mojom.ImageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alert_states', 32, 0, mojo.internal.Array(tabs_api.mojom.AlertStateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('network_state', 40, 0, tabs_api.mojom.NetworkStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_active', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_selected', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_blocked', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('favicon', 24, 0, tabs_api.mojom.ImageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('alert_states', 32, 0, mojo.internal.Array(tabs_api.mojom.AlertStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('network_state', 40, 0, tabs_api.mojom.NetworkStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_active', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_selected', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_blocked', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Struct: TabStrip
 mojo.internal.Struct(
     tabs_api.mojom.TabStripSpec, 'tabs_api.mojom.TabStrip', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PinnedTabs
 mojo.internal.Struct(
     tabs_api.mojom.PinnedTabsSpec, 'tabs_api.mojom.PinnedTabs', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: UnpinnedTabs
 mojo.internal.Struct(
     tabs_api.mojom.UnpinnedTabsSpec, 'tabs_api.mojom.UnpinnedTabs', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TabGroup
 mojo.internal.Struct(
     tabs_api.mojom.TabGroupSpec, 'tabs_api.mojom.TabGroup', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, tabs_api.mojom.TabGroupVisualDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, tabs_api.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -153,16 +153,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tabs_api.mojom.TabGroupVisualDataSpec, 'tabs_api.mojom.TabGroupVisualData', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('color', 8, 0, tab_groups.mojom.ColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_collapsed', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color', 8, 0, tab_groups.mojom.ColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_collapsed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: SplitTab
 mojo.internal.Struct(
     tabs_api.mojom.SplitTabSpec, 'tabs_api.mojom.SplitTab', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, tabs_api.mojom.SplitTabVisualDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, tabs_api.mojom.SplitTabVisualDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -176,15 +176,15 @@ mojo.internal.Struct(
 // Struct: Container
 mojo.internal.Struct(
     tabs_api.mojom.ContainerSpec, 'tabs_api.mojom.Container', [
-      mojo.internal.StructField('data', 0, 0, tabs_api.mojom.DataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('children', 16, 0, mojo.internal.Array(tabs_api.mojom.ContainerSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, tabs_api.mojom.DataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('children', 8, 0, mojo.internal.Array(tabs_api.mojom.ContainerSpec.$, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: TabCreatedContainer
 mojo.internal.Struct(
     tabs_api.mojom.TabCreatedContainerSpec, 'tabs_api.mojom.TabCreatedContainer', [
-      mojo.internal.StructField('tab', 0, 0, tabs_api.mojom.TabSpec, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, tabs_api.mojom.PositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 0, 0, tabs_api.mojom.TabSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, tabs_api.mojom.PositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

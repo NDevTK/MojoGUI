@@ -80,9 +80,8 @@ search.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
 
 search.mojom.EmbeddedSearchConnector.getRemote = function() {
   let remote = new search.mojom.EmbeddedSearchConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'search.mojom.EmbeddedSearchConnector',
     'context');
   return remote.$;
@@ -103,7 +102,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec, 'search.mojom.EmbeddedSearch_DeleteMostVisitedItem_Params', [
       mojo.internal.StructField('page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -116,7 +115,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec, 'search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_Params', [
       mojo.internal.StructField('page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -196,9 +195,8 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
 
 search.mojom.EmbeddedSearch.getRemote = function() {
   let remote = new search.mojom.EmbeddedSearchRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'search.mojom.EmbeddedSearch',
     'context');
   return remote.$;
@@ -217,14 +215,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_FocusChanged_Params', [
-      mojo.internal.StructField('new_focus_state', 0, 0, search.mojom.OmniboxFocusStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, search.mojom.OmniboxFocusChangeReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_focus_state', 0, 0, search.mojom.OmniboxFocusStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, search.mojom.OmniboxFocusChangeReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_Params', [
-      mojo.internal.StructField('most_visited_info', 0, 0, search.mojom.InstantMostVisitedInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('most_visited_info', 0, 0, search.mojom.InstantMostVisitedInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -236,7 +234,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_ThemeChanged_Params', [
-      mojo.internal.StructField('theme', 0, 0, search.mojom.NtpThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('theme', 0, 0, search.mojom.NtpThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -326,9 +324,8 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
 
 search.mojom.EmbeddedSearchClient.getRemote = function() {
   let remote = new search.mojom.EmbeddedSearchClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'search.mojom.EmbeddedSearchClient',
     'context');
   return remote.$;

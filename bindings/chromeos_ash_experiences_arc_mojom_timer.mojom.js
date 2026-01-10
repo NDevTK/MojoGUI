@@ -39,46 +39,46 @@ arc.mojom.ClockId = {
 // Struct: CreateTimerRequest
 mojo.internal.Struct(
     arc.mojom.CreateTimerRequestSpec, 'arc.mojom.CreateTimerRequest', [
-      mojo.internal.StructField('clock_id', 0, 0, arc.mojom.ClockIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('expiration_fd', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('clock_id', 0, 0, arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('expiration_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: TimerHost
 mojo.internal.Struct(
     arc.mojom.TimerHost_CreateTimers_ParamsSpec, 'arc.mojom.TimerHost_CreateTimers_Params', [
-      mojo.internal.StructField('timer_requests', 0, 0, mojo.internal.Array(arc.mojom.CreateTimerRequestSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('timer_requests', 0, 0, mojo.internal.Array(arc.mojom.CreateTimerRequestSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec, 'arc.mojom.TimerHost_CreateTimers_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.TimerHost_StartTimer_ParamsSpec, 'arc.mojom.TimerHost_StartTimer_Params', [
-      mojo.internal.StructField('clock_id', 0, 0, arc.mojom.ClockIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('absolute_expiration_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('clock_id', 0, 0, arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('absolute_expiration_time', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.TimerHost_StartTimer_ResponseParamsSpec, 'arc.mojom.TimerHost_StartTimer_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.TimerHost_SetTime_ParamsSpec, 'arc.mojom.TimerHost_SetTime_Params', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.TimerHost_SetTime_ResponseParamsSpec, 'arc.mojom.TimerHost_SetTime_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -148,9 +148,8 @@ arc.mojom.TimerHostRemoteCallHandler = class {
 
 arc.mojom.TimerHost.getRemote = function() {
   let remote = new arc.mojom.TimerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.TimerHost',
     'context');
   return remote.$;
@@ -218,9 +217,8 @@ arc.mojom.TimerInstanceRemoteCallHandler = class {
 
 arc.mojom.TimerInstance.getRemote = function() {
   let remote = new arc.mojom.TimerInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.TimerInstance',
     'context');
   return remote.$;

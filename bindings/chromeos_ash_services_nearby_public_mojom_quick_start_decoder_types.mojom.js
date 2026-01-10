@@ -53,37 +53,37 @@ mojo.internal.Union(
     ash.quick_start.mojom.QuickStartMessageSpec, 'ash.quick_start.mojom.QuickStartMessage', {
       'bootstrap_configurations': {
         'ordinal': 0,
-        'type': ash.quick_start.mojom.BootstrapConfigurationsSpec,
+        'type': ash.quick_start.mojom.BootstrapConfigurationsSpec.$,
         'nullable': false,
       },
       'wifi_credentials': {
         'ordinal': 1,
-        'type': ash.quick_start.mojom.WifiCredentialsSpec,
+        'type': ash.quick_start.mojom.WifiCredentialsSpec.$,
         'nullable': false,
       },
       'notify_source_of_update_response': {
         'ordinal': 2,
-        'type': ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec,
+        'type': ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec.$,
         'nullable': false,
       },
       'fido_assertion_response': {
         'ordinal': 3,
-        'type': ash.quick_start.mojom.FidoAssertionResponseSpec,
+        'type': ash.quick_start.mojom.FidoAssertionResponseSpec.$,
         'nullable': false,
       },
       'user_verification_requested': {
         'ordinal': 4,
-        'type': ash.quick_start.mojom.UserVerificationRequestedSpec,
+        'type': ash.quick_start.mojom.UserVerificationRequestedSpec.$,
         'nullable': false,
       },
       'user_verification_response': {
         'ordinal': 5,
-        'type': ash.quick_start.mojom.UserVerificationResponseSpec,
+        'type': ash.quick_start.mojom.UserVerificationResponseSpec.$,
         'nullable': false,
       },
       'user_verification_method': {
         'ordinal': 6,
-        'type': ash.quick_start.mojom.UserVerificationMethodSpec,
+        'type': ash.quick_start.mojom.UserVerificationMethodSpec.$,
         'nullable': false,
       },
     });
@@ -107,10 +107,10 @@ mojo.internal.Struct(
 // Struct: UserVerificationResponse
 mojo.internal.Struct(
     ash.quick_start.mojom.UserVerificationResponseSpec, 'ash.quick_start.mojom.UserVerificationResponse', [
-      mojo.internal.StructField('result', 0, 0, ash.quick_start.mojom.UserVerificationResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_first_user_verification', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.quick_start.mojom.UserVerificationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_first_user_verification', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: UserVerificationRequested
 mojo.internal.Struct(
@@ -123,11 +123,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.quick_start.mojom.WifiCredentialsSpec, 'ash.quick_start.mojom.WifiCredentials', [
       mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('security_type', 8, 0, ash.quick_start.mojom.WifiSecurityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_hidden', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('password', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('security_type', 8, 0, ash.quick_start.mojom.WifiSecurityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_hidden', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('password', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: FidoAssertionResponse
 mojo.internal.Struct(

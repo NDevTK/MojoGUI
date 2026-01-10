@@ -36,14 +36,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('input_node', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('output_node', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('palm_threshold', 24, 0, mojo.internal.Double, 0, false, 1, undefined),
-      mojo.internal.StructField('crop_heatmap', 32, 0, chromeos.machine_learning.mojom.CropHeatmapSpec, null, true, 3, undefined),
+      mojo.internal.StructField('crop_heatmap', 32, 0, chromeos.machine_learning.mojom.CropHeatmapSpec.$, null, true, 3, undefined),
     ],
     [[0, 32], [1, 40], [3, 48]]);
 
 // Struct: HeatmapProcessedEvent
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.HeatmapProcessedEventSpec, 'chromeos.machine_learning.mojom.HeatmapProcessedEvent', [
-      mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_palm', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -61,7 +61,7 @@ mojo.internal.Struct(
 // Interface: HeatmapPalmRejectionClient
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec, 'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, chromeos.machine_learning.mojom.HeatmapProcessedEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, chromeos.machine_learning.mojom.HeatmapProcessedEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -111,9 +111,8 @@ chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemoteCallHandler = cl
 
 chromeos.machine_learning.mojom.HeatmapPalmRejectionClient.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient',
     'context');
   return remote.$;

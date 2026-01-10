@@ -21,12 +21,12 @@ mojo.internal.Union(
     blink.mojom.SerializedStaticBitmapImageSpec, 'blink.mojom.SerializedStaticBitmapImage', {
       'bitmap': {
         'ordinal': 0,
-        'type': skia.mojom.BitmapN32Spec,
+        'type': skia.mojom.BitmapN32Spec.$,
         'nullable': false,
       },
       'accelerated_image': {
         'ordinal': 1,
-        'type': blink.mojom.AcceleratedStaticBitmapImageSpec,
+        'type': blink.mojom.AcceleratedStaticBitmapImageSpec.$,
         'nullable': false,
       },
     });
@@ -34,9 +34,9 @@ mojo.internal.Union(
 // Struct: AcceleratedStaticBitmapImage
 mojo.internal.Struct(
     blink.mojom.AcceleratedStaticBitmapImageSpec, 'blink.mojom.AcceleratedStaticBitmapImage', [
-      mojo.internal.StructField('shared_image', 0, 0, gpu.mojom.ExportedSharedImageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sync_token', 8, 0, gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha_type', 16, 0, skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_image', 0, 0, gpu.mojom.ExportedSharedImageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sync_token', 8, 0, gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('alpha_type', 16, 0, skia.mojom.AlphaTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('release_callback', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.ImageReleaseCallbackRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -44,7 +44,7 @@ mojo.internal.Struct(
 // Interface: ImageReleaseCallback
 mojo.internal.Struct(
     blink.mojom.ImageReleaseCallback_Release_ParamsSpec, 'blink.mojom.ImageReleaseCallback_Release_Params', [
-      mojo.internal.StructField('token', 0, 0, gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -94,9 +94,8 @@ blink.mojom.ImageReleaseCallbackRemoteCallHandler = class {
 
 blink.mojom.ImageReleaseCallback.getRemote = function() {
   let remote = new blink.mojom.ImageReleaseCallbackRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ImageReleaseCallback',
     'context');
   return remote.$;

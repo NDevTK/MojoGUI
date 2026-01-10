@@ -28,7 +28,7 @@ mojo.internal.Struct(
 // Interface: ApplicationMediaCapabilitiesObserver
 mojo.internal.Struct(
     chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec, 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_Params', [
-      mojo.internal.StructField('info', 0, 0, chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -78,9 +78,8 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler = c
 
 chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver.getRemote = function() {
   let remote = new chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver',
     'context');
   return remote.$;
@@ -143,9 +142,8 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesRemoteCallHandler = class {
 
 chromecast.shell.mojom.ApplicationMediaCapabilities.getRemote = function() {
   let remote = new chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.shell.mojom.ApplicationMediaCapabilities',
     'context');
   return remote.$;

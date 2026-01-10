@@ -110,12 +110,12 @@ mojo.internal.Union(
     ash.orca.mojom.TextQueryResponseSpec, 'ash.orca.mojom.TextQueryResponse', {
       'results': {
         'ordinal': 0,
-        'type': mojo.internal.Array(ash.orca.mojom.TextQueryResultSpec, false),
+        'type': mojo.internal.Array(ash.orca.mojom.TextQueryResultSpec.$, false),
         'nullable': false,
       },
       'error': {
         'ordinal': 1,
-        'type': ash.orca.mojom.TextQueryErrorSpec,
+        'type': ash.orca.mojom.TextQueryErrorSpec.$,
         'nullable': false,
       },
     });
@@ -126,7 +126,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 24, 0, ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, ash.orca.mojom.PresetTextQueryTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -150,7 +150,7 @@ mojo.internal.Struct(
 // Struct: TextQueryError
 mojo.internal.Struct(
     ash.orca.mojom.TextQueryErrorSpec, 'ash.orca.mojom.TextQueryError', [
-      mojo.internal.StructField('code', 0, 0, ash.orca.mojom.TextQueryErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, ash.orca.mojom.TextQueryErrorCodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -159,21 +159,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.orca.mojom.SurroundingTextSpec, 'ash.orca.mojom.SurroundingText', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('range', 8, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('range', 8, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Context
 mojo.internal.Struct(
     ash.orca.mojom.ContextSpec, 'ash.orca.mojom.Context', [
-      mojo.internal.StructField('surrounding_text', 0, 0, ash.orca.mojom.SurroundingTextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('surrounding_text', 0, 0, ash.orca.mojom.SurroundingTextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: EditorConfig
 mojo.internal.Struct(
     ash.orca.mojom.EditorConfigSpec, 'ash.orca.mojom.EditorConfig', [
-      mojo.internal.StructField('allowed_query_types', 0, 0, mojo.internal.Array(ash.orca.mojom.PresetTextQueryTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('allowed_query_types', 0, 0, mojo.internal.Array(ash.orca.mojom.PresetTextQueryTypeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('language_code', 8, 0, mojo.internal.String, null, true, 12, undefined),
     ],
     [[0, 16], [12, 24]]);
@@ -182,9 +182,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.orca.mojom.TriggerContextSpec, 'ash.orca.mojom.TriggerContext', [
       mojo.internal.StructField('freeform_selected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('preset_type_selected', 4, 0, ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preset_type_selected', 8, 0, ash.orca.mojom.PresetTextQueryTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: EditorClient
 mojo.internal.Struct(
@@ -194,7 +194,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParams', [
-      mojo.internal.StructField('text_queries', 0, 0, mojo.internal.Array(ash.orca.mojom.PresetTextQuerySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('text_queries', 0, 0, mojo.internal.Array(ash.orca.mojom.PresetTextQuerySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -207,9 +207,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformRewrite_Params', [
@@ -220,9 +220,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformWrite_Params', [
@@ -232,9 +232,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_InsertText_ParamsSpec, 'ash.orca.mojom.EditorClient_InsertText_Params', [
@@ -259,7 +259,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec, 'ash.orca.mojom.EditorClient_OpenUrlInNewWindow_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -300,13 +300,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec, 'ash.orca.mojom.EditorClient_OnTrigger_Params', [
-      mojo.internal.StructField('trigger_context', 0, 0, ash.orca.mojom.TriggerContextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trigger_context', 0, 0, ash.orca.mojom.TriggerContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.EditorClient_EmitMetricEvent_Params', [
-      mojo.internal.StructField('metric_event', 0, 0, ash.orca.mojom.MetricEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metric_event', 0, 0, ash.orca.mojom.MetricEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -506,9 +506,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
 
 ash.orca.mojom.EditorClient.getRemote = function() {
   let remote = new ash.orca.mojom.EditorClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.orca.mojom.EditorClient',
     'context');
   return remote.$;
@@ -571,9 +570,8 @@ ash.orca.mojom.EditorClientConnectorRemoteCallHandler = class {
 
 ash.orca.mojom.EditorClientConnector.getRemote = function() {
   let remote = new ash.orca.mojom.EditorClientConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.orca.mojom.EditorClientConnector',
     'context');
   return remote.$;
@@ -586,7 +584,7 @@ ash.orca.mojom.EditorClientConnectorRequest = ash.orca.mojom.EditorClientConnect
 // Interface: EditorEventSink
 mojo.internal.Struct(
     ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec, 'ash.orca.mojom.EditorEventSink_OnContextUpdated_Params', [
-      mojo.internal.StructField('context', 0, 0, ash.orca.mojom.ContextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context', 0, 0, ash.orca.mojom.ContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -636,9 +634,8 @@ ash.orca.mojom.EditorEventSinkRemoteCallHandler = class {
 
 ash.orca.mojom.EditorEventSink.getRemote = function() {
   let remote = new ash.orca.mojom.EditorEventSinkRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.orca.mojom.EditorEventSink',
     'context');
   return remote.$;
@@ -667,7 +664,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec, 'ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -689,13 +686,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec, 'ash.orca.mojom.SystemActuator_OnTrigger_Params', [
-      mojo.internal.StructField('trigger_context', 0, 0, ash.orca.mojom.TriggerContextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trigger_context', 0, 0, ash.orca.mojom.TriggerContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.SystemActuator_EmitMetricEvent_Params', [
-      mojo.internal.StructField('metric_event', 0, 0, ash.orca.mojom.MetricEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metric_event', 0, 0, ash.orca.mojom.MetricEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -825,9 +822,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
 
 ash.orca.mojom.SystemActuator.getRemote = function() {
   let remote = new ash.orca.mojom.SystemActuatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.orca.mojom.SystemActuator',
     'context');
   return remote.$;
@@ -840,15 +836,15 @@ ash.orca.mojom.SystemActuatorRequest = ash.orca.mojom.SystemActuatorPendingRecei
 // Interface: TextQueryProvider
 mojo.internal.Struct(
     ash.orca.mojom.TextQueryProvider_Process_ParamsSpec, 'ash.orca.mojom.TextQueryProvider_Process_Params', [
-      mojo.internal.StructField('request', 0, 0, ash.orca.mojom.TextQueryRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, ash.orca.mojom.TextQueryRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec, 'ash.orca.mojom.TextQueryProvider_Process_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, ash.orca.mojom.TextQueryResponseSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 ash.orca.mojom.TextQueryProviderPendingReceiver = class {
   constructor(handle) {
@@ -896,9 +892,8 @@ ash.orca.mojom.TextQueryProviderRemoteCallHandler = class {
 
 ash.orca.mojom.TextQueryProvider.getRemote = function() {
   let remote = new ash.orca.mojom.TextQueryProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.orca.mojom.TextQueryProvider',
     'context');
   return remote.$;
@@ -915,7 +910,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.TextQueryProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorClientConnectorRemote), null, false, 0, undefined),
       mojo.internal.StructField('event_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorEventSinkRemote), null, false, 0, undefined),
-      mojo.internal.StructField('editor_config', 32, 0, ash.orca.mojom.EditorConfigSpec, null, true, 9, undefined),
+      mojo.internal.StructField('editor_config', 32, 0, ash.orca.mojom.EditorConfigSpec.$, null, true, 9, undefined),
     ],
     [[0, 40], [9, 48]]);
 
@@ -965,9 +960,8 @@ ash.orca.mojom.OrcaServiceRemoteCallHandler = class {
 
 ash.orca.mojom.OrcaService.getRemote = function() {
   let remote = new ash.orca.mojom.OrcaServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.orca.mojom.OrcaService',
     'context');
   return remote.$;

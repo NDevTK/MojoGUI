@@ -15,8 +15,8 @@ blink.mojom.IntrinsicSizingInfoSpec = { $: {} };
 // Struct: IntrinsicSizingInfo
 mojo.internal.Struct(
     blink.mojom.IntrinsicSizingInfoSpec, 'blink.mojom.IntrinsicSizingInfo', [
-      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('aspect_ratio', 8, 0, gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('aspect_ratio', 8, 0, gfx.mojom.SizeFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('has_width', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_height', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],

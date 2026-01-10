@@ -27,7 +27,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('event', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('details', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('task_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('track', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('screenshot', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
@@ -37,7 +37,7 @@ mojo.internal.Struct(
 // Interface: Page
 mojo.internal.Struct(
     actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec, 'actor_internals.mojom.Page_JournalEntryAdded_Params', [
-      mojo.internal.StructField('entry', 0, 0, actor_internals.mojom.JournalEntrySpec, null, false, 0, undefined),
+      mojo.internal.StructField('entry', 0, 0, actor_internals.mojom.JournalEntrySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -87,9 +87,8 @@ actor_internals.mojom.PageRemoteCallHandler = class {
 
 actor_internals.mojom.Page.getRemote = function() {
   let remote = new actor_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'actor_internals.mojom.Page',
     'context');
   return remote.$;
@@ -166,9 +165,8 @@ actor_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 actor_internals.mojom.PageHandler.getRemote = function() {
   let remote = new actor_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'actor_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -232,9 +230,8 @@ actor_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 actor_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new actor_internals.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'actor_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;

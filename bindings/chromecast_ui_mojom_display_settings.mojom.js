@@ -33,7 +33,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_Params', [
       mojo.internal.StructField('kelvin', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -51,7 +51,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec, 'chromecast.mojom.DisplaySettings_SetBrightnessSmooth_Params', [
       mojo.internal.StructField('brightness', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -204,9 +204,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
 
 chromecast.mojom.DisplaySettings.getRemote = function() {
   let remote = new chromecast.mojom.DisplaySettingsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.DisplaySettings',
     'context');
   return remote.$;
@@ -269,9 +268,8 @@ chromecast.mojom.DisplaySettingsObserverRemoteCallHandler = class {
 
 chromecast.mojom.DisplaySettingsObserver.getRemote = function() {
   let remote = new chromecast.mojom.DisplaySettingsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.DisplaySettingsObserver',
     'context');
   return remote.$;

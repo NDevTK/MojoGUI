@@ -66,9 +66,8 @@ cros.mojom.CameraHalClientRemoteCallHandler = class {
 
 cros.mojom.CameraHalClient.getRemote = function() {
   let remote = new cros.mojom.CameraHalClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CameraHalClient',
     'context');
   return remote.$;

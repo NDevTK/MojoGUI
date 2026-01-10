@@ -71,9 +71,8 @@ media.mojom.MediaFoundationPreferencesRemoteCallHandler = class {
 
 media.mojom.MediaFoundationPreferences.getRemote = function() {
   let remote = new media.mojom.MediaFoundationPreferencesRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaFoundationPreferences',
     'context');
   return remote.$;

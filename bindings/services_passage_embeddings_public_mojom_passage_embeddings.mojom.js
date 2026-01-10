@@ -39,8 +39,8 @@ mojo.internal.Struct(
 // Struct: PassageEmbeddingsLoadModelsParams
 mojo.internal.Struct(
     passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec, 'passage_embeddings.mojom.PassageEmbeddingsLoadModelsParams', [
-      mojo.internal.StructField('embeddings_model', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sp_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('embeddings_model', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sp_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('input_window_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -60,13 +60,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec, 'passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_Params', [
       mojo.internal.StructField('passages', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('priority', 8, 0, passage_embeddings.mojom.PassagePrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 8, 0, passage_embeddings.mojom.PassagePrioritySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec, 'passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(passage_embeddings.mojom.PassageEmbeddingsResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(passage_embeddings.mojom.PassageEmbeddingsResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -116,9 +116,8 @@ passage_embeddings.mojom.PassageEmbedderRemoteCallHandler = class {
 
 passage_embeddings.mojom.PassageEmbedder.getRemote = function() {
   let remote = new passage_embeddings.mojom.PassageEmbedderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'passage_embeddings.mojom.PassageEmbedder',
     'context');
   return remote.$;
@@ -131,8 +130,8 @@ passage_embeddings.mojom.PassageEmbedderRequest = passage_embeddings.mojom.Passa
 // Interface: PassageEmbeddingsService
 mojo.internal.Struct(
     passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec, 'passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_Params', [
-      mojo.internal.StructField('model_params', 0, 0, passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('params', 8, 0, passage_embeddings.mojom.PassageEmbedderParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model_params', 0, 0, passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, passage_embeddings.mojom.PassageEmbedderParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('model', 16, 0, mojo.internal.InterfaceRequest(passage_embeddings.mojom.PassageEmbedderRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -189,9 +188,8 @@ passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCallHandler = class {
 
 passage_embeddings.mojom.PassageEmbeddingsService.getRemote = function() {
   let remote = new passage_embeddings.mojom.PassageEmbeddingsServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'passage_embeddings.mojom.PassageEmbeddingsService',
     'context');
   return remote.$;

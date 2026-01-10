@@ -31,7 +31,7 @@ mojo.internal.Struct(
 // Interface: SystemStateHost
 mojo.internal.Struct(
     arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec, 'arc.mojom.SystemStateHost_UpdateAppRunningState_Params', [
-      mojo.internal.StructField('state', 0, 0, arc.mojom.SystemAppRunningStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, arc.mojom.SystemAppRunningStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -81,9 +81,8 @@ arc.mojom.SystemStateHostRemoteCallHandler = class {
 
 arc.mojom.SystemStateHost.getRemote = function() {
   let remote = new arc.mojom.SystemStateHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.SystemStateHost',
     'context');
   return remote.$;
@@ -151,9 +150,8 @@ arc.mojom.SystemStateInstanceRemoteCallHandler = class {
 
 arc.mojom.SystemStateInstance.getRemote = function() {
   let remote = new arc.mojom.SystemStateInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.SystemStateInstance',
     'context');
   return remote.$;

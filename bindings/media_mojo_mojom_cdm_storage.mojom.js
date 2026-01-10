@@ -43,7 +43,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmStorage_Open_ResponseParamsSpec, 'media.mojom.CdmStorage_Open_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('cdm_file', 8, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.CdmFileRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -94,9 +94,8 @@ media.mojom.CdmStorageRemoteCallHandler = class {
 
 media.mojom.CdmStorage.getRemote = function() {
   let remote = new media.mojom.CdmStorageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.CdmStorage',
     'context');
   return remote.$;
@@ -114,7 +113,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmFile_Read_ResponseParamsSpec, 'media.mojom.CdmFile_Read_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -127,7 +126,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmFile_Write_ResponseParamsSpec, 'media.mojom.CdmFile_Write_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -187,9 +186,8 @@ media.mojom.CdmFileRemoteCallHandler = class {
 
 media.mojom.CdmFile.getRemote = function() {
   let remote = new media.mojom.CdmFileRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.CdmFile',
     'context');
   return remote.$;

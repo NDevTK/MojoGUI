@@ -21,7 +21,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParams', [
-      mojo.internal.StructField('url', 0, 0, mojo_base.mojom.BigStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, mojo_base.mojom.BigStringSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -71,9 +71,8 @@ network.mojom.DhcpWpadUrlClientRemoteCallHandler = class {
 
 network.mojom.DhcpWpadUrlClient.getRemote = function() {
   let remote = new network.mojom.DhcpWpadUrlClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.DhcpWpadUrlClient',
     'context');
   return remote.$;

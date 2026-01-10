@@ -20,7 +20,7 @@ mojo.internal.Union(
       },
       'path': {
         'ordinal': 1,
-        'type': mojo_base.mojom.FilePathSpec,
+        'type': mojo_base.mojom.FilePathSpec.$,
         'nullable': false,
       },
     });

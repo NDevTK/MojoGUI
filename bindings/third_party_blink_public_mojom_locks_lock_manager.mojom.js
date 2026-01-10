@@ -40,7 +40,7 @@ blink.mojom.WaitMode = {
 mojo.internal.Struct(
     blink.mojom.LockInfoSpec, 'blink.mojom.LockInfo', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mode', 8, 0, blink.mojom.LockModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 8, 0, blink.mojom.LockModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -82,9 +82,8 @@ blink.mojom.LockHandleRemoteCallHandler = class {
 
 blink.mojom.LockHandle.getRemote = function() {
   let remote = new blink.mojom.LockHandleRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.LockHandle',
     'context');
   return remote.$;
@@ -162,9 +161,8 @@ blink.mojom.LockRequestRemoteCallHandler = class {
 
 blink.mojom.LockRequest.getRemote = function() {
   let remote = new blink.mojom.LockRequestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.LockRequest',
     'context');
   return remote.$;
@@ -178,11 +176,11 @@ blink.mojom.LockRequestRequest = blink.mojom.LockRequestPendingReceiver;
 mojo.internal.Struct(
     blink.mojom.LockManager_RequestLock_ParamsSpec, 'blink.mojom.LockManager_RequestLock_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mode', 8, 0, blink.mojom.LockModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('wait', 12, 0, blink.mojom.WaitModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request', 16, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), null, false, 0, undefined),
+      mojo.internal.StructField('mode', 8, 0, blink.mojom.LockModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('wait', 16, 0, blink.mojom.WaitModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('request', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     blink.mojom.LockManager_QueryState_ParamsSpec, 'blink.mojom.LockManager_QueryState_Params', [
@@ -191,8 +189,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.LockManager_QueryState_ResponseParamsSpec, 'blink.mojom.LockManager_QueryState_ResponseParams', [
-      mojo.internal.StructField('requested', 0, 0, mojo.internal.Array(blink.mojom.LockInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('held', 8, 0, mojo.internal.Array(blink.mojom.LockInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('requested', 0, 0, mojo.internal.Array(blink.mojom.LockInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('held', 8, 0, mojo.internal.Array(blink.mojom.LockInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -252,9 +250,8 @@ blink.mojom.LockManagerRemoteCallHandler = class {
 
 blink.mojom.LockManager.getRemote = function() {
   let remote = new blink.mojom.LockManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.LockManager',
     'context');
   return remote.$;

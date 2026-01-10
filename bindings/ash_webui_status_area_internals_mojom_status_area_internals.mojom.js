@@ -99,7 +99,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_Params', [
-      mojo.internal.StructField('icon', 0, 0, ash.mojom.status_area_internals.BatteryIconSpec, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 0, 0, ash.mojom.status_area_internals.BatteryIconSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -265,9 +265,8 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
 
 ash.mojom.status_area_internals.PageHandler.getRemote = function() {
   let remote = new ash.mojom.status_area_internals.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mojom.status_area_internals.PageHandler',
     'context');
   return remote.$;

@@ -60,9 +60,8 @@ media.mojom.VideoDecoderTrackerRemoteCallHandler = class {
 
 media.mojom.VideoDecoderTracker.getRemote = function() {
   let remote = new media.mojom.VideoDecoderTrackerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoDecoderTracker',
     'context');
   return remote.$;
@@ -108,7 +107,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCastRenderer_Params', [
-      mojo.internal.StructField('overlay_plane_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('overlay_plane_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('renderer', 8, 0, mojo.internal.InterfaceRequest(media.mojom.RendererRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -131,15 +130,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.InterfaceFactory_CreateCdm_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_Params', [
-      mojo.internal.StructField('cdm_config', 0, 0, media.mojom.CdmConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_config', 0, 0, media.mojom.CdmConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_ResponseParams', [
       mojo.internal.StructField('cdm', 0, 0, mojo.internal.InterfaceProxy(media.mojom.ContentDecryptionModuleRemote), null, true, 0, undefined),
-      mojo.internal.StructField('cdm_context', 8, 0, media.mojom.CdmContextSpec, null, true, 0, undefined),
-      mojo.internal.StructField('status', 16, 0, media.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_context', 8, 0, media.mojom.CdmContextSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, media.mojom.CreateCdmStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -269,9 +268,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
 
 media.mojom.InterfaceFactory.getRemote = function() {
   let remote = new media.mojom.InterfaceFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.InterfaceFactory',
     'context');
   return remote.$;

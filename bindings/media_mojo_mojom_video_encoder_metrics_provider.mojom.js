@@ -30,13 +30,13 @@ media.mojom.VideoEncoderUseCase = {
 mojo.internal.Struct(
     media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_Initialize_Params', [
       mojo.internal.StructField('encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('encoder_use_case', 8, 0, media.mojom.VideoEncoderUseCaseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('profile', 16, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('encode_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encoder_use_case', 8, 0, media.mojom.VideoEncoderUseCaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 16, 0, media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('encode_size', 24, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_hardware_encoder', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('svc_mode', 36, 0, media.mojom.SVCScalabilityModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('svc_mode', 40, 0, media.mojom.SVCScalabilityModeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_Params', [
@@ -48,7 +48,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_SetError_Params', [
       mojo.internal.StructField('encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, media.mojom.EncoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, media.mojom.EncoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -134,9 +134,8 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
 
 media.mojom.VideoEncoderMetricsProvider.getRemote = function() {
   let remote = new media.mojom.VideoEncoderMetricsProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoEncoderMetricsProvider',
     'context');
   return remote.$;

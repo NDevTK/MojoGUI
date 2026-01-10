@@ -81,9 +81,8 @@ ash.borealis_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.borealis_installer.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.borealis_installer.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.borealis_installer.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -220,9 +219,8 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.borealis_installer.mojom.PageHandler.getRemote = function() {
   let remote = new ash.borealis_installer.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.borealis_installer.mojom.PageHandler',
     'context');
   return remote.$;
@@ -242,7 +240,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec, 'ash.borealis_installer.mojom.Page_OnInstallFinished_Params', [
-      mojo.internal.StructField('error', 0, 0, borealis.mojom.InstallResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, borealis.mojom.InstallResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -317,9 +315,8 @@ ash.borealis_installer.mojom.PageRemoteCallHandler = class {
 
 ash.borealis_installer.mojom.Page.getRemote = function() {
   let remote = new ash.borealis_installer.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.borealis_installer.mojom.Page',
     'context');
   return remote.$;

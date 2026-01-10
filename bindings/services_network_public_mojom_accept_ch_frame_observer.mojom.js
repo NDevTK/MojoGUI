@@ -20,8 +20,8 @@ network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = { $: {} };
 // Interface: AcceptCHFrameObserver
 mojo.internal.Struct(
     network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec, 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_Params', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('accept_ch_frame', 8, 0, mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('accept_ch_frame', 8, 0, mojo.internal.Array(network.mojom.WebClientHintsTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -93,9 +93,8 @@ network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
 
 network.mojom.AcceptCHFrameObserver.getRemote = function() {
   let remote = new network.mojom.AcceptCHFrameObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.AcceptCHFrameObserver',
     'context');
   return remote.$;

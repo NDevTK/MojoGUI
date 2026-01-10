@@ -15,8 +15,8 @@ drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = { $: {} };
 // Interface: FakeDriveFsLauncher
 mojo.internal.Struct(
     drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec, 'drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_Params', [
-      mojo.internal.StructField('datadir_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mount_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('datadir_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mount_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('mojo_socket_handle', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -67,9 +67,8 @@ drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler = class {
 
 drivefs.mojom.FakeDriveFsLauncher.getRemote = function() {
   let remote = new drivefs.mojom.FakeDriveFsLauncherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'drivefs.mojom.FakeDriveFsLauncher',
     'context');
   return remote.$;

@@ -89,9 +89,8 @@ chrome.mojom.ZipListenerRemoteCallHandler = class {
 
 chrome.mojom.ZipListener.getRemote = function() {
   let remote = new chrome.mojom.ZipListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.ZipListener',
     'context');
   return remote.$;
@@ -105,8 +104,8 @@ chrome.mojom.ZipListenerRequest = chrome.mojom.ZipListenerPendingReceiver;
 mojo.internal.Struct(
     chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec, 'chrome.mojom.ZipFileCreator_CreateZipFile_Params', [
       mojo.internal.StructField('src_dir', 0, 0, mojo.internal.InterfaceProxy(filesystem.mojom.DirectoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('relative_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('zip_file', 16, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relative_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('zip_file', 16, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(chrome.mojom.ZipListenerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -157,9 +156,8 @@ chrome.mojom.ZipFileCreatorRemoteCallHandler = class {
 
 chrome.mojom.ZipFileCreator.getRemote = function() {
   let remote = new chrome.mojom.ZipFileCreatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.ZipFileCreator',
     'context');
   return remote.$;

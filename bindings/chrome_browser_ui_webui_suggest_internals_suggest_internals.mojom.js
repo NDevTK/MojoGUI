@@ -34,12 +34,12 @@ suggest_internals.mojom.RequestStatus = {
 // Struct: Request
 mojo.internal.Struct(
     suggest_internals.mojom.RequestSpec, 'suggest_internals.mojom.Request', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('status', 24, 0, suggest_internals.mojom.RequestStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('start_time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('end_time', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 24, 0, suggest_internals.mojom.RequestStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 32, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('end_time', 40, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('response', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -54,13 +54,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec, 'suggest_internals.mojom.PageHandler_HardcodeResponse_Params', [
       mojo.internal.StructField('response', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('delay', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('delay', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec, 'suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParams', [
-      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -120,9 +120,8 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 suggest_internals.mojom.PageHandler.getRemote = function() {
   let remote = new suggest_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'suggest_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -135,19 +134,19 @@ suggest_internals.mojom.PageHandlerRequest = suggest_internals.mojom.PageHandler
 // Interface: Page
 mojo.internal.Struct(
     suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec, 'suggest_internals.mojom.Page_OnRequestCreated_Params', [
-      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec, 'suggest_internals.mojom.Page_OnRequestStarted_Params', [
-      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec, 'suggest_internals.mojom.Page_OnRequestCompleted_Params', [
-      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -217,9 +216,8 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
 
 suggest_internals.mojom.Page.getRemote = function() {
   let remote = new suggest_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'suggest_internals.mojom.Page',
     'context');
   return remote.$;

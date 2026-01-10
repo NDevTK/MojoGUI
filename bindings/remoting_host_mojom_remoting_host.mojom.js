@@ -41,16 +41,16 @@ remoting.mojom.TransportRouteType = {
 // Struct: TransportRoute
 mojo.internal.Struct(
     remoting.mojom.TransportRouteSpec, 'remoting.mojom.TransportRoute', [
-      mojo.internal.StructField('type', 0, 0, remoting.mojom.TransportRouteTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('remote_address', 8, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_address', 16, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, remoting.mojom.TransportRouteTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('remote_address', 8, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('local_address', 16, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: RemotingHostControl
 mojo.internal.Struct(
     remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec, 'remoting.mojom.RemotingHostControl_ApplyHostConfig_Params', [
-      mojo.internal.StructField('config', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -134,9 +134,8 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
 
 remoting.mojom.RemotingHostControl.getRemote = function() {
   let remote = new remoting.mojom.RemotingHostControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.RemotingHostControl',
     'context');
   return remote.$;
@@ -217,9 +216,8 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
 
 remoting.mojom.DesktopSessionConnectionEvents.getRemote = function() {
   let remote = new remoting.mojom.DesktopSessionConnectionEventsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.DesktopSessionConnectionEvents',
     'context');
   return remote.$;
@@ -258,7 +256,7 @@ mojo.internal.Struct(
     remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientRouteChange_Params', [
       mojo.internal.StructField('signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('channel_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('route', 16, 0, remoting.mojom.TransportRouteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('route', 16, 0, remoting.mojom.TransportRouteSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -379,9 +377,8 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
 
 remoting.mojom.HostStatusObserver.getRemote = function() {
   let remote = new remoting.mojom.HostStatusObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.HostStatusObserver',
     'context');
   return remote.$;

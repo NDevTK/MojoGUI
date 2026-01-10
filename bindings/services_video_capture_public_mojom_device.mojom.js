@@ -26,7 +26,7 @@ video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec = { $: {} };
 // Interface: Device
 mojo.internal.Struct(
     video_capture.mojom.Device_Start_ParamsSpec, 'video_capture.mojom.Device_Start_Params', [
-      mojo.internal.StructField('requested_settings', 0, 0, media.mojom.VideoCaptureParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('requested_settings', 0, 0, media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -48,13 +48,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec, 'video_capture.mojom.Device_GetPhotoState_ResponseParams', [
-      mojo.internal.StructField('capabilities', 0, 0, media.mojom.PhotoStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('capabilities', 0, 0, media.mojom.PhotoStateSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     video_capture.mojom.Device_SetPhotoOptions_ParamsSpec, 'video_capture.mojom.Device_SetPhotoOptions_Params', [
-      mojo.internal.StructField('settings', 0, 0, media.mojom.PhotoSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 0, 0, media.mojom.PhotoSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -71,13 +71,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.Device_TakePhoto_ResponseParamsSpec, 'video_capture.mojom.Device_TakePhoto_ResponseParams', [
-      mojo.internal.StructField('blob', 0, 0, media.mojom.BlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('blob', 0, 0, media.mojom.BlobSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     video_capture.mojom.Device_ProcessFeedback_ParamsSpec, 'video_capture.mojom.Device_ProcessFeedback_Params', [
-      mojo.internal.StructField('feedback', 0, 0, media.mojom.VideoCaptureFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feedback', 0, 0, media.mojom.VideoCaptureFeedbackSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -202,9 +202,8 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
 
 video_capture.mojom.Device.getRemote = function() {
   let remote = new video_capture.mojom.DeviceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'video_capture.mojom.Device',
     'context');
   return remote.$;

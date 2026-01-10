@@ -42,7 +42,7 @@ mojo.internal.Union(
       },
       'support_session_error': {
         'ordinal': 1,
-        'type': remoting.mojom.StartSupportSessionErrorSpec,
+        'type': remoting.mojom.StartSupportSessionErrorSpec.$,
         'nullable': false,
       },
     });
@@ -90,7 +90,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_Params', [
       mojo.internal.StructField('access_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('lifetime', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lifetime', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -113,7 +113,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnNatPolicyChanged_Params', [
-      mojo.internal.StructField('nat_policy_state', 0, 0, remoting.mojom.NatPolicyStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('nat_policy_state', 0, 0, remoting.mojom.NatPolicyStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -269,9 +269,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
 
 remoting.mojom.SupportHostObserver.getRemote = function() {
   let remote = new remoting.mojom.SupportHostObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.SupportHostObserver',
     'context');
   return remote.$;

@@ -42,7 +42,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, network.mojom.NetworkChangeEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, network.mojom.NetworkChangeEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -117,9 +117,8 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
 
 network.mojom.ConnectionChangeObserverClient.getRemote = function() {
   let remote = new network.mojom.ConnectionChangeObserverClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.ConnectionChangeObserverClient',
     'context');
   return remote.$;

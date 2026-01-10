@@ -79,9 +79,8 @@ omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 omnibox_popup_aim.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new omnibox_popup_aim.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'omnibox_popup_aim.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -99,7 +98,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -159,9 +158,8 @@ omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
 
 omnibox_popup_aim.mojom.PageHandler.getRemote = function() {
   let remote = new omnibox_popup_aim.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'omnibox_popup_aim.mojom.PageHandler',
     'context');
   return remote.$;
@@ -174,13 +172,13 @@ omnibox_popup_aim.mojom.PageHandlerRequest = omnibox_popup_aim.mojom.PageHandler
 // Interface: Page
 mojo.internal.Struct(
     omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec, 'omnibox_popup_aim.mojom.Page_OnPopupShown_Params', [
-      mojo.internal.StructField('context', 0, 0, searchbox.mojom.SearchContextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context', 0, 0, searchbox.mojom.SearchContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec, 'omnibox_popup_aim.mojom.Page_AddContext_Params', [
-      mojo.internal.StructField('context', 0, 0, searchbox.mojom.SearchContextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context', 0, 0, searchbox.mojom.SearchContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -277,9 +275,8 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
 
 omnibox_popup_aim.mojom.Page.getRemote = function() {
   let remote = new omnibox_popup_aim.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'omnibox_popup_aim.mojom.Page',
     'context');
   return remote.$;

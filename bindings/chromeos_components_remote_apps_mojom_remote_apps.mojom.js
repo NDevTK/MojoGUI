@@ -71,25 +71,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.remote_apps.mojom.AddFolderResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.remote_apps.mojom.AddFolderResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_AddApp_Params', [
       mojo.internal.StructField('source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('folder_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('add_to_front', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.remote_apps.mojom.AddAppResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.remote_apps.mojom.AddAppResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_DeleteApp_Params', [
@@ -212,9 +212,8 @@ chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = class {
 
 chromeos.remote_apps.mojom.RemoteApps.getRemote = function() {
   let remote = new chromeos.remote_apps.mojom.RemoteAppsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.remote_apps.mojom.RemoteApps',
     'context');
   return remote.$;
@@ -279,9 +278,8 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryRemoteCallHandler = class {
 
 chromeos.remote_apps.mojom.RemoteAppsFactory.getRemote = function() {
   let remote = new chromeos.remote_apps.mojom.RemoteAppsFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.remote_apps.mojom.RemoteAppsFactory',
     'context');
   return remote.$;
@@ -345,9 +343,8 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemoteCallHandler = class {
 
 chromeos.remote_apps.mojom.RemoteAppLaunchObserver.getRemote = function() {
   let remote = new chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.remote_apps.mojom.RemoteAppLaunchObserver',
     'context');
   return remote.$;

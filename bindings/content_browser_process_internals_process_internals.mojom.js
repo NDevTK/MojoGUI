@@ -55,8 +55,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('site_instance_group_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('browsing_instance_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('locked', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('site_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('process_lock_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('site_url', 16, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('process_lock_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('requires_origin_keyed_process', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_sandbox_for_iframes', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_guest', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -72,9 +72,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('agent_scheduling_group_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('process_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('site_instance', 16, 0, mojom.SiteInstanceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_committed_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('subframes', 32, 0, mojo.internal.Array(mojom.FrameInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('site_instance', 16, 0, mojom.SiteInstanceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_committed_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('subframes', 32, 0, mojo.internal.Array(mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('kActive', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -83,9 +83,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojom.WebContentsInfoSpec, 'mojom.WebContentsInfo', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('root_frame', 8, 0, mojom.FrameInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bfcached_root_frames', 16, 0, mojo.internal.Array(mojom.FrameInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('prerender_root_frames', 24, 0, mojo.internal.Array(mojom.FrameInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('root_frame', 8, 0, mojom.FrameInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bfcached_root_frames', 16, 0, mojo.internal.Array(mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('prerender_root_frames', 24, 0, mojo.internal.Array(mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -105,7 +105,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, mojom.ProcessCountInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, mojom.ProcessCountInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -160,7 +160,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParams', [
-      mojo.internal.StructField('isolated_origins', 0, 0, mojo.internal.Array(mojom.IsolatedOriginInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('isolated_origins', 0, 0, mojo.internal.Array(mojom.IsolatedOriginInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -171,7 +171,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParams', [
-      mojo.internal.StructField('infos', 0, 0, mojo.internal.Array(mojom.WebContentsInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('infos', 0, 0, mojo.internal.Array(mojom.WebContentsInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -281,9 +281,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
 
 mojom.ProcessInternalsHandler.getRemote = function() {
   let remote = new mojom.ProcessInternalsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mojom.ProcessInternalsHandler',
     'context');
   return remote.$;

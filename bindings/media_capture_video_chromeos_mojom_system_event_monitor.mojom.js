@@ -54,7 +54,7 @@ cros.mojom.ClockwiseRotation = {
 // Interface: CrosDisplayObserver
 mojo.internal.Struct(
     cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec, 'cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_Params', [
-      mojo.internal.StructField('rotation', 0, 0, cros.mojom.ClockwiseRotationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rotation', 0, 0, cros.mojom.ClockwiseRotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -104,9 +104,8 @@ cros.mojom.CrosDisplayObserverRemoteCallHandler = class {
 
 cros.mojom.CrosDisplayObserver.getRemote = function() {
   let remote = new cros.mojom.CrosDisplayObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CrosDisplayObserver',
     'context');
   return remote.$;
@@ -119,7 +118,7 @@ cros.mojom.CrosDisplayObserverRequest = cros.mojom.CrosDisplayObserverPendingRec
 // Interface: CrosLidObserver
 mojo.internal.Struct(
     cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec, 'cros.mojom.CrosLidObserver_OnLidStateChanged_Params', [
-      mojo.internal.StructField('new_state', 0, 0, cros.mojom.LidStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_state', 0, 0, cros.mojom.LidStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -169,9 +168,8 @@ cros.mojom.CrosLidObserverRemoteCallHandler = class {
 
 cros.mojom.CrosLidObserver.getRemote = function() {
   let remote = new cros.mojom.CrosLidObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CrosLidObserver',
     'context');
   return remote.$;
@@ -253,9 +251,8 @@ cros.mojom.CrosPowerObserverRemoteCallHandler = class {
 
 cros.mojom.CrosPowerObserver.getRemote = function() {
   let remote = new cros.mojom.CrosPowerObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CrosPowerObserver',
     'context');
   return remote.$;
@@ -287,7 +284,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_Params', [
-      mojo.internal.StructField('type', 0, 0, cros.mojom.DeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, cros.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -367,9 +364,8 @@ cros.mojom.CrosSystemEventMonitorRemoteCallHandler = class {
 
 cros.mojom.CrosSystemEventMonitor.getRemote = function() {
   let remote = new cros.mojom.CrosSystemEventMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CrosSystemEventMonitor',
     'context');
   return remote.$;

@@ -75,7 +75,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     emoji_picker.mojom.HistoryItemSpec, 'emoji_picker.mojom.HistoryItem', [
       mojo.internal.StructField('emoji', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -132,9 +132,8 @@ emoji_picker.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 emoji_picker.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new emoji_picker.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'emoji_picker.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -160,7 +159,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec, 'emoji_picker.mojom.PageHandler_InsertGif_Params', [
-      mojo.internal.StructField('gif', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gif', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -182,7 +181,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParams', [
-      mojo.internal.StructField('feature_list', 0, 0, mojo.internal.Array(emoji_picker.mojom.FeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('feature_list', 0, 0, mojo.internal.Array(emoji_picker.mojom.FeatureSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -193,7 +192,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetCategories_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('gif_categories', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -206,8 +205,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('featured_gifs', 8, 0, tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('featured_gifs', 8, 0, tenor.mojom.PaginatedGifResponsesSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -220,8 +219,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_SearchGifs_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('search_gifs', 8, 0, tenor.mojom.PaginatedGifResponsesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('search_gifs', 8, 0, tenor.mojom.PaginatedGifResponsesSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -233,8 +232,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('selected_gifs', 8, 0, mojo.internal.Array(tenor.mojom.GifResponseSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, tenor.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('selected_gifs', 8, 0, mojo.internal.Array(tenor.mojom.GifResponseSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -250,7 +249,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParams', [
-      mojo.internal.StructField('category', 0, 0, emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, emoji_picker.mojom.CategorySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -267,26 +266,26 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_Params', [
-      mojo.internal.StructField('category', 0, 0, emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('history', 8, 0, mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, emoji_picker.mojom.CategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('history', 8, 0, mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_Params', [
-      mojo.internal.StructField('preferred_variants', 0, 0, mojo.internal.Array(emoji_picker.mojom.EmojiVariantSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('preferred_variants', 0, 0, mojo.internal.Array(emoji_picker.mojom.EmojiVariantSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_Params', [
-      mojo.internal.StructField('category', 0, 0, emoji_picker.mojom.CategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, emoji_picker.mojom.CategorySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParams', [
-      mojo.internal.StructField('history', 0, 0, mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('history', 0, 0, mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -476,9 +475,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
 
 emoji_picker.mojom.PageHandler.getRemote = function() {
   let remote = new emoji_picker.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'emoji_picker.mojom.PageHandler',
     'context');
   return remote.$;

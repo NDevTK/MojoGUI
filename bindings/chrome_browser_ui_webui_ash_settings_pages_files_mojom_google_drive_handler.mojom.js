@@ -35,7 +35,7 @@ mojo.internal.Struct(
     ash.settings.google_drive.mojom.StatusSpec, 'ash.settings.google_drive.mojom.Status', [
       mojo.internal.StructField('required_space', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('free_space', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('stage', 16, 0, drivefs.pinning_manager_types.mojom.StageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stage', 16, 0, drivefs.pinning_manager_types.mojom.StageSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('listed_files', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('is_error', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -95,9 +95,8 @@ ash.settings.google_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.settings.google_drive.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.settings.google_drive.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.google_drive.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -215,9 +214,8 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.settings.google_drive.mojom.PageHandler.getRemote = function() {
   let remote = new ash.settings.google_drive.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.google_drive.mojom.PageHandler',
     'context');
   return remote.$;
@@ -235,7 +233,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec, 'ash.settings.google_drive.mojom.Page_OnProgress_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.settings.google_drive.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.settings.google_drive.mojom.StatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -295,9 +293,8 @@ ash.settings.google_drive.mojom.PageRemoteCallHandler = class {
 
 ash.settings.google_drive.mojom.Page.getRemote = function() {
   let remote = new ash.settings.google_drive.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.google_drive.mojom.Page',
     'context');
   return remote.$;

@@ -76,9 +76,8 @@ blink.mojom.ProgressClientRemoteCallHandler = class {
 
 blink.mojom.ProgressClient.getRemote = function() {
   let remote = new blink.mojom.ProgressClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ProgressClient',
     'context');
   return remote.$;
@@ -95,7 +94,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('content_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('elements', 32, 0, mojo.internal.Array(blink.mojom.DataElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('elements', 32, 0, mojo.internal.Array(blink.mojom.DataElementSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -116,7 +115,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_ResponseParams', [
-      mojo.internal.StructField('blob', 0, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('blob', 0, 0, blink.mojom.SerializedBlobSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -176,9 +175,8 @@ blink.mojom.BlobRegistryRemoteCallHandler = class {
 
 blink.mojom.BlobRegistry.getRemote = function() {
   let remote = new blink.mojom.BlobRegistryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BlobRegistry',
     'context');
   return remote.$;

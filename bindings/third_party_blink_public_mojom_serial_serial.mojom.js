@@ -29,12 +29,12 @@ blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = { $: {}
 // Struct: SerialPortInfo
 mojo.internal.Struct(
     blink.mojom.SerialPortInfoSpec, 'blink.mojom.SerialPortInfo', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('usb_vendor_id', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('has_usb_vendor_id', 10, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('usb_product_id', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('has_usb_product_id', 14, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('bluetooth_service_class_id', 16, 0, bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('bluetooth_service_class_id', 16, 0, bluetooth.mojom.UUIDSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('connected', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -46,7 +46,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('has_vendor_id', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('product_id', 6, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('has_product_id', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('bluetooth_service_class_id', 16, 0, bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('bluetooth_service_class_id', 16, 0, bluetooth.mojom.UUIDSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -64,27 +64,27 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SerialService_GetPorts_ResponseParamsSpec, 'blink.mojom.SerialService_GetPorts_ResponseParams', [
-      mojo.internal.StructField('ports', 0, 0, mojo.internal.Array(blink.mojom.SerialPortInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('ports', 0, 0, mojo.internal.Array(blink.mojom.SerialPortInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.SerialService_RequestPort_ParamsSpec, 'blink.mojom.SerialService_RequestPort_Params', [
-      mojo.internal.StructField('filters', 0, 0, mojo.internal.Array(blink.mojom.SerialPortFilterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('allowed_bluetooth_service_class_ids', 8, 0, mojo.internal.Array(bluetooth.mojom.UUIDSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('filters', 0, 0, mojo.internal.Array(blink.mojom.SerialPortFilterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('allowed_bluetooth_service_class_ids', 8, 0, mojo.internal.Array(bluetooth.mojom.UUIDSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.SerialService_RequestPort_ResponseParamsSpec, 'blink.mojom.SerialService_RequestPort_ResponseParams', [
-      mojo.internal.StructField('port', 0, 0, blink.mojom.SerialPortInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('port', 0, 0, blink.mojom.SerialPortInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.SerialService_OpenPort_ParamsSpec, 'blink.mojom.SerialService_OpenPort_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, device.mojom.SerialConnectionOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -97,7 +97,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SerialService_ForgetPort_ParamsSpec, 'blink.mojom.SerialService_ForgetPort_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -192,9 +192,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
 
 blink.mojom.SerialService.getRemote = function() {
   let remote = new blink.mojom.SerialServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SerialService',
     'context');
   return remote.$;
@@ -207,7 +206,7 @@ blink.mojom.SerialServiceRequest = blink.mojom.SerialServicePendingReceiver;
 // Interface: SerialServiceClient
 mojo.internal.Struct(
     blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec, 'blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_Params', [
-      mojo.internal.StructField('port_info', 0, 0, blink.mojom.SerialPortInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port_info', 0, 0, blink.mojom.SerialPortInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -257,9 +256,8 @@ blink.mojom.SerialServiceClientRemoteCallHandler = class {
 
 blink.mojom.SerialServiceClient.getRemote = function() {
   let remote = new blink.mojom.SerialServiceClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SerialServiceClient',
     'context');
   return remote.$;

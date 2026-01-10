@@ -39,12 +39,12 @@ mojo.internal.Union(
     ash.app_install.mojom.DialogArgsSpec, 'ash.app_install.mojom.DialogArgs', {
       'app_info_args': {
         'ordinal': 0,
-        'type': ash.app_install.mojom.AppInfoArgsSpec,
+        'type': ash.app_install.mojom.AppInfoArgsSpec.$,
         'nullable': false,
       },
       'no_app_error_args': {
         'ordinal': 1,
-        'type': ash.app_install.mojom.NoAppErrorArgsSpec,
+        'type': ash.app_install.mojom.NoAppErrorArgsSpec.$,
         'nullable': false,
       },
       'connection_error_actions': {
@@ -57,7 +57,7 @@ mojo.internal.Union(
 // Struct: AppInfoArgs
 mojo.internal.Struct(
     ash.app_install.mojom.AppInfoArgsSpec, 'ash.app_install.mojom.AppInfoArgs', [
-      mojo.internal.StructField('data', 0, 0, ash.app_install.mojom.AppInfoDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, ash.app_install.mojom.AppInfoDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('actions', 8, 0, mojo.internal.InterfaceProxy(ash.app_install.mojom.AppInfoActionsRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -66,10 +66,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.app_install.mojom.AppInfoDataSpec, 'ash.app_install.mojom.AppInfoData', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('screenshots', 32, 0, mojo.internal.Array(ash.app_install.mojom.ScreenshotSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('screenshots', 32, 0, mojo.internal.Array(ash.app_install.mojom.ScreenshotSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('is_already_installed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -77,8 +77,8 @@ mojo.internal.Struct(
 // Struct: Screenshot
 mojo.internal.Struct(
     ash.app_install.mojom.ScreenshotSpec, 'ash.app_install.mojom.Screenshot', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -161,9 +161,8 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
 
 ash.app_install.mojom.AppInfoActions.getRemote = function() {
   let remote = new ash.app_install.mojom.AppInfoActionsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.app_install.mojom.AppInfoActions',
     'context');
   return remote.$;
@@ -225,9 +224,8 @@ ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
 
 ash.app_install.mojom.ConnectionErrorActions.getRemote = function() {
   let remote = new ash.app_install.mojom.ConnectionErrorActionsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.app_install.mojom.ConnectionErrorActions',
     'context');
   return remote.$;
@@ -290,9 +288,8 @@ ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.app_install.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.app_install.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.app_install.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -310,9 +307,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParams', [
-      mojo.internal.StructField('dialog_args', 0, 0, ash.app_install.mojom.DialogArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dialog_args', 0, 0, ash.app_install.mojom.DialogArgsSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.app_install.mojom.PageHandler_CloseDialog_Params', [
@@ -375,9 +372,8 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.app_install.mojom.PageHandler.getRemote = function() {
   let remote = new ash.app_install.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.app_install.mojom.PageHandler',
     'context');
   return remote.$;

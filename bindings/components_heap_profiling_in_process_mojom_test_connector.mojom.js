@@ -112,9 +112,8 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
 
 heap_profiling.mojom.TestConnector.getRemote = function() {
   let remote = new heap_profiling.mojom.TestConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'heap_profiling.mojom.TestConnector',
     'context');
   return remote.$;

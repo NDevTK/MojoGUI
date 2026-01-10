@@ -292,9 +292,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('has_null_position', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_volatile', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_buffered_bytes', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('usages', 8, 0, mojo.internal.Array(device.mojom.HidUsageAndPageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('usage_minimum', 16, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('usage_maximum', 24, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('usages', 8, 0, mojo.internal.Array(device.mojom.HidUsageAndPageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('usage_minimum', 16, 0, device.mojom.HidUsageAndPageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('usage_maximum', 24, 0, device.mojom.HidUsageAndPageSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('designator_minimum', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('designator_maximum', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('string_minimum', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -314,20 +314,20 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.HidReportDescriptionSpec, 'device.mojom.HidReportDescription', [
       mojo.internal.StructField('report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('items', 8, 0, mojo.internal.Array(device.mojom.HidReportItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('items', 8, 0, mojo.internal.Array(device.mojom.HidReportItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: HidCollectionInfo
 mojo.internal.Struct(
     device.mojom.HidCollectionInfoSpec, 'device.mojom.HidCollectionInfo', [
-      mojo.internal.StructField('usage', 0, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('usage', 0, 0, device.mojom.HidUsageAndPageSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('report_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('collection_type', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('input_reports', 24, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('output_reports', 32, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('feature_reports', 40, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('children', 48, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('input_reports', 24, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('output_reports', 32, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('feature_reports', 40, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('children', 48, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -340,9 +340,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('product_id', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('product_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('serial_number', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('bus_type', 40, 0, device.mojom.HidBusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bus_type', 40, 0, device.mojom.HidBusTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('report_descriptor', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('collections', 56, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('collections', 56, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('has_report_id', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('max_input_report_size', 72, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('max_output_report_size', 80, 0, mojo.internal.Uint64, 0, false, 0, undefined),
@@ -358,19 +358,19 @@ mojo.internal.Struct(
 // Interface: HidManagerClient
 mojo.internal.Struct(
     device.mojom.HidManagerClient_DeviceAdded_ParamsSpec, 'device.mojom.HidManagerClient_DeviceAdded_Params', [
-      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec, 'device.mojom.HidManagerClient_DeviceRemoved_Params', [
-      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.HidManagerClient_DeviceChanged_ParamsSpec, 'device.mojom.HidManagerClient_DeviceChanged_Params', [
-      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -440,9 +440,8 @@ device.mojom.HidManagerClientRemoteCallHandler = class {
 
 device.mojom.HidManagerClient.getRemote = function() {
   let remote = new device.mojom.HidManagerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.HidManagerClient',
     'context');
   return remote.$;
@@ -461,7 +460,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.HidManager_GetDevicesAndSetClient_ResponseParams', [
-      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.HidDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -472,7 +471,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.HidManager_GetDevices_ResponseParamsSpec, 'device.mojom.HidManager_GetDevices_ResponseParams', [
-      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.HidDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -574,9 +573,8 @@ device.mojom.HidManagerRemoteCallHandler = class {
 
 device.mojom.HidManager.getRemote = function() {
   let remote = new device.mojom.HidManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.HidManager',
     'context');
   return remote.$;
@@ -715,9 +713,8 @@ device.mojom.HidConnectionRemoteCallHandler = class {
 
 device.mojom.HidConnection.getRemote = function() {
   let remote = new device.mojom.HidConnectionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.HidConnection',
     'context');
   return remote.$;
@@ -781,9 +778,8 @@ device.mojom.HidConnectionClientRemoteCallHandler = class {
 
 device.mojom.HidConnectionClient.getRemote = function() {
   let remote = new device.mojom.HidConnectionClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.HidConnectionClient',
     'context');
   return remote.$;
@@ -830,9 +826,8 @@ device.mojom.HidConnectionWatcherRemoteCallHandler = class {
 
 device.mojom.HidConnectionWatcher.getRemote = function() {
   let remote = new device.mojom.HidConnectionWatcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.HidConnectionWatcher',
     'context');
   return remote.$;

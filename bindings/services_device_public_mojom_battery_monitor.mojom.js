@@ -22,7 +22,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec, 'device.mojom.BatteryMonitor_QueryNextStatus_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, device.mojom.BatteryStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, device.mojom.BatteryStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ device.mojom.BatteryMonitorRemoteCallHandler = class {
 
 device.mojom.BatteryMonitor.getRemote = function() {
   let remote = new device.mojom.BatteryMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.BatteryMonitor',
     'context');
   return remote.$;

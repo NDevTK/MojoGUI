@@ -22,7 +22,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec, 'blink.mojom.Hyphenation_OpenDictionary_ResponseParams', [
-      mojo.internal.StructField('hyphenation_dictionary_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('hyphenation_dictionary_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ blink.mojom.HyphenationRemoteCallHandler = class {
 
 blink.mojom.Hyphenation.getRemote = function() {
   let remote = new blink.mojom.HyphenationRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.Hyphenation',
     'context');
   return remote.$;

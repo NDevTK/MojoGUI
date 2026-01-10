@@ -42,22 +42,22 @@ mojo.internal.Union(
 // Struct: ArcShellExecutionRequest
 mojo.internal.Struct(
     arc.mojom.ArcShellExecutionRequestSpec, 'arc.mojom.ArcShellExecutionRequest', [
-      mojo.internal.StructField('command', 0, 0, arc.mojom.ArcShellCommandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('command', 0, 0, arc.mojom.ArcShellCommandSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: ArcShellExecutionInstance
 mojo.internal.Struct(
     arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec, 'arc.mojom.ArcShellExecutionInstance_Exec_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.ArcShellExecutionRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.ArcShellExecutionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec, 'arc.mojom.ArcShellExecutionInstance_Exec_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcShellExecutionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcShellExecutionResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 arc.mojom.ArcShellExecutionInstancePendingReceiver = class {
   constructor(handle) {
@@ -105,9 +105,8 @@ arc.mojom.ArcShellExecutionInstanceRemoteCallHandler = class {
 
 arc.mojom.ArcShellExecutionInstance.getRemote = function() {
   let remote = new arc.mojom.ArcShellExecutionInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ArcShellExecutionInstance',
     'context');
   return remote.$;

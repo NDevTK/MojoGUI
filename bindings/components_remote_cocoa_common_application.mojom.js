@@ -69,9 +69,8 @@ remote_cocoa.mojom.StubInterfaceRemoteCallHandler = class {
 
 remote_cocoa.mojom.StubInterface.getRemote = function() {
   let remote = new remote_cocoa.mojom.StubInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remote_cocoa.mojom.StubInterface',
     'context');
   return remote.$;
@@ -122,7 +121,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec, 'remote_cocoa.mojom.Application_ForwardCutCopyPaste_Params', [
-      mojo.internal.StructField('command', 0, 0, remote_cocoa.mojom.CutCopyPasteCommandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('command', 0, 0, remote_cocoa.mojom.CutCopyPasteCommandSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -222,9 +221,8 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
 
 remote_cocoa.mojom.Application.getRemote = function() {
   let remote = new remote_cocoa.mojom.ApplicationRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remote_cocoa.mojom.Application',
     'context');
   return remote.$;

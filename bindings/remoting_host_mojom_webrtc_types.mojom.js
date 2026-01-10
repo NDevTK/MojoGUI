@@ -37,10 +37,10 @@ mojo.internal.Struct(
     remoting.mojom.DesktopFrameSpec, 'remoting.mojom.DesktopFrame', [
       mojo.internal.StructField('shared_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('stride', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, remoting.mojom.DesktopSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dirty_region', 16, 0, mojo.internal.Array(remoting.mojom.DesktopRectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, remoting.mojom.DesktopSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dirty_region', 16, 0, mojo.internal.Array(remoting.mojom.DesktopRectSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('capture_time_ms', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('dpi', 32, 0, remoting.mojom.DesktopVectorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dpi', 32, 0, remoting.mojom.DesktopVectorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('capturer_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -74,8 +74,8 @@ mojo.internal.Struct(
 // Struct: MouseCursor
 mojo.internal.Struct(
     remoting.mojom.MouseCursorSpec, 'remoting.mojom.MouseCursor', [
-      mojo.internal.StructField('image_size', 0, 0, remoting.mojom.DesktopSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_size', 0, 0, remoting.mojom.DesktopSizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('image_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('hotspot', 16, 0, remoting.mojom.DesktopVectorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hotspot', 16, 0, remoting.mojom.DesktopVectorSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

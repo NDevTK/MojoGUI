@@ -31,7 +31,7 @@ mojo.internal.Struct(
 // Struct: AdDescriptor
 mojo.internal.Struct(
     blink.mojom.AdDescriptorSpec, 'blink.mojom.AdDescriptor', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, blink.mojom.AdSizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, blink.mojom.AdSizeSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

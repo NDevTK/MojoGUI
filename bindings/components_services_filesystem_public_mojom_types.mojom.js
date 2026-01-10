@@ -61,7 +61,7 @@ mojo.internal.Struct(
 // Struct: FileInformation
 mojo.internal.Struct(
     filesystem.mojom.FileInformationSpec, 'filesystem.mojom.FileInformation', [
-      mojo.internal.StructField('type', 0, 0, filesystem.mojom.FsFileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, filesystem.mojom.FsFileTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('atime', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('mtime', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
@@ -72,8 +72,8 @@ mojo.internal.Struct(
 // Struct: DirectoryEntry
 mojo.internal.Struct(
     filesystem.mojom.DirectoryEntrySpec, 'filesystem.mojom.DirectoryEntry', [
-      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.SafeBaseNameSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, filesystem.mojom.FsFileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, filesystem.mojom.FsFileTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

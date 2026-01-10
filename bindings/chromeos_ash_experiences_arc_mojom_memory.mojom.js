@@ -27,7 +27,7 @@ arc.mojom.ReclaimType = {
 // Struct: ReclaimRequest
 mojo.internal.Struct(
     arc.mojom.ReclaimRequestSpec, 'arc.mojom.ReclaimRequest', [
-      mojo.internal.StructField('type', 0, 0, arc.mojom.ReclaimTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, arc.mojom.ReclaimTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -53,13 +53,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.MemoryInstance_Reclaim_ParamsSpec, 'arc.mojom.MemoryInstance_Reclaim_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.ReclaimRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.ReclaimRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec, 'arc.mojom.MemoryInstance_Reclaim_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ReclaimResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ReclaimResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -119,9 +119,8 @@ arc.mojom.MemoryInstanceRemoteCallHandler = class {
 
 arc.mojom.MemoryInstance.getRemote = function() {
   let remote = new arc.mojom.MemoryInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.MemoryInstance',
     'context');
   return remote.$;

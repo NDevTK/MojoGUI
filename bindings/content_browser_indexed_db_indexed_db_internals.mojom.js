@@ -33,8 +33,8 @@ storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec = { $: {} };
 // Struct: IdbPartitionMetadata
 mojo.internal.Struct(
     storage.mojom.IdbPartitionMetadataSpec, 'storage.mojom.IdbPartitionMetadata', [
-      mojo.internal.StructField('partition_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin_list', 8, 0, mojo.internal.Array(storage.mojom.IdbOriginMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('partition_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin_list', 8, 0, mojo.internal.Array(storage.mojom.IdbOriginMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -47,13 +47,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec, 'storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParams', [
       mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('partitions', 8, 0, mojo.internal.Array(storage.mojom.IdbPartitionMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('partitions', 8, 0, mojo.internal.Array(storage.mojom.IdbPartitionMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec, 'storage.mojom.IdbInternalsHandler_DownloadBucketData_Params', [
-      mojo.internal.StructField('bucketId', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucketId', 0, 0, storage.mojom.BucketIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -65,7 +65,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec, 'storage.mojom.IdbInternalsHandler_ForceClose_Params', [
-      mojo.internal.StructField('bucketId', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucketId', 0, 0, storage.mojom.BucketIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -77,7 +77,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec, 'storage.mojom.IdbInternalsHandler_StartMetadataRecording_Params', [
-      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -89,20 +89,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec, 'storage.mojom.IdbInternalsHandler_StopMetadataRecording_Params', [
-      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec, 'storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParams', [
       mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('metadata', 8, 0, mojo.internal.Array(storage.mojom.IdbBucketMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, mojo.internal.Array(storage.mojom.IdbBucketMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec, 'storage.mojom.IdbInternalsHandler_InspectClient_Params', [
-      mojo.internal.StructField('client_info', 0, 0, storage.mojom.BucketClientInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_info', 0, 0, storage.mojom.BucketClientInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -208,9 +208,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
 
 storage.mojom.IdbInternalsHandler.getRemote = function() {
   let remote = new storage.mojom.IdbInternalsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.IdbInternalsHandler',
     'context');
   return remote.$;

@@ -73,9 +73,8 @@ ash.ime.mojom.InputChannelRemoteCallHandler = class {
 
 ash.ime.mojom.InputChannel.getRemote = function() {
   let remote = new ash.ime.mojom.InputChannelRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.ime.mojom.InputChannel',
     'context');
   return remote.$;

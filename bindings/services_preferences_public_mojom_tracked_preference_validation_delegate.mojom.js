@@ -35,9 +35,9 @@ prefs.mojom.ValueState = {
 mojo.internal.Struct(
     prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Params', [
       mojo.internal.StructField('pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('value_state', 24, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('external_validation_value_state', 28, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('value_state', 16, 0, prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('external_validation_value_state', 24, 0, prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -47,11 +47,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('invalid_keys', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('external_validation_invalid_keys', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('value_state', 24, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('external_validation_value_state', 28, 0, prefs.mojom.ValueStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('value_state', 24, 0, prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('external_validation_value_state', 32, 0, prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_personal', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver = class {
   constructor(handle) {
@@ -109,9 +109,8 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
 
 prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
   let remote = new prefs.mojom.TrackedPreferenceValidationDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'prefs.mojom.TrackedPreferenceValidationDelegate',
     'context');
   return remote.$;

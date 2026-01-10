@@ -36,13 +36,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec, 'legion.mojom.OakSession_InitiateHandshake_ResponseParams', [
-      mojo.internal.StructField('request', 0, 0, legion.mojom.HandshakeMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, legion.mojom.HandshakeMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     legion.mojom.OakSession_CompleteHandshake_ParamsSpec, 'legion.mojom.OakSession_CompleteHandshake_Params', [
-      mojo.internal.StructField('response', 0, 0, legion.mojom.HandshakeMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, legion.mojom.HandshakeMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -152,9 +152,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
 
 legion.mojom.OakSession.getRemote = function() {
   let remote = new legion.mojom.OakSessionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'legion.mojom.OakSession',
     'context');
   return remote.$;

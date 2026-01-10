@@ -16,7 +16,7 @@ blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = { $: {} };
 // Interface: RendererPreferenceWatcher
 mojo.internal.Struct(
     blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec, 'blink.mojom.RendererPreferenceWatcher_NotifyUpdate_Params', [
-      mojo.internal.StructField('new_prefs', 0, 0, blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_prefs', 0, 0, blink.mojom.RendererPreferencesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -66,9 +66,8 @@ blink.mojom.RendererPreferenceWatcherRemoteCallHandler = class {
 
 blink.mojom.RendererPreferenceWatcher.getRemote = function() {
   let remote = new blink.mojom.RendererPreferenceWatcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.RendererPreferenceWatcher',
     'context');
   return remote.$;

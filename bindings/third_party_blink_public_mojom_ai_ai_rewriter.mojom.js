@@ -45,14 +45,14 @@ blink.mojom.AIRewriterLength = {
 mojo.internal.Struct(
     blink.mojom.AIRewriterCreateOptionsSpec, 'blink.mojom.AIRewriterCreateOptions', [
       mojo.internal.StructField('shared_context', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('tone', 8, 0, blink.mojom.AIRewriterToneSpec, null, false, 0, undefined),
-      mojo.internal.StructField('format', 12, 0, blink.mojom.AIRewriterFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('length', 16, 0, blink.mojom.AIRewriterLengthSpec, null, false, 0, undefined),
-      mojo.internal.StructField('expected_input_languages', 24, 0, mojo.internal.Array(blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('expected_context_languages', 32, 0, mojo.internal.Array(blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('output_language', 40, 0, blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tone', 8, 0, blink.mojom.AIRewriterToneSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('format', 16, 0, blink.mojom.AIRewriterFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('length', 24, 0, blink.mojom.AIRewriterLengthSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('expected_input_languages', 32, 0, mojo.internal.Array(blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('expected_context_languages', 40, 0, mojo.internal.Array(blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('output_language', 48, 0, blink.mojom.AILanguageCodeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Interface: AIRewriter
 mojo.internal.Struct(
@@ -133,9 +133,8 @@ blink.mojom.AIRewriterRemoteCallHandler = class {
 
 blink.mojom.AIRewriter.getRemote = function() {
   let remote = new blink.mojom.AIRewriterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AIRewriter',
     'context');
   return remote.$;

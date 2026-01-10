@@ -44,9 +44,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('loader', 0, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderRemote), null, false, 0, undefined),
       mojo.internal.StructField('request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('options', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('request', 16, 0, network.mojom.URLRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 16, 0, network.mojom.URLRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('traffic_annotation', 32, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 32, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -112,9 +112,8 @@ network.mojom.URLLoaderFactoryRemoteCallHandler = class {
 
 network.mojom.URLLoaderFactory.getRemote = function() {
   let remote = new network.mojom.URLLoaderFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.URLLoaderFactory',
     'context');
   return remote.$;

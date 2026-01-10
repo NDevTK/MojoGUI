@@ -44,7 +44,7 @@ mojo.internal.Struct(
 // Interface: SingularUkmInterface
 mojo.internal.Struct(
     ukm.mojom.SingularUkmInterface_Submit_ParamsSpec, 'ukm.mojom.SingularUkmInterface_Submit_Params', [
-      mojo.internal.StructField('entry', 0, 0, ukm.mojom.UkmEntrySpec, null, false, 0, undefined),
+      mojo.internal.StructField('entry', 0, 0, ukm.mojom.UkmEntrySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -94,9 +94,8 @@ ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
 
 ukm.mojom.SingularUkmInterface.getRemote = function() {
   let remote = new ukm.mojom.SingularUkmInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ukm.mojom.SingularUkmInterface',
     'context');
   return remote.$;
@@ -109,7 +108,7 @@ ukm.mojom.SingularUkmInterfaceRequest = ukm.mojom.SingularUkmInterfacePendingRec
 // Interface: UkmRecorderClientInterface
 mojo.internal.Struct(
     ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec, 'ukm.mojom.UkmRecorderClientInterface_SetParameters_Params', [
-      mojo.internal.StructField('params', 0, 0, ukm.mojom.UkmRecorderParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, ukm.mojom.UkmRecorderParametersSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -159,9 +158,8 @@ ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler = class {
 
 ukm.mojom.UkmRecorderClientInterface.getRemote = function() {
   let remote = new ukm.mojom.UkmRecorderClientInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ukm.mojom.UkmRecorderClientInterface',
     'context');
   return remote.$;
@@ -174,7 +172,7 @@ ukm.mojom.UkmRecorderClientInterfaceRequest = ukm.mojom.UkmRecorderClientInterfa
 // Interface: UkmRecorderInterface
 mojo.internal.Struct(
     ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec, 'ukm.mojom.UkmRecorderInterface_AddEntry_Params', [
-      mojo.internal.StructField('entry', 0, 0, ukm.mojom.UkmEntrySpec, null, false, 0, undefined),
+      mojo.internal.StructField('entry', 0, 0, ukm.mojom.UkmEntrySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -241,9 +239,8 @@ ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
 
 ukm.mojom.UkmRecorderInterface.getRemote = function() {
   let remote = new ukm.mojom.UkmRecorderInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ukm.mojom.UkmRecorderInterface',
     'context');
   return remote.$;
@@ -307,9 +304,8 @@ ukm.mojom.UkmRecorderFactoryRemoteCallHandler = class {
 
 ukm.mojom.UkmRecorderFactory.getRemote = function() {
   let remote = new ukm.mojom.UkmRecorderFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ukm.mojom.UkmRecorderFactory',
     'context');
   return remote.$;

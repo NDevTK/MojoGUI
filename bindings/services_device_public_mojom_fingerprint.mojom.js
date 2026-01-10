@@ -84,12 +84,12 @@ mojo.internal.Union(
     device.mojom.FingerprintMessageSpec, 'device.mojom.FingerprintMessage', {
       'fingerprint_error': {
         'ordinal': 0,
-        'type': device.mojom.FingerprintErrorSpec,
+        'type': device.mojom.FingerprintErrorSpec.$,
         'nullable': false,
       },
       'scan_result': {
         'ordinal': 1,
-        'type': device.mojom.ScanResultSpec,
+        'type': device.mojom.ScanResultSpec.$,
         'nullable': false,
       },
     });
@@ -102,24 +102,24 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec, 'device.mojom.FingerprintObserver_OnStatusChanged_Params', [
-      mojo.internal.StructField('status', 0, 0, device.mojom.BiometricsManagerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, device.mojom.BiometricsManagerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec, 'device.mojom.FingerprintObserver_OnEnrollScanDone_Params', [
-      mojo.internal.StructField('scan_result', 0, 0, device.mojom.ScanResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_complete', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('percent_complete', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('scan_result', 0, 0, device.mojom.ScanResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_complete', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('percent_complete', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec, 'device.mojom.FingerprintObserver_OnAuthScanDone_Params', [
-      mojo.internal.StructField('msg', 0, 0, device.mojom.FingerprintMessageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('matches', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('msg', 0, 0, device.mojom.FingerprintMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('matches', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec, 'device.mojom.FingerprintObserver_OnSessionFailed_Params', [
@@ -212,9 +212,8 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
 
 device.mojom.FingerprintObserver.getRemote = function() {
   let remote = new device.mojom.FingerprintObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.FingerprintObserver',
     'context');
   return remote.$;
@@ -333,7 +332,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.Fingerprint_RequestType_ResponseParamsSpec, 'device.mojom.Fingerprint_RequestType_ResponseParams', [
-      mojo.internal.StructField('type', 0, 0, device.mojom.BiometricTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.BiometricTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -483,9 +482,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
 
 device.mojom.Fingerprint.getRemote = function() {
   let remote = new device.mojom.FingerprintRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.Fingerprint',
     'context');
   return remote.$;

@@ -22,31 +22,31 @@ blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = { $: {} }
 // Struct: ServiceWorkerFetchEventTiming
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerFetchEventTimingSpec, 'blink.mojom.ServiceWorkerFetchEventTiming', [
-      mojo.internal.StructField('dispatch_event_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('respond_with_settled_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dispatch_event_time', 0, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('respond_with_settled_time', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: ServiceWorkerFetchResponseCallback
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec, 'blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_Params', [
-      mojo.internal.StructField('response', 0, 0, blink.mojom.FetchAPIResponseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timing', 8, 0, blink.mojom.ServiceWorkerFetchEventTimingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, blink.mojom.FetchAPIResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timing', 8, 0, blink.mojom.ServiceWorkerFetchEventTimingSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec, 'blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_Params', [
-      mojo.internal.StructField('response', 0, 0, blink.mojom.FetchAPIResponseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('body_as_stream', 8, 0, blink.mojom.ServiceWorkerStreamHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timing', 16, 0, blink.mojom.ServiceWorkerFetchEventTimingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, blink.mojom.FetchAPIResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('body_as_stream', 8, 0, blink.mojom.ServiceWorkerStreamHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timing', 16, 0, blink.mojom.ServiceWorkerFetchEventTimingSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec, 'blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_Params', [
-      mojo.internal.StructField('request_body', 0, 0, network.mojom.DataElementChunkedDataPipeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('timing', 8, 0, blink.mojom.ServiceWorkerFetchEventTimingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_body', 0, 0, network.mojom.DataElementChunkedDataPipeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('timing', 8, 0, blink.mojom.ServiceWorkerFetchEventTimingSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -116,9 +116,8 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerFetchResponseCallbackRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ServiceWorkerFetchResponseCallback',
     'context');
   return remote.$;

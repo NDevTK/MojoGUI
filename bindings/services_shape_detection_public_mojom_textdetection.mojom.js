@@ -21,21 +21,21 @@ shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     shape_detection.mojom.TextDetectionResultSpec, 'shape_detection.mojom.TextDetectionResult', [
       mojo.internal.StructField('raw_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('bounding_box', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('corner_points', 16, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bounding_box', 8, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('corner_points', 16, 0, mojo.internal.Array(gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: TextDetection
 mojo.internal.Struct(
     shape_detection.mojom.TextDetection_Detect_ParamsSpec, 'shape_detection.mojom.TextDetection_Detect_Params', [
-      mojo.internal.StructField('bitmap_data', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('bitmap_data', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.TextDetection_Detect_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(shape_detection.mojom.TextDetectionResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(shape_detection.mojom.TextDetectionResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -85,9 +85,8 @@ shape_detection.mojom.TextDetectionRemoteCallHandler = class {
 
 shape_detection.mojom.TextDetection.getRemote = function() {
   let remote = new shape_detection.mojom.TextDetectionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'shape_detection.mojom.TextDetection',
     'context');
   return remote.$;

@@ -39,7 +39,7 @@ mojo.internal.Struct(
 // Interface: DownloadStreamClient
 mojo.internal.Struct(
     download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec, 'download.mojom.DownloadStreamClient_OnStreamCompleted_Params', [
-      mojo.internal.StructField('status', 0, 0, download.mojom.NetworkRequestStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, download.mojom.NetworkRequestStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -89,9 +89,8 @@ download.mojom.DownloadStreamClientRemoteCallHandler = class {
 
 download.mojom.DownloadStreamClient.getRemote = function() {
   let remote = new download.mojom.DownloadStreamClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'download.mojom.DownloadStreamClient',
     'context');
   return remote.$;

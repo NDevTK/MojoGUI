@@ -16,8 +16,8 @@ web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = { $: 
 // Interface: WebAppShortcutCopier
 mojo.internal.Struct(
     web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec, 'web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_Params', [
-      mojo.internal.StructField('source_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('destination_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('destination_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -73,9 +73,8 @@ web_app.mojom.WebAppShortcutCopierRemoteCallHandler = class {
 
 web_app.mojom.WebAppShortcutCopier.getRemote = function() {
   let remote = new web_app.mojom.WebAppShortcutCopierRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'web_app.mojom.WebAppShortcutCopier',
     'context');
   return remote.$;

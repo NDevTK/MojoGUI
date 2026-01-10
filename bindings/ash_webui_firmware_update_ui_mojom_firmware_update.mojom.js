@@ -82,12 +82,12 @@ ash.firmware_update.mojom.DeviceRequestKind = {
 mojo.internal.Struct(
     ash.firmware_update.mojom.FirmwareUpdateSpec, 'ash.firmware_update.mojom.FirmwareUpdate', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('device_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('device_name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('needs_reboot', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('device_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('device_description', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 40, 0, ash.firmware_update.mojom.UpdatePrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('filepath', 48, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_description', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 40, 0, ash.firmware_update.mojom.UpdatePrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('filepath', 48, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('checksum', 56, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 72]]);
@@ -96,22 +96,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.firmware_update.mojom.InstallationProgressSpec, 'ash.firmware_update.mojom.InstallationProgress', [
       mojo.internal.StructField('percentage', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 4, 0, ash.firmware_update.mojom.UpdateStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, ash.firmware_update.mojom.UpdateStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: DeviceRequest
 mojo.internal.Struct(
     ash.firmware_update.mojom.DeviceRequestSpec, 'ash.firmware_update.mojom.DeviceRequest', [
-      mojo.internal.StructField('id', 0, 0, ash.firmware_update.mojom.DeviceRequestIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('kind', 4, 0, ash.firmware_update.mojom.DeviceRequestKindSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, ash.firmware_update.mojom.DeviceRequestIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('kind', 8, 0, ash.firmware_update.mojom.DeviceRequestKindSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: UpdateObserver
 mojo.internal.Struct(
     ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec, 'ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_Params', [
-      mojo.internal.StructField('firmware_updates', 0, 0, mojo.internal.Array(ash.firmware_update.mojom.FirmwareUpdateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('firmware_updates', 0, 0, mojo.internal.Array(ash.firmware_update.mojom.FirmwareUpdateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -161,9 +161,8 @@ ash.firmware_update.mojom.UpdateObserverRemoteCallHandler = class {
 
 ash.firmware_update.mojom.UpdateObserver.getRemote = function() {
   let remote = new ash.firmware_update.mojom.UpdateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.firmware_update.mojom.UpdateObserver',
     'context');
   return remote.$;
@@ -176,7 +175,7 @@ ash.firmware_update.mojom.UpdateObserverRequest = ash.firmware_update.mojom.Upda
 // Interface: DeviceRequestObserver
 mojo.internal.Struct(
     ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec, 'ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_Params', [
-      mojo.internal.StructField('request', 0, 0, ash.firmware_update.mojom.DeviceRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, ash.firmware_update.mojom.DeviceRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -226,9 +225,8 @@ ash.firmware_update.mojom.DeviceRequestObserverRemoteCallHandler = class {
 
 ash.firmware_update.mojom.DeviceRequestObserver.getRemote = function() {
   let remote = new ash.firmware_update.mojom.DeviceRequestObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.firmware_update.mojom.DeviceRequestObserver',
     'context');
   return remote.$;
@@ -241,7 +239,7 @@ ash.firmware_update.mojom.DeviceRequestObserverRequest = ash.firmware_update.moj
 // Interface: UpdateProgressObserver
 mojo.internal.Struct(
     ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec, 'ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_Params', [
-      mojo.internal.StructField('update', 0, 0, ash.firmware_update.mojom.InstallationProgressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update', 0, 0, ash.firmware_update.mojom.InstallationProgressSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -291,9 +289,8 @@ ash.firmware_update.mojom.UpdateProgressObserverRemoteCallHandler = class {
 
 ash.firmware_update.mojom.UpdateProgressObserver.getRemote = function() {
   let remote = new ash.firmware_update.mojom.UpdateProgressObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.firmware_update.mojom.UpdateProgressObserver',
     'context');
   return remote.$;
@@ -329,7 +326,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParams', [
-      mojo.internal.StructField('update', 0, 0, ash.firmware_update.mojom.FirmwareUpdateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('update', 0, 0, ash.firmware_update.mojom.FirmwareUpdateSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -399,9 +396,8 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
 
 ash.firmware_update.mojom.UpdateProvider.getRemote = function() {
   let remote = new ash.firmware_update.mojom.UpdateProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.firmware_update.mojom.UpdateProvider',
     'context');
   return remote.$;
@@ -415,7 +411,7 @@ ash.firmware_update.mojom.UpdateProviderRequest = ash.firmware_update.mojom.Upda
 mojo.internal.Struct(
     ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec, 'ash.firmware_update.mojom.InstallController_BeginUpdate_Params', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('filepath', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filepath', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -497,9 +493,8 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
 
 ash.firmware_update.mojom.InstallController.getRemote = function() {
   let remote = new ash.firmware_update.mojom.InstallControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.firmware_update.mojom.InstallController',
     'context');
   return remote.$;
@@ -561,9 +556,8 @@ ash.firmware_update.mojom.SystemUtilsRemoteCallHandler = class {
 
 ash.firmware_update.mojom.SystemUtils.getRemote = function() {
   let remote = new ash.firmware_update.mojom.SystemUtilsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.firmware_update.mojom.SystemUtils',
     'context');
   return remote.$;

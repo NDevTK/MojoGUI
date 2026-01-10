@@ -41,10 +41,10 @@ policy.local_user_files.mojom.TimeUnit = {
 // Struct: TimeUnitAndValue
 mojo.internal.Struct(
     policy.local_user_files.mojom.TimeUnitAndValueSpec, 'policy.local_user_files.mojom.TimeUnitAndValue', [
-      mojo.internal.StructField('unit', 0, 0, policy.local_user_files.mojom.TimeUnitSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('unit', 0, 0, policy.local_user_files.mojom.TimeUnitSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
@@ -100,9 +100,8 @@ policy.local_user_files.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 policy.local_user_files.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new policy.local_user_files.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'policy.local_user_files.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -120,8 +119,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec, 'policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParams', [
-      mojo.internal.StructField('cloud_provider', 0, 0, policy.local_user_files.mojom.CloudProviderSpec, null, false, 0, undefined),
-      mojo.internal.StructField('remaining_time', 8, 0, policy.local_user_files.mojom.TimeUnitAndValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cloud_provider', 0, 0, policy.local_user_files.mojom.CloudProviderSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('remaining_time', 8, 0, policy.local_user_files.mojom.TimeUnitAndValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('start_date_and_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -202,9 +201,8 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
 
 policy.local_user_files.mojom.PageHandler.getRemote = function() {
   let remote = new policy.local_user_files.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'policy.local_user_files.mojom.PageHandler',
     'context');
   return remote.$;
@@ -217,7 +215,7 @@ policy.local_user_files.mojom.PageHandlerRequest = policy.local_user_files.mojom
 // Interface: Page
 mojo.internal.Struct(
     policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec, 'policy.local_user_files.mojom.Page_UpdateRemainingTime_Params', [
-      mojo.internal.StructField('remaining_time', 0, 0, policy.local_user_files.mojom.TimeUnitAndValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remaining_time', 0, 0, policy.local_user_files.mojom.TimeUnitAndValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -267,9 +265,8 @@ policy.local_user_files.mojom.PageRemoteCallHandler = class {
 
 policy.local_user_files.mojom.Page.getRemote = function() {
   let remote = new policy.local_user_files.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'policy.local_user_files.mojom.Page',
     'context');
   return remote.$;

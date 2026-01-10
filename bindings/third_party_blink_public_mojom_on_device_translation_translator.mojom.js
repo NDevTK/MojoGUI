@@ -85,9 +85,8 @@ blink.mojom.TranslatorRemoteCallHandler = class {
 
 blink.mojom.Translator.getRemote = function() {
   let remote = new blink.mojom.TranslatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.Translator',
     'context');
   return remote.$;

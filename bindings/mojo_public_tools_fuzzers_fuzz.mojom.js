@@ -111,7 +111,7 @@ mojo.internal.Union(
       },
       'fuzz_struct_array': {
         'ordinal': 14,
-        'type': mojo.internal.Array(fuzz.mojom.FuzzDummyStructSpec, false),
+        'type': mojo.internal.Array(fuzz.mojom.FuzzDummyStructSpec.$, false),
         'nullable': false,
       },
       'fuzz_primitive_map': {
@@ -126,17 +126,17 @@ mojo.internal.Union(
       },
       'fuzz_struct_map': {
         'ordinal': 17,
-        'type': mojo.internal.Map(mojo.internal.String, fuzz.mojom.FuzzDummyStructSpec, false),
+        'type': mojo.internal.Map(mojo.internal.String, fuzz.mojom.FuzzDummyStructSpec.$, false),
         'nullable': false,
       },
       'fuzz_union_map': {
         'ordinal': 18,
-        'type': mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, fuzz.mojom.FuzzUnionSpec, false),
+        'type': mojo.internal.Map(fuzz.mojom.FuzzEnumSpec.$, fuzz.mojom.FuzzUnionSpec.$, false),
         'nullable': false,
       },
       'fuzz_complex': {
         'ordinal': 19,
-        'type': mojo.internal.Array(mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(fuzz.mojom.FuzzUnionSpec, false), false), false), false),
+        'type': mojo.internal.Array(mojo.internal.Map(fuzz.mojom.FuzzEnumSpec.$, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(fuzz.mojom.FuzzUnionSpec.$, false), false), false), false),
         'nullable': true,
       },
     });
@@ -167,11 +167,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('fuzz_primitive_array', 64, 0, mojo.internal.Array(mojo.internal.Int8, false), null, false, 0, undefined),
       mojo.internal.StructField('fuzz_primitive_map', 72, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Int8, false), null, false, 0, undefined),
       mojo.internal.StructField('fuzz_array_map', 80, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('fuzz_union_map', 88, 0, mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, fuzz.mojom.FuzzUnionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('fuzz_union_array', 96, 0, mojo.internal.Array(fuzz.mojom.FuzzUnionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('fuzz_struct_array', 104, 0, mojo.internal.Array(fuzz.mojom.FuzzStructSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('fuzz_union_map', 88, 0, mojo.internal.Map(fuzz.mojom.FuzzEnumSpec.$, fuzz.mojom.FuzzUnionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('fuzz_union_array', 96, 0, mojo.internal.Array(fuzz.mojom.FuzzUnionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('fuzz_struct_array', 104, 0, mojo.internal.Array(fuzz.mojom.FuzzStructSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('fuzz_nullable_array', 112, 0, mojo.internal.Array(mojo.internal.Int8, false), null, true, 0, undefined),
-      mojo.internal.StructField('fuzz_complex', 120, 0, mojo.internal.Array(mojo.internal.Map(fuzz.mojom.FuzzEnumSpec, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(fuzz.mojom.FuzzStructSpec, false), false), false), false), null, true, 0, undefined),
+      mojo.internal.StructField('fuzz_complex', 120, 0, mojo.internal.Array(mojo.internal.Map(fuzz.mojom.FuzzEnumSpec.$, mojo.internal.Map(mojo.internal.Int8, mojo.internal.Array(fuzz.mojom.FuzzStructSpec.$, false), false), false), false), null, true, 0, undefined),
     ],
     [[0, 136]]);
 
@@ -227,9 +227,8 @@ fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
 
 fuzz.mojom.FuzzDummyInterface.getRemote = function() {
   let remote = new fuzz.mojom.FuzzDummyInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'fuzz.mojom.FuzzDummyInterface',
     'context');
   return remote.$;
@@ -267,15 +266,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzArgs_Params', [
-      mojo.internal.StructField('a', 0, 0, fuzz.mojom.FuzzStructSpec, null, false, 0, undefined),
-      mojo.internal.StructField('b', 8, 0, fuzz.mojom.FuzzStructSpec, null, true, 0, undefined),
+      mojo.internal.StructField('a', 0, 0, fuzz.mojom.FuzzStructSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('b', 8, 0, fuzz.mojom.FuzzStructSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzArgsResp_Params', [
-      mojo.internal.StructField('a', 0, 0, fuzz.mojom.FuzzStructSpec, null, false, 0, undefined),
-      mojo.internal.StructField('b', 8, 0, fuzz.mojom.FuzzStructSpec, null, true, 0, undefined),
+      mojo.internal.StructField('a', 0, 0, fuzz.mojom.FuzzStructSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('b', 8, 0, fuzz.mojom.FuzzStructSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -286,8 +285,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_Params', [
-      mojo.internal.StructField('a', 0, 0, fuzz.mojom.FuzzStructSpec, null, false, 0, undefined),
-      mojo.internal.StructField('b', 8, 0, fuzz.mojom.FuzzStructSpec, null, true, 0, undefined),
+      mojo.internal.StructField('a', 0, 0, fuzz.mojom.FuzzStructSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('b', 8, 0, fuzz.mojom.FuzzStructSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -408,9 +407,8 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
 
 fuzz.mojom.FuzzInterface.getRemote = function() {
   let remote = new fuzz.mojom.FuzzInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'fuzz.mojom.FuzzInterface',
     'context');
   return remote.$;

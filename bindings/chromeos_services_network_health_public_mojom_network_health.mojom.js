@@ -30,20 +30,20 @@ chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_Res
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_Params', [
       mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('state', 8, 0, chromeos.network_health.mojom.NetworkStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, chromeos.network_health.mojom.NetworkStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_Params', [
       mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 8, 0, chromeos.network_health.mojom.UInt32ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 8, 0, chromeos.network_health.mojom.UInt32ValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_Params', [
-      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -113,9 +113,8 @@ chromeos.network_health.mojom.NetworkEventsObserverRemoteCallHandler = class {
 
 chromeos.network_health.mojom.NetworkEventsObserver.getRemote = function() {
   let remote = new chromeos.network_health.mojom.NetworkEventsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.network_health.mojom.NetworkEventsObserver',
     'context');
   return remote.$;
@@ -139,7 +138,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParams', [
-      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -150,7 +149,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParams', [
-      mojo.internal.StructField('state', 0, 0, chromeos.network_health.mojom.NetworkHealthStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, chromeos.network_health.mojom.NetworkHealthStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -241,9 +240,8 @@ chromeos.network_health.mojom.NetworkHealthServiceRemoteCallHandler = class {
 
 chromeos.network_health.mojom.NetworkHealthService.getRemote = function() {
   let remote = new chromeos.network_health.mojom.NetworkHealthServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.network_health.mojom.NetworkHealthService',
     'context');
   return remote.$;

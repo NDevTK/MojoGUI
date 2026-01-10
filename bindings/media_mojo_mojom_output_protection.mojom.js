@@ -117,9 +117,8 @@ media.mojom.OutputProtectionRemoteCallHandler = class {
 
 media.mojom.OutputProtection.getRemote = function() {
   let remote = new media.mojom.OutputProtectionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.OutputProtection',
     'context');
   return remote.$;

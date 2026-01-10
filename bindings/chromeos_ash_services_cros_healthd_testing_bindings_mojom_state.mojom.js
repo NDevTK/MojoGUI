@@ -115,9 +115,8 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
 
 ash.cros_healthd.connectivity.mojom.State.getRemote = function() {
   let remote = new ash.cros_healthd.connectivity.mojom.StateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cros_healthd.connectivity.mojom.State',
     'context');
   return remote.$;
@@ -198,9 +197,8 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemoteCallHandler = 
 
 ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.getRemote = function() {
   let remote = new ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider',
     'context');
   return remote.$;

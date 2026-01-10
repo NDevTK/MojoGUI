@@ -17,13 +17,13 @@ media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec
 // Interface: MediaRouterTraitsTestService
 mojo.internal.Struct(
     media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_Params', [
-      mojo.internal.StructField('s', 0, 0, media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, media_router.mojom.MediaSinkSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParams', [
-      mojo.internal.StructField('sink', 0, 0, media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sink', 0, 0, media_router.mojom.MediaSinkSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ media_router.mojom.MediaRouterTraitsTestServiceRemoteCallHandler = class {
 
 media_router.mojom.MediaRouterTraitsTestService.getRemote = function() {
   let remote = new media_router.mojom.MediaRouterTraitsTestServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_router.mojom.MediaRouterTraitsTestService',
     'context');
   return remote.$;

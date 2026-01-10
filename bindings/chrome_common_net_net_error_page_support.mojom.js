@@ -97,9 +97,8 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
 
 chrome.mojom.NetErrorPageSupport.getRemote = function() {
   let remote = new chrome.mojom.NetErrorPageSupportRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.NetErrorPageSupport',
     'context');
   return remote.$;

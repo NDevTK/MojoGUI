@@ -41,7 +41,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('segment_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('can_execute_segment', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('prediction_result', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('prediction_timestamp', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prediction_timestamp', 40, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -50,7 +50,7 @@ mojo.internal.Struct(
     segmentation_internals.mojom.ClientInfoSpec, 'segmentation_internals.mojom.ClientInfo', [
       mojo.internal.StructField('segmentation_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('selected_segment', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('segment_info', 16, 0, mojo.internal.Array(segmentation_internals.mojom.SegmentInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('segment_info', 16, 0, mojo.internal.Array(segmentation_internals.mojom.SegmentInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -108,9 +108,8 @@ segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 segmentation_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new segmentation_internals.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'segmentation_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -222,9 +221,8 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 segmentation_internals.mojom.PageHandler.getRemote = function() {
   let remote = new segmentation_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'segmentation_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -244,7 +242,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec, 'segmentation_internals.mojom.Page_OnClientInfoAvailable_Params', [
-      mojo.internal.StructField('client_info', 0, 0, mojo.internal.Array(segmentation_internals.mojom.ClientInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('client_info', 0, 0, mojo.internal.Array(segmentation_internals.mojom.ClientInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -304,9 +302,8 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
 
 segmentation_internals.mojom.Page.getRemote = function() {
   let remote = new segmentation_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'segmentation_internals.mojom.Page',
     'context');
   return remote.$;

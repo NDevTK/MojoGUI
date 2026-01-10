@@ -58,7 +58,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec, 'legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, legion_internals.mojom.LegionResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, legion_internals.mojom.LegionResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -128,9 +128,8 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
 
 legion_internals.mojom.LegionInternalsPageHandler.getRemote = function() {
   let remote = new legion_internals.mojom.LegionInternalsPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'legion_internals.mojom.LegionInternalsPageHandler',
     'context');
   return remote.$;

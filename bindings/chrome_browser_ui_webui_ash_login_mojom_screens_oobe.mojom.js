@@ -134,9 +134,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
 
 ash.screens_oobe.mojom.ConsumerUpdatePageHandler.getRemote = function() {
   let remote = new ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_oobe.mojom.ConsumerUpdatePageHandler',
     'context');
   return remote.$;
@@ -160,7 +159,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_Params', [
-      mojo.internal.StructField('step', 0, 0, ash.screens_oobe.mojom.ConsumerUpdateStepSpec, null, false, 0, undefined),
+      mojo.internal.StructField('step', 0, 0, ash.screens_oobe.mojom.ConsumerUpdateStepSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -264,9 +263,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
 
 ash.screens_oobe.mojom.ConsumerUpdatePage.getRemote = function() {
   let remote = new ash.screens_oobe.mojom.ConsumerUpdatePageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_oobe.mojom.ConsumerUpdatePage',
     'context');
   return remote.$;
@@ -343,9 +341,8 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
 
 ash.screens_oobe.mojom.PackagedLicensePageHandler.getRemote = function() {
   let remote = new ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_oobe.mojom.PackagedLicensePageHandler',
     'context');
   return remote.$;

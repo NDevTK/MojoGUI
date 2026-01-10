@@ -77,9 +77,8 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemoteCallHandler = class
 
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.getRemote = function() {
   let remote = new custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory',
     'context');
   return remote.$;
@@ -92,7 +91,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRequest = custom_help_bub
 // Interface: CustomHelpBubbleHandler
 mojo.internal.Struct(
     custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_Params', [
-      mojo.internal.StructField('action', 0, 0, custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -142,9 +141,8 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerRemoteCallHandler = class {
 
 custom_help_bubble.mojom.CustomHelpBubbleHandler.getRemote = function() {
   let remote = new custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'custom_help_bubble.mojom.CustomHelpBubbleHandler',
     'context');
   return remote.$;

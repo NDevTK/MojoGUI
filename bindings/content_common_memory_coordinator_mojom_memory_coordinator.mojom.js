@@ -101,9 +101,8 @@ content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
 
 content.mojom.ChildMemoryConsumer.getRemote = function() {
   let remote = new content.mojom.ChildMemoryConsumerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.ChildMemoryConsumer',
     'context');
   return remote.$;
@@ -117,7 +116,7 @@ content.mojom.ChildMemoryConsumerRequest = content.mojom.ChildMemoryConsumerPend
 mojo.internal.Struct(
     content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec, 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params', [
       mojo.internal.StructField('consumer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('traits', 8, 0, content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('traits', 8, 0, content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('child_consumer', 16, 0, mojo.internal.InterfaceProxy(content.mojom.ChildMemoryConsumerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -168,9 +167,8 @@ content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
 
 content.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
   let remote = new content.mojom.BrowserMemoryConsumerRegistryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.BrowserMemoryConsumerRegistry',
     'context');
   return remote.$;

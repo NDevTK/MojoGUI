@@ -43,7 +43,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec, 'ash.local_search_service.mojom.Index_AddOrUpdate_Params', [
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(ash.local_search_service.mojom.DataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -66,7 +66,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec, 'ash.local_search_service.mojom.Index_UpdateDocuments_Params', [
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(ash.local_search_service.mojom.DataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(ash.local_search_service.mojom.DataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -78,15 +78,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.local_search_service.mojom.Index_Find_ParamsSpec, 'ash.local_search_service.mojom.Index_Find_Params', [
-      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.local_search_service.mojom.Index_Find_ResponseParamsSpec, 'ash.local_search_service.mojom.Index_Find_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, ash.local_search_service.mojom.ResponseStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(ash.local_search_service.mojom.ResultSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.local_search_service.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(ash.local_search_service.mojom.ResultSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -102,7 +102,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec, 'ash.local_search_service.mojom.Index_SetSearchParams_Params', [
-      mojo.internal.StructField('search_params', 0, 0, ash.local_search_service.mojom.SearchParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('search_params', 0, 0, ash.local_search_service.mojom.SearchParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -217,9 +217,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
 
 ash.local_search_service.mojom.Index.getRemote = function() {
   let remote = new ash.local_search_service.mojom.IndexRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.local_search_service.mojom.Index',
     'context');
   return remote.$;

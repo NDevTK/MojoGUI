@@ -26,8 +26,8 @@ blink.mojom.WebUsbService_SetClient_ParamsSpec = { $: {} };
 // Struct: WebUsbRequestDeviceOptions
 mojo.internal.Struct(
     blink.mojom.WebUsbRequestDeviceOptionsSpec, 'blink.mojom.WebUsbRequestDeviceOptions', [
-      mojo.internal.StructField('filters', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceFilterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('exclusion_filters', 8, 0, mojo.internal.Array(device.mojom.UsbDeviceFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('filters', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceFilterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('exclusion_filters', 8, 0, mojo.internal.Array(device.mojom.UsbDeviceFilterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -39,7 +39,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec, 'blink.mojom.WebUsbService_GetDevices_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -52,13 +52,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.WebUsbService_GetPermission_ParamsSpec, 'blink.mojom.WebUsbService_GetPermission_Params', [
-      mojo.internal.StructField('options', 0, 0, blink.mojom.WebUsbRequestDeviceOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, blink.mojom.WebUsbRequestDeviceOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec, 'blink.mojom.WebUsbService_GetPermission_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, device.mojom.UsbDeviceInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, device.mojom.UsbDeviceInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -165,9 +165,8 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
 
 blink.mojom.WebUsbService.getRemote = function() {
   let remote = new blink.mojom.WebUsbServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WebUsbService',
     'context');
   return remote.$;

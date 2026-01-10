@@ -25,13 +25,13 @@ mojo.internal.Struct(
 // Interface: SyntheticTrialConfiguration
 mojo.internal.Struct(
     content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params', [
-      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_Params', [
-      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(content.mojom.SyntheticTrialGroupSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -91,9 +91,8 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
 
 content.mojom.SyntheticTrialConfiguration.getRemote = function() {
   let remote = new content.mojom.SyntheticTrialConfigurationRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.SyntheticTrialConfiguration',
     'context');
   return remote.$;

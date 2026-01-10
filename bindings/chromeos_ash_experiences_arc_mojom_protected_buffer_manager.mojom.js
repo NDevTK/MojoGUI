@@ -40,7 +40,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec, 'arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParams', [
-      mojo.internal.StructField('unsafe_region', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('unsafe_region', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -52,7 +52,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec, 'arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParams', [
-      mojo.internal.StructField('native_pixmap_handle', 0, 0, media.stable.mojom.NativePixmapHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('native_pixmap_handle', 0, 0, media.stable.mojom.NativePixmapHandleSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -144,9 +144,8 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
 
 arc.mojom.ProtectedBufferManager.getRemote = function() {
   let remote = new arc.mojom.ProtectedBufferManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ProtectedBufferManager',
     'context');
   return remote.$;

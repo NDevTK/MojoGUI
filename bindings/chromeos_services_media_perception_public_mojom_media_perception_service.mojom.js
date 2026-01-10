@@ -76,9 +76,8 @@ chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler = class 
 
 chromeos.media_perception.mojom.MediaPerceptionService.getRemote = function() {
   let remote = new chromeos.media_perception.mojom.MediaPerceptionServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.media_perception.mojom.MediaPerceptionService',
     'context');
   return remote.$;
@@ -141,9 +140,8 @@ chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler = cla
 
 chromeos.media_perception.mojom.MediaPerceptionController.getRemote = function() {
   let remote = new chromeos.media_perception.mojom.MediaPerceptionControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.media_perception.mojom.MediaPerceptionController',
     'context');
   return remote.$;
@@ -206,9 +204,8 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientRemoteCallHandler
 
 chromeos.media_perception.mojom.MediaPerceptionControllerClient.getRemote = function() {
   let remote = new chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.media_perception.mojom.MediaPerceptionControllerClient',
     'context');
   return remote.$;

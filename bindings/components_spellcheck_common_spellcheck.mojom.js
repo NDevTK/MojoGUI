@@ -44,7 +44,7 @@ spellcheck.mojom.Decoration = {
 // Struct: SpellCheckBDictLanguage
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckBDictLanguageSpec, 'spellcheck.mojom.SpellCheckBDictLanguage', [
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -52,10 +52,10 @@ mojo.internal.Struct(
 // Struct: SpellCheckResult
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckResultSpec, 'spellcheck.mojom.SpellCheckResult', [
-      mojo.internal.StructField('decoration', 0, 0, spellcheck.mojom.DecorationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('location', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('length', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('replacements', 16, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('decoration', 0, 0, spellcheck.mojom.DecorationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('location', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('replacements', 16, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('should_hide_suggestion_menu', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -63,7 +63,7 @@ mojo.internal.Struct(
 // Interface: SpellChecker
 mojo.internal.Struct(
     spellcheck.mojom.SpellChecker_Initialize_ParamsSpec, 'spellcheck.mojom.SpellChecker_Initialize_Params', [
-      mojo.internal.StructField('dictionaries', 0, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckBDictLanguageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('dictionaries', 0, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckBDictLanguageSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('custom_words', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('enable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -132,9 +132,8 @@ spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
 
 spellcheck.mojom.SpellChecker.getRemote = function() {
   let remote = new spellcheck.mojom.SpellCheckerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'spellcheck.mojom.SpellChecker',
     'context');
   return remote.$;
@@ -196,9 +195,8 @@ spellcheck.mojom.SpellCheckInitializationHostRemoteCallHandler = class {
 
 spellcheck.mojom.SpellCheckInitializationHost.getRemote = function() {
   let remote = new spellcheck.mojom.SpellCheckInitializationHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'spellcheck.mojom.SpellCheckInitializationHost',
     'context');
   return remote.$;
@@ -211,34 +209,34 @@ spellcheck.mojom.SpellCheckInitializationHostRequest = spellcheck.mojom.SpellChe
 // Interface: SpellCheckHost
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_NotifyChecked_Params', [
-      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('misspelled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_CallSpellingService_Params', [
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParams', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_RequestTextCheck_Params', [
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('spelling_markers', 8, 0, mojo.internal.Array(gfx.mojom.RangeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('spelling_markers', 8, 0, mojo.internal.Array(gfx.mojom.RangeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParams', [
-      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -249,7 +247,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_CheckSpelling_Params', [
-      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -261,13 +259,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_FillSuggestionList_Params', [
-      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParams', [
-      mojo.internal.StructField('suggestions', 0, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('suggestions', 0, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -278,7 +276,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParams', [
-      mojo.internal.StructField('dictionaries', 0, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckBDictLanguageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('dictionaries', 0, 0, mojo.internal.Array(spellcheck.mojom.SpellCheckBDictLanguageSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('custom_words', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('enable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -390,9 +388,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
 
 spellcheck.mojom.SpellCheckHost.getRemote = function() {
   let remote = new spellcheck.mojom.SpellCheckHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'spellcheck.mojom.SpellCheckHost',
     'context');
   return remote.$;

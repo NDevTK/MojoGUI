@@ -118,7 +118,7 @@ network.mojom.ResolverType = {
 // Struct: Rule
 mojo.internal.Struct(
     network.mojom.RuleSpec, 'network.mojom.Rule', [
-      mojo.internal.StructField('resolver_type', 0, 0, network.mojom.ResolverTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resolver_type', 0, 0, network.mojom.ResolverTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('host_pattern', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('replacement', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('host_resolver_flags', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -289,9 +289,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
 
 network.mojom.SimpleCacheEntry.getRemote = function() {
   let remote = new network.mojom.SimpleCacheEntryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.SimpleCacheEntry',
     'context');
   return remote.$;
@@ -309,7 +308,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec, 'network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, network.mojom.SimpleCacheOpenEntryResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, network.mojom.SimpleCacheOpenEntryResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -359,9 +358,8 @@ network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler = class {
 
 network.mojom.SimpleCacheEntryEnumerator.getRemote = function() {
   let remote = new network.mojom.SimpleCacheEntryEnumeratorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.SimpleCacheEntryEnumerator',
     'context');
   return remote.$;
@@ -533,9 +531,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
 
 network.mojom.SimpleCache.getRemote = function() {
   let remote = new network.mojom.SimpleCacheRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.SimpleCache',
     'context');
   return remote.$;
@@ -548,7 +545,7 @@ network.mojom.SimpleCacheRequest = network.mojom.SimpleCachePendingReceiver;
 // Interface: NetworkServiceTest
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_AddRules_ParamsSpec, 'network.mojom.NetworkServiceTest_AddRules_Params', [
-      mojo.internal.StructField('rules', 0, 0, mojo.internal.Array(network.mojom.RuleSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('rules', 0, 0, mojo.internal.Array(network.mojom.RuleSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -559,7 +556,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec, 'network.mojom.NetworkServiceTest_SimulateNetworkChange_Params', [
-      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -570,7 +567,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec, 'network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_Params', [
-      mojo.internal.StructField('type', 0, 0, network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, network.mojom.EffectiveConnectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -607,9 +604,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec, 'network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_Params', [
-      mojo.internal.StructField('cert', 0, 0, network.mojom.X509CertificateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cert', 0, 0, network.mojom.X509CertificateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('host_pattern', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('verify_result', 16, 0, network.mojom.CertVerifyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('verify_result', 16, 0, network.mojom.CertVerifyResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('rv', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -652,8 +649,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec, 'network.mojom.NetworkServiceTest_SetTestDohConfig_Params', [
-      mojo.internal.StructField('secure_dns_mode', 0, 0, network.mojom.SecureDnsModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('doh_config', 8, 0, network.mojom.DnsOverHttpsConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('secure_dns_mode', 0, 0, network.mojom.SecureDnsModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('doh_config', 8, 0, network.mojom.DnsOverHttpsConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -680,7 +677,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec, 'network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParams', [
-      mojo.internal.StructField('memory_pressure_level', 0, 0, mojo_base.mojom.MemoryPressureLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('memory_pressure_level', 0, 0, mojo_base.mojom.MemoryPressureLevelSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -726,7 +723,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec, 'network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_Params', [
-      mojo.internal.StructField('delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('delay', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -737,7 +734,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_OpenFile_ParamsSpec, 'network.mojom.NetworkServiceTest_OpenFile_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -749,14 +746,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec, 'network.mojom.NetworkServiceTest_EnumerateFiles_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('factory', 8, 0, mojo.internal.InterfaceProxy(network.mojom.HttpCacheBackendFileOperationsFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec, 'network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParams', [
-      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(network.mojom.FileEnumerationEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(network.mojom.FileEnumerationEntrySpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -764,7 +761,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec, 'network.mojom.NetworkServiceTest_CreateSimpleCache_Params', [
       mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceProxy(network.mojom.HttpCacheBackendFileOperationsFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('reset', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -777,8 +774,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec, 'network.mojom.NetworkServiceTest_MakeRequestToServer_Params', [
-      mojo.internal.StructField('s', 0, 0, network.mojom.TransferableSocketSpec, null, false, 0, undefined),
-      mojo.internal.StructField('endpoint', 8, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, network.mojom.TransferableSocketSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint', 8, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -795,7 +792,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec, 'network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParams', [
-      mojo.internal.StructField('addr_list', 0, 0, network.mojom.AddressListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('addr_list', 0, 0, network.mojom.AddressListSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('os_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('net_error', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -819,8 +816,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec, 'network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParams', [
-      mojo.internal.StructField('addr_map', 0, 0, network.mojom.AddressMapSpec, null, false, 0, undefined),
-      mojo.internal.StructField('links', 8, 0, network.mojom.OnlineLinksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('addr_map', 0, 0, network.mojom.AddressMapSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('links', 8, 0, network.mojom.OnlineLinksSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1182,9 +1179,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
 
 network.mojom.NetworkServiceTest.getRemote = function() {
   let remote = new network.mojom.NetworkServiceTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetworkServiceTest',
     'context');
   return remote.$;

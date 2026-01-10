@@ -15,7 +15,7 @@ blink.mojom.DraggableRegionSpec = { $: {} };
 // Struct: DraggableRegion
 mojo.internal.Struct(
     blink.mojom.DraggableRegionSpec, 'blink.mojom.DraggableRegion', [
-      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('draggable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

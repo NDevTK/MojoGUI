@@ -67,7 +67,7 @@ mojo.internal.Struct(
     ash.ime.mojom.JapaneseDictionaryEntrySpec, 'ash.ime.mojom.JapaneseDictionaryEntry', [
       mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('pos', 16, 0, ash.ime.mojom.JpPosTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pos', 16, 0, ash.ime.mojom.JpPosTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('comment', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -77,6 +77,6 @@ mojo.internal.Struct(
     ash.ime.mojom.JapaneseDictionarySpec, 'ash.ime.mojom.JapaneseDictionary', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('entries', 16, 0, mojo.internal.Array(ash.ime.mojom.JapaneseDictionaryEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('entries', 16, 0, mojo.internal.Array(ash.ime.mojom.JapaneseDictionaryEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

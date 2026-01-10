@@ -233,7 +233,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('optional_float_$value', 60, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'optional_float_$flag', originalFieldName: 'optional_float' }),
       mojo.internal.StructField('optional_double_$flag', 64, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'optional_double_$value', originalFieldName: 'optional_double' }),
       mojo.internal.StructField('optional_double_$value', 72, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'optional_double_$flag', originalFieldName: 'optional_double' }),
-      mojo.internal.StructField('optional_enum', 80, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+      mojo.internal.StructField('optional_enum', 80, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
     ],
     [[0, 96]]);
 
@@ -268,7 +268,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('float_value_$value', 60, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'float_value_$flag', originalFieldName: 'float_value' }),
       mojo.internal.StructField('double_value_$flag', 64, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'double_value_$value', originalFieldName: 'double_value' }),
       mojo.internal.StructField('double_value_$value', 72, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'double_value_$flag', originalFieldName: 'double_value' }),
-      mojo.internal.StructField('enum_value', 80, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
+      mojo.internal.StructField('enum_value', 80, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 2, undefined),
     ],
     [[0, 8], [2, 96]]);
 
@@ -407,7 +407,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnum_Params', [
-      mojo.internal.StructField('optional_enum', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+      mojo.internal.StructField('optional_enum', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -462,7 +462,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnums_Params', [
-      mojo.internal.StructField('optional_enums', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('optional_enums', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -495,7 +495,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_Params', [
-      mojo.internal.StructField('values', 0, 0, mojo.internal.Map(mojo.internal.Int32, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('values', 0, 0, mojo.internal.Map(mojo.internal.Int32, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -649,13 +649,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_Params', [
-      mojo.internal.StructField('optional_enum', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+      mojo.internal.StructField('optional_enum', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParams', [
-      mojo.internal.StructField('value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -709,13 +709,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_Params', [
-      mojo.internal.StructField('optional_enums', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('optional_enums', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParams', [
-      mojo.internal.StructField('values', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('values', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -745,19 +745,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_Params', [
-      mojo.internal.StructField('values', 0, 0, mojo.internal.Map(mojo.internal.Int32, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('values', 0, 0, mojo.internal.Map(mojo.internal.Int32, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParams', [
-      mojo.internal.StructField('values', 0, 0, mojo.internal.Map(mojo.internal.Int32, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('values', 0, 0, mojo.internal.Map(mojo.internal.Int32, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_Params', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, true, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -768,7 +768,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_Params', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -779,7 +779,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_Params', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -796,7 +796,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('int64_value', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('float_value', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('double_value', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('enum_value', 48, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enum_value', 48, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -1266,9 +1266,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
 
 content.optional_numerics_unittest.mojom.Params.getRemote = function() {
   let remote = new content.optional_numerics_unittest.mojom.ParamsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.optional_numerics_unittest.mojom.Params',
     'context');
   return remote.$;
@@ -1418,7 +1417,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParams', [
-      mojo.internal.StructField('optional_value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+      mojo.internal.StructField('optional_value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1473,7 +1472,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParams', [
-      mojo.internal.StructField('optional_values', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('optional_values', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1506,7 +1505,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParams', [
-      mojo.internal.StructField('optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1655,13 +1654,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_Params', [
-      mojo.internal.StructField('value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParams', [
-      mojo.internal.StructField('optional_value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+      mojo.internal.StructField('optional_value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1715,13 +1714,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_Params', [
-      mojo.internal.StructField('value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParams', [
-      mojo.internal.StructField('optional_values', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('optional_values', 0, 0, mojo.internal.Array(content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1754,13 +1753,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Params', [
       mojo.internal.StructField('key', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('value', 4, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParams', [
-      mojo.internal.StructField('optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1771,7 +1770,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, true, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1782,7 +1781,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1799,13 +1798,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('int64_value', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('float_value', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('double_value', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('enum_value', 48, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enum_value', 48, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2275,9 +2274,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
 
 content.optional_numerics_unittest.mojom.ResponseParams.getRemote = function() {
   let remote = new content.optional_numerics_unittest.mojom.ResponseParamsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.optional_numerics_unittest.mojom.ResponseParams',
     'context');
   return remote.$;
@@ -2300,13 +2298,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_Params', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.VersionedStructV0Spec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.VersionedStructV0Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParams', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.VersionedStructV0Spec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.VersionedStructV0Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2366,9 +2364,8 @@ content.optional_numerics_unittest.mojom.InterfaceV0RemoteCallHandler = class {
 
 content.optional_numerics_unittest.mojom.InterfaceV0.getRemote = function() {
   let remote = new content.optional_numerics_unittest.mojom.InterfaceV0Remote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.optional_numerics_unittest.mojom.InterfaceV0',
     'context');
   return remote.$;
@@ -2403,7 +2400,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('float_value_$value', 60, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'float_value_$flag', originalFieldName: 'float_value' }),
       mojo.internal.StructField('double_value_$flag', 64, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'double_value_$value', originalFieldName: 'double_value' }),
       mojo.internal.StructField('double_value_$value', 72, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'double_value_$flag', originalFieldName: 'double_value' }),
-      mojo.internal.StructField('enum_value', 80, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
+      mojo.internal.StructField('enum_value', 80, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 2, undefined),
     ],
     [[0, 8], [2, 96]]);
 
@@ -2431,19 +2428,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('float_value_$value', 60, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'float_value_$flag', originalFieldName: 'float_value' }),
       mojo.internal.StructField('double_value_$flag', 64, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'double_value_$value', originalFieldName: 'double_value' }),
       mojo.internal.StructField('double_value_$value', 72, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'double_value_$flag', originalFieldName: 'double_value' }),
-      mojo.internal.StructField('enum_value', 80, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
+      mojo.internal.StructField('enum_value', 80, 0, content.optional_numerics_unittest.mojom.RegularEnumSpec.$, null, true, 2, undefined),
     ],
     [[0, 8], [2, 96]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_Params', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.VersionedStructV2Spec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.VersionedStructV2Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParams', [
-      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.VersionedStructV2Spec, null, false, 0, undefined),
+      mojo.internal.StructField('s', 0, 0, content.optional_numerics_unittest.mojom.VersionedStructV2Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2503,9 +2500,8 @@ content.optional_numerics_unittest.mojom.InterfaceV2RemoteCallHandler = class {
 
 content.optional_numerics_unittest.mojom.InterfaceV2.getRemote = function() {
   let remote = new content.optional_numerics_unittest.mojom.InterfaceV2Remote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.optional_numerics_unittest.mojom.InterfaceV2',
     'context');
   return remote.$;

@@ -31,9 +31,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('input_method', 8, 0, mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.InputMethodRemote), null, false, 0, undefined),
       mojo.internal.StructField('input_method_host', 16, 0, mojo.internal.AssociatedInterfaceProxy(ash.ime.mojom.InputMethodHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('settings', 24, 0, ash.ime.mojom.InputMethodSettingsSpec, null, true, 2, undefined),
+      mojo.internal.StructField('settings', 24, 0, ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 2, undefined),
     ],
-    [[0, 32], [2, 48]]);
+    [[0, 32], [2, 40]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParams', [
@@ -109,9 +109,8 @@ ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class {
 
 ash.ime.mojom.ConnectionFactory.getRemote = function() {
   let remote = new ash.ime.mojom.ConnectionFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.ime.mojom.ConnectionFactory',
     'context');
   return remote.$;

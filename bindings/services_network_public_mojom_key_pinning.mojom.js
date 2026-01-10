@@ -17,8 +17,8 @@ network.mojom.PinListSpec = { $: {} };
 mojo.internal.Struct(
     network.mojom.PinSetSpec, 'network.mojom.PinSet', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('static_spki_hashes', 8, 0, mojo.internal.Array(network.mojom.SHA256HashValueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('bad_static_spki_hashes', 16, 0, mojo.internal.Array(network.mojom.SHA256HashValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('static_spki_hashes', 8, 0, mojo.internal.Array(network.mojom.SHA256HashValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('bad_static_spki_hashes', 16, 0, mojo.internal.Array(network.mojom.SHA256HashValueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -34,7 +34,7 @@ mojo.internal.Struct(
 // Struct: PinList
 mojo.internal.Struct(
     network.mojom.PinListSpec, 'network.mojom.PinList', [
-      mojo.internal.StructField('pinsets', 0, 0, mojo.internal.Array(network.mojom.PinSetSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('host_pins', 8, 0, mojo.internal.Array(network.mojom.PinSetInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('pinsets', 0, 0, mojo.internal.Array(network.mojom.PinSetSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('host_pins', 8, 0, mojo.internal.Array(network.mojom.PinSetInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -28,14 +28,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_Params', [
-      mojo.internal.StructField('data', 0, 0, content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, content_capture.mojom.ContentCaptureDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('first_data', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_Params', [
-      mojo.internal.StructField('data', 0, 0, content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, content_capture.mojom.ContentCaptureDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -121,9 +121,8 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
 
 content_capture.mojom.ContentCaptureReceiver.getRemote = function() {
   let remote = new content_capture.mojom.ContentCaptureReceiverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content_capture.mojom.ContentCaptureReceiver',
     'context');
   return remote.$;
@@ -200,9 +199,8 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
 
 content_capture.mojom.ContentCaptureSender.getRemote = function() {
   let remote = new content_capture.mojom.ContentCaptureSenderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content_capture.mojom.ContentCaptureSender',
     'context');
   return remote.$;

@@ -105,9 +105,8 @@ media.mojom.RemoterFactoryRemoteCallHandler = class {
 
 media.mojom.RemoterFactory.getRemote = function() {
   let remote = new media.mojom.RemoterFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.RemoterFactory',
     'context');
   return remote.$;
@@ -120,9 +119,9 @@ media.mojom.RemoterFactoryRequest = media.mojom.RemoterFactoryPendingReceiver;
 // Interface: RemotingDataStreamSender
 mojo.internal.Struct(
     media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec, 'media.mojom.RemotingDataStreamSender_SendFrame_Params', [
-      mojo.internal.StructField('frame', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame', 0, 0, media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec, 'media.mojom.RemotingDataStreamSender_SendFrame_ResponseParams', [
@@ -190,9 +189,8 @@ media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
 
 media.mojom.RemotingDataStreamSender.getRemote = function() {
   let remote = new media.mojom.RemotingDataStreamSenderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.RemotingDataStreamSender',
     'context');
   return remote.$;
@@ -224,7 +222,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Remoter_Stop_ParamsSpec, 'media.mojom.Remoter_Stop_Params', [
-      mojo.internal.StructField('reason', 0, 0, media.mojom.RemotingStopReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, media.mojom.RemotingStopReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -341,9 +339,8 @@ media.mojom.RemoterRemoteCallHandler = class {
 
 media.mojom.Remoter.getRemote = function() {
   let remote = new media.mojom.RemoterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.Remoter',
     'context');
   return remote.$;
@@ -356,7 +353,7 @@ media.mojom.RemoterRequest = media.mojom.RemoterPendingReceiver;
 // Interface: RemotingSource
 mojo.internal.Struct(
     media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec, 'media.mojom.RemotingSource_OnSinkAvailable_Params', [
-      mojo.internal.StructField('metadata', 0, 0, media.mojom.RemotingSinkMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, media.mojom.RemotingSinkMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -372,7 +369,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.RemotingSource_OnStartFailed_ParamsSpec, 'media.mojom.RemotingSource_OnStartFailed_Params', [
-      mojo.internal.StructField('reason', 0, 0, media.mojom.RemotingStartFailReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, media.mojom.RemotingStartFailReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -384,7 +381,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.RemotingSource_OnStopped_ParamsSpec, 'media.mojom.RemotingSource_OnStopped_Params', [
-      mojo.internal.StructField('reason', 0, 0, media.mojom.RemotingStopReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, media.mojom.RemotingStopReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -484,9 +481,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
 
 media.mojom.RemotingSource.getRemote = function() {
   let remote = new media.mojom.RemotingSourceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.RemotingSource',
     'context');
   return remote.$;
@@ -525,7 +521,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec, 'media.mojom.Remotee_OnVideoNaturalSizeChange_Params', [
-      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -615,9 +611,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
 
 media.mojom.Remotee.getRemote = function() {
   let remote = new media.mojom.RemoteeRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.Remotee',
     'context');
   return remote.$;
@@ -680,9 +675,8 @@ media.mojom.RemotingSinkRemoteCallHandler = class {
 
 media.mojom.RemotingSink.getRemote = function() {
   let remote = new media.mojom.RemotingSinkRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.RemotingSink',
     'context');
   return remote.$;
@@ -702,9 +696,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_ReceiveFrame_Params', [
       mojo.internal.StructField('frame_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer', 8, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 8, 0, media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_FlushUntil_Params', [
@@ -778,9 +772,8 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
 
 media.mojom.RemotingDataStreamReceiver.getRemote = function() {
   let remote = new media.mojom.RemotingDataStreamReceiverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.RemotingDataStreamReceiver',
     'context');
   return remote.$;

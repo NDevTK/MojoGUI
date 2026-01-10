@@ -59,12 +59,12 @@ mojo.internal.Union(
       },
       'state': {
         'ordinal': 1,
-        'type': chromeos.mojo_service_manager.mojom.ServiceStateSpec,
+        'type': chromeos.mojo_service_manager.mojom.ServiceStateSpec.$,
         'nullable': false,
       },
       'error': {
         'ordinal': 2,
-        'type': chromeos.mojo_service_manager.mojom.ErrorSpec,
+        'type': chromeos.mojo_service_manager.mojom.ErrorSpec.$,
         'nullable': false,
       },
     });
@@ -79,12 +79,12 @@ mojo.internal.Union(
       },
       'registered_state': {
         'ordinal': 1,
-        'type': chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec,
+        'type': chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec.$,
         'nullable': false,
       },
       'unregistered_state': {
         'ordinal': 2,
-        'type': chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec,
+        'type': chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec.$,
         'nullable': false,
       },
     });
@@ -102,7 +102,7 @@ mojo.internal.Struct(
 // Struct: RegisteredServiceState
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec, 'chromeos.mojo_service_manager.mojom.RegisteredServiceState', [
-      mojo.internal.StructField('owner', 0, 0, chromeos.mojo_service_manager.mojom.ProcessIdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('owner', 0, 0, chromeos.mojo_service_manager.mojom.ProcessIdentitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -122,7 +122,7 @@ mojo.internal.Struct(
 // Struct: Error
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.ErrorSpec, 'chromeos.mojo_service_manager.mojom.Error', [
-      mojo.internal.StructField('code', 0, 0, chromeos.mojo_service_manager.mojom.ErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, chromeos.mojo_service_manager.mojom.ErrorCodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -138,7 +138,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_Request_Params', [
       mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('timeout', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('timeout', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('receiver', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -151,9 +151,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_Params', [
@@ -237,9 +237,8 @@ chromeos.mojo_service_manager.mojom.ServiceManagerRemoteCallHandler = class {
 
 chromeos.mojo_service_manager.mojom.ServiceManager.getRemote = function() {
   let remote = new chromeos.mojo_service_manager.mojom.ServiceManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.mojo_service_manager.mojom.ServiceManager',
     'context');
   return remote.$;
@@ -252,7 +251,7 @@ chromeos.mojo_service_manager.mojom.ServiceManagerRequest = chromeos.mojo_servic
 // Interface: ServiceProvider
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceProvider_Request_Params', [
-      mojo.internal.StructField('client_identity', 0, 0, chromeos.mojo_service_manager.mojom.ProcessIdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_identity', 0, 0, chromeos.mojo_service_manager.mojom.ProcessIdentitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -303,9 +302,8 @@ chromeos.mojo_service_manager.mojom.ServiceProviderRemoteCallHandler = class {
 
 chromeos.mojo_service_manager.mojom.ServiceProvider.getRemote = function() {
   let remote = new chromeos.mojo_service_manager.mojom.ServiceProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.mojo_service_manager.mojom.ServiceProvider',
     'context');
   return remote.$;
@@ -318,7 +316,7 @@ chromeos.mojo_service_manager.mojom.ServiceProviderRequest = chromeos.mojo_servi
 // Interface: ServiceObserver
 mojo.internal.Struct(
     chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec, 'chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, chromeos.mojo_service_manager.mojom.ServiceEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, chromeos.mojo_service_manager.mojom.ServiceEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -368,9 +366,8 @@ chromeos.mojo_service_manager.mojom.ServiceObserverRemoteCallHandler = class {
 
 chromeos.mojo_service_manager.mojom.ServiceObserver.getRemote = function() {
   let remote = new chromeos.mojo_service_manager.mojom.ServiceObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.mojo_service_manager.mojom.ServiceObserver',
     'context');
   return remote.$;

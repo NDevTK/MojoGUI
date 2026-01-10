@@ -33,27 +33,27 @@ media.mojom.AacOutputFormat = {
 // Struct: AacAudioEncoderConfig
 mojo.internal.Struct(
     media.mojom.AacAudioEncoderConfigSpec, 'media.mojom.AacAudioEncoderConfig', [
-      mojo.internal.StructField('format', 0, 0, media.mojom.AacOutputFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('format', 0, 0, media.mojom.AacOutputFormatSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: AudioEncoderConfig
 mojo.internal.Struct(
     media.mojom.AudioEncoderConfigSpec, 'media.mojom.AudioEncoderConfig', [
-      mojo.internal.StructField('codec', 0, 0, media.mojom.AudioCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('codec', 0, 0, media.mojom.AudioCodecSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('channel_count', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('sample_rate', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('bitrate', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('aac', 24, 0, media.mojom.AacAudioEncoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('aac', 24, 0, media.mojom.AacAudioEncoderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: EncodedAudioBuffer
 mojo.internal.Struct(
     media.mojom.EncodedAudioBufferSpec, 'media.mojom.EncodedAudioBuffer', [
-      mojo.internal.StructField('params', 0, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('duration', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -62,25 +62,25 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioEncoder_Initialize_ParamsSpec, 'media.mojom.AudioEncoder_Initialize_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.AudioEncoderClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('config', 8, 0, media.mojom.AudioEncoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 8, 0, media.mojom.AudioEncoderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.AudioEncoder_Initialize_ResponseParamsSpec, 'media.mojom.AudioEncoder_Initialize_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.EncoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.EncoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.AudioEncoder_Encode_ParamsSpec, 'media.mojom.AudioEncoder_Encode_Params', [
-      mojo.internal.StructField('buffer', 0, 0, media.mojom.AudioBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, media.mojom.AudioBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.AudioEncoder_Encode_ResponseParamsSpec, 'media.mojom.AudioEncoder_Encode_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.EncoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.EncoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -91,7 +91,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.AudioEncoder_Flush_ResponseParamsSpec, 'media.mojom.AudioEncoder_Flush_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.EncoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.EncoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -161,9 +161,8 @@ media.mojom.AudioEncoderRemoteCallHandler = class {
 
 media.mojom.AudioEncoder.getRemote = function() {
   let remote = new media.mojom.AudioEncoderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AudioEncoder',
     'context');
   return remote.$;
@@ -176,7 +175,7 @@ media.mojom.AudioEncoderRequest = media.mojom.AudioEncoderPendingReceiver;
 // Interface: AudioEncoderClient
 mojo.internal.Struct(
     media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec, 'media.mojom.AudioEncoderClient_OnEncodedBufferReady_Params', [
-      mojo.internal.StructField('buffer', 0, 0, media.mojom.EncodedAudioBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, media.mojom.EncodedAudioBufferSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('description', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -227,9 +226,8 @@ media.mojom.AudioEncoderClientRemoteCallHandler = class {
 
 media.mojom.AudioEncoderClient.getRemote = function() {
   let remote = new media.mojom.AudioEncoderClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AudioEncoderClient',
     'context');
   return remote.$;

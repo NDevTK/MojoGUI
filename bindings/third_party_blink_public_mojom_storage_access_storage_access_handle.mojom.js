@@ -55,7 +55,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec, 'blink.mojom.StorageAccessHandle_GetDirectory_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('directory', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -67,8 +67,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec, 'blink.mojom.StorageAccessHandle_Estimate_ResponseParams', [
-      mojo.internal.StructField('current_usage', 0, 0, mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
-      mojo.internal.StructField('current_quota', 8, 0, mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('current_usage', 0, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('current_quota', 8, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -207,9 +207,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
 
 blink.mojom.StorageAccessHandle.getRemote = function() {
   let remote = new blink.mojom.StorageAccessHandleRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.StorageAccessHandle',
     'context');
   return remote.$;

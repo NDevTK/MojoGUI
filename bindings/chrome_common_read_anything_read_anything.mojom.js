@@ -173,12 +173,12 @@ mojo.internal.Union(
     read_anything.mojom.VoicePackInstallationStateSpec, 'read_anything.mojom.VoicePackInstallationState', {
       'installation_state': {
         'ordinal': 0,
-        'type': read_anything.mojom.InstallationStateSpec,
+        'type': read_anything.mojom.InstallationStateSpec.$,
         'nullable': false,
       },
       'error_code': {
         'ordinal': 1,
-        'type': read_anything.mojom.ErrorCodeSpec,
+        'type': read_anything.mojom.ErrorCodeSpec.$,
         'nullable': false,
       },
     });
@@ -186,10 +186,10 @@ mojo.internal.Union(
 // Struct: VoicePackInfo
 mojo.internal.Struct(
     read_anything.mojom.VoicePackInfoSpec, 'read_anything.mojom.VoicePackInfo', [
-      mojo.internal.StructField('pack_state', 0, 0, read_anything.mojom.VoicePackInstallationStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('language', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pack_state', 0, 0, read_anything.mojom.VoicePackInstallationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: UntrustedPageHandlerFactory
 mojo.internal.Struct(
@@ -260,9 +260,8 @@ read_anything.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
 
 read_anything.mojom.UntrustedPageHandlerFactory.getRemote = function() {
   let remote = new read_anything.mojom.UntrustedPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'read_anything.mojom.UntrustedPageHandlerFactory',
     'context');
   return remote.$;
@@ -280,7 +279,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec, 'read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParams', [
-      mojo.internal.StructField('model_file', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('model_file', 0, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -314,13 +313,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_Params', [
-      mojo.internal.StructField('line_spacing', 0, 0, read_anything.mojom.LineSpacingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('line_spacing', 0, 0, read_anything.mojom.LineSpacingSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_Params', [
-      mojo.internal.StructField('letter_spacing', 0, 0, read_anything.mojom.LetterSpacingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('letter_spacing', 0, 0, read_anything.mojom.LetterSpacingSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -350,7 +349,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnColorChange_Params', [
-      mojo.internal.StructField('color', 0, 0, read_anything.mojom.ColorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color', 0, 0, read_anything.mojom.ColorsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -381,13 +380,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_Params', [
-      mojo.internal.StructField('granularity', 0, 0, read_anything.mojom.HighlightGranularitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('granularity', 0, 0, read_anything.mojom.HighlightGranularitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_Params', [
-      mojo.internal.StructField('granularity', 0, 0, read_anything.mojom.LineFocusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('granularity', 0, 0, read_anything.mojom.LineFocusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -399,27 +398,27 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnLinkClicked_Params', [
-      mojo.internal.StructField('target_tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('target_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('target_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_Params', [
-      mojo.internal.StructField('target_tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('target_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('target_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnSelectionChange_Params', [
-      mojo.internal.StructField('target_tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('anchor_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('anchor_offset', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('focus_node_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('focus_offset', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('anchor_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('anchor_offset', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('focus_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('focus_offset', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_Params', [
@@ -433,17 +432,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_Params', [
-      mojo.internal.StructField('status', 0, 0, read_anything.mojom.DistillationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('word_count', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, read_anything.mojom.DistillationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('word_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_Params', [
-      mojo.internal.StructField('target_tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('target_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('target_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_CloseUI_Params', [
@@ -826,9 +825,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
 
 read_anything.mojom.UntrustedPageHandler.getRemote = function() {
   let remote = new read_anything.mojom.UntrustedPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'read_anything.mojom.UntrustedPageHandler',
     'context');
   return remote.$;
@@ -841,44 +839,44 @@ read_anything.mojom.UntrustedPageHandlerRequest = read_anything.mojom.UntrustedP
 // Interface: UntrustedPage
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec, 'read_anything.mojom.UntrustedPage_AccessibilityEventReceived_Params', [
-      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('updates', 16, 0, mojo.internal.Array(ax.mojom.AXTreeUpdateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('events', 24, 0, mojo.internal.Array(ax.mojom.AXEventSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('updates', 8, 0, mojo.internal.Array(ax.mojom.AXTreeUpdateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('events', 16, 0, mojo.internal.Array(ax.mojom.AXEventSpec.$, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnGetPresentationState_Params', [
-      mojo.internal.StructField('presentation_state', 0, 0, read_anything.mojom.ReadAnythingPresentationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_state', 0, 0, read_anything.mojom.ReadAnythingPresentationStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_Params', [
-      mojo.internal.StructField('voice_pack_info', 0, 0, read_anything.mojom.VoicePackInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('voice_pack_info', 0, 0, read_anything.mojom.VoicePackInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec, 'read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_Params', [
-      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('details', 16, 0, ax.mojom.AXLocationAndScrollUpdatesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, ax.mojom.AXLocationAndScrollUpdatesSpec.$, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_Params', [
+      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ukm_source_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_pdf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_Params', [
-      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ukm_source_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('is_pdf', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_Params', [
-      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec, 'read_anything.mojom.UntrustedPage_SetLanguageCode_Params', [
@@ -904,20 +902,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_Params', [
-      mojo.internal.StructField('line_spacing', 0, 0, read_anything.mojom.LineSpacingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('letter_spacing', 4, 0, read_anything.mojom.LetterSpacingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('font', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('font_size', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('links_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('images_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('color', 28, 0, read_anything.mojom.ColorsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('speech_rate', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('voices', 40, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('languages_enabled_in_pref', 48, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('granularity', 56, 0, read_anything.mojom.HighlightGranularitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('line_focus', 60, 0, read_anything.mojom.LineFocusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('line_spacing', 0, 0, read_anything.mojom.LineSpacingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('letter_spacing', 8, 0, read_anything.mojom.LetterSpacingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('font', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('font_size', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('links_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('images_enabled', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color', 40, 0, read_anything.mojom.ColorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('speech_rate', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('voices', 56, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('languages_enabled_in_pref', 64, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('granularity', 72, 0, read_anything.mojom.HighlightGranularitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('line_focus', 80, 0, read_anything.mojom.LineFocusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 96]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec, 'read_anything.mojom.UntrustedPage_ScreenAIServiceReady_Params', [
@@ -943,11 +941,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnImageDataDownloaded_Params', [
-      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('image', 24, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('image', 16, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnPinStatusReceived_Params', [
@@ -1161,9 +1159,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
 
 read_anything.mojom.UntrustedPage.getRemote = function() {
   let remote = new read_anything.mojom.UntrustedPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'read_anything.mojom.UntrustedPage',
     'context');
   return remote.$;

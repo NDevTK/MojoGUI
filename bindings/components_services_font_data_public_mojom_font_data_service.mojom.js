@@ -38,12 +38,12 @@ mojo.internal.Union(
     font_data_service.mojom.TypefaceDataSpec, 'font_data_service.mojom.TypefaceData', {
       'region': {
         'ordinal': 0,
-        'type': mojo_base.mojom.ReadOnlySharedMemoryRegionSpec,
+        'type': mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$,
         'nullable': false,
       },
       'font_file': {
         'ordinal': 1,
-        'type': font_data_service.mojom.TypefaceFileSpec,
+        'type': font_data_service.mojom.TypefaceFileSpec.$,
         'nullable': false,
       },
     });
@@ -53,9 +53,9 @@ mojo.internal.Struct(
     font_data_service.mojom.TypefaceStyleSpec, 'font_data_service.mojom.TypefaceStyle', [
       mojo.internal.StructField('weight', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('width', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('slant', 4, 0, font_data_service.mojom.TypefaceSlantSpec, null, false, 0, undefined),
+      mojo.internal.StructField('slant', 8, 0, font_data_service.mojom.TypefaceSlantSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: Coordinate
 mojo.internal.Struct(
@@ -68,7 +68,7 @@ mojo.internal.Struct(
 // Struct: VariationPosition
 mojo.internal.Struct(
     font_data_service.mojom.VariationPositionSpec, 'font_data_service.mojom.VariationPosition', [
-      mojo.internal.StructField('coordinates', 0, 0, mojo.internal.Array(font_data_service.mojom.CoordinateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('coordinates', 0, 0, mojo.internal.Array(font_data_service.mojom.CoordinateSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('coordinateCount', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -76,7 +76,7 @@ mojo.internal.Struct(
 // Struct: TypefaceFile
 mojo.internal.Struct(
     font_data_service.mojom.TypefaceFileSpec, 'font_data_service.mojom.TypefaceFile', [
-      mojo.internal.StructField('file_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -84,30 +84,30 @@ mojo.internal.Struct(
 // Struct: MatchFamilyNameResult
 mojo.internal.Struct(
     font_data_service.mojom.MatchFamilyNameResultSpec, 'font_data_service.mojom.MatchFamilyNameResult', [
-      mojo.internal.StructField('typeface_data', 0, 0, font_data_service.mojom.TypefaceDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ttc_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('variation_position', 24, 0, font_data_service.mojom.VariationPositionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('typeface_data', 0, 0, font_data_service.mojom.TypefaceDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ttc_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('variation_position', 16, 0, font_data_service.mojom.VariationPositionSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Interface: FontDataService
 mojo.internal.Struct(
     font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyName_Params', [
       mojo.internal.StructField('family_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('style', 8, 0, font_data_service.mojom.TypefaceStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('style', 8, 0, font_data_service.mojom.TypefaceStyleSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, font_data_service.mojom.MatchFamilyNameResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, font_data_service.mojom.MatchFamilyNameResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_Params', [
       mojo.internal.StructField('family_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('style', 8, 0, font_data_service.mojom.TypefaceStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('style', 8, 0, font_data_service.mojom.TypefaceStyleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('bcp47s', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('character', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -115,7 +115,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, font_data_service.mojom.MatchFamilyNameResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, font_data_service.mojom.MatchFamilyNameResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -133,13 +133,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec, 'font_data_service.mojom.FontDataService_LegacyMakeTypeface_Params', [
       mojo.internal.StructField('family_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('style', 8, 0, font_data_service.mojom.TypefaceStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('style', 8, 0, font_data_service.mojom.TypefaceStyleSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, font_data_service.mojom.MatchFamilyNameResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, font_data_service.mojom.MatchFamilyNameResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -219,9 +219,8 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
 
 font_data_service.mojom.FontDataService.getRemote = function() {
   let remote = new font_data_service.mojom.FontDataServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'font_data_service.mojom.FontDataService',
     'context');
   return remote.$;

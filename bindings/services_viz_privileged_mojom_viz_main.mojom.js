@@ -41,7 +41,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('activation_deadline_in_frames', 8, 0, mojo.internal.Uint32, 4, false, 0, undefined),
       mojo.internal.StructField('frame_sink_manager', 16, 0, mojo.internal.InterfaceRequest(viz.mojom.FrameSinkManagerRemote), null, false, 0, undefined),
       mojo.internal.StructField('frame_sink_manager_client', 24, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkManagerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('debug_renderer_settings', 32, 0, viz.mojom.DebugRendererSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('debug_renderer_settings', 32, 0, viz.mojom.DebugRendererSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -55,7 +55,7 @@ mojo.internal.Struct(
 // Interface: VizMain
 mojo.internal.Struct(
     viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec, 'viz.mojom.VizMain_CreateFrameSinkManager_Params', [
-      mojo.internal.StructField('params', 0, 0, viz.mojom.FrameSinkManagerParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, viz.mojom.FrameSinkManagerParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -65,16 +65,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('gpu_host', 8, 0, mojo.internal.InterfaceProxy(viz.mojom.GpuHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('gpu_logging', 16, 0, mojo.internal.InterfaceProxy(viz.mojom.GpuLoggingRemote), null, false, 0, undefined),
       mojo.internal.StructField('discardable_memory_manager', 24, 0, mojo.internal.InterfaceProxy(discardable_memory.mojom.DiscardableSharedMemoryManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('use_shader_cache_shm_count', 32, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('params', 40, 0, viz.mojom.GpuServiceCreationParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('use_shader_cache_shm_count', 32, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('params', 40, 0, viz.mojom.GpuServiceCreationParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
     viz.mojom.VizMain_SetRenderParams_ParamsSpec, 'viz.mojom.VizMain_SetRenderParams_Params', [
-      mojo.internal.StructField('subpixel_rendering', 0, 0, gfx.mojom.SubpixelRenderingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text_contrast', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('text_gamma', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('subpixel_rendering', 0, 0, gfx.mojom.SubpixelRenderingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text_contrast', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('text_gamma', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -103,7 +103,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.VizMain_FilterDebugStream_ParamsSpec, 'viz.mojom.VizMain_FilterDebugStream_Params', [
-      mojo.internal.StructField('filterData', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filterData', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -238,9 +238,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
 
 viz.mojom.VizMain.getRemote = function() {
   let remote = new viz.mojom.VizMainRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.VizMain',
     'context');
   return remote.$;

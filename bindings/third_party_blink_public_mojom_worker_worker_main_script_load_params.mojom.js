@@ -16,10 +16,10 @@ blink.mojom.WorkerMainScriptLoadParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.WorkerMainScriptLoadParamsSpec, 'blink.mojom.WorkerMainScriptLoadParams', [
       mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('response_head', 8, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_head', 8, 0, network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('response_body', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('url_loader_client_endpoints', 24, 0, network.mojom.URLLoaderClientEndpointsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('redirect_infos', 32, 0, mojo.internal.Array(network.mojom.URLRequestRedirectInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('redirect_response_heads', 40, 0, mojo.internal.Array(network.mojom.URLResponseHeadSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('url_loader_client_endpoints', 24, 0, network.mojom.URLLoaderClientEndpointsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('redirect_infos', 32, 0, mojo.internal.Array(network.mojom.URLRequestRedirectInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('redirect_response_heads', 40, 0, mojo.internal.Array(network.mojom.URLResponseHeadSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 56]]);

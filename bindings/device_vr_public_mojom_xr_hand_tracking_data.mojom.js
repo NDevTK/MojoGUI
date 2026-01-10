@@ -46,8 +46,8 @@ device.mojom.XRHandJoint = {
 // Struct: XRHandJointData
 mojo.internal.Struct(
     device.mojom.XRHandJointDataSpec, 'device.mojom.XRHandJointData', [
-      mojo.internal.StructField('joint', 0, 0, device.mojom.XRHandJointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mojo_from_joint', 8, 0, gfx.mojom.TransformSpec, null, true, 0, undefined),
+      mojo.internal.StructField('joint', 0, 0, device.mojom.XRHandJointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mojo_from_joint', 8, 0, gfx.mojom.TransformSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('radius', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -55,6 +55,6 @@ mojo.internal.Struct(
 // Struct: XRHandTrackingData
 mojo.internal.Struct(
     device.mojom.XRHandTrackingDataSpec, 'device.mojom.XRHandTrackingData', [
-      mojo.internal.StructField('hand_joint_data', 0, 0, mojo.internal.Array(device.mojom.XRHandJointDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('hand_joint_data', 0, 0, mojo.internal.Array(device.mojom.XRHandJointDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

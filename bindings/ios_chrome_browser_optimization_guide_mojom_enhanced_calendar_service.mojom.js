@@ -20,7 +20,7 @@ mojo.internal.Union(
     ai.mojom.EnhancedCalendarResponseResultSpec, 'ai.mojom.EnhancedCalendarResponseResult', {
       'response': {
         'ordinal': 0,
-        'type': mojo_base.mojom.ProtoWrapperSpec,
+        'type': mojo_base.mojom.ProtoWrapperSpec.$,
         'nullable': false,
       },
       'error': {
@@ -42,15 +42,15 @@ mojo.internal.Struct(
 // Interface: EnhancedCalendarService
 mojo.internal.Struct(
     ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_Params', [
-      mojo.internal.StructField('request_params', 0, 0, ai.mojom.EnhancedCalendarServiceRequestParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_params', 0, 0, ai.mojom.EnhancedCalendarServiceRequestParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ai.mojom.EnhancedCalendarResponseResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ai.mojom.EnhancedCalendarResponseResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 ai.mojom.EnhancedCalendarServicePendingReceiver = class {
   constructor(handle) {
@@ -98,9 +98,8 @@ ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class {
 
 ai.mojom.EnhancedCalendarService.getRemote = function() {
   let remote = new ai.mojom.EnhancedCalendarServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ai.mojom.EnhancedCalendarService',
     'context');
   return remote.$;

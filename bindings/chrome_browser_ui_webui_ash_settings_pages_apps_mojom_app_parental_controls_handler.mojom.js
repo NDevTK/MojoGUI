@@ -56,7 +56,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParams', [
-      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_parental_controls.mojom.AppSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_parental_controls.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -86,7 +86,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.settings.app_parental_controls.mojom.PinValidationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.settings.app_parental_controls.mojom.PinValidationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -241,9 +241,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.getRemote = function() {
   let remote = new ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler',
     'context');
   return remote.$;
@@ -256,13 +255,13 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRequest = ash
 // Interface: AppParentalControlsObserver
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_Params', [
-      mojo.internal.StructField('app', 0, 0, ash.settings.app_parental_controls.mojom.AppSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app', 0, 0, ash.settings.app_parental_controls.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_Params', [
-      mojo.internal.StructField('app', 0, 0, ash.settings.app_parental_controls.mojom.AppSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app', 0, 0, ash.settings.app_parental_controls.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -322,9 +321,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemoteCallHa
 
 ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.getRemote = function() {
   let remote = new ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver',
     'context');
   return remote.$;

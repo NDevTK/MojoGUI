@@ -26,7 +26,7 @@ chrome_urls.mojom.Page.$interfaceName = 'chrome_urls.mojom.Page';
 // Struct: WebuiUrlInfo
 mojo.internal.Struct(
     chrome_urls.mojom.WebuiUrlInfoSpec, 'chrome_urls.mojom.WebuiUrlInfo', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('internal', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -35,8 +35,8 @@ mojo.internal.Struct(
 // Struct: ChromeUrlsData
 mojo.internal.Struct(
     chrome_urls.mojom.ChromeUrlsDataSpec, 'chrome_urls.mojom.ChromeUrlsData', [
-      mojo.internal.StructField('webui_urls', 0, 0, mojo.internal.Array(chrome_urls.mojom.WebuiUrlInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('command_urls', 8, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('webui_urls', 0, 0, mojo.internal.Array(chrome_urls.mojom.WebuiUrlInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('command_urls', 8, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('internal_debugging_uis_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -95,9 +95,8 @@ chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 chrome_urls.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new chrome_urls.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome_urls.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -115,7 +114,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec, 'chrome_urls.mojom.PageHandler_GetUrls_ResponseParams', [
-      mojo.internal.StructField('urls_data', 0, 0, chrome_urls.mojom.ChromeUrlsDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('urls_data', 0, 0, chrome_urls.mojom.ChromeUrlsDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -186,9 +185,8 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
 
 chrome_urls.mojom.PageHandler.getRemote = function() {
   let remote = new chrome_urls.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome_urls.mojom.PageHandler',
     'context');
   return remote.$;
@@ -235,9 +233,8 @@ chrome_urls.mojom.PageRemoteCallHandler = class {
 
 chrome_urls.mojom.Page.getRemote = function() {
   let remote = new chrome_urls.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome_urls.mojom.Page',
     'context');
   return remote.$;

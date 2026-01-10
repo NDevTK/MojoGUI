@@ -55,14 +55,14 @@ blink.mojom.SpeculationInjectionType = {
 // Struct: SpeculationCandidate
 mojo.internal.Struct(
     blink.mojom.SpeculationCandidateSpec, 'blink.mojom.SpeculationCandidate', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('action', 8, 0, blink.mojom.SpeculationActionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('referrer', 16, 0, blink.mojom.ReferrerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('action', 8, 0, blink.mojom.SpeculationActionSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('referrer', 16, 0, blink.mojom.ReferrerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('requires_anonymous_client_ip_when_cross_origin', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('target_browsing_context_name_hint', 32, 0, blink.mojom.SpeculationTargetHintSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('eagerness', 40, 0, blink.mojom.SpeculationEagernessSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('no_vary_search_hint', 48, 0, network.mojom.NoVarySearchSpec, null, true, 0, undefined),
-      mojo.internal.StructField('injection_type', 56, 0, blink.mojom.SpeculationInjectionTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('target_browsing_context_name_hint', 32, 0, blink.mojom.SpeculationTargetHintSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('eagerness', 40, 0, blink.mojom.SpeculationEagernessSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('no_vary_search_hint', 48, 0, network.mojom.NoVarySearchSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('injection_type', 56, 0, blink.mojom.SpeculationInjectionTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('tags', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('form_submission', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -71,7 +71,7 @@ mojo.internal.Struct(
 // Interface: SpeculationHost
 mojo.internal.Struct(
     blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec, 'blink.mojom.SpeculationHost_UpdateSpeculationCandidates_Params', [
-      mojo.internal.StructField('candidates', 0, 0, mojo.internal.Array(blink.mojom.SpeculationCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('candidates', 0, 0, mojo.internal.Array(blink.mojom.SpeculationCandidateSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('enable_cross_origin_prerender_iframes', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -83,7 +83,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec, 'blink.mojom.SpeculationHost_InitiatePreview_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,9 +153,8 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
 
 blink.mojom.SpeculationHost.getRemote = function() {
   let remote = new blink.mojom.SpeculationHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SpeculationHost',
     'context');
   return remote.$;

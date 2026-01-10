@@ -91,36 +91,36 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     auction_worklet.mojom.BidderWorkletNonSharedParamsSpec, 'auction_worklet.mojom.BidderWorkletNonSharedParams', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('trusted_bidding_signals_slot_size_mode', 8, 0, blink.mojom.InterestGroup.TrustedBiddingSignalsSlotSizeModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trusted_bidding_signals_slot_size_mode', 8, 0, blink.mojom.InterestGroup.TrustedBiddingSignalsSlotSizeModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('enable_bidding_signals_prioritization', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('priority_vector', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Double, false), null, true, 0, undefined),
-      mojo.internal.StructField('execution_mode', 32, 0, blink.mojom.InterestGroup.ExecutionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('update_url', 40, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('execution_mode', 32, 0, blink.mojom.InterestGroup.ExecutionModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('update_url', 40, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('trusted_bidding_signals_keys', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('max_trusted_bidding_signals_url_length', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('user_bidding_signals', 64, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('ads', 72, 0, mojo.internal.Array(blink.mojom.InterestGroupAdSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('ad_components', 80, 0, mojo.internal.Array(blink.mojom.InterestGroupAdSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('kanon_keys', 88, 0, mojo.internal.Array(auction_worklet.mojom.KAnonKeySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('ads', 72, 0, mojo.internal.Array(blink.mojom.InterestGroupAdSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('ad_components', 80, 0, mojo.internal.Array(blink.mojom.InterestGroupAdSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('kanon_keys', 88, 0, mojo.internal.Array(auction_worklet.mojom.KAnonKeySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 104]]);
 
 // Struct: BidderWorkletBid
 mojo.internal.Struct(
     auction_worklet.mojom.BidderWorkletBidSpec, 'auction_worklet.mojom.BidderWorkletBid', [
-      mojo.internal.StructField('bid_role', 0, 0, auction_worklet.mojom.BidRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bid_role', 0, 0, auction_worklet.mojom.BidRoleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('ad', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('bid', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('bid_currency', 24, 0, blink.mojom.AdCurrencySpec, null, true, 0, undefined),
+      mojo.internal.StructField('bid_currency', 24, 0, blink.mojom.AdCurrencySpec.$, null, true, 0, undefined),
       mojo.internal.StructField('ad_cost_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'ad_cost_$value', originalFieldName: 'ad_cost' }),
       mojo.internal.StructField('ad_cost_$value', 40, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'ad_cost_$flag', originalFieldName: 'ad_cost' }),
-      mojo.internal.StructField('ad_descriptor', 48, 0, blink.mojom.AdDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ad_descriptor', 48, 0, blink.mojom.AdDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('selected_buyer_and_seller_reporting_id', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('ad_component_descriptors', 64, 0, mojo.internal.Array(blink.mojom.AdDescriptorSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('ad_component_descriptors', 64, 0, mojo.internal.Array(blink.mojom.AdDescriptorSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('modeling_signals_$flag', 72, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'modeling_signals_$value', originalFieldName: 'modeling_signals' }),
       mojo.internal.StructField('modeling_signals_$value', 74, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'modeling_signals_$flag', originalFieldName: 'modeling_signals' }),
       mojo.internal.StructField('aggregate_win_signals', 80, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('bid_duration', 88, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bid_duration', 88, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 104]]);
 
@@ -134,22 +134,22 @@ mojo.internal.Struct(
 // Struct: GenerateBidDependencyLatencies
 mojo.internal.Struct(
     auction_worklet.mojom.GenerateBidDependencyLatenciesSpec, 'auction_worklet.mojom.GenerateBidDependencyLatencies', [
-      mojo.internal.StructField('code_ready_latency', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('config_promises_latency', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('direct_from_seller_signals_latency', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('trusted_bidding_signals_latency', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('deps_wait_start_time', 32, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('generate_bid_start_time', 40, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('generate_bid_finish_time', 48, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('code_ready_latency', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('config_promises_latency', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('direct_from_seller_signals_latency', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('trusted_bidding_signals_latency', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('deps_wait_start_time', 32, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('generate_bid_start_time', 40, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('generate_bid_finish_time', 48, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: BidderTimingMetrics
 mojo.internal.Struct(
     auction_worklet.mojom.BidderTimingMetricsSpec, 'auction_worklet.mojom.BidderTimingMetrics', [
-      mojo.internal.StructField('js_fetch_latency', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('wasm_fetch_latency', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('script_latency', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('js_fetch_latency', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('wasm_fetch_latency', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('script_latency', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('script_timed_out', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -157,19 +157,19 @@ mojo.internal.Struct(
 // Struct: PrivateModelTrainingRequestData
 mojo.internal.Struct(
     auction_worklet.mojom.PrivateModelTrainingRequestDataSpec, 'auction_worklet.mojom.PrivateModelTrainingRequestData', [
-      mojo.internal.StructField('payload', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('payload_length', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('aggregation_coordinator_origin', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('destination', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('payload', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('payload_length', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('aggregation_coordinator_origin', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Interface: GenerateBidClient
 mojo.internal.Struct(
     auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec, 'auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_Params', [
       mojo.internal.StructField('priority_vector', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Double, false), null, false, 0, undefined),
-      mojo.internal.StructField('trusted_signals_fetch_latency', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('update_if_older_than', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('trusted_signals_fetch_latency', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('update_if_older_than', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -180,20 +180,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec, 'auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_Params', [
-      mojo.internal.StructField('bids', 0, 0, mojo.internal.Array(auction_worklet.mojom.BidderWorkletBidSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bids', 0, 0, mojo.internal.Array(auction_worklet.mojom.BidderWorkletBidSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('bidding_signals_data_version_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'bidding_signals_data_version_$value', originalFieldName: 'bidding_signals_data_version' }),
       mojo.internal.StructField('bidding_signals_data_version_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'bidding_signals_data_version_$flag', originalFieldName: 'bidding_signals_data_version' }),
-      mojo.internal.StructField('debug_loss_report_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('debug_win_report_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('debug_loss_report_url', 16, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('debug_win_report_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('set_priority_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'set_priority_$value', originalFieldName: 'set_priority' }),
       mojo.internal.StructField('set_priority_$value', 40, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'set_priority_$flag', originalFieldName: 'set_priority' }),
-      mojo.internal.StructField('update_priority_signals_overrides', 48, 0, mojo.internal.Map(mojo.internal.String, auction_worklet.mojom.PrioritySignalsDoubleSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('pa_requests', 56, 0, mojo.internal.Array(auction_worklet.mojom.PrivateAggregationRequestSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('non_kanon_pa_requests', 64, 0, mojo.internal.Array(auction_worklet.mojom.PrivateAggregationRequestSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('real_time_contributions', 72, 0, mojo.internal.Array(auction_worklet.mojom.RealTimeReportingContributionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('generate_bid_timing_metrics', 80, 0, auction_worklet.mojom.BidderTimingMetricsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('generate_bid_dependency_latencies', 88, 0, auction_worklet.mojom.GenerateBidDependencyLatenciesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reject_reason', 96, 0, auction_worklet.mojom.RejectReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_priority_signals_overrides', 48, 0, mojo.internal.Map(mojo.internal.String, auction_worklet.mojom.PrioritySignalsDoubleSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('pa_requests', 56, 0, mojo.internal.Array(auction_worklet.mojom.PrivateAggregationRequestSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('non_kanon_pa_requests', 64, 0, mojo.internal.Array(auction_worklet.mojom.PrivateAggregationRequestSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('real_time_contributions', 72, 0, mojo.internal.Array(auction_worklet.mojom.RealTimeReportingContributionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('generate_bid_timing_metrics', 80, 0, auction_worklet.mojom.BidderTimingMetricsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('generate_bid_dependency_latencies', 88, 0, auction_worklet.mojom.GenerateBidDependencyLatenciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reject_reason', 96, 0, auction_worklet.mojom.RejectReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('errors', 104, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 120]]);
@@ -254,9 +254,8 @@ auction_worklet.mojom.GenerateBidClientRemoteCallHandler = class {
 
 auction_worklet.mojom.GenerateBidClient.getRemote = function() {
   let remote = new auction_worklet.mojom.GenerateBidClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'auction_worklet.mojom.GenerateBidClient',
     'context');
   return remote.$;
@@ -271,11 +270,11 @@ mojo.internal.Struct(
     auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec, 'auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_Params', [
       mojo.internal.StructField('auction_signals_json', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('per_buyer_signals_json', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('per_buyer_timeout', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('expected_buyer_currency', 24, 0, blink.mojom.AdCurrencySpec, null, true, 0, undefined),
-      mojo.internal.StructField('direct_from_seller_per_buyer_signals', 32, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('per_buyer_timeout', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('expected_buyer_currency', 24, 0, blink.mojom.AdCurrencySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('direct_from_seller_per_buyer_signals', 32, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('direct_from_seller_per_buyer_signals_header_ad_slot', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('direct_from_seller_auction_signals', 48, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('direct_from_seller_auction_signals', 48, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('direct_from_seller_auction_signals_header_ad_slot', 56, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 72]]);
@@ -326,9 +325,8 @@ auction_worklet.mojom.GenerateBidFinalizerRemoteCallHandler = class {
 
 auction_worklet.mojom.GenerateBidFinalizer.getRemote = function() {
   let remote = new auction_worklet.mojom.GenerateBidFinalizerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'auction_worklet.mojom.GenerateBidFinalizer',
     'context');
   return remote.$;
@@ -341,19 +339,19 @@ auction_worklet.mojom.GenerateBidFinalizerRequest = auction_worklet.mojom.Genera
 // Interface: BidderWorklet
 mojo.internal.Struct(
     auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec, 'auction_worklet.mojom.BidderWorklet_BeginGenerateBid_Params', [
-      mojo.internal.StructField('bidder_worklet_non_shared_params', 0, 0, auction_worklet.mojom.BidderWorkletNonSharedParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_value_signals_cache_key', 8, 0, auction_worklet.mojom.TrustedSignalsCacheKeySpec, null, true, 0, undefined),
-      mojo.internal.StructField('kanon_mode', 16, 0, auction_worklet.mojom.KAnonymityBidModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('interest_group_join_origin', 24, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('direct_from_seller_per_buyer_signals', 32, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('direct_from_seller_auction_signals', 40, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('browser_signal_seller_origin', 48, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('browser_signal_top_level_seller_origin', 56, 0, url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('browser_signal_recency', 64, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bidder_worklet_non_shared_params', 0, 0, auction_worklet.mojom.BidderWorkletNonSharedParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_value_signals_cache_key', 8, 0, auction_worklet.mojom.TrustedSignalsCacheKeySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('kanon_mode', 16, 0, auction_worklet.mojom.KAnonymityBidModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('interest_group_join_origin', 24, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('direct_from_seller_per_buyer_signals', 32, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('direct_from_seller_auction_signals', 40, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('browser_signal_seller_origin', 48, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('browser_signal_top_level_seller_origin', 56, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('browser_signal_recency', 64, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('browser_signal_for_debugging_only_sampling', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('bidding_browser_signals', 80, 0, blink.mojom.BiddingBrowserSignalsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('auction_start_time', 88, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('requested_ad_size', 96, 0, blink.mojom.AdSizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('bidding_browser_signals', 80, 0, blink.mojom.BiddingBrowserSignalsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('auction_start_time', 88, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('requested_ad_size', 96, 0, blink.mojom.AdSizeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('multi_bid_limit', 104, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('group_by_origin_id', 112, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('trace_id', 120, 0, mojo.internal.Uint64, 0, false, 0, undefined),
@@ -376,17 +374,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('selected_buyer_and_seller_reporting_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('auction_signals_json', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('per_buyer_signals_json', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('direct_from_seller_per_buyer_signals', 56, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('direct_from_seller_per_buyer_signals', 56, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('direct_from_seller_per_buyer_signals_header_ad_slot', 64, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('direct_from_seller_auction_signals', 72, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('direct_from_seller_auction_signals', 72, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('direct_from_seller_auction_signals_header_ad_slot', 80, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('seller_signals_json', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('kanon_status', 96, 0, auction_worklet.mojom.KAnonymityStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('browser_signal_render_url', 104, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('kanon_status', 96, 0, auction_worklet.mojom.KAnonymityStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('browser_signal_render_url', 104, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('browser_signal_bid', 112, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('browser_signal_bid_currency', 120, 0, blink.mojom.AdCurrencySpec, null, true, 0, undefined),
+      mojo.internal.StructField('browser_signal_bid_currency', 120, 0, blink.mojom.AdCurrencySpec.$, null, true, 0, undefined),
       mojo.internal.StructField('browser_signal_highest_scoring_other_bid', 128, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('browser_signal_highest_scoring_other_bid_currency', 136, 0, blink.mojom.AdCurrencySpec, null, true, 0, undefined),
+      mojo.internal.StructField('browser_signal_highest_scoring_other_bid_currency', 136, 0, blink.mojom.AdCurrencySpec.$, null, true, 0, undefined),
       mojo.internal.StructField('browser_signal_made_highest_scoring_other_bid', 144, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('browser_signal_ad_cost_$flag', 144, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'browser_signal_ad_cost_$value', originalFieldName: 'browser_signal_ad_cost' }),
       mojo.internal.StructField('browser_signal_ad_cost_$value', 152, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'browser_signal_ad_cost_$flag', originalFieldName: 'browser_signal_ad_cost' }),
@@ -394,9 +392,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('browser_signal_modeling_signals_$value', 162, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'browser_signal_modeling_signals_$flag', originalFieldName: 'browser_signal_modeling_signals' }),
       mojo.internal.StructField('browser_signal_join_count', 164, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('browser_signal_recency', 165, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('browser_signal_seller_origin', 168, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('browser_signal_top_level_seller_origin', 176, 0, url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('browser_signal_reporting_timeout', 184, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('browser_signal_seller_origin', 168, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('browser_signal_top_level_seller_origin', 176, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('browser_signal_reporting_timeout', 184, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('bidding_signals_data_version_$flag', 192, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'bidding_signals_data_version_$value', originalFieldName: 'bidding_signals_data_version' }),
       mojo.internal.StructField('bidding_signals_data_version_$value', 196, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'bidding_signals_data_version_$flag', originalFieldName: 'bidding_signals_data_version' }),
       mojo.internal.StructField('aggregate_win_signals', 200, 0, mojo.internal.String, null, true, 0, undefined),
@@ -406,12 +404,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec, 'auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParams', [
-      mojo.internal.StructField('report_url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('ad_beacon_map', 8, 0, mojo.internal.Map(mojo.internal.String, url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('report_url', 0, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ad_beacon_map', 8, 0, mojo.internal.Map(mojo.internal.String, url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('ad_macro_map', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('pa_requests', 24, 0, mojo.internal.Array(auction_worklet.mojom.PrivateAggregationRequestSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('pmt_request_data', 32, 0, auction_worklet.mojom.PrivateModelTrainingRequestDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('timing_metrics', 40, 0, auction_worklet.mojom.BidderTimingMetricsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pa_requests', 24, 0, mojo.internal.Array(auction_worklet.mojom.PrivateAggregationRequestSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('pmt_request_data', 32, 0, auction_worklet.mojom.PrivateModelTrainingRequestDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('timing_metrics', 40, 0, auction_worklet.mojom.BidderTimingMetricsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('errors', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -499,9 +497,8 @@ auction_worklet.mojom.BidderWorkletRemoteCallHandler = class {
 
 auction_worklet.mojom.BidderWorklet.getRemote = function() {
   let remote = new auction_worklet.mojom.BidderWorkletRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'auction_worklet.mojom.BidderWorklet',
     'context');
   return remote.$;

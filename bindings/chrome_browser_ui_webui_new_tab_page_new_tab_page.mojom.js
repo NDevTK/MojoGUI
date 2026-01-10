@@ -138,17 +138,17 @@ mojo.internal.Union(
     new_tab_page.mojom.PromoPartSpec, 'new_tab_page.mojom.PromoPart', {
       'image': {
         'ordinal': 0,
-        'type': new_tab_page.mojom.PromoImagePartSpec,
+        'type': new_tab_page.mojom.PromoImagePartSpec.$,
         'nullable': false,
       },
       'link': {
         'ordinal': 1,
-        'type': new_tab_page.mojom.PromoLinkPartSpec,
+        'type': new_tab_page.mojom.PromoLinkPartSpec.$,
         'nullable': false,
       },
       'text': {
         'ordinal': 2,
-        'type': new_tab_page.mojom.PromoTextPartSpec,
+        'type': new_tab_page.mojom.PromoTextPartSpec.$,
         'nullable': false,
       },
     });
@@ -156,65 +156,65 @@ mojo.internal.Union(
 // Struct: BackgroundImage
 mojo.internal.Struct(
     new_tab_page.mojom.BackgroundImageSpec, 'new_tab_page.mojom.BackgroundImage', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url_2x', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('attribution_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url_2x', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('attribution_url', 16, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('size', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('repeat_x', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('repeat_y', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('position_x', 48, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('position_y', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('image_source', 64, 0, new_tab_page.mojom.NtpBackgroundImageSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_source', 64, 0, new_tab_page.mojom.NtpBackgroundImageSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Struct: Theme
 mojo.internal.Struct(
     new_tab_page.mojom.ThemeSpec, 'new_tab_page.mojom.Theme', [
-      mojo.internal.StructField('text_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('background_color', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_color', 0, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('background_color', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_baseline', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_gm3', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_custom_background', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('daily_refresh_enabled', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_dark', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('logo_color', 24, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('logo_color', 24, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('background_image_collection_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('background_image', 40, 0, new_tab_page.mojom.BackgroundImageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('background_image', 40, 0, new_tab_page.mojom.BackgroundImageSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('background_image_attribution_1', 48, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('background_image_attribution_2', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('background_image_attribution_url', 64, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('most_visited', 72, 0, most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('background_image_attribution_url', 64, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('most_visited', 72, 0, most_visited.mojom.MostVisitedThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
 // Struct: ImageDoodle
 mojo.internal.Struct(
     new_tab_page.mojom.ImageDoodleSpec, 'new_tab_page.mojom.ImageDoodle', [
-      mojo.internal.StructField('image_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('animation_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('image_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('animation_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('width', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('background_color', 24, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_impression_log_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('animation_impression_log_url', 40, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('background_color', 24, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_impression_log_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('animation_impression_log_url', 40, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: AllModeImageDoodle
 mojo.internal.Struct(
     new_tab_page.mojom.AllModeImageDoodleSpec, 'new_tab_page.mojom.AllModeImageDoodle', [
-      mojo.internal.StructField('light', 0, 0, new_tab_page.mojom.ImageDoodleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dark', 8, 0, new_tab_page.mojom.ImageDoodleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('on_click_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('share_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('light', 0, 0, new_tab_page.mojom.ImageDoodleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dark', 8, 0, new_tab_page.mojom.ImageDoodleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('on_click_url', 16, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('share_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: InteractiveDoodle
 mojo.internal.Struct(
     new_tab_page.mojom.InteractiveDoodleSpec, 'new_tab_page.mojom.InteractiveDoodle', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -223,8 +223,8 @@ mojo.internal.Struct(
 // Struct: Doodle
 mojo.internal.Struct(
     new_tab_page.mojom.DoodleSpec, 'new_tab_page.mojom.Doodle', [
-      mojo.internal.StructField('image', 0, 0, new_tab_page.mojom.AllModeImageDoodleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('interactive', 8, 0, new_tab_page.mojom.InteractiveDoodleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, new_tab_page.mojom.AllModeImageDoodleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('interactive', 8, 0, new_tab_page.mojom.InteractiveDoodleSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -232,8 +232,8 @@ mojo.internal.Struct(
 // Struct: PromoImagePart
 mojo.internal.Struct(
     new_tab_page.mojom.PromoImagePartSpec, 'new_tab_page.mojom.PromoImagePart', [
-      mojo.internal.StructField('image_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('target', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('target', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -241,7 +241,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     new_tab_page.mojom.PromoLinkPartSpec, 'new_tab_page.mojom.PromoLinkPart', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -256,8 +256,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     new_tab_page.mojom.PromoSpec, 'new_tab_page.mojom.Promo', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('log_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('middle_slot_parts', 16, 0, mojo.internal.Array(new_tab_page.mojom.PromoPartSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('log_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('middle_slot_parts', 16, 0, mojo.internal.Array(new_tab_page.mojom.PromoPartSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -323,9 +323,8 @@ new_tab_page.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 new_tab_page.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new new_tab_page.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'new_tab_page.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -338,10 +337,10 @@ new_tab_page.mojom.PageHandlerFactoryRequest = new_tab_page.mojom.PageHandlerFac
 // Interface: PageHandler
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec, 'new_tab_page.mojom.PageHandler_SetMostVisitedSettings_Params', [
-      mojo.internal.StructField('shortcuts_type', 0, 0, ntp_tiles.mojom.TileTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shortcuts_visible', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shortcuts_type', 0, 0, ntp_tiles.mojom.TileTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('shortcuts_visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ParamsSpec, 'new_tab_page.mojom.PageHandler_GetMostVisitedSettings_Params', [
@@ -350,10 +349,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec, 'new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParams', [
-      mojo.internal.StructField('shortcuts_type', 0, 0, ntp_tiles.mojom.TileTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shortcuts_visible', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shortcuts_type', 0, 0, ntp_tiles.mojom.TileTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('shortcuts_visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec, 'new_tab_page.mojom.PageHandler_GetDoodle_Params', [
@@ -362,7 +361,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec, 'new_tab_page.mojom.PageHandler_GetDoodle_ResponseParams', [
-      mojo.internal.StructField('doodle', 0, 0, new_tab_page.mojom.DoodleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('doodle', 0, 0, new_tab_page.mojom.DoodleSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -425,7 +424,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec, 'new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(new_tab_page.mojom.ModuleIdNameSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(new_tab_page.mojom.ModuleIdNameSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -504,42 +503,42 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnPromoRendered_Params', [
       mojo.internal.StructField('time', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('log_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('log_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_Params', [
-      mojo.internal.StructField('action', 0, 0, new_tab_page.mojom.CustomizeDialogActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, new_tab_page.mojom.CustomizeDialogActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleImageClicked_Params', [
-      mojo.internal.StructField('type', 0, 0, new_tab_page.mojom.DoodleImageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('log_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, new_tab_page.mojom.DoodleImageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('log_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleImageRendered_Params', [
-      mojo.internal.StructField('type', 0, 0, new_tab_page.mojom.DoodleImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, new_tab_page.mojom.DoodleImageTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('log_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('log_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParams', [
       mojo.internal.StructField('image_click_params', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('interaction_log_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('interaction_log_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('share_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleShared_Params', [
-      mojo.internal.StructField('channel', 0, 0, new_tab_page.mojom.DoodleShareChannelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel', 0, 0, new_tab_page.mojom.DoodleShareChannelSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('doodle_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('share_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -902,9 +901,8 @@ new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
 new_tab_page.mojom.PageHandler.getRemote = function() {
   let remote = new new_tab_page.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'new_tab_page.mojom.PageHandler',
     'context');
   return remote.$;
@@ -917,7 +915,7 @@ new_tab_page.mojom.PageHandlerRequest = new_tab_page.mojom.PageHandlerPendingRec
 // Interface: Page
 mojo.internal.Struct(
     new_tab_page.mojom.Page_SetTheme_ParamsSpec, 'new_tab_page.mojom.Page_SetTheme_Params', [
-      mojo.internal.StructField('theme', 0, 0, new_tab_page.mojom.ThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('theme', 0, 0, new_tab_page.mojom.ThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -941,7 +939,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     new_tab_page.mojom.Page_SetPromo_ParamsSpec, 'new_tab_page.mojom.Page_SetPromo_Params', [
-      mojo.internal.StructField('promo', 0, 0, new_tab_page.mojom.PromoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('promo', 0, 0, new_tab_page.mojom.PromoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1094,9 +1092,8 @@ new_tab_page.mojom.PageRemoteCallHandler = class {
 
 new_tab_page.mojom.Page.getRemote = function() {
   let remote = new new_tab_page.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'new_tab_page.mojom.Page',
     'context');
   return remote.$;

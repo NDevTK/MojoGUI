@@ -96,21 +96,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParams', [
       mojo.internal.StructField('is_read_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, ui.ozone.mojom.GesturePropValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, ui.ozone.mojom.GesturePropValueSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_SetProperty_Params', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 16, 0, ui.ozone.mojom.GesturePropValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 16, 0, ui.ozone.mojom.GesturePropValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ui.ozone.mojom.SetGesturePropErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ui.ozone.mojom.SetGesturePropErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -190,9 +190,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
 
 ui.ozone.mojom.GesturePropertiesService.getRemote = function() {
   let remote = new ui.ozone.mojom.GesturePropertiesServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ui.ozone.mojom.GesturePropertiesService',
     'context');
   return remote.$;

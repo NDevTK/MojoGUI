@@ -22,13 +22,13 @@ device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsS
 // Interface: ScreenOrientation
 mojo.internal.Struct(
     device.mojom.ScreenOrientation_LockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_Params', [
-      mojo.internal.StructField('orientation', 0, 0, device.mojom.ScreenOrientationLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('orientation', 0, 0, device.mojom.ScreenOrientationLockTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, device.mojom.ScreenOrientationLockResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, device.mojom.ScreenOrientationLockResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -93,9 +93,8 @@ device.mojom.ScreenOrientationRemoteCallHandler = class {
 
 device.mojom.ScreenOrientation.getRemote = function() {
   let remote = new device.mojom.ScreenOrientationRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.ScreenOrientation',
     'context');
   return remote.$;
@@ -163,9 +162,8 @@ device.mojom.ScreenOrientationListenerRemoteCallHandler = class {
 
 device.mojom.ScreenOrientationListener.getRemote = function() {
   let remote = new device.mojom.ScreenOrientationListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.ScreenOrientationListener',
     'context');
   return remote.$;

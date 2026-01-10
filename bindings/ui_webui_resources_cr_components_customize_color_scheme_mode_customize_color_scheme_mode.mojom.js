@@ -81,9 +81,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCa
 
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.getRemote = function() {
   let remote = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory',
     'context');
   return remote.$;
@@ -96,7 +95,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRequest 
 // Interface: CustomizeColorSchemeModeHandler
 mojo.internal.Struct(
     customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_Params', [
-      mojo.internal.StructField('colorSchemeMode', 0, 0, customize_color_scheme_mode.mojom.ColorSchemeModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('colorSchemeMode', 0, 0, customize_color_scheme_mode.mojom.ColorSchemeModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -161,9 +160,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
 
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.getRemote = function() {
   let remote = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler',
     'context');
   return remote.$;
@@ -176,7 +174,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRequest = custo
 // Interface: CustomizeColorSchemeModeClient
 mojo.internal.Struct(
     customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_Params', [
-      mojo.internal.StructField('colorSchemeMode', 0, 0, customize_color_scheme_mode.mojom.ColorSchemeModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('colorSchemeMode', 0, 0, customize_color_scheme_mode.mojom.ColorSchemeModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -226,9 +224,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemoteCallHandle
 
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.getRemote = function() {
   let remote = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient',
     'context');
   return remote.$;

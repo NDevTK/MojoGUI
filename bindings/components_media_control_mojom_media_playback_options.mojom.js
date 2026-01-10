@@ -31,7 +31,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetRendererType_Params', [
-      mojo.internal.StructField('type', 0, 0, content.mojom.RendererTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, content.mojom.RendererTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -101,9 +101,8 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
 
 components.media_control.mojom.MediaPlaybackOptions.getRemote = function() {
   let remote = new components.media_control.mojom.MediaPlaybackOptionsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'components.media_control.mojom.MediaPlaybackOptions',
     'context');
   return remote.$;

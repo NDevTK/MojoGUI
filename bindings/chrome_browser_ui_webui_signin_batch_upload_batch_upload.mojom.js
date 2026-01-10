@@ -38,7 +38,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     batch_upload.mojom.DataContainerSpec, 'batch_upload.mojom.DataContainer', [
       mojo.internal.StructField('section_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data_items', 8, 0, mojo.internal.Array(batch_upload.mojom.DataItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data_items', 8, 0, mojo.internal.Array(batch_upload.mojom.DataItemSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('is_theme', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -54,9 +54,9 @@ mojo.internal.Struct(
 // Struct: BatchUploadData
 mojo.internal.Struct(
     batch_upload.mojom.BatchUploadDataSpec, 'batch_upload.mojom.BatchUploadData', [
-      mojo.internal.StructField('account_info', 0, 0, batch_upload.mojom.BatchUploadAccountInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_info', 0, 0, batch_upload.mojom.BatchUploadAccountInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('dialog_subtitle', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data_containers', 16, 0, mojo.internal.Array(batch_upload.mojom.DataContainerSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data_containers', 16, 0, mojo.internal.Array(batch_upload.mojom.DataContainerSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -114,9 +114,8 @@ batch_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 batch_upload.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new batch_upload.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'batch_upload.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -210,9 +209,8 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
 
 batch_upload.mojom.PageHandler.getRemote = function() {
   let remote = new batch_upload.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'batch_upload.mojom.PageHandler',
     'context');
   return remote.$;
@@ -225,7 +223,7 @@ batch_upload.mojom.PageHandlerRequest = batch_upload.mojom.PageHandlerPendingRec
 // Interface: Page
 mojo.internal.Struct(
     batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec, 'batch_upload.mojom.Page_SendBatchUploadData_Params', [
-      mojo.internal.StructField('data', 0, 0, batch_upload.mojom.BatchUploadDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, batch_upload.mojom.BatchUploadDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -275,9 +273,8 @@ batch_upload.mojom.PageRemoteCallHandler = class {
 
 batch_upload.mojom.Page.getRemote = function() {
   let remote = new batch_upload.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'batch_upload.mojom.Page',
     'context');
   return remote.$;

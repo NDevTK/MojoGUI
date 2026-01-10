@@ -20,17 +20,17 @@ mojo.internal.Union(
     chromeos.machine_learning.mojom.ValueListSpec, 'chromeos.machine_learning.mojom.ValueList', {
       'string_list': {
         'ordinal': 0,
-        'type': chromeos.machine_learning.mojom.StringListSpec,
+        'type': chromeos.machine_learning.mojom.StringListSpec.$,
         'nullable': false,
       },
       'float_list': {
         'ordinal': 1,
-        'type': chromeos.machine_learning.mojom.FloatListSpec,
+        'type': chromeos.machine_learning.mojom.FloatListSpec.$,
         'nullable': false,
       },
       'int64_list': {
         'ordinal': 2,
-        'type': chromeos.machine_learning.mojom.Int64ListSpec,
+        'type': chromeos.machine_learning.mojom.Int64ListSpec.$,
         'nullable': false,
       },
     });
@@ -59,7 +59,7 @@ mojo.internal.Struct(
 // Struct: Tensor
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.TensorSpec, 'chromeos.machine_learning.mojom.Tensor', [
-      mojo.internal.StructField('data', 0, 0, chromeos.machine_learning.mojom.ValueListSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shape', 16, 0, chromeos.machine_learning.mojom.Int64ListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, chromeos.machine_learning.mojom.ValueListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('shape', 8, 0, chromeos.machine_learning.mojom.Int64ListSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);

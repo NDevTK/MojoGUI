@@ -31,9 +31,9 @@ device.mojom.PressureState = {
 // Struct: PressureUpdate
 mojo.internal.Struct(
     device.mojom.PressureUpdateSpec, 'device.mojom.PressureUpdate', [
-      mojo.internal.StructField('source', 0, 0, device.mojom.PressureSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, device.mojom.PressureDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, device.mojom.PressureDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -16,8 +16,8 @@ android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec = { $: {} }
 // Interface: RenderMessageFilter
 mojo.internal.Struct(
     android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec, 'android_webview.mojom.RenderMessageFilter_SubFrameCreated_Params', [
-      mojo.internal.StructField('parent_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('child_frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parent_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('child_frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -67,9 +67,8 @@ android_webview.mojom.RenderMessageFilterRemoteCallHandler = class {
 
 android_webview.mojom.RenderMessageFilter.getRemote = function() {
   let remote = new android_webview.mojom.RenderMessageFilterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'android_webview.mojom.RenderMessageFilter',
     'context');
   return remote.$;

@@ -23,7 +23,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec, 'ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParams', [
-      mojo.internal.StructField('diagnostics', 0, 0, guest_os.mojom.DiagnosticsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('diagnostics', 0, 0, guest_os.mojom.DiagnosticsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ ash.vm.mojom.VmDiagnosticsProviderRemoteCallHandler = class {
 
 ash.vm.mojom.VmDiagnosticsProvider.getRemote = function() {
   let remote = new ash.vm.mojom.VmDiagnosticsProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.vm.mojom.VmDiagnosticsProvider',
     'context');
   return remote.$;

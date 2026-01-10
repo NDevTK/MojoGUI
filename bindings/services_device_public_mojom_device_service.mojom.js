@@ -409,9 +409,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
 
 device.mojom.DeviceService.getRemote = function() {
   let remote = new device.mojom.DeviceServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.DeviceService',
     'context');
   return remote.$;

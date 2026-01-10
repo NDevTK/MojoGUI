@@ -22,10 +22,10 @@ blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec = { $: {} };
 // Struct: WorkletGlobalScopeCreationParams
 mojo.internal.Struct(
     blink.mojom.WorkletGlobalScopeCreationParamsSpec, 'blink.mojom.WorkletGlobalScopeCreationParams', [
-      mojo.internal.StructField('script_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('starter_origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin_trial_features', 16, 0, mojo.internal.Array(blink.mojom.OriginTrialFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('devtools_token', 24, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('starter_origin', 8, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin_trial_features', 16, 0, mojo.internal.Array(blink.mojom.OriginTrialFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('devtools_token', 24, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('devtools_host', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.WorkletDevToolsHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('code_cache_host', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
       mojo.internal.StructField('browser_interface_broker', 48, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
@@ -87,9 +87,8 @@ blink.mojom.WorkletDevToolsHostRemoteCallHandler = class {
 
 blink.mojom.WorkletDevToolsHost.getRemote = function() {
   let remote = new blink.mojom.WorkletDevToolsHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WorkletDevToolsHost',
     'context');
   return remote.$;

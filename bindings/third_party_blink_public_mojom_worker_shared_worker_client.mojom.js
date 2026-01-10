@@ -22,13 +22,13 @@ blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec = { $: {} };
 // Interface: SharedWorkerClient
 mojo.internal.Struct(
     blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec, 'blink.mojom.SharedWorkerClient_OnCreated_Params', [
-      mojo.internal.StructField('creation_context_type', 0, 0, blink.mojom.SharedWorkerCreationContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('creation_context_type', 0, 0, blink.mojom.SharedWorkerCreationContextTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec, 'blink.mojom.SharedWorkerClient_OnConnected_Params', [
-      mojo.internal.StructField('features_used', 0, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('features_used', 0, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -40,13 +40,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec, 'blink.mojom.SharedWorkerClient_OnReportException_Params', [
-      mojo.internal.StructField('details', 0, 0, blink.mojom.SharedWorkerExceptionDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 0, 0, blink.mojom.SharedWorkerExceptionDetailsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec, 'blink.mojom.SharedWorkerClient_OnFeatureUsed_Params', [
-      mojo.internal.StructField('feature', 0, 0, blink.mojom.WebFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature', 0, 0, blink.mojom.WebFeatureSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -136,9 +136,8 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
 
 blink.mojom.SharedWorkerClient.getRemote = function() {
   let remote = new blink.mojom.SharedWorkerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SharedWorkerClient',
     'context');
   return remote.$;

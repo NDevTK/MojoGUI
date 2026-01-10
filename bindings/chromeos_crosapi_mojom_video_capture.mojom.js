@@ -79,12 +79,12 @@ mojo.internal.Union(
     crosapi.mojom.GpuMemoryBufferPlatformHandleSpec, 'crosapi.mojom.GpuMemoryBufferPlatformHandle', {
       'shared_memory_handle': {
         'ordinal': 0,
-        'type': mojo_base.mojom.UnsafeSharedMemoryRegionSpec,
+        'type': mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$,
         'nullable': false,
       },
       'native_pixmap_handle': {
         'ordinal': 1,
-        'type': crosapi.mojom.NativePixmapHandleSpec,
+        'type': crosapi.mojom.NativePixmapHandleSpec.$,
         'nullable': false,
       },
     });
@@ -99,12 +99,12 @@ mojo.internal.Union(
       },
       'gpu_memory_buffer_handle': {
         'ordinal': 1,
-        'type': crosapi.mojom.GpuMemoryBufferHandleSpec,
+        'type': crosapi.mojom.GpuMemoryBufferHandleSpec.$,
         'nullable': false,
       },
       'read_only_shmem_region': {
         'ordinal': 2,
-        'type': mojo_base.mojom.ReadOnlySharedMemoryRegionSpec,
+        'type': mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$,
         'nullable': false,
       },
     });
@@ -112,7 +112,7 @@ mojo.internal.Union(
 // Struct: NativePixmapHandle
 mojo.internal.Struct(
     crosapi.mojom.NativePixmapHandleSpec, 'crosapi.mojom.NativePixmapHandle', [
-      mojo.internal.StructField('planes', 0, 0, mojo.internal.Array(gfx.mojom.NativePixmapPlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('planes', 0, 0, mojo.internal.Array(gfx.mojom.NativePixmapPlaneSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -123,19 +123,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('stride', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('platform_handle', 16, 0, crosapi.mojom.GpuMemoryBufferPlatformHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('platform_handle', 16, 0, crosapi.mojom.GpuMemoryBufferPlatformHandleSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: VideoFrameInfo
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameInfoSpec, 'crosapi.mojom.VideoFrameInfo', [
-      mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pixel_format', 8, 0, media.mojom.VideoCapturePixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('visible_rect', 24, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('rotation', 32, 0, crosapi.mojom.VideoRotationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reference_time', 40, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_format', 8, 0, media.mojom.VideoCapturePixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('visible_rect', 24, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('rotation', 32, 0, crosapi.mojom.VideoRotationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reference_time', 40, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -145,7 +145,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('frame_feedback_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('access_permission', 8, 0, mojo.internal.InterfaceProxy(crosapi.mojom.ScopedAccessPermissionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_info', 16, 0, crosapi.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_info', 16, 0, crosapi.mojom.VideoFrameInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -186,9 +186,8 @@ crosapi.mojom.ScopedAccessPermissionRemoteCallHandler = class {
 
 crosapi.mojom.ScopedAccessPermission.getRemote = function() {
   let remote = new crosapi.mojom.ScopedAccessPermissionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.ScopedAccessPermission',
     'context');
   return remote.$;
@@ -207,20 +206,20 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnNewBuffer_Params', [
       mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer_handle', 8, 0, crosapi.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 8, 0, crosapi.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_Params', [
-      mojo.internal.StructField('buffer', 0, 0, crosapi.mojom.ReadyFrameInBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scaled_buffers', 8, 0, mojo.internal.Array(crosapi.mojom.ReadyFrameInBufferSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, crosapi.mojom.ReadyFrameInBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scaled_buffers', 8, 0, mojo.internal.Array(crosapi.mojom.ReadyFrameInBufferSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_Params', [
-      mojo.internal.StructField('buffer', 0, 0, crosapi.mojom.ReadyFrameInBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, crosapi.mojom.ReadyFrameInBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -232,13 +231,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnError_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, media.mojom.VideoCaptureErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, media.mojom.VideoCaptureErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnFrameDropped_Params', [
-      mojo.internal.StructField('reason', 0, 0, media.mojom.VideoCaptureFrameDropReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, media.mojom.VideoCaptureFrameDropReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -256,7 +255,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_Params', [
-      mojo.internal.StructField('capture_version', 0, 0, media.mojom.CaptureVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_version', 0, 0, media.mojom.CaptureVersionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -472,9 +471,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
 
 crosapi.mojom.VideoFrameHandler.getRemote = function() {
   let remote = new crosapi.mojom.VideoFrameHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.VideoFrameHandler',
     'context');
   return remote.$;
@@ -487,7 +485,7 @@ crosapi.mojom.VideoFrameHandlerRequest = crosapi.mojom.VideoFrameHandlerPendingR
 // Interface: VideoCaptureDevice
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_Start_ParamsSpec, 'crosapi.mojom.VideoCaptureDevice_Start_Params', [
-      mojo.internal.StructField('requested_settings', 0, 0, media.mojom.VideoCaptureParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('requested_settings', 0, 0, media.mojom.VideoCaptureParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceProxy(crosapi.mojom.VideoFrameHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -509,13 +507,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec, 'crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParams', [
-      mojo.internal.StructField('capabilities', 0, 0, media.mojom.PhotoStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('capabilities', 0, 0, media.mojom.PhotoStateSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec, 'crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_Params', [
-      mojo.internal.StructField('settings', 0, 0, media.mojom.PhotoSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 0, 0, media.mojom.PhotoSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -532,13 +530,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec, 'crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParams', [
-      mojo.internal.StructField('blob', 0, 0, media.mojom.BlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('blob', 0, 0, media.mojom.BlobSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDevice_ProcessFeedback_ParamsSpec, 'crosapi.mojom.VideoCaptureDevice_ProcessFeedback_Params', [
-      mojo.internal.StructField('feedback', 0, 0, media.mojom.VideoCaptureFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feedback', 0, 0, media.mojom.VideoCaptureFeedbackSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -663,9 +661,8 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
 
 crosapi.mojom.VideoCaptureDevice.getRemote = function() {
   let remote = new crosapi.mojom.VideoCaptureDeviceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.VideoCaptureDevice',
     'context');
   return remote.$;
@@ -683,7 +680,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec, 'crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParams', [
-      mojo.internal.StructField('device_infos', 0, 0, mojo.internal.Array(media.mojom.VideoCaptureDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_infos', 0, 0, mojo.internal.Array(media.mojom.VideoCaptureDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -696,7 +693,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec, 'crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParams', [
-      mojo.internal.StructField('result_code', 0, 0, crosapi.mojom.DeviceAccessResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result_code', 0, 0, crosapi.mojom.DeviceAccessResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -756,9 +753,8 @@ crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler = class {
 
 crosapi.mojom.VideoCaptureDeviceFactory.getRemote = function() {
   let remote = new crosapi.mojom.VideoCaptureDeviceFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.VideoCaptureDeviceFactory',
     'context');
   return remote.$;

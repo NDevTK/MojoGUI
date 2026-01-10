@@ -59,13 +59,13 @@ mojo.internal.Struct(
     blink.mojom.FindInPage_Find_ParamsSpec, 'blink.mojom.FindInPage_Find_Params', [
       mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('search_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('options', 16, 0, blink.mojom.FindOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, blink.mojom.FindOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.FindInPage_StopFinding_ParamsSpec, 'blink.mojom.FindInPage_StopFinding_Params', [
-      mojo.internal.StructField('action', 0, 0, blink.mojom.StopFindActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, blink.mojom.StopFindActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -82,7 +82,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec, 'blink.mojom.FindInPage_GetNearestFindResult_Params', [
-      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -95,7 +95,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec, 'blink.mojom.FindInPage_ActivateNearestFindResult_Params', [
       mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -108,8 +108,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec, 'blink.mojom.FindInPage_FindMatchRects_ResponseParams', [
       mojo.internal.StructField('version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('rects', 8, 0, mojo.internal.Array(gfx.mojom.RectFSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('active_match_rect', 16, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rects', 8, 0, mojo.internal.Array(gfx.mojom.RectFSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('active_match_rect', 16, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -219,9 +219,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
 
 blink.mojom.FindInPage.getRemote = function() {
   let remote = new blink.mojom.FindInPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FindInPage',
     'context');
   return remote.$;
@@ -236,18 +235,18 @@ mojo.internal.Struct(
     blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec, 'blink.mojom.FindInPageClient_SetNumberOfMatches_Params', [
       mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('number_of_matches', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('update_type', 8, 0, blink.mojom.FindMatchUpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_type', 8, 0, blink.mojom.FindMatchUpdateTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec, 'blink.mojom.FindInPageClient_SetActiveMatch_Params', [
       mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('active_match_rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('active_match_rect', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('active_match_ordinal', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('update_type', 20, 0, blink.mojom.FindMatchUpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_type', 24, 0, blink.mojom.FindMatchUpdateTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 blink.mojom.FindInPageClientPendingReceiver = class {
   constructor(handle) {
@@ -305,9 +304,8 @@ blink.mojom.FindInPageClientRemoteCallHandler = class {
 
 blink.mojom.FindInPageClient.getRemote = function() {
   let remote = new blink.mojom.FindInPageClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FindInPageClient',
     'context');
   return remote.$;

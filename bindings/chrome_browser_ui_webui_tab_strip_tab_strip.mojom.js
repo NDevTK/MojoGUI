@@ -62,23 +62,23 @@ tab_strip.mojom.Page_ThemeChanged_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     tab_strip.mojom.TabSpec, 'tab_strip.mojom.Tab', [
       mojo.internal.StructField('active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('alert_states', 8, 0, mojo.internal.Array(tabs.mojom.TabAlertStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('alert_states', 8, 0, mojo.internal.Array(tabs.mojom.TabAlertStateSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('blocked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('crashed', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('favicon_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('active_favicon_url', 32, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('favicon_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('active_favicon_url', 32, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('group_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('index', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('is_default_favicon', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('network_state', 60, 0, tabs.mojom.TabNetworkStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pinned', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('should_hide_throbber', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('show_icon', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('title', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 80, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_state', 64, 0, tabs.mojom.TabNetworkStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pinned', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_hide_throbber', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_icon', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('title', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 88, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 104]]);
 
 // Struct: TabGroupVisualData
 mojo.internal.Struct(
@@ -143,9 +143,8 @@ tab_strip.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 tab_strip.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new tab_strip.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tab_strip.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -163,7 +162,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec, 'tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Map(mojo.internal.String, tab_strip.mojom.TabGroupVisualDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Map(mojo.internal.String, tab_strip.mojom.TabGroupVisualDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -174,7 +173,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec, 'tab_strip.mojom.PageHandler_GetTabs_ResponseParams', [
-      mojo.internal.StructField('tabs', 0, 0, mojo.internal.Array(tab_strip.mojom.TabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tabs', 0, 0, mojo.internal.Array(tab_strip.mojom.TabSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -492,9 +491,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
 
 tab_strip.mojom.PageHandler.getRemote = function() {
   let remote = new tab_strip.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tab_strip.mojom.PageHandler',
     'context');
   return remote.$;
@@ -529,7 +527,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec, 'tab_strip.mojom.Page_TabGroupVisualsChanged_Params', [
       mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('tab_group', 8, 0, tab_strip.mojom.TabGroupVisualDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_group', 8, 0, tab_strip.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -562,7 +560,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_strip.mojom.Page_TabCreated_ParamsSpec, 'tab_strip.mojom.Page_TabCreated_Params', [
-      mojo.internal.StructField('tab', 0, 0, tab_strip.mojom.TabSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 0, 0, tab_strip.mojom.TabSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -595,7 +593,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_strip.mojom.Page_TabUpdated_ParamsSpec, 'tab_strip.mojom.Page_TabUpdated_Params', [
-      mojo.internal.StructField('tab', 0, 0, tab_strip.mojom.TabSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 0, 0, tab_strip.mojom.TabSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -832,9 +830,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
 
 tab_strip.mojom.Page.getRemote = function() {
   let remote = new tab_strip.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tab_strip.mojom.Page',
     'context');
   return remote.$;

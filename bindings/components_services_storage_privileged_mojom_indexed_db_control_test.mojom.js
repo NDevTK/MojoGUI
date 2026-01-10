@@ -58,12 +58,12 @@ storage.mojom.FailMethod = {
 // Interface: MockFailureInjector
 mojo.internal.Struct(
     storage.mojom.MockFailureInjector_FailOperation_ParamsSpec, 'storage.mojom.MockFailureInjector_FailOperation_Params', [
-      mojo.internal.StructField('failure_class', 0, 0, storage.mojom.FailClassSpec, null, false, 0, undefined),
-      mojo.internal.StructField('failure_method', 4, 0, storage.mojom.FailMethodSpec, null, false, 0, undefined),
-      mojo.internal.StructField('instance_num', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('call_num', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('failure_class', 0, 0, storage.mojom.FailClassSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('failure_method', 8, 0, storage.mojom.FailMethodSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('instance_num', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('call_num', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 storage.mojom.MockFailureInjectorPendingReceiver = class {
   constructor(handle) {
@@ -111,9 +111,8 @@ storage.mojom.MockFailureInjectorRemoteCallHandler = class {
 
 storage.mojom.MockFailureInjector.getRemote = function() {
   let remote = new storage.mojom.MockFailureInjectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.MockFailureInjector',
     'context');
   return remote.$;
@@ -131,20 +130,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParams', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_GetFilePathForTesting_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('for_sqlite', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParams', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -160,7 +159,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('database_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('blob_number', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
@@ -168,13 +167,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParams', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -185,7 +184,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -347,9 +346,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
 
 storage.mojom.IndexedDBControlTest.getRemote = function() {
   let remote = new storage.mojom.IndexedDBControlTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.IndexedDBControlTest',
     'context');
   return remote.$;

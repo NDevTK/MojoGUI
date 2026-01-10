@@ -45,12 +45,12 @@ mojo.internal.Union(
     network.mojom.NoVarySearchWithParseErrorSpec, 'network.mojom.NoVarySearchWithParseError', {
       'no_vary_search': {
         'ordinal': 0,
-        'type': network.mojom.NoVarySearchSpec,
+        'type': network.mojom.NoVarySearchSpec.$,
         'nullable': false,
       },
       'parse_error': {
         'ordinal': 1,
-        'type': network.mojom.NoVarySearchParseErrorSpec,
+        'type': network.mojom.NoVarySearchParseErrorSpec.$,
         'nullable': false,
       },
     });
@@ -58,7 +58,7 @@ mojo.internal.Union(
 // Struct: NoVarySearch
 mojo.internal.Struct(
     network.mojom.NoVarySearchSpec, 'network.mojom.NoVarySearch', [
-      mojo.internal.StructField('search_variance', 0, 0, network.mojom.SearchParamsVarianceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('vary_on_key_order', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('search_variance', 0, 0, network.mojom.SearchParamsVarianceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('vary_on_key_order', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);

@@ -20,13 +20,13 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseP
 mojo.internal.Struct(
     ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_Params', [
       mojo.internal.StructField('destination_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('printer_type', 8, 0, printing.mojom.PrinterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printer_type', 8, 0, printing.mojom.PrinterTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParams', [
-      mojo.internal.StructField('capabilities', 0, 0, ash.printing.print_preview.mojom.CapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capabilities', 0, 0, ash.printing.print_preview.mojom.CapabilitiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -76,9 +76,8 @@ ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler = class {
 
 ash.printing.print_preview.mojom.DestinationProvider.getRemote = function() {
   let remote = new ash.printing.print_preview.mojom.DestinationProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.printing.print_preview.mojom.DestinationProvider',
     'context');
   return remote.$;

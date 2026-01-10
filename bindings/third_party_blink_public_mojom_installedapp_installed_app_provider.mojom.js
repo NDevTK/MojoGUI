@@ -18,15 +18,15 @@ blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = { $: {
 // Interface: InstalledAppProvider
 mojo.internal.Struct(
     blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_Params', [
-      mojo.internal.StructField('related_apps', 0, 0, mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('manifest_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('related_apps', 0, 0, mojo.internal.Array(blink.mojom.RelatedApplicationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('manifest_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('add_saved_related_applications', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParams', [
-      mojo.internal.StructField('installed_apps', 0, 0, mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('installed_apps', 0, 0, mojo.internal.Array(blink.mojom.RelatedApplicationSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -76,9 +76,8 @@ blink.mojom.InstalledAppProviderRemoteCallHandler = class {
 
 blink.mojom.InstalledAppProvider.getRemote = function() {
   let remote = new blink.mojom.InstalledAppProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.InstalledAppProvider',
     'context');
   return remote.$;

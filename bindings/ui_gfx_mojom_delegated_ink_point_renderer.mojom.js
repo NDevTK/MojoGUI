@@ -18,7 +18,7 @@ gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = { $: {} };
 // Interface: DelegatedInkPointRenderer
 mojo.internal.Struct(
     gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_Params', [
-      mojo.internal.StructField('point', 0, 0, gfx.mojom.DelegatedInkPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.DelegatedInkPointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -83,9 +83,8 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
 
 gfx.mojom.DelegatedInkPointRenderer.getRemote = function() {
   let remote = new gfx.mojom.DelegatedInkPointRendererRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'gfx.mojom.DelegatedInkPointRenderer',
     'context');
   return remote.$;

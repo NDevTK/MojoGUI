@@ -86,7 +86,7 @@ mojo.internal.Union(
     remoting.mojom.KeyActionSpec, 'remoting.mojom.KeyAction', {
       'function': {
         'ordinal': 0,
-        'type': remoting.mojom.LayoutKeyFunctionSpec,
+        'type': remoting.mojom.LayoutKeyFunctionSpec.$,
         'nullable': false,
       },
       'character': {
@@ -99,13 +99,13 @@ mojo.internal.Union(
 // Struct: KeyBehavior
 mojo.internal.Struct(
     remoting.mojom.KeyBehaviorSpec, 'remoting.mojom.KeyBehavior', [
-      mojo.internal.StructField('actions', 0, 0, mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyActionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('actions', 0, 0, mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyActionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: KeyboardLayout
 mojo.internal.Struct(
     remoting.mojom.KeyboardLayoutSpec, 'remoting.mojom.KeyboardLayout', [
-      mojo.internal.StructField('keys', 0, 0, mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyBehaviorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyBehaviorSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

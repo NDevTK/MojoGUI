@@ -27,23 +27,23 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_
 mojo.internal.Struct(
     contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, 'contextual_tasks_internals.mojom.GetRelevantContextRequest', [
       mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('tab_selection_mode', 8, 0, contextual_tasks.mojom.TabSelectionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('min_model_score', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tab_selection_mode', 8, 0, contextual_tasks.mojom.TabSelectionModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('min_model_score', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: Tab
 mojo.internal.Struct(
     contextual_tasks_internals.mojom.TabSpec, 'contextual_tasks_internals.mojom.Tab', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: GetRelevantContextResponse
 mojo.internal.Struct(
     contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, 'contextual_tasks_internals.mojom.GetRelevantContextResponse', [
-      mojo.internal.StructField('relevant_tabs', 0, 0, mojo.internal.Array(contextual_tasks_internals.mojom.TabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('relevant_tabs', 0, 0, mojo.internal.Array(contextual_tasks_internals.mojom.TabSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -101,9 +101,8 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemot
 
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory.getRemote = function() {
   let remote = new contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory',
     'context');
   return remote.$;
@@ -116,13 +115,13 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryReque
 // Interface: ContextualTasksInternalsPageHandler
 mojo.internal.Struct(
     contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_Params', [
-      mojo.internal.StructField('request', 0, 0, contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, contextual_tasks_internals.mojom.GetRelevantContextRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, contextual_tasks_internals.mojom.GetRelevantContextResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -172,9 +171,8 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemoteCallHa
 
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.getRemote = function() {
   let remote = new contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler',
     'context');
   return remote.$;
@@ -187,7 +185,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRequest = co
 // Interface: ContextualTasksInternalsPage
 mojo.internal.Struct(
     contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_Params', [
-      mojo.internal.StructField('event_time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_time', 0, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('source_line', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('message', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -240,9 +238,8 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemoteCallHandler =
 
 contextual_tasks_internals.mojom.ContextualTasksInternalsPage.getRemote = function() {
   let remote = new contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'contextual_tasks_internals.mojom.ContextualTasksInternalsPage',
     'context');
   return remote.$;

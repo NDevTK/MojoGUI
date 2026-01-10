@@ -69,7 +69,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec, 'crosapi.mojom.Crosapi_BindBrowserCdmFactory_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -417,9 +417,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
 
 crosapi.mojom.Crosapi.getRemote = function() {
   let remote = new crosapi.mojom.CrosapiRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.Crosapi',
     'context');
   return remote.$;

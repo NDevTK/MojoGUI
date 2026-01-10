@@ -26,9 +26,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ax.mojom.AutomationClient_Enable_ResponseParamsSpec, 'ax.mojom.AutomationClient_Enable_ResponseParams', [
-      mojo.internal.StructField('desktop_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('desktop_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ax.mojom.AutomationClient_Disable_ParamsSpec, 'ax.mojom.AutomationClient_Disable_Params', [
@@ -37,13 +37,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ax.mojom.AutomationClient_EnableChildTree_ParamsSpec, 'ax.mojom.AutomationClient_EnableChildTree_Params', [
-      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ax.mojom.AutomationClient_PerformAction_ParamsSpec, 'ax.mojom.AutomationClient_PerformAction_Params', [
-      mojo.internal.StructField('action_data', 0, 0, ax.mojom.AXActionDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_data', 0, 0, ax.mojom.AXActionDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -123,9 +123,8 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
 
 ax.mojom.AutomationClient.getRemote = function() {
   let remote = new ax.mojom.AutomationClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.AutomationClient',
     'context');
   return remote.$;

@@ -51,7 +51,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -63,7 +63,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, ash.cros_safety.mojom.GetCloudSafetySessionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.cros_safety.mojom.GetCloudSafetySessionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -123,9 +123,8 @@ ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler = class {
 
 ash.cros_safety.mojom.CrosSafetyService.getRemote = function() {
   let remote = new ash.cros_safety.mojom.CrosSafetyServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cros_safety.mojom.CrosSafetyService',
     'context');
   return remote.$;

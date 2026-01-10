@@ -16,8 +16,8 @@ network.mojom.EarlyHintsSpec = { $: {} };
 // Struct: EarlyHints
 mojo.internal.Struct(
     network.mojom.EarlyHintsSpec, 'network.mojom.EarlyHints', [
-      mojo.internal.StructField('headers', 0, 0, network.mojom.ParsedHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('referrer_policy', 8, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('ip_address_space', 12, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 0, 0, network.mojom.ParsedHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('referrer_policy', 8, 0, network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ip_address_space', 16, 0, network.mojom.IPAddressSpaceSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

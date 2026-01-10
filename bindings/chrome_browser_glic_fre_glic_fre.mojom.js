@@ -92,9 +92,8 @@ glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class {
 
 glic.mojom.FrePageHandlerFactory.getRemote = function() {
   let remote = new glic.mojom.FrePageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'glic.mojom.FrePageHandlerFactory',
     'context');
   return remote.$;
@@ -117,7 +116,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.FrePageHandler_DismissFre_ParamsSpec, 'glic.mojom.FrePageHandler_DismissFre_Params', [
-      mojo.internal.StructField('panel', 0, 0, glic.mojom.FreWebUiStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('panel', 0, 0, glic.mojom.FreWebUiStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -139,13 +138,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec, 'glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec, 'glic.mojom.FrePageHandler_WebUiStateChanged_Params', [
-      mojo.internal.StructField('new_state', 0, 0, glic.mojom.FreWebUiStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_state', 0, 0, glic.mojom.FreWebUiStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -285,9 +284,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
 
 glic.mojom.FrePageHandler.getRemote = function() {
   let remote = new glic.mojom.FrePageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'glic.mojom.FrePageHandler',
     'context');
   return remote.$;

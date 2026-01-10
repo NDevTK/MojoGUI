@@ -26,11 +26,11 @@ blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = { $: {} 
 // Struct: PolicyContainerPolicies
 mojo.internal.Struct(
     blink.mojom.PolicyContainerPoliciesSpec, 'blink.mojom.PolicyContainerPolicies', [
-      mojo.internal.StructField('connection_allowlists', 0, 0, network.mojom.ConnectionAllowlistsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('cross_origin_embedder_policy', 8, 0, network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('integrity_policy', 16, 0, network.mojom.IntegrityPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('integrity_policy_report_only', 24, 0, network.mojom.IntegrityPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_security_policies', 32, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('connection_allowlists', 0, 0, network.mojom.ConnectionAllowlistsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cross_origin_embedder_policy', 8, 0, network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('integrity_policy', 16, 0, network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('integrity_policy_report_only', 24, 0, network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('content_security_policies', 32, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('is_credentialless', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('can_navigate_top_without_user_gesture', 40, 1, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('cross_origin_isolation_enabled_by_dip', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -40,7 +40,7 @@ mojo.internal.Struct(
 // Struct: PolicyContainer
 mojo.internal.Struct(
     blink.mojom.PolicyContainerSpec, 'blink.mojom.PolicyContainer', [
-      mojo.internal.StructField('policies', 0, 0, blink.mojom.PolicyContainerPoliciesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policies', 0, 0, blink.mojom.PolicyContainerPoliciesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -55,13 +55,13 @@ mojo.internal.Struct(
 // Interface: PolicyContainerHost
 mojo.internal.Struct(
     blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec, 'blink.mojom.PolicyContainerHost_SetReferrerPolicy_Params', [
-      mojo.internal.StructField('referrer_policy', 0, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer_policy', 0, 0, network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec, 'blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_Params', [
-      mojo.internal.StructField('content_security_policies', 0, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('content_security_policies', 0, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -121,9 +121,8 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
 
 blink.mojom.PolicyContainerHost.getRemote = function() {
   let remote = new blink.mojom.PolicyContainerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PolicyContainerHost',
     'context');
   return remote.$;

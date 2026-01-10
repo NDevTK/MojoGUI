@@ -25,18 +25,18 @@ unexportable_keys_internals.mojom.Page.$interfaceName = 'unexportable_keys_inter
 // Struct: UnexportableKeyId
 mojo.internal.Struct(
     unexportable_keys_internals.mojom.UnexportableKeyIdSpec, 'unexportable_keys_internals.mojom.UnexportableKeyId', [
-      mojo.internal.StructField('key_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: UnexportableKeyInfo
 mojo.internal.Struct(
     unexportable_keys_internals.mojom.UnexportableKeyInfoSpec, 'unexportable_keys_internals.mojom.UnexportableKeyInfo', [
-      mojo.internal.StructField('key_id', 0, 0, unexportable_keys_internals.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_id', 0, 0, unexportable_keys_internals.mojom.UnexportableKeyIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('wrapped_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('algorithm', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('key_tag', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('creation_time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 32, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -94,9 +94,8 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 unexportable_keys_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new unexportable_keys_internals.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'unexportable_keys_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -114,13 +113,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParams', [
-      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(unexportable_keys_internals.mojom.UnexportableKeyInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(unexportable_keys_internals.mojom.UnexportableKeyInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_DeleteKey_Params', [
-      mojo.internal.StructField('key_id', 0, 0, unexportable_keys_internals.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_id', 0, 0, unexportable_keys_internals.mojom.UnexportableKeyIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -186,9 +185,8 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 unexportable_keys_internals.mojom.PageHandler.getRemote = function() {
   let remote = new unexportable_keys_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'unexportable_keys_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -235,9 +233,8 @@ unexportable_keys_internals.mojom.PageRemoteCallHandler = class {
 
 unexportable_keys_internals.mojom.Page.getRemote = function() {
   let remote = new unexportable_keys_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'unexportable_keys_internals.mojom.Page',
     'context');
   return remote.$;

@@ -63,13 +63,13 @@ device.mojom.kXrSandbox = sandbox.mojom.Sandbox.kUtility;
 // Struct: XRRuntimeSessionOptions
 mojo.internal.Struct(
     device.mojom.XRRuntimeSessionOptionsSpec, 'device.mojom.XRRuntimeSessionOptions', [
-      mojo.internal.StructField('mode', 0, 0, device.mojom.XRSessionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('required_features', 8, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('optional_features', 16, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, device.mojom.XRSessionModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('required_features', 8, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('optional_features', 16, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('render_process_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('render_frame_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('tracked_images', 32, 0, mojo.internal.Array(device.mojom.XRTrackedImageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('depth_options', 40, 0, device.mojom.XRDepthOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tracked_images', 32, 0, mojo.internal.Array(device.mojom.XRTrackedImageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('depth_options', 40, 0, device.mojom.XRDepthOptionsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('trace_id', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -78,8 +78,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.XRRuntimeSessionResultSpec, 'device.mojom.XRRuntimeSessionResult', [
       mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRSessionControllerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('session', 8, 0, device.mojom.XRSessionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_id', 16, 0, viz.mojom.FrameSinkIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('session', 8, 0, device.mojom.XRSessionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 16, 0, viz.mojom.FrameSinkIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('overlay', 24, 0, mojo.internal.InterfaceProxy(device.mojom.ImmersiveOverlayRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
@@ -87,8 +87,8 @@ mojo.internal.Struct(
 // Struct: XRDeviceData
 mojo.internal.Struct(
     device.mojom.XRDeviceDataSpec, 'device.mojom.XRDeviceData', [
-      mojo.internal.StructField('supported_features', 0, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('luid', 8, 0, gpu.mojom.LuidSpec, null, true, 0, undefined),
+      mojo.internal.StructField('supported_features', 0, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('luid', 8, 0, gpu.mojom.LuidSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('is_ar_blend_mode_supported', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -146,9 +146,8 @@ device.mojom.XRSessionControllerRemoteCallHandler = class {
 
 device.mojom.XRSessionController.getRemote = function() {
   let remote = new device.mojom.XRSessionControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.XRSessionController',
     'context');
   return remote.$;
@@ -161,7 +160,7 @@ device.mojom.XRSessionControllerRequest = device.mojom.XRSessionControllerPendin
 // Interface: XRRuntimeEventListener
 mojo.internal.Struct(
     device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec, 'device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_Params', [
-      mojo.internal.StructField('visibility_state', 0, 0, device.mojom.XRVisibilityStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visibility_state', 0, 0, device.mojom.XRVisibilityStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -226,9 +225,8 @@ device.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
 
 device.mojom.XRRuntimeEventListener.getRemote = function() {
   let remote = new device.mojom.XRRuntimeEventListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.XRRuntimeEventListener',
     'context');
   return remote.$;
@@ -241,13 +239,13 @@ device.mojom.XRRuntimeEventListenerRequest = device.mojom.XRRuntimeEventListener
 // Interface: XRRuntime
 mojo.internal.Struct(
     device.mojom.XRRuntime_RequestSession_ParamsSpec, 'device.mojom.XRRuntime_RequestSession_Params', [
-      mojo.internal.StructField('options', 0, 0, device.mojom.XRRuntimeSessionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, device.mojom.XRRuntimeSessionOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.XRRuntime_RequestSession_ResponseParamsSpec, 'device.mojom.XRRuntime_RequestSession_ResponseParams', [
-      mojo.internal.StructField('session', 0, 0, device.mojom.XRRuntimeSessionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, device.mojom.XRRuntimeSessionResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -333,9 +331,8 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
 
 device.mojom.XRRuntime.getRemote = function() {
   let remote = new device.mojom.XRRuntimeRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.XRRuntime',
     'context');
   return remote.$;
@@ -353,17 +350,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec, 'device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParams', [
-      mojo.internal.StructField('render_info', 0, 0, device.mojom.XRRenderInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('render_info', 0, 0, device.mojom.XRRenderInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec, 'device.mojom.ImmersiveOverlay_SubmitOverlayTexture_Params', [
       mojo.internal.StructField('frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('texture', 8, 0, gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sync_token', 16, 0, gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('left_bounds', 24, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('right_bounds', 32, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('texture', 8, 0, gfx.mojom.GpuMemoryBufferHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sync_token', 16, 0, gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('left_bounds', 24, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('right_bounds', 32, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -466,9 +463,8 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
 
 device.mojom.ImmersiveOverlay.getRemote = function() {
   let remote = new device.mojom.ImmersiveOverlayRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.ImmersiveOverlay',
     'context');
   return remote.$;
@@ -482,14 +478,14 @@ device.mojom.ImmersiveOverlayRequest = device.mojom.ImmersiveOverlayPendingRecei
 mojo.internal.Struct(
     device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec, 'device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_Params', [
       mojo.internal.StructField('runtime', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRRuntimeRemote), null, false, 0, undefined),
-      mojo.internal.StructField('device_data', 8, 0, device.mojom.XRDeviceDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_id', 16, 0, device.mojom.XRDeviceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_data', 8, 0, device.mojom.XRDeviceDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('device_id', 16, 0, device.mojom.XRDeviceIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec, 'device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_Params', [
-      mojo.internal.StructField('device_index', 0, 0, device.mojom.XRDeviceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_index', 0, 0, device.mojom.XRDeviceIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -564,9 +560,8 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
 
 device.mojom.IsolatedXRRuntimeProviderClient.getRemote = function() {
   let remote = new device.mojom.IsolatedXRRuntimeProviderClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.IsolatedXRRuntimeProviderClient',
     'context');
   return remote.$;
@@ -629,9 +624,8 @@ device.mojom.IsolatedXRRuntimeProviderRemoteCallHandler = class {
 
 device.mojom.IsolatedXRRuntimeProvider.getRemote = function() {
   let remote = new device.mojom.IsolatedXRRuntimeProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.IsolatedXRRuntimeProvider',
     'context');
   return remote.$;
@@ -711,9 +705,8 @@ device.mojom.XRDeviceServiceRemoteCallHandler = class {
 
 device.mojom.XRDeviceService.getRemote = function() {
   let remote = new device.mojom.XRDeviceServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.XRDeviceService',
     'context');
   return remote.$;
@@ -776,9 +769,8 @@ device.mojom.XRDeviceServiceHostRemoteCallHandler = class {
 
 device.mojom.XRDeviceServiceHost.getRemote = function() {
   let remote = new device.mojom.XRDeviceServiceHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.XRDeviceServiceHost',
     'context');
   return remote.$;

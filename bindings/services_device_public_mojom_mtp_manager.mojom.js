@@ -44,7 +44,7 @@ device.mojom.MtpManager_DeleteObject_ResponseParamsSpec = { $: {} };
 // Interface: MtpManagerClient
 mojo.internal.Struct(
     device.mojom.MtpManagerClient_StorageAttached_ParamsSpec, 'device.mojom.MtpManagerClient_StorageAttached_Params', [
-      mojo.internal.StructField('storage_info', 0, 0, device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_info', 0, 0, device.mojom.MtpStorageInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -110,9 +110,8 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
 
 device.mojom.MtpManagerClient.getRemote = function() {
   let remote = new device.mojom.MtpManagerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.MtpManagerClient',
     'context');
   return remote.$;
@@ -131,7 +130,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec, 'device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParams', [
-      mojo.internal.StructField('storages', 0, 0, mojo.internal.Array(device.mojom.MtpStorageInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('storages', 0, 0, mojo.internal.Array(device.mojom.MtpStorageInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -143,7 +142,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec, 'device.mojom.MtpManager_GetStorageInfo_ResponseParams', [
-      mojo.internal.StructField('storage_info', 0, 0, device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_info', 0, 0, device.mojom.MtpStorageInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -155,7 +154,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec, 'device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParams', [
-      mojo.internal.StructField('storage_info', 0, 0, device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_info', 0, 0, device.mojom.MtpStorageInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -239,7 +238,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec, 'device.mojom.MtpManager_GetFileInfo_ResponseParams', [
-      mojo.internal.StructField('file_entries', 0, 0, mojo.internal.Array(device.mojom.MtpFileEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('file_entries', 0, 0, mojo.internal.Array(device.mojom.MtpFileEntrySpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -442,9 +441,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
 
 device.mojom.MtpManager.getRemote = function() {
   let remote = new device.mojom.MtpManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.MtpManager',
     'context');
   return remote.$;

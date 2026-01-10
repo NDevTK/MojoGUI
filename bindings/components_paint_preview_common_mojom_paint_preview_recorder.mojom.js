@@ -38,12 +38,12 @@ paint_preview.mojom.PaintPreviewStatus = {
 // Struct: PaintPreviewCaptureParams
 mojo.internal.Struct(
     paint_preview.mojom.PaintPreviewCaptureParamsSpec, 'paint_preview.mojom.PaintPreviewCaptureParams', [
-      mojo.internal.StructField('persistence', 0, 0, paint_preview.mojom.RecordingPersistenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('guid', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('geometry_metadata_params', 16, 0, paint_preview.mojom.GeometryMetadataParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('persistence', 0, 0, paint_preview.mojom.RecordingPersistenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('guid', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('geometry_metadata_params', 16, 0, paint_preview.mojom.GeometryMetadataParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_main_frame', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('capture_links', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('file', 32, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('file', 32, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('max_capture_size', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('max_decoded_image_size_bytes', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('skip_accelerated_content', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -53,58 +53,58 @@ mojo.internal.Struct(
 // Struct: LinkData
 mojo.internal.Struct(
     paint_preview.mojom.LinkDataSpec, 'paint_preview.mojom.LinkData', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PaintPreviewCaptureResponse
 mojo.internal.Struct(
     paint_preview.mojom.PaintPreviewCaptureResponseSpec, 'paint_preview.mojom.PaintPreviewCaptureResponse', [
-      mojo.internal.StructField('embedding_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('content_id_to_embedding_token', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo_base.mojom.UnguessableTokenSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('links', 16, 0, mojo.internal.Array(paint_preview.mojom.LinkDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('blink_recording_time', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('embedding_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('content_id_to_embedding_token', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo_base.mojom.UnguessableTokenSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('links', 16, 0, mojo.internal.Array(paint_preview.mojom.LinkDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('blink_recording_time', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('serialized_size', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('geometry_metadata', 40, 0, paint_preview.mojom.GeometryMetadataResponseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('skp', 48, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('geometry_metadata', 40, 0, paint_preview.mojom.GeometryMetadataResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('skp', 48, 0, mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: GeometryMetadataParams
 mojo.internal.Struct(
     paint_preview.mojom.GeometryMetadataParamsSpec, 'paint_preview.mojom.GeometryMetadataParams', [
-      mojo.internal.StructField('clip_rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('clip_x_coord_override', 8, 0, paint_preview.mojom.ClipCoordOverrideSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('clip_y_coord_override', 12, 0, paint_preview.mojom.ClipCoordOverrideSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('clip_rect_is_hint', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('clip_rect', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('clip_x_coord_override', 8, 0, paint_preview.mojom.ClipCoordOverrideSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('clip_y_coord_override', 16, 0, paint_preview.mojom.ClipCoordOverrideSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('clip_rect_is_hint', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: GeometryMetadataResponse
 mojo.internal.Struct(
     paint_preview.mojom.GeometryMetadataResponseSpec, 'paint_preview.mojom.GeometryMetadataResponse', [
-      mojo.internal.StructField('scroll_offsets', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_offsets', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_offsets', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_offsets', 8, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: PaintPreviewRecorder
 mojo.internal.Struct(
     paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec, 'paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_Params', [
-      mojo.internal.StructField('params', 0, 0, paint_preview.mojom.PaintPreviewCaptureParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, paint_preview.mojom.PaintPreviewCaptureParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec, 'paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_Params', [
-      mojo.internal.StructField('params', 0, 0, paint_preview.mojom.GeometryMetadataParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, paint_preview.mojom.GeometryMetadataParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, paint_preview.mojom.GeometryMetadataResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, paint_preview.mojom.GeometryMetadataResponseSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -164,9 +164,8 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
 
 paint_preview.mojom.PaintPreviewRecorder.getRemote = function() {
   let remote = new paint_preview.mojom.PaintPreviewRecorderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'paint_preview.mojom.PaintPreviewRecorder',
     'context');
   return remote.$;

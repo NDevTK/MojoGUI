@@ -26,7 +26,7 @@ mojo.internal.Union(
     arc.keymint.mojom.KeyDataSpec, 'arc.keymint.mojom.KeyData', {
       'chaps_key_data': {
         'ordinal': 0,
-        'type': arc.keymint.mojom.ChapsKeyDataSpec,
+        'type': arc.keymint.mojom.ChapsKeyDataSpec.$,
         'nullable': false,
       },
     });
@@ -36,7 +36,7 @@ mojo.internal.Struct(
     arc.keymint.mojom.ChapsKeyDataSpec, 'arc.keymint.mojom.ChapsKeyData', [
       mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('slot', 16, 0, arc.keymanagement.mojom.ChapsSlotSpec, null, false, 1, undefined),
+      mojo.internal.StructField('slot', 16, 0, arc.keymanagement.mojom.ChapsSlotSpec.$, null, false, 1, undefined),
     ],
     [[0, 24], [1, 32]]);
 
@@ -44,14 +44,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.keymint.mojom.ChromeOsKeySpec, 'arc.keymint.mojom.ChromeOsKey', [
       mojo.internal.StructField('base64_subject_public_key_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('key_data', 8, 0, arc.keymint.mojom.KeyDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 8, 0, arc.keymint.mojom.KeyDataSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: CertStoreInstance
 mojo.internal.Struct(
     arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec, 'arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_Params', [
-      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(arc.keymint.mojom.ChromeOsKeySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(arc.keymint.mojom.ChromeOsKeySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -123,9 +123,8 @@ arc.keymint.mojom.CertStoreInstanceRemoteCallHandler = class {
 
 arc.keymint.mojom.CertStoreInstance.getRemote = function() {
   let remote = new arc.keymint.mojom.CertStoreInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.keymint.mojom.CertStoreInstance',
     'context');
   return remote.$;

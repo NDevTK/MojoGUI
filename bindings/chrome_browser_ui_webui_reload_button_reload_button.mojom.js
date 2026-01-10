@@ -82,9 +82,8 @@ reload_button.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 reload_button.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new reload_button.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'reload_button.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -98,7 +97,7 @@ reload_button.mojom.PageHandlerFactoryRequest = reload_button.mojom.PageHandlerF
 mojo.internal.Struct(
     reload_button.mojom.PageHandler_Reload_ParamsSpec, 'reload_button.mojom.PageHandler_Reload_Params', [
       mojo.internal.StructField('ignore_cache', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('flags', 8, 0, mojo.internal.Array(reload_button.mojom.ClickDispositionFlagSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('flags', 8, 0, mojo.internal.Array(reload_button.mojom.ClickDispositionFlagSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -180,9 +179,8 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
 
 reload_button.mojom.PageHandler.getRemote = function() {
   let remote = new reload_button.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'reload_button.mojom.PageHandler',
     'context');
   return remote.$;
@@ -246,9 +244,8 @@ reload_button.mojom.PageRemoteCallHandler = class {
 
 reload_button.mojom.Page.getRemote = function() {
   let remote = new reload_button.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'reload_button.mojom.Page',
     'context');
   return remote.$;

@@ -90,7 +90,7 @@ cros.mojom.KioskVisionError = {
 mojo.internal.Struct(
     cros.mojom.KioskVisionDetectionSpec, 'cros.mojom.KioskVisionDetection', [
       mojo.internal.StructField('timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('appearances', 8, 0, mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('appearances', 8, 0, mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -100,7 +100,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('person_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('start_timestamp_in_us', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('end_timestamp_in_us', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('appearances', 24, 0, mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('appearances', 24, 0, mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -109,8 +109,8 @@ mojo.internal.Struct(
     cros.mojom.KioskVisionAppearanceSpec, 'cros.mojom.KioskVisionAppearance', [
       mojo.internal.StructField('timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('person_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('face', 16, 0, cros.mojom.KioskVisionFaceDetectionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('body', 24, 0, cros.mojom.KioskVisionBodyDetectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('face', 16, 0, cros.mojom.KioskVisionFaceDetectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('body', 24, 0, cros.mojom.KioskVisionBodyDetectionSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -121,7 +121,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('roll', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('pan', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('tilt', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('box', 24, 0, cros.mojom.KioskVisionBoundingBoxSpec, null, false, 0, undefined),
+      mojo.internal.StructField('box', 24, 0, cros.mojom.KioskVisionBoundingBoxSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -129,7 +129,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.KioskVisionBodyDetectionSpec, 'cros.mojom.KioskVisionBodyDetection', [
       mojo.internal.StructField('confidence', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('box', 8, 0, cros.mojom.KioskVisionBoundingBoxSpec, null, false, 0, undefined),
+      mojo.internal.StructField('box', 8, 0, cros.mojom.KioskVisionBoundingBoxSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -146,19 +146,19 @@ mojo.internal.Struct(
 // Interface: KioskVisionObserver
 mojo.internal.Struct(
     cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec, 'cros.mojom.KioskVisionObserver_OnFrameProcessed_Params', [
-      mojo.internal.StructField('detection', 0, 0, cros.mojom.KioskVisionDetectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('detection', 0, 0, cros.mojom.KioskVisionDetectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec, 'cros.mojom.KioskVisionObserver_OnTrackCompleted_Params', [
-      mojo.internal.StructField('track', 0, 0, cros.mojom.KioskVisionTrackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('track', 0, 0, cros.mojom.KioskVisionTrackSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cros.mojom.KioskVisionObserver_OnError_ParamsSpec, 'cros.mojom.KioskVisionObserver_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, cros.mojom.KioskVisionErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, cros.mojom.KioskVisionErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -228,9 +228,8 @@ cros.mojom.KioskVisionObserverRemoteCallHandler = class {
 
 cros.mojom.KioskVisionObserver.getRemote = function() {
   let remote = new cros.mojom.KioskVisionObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.KioskVisionObserver',
     'context');
   return remote.$;
@@ -244,8 +243,8 @@ cros.mojom.KioskVisionObserverRequest = cros.mojom.KioskVisionObserverPendingRec
 mojo.internal.Struct(
     cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec, 'cros.mojom.CameraHalDispatcher_RegisterClientWithToken_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraHalClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, cros.mojom.CameraClientTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('auth_token', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('auth_token', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -301,9 +300,8 @@ cros.mojom.CameraHalDispatcherRemoteCallHandler = class {
 
 cros.mojom.CameraHalDispatcher.getRemote = function() {
   let remote = new cros.mojom.CameraHalDispatcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CameraHalDispatcher',
     'context');
   return remote.$;
@@ -318,32 +316,32 @@ mojo.internal.Struct(
     cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_Params', [
       mojo.internal.StructField('camera_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('opened', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, cros.mojom.CameraClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_Params', [
-      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('camera_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('camera_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_Params', [
-      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraEffectChange_Params', [
-      mojo.internal.StructField('config', 0, 0, cros.mojom.EffectsConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, cros.mojom.EffectsConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_Params', [
-      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraAutoFramingStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraAutoFramingStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -433,9 +431,8 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
 
 cros.mojom.CrosCameraServiceObserver.getRemote = function() {
   let remote = new cros.mojom.CrosCameraServiceObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CrosCameraServiceObserver',
     'context');
   return remote.$;
@@ -448,7 +445,7 @@ cros.mojom.CrosCameraServiceObserverRequest = cros.mojom.CrosCameraServiceObserv
 // Interface: CrosCameraService
 mojo.internal.Struct(
     cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec, 'cros.mojom.CrosCameraService_GetCameraModule_Params', [
-      mojo.internal.StructField('type', 0, 0, cros.mojom.CameraClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -466,7 +463,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec, 'cros.mojom.CrosCameraService_SetAutoFramingState_Params', [
-      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraAutoFramingStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraAutoFramingStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -477,13 +474,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec, 'cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParams', [
-      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec, 'cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_Params', [
-      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -500,13 +497,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec, 'cros.mojom.CrosCameraService_SetCameraEffect_Params', [
-      mojo.internal.StructField('config', 0, 0, cros.mojom.EffectsConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, cros.mojom.EffectsConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec, 'cros.mojom.CrosCameraService_SetCameraEffect_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, cros.mojom.SetEffectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, cros.mojom.SetEffectResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -649,9 +646,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
 
 cros.mojom.CrosCameraService.getRemote = function() {
   let remote = new cros.mojom.CrosCameraServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CrosCameraService',
     'context');
   return remote.$;

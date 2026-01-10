@@ -28,7 +28,7 @@ auction_worklet.mojom.TrustedSignalsCompressionScheme = {
 // Struct: TrustedSignalsCacheKey
 mojo.internal.Struct(
     auction_worklet.mojom.TrustedSignalsCacheKeySpec, 'auction_worklet.mojom.TrustedSignalsCacheKey', [
-      mojo.internal.StructField('compression_group_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compression_group_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('partition_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -36,10 +36,10 @@ mojo.internal.Struct(
 // Interface: TrustedSignalsCacheClient
 mojo.internal.Struct(
     auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_Params', [
-      mojo.internal.StructField('compression_scheme', 0, 0, auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('compression_group_data', 8, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compression_scheme', 0, 0, auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('compression_group_data', 8, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnError_Params', [
@@ -103,9 +103,8 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
 
 auction_worklet.mojom.TrustedSignalsCacheClient.getRemote = function() {
   let remote = new auction_worklet.mojom.TrustedSignalsCacheClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'auction_worklet.mojom.TrustedSignalsCacheClient',
     'context');
   return remote.$;
@@ -118,7 +117,7 @@ auction_worklet.mojom.TrustedSignalsCacheClientRequest = auction_worklet.mojom.T
 // Interface: TrustedSignalsCache
 mojo.internal.Struct(
     auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_Params', [
-      mojo.internal.StructField('compression_group_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compression_group_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.TrustedSignalsCacheClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -169,9 +168,8 @@ auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandler = class {
 
 auction_worklet.mojom.TrustedSignalsCache.getRemote = function() {
   let remote = new auction_worklet.mojom.TrustedSignalsCacheRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'auction_worklet.mojom.TrustedSignalsCache',
     'context');
   return remote.$;

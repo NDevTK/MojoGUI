@@ -26,8 +26,8 @@ gpu.mojom.CommandBufferNamespace = {
 mojo.internal.Struct(
     gpu.mojom.SyncTokenSpec, 'gpu.mojom.SyncToken', [
       mojo.internal.StructField('verified_flush', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('namespace_id', 4, 0, gpu.mojom.CommandBufferNamespaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('command_buffer_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('release_count', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('namespace_id', 8, 0, gpu.mojom.CommandBufferNamespaceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('command_buffer_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('release_count', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);

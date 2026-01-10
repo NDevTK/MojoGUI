@@ -29,7 +29,7 @@ mojo.internal.Struct(
     media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec, 'media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_Params', [
       mojo.internal.StructField('fetcher_receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioSourceFetcherRemote), null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionRecognizerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('options', 16, 0, media.mojom.SpeechRecognitionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, media.mojom.SpeechRecognitionOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -85,9 +85,8 @@ media.mojom.AudioSourceSpeechRecognitionContextRemoteCallHandler = class {
 
 media.mojom.AudioSourceSpeechRecognitionContext.getRemote = function() {
   let remote = new media.mojom.AudioSourceSpeechRecognitionContextRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AudioSourceSpeechRecognitionContext',
     'context');
   return remote.$;
@@ -112,8 +111,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec, 'media.mojom.SpeechRecognitionService_SetSodaPaths_Params', [
-      mojo.internal.StructField('binary_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('config_paths', 8, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('binary_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('config_paths', 8, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('primary_language_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -126,7 +125,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec, 'media.mojom.SpeechRecognitionService_SetSodaConfigPaths_Params', [
-      mojo.internal.StructField('config_paths', 0, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('config_paths', 0, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -216,9 +215,8 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
 
 media.mojom.SpeechRecognitionService.getRemote = function() {
   let remote = new media.mojom.SpeechRecognitionServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.SpeechRecognitionService',
     'context');
   return remote.$;
@@ -233,7 +231,7 @@ mojo.internal.Struct(
     media.mojom.AudioSourceFetcher_Start_ParamsSpec, 'media.mojom.AudioSourceFetcher_Start_Params', [
       mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('audio_parameters', 16, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('audio_parameters', 16, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -298,9 +296,8 @@ media.mojom.AudioSourceFetcherRemoteCallHandler = class {
 
 media.mojom.AudioSourceFetcher.getRemote = function() {
   let remote = new media.mojom.AudioSourceFetcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AudioSourceFetcher',
     'context');
   return remote.$;

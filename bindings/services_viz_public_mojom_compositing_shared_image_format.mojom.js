@@ -44,12 +44,12 @@ mojo.internal.Union(
     viz.mojom.SharedImageFormatSpec, 'viz.mojom.SharedImageFormat', {
       'singleplanar_format': {
         'ordinal': 0,
-        'type': viz.mojom.SingleplanarFormatSpec,
+        'type': viz.mojom.SingleplanarFormatSpec.$,
         'nullable': false,
       },
       'multiplanar_format': {
         'ordinal': 1,
-        'type': viz.mojom.MultiplanarFormatSpec,
+        'type': viz.mojom.MultiplanarFormatSpec.$,
         'nullable': false,
       },
     });
@@ -57,9 +57,9 @@ mojo.internal.Union(
 // Struct: MultiplanarFormat
 mojo.internal.Struct(
     viz.mojom.MultiplanarFormatSpec, 'viz.mojom.MultiplanarFormat', [
-      mojo.internal.StructField('plane_config', 0, 0, viz.mojom.PlaneConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('subsampling', 4, 0, viz.mojom.SubsamplingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('channel_format', 8, 0, viz.mojom.ChannelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('prefers_external_sampler', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('plane_config', 0, 0, viz.mojom.PlaneConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('subsampling', 8, 0, viz.mojom.SubsamplingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('channel_format', 16, 0, viz.mojom.ChannelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('prefers_external_sampler', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 40]]);

@@ -23,7 +23,7 @@ network.mojom.UnencodedDigestIssue = {
 // Struct: UnencodedDigests
 mojo.internal.Struct(
     network.mojom.UnencodedDigestsSpec, 'network.mojom.UnencodedDigests', [
-      mojo.internal.StructField('digests', 0, 0, mojo.internal.Array(network.mojom.IntegrityMetadataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('issues', 8, 0, mojo.internal.Array(network.mojom.UnencodedDigestIssueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('digests', 0, 0, mojo.internal.Array(network.mojom.IntegrityMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('issues', 8, 0, mojo.internal.Array(network.mojom.UnencodedDigestIssueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

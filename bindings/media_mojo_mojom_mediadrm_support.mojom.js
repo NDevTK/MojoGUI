@@ -19,7 +19,7 @@ mojo.internal.Struct(
     media.mojom.MediaDrmSupportResultSpec, 'media.mojom.MediaDrmSupportResult', [
       mojo.internal.StructField('key_system_supports_video_mp4', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('key_system_supports_video_webm', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('key_system_version', 8, 0, mojo_base.mojom.VersionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('key_system_version', 8, 0, mojo_base.mojom.VersionSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -33,7 +33,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParams', [
-      mojo.internal.StructField('key_system_supports', 0, 0, media.mojom.MediaDrmSupportResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('key_system_supports', 0, 0, media.mojom.MediaDrmSupportResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -83,9 +83,8 @@ media.mojom.MediaDrmSupportRemoteCallHandler = class {
 
 media.mojom.MediaDrmSupport.getRemote = function() {
   let remote = new media.mojom.MediaDrmSupportRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaDrmSupport',
     'context');
   return remote.$;

@@ -24,7 +24,7 @@ mojo.internal.Union(
       },
       'response': {
         'ordinal': 1,
-        'type': mojo_base.mojom.ProtoWrapperSpec,
+        'type': mojo_base.mojom.ProtoWrapperSpec.$,
         'nullable': false,
       },
     });
@@ -37,9 +37,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec, 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ai.mojom.SmartTabGroupingResponseResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ai.mojom.SmartTabGroupingResponseResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 ai.mojom.SmartTabGroupingServicePendingReceiver = class {
   constructor(handle) {
@@ -87,9 +87,8 @@ ai.mojom.SmartTabGroupingServiceRemoteCallHandler = class {
 
 ai.mojom.SmartTabGroupingService.getRemote = function() {
   let remote = new ai.mojom.SmartTabGroupingServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ai.mojom.SmartTabGroupingService',
     'context');
   return remote.$;

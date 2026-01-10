@@ -30,7 +30,7 @@ lens.mojom.CoordinateType = {
 // Struct: Polygon
 mojo.internal.Struct(
     lens.mojom.PolygonSpec, 'lens.mojom.Polygon', [
-      mojo.internal.StructField('vertex', 0, 0, mojo.internal.Array(lens.mojom.VertexSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('vertex', 0, 0, mojo.internal.Array(lens.mojom.VertexSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('kUnspecified', 8, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 24]]);

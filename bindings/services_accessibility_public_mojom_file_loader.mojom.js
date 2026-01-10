@@ -16,13 +16,13 @@ ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = { $: {} };
 // Interface: AccessibilityFileLoader
 mojo.internal.Struct(
     ax.mojom.AccessibilityFileLoader_Load_ParamsSpec, 'ax.mojom.AccessibilityFileLoader_Load_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.RelativeFilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.RelativeFilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec, 'ax.mojom.AccessibilityFileLoader_Load_ResponseParams', [
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ ax.mojom.AccessibilityFileLoaderRemoteCallHandler = class {
 
 ax.mojom.AccessibilityFileLoader.getRemote = function() {
   let remote = new ax.mojom.AccessibilityFileLoaderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.AccessibilityFileLoader',
     'context');
   return remote.$;

@@ -46,8 +46,8 @@ printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec = { $: {} };
 // Struct: PrinterCapsAndInfo
 mojo.internal.Struct(
     printing.mojom.PrinterCapsAndInfoSpec, 'printing.mojom.PrinterCapsAndInfo', [
-      mojo.internal.StructField('printer_info', 0, 0, printing.mojom.PrinterBasicInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('printer_caps', 8, 0, printing.mojom.PrinterSemanticCapsAndDefaultsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printer_info', 0, 0, printing.mojom.PrinterBasicInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('printer_caps', 8, 0, printing.mojom.PrinterSemanticCapsAndDefaultsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -104,9 +104,8 @@ printing.mojom.UnsandboxedPrintBackendHostRemoteCallHandler = class {
 
 printing.mojom.UnsandboxedPrintBackendHost.getRemote = function() {
   let remote = new printing.mojom.UnsandboxedPrintBackendHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'printing.mojom.UnsandboxedPrintBackendHost',
     'context');
   return remote.$;
@@ -169,9 +168,8 @@ printing.mojom.SandboxedPrintBackendHostRemoteCallHandler = class {
 
 printing.mojom.SandboxedPrintBackendHost.getRemote = function() {
   let remote = new printing.mojom.SandboxedPrintBackendHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'printing.mojom.SandboxedPrintBackendHost',
     'context');
   return remote.$;
@@ -219,13 +217,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec, 'printing.mojom.PrintBackendService_GetPaperPrintableArea_Params', [
       mojo.internal.StructField('printer_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('media', 8, 0, printing.mojom.RequestedMediaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media', 8, 0, printing.mojom.RequestedMediaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec, 'printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParams', [
-      mojo.internal.StructField('printable_area_um', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printable_area_um', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -254,7 +252,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec, 'printing.mojom.PrintBackendService_UpdatePrintSettings_Params', [
       mojo.internal.StructField('context_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('job_settings', 8, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('job_settings', 8, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -262,33 +260,33 @@ mojo.internal.Struct(
     printing.mojom.PrintBackendService_StartPrinting_ParamsSpec, 'printing.mojom.PrintBackendService_StartPrinting_Params', [
       mojo.internal.StructField('context_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('document_cookie', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('document_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('settings', 16, 0, printing.mojom.PrintSettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('document_name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 16, 0, printing.mojom.PrintSettingsSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec, 'printing.mojom.PrintBackendService_StartPrinting_ResponseParams', [
-      mojo.internal.StructField('result_code', 0, 0, printing.mojom.ResultCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('job_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('result_code', 0, 0, printing.mojom.ResultCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('job_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec, 'printing.mojom.PrintBackendService_RenderPrintedPage_Params', [
       mojo.internal.StructField('document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('page_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('page_data_type', 8, 0, printing.mojom.MetafileDataTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('serialized_page', 16, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_content_rect', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_data_type', 8, 0, printing.mojom.MetafileDataTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('serialized_page', 16, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('page_size', 24, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('page_content_rect', 32, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('shrink_factor', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec, 'printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParams', [
-      mojo.internal.StructField('result_code', 0, 0, printing.mojom.ResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result_code', 0, 0, printing.mojom.ResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -296,14 +294,14 @@ mojo.internal.Struct(
     printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec, 'printing.mojom.PrintBackendService_RenderPrintedDocument_Params', [
       mojo.internal.StructField('document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('page_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data_type', 8, 0, printing.mojom.MetafileDataTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('serialized_doc', 16, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_type', 8, 0, printing.mojom.MetafileDataTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('serialized_doc', 16, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec, 'printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParams', [
-      mojo.internal.StructField('result_code', 0, 0, printing.mojom.ResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result_code', 0, 0, printing.mojom.ResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -315,7 +313,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec, 'printing.mojom.PrintBackendService_DocumentDone_ResponseParams', [
-      mojo.internal.StructField('result_code', 0, 0, printing.mojom.ResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result_code', 0, 0, printing.mojom.ResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -526,9 +524,8 @@ printing.mojom.PrintBackendServiceRemoteCallHandler = class {
 
 printing.mojom.PrintBackendService.getRemote = function() {
   let remote = new printing.mojom.PrintBackendServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'printing.mojom.PrintBackendService',
     'context');
   return remote.$;

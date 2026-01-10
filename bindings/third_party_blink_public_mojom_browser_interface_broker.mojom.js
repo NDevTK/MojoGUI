@@ -15,7 +15,7 @@ blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = { $: {} };
 // Interface: BrowserInterfaceBroker
 mojo.internal.Struct(
     blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec, 'blink.mojom.BrowserInterfaceBroker_GetInterface_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -65,9 +65,8 @@ blink.mojom.BrowserInterfaceBrokerRemoteCallHandler = class {
 
 blink.mojom.BrowserInterfaceBroker.getRemote = function() {
   let remote = new blink.mojom.BrowserInterfaceBrokerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BrowserInterfaceBroker',
     'context');
   return remote.$;

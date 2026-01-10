@@ -208,22 +208,22 @@ mojo.internal.Union(
     arc.mojom.ArcSignInErrorSpec, 'arc.mojom.ArcSignInError', {
       'cloud_provision_flow_error': {
         'ordinal': 0,
-        'type': arc.mojom.CloudProvisionFlowErrorSpec,
+        'type': arc.mojom.CloudProvisionFlowErrorSpec.$,
         'nullable': false,
       },
       'general_error': {
         'ordinal': 1,
-        'type': arc.mojom.GeneralSignInErrorSpec,
+        'type': arc.mojom.GeneralSignInErrorSpec.$,
         'nullable': false,
       },
       'sign_in_error': {
         'ordinal': 2,
-        'type': arc.mojom.GMSSignInErrorSpec,
+        'type': arc.mojom.GMSSignInErrorSpec.$,
         'nullable': false,
       },
       'check_in_error': {
         'ordinal': 3,
-        'type': arc.mojom.GMSCheckInErrorSpec,
+        'type': arc.mojom.GMSCheckInErrorSpec.$,
         'nullable': false,
       },
     });
@@ -233,12 +233,12 @@ mojo.internal.Union(
     arc.mojom.ArcSignInResultSpec, 'arc.mojom.ArcSignInResult', {
       'success': {
         'ordinal': 0,
-        'type': arc.mojom.ArcSignInSuccessSpec,
+        'type': arc.mojom.ArcSignInSuccessSpec.$,
         'nullable': false,
       },
       'error': {
         'ordinal': 1,
-        'type': arc.mojom.ArcSignInErrorSpec,
+        'type': arc.mojom.ArcSignInErrorSpec.$,
         'nullable': true,
       },
     });
@@ -262,12 +262,12 @@ mojo.internal.Union(
 mojo.internal.Struct(
     arc.mojom.AccountInfoSpec, 'arc.mojom.AccountInfo', [
       mojo.internal.StructField('auth_code', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('account_type', 8, 0, arc.mojom.ChromeAccountTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_managed', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('DEPRECATED_enrollment_token', 16, 0, mojo.internal.String, null, true, 6, undefined),
-      mojo.internal.StructField('account_name', 24, 0, mojo.internal.String, null, true, 9, undefined),
+      mojo.internal.StructField('account_type', 8, 0, arc.mojom.ChromeAccountTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_managed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('DEPRECATED_enrollment_token', 24, 0, mojo.internal.String, null, true, 6, undefined),
+      mojo.internal.StructField('account_name', 32, 0, mojo.internal.String, null, true, 9, undefined),
     ],
-    [[0, 24], [6, 32], [9, 40]]);
+    [[0, 32], [6, 40], [9, 48]]);
 
 // Struct: ArcAccountInfo
 mojo.internal.Struct(
@@ -280,27 +280,27 @@ mojo.internal.Struct(
 // Interface: AuthHost
 mojo.internal.Struct(
     arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec, 'arc.mojom.AuthHost_OnAuthorizationResult_Params', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcSignInResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('account', 16, 0, arc.mojom.ArcSignInAccountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcSignInResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('account', 8, 0, arc.mojom.ArcSignInAccountSpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.AuthHost_ReportMetrics_ParamsSpec, 'arc.mojom.AuthHost_ReportMetrics_Params', [
-      mojo.internal.StructField('metrics_type', 0, 0, arc.mojom.MetricsTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('metrics_type', 0, 0, arc.mojom.MetricsTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec, 'arc.mojom.AuthHost_ReportAccountCheckStatus_Params', [
-      mojo.internal.StructField('status', 0, 0, arc.mojom.AccountCheckStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.AccountCheckStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec, 'arc.mojom.AuthHost_ReportManagementChangeStatus_Params', [
-      mojo.internal.StructField('status', 0, 0, arc.mojom.ManagementChangeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.ManagementChangeStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -312,7 +312,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec, 'arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParams', [
       mojo.internal.StructField('account_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('account_type', 8, 0, arc.mojom.ChromeAccountTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_type', 8, 0, arc.mojom.ChromeAccountTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -323,8 +323,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec, 'arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, arc.mojom.ArcAuthCodeStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('account_info', 8, 0, arc.mojom.AccountInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.ArcAuthCodeStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('account_info', 8, 0, arc.mojom.AccountInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -336,8 +336,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec, 'arc.mojom.AuthHost_RequestAccountInfo_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, arc.mojom.ArcAuthCodeStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('account_info', 8, 0, arc.mojom.AccountInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.ArcAuthCodeStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('account_info', 8, 0, arc.mojom.AccountInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('persistent_error', 16, 0, mojo.internal.Bool, false, false, 24, undefined),
     ],
     [[0, 24], [24, 32]]);
@@ -372,7 +372,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec, 'arc.mojom.AuthHost_ReportAccountReauthReason_Params', [
-      mojo.internal.StructField('reason', 0, 0, arc.mojom.ReauthReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, arc.mojom.ReauthReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -532,9 +532,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
 
 arc.mojom.AuthHost.getRemote = function() {
   let remote = new arc.mojom.AuthHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.AuthHost',
     'context');
   return remote.$;
@@ -559,7 +558,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec, 'arc.mojom.AuthInstance_OnAccountUpdated_Params', [
       mojo.internal.StructField('account_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('update_type', 8, 0, arc.mojom.AccountUpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_type', 8, 0, arc.mojom.AccountUpdateTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -570,7 +569,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec, 'arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParams', [
-      mojo.internal.StructField('accounts', 0, 0, mojo.internal.Array(arc.mojom.ArcAccountInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('accounts', 0, 0, mojo.internal.Array(arc.mojom.ArcAccountInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -581,13 +580,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec, 'arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, arc.mojom.MainAccountResolutionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, arc.mojom.MainAccountResolutionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.AuthInstance_SetAccounts_ParamsSpec, 'arc.mojom.AuthInstance_SetAccounts_Params', [
-      mojo.internal.StructField('accounts', 0, 0, mojo.internal.Array(arc.mojom.ArcAccountInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('accounts', 0, 0, mojo.internal.Array(arc.mojom.ArcAccountInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -677,9 +676,8 @@ arc.mojom.AuthInstanceRemoteCallHandler = class {
 
 arc.mojom.AuthInstance.getRemote = function() {
   let remote = new arc.mojom.AuthInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.AuthInstance',
     'context');
   return remote.$;

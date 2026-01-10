@@ -44,7 +44,7 @@ ash.local_search_service.mojom.Backend = {
 // Interface: SearchMetricsReporter
 mojo.internal.Struct(
     ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec, 'ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_Params', [
-      mojo.internal.StructField('index_id', 0, 0, ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('index_id', 0, 0, ash.local_search_service.mojom.IndexIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -99,9 +99,8 @@ ash.local_search_service.mojom.SearchMetricsReporterRemoteCallHandler = class {
 
 ash.local_search_service.mojom.SearchMetricsReporter.getRemote = function() {
   let remote = new ash.local_search_service.mojom.SearchMetricsReporterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.local_search_service.mojom.SearchMetricsReporter',
     'context');
   return remote.$;
@@ -114,12 +113,12 @@ ash.local_search_service.mojom.SearchMetricsReporterRequest = ash.local_search_s
 // Interface: LocalSearchService
 mojo.internal.Struct(
     ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec, 'ash.local_search_service.mojom.LocalSearchService_BindIndex_Params', [
-      mojo.internal.StructField('index_id', 0, 0, ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('backend', 4, 0, ash.local_search_service.mojom.BackendSpec, null, false, 0, undefined),
-      mojo.internal.StructField('index_receiver', 8, 0, mojo.internal.InterfaceRequest(ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
-      mojo.internal.StructField('reporter_remote', 16, 0, mojo.internal.InterfaceProxy(ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('index_id', 0, 0, ash.local_search_service.mojom.IndexIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('backend', 8, 0, ash.local_search_service.mojom.BackendSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('index_receiver', 16, 0, mojo.internal.InterfaceRequest(ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
+      mojo.internal.StructField('reporter_remote', 24, 0, mojo.internal.InterfaceProxy(ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec, 'ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParams', [
@@ -173,9 +172,8 @@ ash.local_search_service.mojom.LocalSearchServiceRemoteCallHandler = class {
 
 ash.local_search_service.mojom.LocalSearchService.getRemote = function() {
   let remote = new ash.local_search_service.mojom.LocalSearchServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.local_search_service.mojom.LocalSearchService',
     'context');
   return remote.$;

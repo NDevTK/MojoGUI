@@ -108,7 +108,7 @@ payments.mojom.PaymentDelegation = {
 mojo.internal.Struct(
     payments.mojom.PaymentInstrumentSpec, 'payments.mojom.PaymentInstrument', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icons', 8, 0, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('icons', 8, 0, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('method', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -116,25 +116,25 @@ mojo.internal.Struct(
 // Struct: CanMakePaymentEventData
 mojo.internal.Struct(
     payments.mojom.CanMakePaymentEventDataSpec, 'payments.mojom.CanMakePaymentEventData', [
-      mojo.internal.StructField('top_origin', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('payment_request_origin', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('method_data', 16, 0, mojo.internal.Array(payments.mojom.PaymentMethodDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('modifiers', 24, 0, mojo.internal.Array(payments.mojom.PaymentDetailsModifierSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('top_origin', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('payment_request_origin', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('method_data', 16, 0, mojo.internal.Array(payments.mojom.PaymentMethodDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 24, 0, mojo.internal.Array(payments.mojom.PaymentDetailsModifierSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: PaymentRequestEventData
 mojo.internal.Struct(
     payments.mojom.PaymentRequestEventDataSpec, 'payments.mojom.PaymentRequestEventData', [
-      mojo.internal.StructField('top_origin', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('payment_request_origin', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_origin', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('payment_request_origin', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('payment_request_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('method_data', 24, 0, mojo.internal.Array(payments.mojom.PaymentMethodDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('total', 32, 0, payments.mojom.PaymentCurrencyAmountSpec, null, false, 0, undefined),
-      mojo.internal.StructField('modifiers', 40, 0, mojo.internal.Array(payments.mojom.PaymentDetailsModifierSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('method_data', 24, 0, mojo.internal.Array(payments.mojom.PaymentMethodDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('total', 32, 0, payments.mojom.PaymentCurrencyAmountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 40, 0, mojo.internal.Array(payments.mojom.PaymentDetailsModifierSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('instrument_key', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('payment_options', 56, 0, payments.mojom.PaymentOptionsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('shipping_options', 64, 0, mojo.internal.Array(payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('payment_options', 56, 0, payments.mojom.PaymentOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('shipping_options', 64, 0, mojo.internal.Array(payments.mojom.PaymentShippingOptionSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('payment_handler_host', 72, 0, mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerHostRemote), null, true, 0, undefined),
     ],
     [[0, 88]]);
@@ -142,21 +142,21 @@ mojo.internal.Struct(
 // Struct: CanMakePaymentResponse
 mojo.internal.Struct(
     payments.mojom.CanMakePaymentResponseSpec, 'payments.mojom.CanMakePaymentResponse', [
-      mojo.internal.StructField('response_type', 0, 0, payments.mojom.CanMakePaymentEventResponseTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('can_make_payment', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('response_type', 0, 0, payments.mojom.CanMakePaymentEventResponseTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('can_make_payment', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: PaymentHandlerResponse
 mojo.internal.Struct(
     payments.mojom.PaymentHandlerResponseSpec, 'payments.mojom.PaymentHandlerResponse', [
       mojo.internal.StructField('method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('stringified_details', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('response_type', 16, 0, payments.mojom.PaymentEventResponseTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_type', 16, 0, payments.mojom.PaymentEventResponseTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('payer_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('payer_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('payer_phone', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('shipping_address', 48, 0, payments.mojom.PaymentAddressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('shipping_address', 48, 0, payments.mojom.PaymentAddressSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('shipping_option', 56, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 72]]);
@@ -164,7 +164,7 @@ mojo.internal.Struct(
 // Interface: PaymentManager
 mojo.internal.Struct(
     payments.mojom.PaymentManager_Init_ParamsSpec, 'payments.mojom.PaymentManager_Init_Params', [
-      mojo.internal.StructField('context_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('service_worker_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -177,7 +177,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -189,8 +189,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('instrument', 0, 0, payments.mojom.PaymentInstrumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('instrument', 0, 0, payments.mojom.PaymentInstrumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -202,7 +202,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParams', [
       mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -214,20 +214,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_SetPaymentInstrument_Params', [
       mojo.internal.StructField('instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('instrument', 8, 0, payments.mojom.PaymentInstrumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('instrument', 8, 0, payments.mojom.PaymentInstrumentSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -238,7 +238,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -250,13 +250,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_EnableDelegations_ParamsSpec, 'payments.mojom.PaymentManager_EnableDelegations_Params', [
-      mojo.internal.StructField('delegations', 0, 0, mojo.internal.Array(payments.mojom.PaymentDelegationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('delegations', 0, 0, mojo.internal.Array(payments.mojom.PaymentDelegationSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec, 'payments.mojom.PaymentManager_EnableDelegations_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -386,9 +386,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
 
 payments.mojom.PaymentManager.getRemote = function() {
   let remote = new payments.mojom.PaymentManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'payments.mojom.PaymentManager',
     'context');
   return remote.$;
@@ -407,13 +406,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_Params', [
-      mojo.internal.StructField('response', 0, 0, payments.mojom.CanMakePaymentResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, payments.mojom.CanMakePaymentResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_Params', [
-      mojo.internal.StructField('response', 0, 0, payments.mojom.PaymentHandlerResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, payments.mojom.PaymentHandlerResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -483,9 +482,8 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
 
 payments.mojom.PaymentHandlerResponseCallback.getRemote = function() {
   let remote = new payments.mojom.PaymentHandlerResponseCallbackRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'payments.mojom.PaymentHandlerResponseCallback',
     'context');
   return remote.$;

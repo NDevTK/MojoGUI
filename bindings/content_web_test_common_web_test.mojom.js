@@ -106,27 +106,27 @@ mojo.internal.Union(
     content.mojom.WorkItemSpec, 'content.mojom.WorkItem', {
       'back_forward': {
         'ordinal': 0,
-        'type': content.mojom.WorkItemBackForwardSpec,
+        'type': content.mojom.WorkItemBackForwardSpec.$,
         'nullable': false,
       },
       'load': {
         'ordinal': 1,
-        'type': content.mojom.WorkItemLoadSpec,
+        'type': content.mojom.WorkItemLoadSpec.$,
         'nullable': false,
       },
       'reload': {
         'ordinal': 2,
-        'type': content.mojom.WorkItemReloadSpec,
+        'type': content.mojom.WorkItemReloadSpec.$,
         'nullable': false,
       },
       'loading_script': {
         'ordinal': 3,
-        'type': content.mojom.WorkItemLoadingScriptSpec,
+        'type': content.mojom.WorkItemLoadingScriptSpec.$,
         'nullable': false,
       },
       'non_loading_script': {
         'ordinal': 4,
-        'type': content.mojom.WorkItemNonLoadingScriptSpec,
+        'type': content.mojom.WorkItemNonLoadingScriptSpec.$,
         'nullable': false,
       },
     });
@@ -134,9 +134,9 @@ mojo.internal.Union(
 // Struct: WebTestRunTestConfiguration
 mojo.internal.Struct(
     content.mojom.WebTestRunTestConfigurationSpec, 'content.mojom.WebTestRunTestConfiguration', [
-      mojo.internal.StructField('current_working_directory', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('temp_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('test_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('current_working_directory', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('temp_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('test_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('allow_external_pages', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('expected_pixel_hash', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('wpt_print_mode', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -148,10 +148,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.WebTestRendererDumpResultSpec, 'content.mojom.WebTestRendererDumpResult', [
       mojo.internal.StructField('audio', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('layout', 8, 0, mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
-      mojo.internal.StructField('pixels', 16, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('layout', 8, 0, mojo_base.mojom.ByteStringSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('pixels', 16, 0, skia.mojom.BitmapN32Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('actual_pixel_hash', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('selection_rect', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection_rect', 32, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -214,7 +214,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec, 'content.mojom.WebTestRenderFrame_SetTestConfiguration_Params', [
-      mojo.internal.StructField('config', 0, 0, content.mojom.WebTestRunTestConfigurationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, content.mojom.WebTestRunTestConfigurationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('starting_test', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -246,7 +246,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec, 'content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_Params', [
-      mojo.internal.StructField('changed_layout_test_runtime_flags', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('changed_layout_test_runtime_flags', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -262,13 +262,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec, 'content.mojom.WebTestRenderFrame_ProcessWorkItem_Params', [
-      mojo.internal.StructField('work_item', 0, 0, content.mojom.WorkItemSpec, null, false, 0, undefined),
+      mojo.internal.StructField('work_item', 0, 0, content.mojom.WorkItemSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec, 'content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_Params', [
-      mojo.internal.StructField('work_queue_states', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('work_queue_states', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -438,9 +438,8 @@ content.mojom.WebTestRenderFrameRemoteCallHandler = class {
 
 content.mojom.WebTestRenderFrame.getRemote = function() {
   let remote = new content.mojom.WebTestRenderFrameRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.WebTestRenderFrame',
     'context');
   return remote.$;
@@ -453,7 +452,7 @@ content.mojom.WebTestRenderFrameRequest = content.mojom.WebTestRenderFramePendin
 // Interface: WebTestControlHost
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec, 'content.mojom.WebTestControlHost_InitiateCaptureDump_Params', [
-      mojo.internal.StructField('result', 0, 0, content.mojom.WebTestRendererDumpResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, content.mojom.WebTestRendererDumpResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('capture_navigation_history', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('capture_pixels', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -478,7 +477,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec, 'content.mojom.WebTestControlHost_OverridePreferences_Params', [
-      mojo.internal.StructField('web_preferences', 0, 0, blink.mojom.WebPreferencesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('web_preferences', 0, 0, blink.mojom.WebPreferencesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -500,7 +499,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec, 'content.mojom.WebTestControlHost_SetFrameWindowHidden_Params', [
-      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('hidden', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -543,7 +542,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec, 'content.mojom.WebTestControlHost_LoadURLForFrame_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -556,9 +555,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_SetPermission_ParamsSpec, 'content.mojom.WebTestControlHost_SetPermission_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('embedding_origin', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('embedding_origin', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -575,13 +574,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec, 'content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParams', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec, 'content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -593,7 +592,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec, 'content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParams', [
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -627,7 +626,7 @@ mojo.internal.Struct(
     content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec, 'content.mojom.WebTestControlHost_SimulateWebNotificationClick_Params', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('action_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('reply', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('reply', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -646,13 +645,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec, 'content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_Params', [
-      mojo.internal.StructField('changed_web_test_runtime_flags', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('changed_web_test_runtime_flags', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec, 'content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_Params', [
-      mojo.internal.StructField('file_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('file_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -684,9 +683,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec, 'content.mojom.WebTestControlHost_WorkItemAdded_Params', [
-      mojo.internal.StructField('work_item', 0, 0, content.mojom.WorkItemSpec, null, false, 0, undefined),
+      mojo.internal.StructField('work_item', 0, 0, content.mojom.WorkItemSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec, 'content.mojom.WebTestControlHost_RequestWorkItem_Params', [
@@ -695,7 +694,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec, 'content.mojom.WebTestControlHost_WorkQueueStatesChanged_Params', [
-      mojo.internal.StructField('changed_work_queue_states', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('changed_work_queue_states', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -707,20 +706,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec, 'content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_Params', [
-      mojo.internal.StructField('mode', 0, 0, content.mojom.AutoResponseModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, content.mojom.AutoResponseModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec, 'content.mojom.WebTestControlHost_EnableAutoResize_Params', [
-      mojo.internal.StructField('min_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('max_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec, 'content.mojom.WebTestControlHost_DisableAutoResize_Params', [
-      mojo.internal.StructField('new_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1160,9 +1159,8 @@ content.mojom.WebTestControlHostRemoteCallHandler = class {
 
 content.mojom.WebTestControlHost.getRemote = function() {
   let remote = new content.mojom.WebTestControlHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.WebTestControlHost',
     'context');
   return remote.$;
@@ -1175,7 +1173,7 @@ content.mojom.WebTestControlHostRequest = content.mojom.WebTestControlHostPendin
 // Interface: NonAssociatedWebTestControlHost
 mojo.internal.Struct(
     content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec, 'content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_Params', [
-      mojo.internal.StructField('hint', 0, 0, blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hint', 0, 0, blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1225,9 +1223,8 @@ content.mojom.NonAssociatedWebTestControlHostRemoteCallHandler = class {
 
 content.mojom.NonAssociatedWebTestControlHost.getRemote = function() {
   let remote = new content.mojom.NonAssociatedWebTestControlHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.NonAssociatedWebTestControlHost',
     'context');
   return remote.$;

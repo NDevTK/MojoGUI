@@ -64,7 +64,7 @@ mojo.internal.Union(
       },
       'groups': {
         'ordinal': 1,
-        'type': mojo.internal.Array(blink.mojom.StorageInterestGroupSpec, false),
+        'type': mojo.internal.Array(blink.mojom.StorageInterestGroupSpec.$, false),
         'nullable': false,
       },
     });
@@ -81,8 +81,8 @@ mojo.internal.Struct(
 // Struct: SharedStorageKeyAndOrValue
 mojo.internal.Struct(
     blink.mojom.SharedStorageKeyAndOrValueSpec, 'blink.mojom.SharedStorageKeyAndOrValue', [
-      mojo.internal.StructField('key', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -99,7 +99,7 @@ mojo.internal.Struct(
     blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec, 'blink.mojom.SharedStorageEntriesListener_DidReadEntries_Params', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('entries', 16, 0, mojo.internal.Array(blink.mojom.SharedStorageKeyAndOrValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('entries', 16, 0, mojo.internal.Array(blink.mojom.SharedStorageKeyAndOrValueSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('has_more_entries', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('total_queued_to_send', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -151,9 +151,8 @@ blink.mojom.SharedStorageEntriesListenerRemoteCallHandler = class {
 
 blink.mojom.SharedStorageEntriesListener.getRemote = function() {
   let remote = new blink.mojom.SharedStorageEntriesListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SharedStorageEntriesListener',
     'context');
   return remote.$;
@@ -166,7 +165,7 @@ blink.mojom.SharedStorageEntriesListenerRequest = blink.mojom.SharedStorageEntri
 // Interface: SharedStorageWorkletServiceClient
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_Params', [
-      mojo.internal.StructField('method_with_options', 0, 0, network.mojom.SharedStorageModifierMethodWithOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('method_with_options', 0, 0, network.mojom.SharedStorageModifierMethodWithOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -178,8 +177,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_Params', [
-      mojo.internal.StructField('methods_with_options', 0, 0, network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('with_lock', 8, 0, network.mojom.LockNameSpec, null, true, 0, undefined),
+      mojo.internal.StructField('methods_with_options', 0, 0, network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('with_lock', 8, 0, network.mojom.LockNameSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -191,15 +190,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_Params', [
-      mojo.internal.StructField('key', 0, 0, network.mojom.SharedStorageKeyArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 0, 0, network.mojom.SharedStorageKeyArgumentSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.SharedStorageGetStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.SharedStorageGetStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -249,20 +248,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.GetInterestGroupsResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.GetInterestGroupsResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_Params', [
-      mojo.internal.StructField('log_level', 0, 0, blink.mojom.ConsoleMessageLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('log_level', 0, 0, blink.mojom.ConsoleMessageLevelSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec, 'blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_Params', [
-      mojo.internal.StructField('features', 0, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('features', 0, 0, mojo.internal.Array(blink.mojom.WebFeatureSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -402,9 +401,8 @@ blink.mojom.SharedStorageWorkletServiceClientRemoteCallHandler = class {
 
 blink.mojom.SharedStorageWorkletServiceClient.getRemote = function() {
   let remote = new blink.mojom.SharedStorageWorkletServiceClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SharedStorageWorkletServiceClient',
     'context');
   return remote.$;
@@ -418,21 +416,21 @@ blink.mojom.SharedStorageWorkletServiceClientRequest = blink.mojom.SharedStorage
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_Initialize_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.SharedStorageWorkletServiceClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('permissions_policy_state', 8, 0, blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('embedder_context', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('permissions_policy_state', 8, 0, blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('embedder_context', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletService_Initialize_ResponseParams', [
-      mojo.internal.StructField('token', 0, 0, blink.mojom.SharedStorageWorkletTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, blink.mojom.SharedStorageWorkletTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_AddModule_Params', [
       mojo.internal.StructField('url_loader_factory', 0, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('script_source_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_source_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -446,9 +444,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('urls', 8, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('serialized_data', 16, 0, blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pa_operation_details', 24, 0, blink.mojom.PrivateAggregationOperationDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('urls', 8, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('serialized_data', 16, 0, blink.mojom.CloneableMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pa_operation_details', 24, 0, blink.mojom.PrivateAggregationOperationDetailsSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -463,8 +461,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_RunOperation_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('serialized_data', 8, 0, blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pa_operation_details', 16, 0, blink.mojom.PrivateAggregationOperationDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('serialized_data', 8, 0, blink.mojom.CloneableMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pa_operation_details', 16, 0, blink.mojom.PrivateAggregationOperationDetailsSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -551,9 +549,8 @@ blink.mojom.SharedStorageWorkletServiceRemoteCallHandler = class {
 
 blink.mojom.SharedStorageWorkletService.getRemote = function() {
   let remote = new blink.mojom.SharedStorageWorkletServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SharedStorageWorkletService',
     'context');
   return remote.$;

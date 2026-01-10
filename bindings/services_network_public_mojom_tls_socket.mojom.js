@@ -17,12 +17,12 @@ network.mojom.TLSClientSocket.$interfaceName = 'network.mojom.TLSClientSocket';
 // Struct: TLSClientSocketOptions
 mojo.internal.Struct(
     network.mojom.TLSClientSocketOptionsSpec, 'network.mojom.TLSClientSocketOptions', [
-      mojo.internal.StructField('version_min', 0, 0, network.mojom.SSLVersionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('version_max', 4, 0, network.mojom.SSLVersionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('send_ssl_info', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('unsafely_skip_cert_verification', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('version_min', 0, 0, network.mojom.SSLVersionSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('version_max', 8, 0, network.mojom.SSLVersionSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('send_ssl_info', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unsafely_skip_cert_verification', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: TLSClientSocket
 network.mojom.TLSClientSocketPendingReceiver = class {
@@ -61,9 +61,8 @@ network.mojom.TLSClientSocketRemoteCallHandler = class {
 
 network.mojom.TLSClientSocket.getRemote = function() {
   let remote = new network.mojom.TLSClientSocketRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.TLSClientSocket',
     'context');
   return remote.$;

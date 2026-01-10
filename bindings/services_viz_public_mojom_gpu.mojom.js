@@ -30,9 +30,9 @@ mojo.internal.Struct(
     viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec, 'viz.mojom.Gpu_EstablishGpuChannel_ResponseParams', [
       mojo.internal.StructField('client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('channel_handle', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('gpu_info', 16, 0, gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('gpu_feature_info', 24, 0, gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shared_image_capabilities', 32, 0, gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gpu_info', 16, 0, gpu.mojom.GpuInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('gpu_feature_info', 24, 0, gpu.mojom.GpuFeatureInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('shared_image_capabilities', 32, 0, gpu.mojom.SharedImageCapabilitiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -114,9 +114,8 @@ viz.mojom.GpuRemoteCallHandler = class {
 
 viz.mojom.Gpu.getRemote = function() {
   let remote = new viz.mojom.GpuRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.Gpu',
     'context');
   return remote.$;

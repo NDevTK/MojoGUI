@@ -61,7 +61,7 @@ mojo.internal.Union(
     mantis.mojom.MantisResultSpec, 'mantis.mojom.MantisResult', {
       'error': {
         'ordinal': 0,
-        'type': mantis.mojom.MantisErrorSpec,
+        'type': mantis.mojom.MantisErrorSpec.$,
         'nullable': false,
       },
       'result_image': {
@@ -90,9 +90,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_Inpainting_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec, 'mantis.mojom.MantisProcessor_GenerativeFill_Params', [
@@ -105,9 +105,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_GenerativeFill_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_Segmentation_ParamsSpec, 'mantis.mojom.MantisProcessor_Segmentation_Params', [
@@ -118,9 +118,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_Segmentation_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec, 'mantis.mojom.MantisProcessor_ClassifyImageSafety_Params', [
@@ -130,7 +130,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParams', [
-      mojo.internal.StructField('verdict', 0, 0, mantis.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
+      mojo.internal.StructField('verdict', 0, 0, mantis.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -144,19 +144,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_Outpainting_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec, 'mantis.mojom.MantisProcessor_InferSegmentationMode_Params', [
-      mojo.internal.StructField('gesture', 0, 0, mojo.internal.Array(mantis.mojom.TouchPointSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('gesture', 0, 0, mojo.internal.Array(mantis.mojom.TouchPointSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParams', [
-      mojo.internal.StructField('mode', 0, 0, mantis.mojom.SegmentationModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, mantis.mojom.SegmentationModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -256,9 +256,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
 
 mantis.mojom.MantisProcessor.getRemote = function() {
   let remote = new mantis.mojom.MantisProcessorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mantis.mojom.MantisProcessor',
     'context');
   return remote.$;

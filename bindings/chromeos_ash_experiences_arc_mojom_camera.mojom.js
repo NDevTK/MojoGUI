@@ -154,7 +154,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec, 'arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParams', [
-      mojo.internal.StructField('supported_formats', 0, 0, mojo.internal.Array(arc.mojom.CameraSupportedFormatSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('supported_formats', 0, 0, mojo.internal.Array(arc.mojom.CameraSupportedFormatSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -165,7 +165,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec, 'arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParams', [
-      mojo.internal.StructField('device_infos', 0, 0, mojo.internal.Array(arc.mojom.CameraDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_infos', 0, 0, mojo.internal.Array(arc.mojom.CameraDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -285,9 +285,8 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
 
 arc.mojom.CameraService.getRemote = function() {
   let remote = new arc.mojom.CameraServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.CameraService',
     'context');
   return remote.$;
@@ -393,9 +392,8 @@ arc.mojom.CameraHostRemoteCallHandler = class {
 
 arc.mojom.CameraHost.getRemote = function() {
   let remote = new arc.mojom.CameraHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.CameraHost',
     'context');
   return remote.$;
@@ -463,9 +461,8 @@ arc.mojom.CameraInstanceRemoteCallHandler = class {
 
 arc.mojom.CameraInstance.getRemote = function() {
   let remote = new arc.mojom.CameraInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.CameraInstance',
     'context');
   return remote.$;

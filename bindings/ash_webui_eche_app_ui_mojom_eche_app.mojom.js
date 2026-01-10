@@ -215,9 +215,8 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
 
 ash.eche_app.mojom.SignalingMessageExchanger.getRemote = function() {
   let remote = new ash.eche_app.mojom.SignalingMessageExchangerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.SignalingMessageExchanger',
     'context');
   return remote.$;
@@ -280,9 +279,8 @@ ash.eche_app.mojom.SignalingMessageObserverRemoteCallHandler = class {
 
 ash.eche_app.mojom.SignalingMessageObserver.getRemote = function() {
   let remote = new ash.eche_app.mojom.SignalingMessageObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.SignalingMessageObserver',
     'context');
   return remote.$;
@@ -366,9 +364,8 @@ ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = class {
 
 ash.eche_app.mojom.SystemInfoProvider.getRemote = function() {
   let remote = new ash.eche_app.mojom.SystemInfoProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.SystemInfoProvider',
     'context');
   return remote.$;
@@ -381,7 +378,7 @@ ash.eche_app.mojom.SystemInfoProviderRequest = ash.eche_app.mojom.SystemInfoProv
 // Interface: SystemInfoObserver
 mojo.internal.Struct(
     ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec, 'ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_Params', [
-      mojo.internal.StructField('state', 0, 0, ash.eche_app.mojom.ScreenBacklightStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.eche_app.mojom.ScreenBacklightStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -464,9 +461,8 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
 
 ash.eche_app.mojom.SystemInfoObserver.getRemote = function() {
   let remote = new ash.eche_app.mojom.SystemInfoObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.SystemInfoObserver',
     'context');
   return remote.$;
@@ -566,9 +562,8 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
 
 ash.eche_app.mojom.AccessibilityProvider.getRemote = function() {
   let remote = new ash.eche_app.mojom.AccessibilityProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.AccessibilityProvider',
     'context');
   return remote.$;
@@ -691,9 +686,8 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
 
 ash.eche_app.mojom.AccessibilityObserver.getRemote = function() {
   let remote = new ash.eche_app.mojom.AccessibilityObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.AccessibilityObserver',
     'context');
   return remote.$;
@@ -761,9 +755,8 @@ ash.eche_app.mojom.UidGeneratorRemoteCallHandler = class {
 
 ash.eche_app.mojom.UidGenerator.getRemote = function() {
   let remote = new ash.eche_app.mojom.UidGeneratorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.UidGenerator',
     'context');
   return remote.$;
@@ -776,15 +769,15 @@ ash.eche_app.mojom.UidGeneratorRequest = ash.eche_app.mojom.UidGeneratorPendingR
 // Interface: NotificationGenerator
 mojo.internal.Struct(
     ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec, 'ash.eche_app.mojom.NotificationGenerator_ShowNotification_Params', [
-      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, ash.eche_app.mojom.WebNotificationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, ash.eche_app.mojom.WebNotificationTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec, 'ash.eche_app.mojom.NotificationGenerator_ShowToast_Params', [
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -844,9 +837,8 @@ ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler = class {
 
 ash.eche_app.mojom.NotificationGenerator.getRemote = function() {
   let remote = new ash.eche_app.mojom.NotificationGeneratorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.NotificationGenerator',
     'context');
   return remote.$;
@@ -864,7 +856,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec, 'ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.eche_app.mojom.StreamStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.eche_app.mojom.StreamStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -940,9 +932,8 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
 
 ash.eche_app.mojom.DisplayStreamHandler.getRemote = function() {
   let remote = new ash.eche_app.mojom.DisplayStreamHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.DisplayStreamHandler',
     'context');
   return remote.$;
@@ -955,7 +946,7 @@ ash.eche_app.mojom.DisplayStreamHandlerRequest = ash.eche_app.mojom.DisplayStrea
 // Interface: StreamActionObserver
 mojo.internal.Struct(
     ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec, 'ash.eche_app.mojom.StreamActionObserver_OnStreamAction_Params', [
-      mojo.internal.StructField('action', 0, 0, ash.eche_app.mojom.StreamActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, ash.eche_app.mojom.StreamActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1005,9 +996,8 @@ ash.eche_app.mojom.StreamActionObserverRemoteCallHandler = class {
 
 ash.eche_app.mojom.StreamActionObserver.getRemote = function() {
   let remote = new ash.eche_app.mojom.StreamActionObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.StreamActionObserver',
     'context');
   return remote.$;
@@ -1070,9 +1060,8 @@ ash.eche_app.mojom.StreamOrientationObserverRemoteCallHandler = class {
 
 ash.eche_app.mojom.StreamOrientationObserver.getRemote = function() {
   let remote = new ash.eche_app.mojom.StreamOrientationObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.StreamOrientationObserver',
     'context');
   return remote.$;
@@ -1085,7 +1074,7 @@ ash.eche_app.mojom.StreamOrientationObserverRequest = ash.eche_app.mojom.StreamO
 // Interface: ConnectionStatusObserver
 mojo.internal.Struct(
     ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec, 'ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.eche_app.mojom.ConnectionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.eche_app.mojom.ConnectionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1135,9 +1124,8 @@ ash.eche_app.mojom.ConnectionStatusObserverRemoteCallHandler = class {
 
 ash.eche_app.mojom.ConnectionStatusObserver.getRemote = function() {
   let remote = new ash.eche_app.mojom.ConnectionStatusObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.ConnectionStatusObserver',
     'context');
   return remote.$;
@@ -1215,9 +1203,8 @@ ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler = class {
 
 ash.eche_app.mojom.KeyboardLayoutHandler.getRemote = function() {
   let remote = new ash.eche_app.mojom.KeyboardLayoutHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.KeyboardLayoutHandler',
     'context');
   return remote.$;
@@ -1283,9 +1270,8 @@ ash.eche_app.mojom.KeyboardLayoutObserverRemoteCallHandler = class {
 
 ash.eche_app.mojom.KeyboardLayoutObserver.getRemote = function() {
   let remote = new ash.eche_app.mojom.KeyboardLayoutObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.eche_app.mojom.KeyboardLayoutObserver',
     'context');
   return remote.$;

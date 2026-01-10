@@ -37,12 +37,12 @@ mojo.internal.Union(
     viz.mojom.BundledFrameSubmissionDataSpec, 'viz.mojom.BundledFrameSubmissionData', {
       'frame': {
         'ordinal': 0,
-        'type': viz.mojom.BundledCompositorFrameSpec,
+        'type': viz.mojom.BundledCompositorFrameSpec.$,
         'nullable': false,
       },
       'did_not_produce_frame': {
         'ordinal': 1,
-        'type': viz.mojom.BeginFrameAckSpec,
+        'type': viz.mojom.BeginFrameAckSpec.$,
         'nullable': false,
       },
     });
@@ -51,16 +51,16 @@ mojo.internal.Union(
 mojo.internal.Struct(
     viz.mojom.BundledFrameSubmissionSpec, 'viz.mojom.BundledFrameSubmission', [
       mojo.internal.StructField('sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, viz.mojom.BundledFrameSubmissionDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, viz.mojom.BundledFrameSubmissionDataSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: BundledCompositorFrame
 mojo.internal.Struct(
     viz.mojom.BundledCompositorFrameSpec, 'viz.mojom.BundledCompositorFrame', [
-      mojo.internal.StructField('local_surface_id', 0, 0, viz.mojom.LocalSurfaceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame', 8, 0, viz.mojom.CompositorFrameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hit_test_region_list', 16, 0, viz.mojom.HitTestRegionListSpec, null, true, 0, undefined),
+      mojo.internal.StructField('local_surface_id', 0, 0, viz.mojom.LocalSurfaceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame', 8, 0, viz.mojom.CompositorFrameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('hit_test_region_list', 16, 0, viz.mojom.HitTestRegionListSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('submit_time', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -69,7 +69,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.BundledReturnedResourcesSpec, 'viz.mojom.BundledReturnedResources', [
       mojo.internal.StructField('sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('resources', 8, 0, mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resources', 8, 0, mojo.internal.Array(viz.mojom.ReturnedResourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -77,9 +77,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.BeginFrameInfoSpec, 'viz.mojom.BeginFrameInfo', [
       mojo.internal.StructField('sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('args', 8, 0, viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('details', 16, 0, mojo.internal.Map(mojo.internal.Uint32, viz.mojom.FrameTimingDetailsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('resources', 24, 0, mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('args', 8, 0, viz.mojom.BeginFrameArgsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('details', 16, 0, mojo.internal.Map(mojo.internal.Uint32, viz.mojom.FrameTimingDetailsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('resources', 24, 0, mojo.internal.Array(viz.mojom.ReturnedResourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -93,14 +93,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkBundle_Submit_ParamsSpec, 'viz.mojom.FrameSinkBundle_Submit_Params', [
-      mojo.internal.StructField('submissions', 0, 0, mojo.internal.Array(viz.mojom.BundledFrameSubmissionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('submissions', 0, 0, mojo.internal.Array(viz.mojom.BundledFrameSubmissionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec, 'viz.mojom.FrameSinkBundle_SetThreads_Params', [
       mojo.internal.StructField('sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('threads', 8, 0, mojo.internal.Array(viz.mojom.ThreadSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('threads', 8, 0, mojo.internal.Array(viz.mojom.ThreadSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -170,9 +170,8 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
 
 viz.mojom.FrameSinkBundle.getRemote = function() {
   let remote = new viz.mojom.FrameSinkBundleRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.FrameSinkBundle',
     'context');
   return remote.$;
@@ -185,9 +184,9 @@ viz.mojom.FrameSinkBundleRequest = viz.mojom.FrameSinkBundlePendingReceiver;
 // Interface: FrameSinkBundleClient
 mojo.internal.Struct(
     viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec, 'viz.mojom.FrameSinkBundleClient_FlushNotifications_Params', [
-      mojo.internal.StructField('acks', 0, 0, mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('begin_frames', 8, 0, mojo.internal.Array(viz.mojom.BeginFrameInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('reclaimed_resources', 16, 0, mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('acks', 0, 0, mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('begin_frames', 8, 0, mojo.internal.Array(viz.mojom.BeginFrameInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('reclaimed_resources', 16, 0, mojo.internal.Array(viz.mojom.BundledReturnedResourcesSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -271,9 +270,8 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
 
 viz.mojom.FrameSinkBundleClient.getRemote = function() {
   let remote = new viz.mojom.FrameSinkBundleClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.FrameSinkBundleClient',
     'context');
   return remote.$;

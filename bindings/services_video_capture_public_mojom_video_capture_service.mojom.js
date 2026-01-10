@@ -82,9 +82,8 @@ video_capture.mojom.AcceleratorFactoryRemoteCallHandler = class {
 
 video_capture.mojom.AcceleratorFactory.getRemote = function() {
   let remote = new video_capture.mojom.AcceleratorFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'video_capture.mojom.AcceleratorFactory',
     'context');
   return remote.$;
@@ -127,7 +126,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec, 'video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_Params', [
-      mojo.internal.StructField('luid', 0, 0, gpu.mojom.LuidSpec, null, false, 0, undefined),
+      mojo.internal.StructField('luid', 0, 0, gpu.mojom.LuidSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -227,9 +226,8 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
 
 video_capture.mojom.VideoCaptureService.getRemote = function() {
   let remote = new video_capture.mojom.VideoCaptureServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'video_capture.mojom.VideoCaptureService',
     'context');
   return remote.$;

@@ -28,38 +28,38 @@ attribution_reporting.mojom.DataAvailableCallsite = {
 // Interface: DataHost
 mojo.internal.Struct(
     attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_SourceDataAvailable_Params', [
-      mojo.internal.StructField('reporting_origin', 0, 0, attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, attribution_reporting.mojom.SourceRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_origin', 0, 0, attribution_reporting.mojom.SuitableOriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, attribution_reporting.mojom.SourceRegistrationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_TriggerDataAvailable_Params', [
-      mojo.internal.StructField('reporting_origin', 0, 0, attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, attribution_reporting.mojom.TriggerRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_origin', 0, 0, attribution_reporting.mojom.SuitableOriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, attribution_reporting.mojom.TriggerRegistrationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsSourceDataAvailable_Params', [
-      mojo.internal.StructField('registration', 0, 0, attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('registration', 0, 0, attribution_reporting.mojom.OsRegistrationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_Params', [
-      mojo.internal.StructField('registration', 0, 0, attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('registration', 0, 0, attribution_reporting.mojom.OsRegistrationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec, 'attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_Params', [
-      mojo.internal.StructField('reporting_origin', 0, 0, attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, attribution_reporting.mojom.RegistrationHeaderErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_origin', 0, 0, attribution_reporting.mojom.SuitableOriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, attribution_reporting.mojom.RegistrationHeaderErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -149,9 +149,8 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
 
 attribution_reporting.mojom.DataHost.getRemote = function() {
   let remote = new attribution_reporting.mojom.DataHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'attribution_reporting.mojom.DataHost',
     'context');
   return remote.$;

@@ -59,23 +59,23 @@ crosapi.mojom.VideoConferenceAppType = {
 // Struct: TitleChangeInfo
 mojo.internal.Struct(
     crosapi.mojom.TitleChangeInfoSpec, 'crosapi.mojom.TitleChangeInfo', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('new_title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: VideoConferenceClientUpdate
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceClientUpdateSpec, 'crosapi.mojom.VideoConferenceClientUpdate', [
-      mojo.internal.StructField('added_or_removed_app', 0, 0, crosapi.mojom.VideoConferenceAppUpdateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('title_change_info', 8, 0, crosapi.mojom.TitleChangeInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('added_or_removed_app', 0, 0, crosapi.mojom.VideoConferenceAppUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('title_change_info', 8, 0, crosapi.mojom.TitleChangeInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: VideoConferenceMediaUsageStatus
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceMediaUsageStatusSpec, 'crosapi.mojom.VideoConferenceMediaUsageStatus', [
-      mojo.internal.StructField('client_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('has_media_app', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_camera_permission', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_microphone_permission', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -88,14 +88,14 @@ mojo.internal.Struct(
 // Struct: VideoConferenceMediaAppInfo
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceMediaAppInfoSpec, 'crosapi.mojom.VideoConferenceMediaAppInfo', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_activity_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_activity_time', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_capturing_camera', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_capturing_microphone', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_capturing_screen', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('title', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 32, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('app_type', 40, 0, crosapi.mojom.VideoConferenceAppTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('title', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 32, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('app_type', 40, 0, crosapi.mojom.VideoConferenceAppTypeSpec.$, null, false, 1, undefined),
     ],
     [[0, 48], [1, 56]]);
 
@@ -107,13 +107,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParams', [
-      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(crosapi.mojom.VideoConferenceMediaAppInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(crosapi.mojom.VideoConferenceMediaAppInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_Params', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -125,10 +125,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_Params', [
-      mojo.internal.StructField('device', 0, 0, crosapi.mojom.VideoConferenceMediaDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device', 0, 0, crosapi.mojom.VideoConferenceMediaDeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParams', [
@@ -217,9 +217,8 @@ crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
 
 crosapi.mojom.VideoConferenceManagerClient.getRemote = function() {
   let remote = new crosapi.mojom.VideoConferenceManagerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.VideoConferenceManagerClient',
     'context');
   return remote.$;

@@ -148,9 +148,8 @@ webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 webui_browser.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new webui_browser.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'webui_browser.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -188,9 +187,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec, 'webui_browser.mojom.Page_OnFullscreenModeChanged_Params', [
       mojo.internal.StructField('is_fullscreen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('context', 4, 0, webui_browser.mojom.FullscreenContextSpec, null, true, 0, undefined),
+      mojo.internal.StructField('context', 8, 0, webui_browser.mojom.FullscreenContextSpec.$, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 webui_browser.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -278,9 +277,8 @@ webui_browser.mojom.PageRemoteCallHandler = class {
 
 webui_browser.mojom.Page.getRemote = function() {
   let remote = new webui_browser.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'webui_browser.mojom.Page',
     'context');
   return remote.$;
@@ -293,7 +291,7 @@ webui_browser.mojom.PageRequest = webui_browser.mojom.PagePendingReceiver;
 // Interface: PageHandler
 mojo.internal.Struct(
     webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec, 'webui_browser.mojom.PageHandler_GetGuestIdForTabId_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(webui_browser.mojom.GuestHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -507,9 +505,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
 
 webui_browser.mojom.PageHandler.getRemote = function() {
   let remote = new webui_browser.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'webui_browser.mojom.PageHandler',
     'context');
   return remote.$;
@@ -522,7 +519,7 @@ webui_browser.mojom.PageHandlerRequest = webui_browser.mojom.PageHandlerPendingR
 // Interface: GuestHandler
 mojo.internal.Struct(
     webui_browser.mojom.GuestHandler_Navigate_ParamsSpec, 'webui_browser.mojom.GuestHandler_Navigate_Params', [
-      mojo.internal.StructField('src', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('src', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -580,7 +577,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec, 'webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParams', [
-      mojo.internal.StructField('security_icon', 0, 0, webui_browser.mojom.SecurityIconSpec, null, false, 0, undefined),
+      mojo.internal.StructField('security_icon', 0, 0, webui_browser.mojom.SecurityIconSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -710,9 +707,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
 
 webui_browser.mojom.GuestHandler.getRemote = function() {
   let remote = new webui_browser.mojom.GuestHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'webui_browser.mojom.GuestHandler',
     'context');
   return remote.$;

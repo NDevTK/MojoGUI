@@ -17,13 +17,13 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsS
 // Interface: CallStackProfileCollectorTest
 mojo.internal.Struct(
     metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_Params', [
-      mojo.internal.StructField('in', 0, 0, metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in', 0, 0, metrics.mojom.SampledProfileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, metrics.mojom.SampledProfileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ metrics.mojom.CallStackProfileCollectorTestRemoteCallHandler = class {
 
 metrics.mojom.CallStackProfileCollectorTest.getRemote = function() {
   let remote = new metrics.mojom.CallStackProfileCollectorTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'metrics.mojom.CallStackProfileCollectorTest',
     'context');
   return remote.$;

@@ -25,6 +25,6 @@ mojo.internal.Struct(
     viz.mojom.ThreadSpec, 'viz.mojom.Thread', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 12, 0, viz.mojom.ThreadTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, viz.mojom.ThreadTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

@@ -54,11 +54,11 @@ mojo.internal.Struct(
     printing.mojom.PaperSpec, 'printing.mojom.Paper', [
       mojo.internal.StructField('display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('vendor_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('size_um', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('printable_area_um', 24, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size_um', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('printable_area_um', 24, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_height_um', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('has_borderless_variant', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('supported_margins_um', 40, 0, printing.mojom.PaperMarginsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('supported_margins_um', 40, 0, printing.mojom.PaperMarginsSpec.$, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -83,9 +83,9 @@ mojo.internal.Struct(
     printing.mojom.AdvancedCapabilitySpec, 'printing.mojom.AdvancedCapability', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, printing.mojom.AdvancedCapabilityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, printing.mojom.AdvancedCapabilityTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('default_value', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('values', 32, 0, mojo.internal.Array(printing.mojom.AdvancedCapabilityValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('values', 32, 0, mojo.internal.Array(printing.mojom.AdvancedCapabilityValueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -100,7 +100,7 @@ mojo.internal.Struct(
 // Struct: PageOutputQuality
 mojo.internal.Struct(
     printing.mojom.PageOutputQualitySpec, 'printing.mojom.PageOutputQuality', [
-      mojo.internal.StructField('qualities', 0, 0, mojo.internal.Array(printing.mojom.PageOutputQualityAttributeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('qualities', 0, 0, mojo.internal.Array(printing.mojom.PageOutputQualityAttributeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('default_quality', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -111,23 +111,23 @@ mojo.internal.Struct(
       mojo.internal.StructField('collate_capable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('collate_default', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('copies_max', 4, 0, mojo.internal.Int32, 1, false, 0, undefined),
-      mojo.internal.StructField('duplex_modes', 8, 0, mojo.internal.Array(printing.mojom.DuplexModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('duplex_default', 16, 0, printing.mojom.DuplexModeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('color_changeable', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('color_default', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('color_model', 24, 0, printing.mojom.ColorModelSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('bw_model', 28, 0, printing.mojom.ColorModelSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('papers', 32, 0, mojo.internal.Array(printing.mojom.PaperSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('user_defined_papers', 40, 0, mojo.internal.Array(printing.mojom.PaperSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('default_paper', 48, 0, printing.mojom.PaperSpec, null, false, 0, undefined),
-      mojo.internal.StructField('dpis', 56, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('default_dpi', 64, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pin_supported', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('advanced_capabilities', 80, 0, mojo.internal.Array(printing.mojom.AdvancedCapabilitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('page_output_quality', 88, 0, printing.mojom.PageOutputQualitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('media_types', 96, 0, mojo.internal.Array(printing.mojom.MediaTypeSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('default_media_type', 104, 0, printing.mojom.MediaTypeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('print_scaling_types', 112, 0, mojo.internal.Array(printing.mojom.PrintScalingTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('print_scaling_type_default', 120, 0, printing.mojom.PrintScalingTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('duplex_modes', 8, 0, mojo.internal.Array(printing.mojom.DuplexModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('duplex_default', 16, 0, printing.mojom.DuplexModeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('color_changeable', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color_default', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color_model', 32, 0, printing.mojom.ColorModelSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('bw_model', 40, 0, printing.mojom.ColorModelSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('papers', 48, 0, mojo.internal.Array(printing.mojom.PaperSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_defined_papers', 56, 0, mojo.internal.Array(printing.mojom.PaperSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('default_paper', 64, 0, printing.mojom.PaperSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dpis', 72, 0, mojo.internal.Array(gfx.mojom.SizeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('default_dpi', 80, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pin_supported', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('advanced_capabilities', 96, 0, mojo.internal.Array(printing.mojom.AdvancedCapabilitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('page_output_quality', 104, 0, printing.mojom.PageOutputQualitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('media_types', 112, 0, mojo.internal.Array(printing.mojom.MediaTypeSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('default_media_type', 120, 0, printing.mojom.MediaTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('print_scaling_types', 128, 0, mojo.internal.Array(printing.mojom.PrintScalingTypeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('print_scaling_type_default', 136, 0, printing.mojom.PrintScalingTypeSpec.$, 0, false, 0, undefined),
     ],
-    [[0, 136]]);
+    [[0, 152]]);

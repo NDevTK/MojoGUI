@@ -39,22 +39,22 @@ mojo.internal.Struct(
 // Struct: ImageResult
 mojo.internal.Struct(
     page_image_service.mojom.ImageResultSpec, 'page_image_service.mojom.ImageResult', [
-      mojo.internal.StructField('image_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: PageImageServiceHandler
 mojo.internal.Struct(
     page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_Params', [
-      mojo.internal.StructField('client_id', 0, 0, page_image_service.mojom.ClientIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 16, 0, page_image_service.mojom.OptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 0, 0, page_image_service.mojom.ClientIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('page_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, page_image_service.mojom.OptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, page_image_service.mojom.ImageResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, page_image_service.mojom.ImageResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -104,9 +104,8 @@ page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler = class {
 
 page_image_service.mojom.PageImageServiceHandler.getRemote = function() {
   let remote = new page_image_service.mojom.PageImageServiceHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'page_image_service.mojom.PageImageServiceHandler',
     'context');
   return remote.$;

@@ -47,8 +47,8 @@ mojo.internal.Struct(
     ash.settings.app_notification.mojom.AppSpec, 'ash.settings.app_notification.mojom.App', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('readiness', 16, 0, ash.settings.app_notification.mojom.ReadinessSpec, null, false, 0, undefined),
-      mojo.internal.StructField('notification_permission', 24, 0, app_management.mojom.PermissionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('readiness', 16, 0, ash.settings.app_notification.mojom.ReadinessSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('notification_permission', 24, 0, app_management.mojom.PermissionSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -68,7 +68,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec, 'ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_Params', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('permission', 8, 0, app_management.mojom.PermissionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 8, 0, app_management.mojom.PermissionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -79,7 +79,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec, 'ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParams', [
-      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_notification.mojom.AppSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.settings.app_notification.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -195,9 +195,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
 
 ash.settings.app_notification.mojom.AppNotificationsHandler.getRemote = function() {
   let remote = new ash.settings.app_notification.mojom.AppNotificationsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.app_notification.mojom.AppNotificationsHandler',
     'context');
   return remote.$;
@@ -210,7 +209,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRequest = ash.setting
 // Interface: AppNotificationsObserver
 mojo.internal.Struct(
     ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec, 'ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_Params', [
-      mojo.internal.StructField('app', 0, 0, ash.settings.app_notification.mojom.AppSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app', 0, 0, ash.settings.app_notification.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -276,9 +275,8 @@ ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = 
 
 ash.settings.app_notification.mojom.AppNotificationsObserver.getRemote = function() {
   let remote = new ash.settings.app_notification.mojom.AppNotificationsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.app_notification.mojom.AppNotificationsObserver',
     'context');
   return remote.$;

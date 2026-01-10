@@ -184,12 +184,12 @@ mojo.internal.Union(
     crosapi.mojom.DiagnosticsRoutineUpdateUnionSpec, 'crosapi.mojom.DiagnosticsRoutineUpdateUnion', {
       'interactive_update': {
         'ordinal': 0,
-        'type': crosapi.mojom.DiagnosticsInteractiveRoutineUpdateSpec,
+        'type': crosapi.mojom.DiagnosticsInteractiveRoutineUpdateSpec.$,
         'nullable': false,
       },
       'noninteractive_update': {
         'ordinal': 1,
-        'type': crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec,
+        'type': crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec.$,
         'nullable': false,
       },
     });
@@ -197,14 +197,14 @@ mojo.internal.Union(
 // Struct: DiagnosticsInteractiveRoutineUpdate
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsInteractiveRoutineUpdateSpec, 'crosapi.mojom.DiagnosticsInteractiveRoutineUpdate', [
-      mojo.internal.StructField('user_message', 0, 0, crosapi.mojom.DiagnosticsRoutineUserMessageEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_message', 0, 0, crosapi.mojom.DiagnosticsRoutineUserMessageEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: DiagnosticsNonInteractiveRoutineUpdate
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec, 'crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdate', [
-      mojo.internal.StructField('status', 0, 0, crosapi.mojom.DiagnosticsRoutineStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, crosapi.mojom.DiagnosticsRoutineStatusEnumSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('status_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -214,17 +214,17 @@ mojo.internal.Struct(
     crosapi.mojom.DiagnosticsRoutineUpdateSpec, 'crosapi.mojom.DiagnosticsRoutineUpdate', [
       mojo.internal.StructField('progress_percent', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('output', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('routine_update_union', 16, 0, crosapi.mojom.DiagnosticsRoutineUpdateUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('routine_update_union', 16, 0, crosapi.mojom.DiagnosticsRoutineUpdateUnionSpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: DiagnosticsRunRoutineResponse
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsRunRoutineResponseSpec, 'crosapi.mojom.DiagnosticsRunRoutineResponse', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 4, 0, crosapi.mojom.DiagnosticsRoutineStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, crosapi.mojom.DiagnosticsRoutineStatusEnumSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: DiagnosticsService
 mojo.internal.Struct(
@@ -234,21 +234,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParams', [
-      mojo.internal.StructField('available_routines', 0, 0, mojo.internal.Array(crosapi.mojom.DiagnosticsRoutineEnumSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('available_routines', 0, 0, mojo.internal.Array(crosapi.mojom.DiagnosticsRoutineEnumSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec, 'crosapi.mojom.DiagnosticsService_GetRoutineUpdate_Params', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('command', 4, 0, crosapi.mojom.DiagnosticsRoutineCommandEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('include_output', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('command', 8, 0, crosapi.mojom.DiagnosticsRoutineCommandEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('include_output', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParams', [
-      mojo.internal.StructField('routine_update', 0, 0, crosapi.mojom.DiagnosticsRoutineUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('routine_update', 0, 0, crosapi.mojom.DiagnosticsRoutineUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -259,7 +259,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -270,32 +270,32 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_Params', [
-      mojo.internal.StructField('percentage_used_threshold', 0, 0, crosapi.mojom.UInt32ValueSpec, null, true, 1, undefined),
+      mojo.internal.StructField('percentage_used_threshold', 0, 0, crosapi.mojom.UInt32ValueSpec.$, null, true, 1, undefined),
     ],
     [[0, 8], [1, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_Params', [
-      mojo.internal.StructField('expected_status', 0, 0, crosapi.mojom.DiagnosticsAcPowerStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expected_status', 0, 0, crosapi.mojom.DiagnosticsAcPowerStatusEnumSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('expected_power_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -307,7 +307,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -319,7 +319,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -331,7 +331,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -343,33 +343,33 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_Params', [
-      mojo.internal.StructField('nvme_self_test_type', 0, 0, crosapi.mojom.DiagnosticsNvmeSelfTestTypeEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('nvme_self_test_type', 0, 0, crosapi.mojom.DiagnosticsNvmeSelfTestTypeEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_Params', [
-      mojo.internal.StructField('type', 0, 0, crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('length_seconds', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('file_size_mb', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, crosapi.mojom.DiagnosticsDiskReadRoutineTypeEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('length_seconds', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('file_size_mb', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -381,7 +381,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -394,7 +394,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -407,7 +407,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -418,7 +418,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -429,7 +429,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -440,7 +440,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -451,7 +451,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -462,7 +462,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -473,7 +473,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -484,7 +484,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -495,7 +495,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -506,7 +506,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -517,7 +517,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -528,7 +528,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -540,7 +540,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -551,7 +551,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -562,7 +562,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -574,7 +574,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -586,7 +586,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -597,7 +597,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.DiagnosticsRunRoutineResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -957,9 +957,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
 
 crosapi.mojom.DiagnosticsService.getRemote = function() {
   let remote = new crosapi.mojom.DiagnosticsServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.DiagnosticsService',
     'context');
   return remote.$;

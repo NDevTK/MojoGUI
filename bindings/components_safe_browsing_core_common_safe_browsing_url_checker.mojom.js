@@ -17,7 +17,7 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = { $: {}
 // Interface: SafeBrowsingUrlChecker
 mojo.internal.Struct(
     safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec, 'safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('method', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -75,9 +75,8 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandler = class {
 
 safe_browsing.mojom.SafeBrowsingUrlChecker.getRemote = function() {
   let remote = new safe_browsing.mojom.SafeBrowsingUrlCheckerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'safe_browsing.mojom.SafeBrowsingUrlChecker',
     'context');
   return remote.$;

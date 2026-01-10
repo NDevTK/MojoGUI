@@ -347,18 +347,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('key_data_length', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('key_control_iv_offset', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('key_control_offset', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('cipher_mode', 28, 0, arc.mojom.OemCryptoCipherModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cipher_mode', 32, 0, arc.mojom.OemCryptoCipherModeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: OemCryptoKeyObject
 mojo.internal.Struct(
     arc.mojom.OemCryptoKeyObjectSpec, 'arc.mojom.OemCryptoKeyObject', [
-      mojo.internal.StructField('key_id', 0, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_data_iv', 8, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_data', 16, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_control_iv', 24, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_control', 32, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_id', 0, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_data_iv', 8, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 16, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_control_iv', 24, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_control', 32, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -375,10 +375,10 @@ mojo.internal.Struct(
 // Struct: OemCryptoEntitledContentKeyObject
 mojo.internal.Struct(
     arc.mojom.OemCryptoEntitledContentKeyObjectSpec, 'arc.mojom.OemCryptoEntitledContentKeyObject', [
-      mojo.internal.StructField('entitlement_key_id', 0, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_key_id', 8, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_key_data_iv', 16, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_key_data', 24, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('entitlement_key_id', 0, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('content_key_id', 8, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('content_key_data_iv', 16, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('content_key_data', 24, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -396,9 +396,9 @@ mojo.internal.Struct(
 // Struct: OemCryptoKeyRefreshObject
 mojo.internal.Struct(
     arc.mojom.OemCryptoKeyRefreshObjectSpec, 'arc.mojom.OemCryptoKeyRefreshObject', [
-      mojo.internal.StructField('key_id', 0, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_control_iv', 8, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_control', 16, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_id', 0, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_control_iv', 8, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_control', 16, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -441,7 +441,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec, 'arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -453,7 +453,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec, 'arc.mojom.OemCryptoService_Initialize_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -464,7 +464,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec, 'arc.mojom.OemCryptoService_Terminate_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -475,10 +475,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec, 'arc.mojom.OemCryptoService_OpenSession_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('session', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('session', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_CloseSession_ParamsSpec, 'arc.mojom.OemCryptoService_CloseSession_Params', [
@@ -488,7 +488,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec, 'arc.mojom.OemCryptoService_CloseSession_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -502,7 +502,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -514,10 +514,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GenerateNonce_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('nonce', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('nonce', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec, 'arc.mojom.OemCryptoService_GenerateSignature_Params', [
@@ -528,7 +528,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GenerateSignature_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -541,7 +541,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('has_enc_mac_keys', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('enc_mac_keys_iv_offset', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('enc_mac_keys_offset', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('key_array', 40, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyObjectV14Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_array', 40, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyObjectV14Spec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('pst_offset', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('pst_length', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -549,7 +549,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -558,13 +558,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('signature', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_array', 24, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyRefreshObjectV14Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_array', 24, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyRefreshObjectV14Spec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec, 'arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -577,7 +577,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec, 'arc.mojom.OemCryptoService_QueryKeyControl_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_control_block', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -591,7 +591,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec, 'arc.mojom.OemCryptoService_SelectKeyV13_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -602,14 +602,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('is_encrypted', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('iv', 24, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
       mojo.internal.StructField('block_offset', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('secure_buffer', 40, 0, arc.mojom.OemCryptoSecureBufferSpec, null, true, 0, undefined),
-      mojo.internal.StructField('pattern', 48, 0, arc.mojom.OemCryptoCencEncryptPatternDescSpec, null, false, 0, undefined),
+      mojo.internal.StructField('secure_buffer', 40, 0, arc.mojom.OemCryptoSecureBufferSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('pattern', 48, 0, arc.mojom.OemCryptoCencEncryptPatternDescSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec, 'arc.mojom.OemCryptoService_DecryptCencV15_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('decrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -619,13 +619,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('iv', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('algorithm', 24, 0, arc.mojom.OemCryptoAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm', 24, 0, arc.mojom.OemCryptoAlgorithmSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GenericEncrypt_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('encrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -635,13 +635,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('iv', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('algorithm', 24, 0, arc.mojom.OemCryptoAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm', 24, 0, arc.mojom.OemCryptoAlgorithmSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GenericDecrypt_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('decrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -650,13 +650,13 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenericSign_ParamsSpec, 'arc.mojom.OemCryptoService_GenericSign_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('algorithm', 16, 0, arc.mojom.OemCryptoAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm', 16, 0, arc.mojom.OemCryptoAlgorithmSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GenericSign_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -665,27 +665,27 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenericVerify_ParamsSpec, 'arc.mojom.OemCryptoService_GenericVerify_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('algorithm', 16, 0, arc.mojom.OemCryptoAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm', 16, 0, arc.mojom.OemCryptoAlgorithmSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('signature', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GenericVerify_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec, 'arc.mojom.OemCryptoService_CopyBufferV14_Params', [
       mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('out_buffer', 8, 0, arc.mojom.OemCryptoSecureBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out_buffer', 8, 0, arc.mojom.OemCryptoSecureBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec, 'arc.mojom.OemCryptoService_CopyBufferV14_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -696,7 +696,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -707,7 +707,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec, 'arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -718,7 +718,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GetDeviceId_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -730,7 +730,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GetKeyData_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -743,7 +743,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GetRandom_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -755,10 +755,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('num', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('num', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec, 'arc.mojom.OemCryptoService_GetMaxNumberOfSessions_Params', [
@@ -767,10 +767,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('max', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec, 'arc.mojom.OemCryptoService_RewrapDeviceRsaKey_Params', [
@@ -786,7 +786,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec, 'arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('wrapped_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -800,7 +800,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -808,13 +808,13 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec, 'arc.mojom.OemCryptoService_GenerateRsaSignature_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('padding_scheme', 16, 0, arc.mojom.OemCryptoRsaPaddingSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('padding_scheme', 16, 0, arc.mojom.OemCryptoRsaPaddingSchemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -830,7 +830,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec, 'arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -852,11 +852,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('current', 4, 0, arc.mojom.OemCryptoHdcpCapabilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('maximum', 8, 0, arc.mojom.OemCryptoHdcpCapabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('current', 8, 0, arc.mojom.OemCryptoHdcpCapabilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('maximum', 16, 0, arc.mojom.OemCryptoHdcpCapabilitySpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec, 'arc.mojom.OemCryptoService_UpdateUsageTable_Params', [
@@ -865,7 +865,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec, 'arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -877,7 +877,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec, 'arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -890,8 +890,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec, 'arc.mojom.OemCryptoService_ReportUsage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('report', 8, 0, arc.mojom.OemCryptoPstReportSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('report', 8, 0, arc.mojom.OemCryptoPstReportSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -907,7 +907,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec, 'arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -919,7 +919,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec, 'arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -930,7 +930,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec, 'arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -941,7 +941,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoProvisioningMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoProvisioningMethodSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -974,10 +974,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('version', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('version', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadSrm_ParamsSpec, 'arc.mojom.OemCryptoService_LoadSrm_Params', [
@@ -987,7 +987,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadSrm_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -998,7 +998,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec, 'arc.mojom.OemCryptoService_RemoveSrm_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1010,7 +1010,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec, 'arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('header', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -1023,7 +1023,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1035,10 +1035,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec, 'arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('usage_entry_number', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('usage_entry_number', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec, 'arc.mojom.OemCryptoService_LoadUsageEntry_Params', [
@@ -1050,7 +1050,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1064,7 +1064,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec, 'arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('header', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('entry', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
@@ -1079,7 +1079,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec, 'arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1092,7 +1092,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec, 'arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('header', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -1106,7 +1106,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec, 'arc.mojom.OemCryptoService_MoveEntry_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1119,7 +1119,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec, 'arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1128,7 +1128,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('time_since_license_received', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('time_since_first_decrypt', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('time_since_last_decrypt', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 24, 0, arc.mojom.OemCryptoUsageEntryStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 24, 0, arc.mojom.OemCryptoUsageEntryStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('server_mac_key', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('client_mac_key', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('pst', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
@@ -1137,7 +1137,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec, 'arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1160,20 +1160,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec, 'arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('key_array', 8, 0, mojo.internal.Array(arc.mojom.OemCryptoEntitledContentKeyObjectV14Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_array', 8, 0, mojo.internal.Array(arc.mojom.OemCryptoEntitledContentKeyObjectV14Spec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1181,13 +1181,13 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoService_SelectKey_ParamsSpec, 'arc.mojom.OemCryptoService_SelectKey_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('content_key_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('cipher_mode', 16, 0, arc.mojom.OemCryptoCipherModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cipher_mode', 16, 0, arc.mojom.OemCryptoCipherModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec, 'arc.mojom.OemCryptoService_SelectKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1199,17 +1199,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('has_enc_mac_keys', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('enc_mac_keys_iv_offset', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('enc_mac_keys_offset', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('key_array', 40, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyObjectV14Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_array', 40, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyObjectV14Spec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('pst_offset', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('pst_length', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('srm_requirement', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('license_type', 64, 0, arc.mojom.OemCryptoLicenseTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('license_type', 64, 0, arc.mojom.OemCryptoLicenseTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadKeysV14_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1218,18 +1218,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('signature', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('enc_mac_keys_iv', 24, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('enc_mac_keys', 32, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_array', 40, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyObjectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('pst', 48, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('srm_restriction_data', 56, 0, arc.mojom.OemCryptoSubstringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('license_type', 64, 0, arc.mojom.OemCryptoLicenseTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enc_mac_keys_iv', 24, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('enc_mac_keys', 32, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_array', 40, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyObjectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('pst', 48, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('srm_restriction_data', 56, 0, arc.mojom.OemCryptoSubstringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('license_type', 64, 0, arc.mojom.OemCryptoLicenseTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadKeys_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1260,13 +1260,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('signature', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_array', 24, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyRefreshObjectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_array', 24, 0, mojo.internal.Array(arc.mojom.OemCryptoKeyRefreshObjectSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec, 'arc.mojom.OemCryptoService_RefreshKeys_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1274,13 +1274,13 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec, 'arc.mojom.OemCryptoService_LoadEntitledContentKeys_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('key_array', 16, 0, mojo.internal.Array(arc.mojom.OemCryptoEntitledContentKeyObjectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_array', 16, 0, mojo.internal.Array(arc.mojom.OemCryptoEntitledContentKeyObjectSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1291,7 +1291,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec, 'arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('public_cert', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -1340,12 +1340,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec, 'arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('core_message_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('signature', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('core_message_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('signature', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec, 'arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_Params', [
@@ -1358,12 +1358,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec, 'arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('core_message_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('signature', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('core_message_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('signature', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec, 'arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_Params', [
@@ -1376,12 +1376,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec, 'arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('core_message_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('signature', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('core_message_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('signature', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadLicense_ParamsSpec, 'arc.mojom.OemCryptoService_LoadLicense_Params', [
@@ -1394,7 +1394,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadLicense_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1409,7 +1409,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadRenewal_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1425,7 +1425,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadProvisioning_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('wrapped_private_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -1438,21 +1438,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec, 'arc.mojom.OemCryptoService_LoadDrmPrivateKey_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('key_type', 4, 0, arc.mojom.OemCryptoPrivateKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('wrapped_private_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('key_type', 8, 0, arc.mojom.OemCryptoPrivateKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('wrapped_private_key', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec, 'arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1461,15 +1461,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('iv', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
-      mojo.internal.StructField('sub_samples', 24, 0, mojo.internal.Array(arc.mojom.SubSampleDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('pattern', 32, 0, arc.mojom.OemCryptoCencEncryptPatternDescSpec, null, false, 0, undefined),
-      mojo.internal.StructField('secure_buffer', 40, 0, arc.mojom.OemCryptoSecureBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('sub_samples', 24, 0, mojo.internal.Array(arc.mojom.SubSampleDescriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('pattern', 32, 0, arc.mojom.OemCryptoCencEncryptPatternDescSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('secure_buffer', 40, 0, arc.mojom.OemCryptoSecureBufferSpec.$, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec, 'arc.mojom.OemCryptoService_DecryptCenc_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('decrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -1478,14 +1478,14 @@ mojo.internal.Struct(
     arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec, 'arc.mojom.OemCryptoService_CopyBuffer_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('out_buffer', 16, 0, arc.mojom.OemCryptoSecureBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out_buffer', 16, 0, arc.mojom.OemCryptoSecureBufferSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('subsample_flags', 24, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec, 'arc.mojom.OemCryptoService_CopyBuffer_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, arc.mojom.OemCryptoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2295,9 +2295,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
 
 arc.mojom.OemCryptoService.getRemote = function() {
   let remote = new arc.mojom.OemCryptoServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.OemCryptoService',
     'context');
   return remote.$;
@@ -2360,9 +2359,8 @@ arc.mojom.OemCryptoHostRemoteCallHandler = class {
 
 arc.mojom.OemCryptoHost.getRemote = function() {
   let remote = new arc.mojom.OemCryptoHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.OemCryptoHost',
     'context');
   return remote.$;
@@ -2430,9 +2428,8 @@ arc.mojom.OemCryptoInstanceRemoteCallHandler = class {
 
 arc.mojom.OemCryptoInstance.getRemote = function() {
   let remote = new arc.mojom.OemCryptoInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.OemCryptoInstance',
     'context');
   return remote.$;

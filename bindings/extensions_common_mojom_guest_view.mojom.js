@@ -98,9 +98,8 @@ extensions.mojom.GuestViewRemoteCallHandler = class {
 
 extensions.mojom.GuestView.getRemote = function() {
   let remote = new extensions.mojom.GuestViewRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions.mojom.GuestView',
     'context');
   return remote.$;
@@ -137,7 +136,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec, 'extensions.mojom.MimeHandlerViewContainerManager_DidLoad_Params', [
       mojo.internal.StructField('mime_handler_view_guest_element_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('resource_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resource_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -217,9 +216,8 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
 
 extensions.mojom.MimeHandlerViewContainerManager.getRemote = function() {
   let remote = new extensions.mojom.MimeHandlerViewContainerManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions.mojom.MimeHandlerViewContainerManager',
     'context');
   return remote.$;

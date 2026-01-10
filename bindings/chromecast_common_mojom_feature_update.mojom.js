@@ -18,7 +18,7 @@ chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec =
 // Interface: FeatureUpdateObserver
 mojo.internal.Struct(
     chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec, 'chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_Params', [
-      mojo.internal.StructField('features', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('features', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -68,9 +68,8 @@ chromecast.mojom.FeatureUpdateObserverRemoteCallHandler = class {
 
 chromecast.mojom.FeatureUpdateObserver.getRemote = function() {
   let remote = new chromecast.mojom.FeatureUpdateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.FeatureUpdateObserver',
     'context');
   return remote.$;
@@ -133,9 +132,8 @@ chromecast.mojom.FeatureUpdateServiceRemoteCallHandler = class {
 
 chromecast.mojom.FeatureUpdateService.getRemote = function() {
   let remote = new chromecast.mojom.FeatureUpdateServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.FeatureUpdateService',
     'context');
   return remote.$;

@@ -54,8 +54,8 @@ mojo.internal.Struct(
 // Struct: WebSocketHandshakeRequest
 mojo.internal.Struct(
     network.mojom.WebSocketHandshakeRequestSpec, 'network.mojom.WebSocketHandshakeRequest', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('headers', 8, 0, mojo.internal.Array(network.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 8, 0, mojo.internal.Array(network.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('headers_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -63,12 +63,12 @@ mojo.internal.Struct(
 // Struct: WebSocketHandshakeResponse
 mojo.internal.Struct(
     network.mojom.WebSocketHandshakeResponseSpec, 'network.mojom.WebSocketHandshakeResponse', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('http_version', 8, 0, network.mojom.HttpVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('http_version', 8, 0, network.mojom.HttpVersionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('status_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('status_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('remote_endpoint', 32, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('headers', 40, 0, mojo.internal.Array(network.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('remote_endpoint', 32, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 40, 0, mojo.internal.Array(network.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('headers_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('selected_protocol', 56, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('extensions', 64, 0, mojo.internal.String, null, false, 0, undefined),
@@ -78,15 +78,15 @@ mojo.internal.Struct(
 // Interface: WebSocketAuthenticationHandler
 mojo.internal.Struct(
     network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec, 'network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_Params', [
-      mojo.internal.StructField('info', 0, 0, network.mojom.AuthChallengeInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('headers', 8, 0, network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('remote_endpoint', 16, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, network.mojom.AuthChallengeInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 8, 0, network.mojom.HttpResponseHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('remote_endpoint', 16, 0, network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec, 'network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParams', [
-      mojo.internal.StructField('credentials', 0, 0, network.mojom.AuthCredentialsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('credentials', 0, 0, network.mojom.AuthCredentialsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -136,9 +136,8 @@ network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
 
 network.mojom.WebSocketAuthenticationHandler.getRemote = function() {
   let remote = new network.mojom.WebSocketAuthenticationHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.WebSocketAuthenticationHandler',
     'context');
   return remote.$;
@@ -151,7 +150,7 @@ network.mojom.WebSocketAuthenticationHandlerRequest = network.mojom.WebSocketAut
 // Interface: WebSocketHandshakeClient
 mojo.internal.Struct(
     network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec, 'network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_Params', [
-      mojo.internal.StructField('request', 0, 0, network.mojom.WebSocketHandshakeRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, network.mojom.WebSocketHandshakeRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -167,7 +166,7 @@ mojo.internal.Struct(
     network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec, 'network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_Params', [
       mojo.internal.StructField('socket', 0, 0, mojo.internal.InterfaceProxy(network.mojom.WebSocketRemote), null, false, 0, undefined),
       mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(network.mojom.WebSocketClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('response', 16, 0, network.mojom.WebSocketHandshakeResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 16, 0, network.mojom.WebSocketHandshakeResponseSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('readable', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('writable', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
@@ -239,9 +238,8 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
 
 network.mojom.WebSocketHandshakeClient.getRemote = function() {
   let remote = new network.mojom.WebSocketHandshakeClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.WebSocketHandshakeClient',
     'context');
   return remote.$;
@@ -255,10 +253,10 @@ network.mojom.WebSocketHandshakeClientRequest = network.mojom.WebSocketHandshake
 mojo.internal.Struct(
     network.mojom.WebSocketClient_OnDataFrame_ParamsSpec, 'network.mojom.WebSocketClient_OnDataFrame_Params', [
       mojo.internal.StructField('fin', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('type', 4, 0, network.mojom.WebSocketMessageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, network.mojom.WebSocketMessageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data_length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     network.mojom.WebSocketClient_OnDropChannel_ParamsSpec, 'network.mojom.WebSocketClient_OnDropChannel_Params', [
@@ -339,9 +337,8 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
 
 network.mojom.WebSocketClient.getRemote = function() {
   let remote = new network.mojom.WebSocketClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.WebSocketClient',
     'context');
   return remote.$;
@@ -354,7 +351,7 @@ network.mojom.WebSocketClientRequest = network.mojom.WebSocketClientPendingRecei
 // Interface: WebSocket
 mojo.internal.Struct(
     network.mojom.WebSocket_SendMessage_ParamsSpec, 'network.mojom.WebSocket_SendMessage_Params', [
-      mojo.internal.StructField('type', 0, 0, network.mojom.WebSocketMessageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, network.mojom.WebSocketMessageTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -437,9 +434,8 @@ network.mojom.WebSocketRemoteCallHandler = class {
 
 network.mojom.WebSocket.getRemote = function() {
   let remote = new network.mojom.WebSocketRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.WebSocket',
     'context');
   return remote.$;

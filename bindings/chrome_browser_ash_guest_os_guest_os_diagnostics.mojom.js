@@ -25,7 +25,7 @@ guest_os.mojom.Status = {
 mojo.internal.Struct(
     guest_os.mojom.DiagnosticMessageSpec, 'guest_os.mojom.DiagnosticMessage', [
       mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('learn_more_link', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('learn_more_link', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -39,7 +39,7 @@ mojo.internal.Struct(
 // Struct: Diagnostics
 mojo.internal.Struct(
     guest_os.mojom.DiagnosticsSpec, 'guest_os.mojom.Diagnostics', [
-      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(guest_os.mojom.DiagnosticEntrySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('top_error', 8, 0, guest_os.mojom.DiagnosticMessageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(guest_os.mojom.DiagnosticEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('top_error', 8, 0, guest_os.mojom.DiagnosticMessageSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

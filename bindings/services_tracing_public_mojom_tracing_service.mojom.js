@@ -32,13 +32,13 @@ mojo.internal.Struct(
 // Interface: TracingService
 mojo.internal.Struct(
     tracing.mojom.TracingService_Initialize_ParamsSpec, 'tracing.mojom.TracingService_Initialize_Params', [
-      mojo.internal.StructField('clients', 0, 0, mojo.internal.Array(tracing.mojom.ClientInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('clients', 0, 0, mojo.internal.Array(tracing.mojom.ClientInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tracing.mojom.TracingService_AddClient_ParamsSpec, 'tracing.mojom.TracingService_AddClient_Params', [
-      mojo.internal.StructField('client', 0, 0, tracing.mojom.ClientInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, tracing.mojom.ClientInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -114,9 +114,8 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
 
 tracing.mojom.TracingService.getRemote = function() {
   let remote = new tracing.mojom.TracingServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracing.mojom.TracingService',
     'context');
   return remote.$;

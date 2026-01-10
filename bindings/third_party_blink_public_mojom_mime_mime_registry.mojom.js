@@ -72,9 +72,8 @@ blink.mojom.MimeRegistryRemoteCallHandler = class {
 
 blink.mojom.MimeRegistry.getRemote = function() {
   let remote = new blink.mojom.MimeRegistryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.MimeRegistry',
     'context');
   return remote.$;

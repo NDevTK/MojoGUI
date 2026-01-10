@@ -27,7 +27,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessObserverRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -94,9 +94,8 @@ blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
 
 blink.mojom.FileSystemAccessObserverHost.getRemote = function() {
   let remote = new blink.mojom.FileSystemAccessObserverHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FileSystemAccessObserverHost',
     'context');
   return remote.$;

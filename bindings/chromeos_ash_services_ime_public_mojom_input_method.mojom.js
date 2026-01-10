@@ -408,7 +408,7 @@ mojo.internal.Union(
     ash.ime.mojom.DomKeySpec, 'ash.ime.mojom.DomKey', {
       'named_key': {
         'ordinal': 0,
-        'type': ash.ime.mojom.NamedDomKeySpec,
+        'type': ash.ime.mojom.NamedDomKeySpec.$,
         'nullable': false,
       },
       'codepoint': {
@@ -423,22 +423,22 @@ mojo.internal.Union(
     ash.ime.mojom.InputMethodSettingsSpec, 'ash.ime.mojom.InputMethodSettings', {
       'korean_settings': {
         'ordinal': 0,
-        'type': ash.ime.mojom.KoreanSettingsSpec,
+        'type': ash.ime.mojom.KoreanSettingsSpec.$,
         'nullable': false,
       },
       'latin_settings': {
         'ordinal': 1,
-        'type': ash.ime.mojom.LatinSettingsSpec,
+        'type': ash.ime.mojom.LatinSettingsSpec.$,
         'nullable': false,
       },
       'pinyin_settings': {
         'ordinal': 2,
-        'type': ash.ime.mojom.PinyinSettingsSpec,
+        'type': ash.ime.mojom.PinyinSettingsSpec.$,
         'nullable': false,
       },
       'zhuyin_settings': {
         'ordinal': 3,
-        'type': ash.ime.mojom.ZhuyinSettingsSpec,
+        'type': ash.ime.mojom.ZhuyinSettingsSpec.$,
         'nullable': false,
       },
       'null_settings': {
@@ -448,17 +448,17 @@ mojo.internal.Union(
       },
       'japanese_settings': {
         'ordinal': 5,
-        'type': ash.ime.mojom.JapaneseSettingsSpec,
+        'type': ash.ime.mojom.JapaneseSettingsSpec.$,
         'nullable': false,
       },
       'vietnamese_telex_settings': {
         'ordinal': 6,
-        'type': ash.ime.mojom.VietnameseTelexSettingsSpec,
+        'type': ash.ime.mojom.VietnameseTelexSettingsSpec.$,
         'nullable': false,
       },
       'vietnamese_vni_settings': {
         'ordinal': 7,
-        'type': ash.ime.mojom.VietnameseVniSettingsSpec,
+        'type': ash.ime.mojom.VietnameseVniSettingsSpec.$,
         'nullable': false,
       },
     });
@@ -468,12 +468,12 @@ mojo.internal.Union(
     ash.ime.mojom.InputMethodQuickSettingsSpec, 'ash.ime.mojom.InputMethodQuickSettings', {
       'chinese_settings': {
         'ordinal': 0,
-        'type': ash.ime.mojom.ChineseQuickSettingsSpec,
+        'type': ash.ime.mojom.ChineseQuickSettingsSpec.$,
         'nullable': false,
       },
       'japanese_settings': {
         'ordinal': 1,
-        'type': ash.ime.mojom.JapaneseQuickSettingsSpec,
+        'type': ash.ime.mojom.JapaneseQuickSettingsSpec.$,
         'nullable': false,
       },
     });
@@ -493,12 +493,12 @@ mojo.internal.Struct(
 // Struct: PhysicalKeyEvent
 mojo.internal.Struct(
     ash.ime.mojom.PhysicalKeyEventSpec, 'ash.ime.mojom.PhysicalKeyEvent', [
-      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.KeyEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key', 8, 0, ash.ime.mojom.DomKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('code', 24, 0, ash.ime.mojom.DomCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('modifier_state', 32, 0, ash.ime.mojom.ModifierStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.KeyEventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key', 8, 0, ash.ime.mojom.DomKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('code', 16, 0, ash.ime.mojom.DomCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('modifier_state', 24, 0, ash.ime.mojom.ModifierStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: SelectionRange
 mojo.internal.Struct(
@@ -511,20 +511,20 @@ mojo.internal.Struct(
 // Struct: InputFieldInfo
 mojo.internal.Struct(
     ash.ime.mojom.InputFieldInfoSpec, 'ash.ime.mojom.InputFieldInfo', [
-      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.InputFieldTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('autocorrect', 4, 0, ash.ime.mojom.AutocorrectModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('personalization', 8, 0, ash.ime.mojom.PersonalizationModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text_prediction', 12, 0, ash.ime.mojom.TextPredictionModeSpec, null, false, 10, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.InputFieldTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('autocorrect', 8, 0, ash.ime.mojom.AutocorrectModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('personalization', 16, 0, ash.ime.mojom.PersonalizationModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text_prediction', 24, 0, ash.ime.mojom.TextPredictionModeSpec.$, null, false, 10, undefined),
     ],
-    [[0, 24], [10, 24]]);
+    [[0, 32], [10, 40]]);
 
 // Struct: KoreanSettings
 mojo.internal.Struct(
     ash.ime.mojom.KoreanSettingsSpec, 'ash.ime.mojom.KoreanSettings', [
       mojo.internal.StructField('input_multiple_syllables', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('layout', 4, 0, ash.ime.mojom.KoreanLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('layout', 8, 0, ash.ime.mojom.KoreanLayoutSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: LatinSettings
 mojo.internal.Struct(
@@ -555,15 +555,15 @@ mojo.internal.Struct(
 // Struct: PinyinSettings
 mojo.internal.Struct(
     ash.ime.mojom.PinyinSettingsSpec, 'ash.ime.mojom.PinyinSettings', [
-      mojo.internal.StructField('fuzzy_pinyin', 0, 0, ash.ime.mojom.FuzzyPinyinSettingsSpec, null, true, 6, undefined),
-      mojo.internal.StructField('layout', 8, 0, ash.ime.mojom.PinyinLayoutSpec, null, false, 6, undefined),
-      mojo.internal.StructField('use_hyphen_and_equals_to_page_candidates', 12, 0, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('use_comma_and_period_to_page_candidates', 12, 1, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('default_to_chinese', 12, 2, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('default_to_full_width_characters', 12, 3, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('default_to_full_width_punctuation', 12, 4, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('fuzzy_pinyin', 0, 0, ash.ime.mojom.FuzzyPinyinSettingsSpec.$, null, true, 6, undefined),
+      mojo.internal.StructField('layout', 8, 0, ash.ime.mojom.PinyinLayoutSpec.$, null, false, 6, undefined),
+      mojo.internal.StructField('use_hyphen_and_equals_to_page_candidates', 16, 0, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('use_comma_and_period_to_page_candidates', 16, 1, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('default_to_chinese', 16, 2, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('default_to_full_width_characters', 16, 3, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('default_to_full_width_punctuation', 16, 4, mojo.internal.Bool, false, false, 6, undefined),
     ],
-    [[0, 8], [6, 24]]);
+    [[0, 8], [6, 32]]);
 
 // Struct: JapaneseSettings
 mojo.internal.Struct(
@@ -575,50 +575,50 @@ mojo.internal.Struct(
 // Struct: ZhuyinSettings
 mojo.internal.Struct(
     ash.ime.mojom.ZhuyinSettingsSpec, 'ash.ime.mojom.ZhuyinSettings', [
-      mojo.internal.StructField('layout', 0, 0, ash.ime.mojom.ZhuyinLayoutSpec, null, false, 7, undefined),
-      mojo.internal.StructField('selection_keys', 4, 0, ash.ime.mojom.ZhuyinSelectionKeysSpec, null, false, 7, undefined),
-      mojo.internal.StructField('page_size', 8, 0, mojo.internal.Uint32, 0, false, 7, undefined),
+      mojo.internal.StructField('layout', 0, 0, ash.ime.mojom.ZhuyinLayoutSpec.$, null, false, 7, undefined),
+      mojo.internal.StructField('selection_keys', 8, 0, ash.ime.mojom.ZhuyinSelectionKeysSpec.$, null, false, 7, undefined),
+      mojo.internal.StructField('page_size', 16, 0, mojo.internal.Uint32, 0, false, 7, undefined),
     ],
-    [[0, 8], [7, 24]]);
+    [[0, 8], [7, 32]]);
 
 // Struct: ChineseQuickSettings
 mojo.internal.Struct(
     ash.ime.mojom.ChineseQuickSettingsSpec, 'ash.ime.mojom.ChineseQuickSettings', [
-      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.ChineseLanguageModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('full_width_characters', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('full_width_punctuation', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.ChineseLanguageModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('full_width_characters', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('full_width_punctuation', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: JapaneseQuickSettings
 mojo.internal.Struct(
     ash.ime.mojom.JapaneseQuickSettingsSpec, 'ash.ime.mojom.JapaneseQuickSettings', [
-      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.JapaneseInputModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.JapaneseInputModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SuggestionCandidate
 mojo.internal.Struct(
     ash.ime.mojom.SuggestionCandidateSpec, 'ash.ime.mojom.SuggestionCandidate', [
-      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 4, 0, ash.ime.mojom.SuggestionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('confirmed_length', 16, 0, mojo.internal.Int32, 0, false, 13, undefined),
+      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.SuggestionModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ash.ime.mojom.SuggestionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('confirmed_length', 24, 0, mojo.internal.Int32, 0, false, 13, undefined),
     ],
-    [[0, 24], [13, 32]]);
+    [[0, 32], [13, 40]]);
 
 // Struct: InputMethodMetadata
 mojo.internal.Struct(
     ash.ime.mojom.InputMethodMetadataSpec, 'ash.ime.mojom.InputMethodMetadata', [
-      mojo.internal.StructField('autocorrect_suggestion_provider', 0, 0, ash.ime.mojom.AutocorrectSuggestionProviderSpec, null, false, 0, undefined),
+      mojo.internal.StructField('autocorrect_suggestion_provider', 0, 0, ash.ime.mojom.AutocorrectSuggestionProviderSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: AssistiveWindow
 mojo.internal.Struct(
     ash.ime.mojom.AssistiveWindowSpec, 'ash.ime.mojom.AssistiveWindow', [
-      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.AssistiveWindowTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('candidates', 8, 0, mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.AssistiveWindowTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('candidates', 8, 0, mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -646,22 +646,22 @@ mojo.internal.Struct(
 // Interface: InputMethod
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocusDeprecated_Params', [
-      mojo.internal.StructField('input_field_info', 0, 0, ash.ime.mojom.InputFieldInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.ime.mojom.InputMethodSettingsSpec, null, true, 4, undefined),
+      mojo.internal.StructField('input_field_info', 0, 0, ash.ime.mojom.InputFieldInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 4, undefined),
     ],
-    [[0, 16], [4, 32]]);
+    [[0, 16], [4, 24]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnFocus_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocus_Params', [
-      mojo.internal.StructField('input_field_info', 0, 0, ash.ime.mojom.InputFieldInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('deprecated_settings', 8, 0, ash.ime.mojom.InputMethodSettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('input_field_info', 0, 0, ash.ime.mojom.InputFieldInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('deprecated_settings', 8, 0, ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_OnFocus_ResponseParams', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('metadata', 8, 0, ash.ime.mojom.InputMethodMetadataSpec, null, true, 17, undefined),
+      mojo.internal.StructField('metadata', 8, 0, ash.ime.mojom.InputMethodMetadataSpec.$, null, true, 17, undefined),
     ],
     [[0, 16], [17, 24]]);
 
@@ -672,13 +672,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec, 'ash.ime.mojom.InputMethod_ProcessKeyEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, ash.ime.mojom.PhysicalKeyEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ash.ime.mojom.PhysicalKeyEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.ime.mojom.KeyEventResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.ime.mojom.KeyEventResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -686,7 +686,7 @@ mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec, 'ash.ime.mojom.InputMethod_OnSurroundingTextChanged_Params', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('selection_range', 16, 0, ash.ime.mojom.SelectionRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection_range', 16, 0, ash.ime.mojom.SelectionRangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -703,9 +703,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec, 'ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_Params', [
-      mojo.internal.StructField('settings', 0, 0, ash.ime.mojom.InputMethodQuickSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 0, 0, ash.ime.mojom.InputMethodQuickSettingsSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec, 'ash.ime.mojom.InputMethod_IsReadyForTesting_Params', [
@@ -720,7 +720,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec, 'ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_Params', [
-      mojo.internal.StructField('window', 0, 0, ash.ime.mojom.AssistiveWindowSpec, null, false, 0, undefined),
+      mojo.internal.StructField('window', 0, 0, ash.ime.mojom.AssistiveWindowSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -860,9 +860,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
 
 ash.ime.mojom.InputMethod.getRemote = function() {
   let remote = new ash.ime.mojom.InputMethodRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.ime.mojom.InputMethod',
     'context');
   return remote.$;

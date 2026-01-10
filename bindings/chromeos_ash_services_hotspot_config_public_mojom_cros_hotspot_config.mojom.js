@@ -122,24 +122,24 @@ ash.hotspot_config.mojom.DisableReason = {
 mojo.internal.Struct(
     ash.hotspot_config.mojom.HotspotConfigSpec, 'ash.hotspot_config.mojom.HotspotConfig', [
       mojo.internal.StructField('auto_disable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('security', 4, 0, ash.hotspot_config.mojom.WiFiSecurityModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('band', 8, 0, ash.hotspot_config.mojom.WiFiBandSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('passphrase', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('bssid_randomization', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('security', 8, 0, ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('band', 16, 0, ash.hotspot_config.mojom.WiFiBandSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ssid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('passphrase', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bssid_randomization', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: HotspotInfo
 mojo.internal.Struct(
     ash.hotspot_config.mojom.HotspotInfoSpec, 'ash.hotspot_config.mojom.HotspotInfo', [
-      mojo.internal.StructField('state', 0, 0, ash.hotspot_config.mojom.HotspotStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('client_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('allow_status', 8, 0, ash.hotspot_config.mojom.HotspotAllowStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('allowed_wifi_security_modes', 16, 0, mojo.internal.Array(ash.hotspot_config.mojom.WiFiSecurityModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('config', 24, 0, ash.hotspot_config.mojom.HotspotConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.hotspot_config.mojom.HotspotStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('client_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('allow_status', 16, 0, ash.hotspot_config.mojom.HotspotAllowStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('allowed_wifi_security_modes', 24, 0, mojo.internal.Array(ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('config', 32, 0, ash.hotspot_config.mojom.HotspotConfigSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Interface: CrosHotspotConfig
 mojo.internal.Struct(
@@ -161,19 +161,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParams', [
-      mojo.internal.StructField('hotspot_info', 0, 0, ash.hotspot_config.mojom.HotspotInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hotspot_info', 0, 0, ash.hotspot_config.mojom.HotspotInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_Params', [
-      mojo.internal.StructField('config', 0, 0, ash.hotspot_config.mojom.HotspotConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, ash.hotspot_config.mojom.HotspotConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.hotspot_config.mojom.SetHotspotConfigResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.hotspot_config.mojom.SetHotspotConfigResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -184,7 +184,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.hotspot_config.mojom.HotspotControlResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.hotspot_config.mojom.HotspotControlResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -195,7 +195,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.hotspot_config.mojom.HotspotControlResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.hotspot_config.mojom.HotspotControlResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -295,9 +295,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandler = class {
 
 ash.hotspot_config.mojom.CrosHotspotConfig.getRemote = function() {
   let remote = new ash.hotspot_config.mojom.CrosHotspotConfigRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.hotspot_config.mojom.CrosHotspotConfig',
     'context');
   return remote.$;
@@ -359,9 +358,8 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverRemoteCallHandler = class {
 
 ash.hotspot_config.mojom.CrosHotspotConfigObserver.getRemote = function() {
   let remote = new ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.hotspot_config.mojom.CrosHotspotConfigObserver',
     'context');
   return remote.$;
@@ -379,7 +377,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec, 'ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_Params', [
-      mojo.internal.StructField('reason', 0, 0, ash.hotspot_config.mojom.DisableReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, ash.hotspot_config.mojom.DisableReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -439,9 +437,8 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverRemoteCallHandler = class {
 
 ash.hotspot_config.mojom.HotspotEnabledStateObserver.getRemote = function() {
   let remote = new ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.hotspot_config.mojom.HotspotEnabledStateObserver',
     'context');
   return remote.$;

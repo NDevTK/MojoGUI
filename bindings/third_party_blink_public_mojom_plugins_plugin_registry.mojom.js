@@ -19,7 +19,7 @@ blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.PluginMimeTypeSpec, 'blink.mojom.PluginMimeType', [
       mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('file_extensions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -27,11 +27,11 @@ mojo.internal.Struct(
 // Struct: PluginInfo
 mojo.internal.Struct(
     blink.mojom.PluginInfoSpec, 'blink.mojom.PluginInfo', [
-      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('filename', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('filename', 16, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('background_color', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('mime_types', 32, 0, mojo.internal.Array(blink.mojom.PluginMimeTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('mime_types', 32, 0, mojo.internal.Array(blink.mojom.PluginMimeTypeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('may_use_external_handler', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -44,7 +44,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec, 'blink.mojom.PluginRegistry_GetPlugins_ResponseParams', [
-      mojo.internal.StructField('plugins', 0, 0, mojo.internal.Array(blink.mojom.PluginInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('plugins', 0, 0, mojo.internal.Array(blink.mojom.PluginInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -94,9 +94,8 @@ blink.mojom.PluginRegistryRemoteCallHandler = class {
 
 blink.mojom.PluginRegistry.getRemote = function() {
   let remote = new blink.mojom.PluginRegistryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PluginRegistry',
     'context');
   return remote.$;

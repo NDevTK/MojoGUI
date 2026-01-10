@@ -80,8 +80,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('total_memory_kib', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('cpu_threads_count', 28, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('cpu_max_clock_speed_khz', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('version_info', 40, 0, ash.diagnostics.mojom.VersionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('device_capabilities', 48, 0, ash.diagnostics.mojom.DeviceCapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('version_info', 40, 0, ash.diagnostics.mojom.VersionInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('device_capabilities', 48, 0, ash.diagnostics.mojom.DeviceCapabilitiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -96,13 +96,13 @@ mojo.internal.Struct(
 // Struct: BatteryChargeStatus
 mojo.internal.Struct(
     ash.diagnostics.mojom.BatteryChargeStatusSpec, 'ash.diagnostics.mojom.BatteryChargeStatus', [
-      mojo.internal.StructField('power_time', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('power_time', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('current_now_milliamps', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('charge_now_milliamp_hours', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('battery_state', 16, 0, ash.diagnostics.mojom.BatteryStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('power_adapter_status', 20, 0, ash.diagnostics.mojom.ExternalPowerSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('battery_state', 16, 0, ash.diagnostics.mojom.BatteryStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('power_adapter_status', 24, 0, ash.diagnostics.mojom.ExternalPowerSourceSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: BatteryHealth
 mojo.internal.Struct(
@@ -137,7 +137,7 @@ mojo.internal.Struct(
 // Interface: BatteryChargeStatusObserver
 mojo.internal.Struct(
     ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec, 'ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_Params', [
-      mojo.internal.StructField('battery_charge_status', 0, 0, ash.diagnostics.mojom.BatteryChargeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('battery_charge_status', 0, 0, ash.diagnostics.mojom.BatteryChargeStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -187,9 +187,8 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.BatteryChargeStatusObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.BatteryChargeStatusObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.BatteryChargeStatusObserver',
     'context');
   return remote.$;
@@ -202,7 +201,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRequest = ash.diagnostics.mojom
 // Interface: BatteryHealthObserver
 mojo.internal.Struct(
     ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec, 'ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_Params', [
-      mojo.internal.StructField('battery_health', 0, 0, ash.diagnostics.mojom.BatteryHealthSpec, null, false, 0, undefined),
+      mojo.internal.StructField('battery_health', 0, 0, ash.diagnostics.mojom.BatteryHealthSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -252,9 +251,8 @@ ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.BatteryHealthObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.BatteryHealthObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.BatteryHealthObserver',
     'context');
   return remote.$;
@@ -267,7 +265,7 @@ ash.diagnostics.mojom.BatteryHealthObserverRequest = ash.diagnostics.mojom.Batte
 // Interface: MemoryUsageObserver
 mojo.internal.Struct(
     ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec, 'ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_Params', [
-      mojo.internal.StructField('memory_usage', 0, 0, ash.diagnostics.mojom.MemoryUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('memory_usage', 0, 0, ash.diagnostics.mojom.MemoryUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -317,9 +315,8 @@ ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.MemoryUsageObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.MemoryUsageObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.MemoryUsageObserver',
     'context');
   return remote.$;
@@ -332,7 +329,7 @@ ash.diagnostics.mojom.MemoryUsageObserverRequest = ash.diagnostics.mojom.MemoryU
 // Interface: CpuUsageObserver
 mojo.internal.Struct(
     ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec, 'ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_Params', [
-      mojo.internal.StructField('cpu_usage', 0, 0, ash.diagnostics.mojom.CpuUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cpu_usage', 0, 0, ash.diagnostics.mojom.CpuUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -382,9 +379,8 @@ ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.CpuUsageObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.CpuUsageObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.CpuUsageObserver',
     'context');
   return remote.$;
@@ -402,7 +398,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParams', [
-      mojo.internal.StructField('system_info', 0, 0, ash.diagnostics.mojom.SystemInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('system_info', 0, 0, ash.diagnostics.mojom.SystemInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -413,7 +409,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParams', [
-      mojo.internal.StructField('battery_info', 0, 0, ash.diagnostics.mojom.BatteryInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('battery_info', 0, 0, ash.diagnostics.mojom.BatteryInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -537,9 +533,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
 
 ash.diagnostics.mojom.SystemDataProvider.getRemote = function() {
   let remote = new ash.diagnostics.mojom.SystemDataProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.SystemDataProvider',
     'context');
   return remote.$;

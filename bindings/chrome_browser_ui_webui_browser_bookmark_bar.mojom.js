@@ -40,8 +40,8 @@ mojo.internal.Struct(
     bookmark_bar.mojom.BookmarkDataSpec, 'bookmark_bar.mojom.BookmarkData', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, bookmark_bar.mojom.BookmarkTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_url_for_favicon', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, bookmark_bar.mojom.BookmarkTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('page_url_for_favicon', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -99,9 +99,8 @@ bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 bookmark_bar.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new bookmark_bar.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bookmark_bar.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -119,7 +118,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParams', [
-      mojo.internal.StructField('bookmarks', 0, 0, mojo.internal.Array(bookmark_bar.mojom.BookmarkDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bookmarks', 0, 0, mojo.internal.Array(bookmark_bar.mojom.BookmarkDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -185,9 +184,8 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
 
 bookmark_bar.mojom.PageHandler.getRemote = function() {
   let remote = new bookmark_bar.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bookmark_bar.mojom.PageHandler',
     'context');
   return remote.$;
@@ -205,7 +203,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec, 'bookmark_bar.mojom.Page_FavIconChanged_Params', [
-      mojo.internal.StructField('bookmark_data', 0, 0, bookmark_bar.mojom.BookmarkDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bookmark_data', 0, 0, bookmark_bar.mojom.BookmarkDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -295,9 +293,8 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
 
 bookmark_bar.mojom.Page.getRemote = function() {
   let remote = new bookmark_bar.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bookmark_bar.mojom.Page',
     'context');
   return remote.$;

@@ -28,22 +28,22 @@ mojo.internal.Union(
     blink.mojom.DragItemSpec, 'blink.mojom.DragItem', {
       'string': {
         'ordinal': 0,
-        'type': blink.mojom.DragItemStringSpec,
+        'type': blink.mojom.DragItemStringSpec.$,
         'nullable': false,
       },
       'file': {
         'ordinal': 1,
-        'type': blink.mojom.DataTransferFileSpec,
+        'type': blink.mojom.DataTransferFileSpec.$,
         'nullable': false,
       },
       'binary': {
         'ordinal': 2,
-        'type': blink.mojom.DragItemBinarySpec,
+        'type': blink.mojom.DragItemBinarySpec.$,
         'nullable': false,
       },
       'file_system_file': {
         'ordinal': 3,
-        'type': blink.mojom.DragItemFileSystemFileSpec,
+        'type': blink.mojom.DragItemFileSystemFileSpec.$,
         'nullable': false,
       },
     });
@@ -61,37 +61,37 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.DragItemStringSpec, 'blink.mojom.DragItemString', [
       mojo.internal.StructField('string_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('string_data', 8, 0, mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('base_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('string_data', 8, 0, mojo_base.mojom.BigString16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('base_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: DragItemBinary
 mojo.internal.Struct(
     blink.mojom.DragItemBinarySpec, 'blink.mojom.DragItemBinary', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_image_accessible', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('source_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('filename_extension', 32, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_disposition', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_image_accessible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('source_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('filename_extension', 24, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('content_disposition', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: DragItemFileSystemFile
 mojo.internal.Struct(
     blink.mojom.DragItemFileSystemFileSpec, 'blink.mojom.DragItemFileSystemFile', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('file_system_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('serialized_blob', 24, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('serialized_blob', 24, 0, blink.mojom.SerializedBlobSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: DragData
 mojo.internal.Struct(
     blink.mojom.DragDataSpec, 'blink.mojom.DragData', [
-      mojo.internal.StructField('items', 0, 0, mojo.internal.Array(blink.mojom.DragItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('items', 0, 0, mojo.internal.Array(blink.mojom.DragItemSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('file_system_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('force_default_action', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -100,7 +100,7 @@ mojo.internal.Struct(
 // Struct: DragEventSourceInfo
 mojo.internal.Struct(
     blink.mojom.DragEventSourceInfoSpec, 'blink.mojom.DragEventSourceInfo', [
-      mojo.internal.StructField('location', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source', 8, 0, ui.mojom.DragEventSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('location', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, ui.mojom.DragEventSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

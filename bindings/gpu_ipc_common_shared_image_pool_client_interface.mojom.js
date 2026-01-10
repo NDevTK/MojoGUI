@@ -64,9 +64,8 @@ gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler = class {
 
 gpu.mojom.SharedImagePoolClientInterface.getRemote = function() {
   let remote = new gpu.mojom.SharedImagePoolClientInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'gpu.mojom.SharedImagePoolClientInterface',
     'context');
   return remote.$;

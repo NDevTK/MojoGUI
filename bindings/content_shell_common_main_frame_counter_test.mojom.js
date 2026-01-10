@@ -71,9 +71,8 @@ content.mojom.MainFrameCounterTestRemoteCallHandler = class {
 
 content.mojom.MainFrameCounterTest.getRemote = function() {
   let remote = new content.mojom.MainFrameCounterTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.MainFrameCounterTest',
     'context');
   return remote.$;

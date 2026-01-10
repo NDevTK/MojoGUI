@@ -20,7 +20,7 @@ signin.mojom.AccountType = {
 // Struct: AccountId
 mojo.internal.Struct(
     signin.mojom.AccountIdSpec, 'signin.mojom.AccountId', [
-      mojo.internal.StructField('account_type', 0, 0, signin.mojom.AccountTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('account_type', 0, 0, signin.mojom.AccountTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('user_email', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],

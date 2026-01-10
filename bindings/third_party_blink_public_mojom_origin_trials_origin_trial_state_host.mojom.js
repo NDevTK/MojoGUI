@@ -27,14 +27,14 @@ mojo.internal.Struct(
 // Interface: OriginTrialStateHost
 mojo.internal.Struct(
     blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec, 'blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_Params', [
-      mojo.internal.StructField('origin_trial_features', 0, 0, mojo.internal.Map(blink.mojom.RuntimeFeatureSpec, blink.mojom.OriginTrialFeatureStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('origin_trial_features', 0, 0, mojo.internal.Map(blink.mojom.RuntimeFeatureSpec.$, blink.mojom.OriginTrialFeatureStateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec, 'blink.mojom.OriginTrialStateHost_EnablePersistentTrial_Params', [
       mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('script_origins', 8, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('script_origins', 8, 0, mojo.internal.Array(url.mojom.OriginSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -94,9 +94,8 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
 
 blink.mojom.OriginTrialStateHost.getRemote = function() {
   let remote = new blink.mojom.OriginTrialStateHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.OriginTrialStateHost',
     'context');
   return remote.$;

@@ -83,9 +83,9 @@ ash.audio_config.mojom.AudioEffectType = {
 // Struct: VoiceIsolationUIAppearance
 mojo.internal.Struct(
     ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, 'ash.audio_config.mojom.VoiceIsolationUIAppearance', [
-      mojo.internal.StructField('toggle_type', 0, 0, ash.audio_config.mojom.AudioEffectTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('effect_mode_options', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('show_effect_fallback_message', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('toggle_type', 0, 0, ash.audio_config.mojom.AudioEffectTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('effect_mode_options', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('show_effect_fallback_message', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -95,32 +95,32 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('is_active', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('device_type', 20, 0, ash.audio_config.mojom.AudioDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('noise_cancellation_state', 24, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('style_transfer_state', 28, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('force_respect_ui_gains_state', 32, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hfp_mic_sr_state', 36, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('spatial_audio_state', 40, 0, ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_type', 24, 0, ash.audio_config.mojom.AudioDeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('noise_cancellation_state', 32, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('style_transfer_state', 40, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('force_respect_ui_gains_state', 48, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('hfp_mic_sr_state', 56, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('spatial_audio_state', 64, 0, ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 80]]);
 
 // Struct: AudioSystemProperties
 mojo.internal.Struct(
     ash.audio_config.mojom.AudioSystemPropertiesSpec, 'ash.audio_config.mojom.AudioSystemProperties', [
-      mojo.internal.StructField('output_devices', 0, 0, mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('output_devices', 0, 0, mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('output_volume_percent', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('input_gain_percent', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('output_mute_state', 12, 0, ash.audio_config.mojom.MuteStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('input_devices', 16, 0, mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('input_mute_state', 24, 0, ash.audio_config.mojom.MuteStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('voice_isolation_ui_appearance', 32, 0, ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_mute_state', 16, 0, ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('input_devices', 24, 0, mojo.internal.Array(ash.audio_config.mojom.AudioDeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('input_mute_state', 32, 0, ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('voice_isolation_ui_appearance', 40, 0, ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Interface: AudioSystemPropertiesObserver
 mojo.internal.Struct(
     ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec, 'ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_Params', [
-      mojo.internal.StructField('properties', 0, 0, ash.audio_config.mojom.AudioSystemPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 0, 0, ash.audio_config.mojom.AudioSystemPropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -170,9 +170,8 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverRemoteCallHandler = class {
 
 ash.audio_config.mojom.AudioSystemPropertiesObserver.getRemote = function() {
   let remote = new ash.audio_config.mojom.AudioSystemPropertiesObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.audio_config.mojom.AudioSystemPropertiesObserver',
     'context');
   return remote.$;
@@ -226,7 +225,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_Params', [
-      mojo.internal.StructField('preferred_effect', 0, 0, ash.audio_config.mojom.AudioEffectTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preferred_effect', 0, 0, ash.audio_config.mojom.AudioEffectTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -426,9 +425,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
 
 ash.audio_config.mojom.CrosAudioConfig.getRemote = function() {
   let remote = new ash.audio_config.mojom.CrosAudioConfigRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.audio_config.mojom.CrosAudioConfig',
     'context');
   return remote.$;

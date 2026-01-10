@@ -106,9 +106,8 @@ recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
 
 recording.mojom.DriveFsQuotaDelegate.getRemote = function() {
   let remote = new recording.mojom.DriveFsQuotaDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'recording.mojom.DriveFsQuotaDelegate',
     'context');
   return remote.$;
@@ -121,8 +120,8 @@ recording.mojom.DriveFsQuotaDelegateRequest = recording.mojom.DriveFsQuotaDelega
 // Interface: RecordingServiceClient
 mojo.internal.Struct(
     recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec, 'recording.mojom.RecordingServiceClient_OnRecordingEnded_Params', [
-      mojo.internal.StructField('status', 0, 0, recording.mojom.RecordingStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('thumbnail', 8, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, recording.mojom.RecordingStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('thumbnail', 8, 0, gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -172,9 +171,8 @@ recording.mojom.RecordingServiceClientRemoteCallHandler = class {
 
 recording.mojom.RecordingServiceClient.getRemote = function() {
   let remote = new recording.mojom.RecordingServiceClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'recording.mojom.RecordingServiceClient',
     'context');
   return remote.$;
@@ -192,9 +190,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('microphone_stream_factory', 16, 0, mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('system_audio_stream_factory', 24, 0, mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(recording.mojom.DriveFsQuotaDelegateRemote), null, true, 0, undefined),
-      mojo.internal.StructField('output_file_path', 40, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_id', 48, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_size_dip', 56, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_file_path', 40, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 48, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_size_dip', 56, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device_scale_factor', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -206,12 +204,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('microphone_stream_factory', 16, 0, mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('system_audio_stream_factory', 24, 0, mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(recording.mojom.DriveFsQuotaDelegateRemote), null, true, 0, undefined),
-      mojo.internal.StructField('output_file_path', 40, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_id', 48, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_size_dip', 56, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_file_path', 40, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 48, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_size_dip', 56, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device_scale_factor', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('subtree_capture_id', 72, 0, viz.mojom.SubtreeCaptureIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('window_size_dip', 80, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subtree_capture_id', 72, 0, viz.mojom.SubtreeCaptureIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('window_size_dip', 80, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 96]]);
 
@@ -222,11 +220,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('microphone_stream_factory', 16, 0, mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('system_audio_stream_factory', 24, 0, mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('drive_fs_quota_delegate', 32, 0, mojo.internal.InterfaceProxy(recording.mojom.DriveFsQuotaDelegateRemote), null, true, 0, undefined),
-      mojo.internal.StructField('output_file_path', 40, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_id', 48, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_size_dip', 56, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_file_path', 40, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 48, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_size_dip', 56, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device_scale_factor', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('crop_region_dip', 72, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('crop_region_dip', 72, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -237,21 +235,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec, 'recording.mojom.RecordingService_OnRecordedWindowChangingRoot_Params', [
-      mojo.internal.StructField('new_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('new_frame_sink_size_dip', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_frame_sink_size_dip', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('new_device_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec, 'recording.mojom.RecordingService_OnRecordedWindowSizeChanged_Params', [
-      mojo.internal.StructField('new_window_size_dip', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_window_size_dip', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec, 'recording.mojom.RecordingService_OnFrameSinkSizeChanged_Params', [
-      mojo.internal.StructField('new_frame_sink_size_dip', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_frame_sink_size_dip', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('new_device_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -362,9 +360,8 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
 
 recording.mojom.RecordingService.getRemote = function() {
   let remote = new recording.mojom.RecordingServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'recording.mojom.RecordingService',
     'context');
   return remote.$;

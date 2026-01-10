@@ -63,9 +63,8 @@ arc.mojom.PrintSessionHostRemoteCallHandler = class {
 
 arc.mojom.PrintSessionHost.getRemote = function() {
   let remote = new arc.mojom.PrintSessionHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.PrintSessionHost',
     'context');
   return remote.$;
@@ -83,7 +82,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec, 'arc.mojom.PrintSessionInstance_CreatePreviewDocument_Params', [
-      mojo.internal.StructField('request', 0, 0, arc.mojom.PrintDocumentRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, arc.mojom.PrintDocumentRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -150,9 +149,8 @@ arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
 
 arc.mojom.PrintSessionInstance.getRemote = function() {
   let remote = new arc.mojom.PrintSessionInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.PrintSessionInstance',
     'context');
   return remote.$;
@@ -223,9 +221,8 @@ arc.mojom.PrintSpoolerHostRemoteCallHandler = class {
 
 arc.mojom.PrintSpoolerHost.getRemote = function() {
   let remote = new arc.mojom.PrintSpoolerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.PrintSpoolerHost',
     'context');
   return remote.$;
@@ -293,9 +290,8 @@ arc.mojom.PrintSpoolerInstanceRemoteCallHandler = class {
 
 arc.mojom.PrintSpoolerInstance.getRemote = function() {
   let remote = new arc.mojom.PrintSpoolerInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.PrintSpoolerInstance',
     'context');
   return remote.$;

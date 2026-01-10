@@ -23,7 +23,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec, 'file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParams', [
-      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(file_suggestion.mojom.FileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(file_suggestion.mojom.FileSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -103,9 +103,8 @@ file_suggestion.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
 
 file_suggestion.mojom.MicrosoftFilesPageHandler.getRemote = function() {
   let remote = new file_suggestion.mojom.MicrosoftFilesPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'file_suggestion.mojom.MicrosoftFilesPageHandler',
     'context');
   return remote.$;

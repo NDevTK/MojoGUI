@@ -24,7 +24,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec, 'blink.mojom.TextInputHost_GotFirstRectForRange_Params', [
-      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -84,9 +84,8 @@ blink.mojom.TextInputHostRemoteCallHandler = class {
 
 blink.mojom.TextInputHost.getRemote = function() {
   let remote = new blink.mojom.TextInputHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.TextInputHost',
     'context');
   return remote.$;

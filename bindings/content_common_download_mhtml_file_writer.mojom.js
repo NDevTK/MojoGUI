@@ -33,7 +33,7 @@ mojo.internal.Union(
     content.mojom.MhtmlOutputHandleSpec, 'content.mojom.MhtmlOutputHandle', {
       'file_handle': {
         'ordinal': 0,
-        'type': mojo_base.mojom.FileSpec,
+        'type': mojo_base.mojom.FileSpec.$,
         'nullable': false,
       },
       'producer_handle': {
@@ -49,23 +49,23 @@ mojo.internal.Struct(
       mojo.internal.StructField('mhtml_boundary_marker', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('mhtml_binary_encoding', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('mhtml_popup_overlay_removal', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('digests_of_uris_to_skip', 16, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('salt', 24, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_handle', 32, 0, content.mojom.MhtmlOutputHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('digests_of_uris_to_skip', 16, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('salt', 24, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_handle', 32, 0, content.mojom.MhtmlOutputHandleSpec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Interface: MhtmlFileWriter
 mojo.internal.Struct(
     content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_Params', [
-      mojo.internal.StructField('params', 0, 0, content.mojom.SerializeAsMHTMLParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, content.mojom.SerializeAsMHTMLParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, content.mojom.MhtmlSaveStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('digests_of_uris_to_skip', 8, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, content.mojom.MhtmlSaveStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('digests_of_uris_to_skip', 8, 0, mojo.internal.Array(mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -115,9 +115,8 @@ content.mojom.MhtmlFileWriterRemoteCallHandler = class {
 
 content.mojom.MhtmlFileWriter.getRemote = function() {
   let remote = new content.mojom.MhtmlFileWriterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.MhtmlFileWriter',
     'context');
   return remote.$;

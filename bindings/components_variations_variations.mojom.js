@@ -20,6 +20,6 @@ variations.mojom.GoogleWebVisibility = {
 // Struct: VariationsHeaders
 mojo.internal.Struct(
     variations.mojom.VariationsHeadersSpec, 'variations.mojom.VariationsHeaders', [
-      mojo.internal.StructField('headers_map', 0, 0, mojo.internal.Map(variations.mojom.GoogleWebVisibilitySpec, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('headers_map', 0, 0, mojo.internal.Map(variations.mojom.GoogleWebVisibilitySpec.$, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

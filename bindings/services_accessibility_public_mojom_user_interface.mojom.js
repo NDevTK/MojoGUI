@@ -41,12 +41,12 @@ ax.mojom.FocusRingStackingOrder = {
 // Struct: FocusRingInfo
 mojo.internal.Struct(
     ax.mojom.FocusRingInfoSpec, 'ax.mojom.FocusRingInfo', [
-      mojo.internal.StructField('rects', 0, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, ax.mojom.FocusTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('color', 16, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('secondary_color', 24, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('background_color', 32, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('stacking_order', 40, 0, ax.mojom.FocusRingStackingOrderSpec, null, true, 0, undefined),
+      mojo.internal.StructField('rects', 0, 0, mojo.internal.Array(gfx.mojom.RectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ax.mojom.FocusTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('color', 16, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('secondary_color', 24, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('background_color', 32, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('stacking_order', 40, 0, ax.mojom.FocusRingStackingOrderSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('id', 48, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 64]]);
@@ -80,15 +80,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ax.mojom.UserInterface_SetFocusRings_ParamsSpec, 'ax.mojom.UserInterface_SetFocusRings_Params', [
-      mojo.internal.StructField('focus_rings', 0, 0, mojo.internal.Array(ax.mojom.FocusRingInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('at_type', 8, 0, ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('focus_rings', 0, 0, mojo.internal.Array(ax.mojom.FocusRingInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('at_type', 8, 0, ax.mojom.AssistiveTechnologyTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ax.mojom.UserInterface_SetHighlights_ParamsSpec, 'ax.mojom.UserInterface_SetHighlights_Params', [
-      mojo.internal.StructField('rects', 0, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('color', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rects', 0, 0, mojo.internal.Array(gfx.mojom.RectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('color', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -194,9 +194,8 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
 
 ax.mojom.UserInterface.getRemote = function() {
   let remote = new ax.mojom.UserInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.UserInterface',
     'context');
   return remote.$;

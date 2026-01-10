@@ -118,7 +118,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -212,9 +212,8 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
 
 cros.mojom.CameraAppDeviceProvider.getRemote = function() {
   let remote = new cros.mojom.CameraAppDeviceProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CameraAppDeviceProvider',
     'context');
   return remote.$;
@@ -233,7 +232,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('device', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -350,9 +349,8 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
 
 cros.mojom.CameraAppDeviceBridge.getRemote = function() {
   let remote = new cros.mojom.CameraAppDeviceBridgeRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CameraAppDeviceBridge',
     'context');
   return remote.$;
@@ -376,7 +374,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec, 'cros.mojom.CameraAppDevice_SetFpsRange_Params', [
-      mojo.internal.StructField('fps_range', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fps_range', 0, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -388,7 +386,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec, 'cros.mojom.CameraAppDevice_SetStillCaptureResolution_Params', [
-      mojo.internal.StructField('resolution', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resolution', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -399,7 +397,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec, 'cros.mojom.CameraAppDevice_SetCaptureIntent_Params', [
-      mojo.internal.StructField('intent', 0, 0, cros.mojom.CaptureIntentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('intent', 0, 0, cros.mojom.CaptureIntentSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -411,7 +409,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_AddResultMetadataObserver_Params', [
       mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.ResultMetadataObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('stream_type', 8, 0, cros.mojom.StreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 8, 0, cros.mojom.StreamTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -489,7 +487,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec, 'cros.mojom.CameraAppDevice_SetCropRegion_Params', [
-      mojo.internal.StructField('crop_region', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('crop_region', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -674,9 +672,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
 
 cros.mojom.CameraAppDevice.getRemote = function() {
   let remote = new cros.mojom.CameraAppDeviceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CameraAppDevice',
     'context');
   return remote.$;
@@ -689,7 +686,7 @@ cros.mojom.CameraAppDeviceRequest = cros.mojom.CameraAppDevicePendingReceiver;
 // Interface: ResultMetadataObserver
 mojo.internal.Struct(
     cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec, 'cros.mojom.ResultMetadataObserver_OnMetadataAvailable_Params', [
-      mojo.internal.StructField('camera_metadata', 0, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('camera_metadata', 0, 0, cros.mojom.CameraMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -739,9 +736,8 @@ cros.mojom.ResultMetadataObserverRemoteCallHandler = class {
 
 cros.mojom.ResultMetadataObserver.getRemote = function() {
   let remote = new cros.mojom.ResultMetadataObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.ResultMetadataObserver',
     'context');
   return remote.$;
@@ -803,9 +799,8 @@ cros.mojom.CameraEventObserverRemoteCallHandler = class {
 
 cros.mojom.CameraEventObserver.getRemote = function() {
   let remote = new cros.mojom.CameraEventObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CameraEventObserver',
     'context');
   return remote.$;
@@ -818,7 +813,7 @@ cros.mojom.CameraEventObserverRequest = cros.mojom.CameraEventObserverPendingRec
 // Interface: DocumentCornersObserver
 mojo.internal.Struct(
     cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec, 'cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_Params', [
-      mojo.internal.StructField('corners', 0, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('corners', 0, 0, mojo.internal.Array(gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -868,9 +863,8 @@ cros.mojom.DocumentCornersObserverRemoteCallHandler = class {
 
 cros.mojom.DocumentCornersObserver.getRemote = function() {
   let remote = new cros.mojom.DocumentCornersObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.DocumentCornersObserver',
     'context');
   return remote.$;
@@ -883,7 +877,7 @@ cros.mojom.DocumentCornersObserverRequest = cros.mojom.DocumentCornersObserverPe
 // Interface: CameraInfoObserver
 mojo.internal.Struct(
     cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec, 'cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_Params', [
-      mojo.internal.StructField('camera_info', 0, 0, cros.mojom.CameraInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('camera_info', 0, 0, cros.mojom.CameraInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -933,9 +927,8 @@ cros.mojom.CameraInfoObserverRemoteCallHandler = class {
 
 cros.mojom.CameraInfoObserver.getRemote = function() {
   let remote = new cros.mojom.CameraInfoObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.CameraInfoObserver',
     'context');
   return remote.$;
@@ -948,11 +941,11 @@ cros.mojom.CameraInfoObserverRequest = cros.mojom.CameraInfoObserverPendingRecei
 // Interface: StillCaptureResultObserver
 mojo.internal.Struct(
     cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec, 'cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_Params', [
-      mojo.internal.StructField('effect', 0, 0, cros.mojom.EffectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('blob', 8, 0, media.mojom.BlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('effect', 0, 0, cros.mojom.EffectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('blob', 16, 0, media.mojom.BlobSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 cros.mojom.StillCaptureResultObserverPendingReceiver = class {
   constructor(handle) {
@@ -1000,9 +993,8 @@ cros.mojom.StillCaptureResultObserverRemoteCallHandler = class {
 
 cros.mojom.StillCaptureResultObserver.getRemote = function() {
   let remote = new cros.mojom.StillCaptureResultObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.StillCaptureResultObserver',
     'context');
   return remote.$;

@@ -74,10 +74,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params', [
-      mojo.internal.StructField('setting', 0, 0, chromeos.settings.mojom.SettingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, ash.settings.mojom.SettingChangeValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('setting', 0, 0, chromeos.settings.mojom.SettingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, ash.settings.mojom.SettingChangeValueSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 ash.settings.mojom.UserActionRecorderPendingReceiver = class {
   constructor(handle) {
@@ -185,9 +185,8 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
 
 ash.settings.mojom.UserActionRecorder.getRemote = function() {
   let remote = new ash.settings.mojom.UserActionRecorderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.UserActionRecorder',
     'context');
   return remote.$;

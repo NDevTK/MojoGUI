@@ -14,7 +14,7 @@ content.mojom.sandbox.UtilityConfigSpec = { $: {} };
 // Struct: UtilityConfig
 mojo.internal.Struct(
     content.mojom.sandbox.UtilityConfigSpec, 'content.mojom.sandbox.UtilityConfig', [
-      mojo.internal.StructField('preload_libraries', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('preload_libraries', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('bootstrap_event_handle', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

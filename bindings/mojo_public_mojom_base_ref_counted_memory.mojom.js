@@ -13,6 +13,6 @@ mojo_base.mojom.RefCountedMemorySpec = { $: {} };
 // Struct: RefCountedMemory
 mojo.internal.Struct(
     mojo_base.mojom.RefCountedMemorySpec, 'mojo_base.mojom.RefCountedMemory', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);

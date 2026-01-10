@@ -15,6 +15,6 @@ cc.mojom.SyncedScrollOffsetSpec = { $: {} };
 // Struct: SyncedScrollOffset
 mojo.internal.Struct(
     cc.mojom.SyncedScrollOffsetSpec, 'cc.mojom.SyncedScrollOffset', [
-      mojo.internal.StructField('scroll_offset', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_offset', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);

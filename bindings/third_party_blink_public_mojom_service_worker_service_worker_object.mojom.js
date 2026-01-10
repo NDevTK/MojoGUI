@@ -26,8 +26,8 @@ blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerObjectInfoSpec, 'blink.mojom.ServiceWorkerObjectInfo', [
       mojo.internal.StructField('version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 8, 0, blink.mojom.ServiceWorkerStateSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, blink.mojom.ServiceWorkerStateSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('host_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerObjectHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.ServiceWorkerObjectRemote), null, false, 0, undefined),
     ],
@@ -36,7 +36,7 @@ mojo.internal.Struct(
 // Interface: ServiceWorkerObjectHost
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_Params', [
-      mojo.internal.StructField('message', 0, 0, blink.mojom.TransferableMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, blink.mojom.TransferableMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -106,9 +106,8 @@ blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerObjectHost.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerObjectHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ServiceWorkerObjectHost',
     'context');
   return remote.$;
@@ -121,7 +120,7 @@ blink.mojom.ServiceWorkerObjectHostRequest = blink.mojom.ServiceWorkerObjectHost
 // Interface: ServiceWorkerObject
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec, 'blink.mojom.ServiceWorkerObject_StateChanged_Params', [
-      mojo.internal.StructField('state', 0, 0, blink.mojom.ServiceWorkerStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, blink.mojom.ServiceWorkerStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -171,9 +170,8 @@ blink.mojom.ServiceWorkerObjectRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerObject.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerObjectRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ServiceWorkerObject',
     'context');
   return remote.$;

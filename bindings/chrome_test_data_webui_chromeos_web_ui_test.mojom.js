@@ -65,9 +65,8 @@ web_ui_test.mojom.TestRunnerRemoteCallHandler = class {
 
 web_ui_test.mojom.TestRunner.getRemote = function() {
   let remote = new web_ui_test.mojom.TestRunnerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'web_ui_test.mojom.TestRunner',
     'context');
   return remote.$;

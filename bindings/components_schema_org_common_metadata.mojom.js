@@ -32,7 +32,7 @@ mojo.internal.Union(
       },
       'entity_values': {
         'ordinal': 3,
-        'type': mojo.internal.Array(schema_org.mojom.EntitySpec, false),
+        'type': mojo.internal.Array(schema_org.mojom.EntitySpec.$, false),
         'nullable': false,
       },
     });
@@ -41,14 +41,14 @@ mojo.internal.Union(
 mojo.internal.Struct(
     schema_org.mojom.PropertySpec, 'schema_org.mojom.Property', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('values', 8, 0, schema_org.mojom.ValuesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('values', 8, 0, schema_org.mojom.ValuesSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: Entity
 mojo.internal.Struct(
     schema_org.mojom.EntitySpec, 'schema_org.mojom.Entity', [
       mojo.internal.StructField('type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('properties', 8, 0, mojo.internal.Array(schema_org.mojom.PropertySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('properties', 8, 0, mojo.internal.Array(schema_org.mojom.PropertySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

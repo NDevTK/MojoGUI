@@ -31,7 +31,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     foo.mojom.FooHandler_GetData_ResponseParamsSpec, 'foo.mojom.FooHandler_GetData_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(foo.mojom.FooDataItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(foo.mojom.FooDataItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -81,9 +81,8 @@ foo.mojom.FooHandlerRemoteCallHandler = class {
 
 foo.mojom.FooHandler.getRemote = function() {
   let remote = new foo.mojom.FooHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'foo.mojom.FooHandler',
     'context');
   return remote.$;

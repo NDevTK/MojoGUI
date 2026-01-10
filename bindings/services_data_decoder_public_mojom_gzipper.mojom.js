@@ -22,52 +22,52 @@ data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = { $: {} };
 // Interface: Gzipper
 mojo.internal.Struct(
     data_decoder.mojom.Gzipper_Deflate_ParamsSpec, 'data_decoder.mojom.Gzipper_Deflate_Params', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec, 'data_decoder.mojom.Gzipper_Deflate_ResponseParams', [
-      mojo.internal.StructField('deflated_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('deflated_data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.Gzipper_Inflate_ParamsSpec, 'data_decoder.mojom.Gzipper_Inflate_Params', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('max_uncompressed_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_uncompressed_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec, 'data_decoder.mojom.Gzipper_Inflate_ResponseParams', [
-      mojo.internal.StructField('inflated_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('inflated_data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.Gzipper_Compress_ParamsSpec, 'data_decoder.mojom.Gzipper_Compress_Params', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec, 'data_decoder.mojom.Gzipper_Compress_ResponseParams', [
-      mojo.internal.StructField('compressed_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('compressed_data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.Gzipper_Uncompress_ParamsSpec, 'data_decoder.mojom.Gzipper_Uncompress_Params', [
-      mojo.internal.StructField('compressed_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compressed_data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec, 'data_decoder.mojom.Gzipper_Uncompress_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 data_decoder.mojom.GzipperPendingReceiver = class {
   constructor(handle) {
@@ -145,9 +145,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
 
 data_decoder.mojom.Gzipper.getRemote = function() {
   let remote = new data_decoder.mojom.GzipperRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'data_decoder.mojom.Gzipper',
     'context');
   return remote.$;

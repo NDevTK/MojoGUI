@@ -44,7 +44,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_router.mojom.MediaController_Seek_ParamsSpec, 'media_router.mojom.MediaController_Seek_Params', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -164,9 +164,8 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
 
 media_router.mojom.MediaController.getRemote = function() {
   let remote = new media_router.mojom.MediaControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_router.mojom.MediaController',
     'context');
   return remote.$;

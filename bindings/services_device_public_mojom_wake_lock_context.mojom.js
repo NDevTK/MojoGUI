@@ -16,12 +16,12 @@ device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = { $: {} };
 // Interface: WakeLockContext
 mojo.internal.Struct(
     device.mojom.WakeLockContext_GetWakeLock_ParamsSpec, 'device.mojom.WakeLockContext_GetWakeLock_Params', [
-      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 4, 0, device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('wake_lock', 16, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, device.mojom.WakeLockReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('wake_lock', 24, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 device.mojom.WakeLockContextPendingReceiver = class {
   constructor(handle) {
@@ -69,9 +69,8 @@ device.mojom.WakeLockContextRemoteCallHandler = class {
 
 device.mojom.WakeLockContext.getRemote = function() {
   let remote = new device.mojom.WakeLockContextRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.WakeLockContext',
     'context');
   return remote.$;

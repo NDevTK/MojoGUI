@@ -20,8 +20,8 @@ blink.mojom.ShareService_Share_ResponseParamsSpec = { $: {} };
 // Struct: SharedFile
 mojo.internal.Struct(
     blink.mojom.SharedFileSpec, 'blink.mojom.SharedFile', [
-      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('blob', 8, 0, blink.mojom.SerializedBlobSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.SafeBaseNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('blob', 8, 0, blink.mojom.SerializedBlobSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -30,14 +30,14 @@ mojo.internal.Struct(
     blink.mojom.ShareService_Share_ParamsSpec, 'blink.mojom.ShareService_Share_Params', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('files', 24, 0, mojo.internal.Array(blink.mojom.SharedFileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('files', 24, 0, mojo.internal.Array(blink.mojom.SharedFileSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     blink.mojom.ShareService_Share_ResponseParamsSpec, 'blink.mojom.ShareService_Share_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.ShareErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ShareErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -87,9 +87,8 @@ blink.mojom.ShareServiceRemoteCallHandler = class {
 
 blink.mojom.ShareService.getRemote = function() {
   let remote = new blink.mojom.ShareServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ShareService',
     'context');
   return remote.$;

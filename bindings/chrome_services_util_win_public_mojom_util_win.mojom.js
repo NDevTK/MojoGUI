@@ -75,22 +75,22 @@ chrome.mojom.ShortcutOperation = {
 // Struct: FileFilterSpec
 mojo.internal.Struct(
     chrome.mojom.FileFilterSpecSpec, 'chrome.mojom.FileFilterSpec', [
-      mojo.internal.StructField('description', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('extension_spec', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('extension_spec', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: InspectionResult
 mojo.internal.Struct(
     chrome.mojom.InspectionResultSpec, 'chrome.mojom.InspectionResult', [
-      mojo.internal.StructField('location', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('basename', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('product_name', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('description', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('version', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('certificate_type', 40, 0, chrome.mojom.CertificateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('certificate_path', 48, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('certificate_subject', 56, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('location', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('basename', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('product_name', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('description', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('version', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('certificate_type', 40, 0, chrome.mojom.CertificateTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('certificate_path', 48, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('certificate_subject', 56, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -101,9 +101,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('product_name_hash', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('product_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('product_version_hash', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 28, 0, chrome.mojom.AntiVirusProductStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 32, 0, chrome.mojom.AntiVirusProductStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: TpmIdentifier
 mojo.internal.Struct(
@@ -125,14 +125,14 @@ mojo.internal.Struct(
 // Struct: ShortcutProperties
 mojo.internal.Struct(
     chrome.mojom.ShortcutPropertiesSpec, 'chrome.mojom.ShortcutProperties', [
-      mojo.internal.StructField('target', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('working_dir', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arguments', 16, 0, mojo_base.mojom.WStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('description', 24, 0, mojo_base.mojom.WStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('icon', 32, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('working_dir', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arguments', 16, 0, mojo_base.mojom.WStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('description', 24, 0, mojo_base.mojom.WStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 32, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('icon_index', 40, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('app_id', 48, 0, mojo_base.mojom.WStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('toast_activator_clsid', 56, 0, chrome.mojom.ClsIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app_id', 48, 0, mojo_base.mojom.WStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('toast_activator_clsid', 56, 0, chrome.mojom.ClsIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('options', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -152,7 +152,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec, 'chrome.mojom.UtilWin_UnpinShortcuts_Params', [
-      mojo.internal.StructField('shortcut_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('shortcut_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -163,9 +163,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec, 'chrome.mojom.UtilWin_CreateOrUpdateShortcuts_Params', [
-      mojo.internal.StructField('shortcut_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('properties', 8, 0, mojo.internal.Array(chrome.mojom.ShortcutPropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('operation', 16, 0, chrome.mojom.ShortcutOperationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shortcut_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('properties', 8, 0, mojo.internal.Array(chrome.mojom.ShortcutPropertiesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('operation', 16, 0, chrome.mojom.ShortcutOperationSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -177,32 +177,32 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec, 'chrome.mojom.UtilWin_CallExecuteSelectFile_Params', [
-      mojo.internal.StructField('type', 0, 0, chrome.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('owner', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('default_path', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('filter', 24, 0, mojo.internal.Array(chrome.mojom.FileFilterSpecSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('file_type_index', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('default_extension', 40, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, chrome.mojom.SelectFileDialogTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('owner', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('default_path', 24, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('filter', 32, 0, mojo.internal.Array(chrome.mojom.FileFilterSpecSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('file_type_index', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('default_extension', 48, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 mojo.internal.Struct(
     chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec, 'chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParams', [
-      mojo.internal.StructField('paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('file_type_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     chrome.mojom.UtilWin_InspectModule_ParamsSpec, 'chrome.mojom.UtilWin_InspectModule_Params', [
-      mojo.internal.StructField('module_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('module_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec, 'chrome.mojom.UtilWin_InspectModule_ResponseParams', [
-      mojo.internal.StructField('inspection_result', 0, 0, chrome.mojom.InspectionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('inspection_result', 0, 0, chrome.mojom.InspectionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -214,7 +214,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec, 'chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParams', [
-      mojo.internal.StructField('av_products', 0, 0, mojo.internal.Array(chrome.mojom.AntiVirusProductSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('av_products', 0, 0, mojo.internal.Array(chrome.mojom.AntiVirusProductSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -225,7 +225,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec, 'chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParams', [
-      mojo.internal.StructField('tpm_identifier', 0, 0, chrome.mojom.TpmIdentifierSpec, null, true, 0, undefined),
+      mojo.internal.StructField('tpm_identifier', 0, 0, chrome.mojom.TpmIdentifierSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -335,9 +335,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
 
 chrome.mojom.UtilWin.getRemote = function() {
   let remote = new chrome.mojom.UtilWinRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.UtilWin',
     'context');
   return remote.$;
@@ -404,9 +403,8 @@ chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
 
 chrome.mojom.ProcessorMetrics.getRemote = function() {
   let remote = new chrome.mojom.ProcessorMetricsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.ProcessorMetrics',
     'context');
   return remote.$;

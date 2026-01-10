@@ -49,9 +49,8 @@ chromeos.media_perception.mojom.MediaPerceptionRemoteCallHandler = class {
 
 chromeos.media_perception.mojom.MediaPerception.getRemote = function() {
   let remote = new chromeos.media_perception.mojom.MediaPerceptionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.media_perception.mojom.MediaPerception',
     'context');
   return remote.$;

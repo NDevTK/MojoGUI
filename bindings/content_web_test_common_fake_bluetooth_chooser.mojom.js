@@ -41,8 +41,8 @@ content.mojom.ChooserEventType = {
 // Struct: FakeBluetoothChooserEvent
 mojo.internal.Struct(
     content.mojom.FakeBluetoothChooserEventSpec, 'content.mojom.FakeBluetoothChooserEvent', [
-      mojo.internal.StructField('type', 0, 0, content.mojom.ChooserEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, content.mojom.ChooserEventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('peripheral_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -130,9 +130,8 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
 
 content.mojom.FakeBluetoothChooser.getRemote = function() {
   let remote = new content.mojom.FakeBluetoothChooserRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.FakeBluetoothChooser',
     'context');
   return remote.$;
@@ -201,9 +200,8 @@ content.mojom.FakeBluetoothChooserFactoryRemoteCallHandler = class {
 
 content.mojom.FakeBluetoothChooserFactory.getRemote = function() {
   let remote = new content.mojom.FakeBluetoothChooserFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.FakeBluetoothChooserFactory',
     'context');
   return remote.$;
@@ -216,7 +214,7 @@ content.mojom.FakeBluetoothChooserFactoryRequest = content.mojom.FakeBluetoothCh
 // Interface: FakeBluetoothChooserClient
 mojo.internal.Struct(
     content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec, 'content.mojom.FakeBluetoothChooserClient_OnEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, content.mojom.FakeBluetoothChooserEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, content.mojom.FakeBluetoothChooserEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -266,9 +264,8 @@ content.mojom.FakeBluetoothChooserClientRemoteCallHandler = class {
 
 content.mojom.FakeBluetoothChooserClient.getRemote = function() {
   let remote = new content.mojom.FakeBluetoothChooserClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.FakeBluetoothChooserClient',
     'context');
   return remote.$;

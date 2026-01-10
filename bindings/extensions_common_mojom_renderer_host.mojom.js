@@ -20,36 +20,36 @@ extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = { $: {} };
 // Interface: RendererHost
 mojo.internal.Struct(
     extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec, 'extensions.mojom.RendererHost_AddAPIActionToActivityLog_Params', [
-      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('call_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('args', 16, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('args', 16, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('extra', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec, 'extensions.mojom.RendererHost_AddEventToActivityLog_Params', [
-      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('call_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('args', 16, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('args', 16, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('extra', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec, 'extensions.mojom.RendererHost_AddDOMActionToActivityLog_Params', [
-      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('call_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('args', 16, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url_title', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('args', 16, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url_title', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('call_type', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
     extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec, 'extensions.mojom.RendererHost_GetMessageBundle_Params', [
-      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extension_id', 0, 0, extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -135,9 +135,8 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
 
 extensions.mojom.RendererHost.getRemote = function() {
   let remote = new extensions.mojom.RendererHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions.mojom.RendererHost',
     'context');
   return remote.$;

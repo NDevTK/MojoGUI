@@ -33,27 +33,27 @@ chromeos.auth.mojom.Reason = {
 mojo.internal.Struct(
     chromeos.auth.mojom.RequestTokenReplySpec, 'chromeos.auth.mojom.RequestTokenReply', [
       mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('timeout', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timeout', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: InSessionAuth
 mojo.internal.Struct(
     chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestToken_Params', [
-      mojo.internal.StructField('reason', 0, 0, chromeos.auth.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('prompt', 8, 0, mojo.internal.String, null, true, 1, undefined),
     ],
     [[0, 16], [1, 24]]);
 
 mojo.internal.Struct(
     chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParams', [
-      mojo.internal.StructField('reply', 0, 0, chromeos.auth.mojom.RequestTokenReplySpec, null, true, 0, undefined),
+      mojo.internal.StructField('reply', 0, 0, chromeos.auth.mojom.RequestTokenReplySpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_CheckToken_Params', [
-      mojo.internal.StructField('reason', 0, 0, chromeos.auth.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -159,9 +159,8 @@ chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
 
 chromeos.auth.mojom.InSessionAuth.getRemote = function() {
   let remote = new chromeos.auth.mojom.InSessionAuthRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.auth.mojom.InSessionAuth',
     'context');
   return remote.$;

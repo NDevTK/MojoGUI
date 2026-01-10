@@ -80,7 +80,7 @@ chromeos.printing.printing_manager.mojom.LaunchSource = {
 // Struct: CompletedPrintJobInfo
 mojo.internal.Struct(
     chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec, 'chromeos.printing.printing_manager.mojom.CompletedPrintJobInfo', [
-      mojo.internal.StructField('completion_status', 0, 0, chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('completion_status', 0, 0, chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -88,23 +88,23 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, 'chromeos.printing.printing_manager.mojom.ActivePrintJobInfo', [
       mojo.internal.StructField('printed_pages', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('active_state', 4, 0, chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('active_state', 8, 0, chromeos.printing.printing_manager.mojom.ActivePrintJobStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: PrintJobInfo
 mojo.internal.Struct(
     chromeos.printing.printing_manager.mojom.PrintJobInfoSpec, 'chromeos.printing.printing_manager.mojom.PrintJobInfo', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('creation_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 16, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('number_of_pages', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('printer_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('printer_name', 40, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('printer_uri', 48, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('printer_error_code', 56, 0, chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('completed_info', 64, 0, chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('active_print_job_info', 72, 0, chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('printer_name', 40, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('printer_uri', 48, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('printer_error_code', 56, 0, chromeos.printing.printing_manager.mojom.PrinterErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('completed_info', 64, 0, chromeos.printing.printing_manager.mojom.CompletedPrintJobInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('active_print_job_info', 72, 0, chromeos.printing.printing_manager.mojom.ActivePrintJobInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -116,7 +116,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec, 'chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_Params', [
-      mojo.internal.StructField('print_job', 0, 0, chromeos.printing.printing_manager.mojom.PrintJobInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('print_job', 0, 0, chromeos.printing.printing_manager.mojom.PrintJobInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -176,9 +176,8 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRemoteCallHandler = cl
 
 chromeos.printing.printing_manager.mojom.PrintJobsObserver.getRemote = function() {
   let remote = new chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.printing.printing_manager.mojom.PrintJobsObserver',
     'context');
   return remote.$;
@@ -207,7 +206,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec, 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParams', [
-      mojo.internal.StructField('print_jobs', 0, 0, mojo.internal.Array(chromeos.printing.printing_manager.mojom.PrintJobInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('print_jobs', 0, 0, mojo.internal.Array(chromeos.printing.printing_manager.mojom.PrintJobInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -353,9 +352,8 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemoteCallHandl
 
 chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.getRemote = function() {
   let remote = new chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider',
     'context');
   return remote.$;
@@ -368,7 +366,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRequest = chrom
 // Interface: PrintManagementHandler
 mojo.internal.Struct(
     chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec, 'chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_Params', [
-      mojo.internal.StructField('source', 0, 0, chromeos.printing.printing_manager.mojom.LaunchSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, chromeos.printing.printing_manager.mojom.LaunchSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -434,9 +432,8 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemoteCallHandler
 
 chromeos.printing.printing_manager.mojom.PrintManagementHandler.getRemote = function() {
   let remote = new chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.printing.printing_manager.mojom.PrintManagementHandler',
     'context');
   return remote.$;

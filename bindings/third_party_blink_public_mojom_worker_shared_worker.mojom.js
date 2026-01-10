@@ -18,7 +18,7 @@ blink.mojom.SharedWorker_Terminate_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.SharedWorker_Connect_ParamsSpec, 'blink.mojom.SharedWorker_Connect_Params', [
       mojo.internal.StructField('connection_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('message_port', 8, 0, blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message_port', 8, 0, blink.mojom.MessagePortDescriptorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -83,9 +83,8 @@ blink.mojom.SharedWorkerRemoteCallHandler = class {
 
 blink.mojom.SharedWorker.getRemote = function() {
   let remote = new blink.mojom.SharedWorkerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SharedWorker',
     'context');
   return remote.$;

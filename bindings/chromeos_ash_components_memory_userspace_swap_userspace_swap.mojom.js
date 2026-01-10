@@ -34,7 +34,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('uffd_error', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('uffd_handle', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('mmap_error', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('swap_area', 24, 0, userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('swap_area', 24, 0, userspace_swap.mojom.MemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -89,9 +89,8 @@ userspace_swap.mojom.UserspaceSwapInitializationRemoteCallHandler = class {
 
 userspace_swap.mojom.UserspaceSwapInitialization.getRemote = function() {
   let remote = new userspace_swap.mojom.UserspaceSwapInitializationRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'userspace_swap.mojom.UserspaceSwapInitialization',
     'context');
   return remote.$;
@@ -104,14 +103,14 @@ userspace_swap.mojom.UserspaceSwapInitializationRequest = userspace_swap.mojom.U
 // Interface: UserspaceSwap
 mojo.internal.Struct(
     userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_Params', [
-      mojo.internal.StructField('src', 0, 0, userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('src', 0, 0, userspace_swap.mojom.MemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('dest', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_MapArea_Params', [
-      mojo.internal.StructField('area', 0, 0, userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('area', 0, 0, userspace_swap.mojom.MemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -123,7 +122,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec, 'userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParams', [
-      mojo.internal.StructField('superpages', 0, 0, mojo.internal.Array(userspace_swap.mojom.MemoryRegionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('superpages', 0, 0, mojo.internal.Array(userspace_swap.mojom.MemoryRegionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -193,9 +192,8 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
 
 userspace_swap.mojom.UserspaceSwap.getRemote = function() {
   let remote = new userspace_swap.mojom.UserspaceSwapRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'userspace_swap.mojom.UserspaceSwap',
     'context');
   return remote.$;

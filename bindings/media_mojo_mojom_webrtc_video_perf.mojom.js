@@ -22,7 +22,7 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     media.mojom.WebrtcPredictionFeaturesSpec, 'media.mojom.WebrtcPredictionFeatures', [
       mojo.internal.StructField('is_decode_stats', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('profile', 8, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 8, 0, media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('video_pixels', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('hardware_accelerated', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -40,8 +40,8 @@ mojo.internal.Struct(
 // Interface: WebrtcVideoPerfRecorder
 mojo.internal.Struct(
     media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec, 'media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_Params', [
-      mojo.internal.StructField('features', 0, 0, media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('video_stats', 8, 0, media.mojom.WebrtcVideoStatsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('features', 0, 0, media.mojom.WebrtcPredictionFeaturesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('video_stats', 8, 0, media.mojom.WebrtcVideoStatsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -91,9 +91,8 @@ media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler = class {
 
 media.mojom.WebrtcVideoPerfRecorder.getRemote = function() {
   let remote = new media.mojom.WebrtcVideoPerfRecorderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.WebrtcVideoPerfRecorder',
     'context');
   return remote.$;
@@ -106,7 +105,7 @@ media.mojom.WebrtcVideoPerfRecorderRequest = media.mojom.WebrtcVideoPerfRecorder
 // Interface: WebrtcVideoPerfHistory
 mojo.internal.Struct(
     media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_Params', [
-      mojo.internal.StructField('features', 0, 0, media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('features', 0, 0, media.mojom.WebrtcPredictionFeaturesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frames_per_second', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -163,9 +162,8 @@ media.mojom.WebrtcVideoPerfHistoryRemoteCallHandler = class {
 
 media.mojom.WebrtcVideoPerfHistory.getRemote = function() {
   let remote = new media.mojom.WebrtcVideoPerfHistoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.WebrtcVideoPerfHistory',
     'context');
   return remote.$;

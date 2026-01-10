@@ -23,17 +23,17 @@ mojo.internal.Union(
     network.mojom.TrustTokenAccessDetailsSpec, 'network.mojom.TrustTokenAccessDetails', {
       'issuance': {
         'ordinal': 0,
-        'type': network.mojom.TrustTokenIssuanceDetailsSpec,
+        'type': network.mojom.TrustTokenIssuanceDetailsSpec.$,
         'nullable': false,
       },
       'redemption': {
         'ordinal': 1,
-        'type': network.mojom.TrustTokenRedemptionDetailsSpec,
+        'type': network.mojom.TrustTokenRedemptionDetailsSpec.$,
         'nullable': false,
       },
       'signing': {
         'ordinal': 2,
-        'type': network.mojom.TrustTokenSigningDetailsSpec,
+        'type': network.mojom.TrustTokenSigningDetailsSpec.$,
         'nullable': false,
       },
     });
@@ -41,8 +41,8 @@ mojo.internal.Union(
 // Struct: TrustTokenIssuanceDetails
 mojo.internal.Struct(
     network.mojom.TrustTokenIssuanceDetailsSpec, 'network.mojom.TrustTokenIssuanceDetails', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('issuer', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('issuer', 8, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('blocked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -50,8 +50,8 @@ mojo.internal.Struct(
 // Struct: TrustTokenRedemptionDetails
 mojo.internal.Struct(
     network.mojom.TrustTokenRedemptionDetailsSpec, 'network.mojom.TrustTokenRedemptionDetails', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('issuer', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('issuer', 8, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('blocked', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -59,7 +59,7 @@ mojo.internal.Struct(
 // Struct: TrustTokenSigningDetails
 mojo.internal.Struct(
     network.mojom.TrustTokenSigningDetailsSpec, 'network.mojom.TrustTokenSigningDetails', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('blocked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -67,9 +67,9 @@ mojo.internal.Struct(
 // Interface: TrustTokenAccessObserver
 mojo.internal.Struct(
     network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec, 'network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_Params', [
-      mojo.internal.StructField('details', 0, 0, network.mojom.TrustTokenAccessDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 0, 0, network.mojom.TrustTokenAccessDetailsSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec, 'network.mojom.TrustTokenAccessObserver_Clone_Params', [
@@ -133,9 +133,8 @@ network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
 
 network.mojom.TrustTokenAccessObserver.getRemote = function() {
   let remote = new network.mojom.TrustTokenAccessObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.TrustTokenAccessObserver',
     'context');
   return remote.$;

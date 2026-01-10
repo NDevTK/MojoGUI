@@ -19,7 +19,7 @@ content.mojom.WebUI_SetProperty_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     content.mojom.WebUIHost_Send_ParamsSpec, 'content.mojom.WebUIHost_Send_Params', [
       mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('args', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('args', 8, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -69,9 +69,8 @@ content.mojom.WebUIHostRemoteCallHandler = class {
 
 content.mojom.WebUIHost.getRemote = function() {
   let remote = new content.mojom.WebUIHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.WebUIHost',
     'context');
   return remote.$;
@@ -135,9 +134,8 @@ content.mojom.WebUIRemoteCallHandler = class {
 
 content.mojom.WebUI.getRemote = function() {
   let remote = new content.mojom.WebUIRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.WebUI',
     'context');
   return remote.$;

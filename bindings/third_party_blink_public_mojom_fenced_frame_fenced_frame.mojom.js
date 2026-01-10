@@ -18,15 +18,15 @@ blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = { $: {} };
 // Interface: FencedFrameOwnerHost
 mojo.internal.Struct(
     blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec, 'blink.mojom.FencedFrameOwnerHost_Navigate_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('navigation_start_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('embedder_shared_storage_context', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_start_time', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('embedder_shared_storage_context', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec, 'blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_Params', [
-      mojo.internal.StructField('frame_policy', 0, 0, blink.mojom.FramePolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_policy', 0, 0, blink.mojom.FramePolicySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -86,9 +86,8 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
 
 blink.mojom.FencedFrameOwnerHost.getRemote = function() {
   let remote = new blink.mojom.FencedFrameOwnerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FencedFrameOwnerHost',
     'context');
   return remote.$;

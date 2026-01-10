@@ -79,9 +79,8 @@ chromecast.media.mojom.MediaCapsRemoteCallHandler = class {
 
 chromecast.media.mojom.MediaCaps.getRemote = function() {
   let remote = new chromecast.media.mojom.MediaCapsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.media.mojom.MediaCaps',
     'context');
   return remote.$;
@@ -94,7 +93,7 @@ chromecast.media.mojom.MediaCapsRequest = chromecast.media.mojom.MediaCapsPendin
 // Interface: MediaCapsObserver
 mojo.internal.Struct(
     chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec, 'chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_Params', [
-      mojo.internal.StructField('codec_profile_level', 0, 0, chromecast.media.mojom.CodecProfileLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('codec_profile_level', 0, 0, chromecast.media.mojom.CodecProfileLevelSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -144,9 +143,8 @@ chromecast.media.mojom.MediaCapsObserverRemoteCallHandler = class {
 
 chromecast.media.mojom.MediaCapsObserver.getRemote = function() {
   let remote = new chromecast.media.mojom.MediaCapsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.media.mojom.MediaCapsObserver',
     'context');
   return remote.$;

@@ -35,8 +35,8 @@ mojo.internal.Struct(
     action_chips.mojom.TabInfoSpec, 'action_chips.mojom.TabInfo', [
       mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_active_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_time', 24, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -45,8 +45,8 @@ mojo.internal.Struct(
     action_chips.mojom.ActionChipSpec, 'action_chips.mojom.ActionChip', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('suggestion', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, action_chips.mojom.ChipTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tab', 24, 0, action_chips.mojom.TabInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, action_chips.mojom.ChipTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 24, 0, action_chips.mojom.TabInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -102,9 +102,8 @@ action_chips.mojom.ActionChipsHandlerRemoteCallHandler = class {
 
 action_chips.mojom.ActionChipsHandler.getRemote = function() {
   let remote = new action_chips.mojom.ActionChipsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'action_chips.mojom.ActionChipsHandler',
     'context');
   return remote.$;
@@ -117,7 +116,7 @@ action_chips.mojom.ActionChipsHandlerRequest = action_chips.mojom.ActionChipsHan
 // Interface: Page
 mojo.internal.Struct(
     action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec, 'action_chips.mojom.Page_OnActionChipsChanged_Params', [
-      mojo.internal.StructField('action_chips', 0, 0, mojo.internal.Array(action_chips.mojom.ActionChipSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('action_chips', 0, 0, mojo.internal.Array(action_chips.mojom.ActionChipSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -167,9 +166,8 @@ action_chips.mojom.PageRemoteCallHandler = class {
 
 action_chips.mojom.Page.getRemote = function() {
   let remote = new action_chips.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'action_chips.mojom.Page',
     'context');
   return remote.$;
@@ -233,9 +231,8 @@ action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHandler = class {
 
 action_chips.mojom.ActionChipsHandlerFactory.getRemote = function() {
   let remote = new action_chips.mojom.ActionChipsHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'action_chips.mojom.ActionChipsHandlerFactory',
     'context');
   return remote.$;

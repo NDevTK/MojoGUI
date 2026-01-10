@@ -83,9 +83,8 @@ mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
 
 mojom.UsbInternalsPageHandler.getRemote = function() {
   let remote = new mojom.UsbInternalsPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mojom.UsbInternalsPageHandler',
     'context');
   return remote.$;

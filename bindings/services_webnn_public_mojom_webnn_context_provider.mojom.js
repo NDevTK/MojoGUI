@@ -35,12 +35,12 @@ mojo.internal.Union(
     webnn.mojom.CreateContextResultSpec, 'webnn.mojom.CreateContextResult', {
       'success': {
         'ordinal': 0,
-        'type': webnn.mojom.CreateContextSuccessSpec,
+        'type': webnn.mojom.CreateContextSuccessSpec.$,
         'nullable': false,
       },
       'error': {
         'ordinal': 1,
-        'type': webnn.mojom.ErrorSpec,
+        'type': webnn.mojom.ErrorSpec.$,
         'nullable': false,
       },
     });
@@ -56,8 +56,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     webnn.mojom.CreateContextSuccessSpec, 'webnn.mojom.CreateContextSuccess', [
       mojo.internal.StructField('context_remote', 0, 0, mojo.internal.InterfaceProxy(webnn.mojom.WebNNContextRemote), null, true, 0, undefined),
-      mojo.internal.StructField('context_properties', 8, 0, webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('context_handle', 16, 0, blink.mojom.WebNNContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context_properties', 8, 0, webnn.mojom.ContextPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('context_handle', 16, 0, blink.mojom.WebNNContextTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('write_tensor_producer', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
       mojo.internal.StructField('read_tensor_consumer', 32, 0, mojo.internal.Pointer, null, true, 0, undefined),
     ],
@@ -66,15 +66,15 @@ mojo.internal.Struct(
 // Interface: WebNNContextProvider
 mojo.internal.Struct(
     webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_Params', [
-      mojo.internal.StructField('options', 0, 0, webnn.mojom.CreateContextOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, webnn.mojom.CreateContextOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, webnn.mojom.CreateContextResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, webnn.mojom.CreateContextResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 webnn.mojom.WebNNContextProviderPendingReceiver = class {
   constructor(handle) {
@@ -122,9 +122,8 @@ webnn.mojom.WebNNContextProviderRemoteCallHandler = class {
 
 webnn.mojom.WebNNContextProvider.getRemote = function() {
   let remote = new webnn.mojom.WebNNContextProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'webnn.mojom.WebNNContextProvider',
     'context');
   return remote.$;

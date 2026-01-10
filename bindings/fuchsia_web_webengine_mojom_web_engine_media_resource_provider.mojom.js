@@ -35,7 +35,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec, 'mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_Params', [
-      mojo.internal.StructField('request', 0, 0, mojom.AudioConsumerRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, mojom.AudioConsumerRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -95,9 +95,8 @@ mojom.WebEngineMediaResourceProviderRemoteCallHandler = class {
 
 mojom.WebEngineMediaResourceProvider.getRemote = function() {
   let remote = new mojom.WebEngineMediaResourceProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mojom.WebEngineMediaResourceProvider',
     'context');
   return remote.$;

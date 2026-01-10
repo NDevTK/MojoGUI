@@ -29,7 +29,7 @@ mojo.internal.Union(
     remoting.mojom.WebAuthnCreateResponseSpec, 'remoting.mojom.WebAuthnCreateResponse', {
       'error_details': {
         'ordinal': 0,
-        'type': remoting.mojom.WebAuthnExceptionDetailsSpec,
+        'type': remoting.mojom.WebAuthnExceptionDetailsSpec.$,
         'nullable': false,
       },
       'response_data': {
@@ -44,7 +44,7 @@ mojo.internal.Union(
     remoting.mojom.WebAuthnGetResponseSpec, 'remoting.mojom.WebAuthnGetResponse', {
       'error_details': {
         'ordinal': 0,
-        'type': remoting.mojom.WebAuthnExceptionDetailsSpec,
+        'type': remoting.mojom.WebAuthnExceptionDetailsSpec.$,
         'nullable': false,
       },
       'response_data': {
@@ -120,9 +120,8 @@ remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
 
 remoting.mojom.WebAuthnRequestCanceller.getRemote = function() {
   let remote = new remoting.mojom.WebAuthnRequestCancellerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.WebAuthnRequestCanceller',
     'context');
   return remote.$;
@@ -153,9 +152,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, remoting.mojom.WebAuthnCreateResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, remoting.mojom.WebAuthnCreateResponseSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     remoting.mojom.WebAuthnProxy_Get_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_Params', [
@@ -166,9 +165,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, remoting.mojom.WebAuthnGetResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, remoting.mojom.WebAuthnGetResponseSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 remoting.mojom.WebAuthnProxyPendingReceiver = class {
   constructor(handle) {
@@ -236,9 +235,8 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
 
 remoting.mojom.WebAuthnProxy.getRemote = function() {
   let remote = new remoting.mojom.WebAuthnProxyRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.WebAuthnProxy',
     'context');
   return remote.$;

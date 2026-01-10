@@ -19,9 +19,9 @@ blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = { $: {} };
 // Struct: WebPage
 mojo.internal.Struct(
     blink.mojom.WebPageSpec, 'blink.mojom.WebPage', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('entities', 16, 0, mojo.internal.Array(schema_org.mojom.EntitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('entities', 16, 0, mojo.internal.Array(schema_org.mojom.EntitySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -33,7 +33,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec, 'blink.mojom.DocumentMetadata_GetEntities_ResponseParams', [
-      mojo.internal.StructField('page', 0, 0, blink.mojom.WebPageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, blink.mojom.WebPageSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -83,9 +83,8 @@ blink.mojom.DocumentMetadataRemoteCallHandler = class {
 
 blink.mojom.DocumentMetadata.getRemote = function() {
   let remote = new blink.mojom.DocumentMetadataRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DocumentMetadata',
     'context');
   return remote.$;

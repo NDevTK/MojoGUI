@@ -93,9 +93,8 @@ mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
 
 mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
   let remote = new mantis.mojom.PlatformModelProgressObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mantis.mojom.PlatformModelProgressObserver',
     'context');
   return remote.$;
@@ -113,7 +112,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, mantis.mojom.MantisFeatureStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, mantis.mojom.MantisFeatureStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -121,14 +120,14 @@ mojo.internal.Struct(
     mantis.mojom.MantisService_Initialize_ParamsSpec, 'mantis.mojom.MantisService_Initialize_Params', [
       mojo.internal.StructField('progress_observer', 0, 0, mojo.internal.InterfaceProxy(mantis.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('processor', 8, 0, mojo.internal.InterfaceRequest(mantis.mojom.MantisProcessorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('dlc_uuid', 16, 0, mojo_base.mojom.UuidSpec, null, true, 3, undefined),
+      mojo.internal.StructField('dlc_uuid', 16, 0, mojo_base.mojom.UuidSpec.$, null, true, 3, undefined),
       mojo.internal.StructField('text_classifier', 24, 0, mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.TextClassifierRemote), null, true, 4, undefined),
     ],
     [[0, 24], [3, 32], [4, 40]]);
 
 mojo.internal.Struct(
     mantis.mojom.MantisService_Initialize_ResponseParamsSpec, 'mantis.mojom.MantisService_Initialize_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.InitializeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.InitializeResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -188,9 +187,8 @@ mantis.mojom.MantisServiceRemoteCallHandler = class {
 
 mantis.mojom.MantisService.getRemote = function() {
   let remote = new mantis.mojom.MantisServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mantis.mojom.MantisService',
     'context');
   return remote.$;

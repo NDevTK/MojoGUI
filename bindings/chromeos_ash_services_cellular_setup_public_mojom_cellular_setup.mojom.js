@@ -43,7 +43,7 @@ ash.cellular_setup.mojom.ActivationResult = {
 // Struct: CellularMetadata
 mojo.internal.Struct(
     ash.cellular_setup.mojom.CellularMetadataSpec, 'ash.cellular_setup.mojom.CellularMetadata', [
-      mojo.internal.StructField('payment_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('payment_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('payment_post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('carrier', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('meid', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -55,7 +55,7 @@ mojo.internal.Struct(
 // Interface: CarrierPortalHandler
 mojo.internal.Struct(
     ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec, 'ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.cellular_setup.mojom.CarrierPortalStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.cellular_setup.mojom.CarrierPortalStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -105,9 +105,8 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.CarrierPortalHandler.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.CarrierPortalHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cellular_setup.mojom.CarrierPortalHandler',
     'context');
   return remote.$;
@@ -120,13 +119,13 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRequest = ash.cellular_setup.mojom.
 // Interface: ActivationDelegate
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_Params', [
-      mojo.internal.StructField('metadata', 0, 0, ash.cellular_setup.mojom.CellularMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, ash.cellular_setup.mojom.CellularMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_Params', [
-      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ActivationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ActivationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -186,9 +185,8 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.ActivationDelegate.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.ActivationDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cellular_setup.mojom.ActivationDelegate',
     'context');
   return remote.$;
@@ -257,9 +255,8 @@ ash.cellular_setup.mojom.CellularSetupRemoteCallHandler = class {
 
 ash.cellular_setup.mojom.CellularSetup.getRemote = function() {
   let remote = new ash.cellular_setup.mojom.CellularSetupRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cellular_setup.mojom.CellularSetup',
     'context');
   return remote.$;

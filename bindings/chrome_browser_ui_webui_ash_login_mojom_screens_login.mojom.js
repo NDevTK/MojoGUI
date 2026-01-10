@@ -173,9 +173,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
 
 ash.screens_login.mojom.ArcVmDataMigrationPageHandler.getRemote = function() {
   let remote = new ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_login.mojom.ArcVmDataMigrationPageHandler',
     'context');
   return remote.$;
@@ -188,7 +187,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRequest = ash.screens_login
 // Interface: ArcVmDataMigrationPage
 mojo.internal.Struct(
     ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_Params', [
-      mojo.internal.StructField('state', 0, 0, ash.screens_login.mojom.ArcVmUIStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.screens_login.mojom.ArcVmUIStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -219,7 +218,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_Params', [
-      mojo.internal.StructField('remaining_time', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('remaining_time', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -319,9 +318,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
 
 ash.screens_login.mojom.ArcVmDataMigrationPage.getRemote = function() {
   let remote = new ash.screens_login.mojom.ArcVmDataMigrationPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_login.mojom.ArcVmDataMigrationPage',
     'context');
   return remote.$;
@@ -443,9 +441,8 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
 
 ash.screens_login.mojom.EncryptionMigrationPageHandler.getRemote = function() {
   let remote = new ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_login.mojom.EncryptionMigrationPageHandler',
     'context');
   return remote.$;
@@ -458,7 +455,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRequest = ash.screens_logi
 // Interface: EncryptionMigrationPage
 mojo.internal.Struct(
     ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_Params', [
-      mojo.internal.StructField('state', 0, 0, ash.screens_login.mojom.UIStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.screens_login.mojom.UIStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -490,8 +487,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_Params', [
-      mojo.internal.StructField('available_space', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('required_space', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('available_space', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('required_space', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -591,9 +588,8 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
 
 ash.screens_login.mojom.EncryptionMigrationPage.getRemote = function() {
   let remote = new ash.screens_login.mojom.EncryptionMigrationPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.screens_login.mojom.EncryptionMigrationPage',
     'context');
   return remote.$;

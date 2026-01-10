@@ -49,40 +49,40 @@ mojo.internal.Struct(
       mojo.internal.StructField('manufacturer', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('state', 32, 0, midi.mojom.PortStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 32, 0, midi.mojom.PortStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Interface: MidiSessionClient
 mojo.internal.Struct(
     midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec, 'midi.mojom.MidiSessionClient_AddInputPort_Params', [
-      mojo.internal.StructField('info', 0, 0, midi.mojom.PortInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, midi.mojom.PortInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec, 'midi.mojom.MidiSessionClient_AddOutputPort_Params', [
-      mojo.internal.StructField('info', 0, 0, midi.mojom.PortInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, midi.mojom.PortInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec, 'midi.mojom.MidiSessionClient_SetInputPortState_Params', [
       mojo.internal.StructField('port', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 4, 0, midi.mojom.PortStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, midi.mojom.PortStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec, 'midi.mojom.MidiSessionClient_SetOutputPortState_Params', [
       mojo.internal.StructField('port', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 4, 0, midi.mojom.PortStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, midi.mojom.PortStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec, 'midi.mojom.MidiSessionClient_SessionStarted_Params', [
-      mojo.internal.StructField('result', 0, 0, midi.mojom.ResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, midi.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -96,7 +96,7 @@ mojo.internal.Struct(
     midi.mojom.MidiSessionClient_DataReceived_ParamsSpec, 'midi.mojom.MidiSessionClient_DataReceived_Params', [
       mojo.internal.StructField('port', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -206,9 +206,8 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
 
 midi.mojom.MidiSessionClient.getRemote = function() {
   let remote = new midi.mojom.MidiSessionClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'midi.mojom.MidiSessionClient',
     'context');
   return remote.$;
@@ -272,9 +271,8 @@ midi.mojom.MidiSessionProviderRemoteCallHandler = class {
 
 midi.mojom.MidiSessionProvider.getRemote = function() {
   let remote = new midi.mojom.MidiSessionProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'midi.mojom.MidiSessionProvider',
     'context');
   return remote.$;
@@ -289,7 +287,7 @@ mojo.internal.Struct(
     midi.mojom.MidiSession_SendData_ParamsSpec, 'midi.mojom.MidiSession_SendData_Params', [
       mojo.internal.StructField('port', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -339,9 +337,8 @@ midi.mojom.MidiSessionRemoteCallHandler = class {
 
 midi.mojom.MidiSession.getRemote = function() {
   let remote = new midi.mojom.MidiSessionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'midi.mojom.MidiSession',
     'context');
   return remote.$;

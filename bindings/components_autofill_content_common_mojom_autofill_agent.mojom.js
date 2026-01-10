@@ -78,39 +78,39 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec, 'autofill.mojom.AutofillAgent_ApplyFieldsAction_Params', [
-      mojo.internal.StructField('action_type', 0, 0, autofill.mojom.FormActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('action_persistence', 4, 0, autofill.mojom.ActionPersistenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('fields', 8, 0, mojo.internal.Array(autofill.mojom.FormFieldData_FillDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('fill_id', 16, 0, autofill.mojom.FillIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('supports_refill', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('action_type', 0, 0, autofill.mojom.FormActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('action_persistence', 8, 0, autofill.mojom.ActionPersistenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('fields', 16, 0, mojo.internal.Array(autofill.mojom.FormFieldData_FillDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('fill_id', 24, 0, autofill.mojom.FillIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('supports_refill', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec, 'autofill.mojom.AutofillAgent_ApplyFieldAction_Params', [
+      mojo.internal.StructField('action_type', 0, 0, autofill.mojom.FieldActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('action_persistence', 8, 0, autofill.mojom.ActionPersistenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('field', 16, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
-    autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec, 'autofill.mojom.AutofillAgent_ApplyFieldAction_Params', [
-      mojo.internal.StructField('action_type', 0, 0, autofill.mojom.FieldActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('action_persistence', 4, 0, autofill.mojom.ActionPersistenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('field', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
     autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec, 'autofill.mojom.AutofillAgent_ExtractFormWithField_Params', [
-      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec, 'autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParams', [
-      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.FormDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec, 'autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_Params', [
-      mojo.internal.StructField('value_regex', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('label_regex', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('value_regex', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('label_regex', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('number_of_ancestor_levels_to_search', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -123,7 +123,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec, 'autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_Params', [
-      mojo.internal.StructField('forms', 0, 0, mojo.internal.Array(autofill.mojom.FormDataPredictionsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('forms', 0, 0, mojo.internal.Array(autofill.mojom.FormDataPredictionsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -139,35 +139,35 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec, 'autofill.mojom.AutofillAgent_TriggerSuggestions_Params', [
-      mojo.internal.StructField('field', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('trigger_source', 8, 0, autofill.mojom.AutofillSuggestionTriggerSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('trigger_source', 8, 0, autofill.mojom.AutofillSuggestionTriggerSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec, 'autofill.mojom.AutofillAgent_SetSuggestionAvailability_Params', [
-      mojo.internal.StructField('field', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('suggestion_availability', 8, 0, autofill.mojom.AutofillSuggestionAvailabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('field', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('suggestion_availability', 8, 0, autofill.mojom.AutofillSuggestionAvailabilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec, 'autofill.mojom.AutofillAgent_AcceptDataListSuggestion_Params', [
-      mojo.internal.StructField('field', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('field', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec, 'autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_Params', [
-      mojo.internal.StructField('username', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('password', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('username', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('password', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec, 'autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_Params', [
-      mojo.internal.StructField('password', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('password', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -184,7 +184,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec, 'autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_Params', [
-      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('presentation_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -385,9 +385,8 @@ autofill.mojom.AutofillAgentRemoteCallHandler = class {
 
 autofill.mojom.AutofillAgent.getRemote = function() {
   let remote = new autofill.mojom.AutofillAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'autofill.mojom.AutofillAgent',
     'context');
   return remote.$;
@@ -400,14 +399,14 @@ autofill.mojom.AutofillAgentRequest = autofill.mojom.AutofillAgentPendingReceive
 // Interface: PasswordAutofillAgent
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_Params', [
-      mojo.internal.StructField('form_data', 0, 0, autofill.mojom.PasswordFormFillDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('form_data', 0, 0, autofill.mojom.PasswordFormFillDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_Params', [
-      mojo.internal.StructField('username', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('password', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('username', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('password', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -419,20 +418,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_Params', [
-      mojo.internal.StructField('username_element_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('password_element_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('username', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('password', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('suggestion_source', 32, 0, autofill.mojom.AutofillSuggestionTriggerSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('username_element_id', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('password_element_id', 8, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('username', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('password', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('suggestion_source', 32, 0, autofill.mojom.AutofillSuggestionTriggerSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_Params', [
-      mojo.internal.StructField('username_element_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('password_element_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('username', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('password', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('username_element_id', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('password_element_id', 8, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('username', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('password', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -445,21 +444,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_Params', [
       mojo.internal.StructField('is_password', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('credential', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('credential', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_PreviewField_Params', [
-      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_FillField_Params', [
-      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('field_properties', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -472,17 +471,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_Params', [
-      mojo.internal.StructField('password_element_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('new_password_element_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('confirm_password_element_id', 16, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('old_password', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('new_password', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('password_element_id', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_password_element_id', 8, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('confirm_password_element_id', 16, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('old_password', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_password', 32, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec, 'autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParams', [
-      mojo.internal.StructField('form_data', 0, 0, autofill.mojom.FormDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('form_data', 0, 0, autofill.mojom.FormDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -499,13 +498,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_Params', [
-      mojo.internal.StructField('parsing_result', 0, 0, autofill.mojom.ParsingResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parsing_result', 0, 0, autofill.mojom.ParsingResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_Params', [
-      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_id', 0, 0, autofill.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -681,9 +680,8 @@ autofill.mojom.PasswordAutofillAgentRemoteCallHandler = class {
 
 autofill.mojom.PasswordAutofillAgent.getRemote = function() {
   let remote = new autofill.mojom.PasswordAutofillAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'autofill.mojom.PasswordAutofillAgent',
     'context');
   return remote.$;
@@ -696,7 +694,7 @@ autofill.mojom.PasswordAutofillAgentRequest = autofill.mojom.PasswordAutofillAge
 // Interface: PasswordGenerationAgent
 mojo.internal.Struct(
     autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec, 'autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_Params', [
-      mojo.internal.StructField('generated_password', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('generated_password', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -712,13 +710,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec, 'autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, autofill.mojom.PasswordGenerationUIDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, autofill.mojom.PasswordGenerationUIDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec, 'autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_Params', [
-      mojo.internal.StructField('form', 0, 0, autofill.mojom.PasswordFormGenerationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('form', 0, 0, autofill.mojom.PasswordFormGenerationDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -813,9 +811,8 @@ autofill.mojom.PasswordGenerationAgentRemoteCallHandler = class {
 
 autofill.mojom.PasswordGenerationAgent.getRemote = function() {
   let remote = new autofill.mojom.PasswordGenerationAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'autofill.mojom.PasswordGenerationAgent',
     'context');
   return remote.$;

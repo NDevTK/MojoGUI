@@ -115,17 +115,17 @@ device.mojom.SerialPortType = {
 // Struct: SerialPortInfo
 mojo.internal.Struct(
     device.mojom.SerialPortInfoSpec, 'device.mojom.SerialPortInfo', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, device.mojom.SerialPortTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('alternate_path', 24, 0, mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, device.mojom.SerialPortTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('alternate_path', 24, 0, mojo_base.mojom.FilePathSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('usb_driver_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('device_instance_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('vendor_id', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('has_vendor_id', 50, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('product_id', 52, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('has_product_id', 54, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('bluetooth_service_class_id', 56, 0, bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('bluetooth_service_class_id', 56, 0, bluetooth.mojom.UUIDSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('display_name', 64, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('serial_number', 72, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('connected', 80, 0, mojo.internal.Bool, true, false, 0, undefined),
@@ -136,24 +136,24 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SerialConnectionOptionsSpec, 'device.mojom.SerialConnectionOptions', [
       mojo.internal.StructField('bitrate', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data_bits', 4, 0, device.mojom.SerialDataBitsSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('parity_bit', 8, 0, device.mojom.SerialParityBitSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('stop_bits', 12, 0, device.mojom.SerialStopBitsSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('cts_flow_control', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_cts_flow_control', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('data_bits', 8, 0, device.mojom.SerialDataBitsSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('parity_bit', 16, 0, device.mojom.SerialParityBitSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('stop_bits', 24, 0, device.mojom.SerialStopBitsSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('cts_flow_control', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_cts_flow_control', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 // Struct: SerialConnectionInfo
 mojo.internal.Struct(
     device.mojom.SerialConnectionInfoSpec, 'device.mojom.SerialConnectionInfo', [
       mojo.internal.StructField('bitrate', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data_bits', 4, 0, device.mojom.SerialDataBitsSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('parity_bit', 8, 0, device.mojom.SerialParityBitSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('stop_bits', 12, 0, device.mojom.SerialStopBitsSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('cts_flow_control', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('data_bits', 8, 0, device.mojom.SerialDataBitsSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('parity_bit', 16, 0, device.mojom.SerialParityBitSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('stop_bits', 24, 0, device.mojom.SerialStopBitsSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('cts_flow_control', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 // Struct: SerialHostControlSignals
 mojo.internal.Struct(
@@ -191,15 +191,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec, 'device.mojom.SerialPortManager_GetDevices_ResponseParams', [
-      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.SerialPortInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.SerialPortInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPortManager_OpenPort_ParamsSpec, 'device.mojom.SerialPortManager_OpenPort_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('use_alternate_path', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('options', 16, 0, device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, device.mojom.SerialConnectionOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('watcher', 32, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortConnectionWatcherRemote), null, true, 0, undefined),
     ],
@@ -277,9 +277,8 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
 
 device.mojom.SerialPortManager.getRemote = function() {
   let remote = new device.mojom.SerialPortManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.SerialPortManager',
     'context');
   return remote.$;
@@ -292,19 +291,19 @@ device.mojom.SerialPortManagerRequest = device.mojom.SerialPortManagerPendingRec
 // Interface: SerialPortManagerClient
 mojo.internal.Struct(
     device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec, 'device.mojom.SerialPortManagerClient_OnPortAdded_Params', [
-      mojo.internal.StructField('port_info', 0, 0, device.mojom.SerialPortInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port_info', 0, 0, device.mojom.SerialPortInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec, 'device.mojom.SerialPortManagerClient_OnPortRemoved_Params', [
-      mojo.internal.StructField('port_info', 0, 0, device.mojom.SerialPortInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port_info', 0, 0, device.mojom.SerialPortInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec, 'device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_Params', [
-      mojo.internal.StructField('port_info', 0, 0, device.mojom.SerialPortInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port_info', 0, 0, device.mojom.SerialPortInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -374,9 +373,8 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
 
 device.mojom.SerialPortManagerClient.getRemote = function() {
   let remote = new device.mojom.SerialPortManagerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.SerialPortManagerClient',
     'context');
   return remote.$;
@@ -401,7 +399,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SerialPort_Flush_ParamsSpec, 'device.mojom.SerialPort_Flush_Params', [
-      mojo.internal.StructField('mode', 0, 0, device.mojom.SerialPortFlushModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, device.mojom.SerialPortFlushModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -427,13 +425,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec, 'device.mojom.SerialPort_GetControlSignals_ResponseParams', [
-      mojo.internal.StructField('signals', 0, 0, device.mojom.SerialPortControlSignalsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('signals', 0, 0, device.mojom.SerialPortControlSignalsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPort_SetControlSignals_ParamsSpec, 'device.mojom.SerialPort_SetControlSignals_Params', [
-      mojo.internal.StructField('signals', 0, 0, device.mojom.SerialHostControlSignalsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signals', 0, 0, device.mojom.SerialHostControlSignalsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -445,7 +443,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SerialPort_ConfigurePort_ParamsSpec, 'device.mojom.SerialPort_ConfigurePort_Params', [
-      mojo.internal.StructField('options', 0, 0, device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, device.mojom.SerialConnectionOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -462,7 +460,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec, 'device.mojom.SerialPort_GetPortInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, device.mojom.SerialConnectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, device.mojom.SerialConnectionInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -603,9 +601,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
 
 device.mojom.SerialPort.getRemote = function() {
   let remote = new device.mojom.SerialPortRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.SerialPort',
     'context');
   return remote.$;
@@ -618,13 +615,13 @@ device.mojom.SerialPortRequest = device.mojom.SerialPortPendingReceiver;
 // Interface: SerialPortClient
 mojo.internal.Struct(
     device.mojom.SerialPortClient_OnReadError_ParamsSpec, 'device.mojom.SerialPortClient_OnReadError_Params', [
-      mojo.internal.StructField('error', 0, 0, device.mojom.SerialReceiveErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, device.mojom.SerialReceiveErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPortClient_OnSendError_ParamsSpec, 'device.mojom.SerialPortClient_OnSendError_Params', [
-      mojo.internal.StructField('error', 0, 0, device.mojom.SerialSendErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, device.mojom.SerialSendErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -684,9 +681,8 @@ device.mojom.SerialPortClientRemoteCallHandler = class {
 
 device.mojom.SerialPortClient.getRemote = function() {
   let remote = new device.mojom.SerialPortClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.SerialPortClient',
     'context');
   return remote.$;
@@ -733,9 +729,8 @@ device.mojom.SerialPortConnectionWatcherRemoteCallHandler = class {
 
 device.mojom.SerialPortConnectionWatcher.getRemote = function() {
   let remote = new device.mojom.SerialPortConnectionWatcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.SerialPortConnectionWatcher',
     'context');
   return remote.$;

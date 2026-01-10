@@ -69,7 +69,7 @@ device.mojom.NSRawTypeNameFormat = {
 // Struct: NDEFError
 mojo.internal.Struct(
     device.mojom.NDEFErrorSpec, 'device.mojom.NDEFError', [
-      mojo.internal.StructField('error_type', 0, 0, device.mojom.NDEFErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_type', 0, 0, device.mojom.NDEFErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -77,21 +77,21 @@ mojo.internal.Struct(
 // Struct: NDEFRecord
 mojo.internal.Struct(
     device.mojom.NDEFRecordSpec, 'device.mojom.NDEFRecord', [
-      mojo.internal.StructField('category', 0, 0, device.mojom.NDEFRecordTypeCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, device.mojom.NDEFRecordTypeCategorySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('record_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('media_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('id', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('encoding', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('lang', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('data', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('payload_message', 56, 0, device.mojom.NDEFMessageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('payload_message', 56, 0, device.mojom.NDEFMessageSpec.$, null, true, 0, undefined),
     ],
     [[0, 72]]);
 
 // Struct: NDEFMessage
 mojo.internal.Struct(
     device.mojom.NDEFMessageSpec, 'device.mojom.NDEFMessage', [
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(device.mojom.NDEFRecordSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(device.mojom.NDEFRecordSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -101,14 +101,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('identifier', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('payload', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('type', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('type_name_format', 24, 0, device.mojom.NSRawTypeNameFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type_name_format', 24, 0, device.mojom.NSRawTypeNameFormatSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: NDEFRawMessage
 mojo.internal.Struct(
     device.mojom.NDEFRawMessageSpec, 'device.mojom.NDEFRawMessage', [
-      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(device.mojom.NDEFRawRecordSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(device.mojom.NDEFRawRecordSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -128,14 +128,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.NFC_Push_ParamsSpec, 'device.mojom.NFC_Push_Params', [
-      mojo.internal.StructField('message', 0, 0, device.mojom.NDEFMessageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, device.mojom.NDEFWriteOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, device.mojom.NDEFMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, device.mojom.NDEFWriteOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     device.mojom.NFC_Push_ResponseParamsSpec, 'device.mojom.NFC_Push_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -151,7 +151,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.NFC_MakeReadOnly_ResponseParamsSpec, 'device.mojom.NFC_MakeReadOnly_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -168,7 +168,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.NFC_Watch_ResponseParamsSpec, 'device.mojom.NFC_Watch_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -284,9 +284,8 @@ device.mojom.NFCRemoteCallHandler = class {
 
 device.mojom.NFC.getRemote = function() {
   let remote = new device.mojom.NFCRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.NFC',
     'context');
   return remote.$;
@@ -301,13 +300,13 @@ mojo.internal.Struct(
     device.mojom.NFCClient_OnWatch_ParamsSpec, 'device.mojom.NFCClient_OnWatch_Params', [
       mojo.internal.StructField('watch_ids', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('serial_number', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('message', 16, 0, device.mojom.NDEFMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, device.mojom.NDEFMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     device.mojom.NFCClient_OnError_ParamsSpec, 'device.mojom.NFCClient_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -367,9 +366,8 @@ device.mojom.NFCClientRemoteCallHandler = class {
 
 device.mojom.NFCClient.getRemote = function() {
   let remote = new device.mojom.NFCClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.NFCClient',
     'context');
   return remote.$;
@@ -383,13 +381,13 @@ device.mojom.NFCClientRequest = device.mojom.NFCClientPendingReceiver;
 mojo.internal.Struct(
     device.mojom.RawNFCClient_OnWatch_ParamsSpec, 'device.mojom.RawNFCClient_OnWatch_Params', [
       mojo.internal.StructField('watch_ids', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('message', 8, 0, device.mojom.NDEFRawMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, device.mojom.NDEFRawMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     device.mojom.RawNFCClient_OnError_ParamsSpec, 'device.mojom.RawNFCClient_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, device.mojom.NDEFErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -449,9 +447,8 @@ device.mojom.RawNFCClientRemoteCallHandler = class {
 
 device.mojom.RawNFCClient.getRemote = function() {
   let remote = new device.mojom.RawNFCClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.RawNFCClient',
     'context');
   return remote.$;

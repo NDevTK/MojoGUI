@@ -17,13 +17,13 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = { $: {} };
 // Interface: IMEStructTraitsTest
 mojo.internal.Struct(
     ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_Params', [
-      mojo.internal.StructField('in', 0, 0, ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in', 0, 0, ui.mojom.TextInputTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, ui.mojom.TextInputTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ ui.mojom.IMEStructTraitsTestRemoteCallHandler = class {
 
 ui.mojom.IMEStructTraitsTest.getRemote = function() {
   let remote = new ui.mojom.IMEStructTraitsTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ui.mojom.IMEStructTraitsTest',
     'context');
   return remote.$;

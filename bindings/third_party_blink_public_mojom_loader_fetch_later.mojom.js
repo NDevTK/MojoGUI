@@ -25,8 +25,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('loader', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FetchLaterLoaderRemote), null, false, 0, undefined),
       mojo.internal.StructField('request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('options', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('request', 16, 0, network.mojom.URLRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('traffic_annotation', 24, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 16, 0, network.mojom.URLRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 24, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -92,9 +92,8 @@ blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
 
 blink.mojom.FetchLaterLoaderFactory.getRemote = function() {
   let remote = new blink.mojom.FetchLaterLoaderFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FetchLaterLoaderFactory',
     'context');
   return remote.$;
@@ -171,9 +170,8 @@ blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
 
 blink.mojom.FetchLaterLoader.getRemote = function() {
   let remote = new blink.mojom.FetchLaterLoaderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FetchLaterLoader',
     'context');
   return remote.$;

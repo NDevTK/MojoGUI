@@ -50,7 +50,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.graduation_ui.mojom.AuthResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.graduation_ui.mojom.AuthResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -61,13 +61,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParams', [
-      mojo.internal.StructField('profile_info', 0, 0, ash.graduation_ui.mojom.ProfileInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile_info', 0, 0, ash.graduation_ui.mojom.ProfileInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_Params', [
-      mojo.internal.StructField('screen', 0, 0, ash.graduation_ui.mojom.GraduationScreenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('screen', 0, 0, ash.graduation_ui.mojom.GraduationScreenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -152,9 +152,8 @@ ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHandler = class {
 
 ash.graduation_ui.mojom.GraduationUiHandler.getRemote = function() {
   let remote = new ash.graduation_ui.mojom.GraduationUiHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.graduation_ui.mojom.GraduationUiHandler',
     'context');
   return remote.$;

@@ -89,12 +89,12 @@ mojo.internal.Union(
     ash.settings.mojom.ActionTypeSpec, 'ash.settings.mojom.ActionType', {
       'accelerator_action': {
         'ordinal': 0,
-        'type': ash.mojom.AcceleratorActionSpec,
+        'type': ash.mojom.AcceleratorActionSpec.$,
         'nullable': false,
       },
       'static_shortcut_action': {
         'ordinal': 1,
-        'type': ash.mojom.StaticShortcutActionSpec,
+        'type': ash.mojom.StaticShortcutActionSpec.$,
         'nullable': false,
       },
     });
@@ -102,21 +102,21 @@ mojo.internal.Union(
 // Struct: ActionChoice
 mojo.internal.Struct(
     ash.settings.mojom.ActionChoiceSpec, 'ash.settings.mojom.ActionChoice', [
-      mojo.internal.StructField('action_type', 0, 0, ash.settings.mojom.ActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('action_type', 0, 0, ash.settings.mojom.ActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: KeyboardSettingsObserver
 mojo.internal.Struct(
     ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec, 'ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_Params', [
-      mojo.internal.StructField('keyboards', 0, 0, mojo.internal.Array(ash.mojom.KeyboardSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('keyboards', 0, 0, mojo.internal.Array(ash.mojom.KeyboardSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec, 'ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_Params', [
-      mojo.internal.StructField('policies', 0, 0, ash.mojom.KeyboardPoliciesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policies', 0, 0, ash.mojom.KeyboardPoliciesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -176,9 +176,8 @@ ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.KeyboardSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.KeyboardSettingsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.KeyboardSettingsObserver',
     'context');
   return remote.$;
@@ -191,7 +190,7 @@ ash.settings.mojom.KeyboardSettingsObserverRequest = ash.settings.mojom.Keyboard
 // Interface: TouchpadSettingsObserver
 mojo.internal.Struct(
     ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec, 'ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_Params', [
-      mojo.internal.StructField('touchpads', 0, 0, mojo.internal.Array(ash.mojom.TouchpadSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('touchpads', 0, 0, mojo.internal.Array(ash.mojom.TouchpadSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -241,9 +240,8 @@ ash.settings.mojom.TouchpadSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.TouchpadSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.TouchpadSettingsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.TouchpadSettingsObserver',
     'context');
   return remote.$;
@@ -256,7 +254,7 @@ ash.settings.mojom.TouchpadSettingsObserverRequest = ash.settings.mojom.Touchpad
 // Interface: PointingStickSettingsObserver
 mojo.internal.Struct(
     ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec, 'ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_Params', [
-      mojo.internal.StructField('pointSticks', 0, 0, mojo.internal.Array(ash.mojom.PointingStickSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('pointSticks', 0, 0, mojo.internal.Array(ash.mojom.PointingStickSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -306,9 +304,8 @@ ash.settings.mojom.PointingStickSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.PointingStickSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.PointingStickSettingsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.PointingStickSettingsObserver',
     'context');
   return remote.$;
@@ -321,13 +318,13 @@ ash.settings.mojom.PointingStickSettingsObserverRequest = ash.settings.mojom.Poi
 // Interface: MouseSettingsObserver
 mojo.internal.Struct(
     ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec, 'ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_Params', [
-      mojo.internal.StructField('mice', 0, 0, mojo.internal.Array(ash.mojom.MouseSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('mice', 0, 0, mojo.internal.Array(ash.mojom.MouseSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec, 'ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_Params', [
-      mojo.internal.StructField('policies', 0, 0, ash.mojom.MousePoliciesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policies', 0, 0, ash.mojom.MousePoliciesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -387,9 +384,8 @@ ash.settings.mojom.MouseSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.MouseSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.MouseSettingsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.MouseSettingsObserver',
     'context');
   return remote.$;
@@ -402,9 +398,9 @@ ash.settings.mojom.MouseSettingsObserverRequest = ash.settings.mojom.MouseSettin
 // Interface: ButtonPressObserver
 mojo.internal.Struct(
     ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec, 'ash.settings.mojom.ButtonPressObserver_OnButtonPressed_Params', [
-      mojo.internal.StructField('button', 0, 0, ash.mojom.ButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('button', 0, 0, ash.mojom.ButtonSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 ash.settings.mojom.ButtonPressObserverPendingReceiver = class {
   constructor(handle) {
@@ -452,9 +448,8 @@ ash.settings.mojom.ButtonPressObserverRemoteCallHandler = class {
 
 ash.settings.mojom.ButtonPressObserver.getRemote = function() {
   let remote = new ash.settings.mojom.ButtonPressObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.ButtonPressObserver',
     'context');
   return remote.$;
@@ -467,7 +462,7 @@ ash.settings.mojom.ButtonPressObserverRequest = ash.settings.mojom.ButtonPressOb
 // Interface: GraphicsTabletSettingsObserver
 mojo.internal.Struct(
     ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec, 'ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_Params', [
-      mojo.internal.StructField('graphics_tablets', 0, 0, mojo.internal.Array(ash.mojom.GraphicsTabletSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('graphics_tablets', 0, 0, mojo.internal.Array(ash.mojom.GraphicsTabletSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -517,9 +512,8 @@ ash.settings.mojom.GraphicsTabletSettingsObserverRemoteCallHandler = class {
 
 ash.settings.mojom.GraphicsTabletSettingsObserver.getRemote = function() {
   let remote = new ash.settings.mojom.GraphicsTabletSettingsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.GraphicsTabletSettingsObserver',
     'context');
   return remote.$;
@@ -582,9 +576,8 @@ ash.settings.mojom.KeyboardBrightnessObserverRemoteCallHandler = class {
 
 ash.settings.mojom.KeyboardBrightnessObserver.getRemote = function() {
   let remote = new ash.settings.mojom.KeyboardBrightnessObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.KeyboardBrightnessObserver',
     'context');
   return remote.$;
@@ -647,9 +640,8 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverRemoteCallHandler = class {
 
 ash.settings.mojom.KeyboardAmbientLightSensorObserver.getRemote = function() {
   let remote = new ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.KeyboardAmbientLightSensorObserver',
     'context');
   return remote.$;
@@ -712,9 +704,8 @@ ash.settings.mojom.LidStateObserverRemoteCallHandler = class {
 
 ash.settings.mojom.LidStateObserver.getRemote = function() {
   let remote = new ash.settings.mojom.LidStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.LidStateObserver',
     'context');
   return remote.$;
@@ -794,35 +785,35 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_Params', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.mojom.KeyboardSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.mojom.KeyboardSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_Params', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.mojom.PointingStickSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.mojom.PointingStickSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_Params', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.mojom.MouseSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.mojom.MouseSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_Params', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.mojom.TouchpadSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.mojom.TouchpadSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_Params', [
       mojo.internal.StructField('device_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.mojom.GraphicsTabletSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings', 8, 0, ash.mojom.GraphicsTabletSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -856,7 +847,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParams', [
-      mojo.internal.StructField('options', 0, 0, mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -867,7 +858,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParams', [
-      mojo.internal.StructField('options', 0, 0, mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -878,7 +869,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParams', [
-      mojo.internal.StructField('meta_key', 0, 0, ui.mojom.MetaKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('meta_key', 0, 0, ui.mojom.MetaKeySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1270,9 +1261,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
 
 ash.settings.mojom.InputDeviceSettingsProvider.getRemote = function() {
   let remote = new ash.settings.mojom.InputDeviceSettingsProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.mojom.InputDeviceSettingsProvider',
     'context');
   return remote.$;

@@ -118,12 +118,12 @@ mojo.internal.Union(
     blink.mojom.HomeTabUnionSpec, 'blink.mojom.HomeTabUnion', {
       'visibility': {
         'ordinal': 0,
-        'type': blink.mojom.TabStripMemberVisibilitySpec,
+        'type': blink.mojom.TabStripMemberVisibilitySpec.$,
         'nullable': false,
       },
       'params': {
         'ordinal': 1,
-        'type': blink.mojom.HomeTabParamsSpec,
+        'type': blink.mojom.HomeTabParamsSpec.$,
         'nullable': false,
       },
     });
@@ -138,9 +138,9 @@ mojo.internal.Struct(
 // Struct: ManifestLocalizedTextObject
 mojo.internal.Struct(
     blink.mojom.ManifestLocalizedTextObjectSpec, 'blink.mojom.ManifestLocalizedTextObject', [
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('dir', 8, 0, Manifest.TextDirectionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('lang', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('dir', 8, 0, Manifest.TextDirectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('lang', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -154,15 +154,15 @@ mojo.internal.Struct(
 // Struct: ManifestShortcutItem
 mojo.internal.Struct(
     blink.mojom.ManifestShortcutItemSpec, 'blink.mojom.ManifestShortcutItem', [
-      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('short_name', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('description', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('icons', 32, 0, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('name_localized', 40, 0, mojo.internal.Map(blink.mojom.LocaleSpec, blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('short_name_localized', 48, 0, mojo.internal.Map(blink.mojom.LocaleSpec, blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('description_localized', 56, 0, mojo.internal.Map(blink.mojom.LocaleSpec, blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('icons_localized', 64, 0, mojo.internal.Map(blink.mojom.LocaleSpec, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), false), null, true, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('short_name', 8, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('icons', 32, 0, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('name_localized', 40, 0, mojo.internal.Map(blink.mojom.LocaleSpec.$, blink.mojom.ManifestLocalizedTextObjectSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('short_name_localized', 48, 0, mojo.internal.Map(blink.mojom.LocaleSpec.$, blink.mojom.ManifestLocalizedTextObjectSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('description_localized', 56, 0, mojo.internal.Map(blink.mojom.LocaleSpec.$, blink.mojom.ManifestLocalizedTextObjectSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('icons_localized', 64, 0, mojo.internal.Map(blink.mojom.LocaleSpec.$, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec.$, false), false), null, true, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -183,23 +183,23 @@ mojo.internal.Struct(
 // Struct: ManifestFileFilter
 mojo.internal.Struct(
     blink.mojom.ManifestFileFilterSpec, 'blink.mojom.ManifestFileFilter', [
-      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('accept', 8, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('accept', 8, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ManifestProtocolHandler
 mojo.internal.Struct(
     blink.mojom.ManifestProtocolHandlerSpec, 'blink.mojom.ManifestProtocolHandler', [
-      mojo.internal.StructField('protocol', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ManifestScopeExtension
 mojo.internal.Struct(
     blink.mojom.ManifestScopeExtensionSpec, 'blink.mojom.ManifestScopeExtension', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('has_origin_wildcard', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -207,33 +207,33 @@ mojo.internal.Struct(
 // Struct: ManifestLockScreen
 mojo.internal.Struct(
     blink.mojom.ManifestLockScreenSpec, 'blink.mojom.ManifestLockScreen', [
-      mojo.internal.StructField('start_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ManifestNoteTaking
 mojo.internal.Struct(
     blink.mojom.ManifestNoteTakingSpec, 'blink.mojom.ManifestNoteTaking', [
-      mojo.internal.StructField('new_note_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_note_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ManifestRelatedApplication
 mojo.internal.Struct(
     blink.mojom.ManifestRelatedApplicationSpec, 'blink.mojom.ManifestRelatedApplication', [
-      mojo.internal.StructField('platform', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('id', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('platform', 0, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('id', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ManifestShareTargetParams
 mojo.internal.Struct(
     blink.mojom.ManifestShareTargetParamsSpec, 'blink.mojom.ManifestShareTargetParams', [
-      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('text', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('files', 24, 0, mojo.internal.Array(blink.mojom.ManifestFileFilterSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('files', 24, 0, mojo.internal.Array(blink.mojom.ManifestFileFilterSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -247,10 +247,10 @@ mojo.internal.Struct(
 // Struct: ManifestFileHandler
 mojo.internal.Struct(
     blink.mojom.ManifestFileHandlerSpec, 'blink.mojom.ManifestFileHandler', [
-      mojo.internal.StructField('action', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('icons', 16, 0, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('accept', 24, 0, mojo.internal.Map(mojo_base.mojom.String16Spec, mojo.internal.Array(mojo_base.mojom.String16Spec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('icons', 16, 0, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('accept', 24, 0, mojo.internal.Map(mojo_base.mojom.String16Spec.$, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), false), null, false, 0, undefined),
       mojo.internal.StructField('kSingleClient', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -258,56 +258,56 @@ mojo.internal.Struct(
 // Struct: ManifestTranslationItem
 mojo.internal.Struct(
     blink.mojom.ManifestTranslationItemSpec, 'blink.mojom.ManifestTranslationItem', [
-      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('short_name', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('description', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('short_name', 8, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ManifestMigrateFrom
 mojo.internal.Struct(
     blink.mojom.ManifestMigrateFromSpec, 'blink.mojom.ManifestMigrateFrom', [
-      mojo.internal.StructField('id', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('install_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('behavior', 16, 0, blink.mojom.ManifestMigrationBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('install_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('behavior', 16, 0, blink.mojom.ManifestMigrationBehaviorSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ManifestMigrateTo
 mojo.internal.Struct(
     blink.mojom.ManifestMigrateToSpec, 'blink.mojom.ManifestMigrateTo', [
-      mojo.internal.StructField('id', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('install_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('install_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ManifestTabStrip
 mojo.internal.Struct(
     blink.mojom.ManifestTabStripSpec, 'blink.mojom.ManifestTabStrip', [
-      mojo.internal.StructField('home_tab', 0, 0, blink.mojom.HomeTabUnionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('new_tab_button', 16, 0, blink.mojom.NewTabButtonParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('home_tab', 0, 0, blink.mojom.HomeTabUnionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_tab_button', 8, 0, blink.mojom.NewTabButtonParamsSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: HomeTabParams
 mojo.internal.Struct(
     blink.mojom.HomeTabParamsSpec, 'blink.mojom.HomeTabParams', [
-      mojo.internal.StructField('icons', 0, 0, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('scope_patterns', 8, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('icons', 0, 0, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('scope_patterns', 8, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NewTabButtonParams
 mojo.internal.Struct(
     blink.mojom.NewTabButtonParamsSpec, 'blink.mojom.NewTabButtonParams', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ManifestDebugInfo
 mojo.internal.Struct(
     blink.mojom.ManifestDebugInfoSpec, 'blink.mojom.ManifestDebugInfo', [
-      mojo.internal.StructField('errors', 0, 0, mojo.internal.Array(blink.mojom.ManifestErrorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('errors', 0, 0, mojo.internal.Array(blink.mojom.ManifestErrorSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('raw_manifest', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -325,7 +325,7 @@ mojo.internal.Struct(
 // Struct: DisplayOverrideItem
 mojo.internal.Struct(
     blink.mojom.DisplayOverrideItemSpec, 'blink.mojom.DisplayOverrideItem', [
-      mojo.internal.StructField('display', 0, 0, blink.mojom.DisplayModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url_patterns', 8, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('display', 0, 0, blink.mojom.DisplayModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url_patterns', 8, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

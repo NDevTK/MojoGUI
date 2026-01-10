@@ -19,9 +19,9 @@ network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
 // Interface: NetworkQualityEstimatorManagerClient
 mojo.internal.Struct(
     network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Params', [
-      mojo.internal.StructField('type', 0, 0, network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('http_rtt', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('transport_rtt', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, network.mojom.EffectiveConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('http_rtt', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('transport_rtt', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('downlink_bandwidth_kbps', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -72,9 +72,8 @@ network.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler = class {
 
 network.mojom.NetworkQualityEstimatorManagerClient.getRemote = function() {
   let remote = new network.mojom.NetworkQualityEstimatorManagerClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetworkQualityEstimatorManagerClient',
     'context');
   return remote.$;
@@ -137,9 +136,8 @@ network.mojom.NetworkQualityEstimatorManagerRemoteCallHandler = class {
 
 network.mojom.NetworkQualityEstimatorManager.getRemote = function() {
   let remote = new network.mojom.NetworkQualityEstimatorManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.NetworkQualityEstimatorManager',
     'context');
   return remote.$;

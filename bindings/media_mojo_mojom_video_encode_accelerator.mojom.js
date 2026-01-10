@@ -94,17 +94,17 @@ mojo.internal.Union(
     media.mojom.BitrateSpec, 'media.mojom.Bitrate', {
       'constant': {
         'ordinal': 0,
-        'type': media.mojom.ConstantBitrateSpec,
+        'type': media.mojom.ConstantBitrateSpec.$,
         'nullable': false,
       },
       'variable': {
         'ordinal': 1,
-        'type': media.mojom.VariableBitrateSpec,
+        'type': media.mojom.VariableBitrateSpec.$,
         'nullable': false,
       },
       'external': {
         'ordinal': 2,
-        'type': media.mojom.ExternalBitrateSpec,
+        'type': media.mojom.ExternalBitrateSpec.$,
         'nullable': false,
       },
     });
@@ -114,22 +114,22 @@ mojo.internal.Union(
     media.mojom.OptionalMetadataSpec, 'media.mojom.OptionalMetadata', {
       'drop': {
         'ordinal': 0,
-        'type': media.mojom.DropFrameMetadataSpec,
+        'type': media.mojom.DropFrameMetadataSpec.$,
         'nullable': false,
       },
       'h264': {
         'ordinal': 1,
-        'type': media.mojom.H264MetadataSpec,
+        'type': media.mojom.H264MetadataSpec.$,
         'nullable': false,
       },
       'vp8': {
         'ordinal': 2,
-        'type': media.mojom.Vp8MetadataSpec,
+        'type': media.mojom.Vp8MetadataSpec.$,
         'nullable': false,
       },
       'vp9': {
         'ordinal': 3,
-        'type': media.mojom.Vp9MetadataSpec,
+        'type': media.mojom.Vp9MetadataSpec.$,
         'nullable': false,
       },
     });
@@ -137,15 +137,15 @@ mojo.internal.Union(
 // Struct: VideoEncodeAcceleratorSupportedProfile
 mojo.internal.Struct(
     media.mojom.VideoEncodeAcceleratorSupportedProfileSpec, 'media.mojom.VideoEncodeAcceleratorSupportedProfile', [
-      mojo.internal.StructField('profile', 0, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('min_resolution', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('max_resolution', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 0, 0, media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('min_resolution', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_resolution', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_framerate_numerator', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('max_framerate_denominator', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('rate_control_modes', 32, 0, mojo.internal.Array(media.mojom.VideoEncodeAcceleratorSupportedRateControlModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('scalability_modes', 40, 0, mojo.internal.Array(media.mojom.SVCScalabilityModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('rate_control_modes', 32, 0, mojo.internal.Array(media.mojom.VideoEncodeAcceleratorSupportedRateControlModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('scalability_modes', 40, 0, mojo.internal.Array(media.mojom.SVCScalabilityModeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('is_software_codec', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('gpu_supported_pixel_formats', 56, 0, mojo.internal.Array(media.mojom.VideoPixelFormatSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('gpu_supported_pixel_formats', 56, 0, mojo.internal.Array(media.mojom.VideoPixelFormatSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('supports_gpu_shared_images', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 // Struct: EncodeCommandBufferId
 mojo.internal.Struct(
     media.mojom.EncodeCommandBufferIdSpec, 'media.mojom.EncodeCommandBufferId', [
-      mojo.internal.StructField('channel_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('route_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -169,7 +169,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoBitrateAllocationSpec, 'media.mojom.VideoBitrateAllocation', [
       mojo.internal.StructField('bitrates', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('variable_bitrate_peak', 8, 0, media.mojom.VariableBitratePeakSpec, null, true, 0, undefined),
+      mojo.internal.StructField('variable_bitrate_peak', 8, 0, media.mojom.VariableBitratePeakSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -259,7 +259,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('end_of_picture', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('temporal_idx', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('spatial_idx', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('spatial_layer_resolutions', 8, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('spatial_layer_resolutions', 8, 0, mojo.internal.Array(gfx.mojom.SizeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('begin_active_spatial_layer_index', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('end_active_spatial_layer_index', 17, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('p_diffs', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
@@ -284,19 +284,19 @@ mojo.internal.Struct(
     media.mojom.BitstreamBufferMetadataSpec, 'media.mojom.BitstreamBufferMetadata', [
       mojo.internal.StructField('payload_size_bytes', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('key_frame', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('qp', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('optional_metadata', 24, 0, media.mojom.OptionalMetadataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('svc_generic', 40, 0, media.mojom.SVCGenericMetadataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('encoded_size', 48, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('encoded_color_space', 56, 0, gfx.mojom.ColorSpaceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('optional_metadata', 24, 0, media.mojom.OptionalMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('svc_generic', 32, 0, media.mojom.SVCGenericMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('encoded_size', 40, 0, gfx.mojom.SizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('encoded_color_space', 48, 0, gfx.mojom.ColorSpaceSpec.$, null, true, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Interface: VideoEncodeAcceleratorProvider
 mojo.internal.Struct(
     media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec, 'media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_Params', [
-      mojo.internal.StructField('command_buffer_id', 0, 0, media.mojom.EncodeCommandBufferIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('command_buffer_id', 0, 0, media.mojom.EncodeCommandBufferIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.VideoEncodeAcceleratorRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -308,7 +308,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParamsSpec, 'media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParams', [
-      mojo.internal.StructField('profiles', 0, 0, mojo.internal.Array(media.mojom.VideoEncodeAcceleratorSupportedProfileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('profiles', 0, 0, mojo.internal.Array(media.mojom.VideoEncodeAcceleratorSupportedProfileSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -368,9 +368,8 @@ media.mojom.VideoEncodeAcceleratorProviderRemoteCallHandler = class {
 
 media.mojom.VideoEncodeAcceleratorProvider.getRemote = function() {
   let remote = new media.mojom.VideoEncodeAcceleratorProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoEncodeAcceleratorProvider',
     'context');
   return remote.$;
@@ -433,9 +432,8 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryRemoteCallHandler = class {
 
 media.mojom.VideoEncodeAcceleratorProviderFactory.getRemote = function() {
   let remote = new media.mojom.VideoEncodeAcceleratorProviderFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoEncodeAcceleratorProviderFactory',
     'context');
   return remote.$;
@@ -448,7 +446,7 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryRequest = media.mojom.VideoEnco
 // Interface: VideoEncodeAccelerator
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_Initialize_Params', [
-      mojo.internal.StructField('config', 0, 0, media.mojom.VideoEncodeAcceleratorConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, media.mojom.VideoEncodeAcceleratorConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.VideoEncodeAcceleratorClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('media_log', 16, 0, mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), null, false, 0, undefined),
     ],
@@ -456,14 +454,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec, 'media.mojom.VideoEncodeAccelerator_Initialize_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, media.mojom.EncoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, media.mojom.EncoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_Encode_Params', [
-      mojo.internal.StructField('frame', 0, 0, media.mojom.VideoFrameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, media.mojom.VideoEncodeOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame', 0, 0, media.mojom.VideoFrameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, media.mojom.VideoEncodeOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -475,25 +473,25 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_Params', [
       mojo.internal.StructField('bitstream_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('region', 8, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('region', 8, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_Params', [
-      mojo.internal.StructField('bitrate_allocation', 0, 0, media.mojom.VideoBitrateAllocationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bitrate_allocation', 0, 0, media.mojom.VideoBitrateAllocationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('framerate', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('size', 16, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, gfx.mojom.SizeSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_Params', [
-      mojo.internal.StructField('bitrate', 0, 0, media.mojom.BitrateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('framerate', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('size', 24, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('bitrate', 0, 0, media.mojom.BitrateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('framerate', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, gfx.mojom.SizeSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_IsFlushSupported_Params', [
@@ -623,9 +621,8 @@ media.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
 
 media.mojom.VideoEncodeAccelerator.getRemote = function() {
   let remote = new media.mojom.VideoEncodeAcceleratorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoEncodeAccelerator',
     'context');
   return remote.$;
@@ -639,7 +636,7 @@ media.mojom.VideoEncodeAcceleratorRequest = media.mojom.VideoEncodeAcceleratorPe
 mojo.internal.Struct(
     media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec, 'media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_Params', [
       mojo.internal.StructField('input_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('input_coded_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_coded_size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('output_buffer_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -647,19 +644,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec, 'media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_Params', [
       mojo.internal.StructField('bitstream_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('metadata', 8, 0, media.mojom.BitstreamBufferMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, media.mojom.BitstreamBufferMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec, 'media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_Params', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.EncoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.EncoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec, 'media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_Params', [
-      mojo.internal.StructField('info', 0, 0, media.mojom.VideoEncoderInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, media.mojom.VideoEncoderInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -739,9 +736,8 @@ media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler = class {
 
 media.mojom.VideoEncodeAcceleratorClient.getRemote = function() {
   let remote = new media.mojom.VideoEncodeAcceleratorClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoEncodeAcceleratorClient',
     'context');
   return remote.$;

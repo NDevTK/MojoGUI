@@ -25,7 +25,7 @@ media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = { $: {} };
 // Interface: GpuInfoObserver
 mojo.internal.Struct(
     media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec, 'media.mojom.GpuInfoObserver_OnGpuInfoUpdate_Params', [
-      mojo.internal.StructField('gpu_info', 0, 0, gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gpu_info', 0, 0, gpu.mojom.GpuInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -75,9 +75,8 @@ media.mojom.GpuInfoObserverRemoteCallHandler = class {
 
 media.mojom.GpuInfoObserver.getRemote = function() {
   let remote = new media.mojom.GpuInfoObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.GpuInfoObserver',
     'context');
   return remote.$;
@@ -97,7 +96,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParams', [
       mojo.internal.StructField('is_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('key_system_capability', 8, 0, media.mojom.KeySystemCapabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_system_capability', 8, 0, media.mojom.KeySystemCapabilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -164,9 +163,8 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
 
 media.mojom.MediaFoundationService.getRemote = function() {
   let remote = new media.mojom.MediaFoundationServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaFoundationService',
     'context');
   return remote.$;
@@ -179,7 +177,7 @@ media.mojom.MediaFoundationServiceRequest = media.mojom.MediaFoundationServicePe
 // Interface: MediaFoundationServiceBroker
 mojo.internal.Struct(
     media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_Params', [
-      mojo.internal.StructField('gpu_info', 0, 0, gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gpu_info', 0, 0, gpu.mojom.GpuInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -191,7 +189,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_GetService_Params', [
-      mojo.internal.StructField('cdm_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.MediaFoundationServiceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -252,9 +250,8 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
 
 media.mojom.MediaFoundationServiceBroker.getRemote = function() {
   let remote = new media.mojom.MediaFoundationServiceBrokerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaFoundationServiceBroker',
     'context');
   return remote.$;

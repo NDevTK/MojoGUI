@@ -56,52 +56,52 @@ mojo.internal.Union(
     viz.mojom.LayerExtraSpec, 'viz.mojom.LayerExtra', {
       'mirror_layer_extra': {
         'ordinal': 0,
-        'type': viz.mojom.MirrorLayerExtraSpec,
+        'type': viz.mojom.MirrorLayerExtraSpec.$,
         'nullable': false,
       },
       'nine_patch_thumb_scrollbar_layer_extra': {
         'ordinal': 1,
-        'type': viz.mojom.NinePatchThumbScrollbarLayerExtraSpec,
+        'type': viz.mojom.NinePatchThumbScrollbarLayerExtraSpec.$,
         'nullable': false,
       },
       'painted_scrollbar_layer_extra': {
         'ordinal': 2,
-        'type': viz.mojom.PaintedScrollbarLayerExtraSpec,
+        'type': viz.mojom.PaintedScrollbarLayerExtraSpec.$,
         'nullable': false,
       },
       'solid_color_scrollbar_layer_extra': {
         'ordinal': 3,
-        'type': viz.mojom.SolidColorScrollbarLayerExtraSpec,
+        'type': viz.mojom.SolidColorScrollbarLayerExtraSpec.$,
         'nullable': false,
       },
       'surface_layer_extra': {
         'ordinal': 4,
-        'type': viz.mojom.SurfaceLayerExtraSpec,
+        'type': viz.mojom.SurfaceLayerExtraSpec.$,
         'nullable': false,
       },
       'texture_layer_extra': {
         'ordinal': 5,
-        'type': viz.mojom.TextureLayerExtraSpec,
+        'type': viz.mojom.TextureLayerExtraSpec.$,
         'nullable': false,
       },
       'ui_resource_layer_extra': {
         'ordinal': 6,
-        'type': viz.mojom.UIResourceLayerExtraSpec,
+        'type': viz.mojom.UIResourceLayerExtraSpec.$,
         'nullable': false,
       },
       'tile_display_layer_extra': {
         'ordinal': 7,
-        'type': viz.mojom.TileDisplayLayerExtraSpec,
+        'type': viz.mojom.TileDisplayLayerExtraSpec.$,
         'nullable': false,
       },
       'view_transition_content_layer_extra': {
         'ordinal': 8,
-        'type': viz.mojom.ViewTransitionContentLayerExtraSpec,
+        'type': viz.mojom.ViewTransitionContentLayerExtraSpec.$,
         'nullable': false,
       },
       'nine_patch_layer_extra': {
         'ordinal': 9,
-        'type': viz.mojom.NinePatchLayerExtraSpec,
+        'type': viz.mojom.NinePatchLayerExtraSpec.$,
         'nullable': false,
       },
     });
@@ -109,9 +109,9 @@ mojo.internal.Union(
 // Struct: RareProperties
 mojo.internal.Struct(
     viz.mojom.RarePropertiesSpec, 'viz.mojom.RareProperties', [
-      mojo.internal.StructField('filter_quality', 0, 0, cc.mojom.FilterQualitySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('dynamic_range_limit', 8, 0, cc.mojom.DynamicRangeLimitSpec, null, false, 0, undefined),
-      mojo.internal.StructField('capture_bounds', 16, 0, viz.mojom.RegionCaptureBoundsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filter_quality', 0, 0, cc.mojom.FilterQualitySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('dynamic_range_limit', 8, 0, cc.mojom.DynamicRangeLimitSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('capture_bounds', 16, 0, viz.mojom.RegionCaptureBoundsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -125,7 +125,7 @@ mojo.internal.Struct(
 // Struct: SurfaceLayerExtra
 mojo.internal.Struct(
     viz.mojom.SurfaceLayerExtraSpec, 'viz.mojom.SurfaceLayerExtra', [
-      mojo.internal.StructField('surface_range', 0, 0, viz.mojom.SurfaceRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('surface_range', 0, 0, viz.mojom.SurfaceRangeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('deadline_in_frames_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'deadline_in_frames_$value', originalFieldName: 'deadline_in_frames' }),
       mojo.internal.StructField('deadline_in_frames_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'deadline_in_frames_$flag', originalFieldName: 'deadline_in_frames' }),
       mojo.internal.StructField('stretch_content_to_fill_bounds', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -142,40 +142,40 @@ mojo.internal.Struct(
     viz.mojom.TextureLayerExtraSpec, 'viz.mojom.TextureLayerExtra', [
       mojo.internal.StructField('blend_background_color', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('force_texture_to_opaque', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('uv_top_left', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('uv_bottom_right', 16, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uv_top_left', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('uv_bottom_right', 16, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('update_transferable_resource', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('transferable_resource', 32, 0, viz.mojom.TransferableResourceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('transferable_resource', 32, 0, viz.mojom.TransferableResourceSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: UIResourceLayerExtra
 mojo.internal.Struct(
     viz.mojom.UIResourceLayerExtraSpec, 'viz.mojom.UIResourceLayerExtra', [
-      mojo.internal.StructField('ui_resource_id', 0, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_bounds', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('uv_top_left', 16, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('uv_bottom_right', 24, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ui_resource_id', 0, 0, cc.mojom.UIResourceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_bounds', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('uv_top_left', 16, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('uv_bottom_right', 24, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: TileDisplayLayerExtra
 mojo.internal.Struct(
     viz.mojom.TileDisplayLayerExtraSpec, 'viz.mojom.TileDisplayLayerExtra', [
-      mojo.internal.StructField('solid_color', 0, 0, skia.mojom.SkColor4fSpec, null, true, 0, undefined),
+      mojo.internal.StructField('solid_color', 0, 0, skia.mojom.SkColor4fSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('is_backdrop_filter_mask', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_directly_composited_image', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('nearest_neighbor', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('content_color_usage', 12, 0, gfx.mojom.ContentColorUsageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('recorded_bounds', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('proposed_tiling_scales_for_deletion', 24, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('content_color_usage', 16, 0, gfx.mojom.ContentColorUsageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('recorded_bounds', 24, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('proposed_tiling_scales_for_deletion', 32, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: ScrollbarLayerBaseExtra
 mojo.internal.Struct(
     viz.mojom.ScrollbarLayerBaseExtraSpec, 'viz.mojom.ScrollbarLayerBaseExtra', [
-      mojo.internal.StructField('scroll_element_id', 0, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_element_id', 0, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_overlay_scrollbar', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_web_test', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('thumb_thickness_scale_factor', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
@@ -192,71 +192,71 @@ mojo.internal.Struct(
 // Struct: NinePatchThumbScrollbarLayerExtra
 mojo.internal.Struct(
     viz.mojom.NinePatchThumbScrollbarLayerExtraSpec, 'viz.mojom.NinePatchThumbScrollbarLayerExtra', [
-      mojo.internal.StructField('scrollbar_base_extra', 0, 0, viz.mojom.ScrollbarLayerBaseExtraSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrollbar_base_extra', 0, 0, viz.mojom.ScrollbarLayerBaseExtraSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('thumb_thickness', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('minimum_thumb_length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('track_start', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('track_length', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('image_bounds', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('aperture', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('thumb_ui_resource_id', 40, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('track_and_buttons_ui_resource_id', 48, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_bounds', 24, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('aperture', 32, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('thumb_ui_resource_id', 40, 0, cc.mojom.UIResourceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('track_and_buttons_ui_resource_id', 48, 0, cc.mojom.UIResourceIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: PaintedScrollbarLayerExtra
 mojo.internal.Struct(
     viz.mojom.PaintedScrollbarLayerExtraSpec, 'viz.mojom.PaintedScrollbarLayerExtra', [
-      mojo.internal.StructField('scrollbar_base_extra', 0, 0, viz.mojom.ScrollbarLayerBaseExtraSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrollbar_base_extra', 0, 0, viz.mojom.ScrollbarLayerBaseExtraSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('internal_contents_scale', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('internal_content_bounds', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('internal_content_bounds', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('jump_on_track_click', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('supports_drag_snap_back', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('thumb_thickness', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('minimum_thumb_length', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('back_button_rect', 40, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('forward_button_rect', 48, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('track_rect', 56, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('thumb_color', 64, 0, skia.mojom.SkColor4fSpec, null, true, 0, undefined),
+      mojo.internal.StructField('back_button_rect', 40, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('forward_button_rect', 48, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('track_rect', 56, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('thumb_color', 64, 0, skia.mojom.SkColor4fSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('uses_nine_patch_track_and_buttons', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('track_and_buttons_image_bounds', 80, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('track_and_buttons_aperture', 88, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('track_and_buttons_image_bounds', 80, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('track_and_buttons_aperture', 88, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('painted_opacity', 96, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('track_and_buttons_ui_resource_id', 104, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('thumb_ui_resource_id', 112, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('track_and_buttons_ui_resource_id', 104, 0, cc.mojom.UIResourceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('thumb_ui_resource_id', 112, 0, cc.mojom.UIResourceIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 128]]);
 
 // Struct: SolidColorScrollbarLayerExtra
 mojo.internal.Struct(
     viz.mojom.SolidColorScrollbarLayerExtraSpec, 'viz.mojom.SolidColorScrollbarLayerExtra', [
-      mojo.internal.StructField('scrollbar_base_extra', 0, 0, viz.mojom.ScrollbarLayerBaseExtraSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrollbar_base_extra', 0, 0, viz.mojom.ScrollbarLayerBaseExtraSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('thumb_thickness', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('track_start', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('color', 16, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color', 16, 0, skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ViewTransitionContentLayerExtra
 mojo.internal.Struct(
     viz.mojom.ViewTransitionContentLayerExtraSpec, 'viz.mojom.ViewTransitionContentLayerExtra', [
-      mojo.internal.StructField('resource_id', 0, 0, viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resource_id', 0, 0, viz.mojom.ViewTransitionElementResourceIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_live_content_layer', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('max_extents_rect', 16, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_extents_rect', 16, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: NinePatchLayerExtra
 mojo.internal.Struct(
     viz.mojom.NinePatchLayerExtraSpec, 'viz.mojom.NinePatchLayerExtra', [
-      mojo.internal.StructField('image_aperture', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('border', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('layer_occlusion', 16, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_aperture', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('border', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('layer_occlusion', 16, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('fill_center', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ui_resource_id', 32, 0, cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('image_bounds', 40, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('uv_top_left', 48, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('uv_bottom_right', 56, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ui_resource_id', 32, 0, cc.mojom.UIResourceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('image_bounds', 40, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('uv_top_left', 48, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('uv_bottom_right', 56, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -264,34 +264,34 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.LayerSpec, 'viz.mojom.Layer', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, cc.mojom.LayerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bounds', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, cc.mojom.LayerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('contents_opaque', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('contents_opaque_for_text', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_drawable', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('layer_property_changed_not_from_property_trees', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('layer_property_changed_from_property_trees', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('hit_test_opaqueness', 28, 0, cc.mojom.HitTestOpaquenessSpec, null, false, 0, undefined),
-      mojo.internal.StructField('background_color', 32, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
-      mojo.internal.StructField('safe_opaque_background_color', 40, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
-      mojo.internal.StructField('element_id', 48, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('update_rect', 56, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('offset_to_transform_parent', 64, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('transform_tree_index', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('clip_tree_index', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('effect_tree_index', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('scroll_tree_index', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('should_check_backface_visibility', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('rare_properties', 96, 0, viz.mojom.RarePropertiesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('layer_extra', 104, 0, viz.mojom.LayerExtraSpec, null, true, 0, undefined),
+      mojo.internal.StructField('hit_test_opaqueness', 32, 0, cc.mojom.HitTestOpaquenessSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('background_color', 40, 0, skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('safe_opaque_background_color', 48, 0, skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('element_id', 56, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('update_rect', 64, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('offset_to_transform_parent', 72, 0, gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('transform_tree_index', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('clip_tree_index', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('effect_tree_index', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('scroll_tree_index', 92, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('should_check_backface_visibility', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('rare_properties', 104, 0, viz.mojom.RarePropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('layer_extra', 112, 0, viz.mojom.LayerExtraSpec.$, null, true, 0, undefined),
     ],
     [[0, 128]]);
 
 // Struct: AnchorPositionScrollData
 mojo.internal.Struct(
     viz.mojom.AnchorPositionScrollDataSpec, 'viz.mojom.AnchorPositionScrollData', [
-      mojo.internal.StructField('adjustment_container_ids', 0, 0, mojo.internal.Array(cc.mojom.ElementIdSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('accumulated_scroll_origin', 8, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('adjustment_container_ids', 0, 0, mojo.internal.Array(cc.mojom.ElementIdSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('accumulated_scroll_origin', 8, 0, gfx.mojom.Vector2dSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('needs_scroll_adjustment_in_x', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('needs_scroll_adjustment_in_y', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -309,14 +309,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('right_offset', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('top_offset', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('bottom_offset', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('constraint_box_rect', 24, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scroll_container_relative_sticky_box_rect', 32, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scroll_container_relative_containing_block_rect', 40, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('pixel_snap_offset', 48, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('constraint_box_rect', 24, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_container_relative_sticky_box_rect', 32, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_container_relative_containing_block_rect', 40, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_snap_offset', 48, 0, gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('nearest_node_shifting_sticky_box', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('nearest_node_shifting_containing_block', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('total_sticky_box_sticky_offset', 64, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('total_containing_block_sticky_offset', 72, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_sticky_box_sticky_offset', 64, 0, gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('total_containing_block_sticky_offset', 72, 0, gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -328,9 +328,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('device_transform_scale_factor', 8, 0, mojo.internal.Float, 1.0, false, 0, undefined),
       mojo.internal.StructField('nodes_affected_by_outer_viewport_bounds_delta', 16, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
       mojo.internal.StructField('nodes_affected_by_safe_area_bottom', 24, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('sticky_position_data', 32, 0, mojo.internal.Array(viz.mojom.StickyPositionNodeDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('anchor_position_scroll_data', 40, 0, mojo.internal.Array(viz.mojom.AnchorPositionScrollDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('drawn_elastic_overscroll', 48, 0, mojo.internal.Map(cc.mojom.ElementIdSpec, gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sticky_position_data', 32, 0, mojo.internal.Array(viz.mojom.StickyPositionNodeDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('anchor_position_scroll_data', 40, 0, mojo.internal.Array(viz.mojom.AnchorPositionScrollDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('drawn_elastic_overscroll', 48, 0, mojo.internal.Map(cc.mojom.ElementIdSpec.$, gfx.mojom.Vector2dFSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -340,13 +340,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('parent_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('parent_frame_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('element_id', 16, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('local', 24, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 32, 0, gfx.mojom.Point3FSpec, null, false, 0, undefined),
-      mojo.internal.StructField('post_translation', 40, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('to_parent', 48, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scroll_offset', 56, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('snap_amount', 64, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('element_id', 16, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('local', 24, 0, gfx.mojom.TransformSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 32, 0, gfx.mojom.Point3FSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('post_translation', 40, 0, gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('to_parent', 48, 0, gfx.mojom.TransformSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_offset', 56, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('snap_amount', 64, 0, gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('sticky_position_constraint_id_$flag', 72, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'sticky_position_constraint_id_$value', originalFieldName: 'sticky_position_constraint_id' }),
       mojo.internal.StructField('sticky_position_constraint_id_$value', 76, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'sticky_position_constraint_id_$flag', originalFieldName: 'sticky_position_constraint_id' }),
       mojo.internal.StructField('anchor_position_scroll_data_id_$flag', 80, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'anchor_position_scroll_data_id_$value', originalFieldName: 'anchor_position_scroll_data_id' }),
@@ -369,7 +369,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('ancestors_are_invertible', 100, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('node_and_ancestors_are_flat', 100, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('node_or_ancestors_will_change_transform', 100, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('visible_frame_element_id', 104, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_frame_element_id', 104, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('damage_reasons_bit_mask', 112, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('moved_by_safe_area_bottom', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -381,7 +381,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('parent_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('transform_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('clip', 16, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('clip', 16, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('pixel_moving_filter_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -393,48 +393,48 @@ mojo.internal.Struct(
       mojo.internal.StructField('parent_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('transform_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('clip_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('element_id', 16, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('element_id', 16, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('opacity', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('render_surface_reason', 28, 0, cc.mojom.RenderSurfaceReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('surface_contents_scale', 32, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('subtree_capture_id', 40, 0, viz.mojom.SubtreeCaptureIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('subtree_size', 48, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('blend_mode', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('target_id', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('view_transition_target_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('closest_ancestor_with_cached_render_surface_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('closest_ancestor_with_copy_request_id', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('closest_ancestor_being_captured_id', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('closest_ancestor_with_shared_element_id', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('view_transition_element_resource_id', 88, 0, viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('filters', 96, 0, viz.mojom.FilterOperationsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('backdrop_filters', 104, 0, viz.mojom.FilterOperationsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('backdrop_filter_bounds', 112, 0, skia.mojom.SkPathSpec, null, true, 0, undefined),
-      mojo.internal.StructField('backdrop_filter_quality', 120, 0, mojo.internal.Float, 1.0, false, 0, undefined),
-      mojo.internal.StructField('backdrop_mask_element_id', 128, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mask_filter_info', 136, 0, gfx.mojom.MaskFilterInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('cache_render_surface', 144, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('double_sided', 144, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('trilinear_filtering', 144, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('subtree_hidden', 144, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_potential_filter_animation', 144, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_potential_backdrop_filter_animation', 144, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_potential_opacity_animation', 144, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('effect_changed', 144, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('subtree_has_copy_request', 145, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_fast_rounded_corner', 145, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('may_have_backdrop_effect', 145, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('needs_effect_for_2d_scale_transform', 145, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('copy_output_requests', 152, 0, mojo.internal.Array(viz.mojom.CopyOutputRequestSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('render_surface_reason', 32, 0, cc.mojom.RenderSurfaceReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('surface_contents_scale', 40, 0, gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('subtree_capture_id', 48, 0, viz.mojom.SubtreeCaptureIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('subtree_size', 56, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('blend_mode', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('target_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('view_transition_target_id', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('closest_ancestor_with_cached_render_surface_id', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('closest_ancestor_with_copy_request_id', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('closest_ancestor_being_captured_id', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('closest_ancestor_with_shared_element_id', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('view_transition_element_resource_id', 96, 0, viz.mojom.ViewTransitionElementResourceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('filters', 104, 0, viz.mojom.FilterOperationsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('backdrop_filters', 112, 0, viz.mojom.FilterOperationsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('backdrop_filter_bounds', 120, 0, skia.mojom.SkPathSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('backdrop_filter_quality', 128, 0, mojo.internal.Float, 1.0, false, 0, undefined),
+      mojo.internal.StructField('backdrop_mask_element_id', 136, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mask_filter_info', 144, 0, gfx.mojom.MaskFilterInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cache_render_surface', 152, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('double_sided', 152, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('trilinear_filtering', 152, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subtree_hidden', 152, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_potential_filter_animation', 152, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_potential_backdrop_filter_animation', 152, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_potential_opacity_animation', 152, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('effect_changed', 152, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subtree_has_copy_request', 153, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_fast_rounded_corner', 153, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('may_have_backdrop_effect', 153, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('needs_effect_for_2d_scale_transform', 153, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('copy_output_requests', 160, 0, mojo.internal.Array(viz.mojom.CopyOutputRequestSpec.$, false), null, false, 0, undefined),
     ],
-    [[0, 168]]);
+    [[0, 176]]);
 
 // Struct: ScrollTreeUpdate
 mojo.internal.Struct(
     viz.mojom.ScrollTreeUpdateSpec, 'viz.mojom.ScrollTreeUpdate', [
-      mojo.internal.StructField('synced_scroll_offsets', 0, 0, mojo.internal.Map(cc.mojom.ElementIdSpec, cc.mojom.SyncedScrollOffsetSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('scrolling_contents_cull_rects', 8, 0, mojo.internal.Map(cc.mojom.ElementIdSpec, gfx.mojom.RectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('elastic_overscroll', 16, 0, mojo.internal.Map(cc.mojom.ElementIdSpec, gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('synced_scroll_offsets', 0, 0, mojo.internal.Map(cc.mojom.ElementIdSpec.$, cc.mojom.SyncedScrollOffsetSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('scrolling_contents_cull_rects', 8, 0, mojo.internal.Map(cc.mojom.ElementIdSpec.$, gfx.mojom.RectSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('elastic_overscroll', 16, 0, mojo.internal.Map(cc.mojom.ElementIdSpec.$, gfx.mojom.Vector2dFSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -444,9 +444,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('parent_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('transform_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('container_bounds', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bounds', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('element_id', 32, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('container_bounds', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 24, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('element_id', 32, 0, cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_scroll_offset_affected_by_page_scale', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('scrolls_inner_viewport', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('scrolls_outer_viewport', 40, 2, mojo.internal.Bool, false, false, 0, undefined),

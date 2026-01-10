@@ -47,7 +47,7 @@ mojo.internal.Struct(
 // Struct: AggregatableHistogramContribution
 mojo.internal.Struct(
     private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, 'private_aggregation_internals.mojom.AggregatableHistogramContribution', [
-      mojo.internal.StructField('bucket', 0, 0, mojo_base.mojom.Uint128Spec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket', 0, 0, mojo_base.mojom.Uint128Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -55,13 +55,13 @@ mojo.internal.Struct(
 // Struct: WebUIAggregatableReport
 mojo.internal.Struct(
     private_aggregation_internals.mojom.WebUIAggregatableReportSpec, 'private_aggregation_internals.mojom.WebUIAggregatableReport', [
-      mojo.internal.StructField('id', 0, 0, private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, private_aggregation_internals.mojom.AggregatableReportRequestIDSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('report_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('api_identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('api_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('report_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('contributions', 40, 0, mojo.internal.Array(private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('status', 48, 0, private_aggregation_internals.mojom.ReportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('contributions', 40, 0, mojo.internal.Array(private_aggregation_internals.mojom.AggregatableHistogramContributionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 48, 0, private_aggregation_internals.mojom.ReportStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('report_body', 56, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 72]]);
@@ -74,7 +74,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnReportHandled_Params', [
-      mojo.internal.StructField('report', 0, 0, private_aggregation_internals.mojom.WebUIAggregatableReportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report', 0, 0, private_aggregation_internals.mojom.WebUIAggregatableReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -134,9 +134,8 @@ private_aggregation_internals.mojom.ObserverRemoteCallHandler = class {
 
 private_aggregation_internals.mojom.Observer.getRemote = function() {
   let remote = new private_aggregation_internals.mojom.ObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'private_aggregation_internals.mojom.Observer',
     'context');
   return remote.$;
@@ -154,13 +153,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_ResponseParams', [
-      mojo.internal.StructField('reports', 0, 0, mojo.internal.Array(private_aggregation_internals.mojom.WebUIAggregatableReportSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('reports', 0, 0, mojo.internal.Array(private_aggregation_internals.mojom.WebUIAggregatableReportSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec, 'private_aggregation_internals.mojom.Handler_SendReports_Params', [
-      mojo.internal.StructField('ids', 0, 0, mojo.internal.Array(private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('ids', 0, 0, mojo.internal.Array(private_aggregation_internals.mojom.AggregatableReportRequestIDSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -245,9 +244,8 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
 
 private_aggregation_internals.mojom.Handler.getRemote = function() {
   let remote = new private_aggregation_internals.mojom.HandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'private_aggregation_internals.mojom.Handler',
     'context');
   return remote.$;
@@ -311,9 +309,8 @@ private_aggregation_internals.mojom.FactoryRemoteCallHandler = class {
 
 private_aggregation_internals.mojom.Factory.getRemote = function() {
   let remote = new private_aggregation_internals.mojom.FactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'private_aggregation_internals.mojom.Factory',
     'context');
   return remote.$;

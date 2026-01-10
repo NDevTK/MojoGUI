@@ -14,6 +14,6 @@ extensions.mojom.ExtraResponseDataSpec = { $: {} };
 // Struct: ExtraResponseData
 mojo.internal.Struct(
     extensions.mojom.ExtraResponseDataSpec, 'extensions.mojom.ExtraResponseData', [
-      mojo.internal.StructField('blobs', 0, 0, mojo.internal.Array(blink.mojom.SerializedBlobSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('blobs', 0, 0, mojo.internal.Array(blink.mojom.SerializedBlobSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

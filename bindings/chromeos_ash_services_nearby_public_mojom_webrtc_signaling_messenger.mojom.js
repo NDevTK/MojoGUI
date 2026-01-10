@@ -34,7 +34,7 @@ sharing.mojom.LocationStandardFormat = {
 mojo.internal.Struct(
     sharing.mojom.LocationHintSpec, 'sharing.mojom.LocationHint', [
       mojo.internal.StructField('location', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('format', 8, 0, sharing.mojom.LocationStandardFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('format', 8, 0, sharing.mojom.LocationStandardFormatSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -107,9 +107,8 @@ sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
 
 sharing.mojom.IncomingMessagesListener.getRemote = function() {
   let remote = new sharing.mojom.IncomingMessagesListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.IncomingMessagesListener',
     'context');
   return remote.$;
@@ -171,9 +170,8 @@ sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
 
 sharing.mojom.ReceiveMessagesSession.getRemote = function() {
   let remote = new sharing.mojom.ReceiveMessagesSessionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.ReceiveMessagesSession',
     'context');
   return remote.$;
@@ -188,7 +186,7 @@ mojo.internal.Struct(
     sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_Params', [
       mojo.internal.StructField('self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('peer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('location_hint', 16, 0, sharing.mojom.LocationHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('location_hint', 16, 0, sharing.mojom.LocationHintSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('message', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -202,7 +200,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_Params', [
       mojo.internal.StructField('self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('location_hint', 8, 0, sharing.mojom.LocationHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('location_hint', 8, 0, sharing.mojom.LocationHintSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(sharing.mojom.IncomingMessagesListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -270,9 +268,8 @@ sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
 
 sharing.mojom.WebRtcSignalingMessenger.getRemote = function() {
   let remote = new sharing.mojom.WebRtcSignalingMessengerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.WebRtcSignalingMessenger',
     'context');
   return remote.$;

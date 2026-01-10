@@ -28,14 +28,14 @@ optimization_guide.mojom.TextDumpEvent = {
 mojo.internal.Struct(
     optimization_guide.mojom.PageTextDumpRequestSpec, 'optimization_guide.mojom.PageTextDumpRequest', [
       mojo.internal.StructField('max_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('event', 4, 0, optimization_guide.mojom.TextDumpEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 8, 0, optimization_guide.mojom.TextDumpEventSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: PageTextConsumer
 mojo.internal.Struct(
     optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec, 'optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_Params', [
-      mojo.internal.StructField('chunk', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('chunk', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -100,9 +100,8 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
 
 optimization_guide.mojom.PageTextConsumer.getRemote = function() {
   let remote = new optimization_guide.mojom.PageTextConsumerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'optimization_guide.mojom.PageTextConsumer',
     'context');
   return remote.$;
@@ -115,7 +114,7 @@ optimization_guide.mojom.PageTextConsumerRequest = optimization_guide.mojom.Page
 // Interface: PageTextService
 mojo.internal.Struct(
     optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec, 'optimization_guide.mojom.PageTextService_RequestPageTextDump_Params', [
-      mojo.internal.StructField('request', 0, 0, optimization_guide.mojom.PageTextDumpRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, optimization_guide.mojom.PageTextDumpRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('consumer', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.PageTextConsumerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -166,9 +165,8 @@ optimization_guide.mojom.PageTextServiceRemoteCallHandler = class {
 
 optimization_guide.mojom.PageTextService.getRemote = function() {
   let remote = new optimization_guide.mojom.PageTextServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'optimization_guide.mojom.PageTextService',
     'context');
   return remote.$;

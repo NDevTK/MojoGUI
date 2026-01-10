@@ -19,7 +19,7 @@ blink.mojom.AecDumpManager_Add_ParamsSpec = { $: {} };
 // Interface: AecDumpAgent
 mojo.internal.Struct(
     blink.mojom.AecDumpAgent_Start_ParamsSpec, 'blink.mojom.AecDumpAgent_Start_Params', [
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -84,9 +84,8 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
 
 blink.mojom.AecDumpAgent.getRemote = function() {
   let remote = new blink.mojom.AecDumpAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AecDumpAgent',
     'context');
   return remote.$;
@@ -149,9 +148,8 @@ blink.mojom.AecDumpManagerRemoteCallHandler = class {
 
 blink.mojom.AecDumpManager.getRemote = function() {
   let remote = new blink.mojom.AecDumpManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AecDumpManager',
     'context');
   return remote.$;

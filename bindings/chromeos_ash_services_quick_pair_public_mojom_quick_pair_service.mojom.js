@@ -69,9 +69,8 @@ ash.quick_pair.mojom.QuickPairServiceRemoteCallHandler = class {
 
 ash.quick_pair.mojom.QuickPairService.getRemote = function() {
   let remote = new ash.quick_pair.mojom.QuickPairServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.quick_pair.mojom.QuickPairService',
     'context');
   return remote.$;

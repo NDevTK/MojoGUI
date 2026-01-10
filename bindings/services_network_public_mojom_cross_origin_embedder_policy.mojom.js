@@ -27,7 +27,7 @@ network.mojom.CrossOriginEmbedderPolicyValue = {
 // Struct: CrossOriginEmbedderPolicy
 mojo.internal.Struct(
     network.mojom.CrossOriginEmbedderPolicySpec, 'network.mojom.CrossOriginEmbedderPolicy', [
-      mojo.internal.StructField('value', 0, 0, network.mojom.CrossOriginEmbedderPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, network.mojom.CrossOriginEmbedderPolicyValueSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('report_only_reporting_endpoint', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -36,11 +36,11 @@ mojo.internal.Struct(
 // Interface: CrossOriginEmbedderPolicyReporter
 mojo.internal.Struct(
     network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_Params', [
-      mojo.internal.StructField('blocked_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('destination', 8, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('report_only', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('blocked_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 8, 0, network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('report_only', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_Clone_Params', [
@@ -104,9 +104,8 @@ network.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler = class {
 
 network.mojom.CrossOriginEmbedderPolicyReporter.getRemote = function() {
   let remote = new network.mojom.CrossOriginEmbedderPolicyReporterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.CrossOriginEmbedderPolicyReporter',
     'context');
   return remote.$;

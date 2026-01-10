@@ -30,7 +30,7 @@ blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec = { $: {} };
 // Interface: PictureInPictureSessionObserver
 mojo.internal.Struct(
     blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec, 'blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_Params', [
-      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -95,9 +95,8 @@ blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
 
 blink.mojom.PictureInPictureSessionObserver.getRemote = function() {
   let remote = new blink.mojom.PictureInPictureSessionObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PictureInPictureSessionObserver',
     'context');
   return remote.$;
@@ -112,8 +111,8 @@ mojo.internal.Struct(
     blink.mojom.PictureInPictureSession_Update_ParamsSpec, 'blink.mojom.PictureInPictureSession_Update_Params', [
       mojo.internal.StructField('player_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('player_remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('surface_id', 16, 0, viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('natural_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('surface_id', 16, 0, viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('natural_size', 24, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('show_play_pause_button', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -130,7 +129,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec, 'blink.mojom.PictureInPictureSession_UpdateMediaPosition_Params', [
-      mojo.internal.StructField('media_position', 0, 0, media_session.mojom.MediaPositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media_position', 0, 0, media_session.mojom.MediaPositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -200,9 +199,8 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
 
 blink.mojom.PictureInPictureSession.getRemote = function() {
   let remote = new blink.mojom.PictureInPictureSessionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PictureInPictureSession',
     'context');
   return remote.$;
@@ -217,18 +215,18 @@ mojo.internal.Struct(
     blink.mojom.PictureInPictureService_StartSession_ParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_Params', [
       mojo.internal.StructField('player_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('player_remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('surface_id', 16, 0, viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('natural_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('surface_id', 16, 0, viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('natural_size', 24, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('show_play_pause_button', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('observer', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('source_bounds', 48, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_bounds', 48, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 mojo.internal.Struct(
     blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_ResponseParams', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionRemote), null, true, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -278,9 +276,8 @@ blink.mojom.PictureInPictureServiceRemoteCallHandler = class {
 
 blink.mojom.PictureInPictureService.getRemote = function() {
   let remote = new blink.mojom.PictureInPictureServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PictureInPictureService',
     'context');
   return remote.$;

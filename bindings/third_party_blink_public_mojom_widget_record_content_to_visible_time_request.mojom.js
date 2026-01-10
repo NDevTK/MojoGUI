@@ -13,7 +13,7 @@ blink.mojom.RecordContentToVisibleTimeRequestSpec = { $: {} };
 // Struct: RecordContentToVisibleTimeRequest
 mojo.internal.Struct(
     blink.mojom.RecordContentToVisibleTimeRequestSpec, 'blink.mojom.RecordContentToVisibleTimeRequest', [
-      mojo.internal.StructField('event_start_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_start_time', 0, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('destination_is_loaded', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('show_reason_tab_switching', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('show_reason_bfcache_restore', 8, 2, mojo.internal.Bool, false, false, 0, undefined),

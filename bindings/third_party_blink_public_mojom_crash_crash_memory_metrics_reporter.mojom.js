@@ -15,7 +15,7 @@ blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec = { $: {} };
 // Interface: CrashMemoryMetricsReporter
 mojo.internal.Struct(
     blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec, 'blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_Params', [
-      mojo.internal.StructField('shared_metrics_buffer', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_metrics_buffer', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -65,9 +65,8 @@ blink.mojom.CrashMemoryMetricsReporterRemoteCallHandler = class {
 
 blink.mojom.CrashMemoryMetricsReporter.getRemote = function() {
   let remote = new blink.mojom.CrashMemoryMetricsReporterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.CrashMemoryMetricsReporter',
     'context');
   return remote.$;

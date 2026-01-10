@@ -41,39 +41,39 @@ continuous_search.mojom.Status = {
 // Struct: SearchResult
 mojo.internal.Struct(
     continuous_search.mojom.SearchResultSpec, 'continuous_search.mojom.SearchResult', [
-      mojo.internal.StructField('link', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('link', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ResultGroup
 mojo.internal.Struct(
     continuous_search.mojom.ResultGroupSpec, 'continuous_search.mojom.ResultGroup', [
-      mojo.internal.StructField('type', 0, 0, continuous_search.mojom.ResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(continuous_search.mojom.SearchResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, continuous_search.mojom.ResultTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(continuous_search.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: CategoryResults
 mojo.internal.Struct(
     continuous_search.mojom.CategoryResultsSpec, 'continuous_search.mojom.CategoryResults', [
-      mojo.internal.StructField('document_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('category_type', 8, 0, continuous_search.mojom.CategorySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('groups', 16, 0, mojo.internal.Array(continuous_search.mojom.ResultGroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('document_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('category_type', 8, 0, continuous_search.mojom.CategorySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('groups', 16, 0, mojo.internal.Array(continuous_search.mojom.ResultGroupSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: SearchResultExtractor
 mojo.internal.Struct(
     continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params', [
-      mojo.internal.StructField('result_types', 0, 0, mojo.internal.Array(continuous_search.mojom.ResultTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('result_types', 0, 0, mojo.internal.Array(continuous_search.mojom.ResultTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, continuous_search.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('results', 8, 0, continuous_search.mojom.CategoryResultsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, continuous_search.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, continuous_search.mojom.CategoryResultsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -123,9 +123,8 @@ continuous_search.mojom.SearchResultExtractorRemoteCallHandler = class {
 
 continuous_search.mojom.SearchResultExtractor.getRemote = function() {
   let remote = new continuous_search.mojom.SearchResultExtractorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'continuous_search.mojom.SearchResultExtractor',
     'context');
   return remote.$;

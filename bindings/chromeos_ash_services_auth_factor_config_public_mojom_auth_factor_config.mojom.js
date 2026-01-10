@@ -118,7 +118,7 @@ ash.auth.mojom.PasswordComplexity = {
 // Interface: FactorObserver
 mojo.internal.Struct(
     ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec, 'ash.auth.mojom.FactorObserver_OnFactorChanged_Params', [
-      mojo.internal.StructField('factor', 0, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('factor', 0, 0, ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -168,9 +168,8 @@ ash.auth.mojom.FactorObserverRemoteCallHandler = class {
 
 ash.auth.mojom.FactorObserver.getRemote = function() {
   let remote = new ash.auth.mojom.FactorObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.auth.mojom.FactorObserver',
     'context');
   return remote.$;
@@ -190,7 +189,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsSupported_Params', [
       mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -203,7 +202,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsConfigured_Params', [
       mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -216,20 +215,20 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_Params', [
       mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParams', [
-      mojo.internal.StructField('management', 0, 0, ash.auth.mojom.ManagementTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('management', 0, 0, ash.auth.mojom.ManagementTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsEditable_Params', [
       mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -341,9 +340,8 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
 
 ash.auth.mojom.AuthFactorConfig.getRemote = function() {
   let remote = new ash.auth.mojom.AuthFactorConfigRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.auth.mojom.AuthFactorConfig',
     'context');
   return remote.$;
@@ -363,7 +361,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec, 'ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -413,9 +411,8 @@ ash.auth.mojom.RecoveryFactorEditorRemoteCallHandler = class {
 
 ash.auth.mojom.RecoveryFactorEditor.getRemote = function() {
   let remote = new ash.auth.mojom.RecoveryFactorEditorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.auth.mojom.RecoveryFactorEditor',
     'context');
   return remote.$;
@@ -435,7 +432,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_SetPin_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -448,7 +445,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -460,7 +457,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -472,7 +469,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParams', [
-      mojo.internal.StructField('pin_factor', 0, 0, ash.auth.mojom.AuthFactorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pin_factor', 0, 0, ash.auth.mojom.AuthFactorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -485,7 +482,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParams', [
-      mojo.internal.StructField('complexity', 0, 0, ash.auth.mojom.PinComplexitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('complexity', 0, 0, ash.auth.mojom.PinComplexitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -575,9 +572,8 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
 
 ash.auth.mojom.PinFactorEditor.getRemote = function() {
   let remote = new ash.auth.mojom.PinFactorEditorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.auth.mojom.PinFactorEditor',
     'context');
   return remote.$;
@@ -597,7 +593,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -610,7 +606,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -623,7 +619,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -636,7 +632,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -648,7 +644,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParams', [
-      mojo.internal.StructField('complexity', 0, 0, ash.auth.mojom.PasswordComplexitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('complexity', 0, 0, ash.auth.mojom.PasswordComplexitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -660,7 +656,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -760,9 +756,8 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
 
 ash.auth.mojom.PasswordFactorEditor.getRemote = function() {
   let remote = new ash.auth.mojom.PasswordFactorEditorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.auth.mojom.PasswordFactorEditor',
     'context');
   return remote.$;

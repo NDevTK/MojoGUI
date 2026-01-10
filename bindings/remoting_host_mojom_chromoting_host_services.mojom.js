@@ -70,9 +70,8 @@ remoting.mojom.ChromotingHostServicesRemoteCallHandler = class {
 
 remoting.mojom.ChromotingHostServices.getRemote = function() {
   let remote = new remoting.mojom.ChromotingHostServicesRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.ChromotingHostServices',
     'context');
   return remote.$;
@@ -167,9 +166,8 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
 
 remoting.mojom.ChromotingSessionServices.getRemote = function() {
   let remote = new remoting.mojom.ChromotingSessionServicesRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.ChromotingSessionServices',
     'context');
   return remote.$;

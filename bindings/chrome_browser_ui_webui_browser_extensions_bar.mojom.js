@@ -33,7 +33,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('accessible_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('tooltip', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('is_visible', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('data_url_for_icon', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_url_for_icon', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -91,9 +91,8 @@ extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 extensions_bar.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new extensions_bar.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions_bar.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -112,7 +111,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'extensions_bar.mojom.PageHandler_ShowContextMenu_Params', [
-      mojo.internal.StructField('source', 0, 0, ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, ui.mojom.MenuSourceTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -188,9 +187,8 @@ extensions_bar.mojom.PageHandlerRemoteCallHandler = class {
 
 extensions_bar.mojom.PageHandler.getRemote = function() {
   let remote = new extensions_bar.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions_bar.mojom.PageHandler',
     'context');
   return remote.$;
@@ -203,7 +201,7 @@ extensions_bar.mojom.PageHandlerRequest = extensions_bar.mojom.PageHandlerPendin
 // Interface: Page
 mojo.internal.Struct(
     extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec, 'extensions_bar.mojom.Page_ActionsAddedOrUpdated_Params', [
-      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(extensions_bar.mojom.ExtensionActionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(extensions_bar.mojom.ExtensionActionInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -289,9 +287,8 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
 
 extensions_bar.mojom.Page.getRemote = function() {
   let remote = new extensions_bar.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions_bar.mojom.Page',
     'context');
   return remote.$;

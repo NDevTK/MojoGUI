@@ -116,7 +116,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec, 'arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParams', [
-      mojo.internal.StructField('quota_spaces', 0, 0, arc.mojom.QuotaSpacesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('quota_spaces', 0, 0, arc.mojom.QuotaSpacesSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -127,7 +127,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec, 'arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParams', [
-      mojo.internal.StructField('free_space', 0, 0, arc.mojom.DiskSpaceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('free_space', 0, 0, arc.mojom.DiskSpaceSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -227,9 +227,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
 
 arc.mojom.DiskSpaceHost.getRemote = function() {
   let remote = new arc.mojom.DiskSpaceHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.DiskSpaceHost',
     'context');
   return remote.$;
@@ -259,7 +258,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec, 'arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParams', [
       mojo.internal.StructField('succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('applications_size', 8, 0, arc.mojom.ApplicationsSizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('applications_size', 8, 0, arc.mojom.ApplicationsSizeSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -335,9 +334,8 @@ arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
 
 arc.mojom.DiskSpaceInstance.getRemote = function() {
   let remote = new arc.mojom.DiskSpaceInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.DiskSpaceInstance',
     'context');
   return remote.$;

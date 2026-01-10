@@ -71,12 +71,12 @@ mojo.internal.Union(
     lobster.mojom.ResponseSpec, 'lobster.mojom.Response', {
       'candidates': {
         'ordinal': 0,
-        'type': mojo.internal.Array(lobster.mojom.CandidateSpec, false),
+        'type': mojo.internal.Array(lobster.mojom.CandidateSpec.$, false),
         'nullable': false,
       },
       'error': {
         'ordinal': 1,
-        'type': lobster.mojom.ErrorSpec,
+        'type': lobster.mojom.ErrorSpec.$,
         'nullable': false,
       },
     });
@@ -85,14 +85,14 @@ mojo.internal.Union(
 mojo.internal.Struct(
     lobster.mojom.CandidateSpec, 'lobster.mojom.Candidate', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Error
 mojo.internal.Struct(
     lobster.mojom.ErrorSpec, 'lobster.mojom.Error', [
-      mojo.internal.StructField('code', 0, 0, lobster.mojom.StatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('code', 0, 0, lobster.mojom.StatusCodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -101,7 +101,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     lobster.mojom.FeedbackPreviewSpec, 'lobster.mojom.FeedbackPreview', [
       mojo.internal.StructField('fields', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('preview_data_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preview_data_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -115,9 +115,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, lobster.mojom.ResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, lobster.mojom.ResponseSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_Params', [
@@ -163,7 +163,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParams', [
-      mojo.internal.StructField('preview', 0, 0, lobster.mojom.FeedbackPreviewSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preview', 0, 0, lobster.mojom.FeedbackPreviewSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -192,13 +192,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_Params', [
-      mojo.internal.StructField('metric_event', 0, 0, lobster.mojom.WebUIMetricEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metric_event', 0, 0, lobster.mojom.WebUIMetricEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -338,9 +338,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
 
 lobster.mojom.UntrustedLobsterPageHandler.getRemote = function() {
   let remote = new lobster.mojom.UntrustedLobsterPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'lobster.mojom.UntrustedLobsterPageHandler',
     'context');
   return remote.$;

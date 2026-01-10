@@ -143,8 +143,8 @@ mojo.internal.Struct(
 // Struct: ConnectionMetadata
 mojo.internal.Struct(
     ash.secure_channel.mojom.ConnectionMetadataSpec, 'ash.secure_channel.mojom.ConnectionMetadata', [
-      mojo.internal.StructField('creation_details', 0, 0, mojo.internal.Array(ash.secure_channel.mojom.ConnectionCreationDetailSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('bluetooth_connection_metadata', 8, 0, ash.secure_channel.mojom.BluetoothConnectionMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('creation_details', 0, 0, mojo.internal.Array(ash.secure_channel.mojom.ConnectionCreationDetailSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('bluetooth_connection_metadata', 8, 0, ash.secure_channel.mojom.BluetoothConnectionMetadataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('channel_binding_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -164,7 +164,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec, 'ash.secure_channel.mojom.Channel_RegisterPayloadFile_Params', [
       mojo.internal.StructField('payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('payload_files', 8, 0, ash.secure_channel.mojom.PayloadFilesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('payload_files', 8, 0, ash.secure_channel.mojom.PayloadFilesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.FilePayloadListenerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -182,7 +182,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec, 'ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParams', [
-      mojo.internal.StructField('metadata', 0, 0, ash.secure_channel.mojom.ConnectionMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, ash.secure_channel.mojom.ConnectionMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -252,9 +252,8 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
 
 ash.secure_channel.mojom.Channel.getRemote = function() {
   let remote = new ash.secure_channel.mojom.ChannelRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.secure_channel.mojom.Channel',
     'context');
   return remote.$;
@@ -317,9 +316,8 @@ ash.secure_channel.mojom.MessageReceiverRemoteCallHandler = class {
 
 ash.secure_channel.mojom.MessageReceiver.getRemote = function() {
   let remote = new ash.secure_channel.mojom.MessageReceiverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.secure_channel.mojom.MessageReceiver',
     'context');
   return remote.$;
@@ -332,7 +330,7 @@ ash.secure_channel.mojom.MessageReceiverRequest = ash.secure_channel.mojom.Messa
 // Interface: ConnectionDelegate
 mojo.internal.Struct(
     ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec, 'ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_Params', [
-      mojo.internal.StructField('reason', 0, 0, ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -400,9 +398,8 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
 
 ash.secure_channel.mojom.ConnectionDelegate.getRemote = function() {
   let remote = new ash.secure_channel.mojom.ConnectionDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.secure_channel.mojom.ConnectionDelegate',
     'context');
   return remote.$;
@@ -415,21 +412,21 @@ ash.secure_channel.mojom.ConnectionDelegateRequest = ash.secure_channel.mojom.Co
 // Interface: SecureChannelStructuredMetricsLogger
 mojo.internal.Struct(
     ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec, 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_Params', [
-      mojo.internal.StructField('result', 0, 0, ash.secure_channel.mojom.DiscoveryResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_code', 4, 0, ash.secure_channel.mojom.DiscoveryErrorCodeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.secure_channel.mojom.DiscoveryResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error_code', 8, 0, ash.secure_channel.mojom.DiscoveryErrorCodeSpec.$, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec, 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_Params', [
-      mojo.internal.StructField('step', 0, 0, ash.secure_channel.mojom.NearbyConnectionStepSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 4, 0, ash.secure_channel.mojom.NearbyConnectionStepResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('step', 0, 0, ash.secure_channel.mojom.NearbyConnectionStepSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, ash.secure_channel.mojom.NearbyConnectionStepResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec, 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_Params', [
-      mojo.internal.StructField('state', 0, 0, ash.secure_channel.mojom.SecureChannelStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.secure_channel.mojom.SecureChannelStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -499,9 +496,8 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
 
 ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.getRemote = function() {
   let remote = new ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger',
     'context');
   return remote.$;
@@ -514,26 +510,26 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRequest = ash.secur
 // Interface: SecureChannel
 mojo.internal.Struct(
     ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_Params', [
-      mojo.internal.StructField('device_to_connect', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_to_connect', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('local_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('feature', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('connection_medium', 24, 0, ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('connection_priority', 28, 0, ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('delegate', 32, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('connection_medium', 24, 0, ash.secure_channel.mojom.ConnectionMediumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('connection_priority', 32, 0, ash.secure_channel.mojom.ConnectionPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 40, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_Params', [
-      mojo.internal.StructField('device_to_connect', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_to_connect', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('local_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('feature', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('connection_medium', 24, 0, ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('connection_priority', 28, 0, ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('delegate', 32, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
-      mojo.internal.StructField('secure_channel_structured_metrics_logger', 40, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('connection_medium', 24, 0, ash.secure_channel.mojom.ConnectionMediumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('connection_priority', 32, 0, ash.secure_channel.mojom.ConnectionPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 40, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('secure_channel_structured_metrics_logger', 48, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote), null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 mojo.internal.Struct(
     ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_Params', [
@@ -549,7 +545,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec, 'ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParams', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -629,9 +625,8 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
 
 ash.secure_channel.mojom.SecureChannel.getRemote = function() {
   let remote = new ash.secure_channel.mojom.SecureChannelRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.secure_channel.mojom.SecureChannel',
     'context');
   return remote.$;

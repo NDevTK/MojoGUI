@@ -70,9 +70,8 @@ ash.mojom.sample_swa.ChildUntrustedPageRemoteCallHandler = class {
 
 ash.mojom.sample_swa.ChildUntrustedPage.getRemote = function() {
   let remote = new ash.mojom.sample_swa.ChildUntrustedPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mojom.sample_swa.ChildUntrustedPage',
     'context');
   return remote.$;
@@ -141,9 +140,8 @@ ash.mojom.sample_swa.ParentTrustedPageRemoteCallHandler = class {
 
 ash.mojom.sample_swa.ParentTrustedPage.getRemote = function() {
   let remote = new ash.mojom.sample_swa.ParentTrustedPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mojom.sample_swa.ParentTrustedPage',
     'context');
   return remote.$;

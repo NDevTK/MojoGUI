@@ -27,8 +27,8 @@ ash.secure_channel.mojom.FileTransferStatus = {
 // Struct: PayloadFiles
 mojo.internal.Struct(
     ash.secure_channel.mojom.PayloadFilesSpec, 'ash.secure_channel.mojom.PayloadFiles', [
-      mojo.internal.StructField('input_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_file', 8, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 8, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -36,7 +36,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.secure_channel.mojom.FileTransferUpdateSpec, 'ash.secure_channel.mojom.FileTransferUpdate', [
       mojo.internal.StructField('payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, ash.secure_channel.mojom.FileTransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, ash.secure_channel.mojom.FileTransferStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('total_bytes', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('bytes_transferred', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
@@ -45,7 +45,7 @@ mojo.internal.Struct(
 // Interface: FilePayloadListener
 mojo.internal.Struct(
     ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec, 'ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_Params', [
-      mojo.internal.StructField('update', 0, 0, ash.secure_channel.mojom.FileTransferUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update', 0, 0, ash.secure_channel.mojom.FileTransferUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -95,9 +95,8 @@ ash.secure_channel.mojom.FilePayloadListenerRemoteCallHandler = class {
 
 ash.secure_channel.mojom.FilePayloadListener.getRemote = function() {
   let remote = new ash.secure_channel.mojom.FilePayloadListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.secure_channel.mojom.FilePayloadListener',
     'context');
   return remote.$;

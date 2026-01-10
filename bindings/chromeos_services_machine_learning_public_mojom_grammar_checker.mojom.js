@@ -47,7 +47,7 @@ mojo.internal.Struct(
     chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec, 'chromeos.machine_learning.mojom.GrammarCheckerCandidate', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('fragments', 16, 0, mojo.internal.Array(chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('fragments', 16, 0, mojo.internal.Array(chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -61,13 +61,13 @@ mojo.internal.Struct(
 // Interface: GrammarChecker
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec, 'chromeos.machine_learning.mojom.GrammarChecker_Check_Params', [
-      mojo.internal.StructField('query', 0, 0, chromeos.machine_learning.mojom.GrammarCheckerQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, chromeos.machine_learning.mojom.GrammarCheckerQuerySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec, 'chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.GrammarCheckerResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.GrammarCheckerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -117,9 +117,8 @@ chromeos.machine_learning.mojom.GrammarCheckerRemoteCallHandler = class {
 
 chromeos.machine_learning.mojom.GrammarChecker.getRemote = function() {
   let remote = new chromeos.machine_learning.mojom.GrammarCheckerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.machine_learning.mojom.GrammarChecker',
     'context');
   return remote.$;

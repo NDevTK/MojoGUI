@@ -44,9 +44,9 @@ mojo.internal.Struct(
 // Struct: PushSubscription
 mojo.internal.Struct(
     blink.mojom.PushSubscriptionSpec, 'blink.mojom.PushSubscription', [
-      mojo.internal.StructField('endpoint', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('expirationTime', 8, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('options', 16, 0, blink.mojom.PushSubscriptionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('expirationTime', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, blink.mojom.PushSubscriptionOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('p256dh', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('auth', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
@@ -56,15 +56,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PushMessaging_Subscribe_ParamsSpec, 'blink.mojom.PushMessaging_Subscribe_Params', [
       mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, blink.mojom.PushSubscriptionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.PushSubscriptionOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('user_gesture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Subscribe_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.PushRegistrationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('subscription', 8, 0, blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PushRegistrationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('subscription', 8, 0, blink.mojom.PushSubscriptionSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -76,11 +76,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Unsubscribe_ResponseParams', [
-      mojo.internal.StructField('error_type', 0, 0, blink.mojom.PushErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('did_unsubscribe', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('error_type', 0, 0, blink.mojom.PushErrorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('did_unsubscribe', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_message', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.PushMessaging_GetSubscription_ParamsSpec, 'blink.mojom.PushMessaging_GetSubscription_Params', [
@@ -90,8 +90,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec, 'blink.mojom.PushMessaging_GetSubscription_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.PushGetRegistrationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('subscription', 8, 0, blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PushGetRegistrationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('subscription', 8, 0, blink.mojom.PushSubscriptionSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -161,9 +161,8 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
 
 blink.mojom.PushMessaging.getRemote = function() {
   let remote = new blink.mojom.PushMessagingRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PushMessaging',
     'context');
   return remote.$;

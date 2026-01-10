@@ -19,7 +19,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreFo
 // Struct: SiteEngagementDetails
 mojo.internal.Struct(
     site_engagement.mojom.SiteEngagementDetailsSpec, 'site_engagement.mojom.SiteEngagementDetails', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('base_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('installed_bonus', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
@@ -34,13 +34,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, mojo.internal.Array(site_engagement.mojom.SiteEngagementDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, mojo.internal.Array(site_engagement.mojom.SiteEngagementDetailsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -101,9 +101,8 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
 
 site_engagement.mojom.SiteEngagementDetailsProvider.getRemote = function() {
   let remote = new site_engagement.mojom.SiteEngagementDetailsProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'site_engagement.mojom.SiteEngagementDetailsProvider',
     'context');
   return remote.$;

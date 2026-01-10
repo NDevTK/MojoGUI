@@ -24,7 +24,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec, 'ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParams', [
-      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(ntp.calendar.mojom.CalendarEventSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(ntp.calendar.mojom.CalendarEventSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -104,9 +104,8 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
 
 ntp.calendar.mojom.GoogleCalendarPageHandler.getRemote = function() {
   let remote = new ntp.calendar.mojom.GoogleCalendarPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ntp.calendar.mojom.GoogleCalendarPageHandler',
     'context');
   return remote.$;

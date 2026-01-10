@@ -32,9 +32,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec, 'emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParams', [
-      mojo.internal.StructField('emoji_results', 0, 0, emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('symbol_results', 8, 0, emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('emoticon_results', 16, 0, emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('emoji_results', 0, 0, emoji_search.mojom.SearchResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('symbol_results', 8, 0, emoji_search.mojom.SearchResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('emoticon_results', 16, 0, emoji_search.mojom.SearchResultsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -100,9 +100,8 @@ emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
 
 emoji_search.mojom.EmojiSearch.getRemote = function() {
   let remote = new emoji_search.mojom.EmojiSearchRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'emoji_search.mojom.EmojiSearch',
     'context');
   return remote.$;

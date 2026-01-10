@@ -82,7 +82,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec, 'remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParams', [
-      mojo.internal.StructField('range', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('range', 0, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -94,28 +94,28 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec, 'remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec, 'remote_cocoa.mojom.TextInputHost_InsertText_Params', [
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('as_character', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec, 'remote_cocoa.mojom.TextInputHost_DeleteRange_Params', [
-      mojo.internal.StructField('range', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('range', 0, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec, 'remote_cocoa.mojom.TextInputHost_SetCompositionText_Params', [
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('selected_range', 8, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('replacement_range', 16, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('selected_range', 8, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('replacement_range', 16, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -142,39 +142,39 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec, 'remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParams', [
-      mojo.internal.StructField('composition_range', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('composition_range', 0, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec, 'remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_Params', [
-      mojo.internal.StructField('requested_range', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('requested_range', 0, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec, 'remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParams', [
-      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('actual_range', 8, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('actual_range', 8, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec, 'remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_Params', [
-      mojo.internal.StructField('requested_range', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('requested_range', 0, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec, 'remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParams', [
-      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('actual_range', 8, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('actual_range', 8, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec, 'remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_Params', [
-      mojo.internal.StructField('command', 0, 0, ui.mojom.TextEditCommandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('command', 0, 0, ui.mojom.TextEditCommandSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -186,7 +186,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec, 'remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_Params', [
-      mojo.internal.StructField('command', 0, 0, ui.mojom.TextEditCommandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('command', 0, 0, ui.mojom.TextEditCommandSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -376,9 +376,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
 
 remote_cocoa.mojom.TextInputHost.getRemote = function() {
   let remote = new remote_cocoa.mojom.TextInputHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remote_cocoa.mojom.TextInputHost',
     'context');
   return remote.$;

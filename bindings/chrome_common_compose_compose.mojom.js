@@ -93,7 +93,7 @@ compose.mojom.UserFeedback = {
 // Struct: ComposeResponse
 mojo.internal.Struct(
     compose.mojom.ComposeResponseSpec, 'compose.mojom.ComposeResponse', [
-      mojo.internal.StructField('status', 0, 0, compose.mojom.ComposeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, compose.mojom.ComposeStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('result', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('undo_available', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('redo_available', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -114,11 +114,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     compose.mojom.ComposeStateSpec, 'compose.mojom.ComposeState', [
       mojo.internal.StructField('webui_state', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('response', 8, 0, compose.mojom.ComposeResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, compose.mojom.ComposeResponseSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('has_pending_request', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('feedback', 20, 0, compose.mojom.UserFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feedback', 24, 0, compose.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: ConfigurableParams
 mojo.internal.Struct(
@@ -136,8 +136,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('msbb_state', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('initial_input', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('text_selected', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('compose_state', 24, 0, compose.mojom.ComposeStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('configurable_params', 32, 0, compose.mojom.ConfigurableParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compose_state', 24, 0, compose.mojom.ComposeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('configurable_params', 32, 0, compose.mojom.ConfigurableParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -196,9 +196,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler = class
 
 compose.mojom.ComposeSessionUntrustedPageHandlerFactory.getRemote = function() {
   let remote = new compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'compose.mojom.ComposeSessionUntrustedPageHandlerFactory',
     'context');
   return remote.$;
@@ -217,14 +216,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_Compose_Params', [
       mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mode', 8, 0, compose.mojom.InputModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('edited', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mode', 8, 0, compose.mojom.InputModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('edited', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_Params', [
-      mojo.internal.StructField('style', 0, 0, compose.mojom.StyleModifierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('style', 0, 0, compose.mojom.StyleModifierSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -257,7 +256,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParams', [
-      mojo.internal.StructField('initial_state', 0, 0, compose.mojom.OpenMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initial_state', 0, 0, compose.mojom.OpenMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -268,7 +267,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParams', [
-      mojo.internal.StructField('last_state', 0, 0, compose.mojom.ComposeStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('last_state', 0, 0, compose.mojom.ComposeStateSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -279,7 +278,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParams', [
-      mojo.internal.StructField('state_before_error', 0, 0, compose.mojom.ComposeStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('state_before_error', 0, 0, compose.mojom.ComposeStateSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -290,7 +289,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParams', [
-      mojo.internal.StructField('next_state', 0, 0, compose.mojom.ComposeStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('next_state', 0, 0, compose.mojom.ComposeStateSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -321,7 +320,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_Params', [
-      mojo.internal.StructField('feedback', 0, 0, compose.mojom.UserFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feedback', 0, 0, compose.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -543,9 +542,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
 
 compose.mojom.ComposeSessionUntrustedPageHandler.getRemote = function() {
   let remote = new compose.mojom.ComposeSessionUntrustedPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'compose.mojom.ComposeSessionUntrustedPageHandler',
     'context');
   return remote.$;
@@ -563,7 +561,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec, 'compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_Params', [
-      mojo.internal.StructField('reason', 0, 0, compose.mojom.CloseReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, compose.mojom.CloseReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -653,9 +651,8 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
 
 compose.mojom.ComposeClientUntrustedPageHandler.getRemote = function() {
   let remote = new compose.mojom.ComposeClientUntrustedPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'compose.mojom.ComposeClientUntrustedPageHandler',
     'context');
   return remote.$;
@@ -668,13 +665,13 @@ compose.mojom.ComposeClientUntrustedPageHandlerRequest = compose.mojom.ComposeCl
 // Interface: ComposeUntrustedDialog
 mojo.internal.Struct(
     compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec, 'compose.mojom.ComposeUntrustedDialog_ResponseReceived_Params', [
-      mojo.internal.StructField('response', 0, 0, compose.mojom.ComposeResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, compose.mojom.ComposeResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec, 'compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_Params', [
-      mojo.internal.StructField('partial_response', 0, 0, compose.mojom.PartialComposeResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('partial_response', 0, 0, compose.mojom.PartialComposeResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -734,9 +731,8 @@ compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
 
 compose.mojom.ComposeUntrustedDialog.getRemote = function() {
   let remote = new compose.mojom.ComposeUntrustedDialogRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'compose.mojom.ComposeUntrustedDialog',
     'context');
   return remote.$;

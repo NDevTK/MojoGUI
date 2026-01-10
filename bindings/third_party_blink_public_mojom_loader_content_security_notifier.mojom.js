@@ -28,8 +28,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec, 'blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_Params', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('insecure_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('insecure_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -99,9 +99,8 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
 
 blink.mojom.ContentSecurityNotifier.getRemote = function() {
   let remote = new blink.mojom.ContentSecurityNotifierRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ContentSecurityNotifier',
     'context');
   return remote.$;

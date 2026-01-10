@@ -82,9 +82,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('start_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('end_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('emphasized', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('style', 12, 0, arc.mojom.SegmentStyleSpec, null, false, 18, undefined),
+      mojo.internal.StructField('style', 16, 0, arc.mojom.SegmentStyleSpec.$, null, false, 18, undefined),
     ],
-    [[0, 24], [18, 24]]);
+    [[0, 24], [18, 32]]);
 
 // Struct: KeyEventData
 mojo.internal.Struct(
@@ -104,16 +104,16 @@ mojo.internal.Struct(
 // Interface: ImeHost
 mojo.internal.Struct(
     arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec, 'arc.mojom.ImeHost_OnTextInputTypeChanged_Params', [
-      mojo.internal.StructField('type', 0, 0, arc.mojom.TextInputTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_personalized_learning_allowed', 4, 0, mojo.internal.Bool, false, false, 10, undefined),
-      mojo.internal.StructField('flags', 8, 0, mojo.internal.Int32, 0, false, 11, undefined),
+      mojo.internal.StructField('type', 0, 0, arc.mojom.TextInputTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_personalized_learning_allowed', 8, 0, mojo.internal.Bool, false, false, 10, undefined),
+      mojo.internal.StructField('flags', 12, 0, mojo.internal.Int32, 0, false, 11, undefined),
     ],
-    [[0, 16], [10, 16], [11, 24]]);
+    [[0, 16], [10, 24], [11, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec, 'arc.mojom.ImeHost_OnCursorRectChanged_Params', [
-      mojo.internal.StructField('rect', 0, 0, arc.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coordinateSpace', 8, 0, arc.mojom.CursorCoordinateSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 0, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('coordinateSpace', 8, 0, arc.mojom.CursorCoordinateSpaceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -129,17 +129,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec, 'arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_Params', [
-      mojo.internal.StructField('rect', 0, 0, arc.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text_range', 8, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 0, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text_range', 8, 0, arc.mojom.RangeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('text_in_range', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('selection_range', 24, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coordinateSpace', 32, 0, arc.mojom.CursorCoordinateSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection_range', 24, 0, arc.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('coordinateSpace', 32, 0, arc.mojom.CursorCoordinateSpaceSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     arc.mojom.ImeHost_SendKeyEvent_ParamsSpec, 'arc.mojom.ImeHost_SendKeyEvent_Params', [
-      mojo.internal.StructField('key_event_data', 0, 0, arc.mojom.KeyEventDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_event_data', 0, 0, arc.mojom.KeyEventDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -245,9 +245,8 @@ arc.mojom.ImeHostRemoteCallHandler = class {
 
 arc.mojom.ImeHost.getRemote = function() {
   let remote = new arc.mojom.ImeHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ImeHost',
     'context');
   return remote.$;
@@ -272,14 +271,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.ImeInstance_SetCompositionText_ParamsSpec, 'arc.mojom.ImeInstance_SetCompositionText_Params', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('segments', 8, 0, mojo.internal.Array(arc.mojom.CompositionSegmentSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('selection_range', 16, 0, arc.mojom.RangeSpec, null, true, 21, undefined),
+      mojo.internal.StructField('segments', 8, 0, mojo.internal.Array(arc.mojom.CompositionSegmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('selection_range', 16, 0, arc.mojom.RangeSpec.$, null, true, 21, undefined),
     ],
     [[0, 24], [21, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.ImeInstance_SetSelectionText_ParamsSpec, 'arc.mojom.ImeInstance_SetSelectionText_Params', [
-      mojo.internal.StructField('selection', 0, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection', 0, 0, arc.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -297,7 +296,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec, 'arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_Params', [
-      mojo.internal.StructField('new_bounds', 0, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_bounds', 0, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_available', 8, 0, mojo.internal.Bool, false, false, 7, undefined),
     ],
     [[0, 16], [7, 24]]);
@@ -311,7 +310,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec, 'arc.mojom.ImeInstance_SetComposingRegion_Params', [
-      mojo.internal.StructField('range', 0, 0, arc.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('range', 0, 0, arc.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -431,9 +430,8 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
 
 arc.mojom.ImeInstance.getRemote = function() {
   let remote = new arc.mojom.ImeInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ImeInstance',
     'context');
   return remote.$;

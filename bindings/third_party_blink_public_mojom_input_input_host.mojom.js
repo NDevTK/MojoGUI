@@ -45,7 +45,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('caret_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('caret_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('marked_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('suggestions', 24, 0, mojo.internal.Array(blink.mojom.SpellCheckSuggestionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('suggestions', 24, 0, mojo.internal.Array(blink.mojom.SpellCheckSuggestionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -54,7 +54,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('caret_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('caret_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('marked_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('suggestions', 24, 0, mojo.internal.Array(blink.mojom.TextSuggestionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('suggestions', 24, 0, mojo.internal.Array(blink.mojom.TextSuggestionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -124,9 +124,8 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
 
 blink.mojom.TextSuggestionHost.getRemote = function() {
   let remote = new blink.mojom.TextSuggestionHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.TextSuggestionHost',
     'context');
   return remote.$;

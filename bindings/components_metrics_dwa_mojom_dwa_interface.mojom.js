@@ -66,9 +66,8 @@ metrics.dwa.mojom.DwaRecorderClientInterfaceRemoteCallHandler = class {
 
 metrics.dwa.mojom.DwaRecorderClientInterface.getRemote = function() {
   let remote = new metrics.dwa.mojom.DwaRecorderClientInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'metrics.dwa.mojom.DwaRecorderClientInterface',
     'context');
   return remote.$;
@@ -81,7 +80,7 @@ metrics.dwa.mojom.DwaRecorderClientInterfaceRequest = metrics.dwa.mojom.DwaRecor
 // Interface: DwaRecorderInterface
 mojo.internal.Struct(
     metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderInterface_AddEntry_Params', [
-      mojo.internal.StructField('entry', 0, 0, metrics.dwa.mojom.DwaEntrySpec, null, false, 0, undefined),
+      mojo.internal.StructField('entry', 0, 0, metrics.dwa.mojom.DwaEntrySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -131,9 +130,8 @@ metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
 
 metrics.dwa.mojom.DwaRecorderInterface.getRemote = function() {
   let remote = new metrics.dwa.mojom.DwaRecorderInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'metrics.dwa.mojom.DwaRecorderInterface',
     'context');
   return remote.$;
@@ -197,9 +195,8 @@ metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler = class {
 
 metrics.dwa.mojom.DwaRecorderFactory.getRemote = function() {
   let remote = new metrics.dwa.mojom.DwaRecorderFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'metrics.dwa.mojom.DwaRecorderFactory',
     'context');
   return remote.$;

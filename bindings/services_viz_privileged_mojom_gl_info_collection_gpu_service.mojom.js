@@ -26,7 +26,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('d3d12_feature_level', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('highest_shader_model_version', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('directml_feature_level', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('device_perf_info', 16, 0, gpu.mojom.DevicePerfInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_perf_info', 16, 0, gpu.mojom.DevicePerfInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -97,9 +97,8 @@ viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
 
 viz.mojom.InfoCollectionGpuService.getRemote = function() {
   let remote = new viz.mojom.InfoCollectionGpuServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.InfoCollectionGpuService',
     'context');
   return remote.$;

@@ -51,9 +51,8 @@ blink.mojom.AssociatedInterfaceRemoteCallHandler = class {
 
 blink.mojom.AssociatedInterface.getRemote = function() {
   let remote = new blink.mojom.AssociatedInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AssociatedInterface',
     'context');
   return remote.$;
@@ -117,9 +116,8 @@ blink.mojom.AssociatedInterfaceProviderRemoteCallHandler = class {
 
 blink.mojom.AssociatedInterfaceProvider.getRemote = function() {
   let remote = new blink.mojom.AssociatedInterfaceProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AssociatedInterfaceProvider',
     'context');
   return remote.$;

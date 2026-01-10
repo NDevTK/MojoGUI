@@ -19,7 +19,7 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = { $: {} };
 // Interface: MdnsResponder
 mojo.internal.Struct(
     network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_CreateNameForAddress_Params', [
-      mojo.internal.StructField('address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('address', 0, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -32,7 +32,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_RemoveNameForAddress_Params', [
-      mojo.internal.StructField('address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('address', 0, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -99,9 +99,8 @@ network.mojom.MdnsResponderRemoteCallHandler = class {
 
 network.mojom.MdnsResponder.getRemote = function() {
   let remote = new network.mojom.MdnsResponderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.MdnsResponder',
     'context');
   return remote.$;

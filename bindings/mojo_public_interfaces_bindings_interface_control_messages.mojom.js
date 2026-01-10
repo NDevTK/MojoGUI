@@ -31,12 +31,12 @@ mojo.internal.Union(
     mojo.interface_control.RunInputSpec, 'mojo.interface_control.RunInput', {
       'query_version': {
         'ordinal': 0,
-        'type': mojo.interface_control.QueryVersionSpec,
+        'type': mojo.interface_control.QueryVersionSpec.$,
         'nullable': false,
       },
       'flush_for_testing': {
         'ordinal': 1,
-        'type': mojo.interface_control.FlushForTestingSpec,
+        'type': mojo.interface_control.FlushForTestingSpec.$,
         'nullable': false,
       },
     });
@@ -46,7 +46,7 @@ mojo.internal.Union(
     mojo.interface_control.RunOutputSpec, 'mojo.interface_control.RunOutput', {
       'query_version_result': {
         'ordinal': 0,
-        'type': mojo.interface_control.QueryVersionResultSpec,
+        'type': mojo.interface_control.QueryVersionResultSpec.$,
         'nullable': false,
       },
     });
@@ -56,22 +56,22 @@ mojo.internal.Union(
     mojo.interface_control.RunOrClosePipeInputSpec, 'mojo.interface_control.RunOrClosePipeInput', {
       'require_version': {
         'ordinal': 0,
-        'type': mojo.interface_control.RequireVersionSpec,
+        'type': mojo.interface_control.RequireVersionSpec.$,
         'nullable': false,
       },
       'enable_idle_tracking': {
         'ordinal': 1,
-        'type': mojo.interface_control.EnableIdleTrackingSpec,
+        'type': mojo.interface_control.EnableIdleTrackingSpec.$,
         'nullable': false,
       },
       'message_ack': {
         'ordinal': 2,
-        'type': mojo.interface_control.MessageAckSpec,
+        'type': mojo.interface_control.MessageAckSpec.$,
         'nullable': false,
       },
       'notify_idle': {
         'ordinal': 3,
-        'type': mojo.interface_control.NotifyIdleSpec,
+        'type': mojo.interface_control.NotifyIdleSpec.$,
         'nullable': false,
       },
     });
@@ -79,16 +79,16 @@ mojo.internal.Union(
 // Struct: RunMessageParams
 mojo.internal.Struct(
     mojo.interface_control.RunMessageParamsSpec, 'mojo.interface_control.RunMessageParams', [
-      mojo.internal.StructField('input', 0, 0, mojo.interface_control.RunInputSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input', 0, 0, mojo.interface_control.RunInputSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: RunResponseMessageParams
 mojo.internal.Struct(
     mojo.interface_control.RunResponseMessageParamsSpec, 'mojo.interface_control.RunResponseMessageParams', [
-      mojo.internal.StructField('output', 0, 0, mojo.interface_control.RunOutputSpec, null, true, 0, undefined),
+      mojo.internal.StructField('output', 0, 0, mojo.interface_control.RunOutputSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: QueryVersion
 mojo.internal.Struct(
@@ -112,9 +112,9 @@ mojo.internal.Struct(
 // Struct: RunOrClosePipeMessageParams
 mojo.internal.Struct(
     mojo.interface_control.RunOrClosePipeMessageParamsSpec, 'mojo.interface_control.RunOrClosePipeMessageParams', [
-      mojo.internal.StructField('input', 0, 0, mojo.interface_control.RunOrClosePipeInputSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input', 0, 0, mojo.interface_control.RunOrClosePipeInputSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: RequireVersion
 mojo.internal.Struct(

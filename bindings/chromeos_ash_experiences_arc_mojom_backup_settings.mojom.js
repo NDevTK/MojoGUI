@@ -66,9 +66,8 @@ arc.mojom.BackupSettingsInstanceRemoteCallHandler = class {
 
 arc.mojom.BackupSettingsInstance.getRemote = function() {
   let remote = new arc.mojom.BackupSettingsInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.BackupSettingsInstance',
     'context');
   return remote.$;

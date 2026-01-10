@@ -32,7 +32,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec, 'storage.mojom.FileSystemAccessContext_DeserializeHandle_Params', [
-      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('bits', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('token', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
     ],
@@ -110,9 +110,8 @@ storage.mojom.FileSystemAccessContextRemoteCallHandler = class {
 
 storage.mojom.FileSystemAccessContext.getRemote = function() {
   let remote = new storage.mojom.FileSystemAccessContextRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.FileSystemAccessContext',
     'context');
   return remote.$;

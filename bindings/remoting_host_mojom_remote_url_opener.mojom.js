@@ -26,13 +26,13 @@ remoting.mojom.OpenUrlResult = {
 // Interface: RemoteUrlOpener
 mojo.internal.Struct(
     remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, remoting.mojom.OpenUrlResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, remoting.mojom.OpenUrlResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -82,9 +82,8 @@ remoting.mojom.RemoteUrlOpenerRemoteCallHandler = class {
 
 remoting.mojom.RemoteUrlOpener.getRemote = function() {
   let remote = new remoting.mojom.RemoteUrlOpenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'remoting.mojom.RemoteUrlOpener',
     'context');
   return remote.$;

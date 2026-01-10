@@ -23,7 +23,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec, 'blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.PointerLockResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.PointerLockResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ blink.mojom.PointerLockContextRemoteCallHandler = class {
 
 blink.mojom.PointerLockContext.getRemote = function() {
   let remote = new blink.mojom.PointerLockContextRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PointerLockContext',
     'context');
   return remote.$;

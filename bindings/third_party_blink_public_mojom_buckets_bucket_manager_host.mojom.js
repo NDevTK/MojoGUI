@@ -59,13 +59,13 @@ mojo.internal.Struct(
     blink.mojom.BucketPoliciesSpec, 'blink.mojom.BucketPolicies', [
       mojo.internal.StructField('persisted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_persisted', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('durability', 4, 0, blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('has_durability', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('quota', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('has_quota', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('expires', 32, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('durability', 8, 0, blink.mojom.BucketDurabilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('has_durability', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('quota', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('has_quota', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('expires', 40, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Interface: BucketHost
 mojo.internal.Struct(
@@ -112,14 +112,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.BucketHost_Durability_ResponseParamsSpec, 'blink.mojom.BucketHost_Durability_ResponseParams', [
-      mojo.internal.StructField('durability', 0, 0, blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('durability', 0, 0, blink.mojom.BucketDurabilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.BucketHost_SetExpires_ParamsSpec, 'blink.mojom.BucketHost_SetExpires_Params', [
-      mojo.internal.StructField('expires', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expires', 0, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -136,7 +136,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.BucketHost_Expires_ResponseParamsSpec, 'blink.mojom.BucketHost_Expires_ResponseParams', [
-      mojo.internal.StructField('expires', 0, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('expires', 0, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -166,7 +166,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec, 'blink.mojom.BucketHost_GetDirectory_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('directory', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -179,7 +179,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec, 'blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('directory', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -330,9 +330,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
 
 blink.mojom.BucketHost.getRemote = function() {
   let remote = new blink.mojom.BucketHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BucketHost',
     'context');
   return remote.$;
@@ -346,14 +345,14 @@ blink.mojom.BucketHostRequest = blink.mojom.BucketHostPendingReceiver;
 mojo.internal.Struct(
     blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec, 'blink.mojom.BucketManagerHost_OpenBucket_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('policy', 8, 0, blink.mojom.BucketPoliciesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy', 8, 0, blink.mojom.BucketPoliciesSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec, 'blink.mojom.BucketManagerHost_OpenBucket_ResponseParams', [
       mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.BucketHostRemote), null, true, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, blink.mojom.BucketErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, blink.mojom.BucketErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -464,9 +463,8 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
 
 blink.mojom.BucketManagerHost.getRemote = function() {
   let remote = new blink.mojom.BucketManagerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BucketManagerHost',
     'context');
   return remote.$;

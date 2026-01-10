@@ -73,9 +73,8 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
 
 screen_ai.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
   let remote = new screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'screen_ai.mojom.ScreenAIServiceShutdownHandler',
     'context');
   return remote.$;
@@ -88,8 +87,8 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRequest = screen_ai.mojom.ScreenAI
 // Interface: ScreenAIServiceFactory
 mojo.internal.Struct(
     screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_Params', [
-      mojo.internal.StructField('library_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('model_files', 8, 0, mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('library_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('model_files', 8, 0, mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec.$, mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('ocr_service_receiver', 16, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.OCRServiceRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -102,8 +101,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Params', [
-      mojo.internal.StructField('library_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('model_files', 8, 0, mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('library_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('model_files', 8, 0, mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec.$, mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('main_content_extractor_service', 16, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.MainContentExtractionServiceRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -186,9 +185,8 @@ screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
 
 screen_ai.mojom.ScreenAIServiceFactory.getRemote = function() {
   let remote = new screen_ai.mojom.ScreenAIServiceFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'screen_ai.mojom.ScreenAIServiceFactory',
     'context');
   return remote.$;

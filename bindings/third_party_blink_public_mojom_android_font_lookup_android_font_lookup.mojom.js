@@ -37,7 +37,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParams', [
-      mojo.internal.StructField('font_file_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('font_file_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -48,7 +48,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParams', [
-      mojo.internal.StructField('font_files', 0, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('font_files', 0, 0, mojo.internal.Map(mojo.internal.String, mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -118,9 +118,8 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
 
 blink.mojom.AndroidFontLookup.getRemote = function() {
   let remote = new blink.mojom.AndroidFontLookupRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AndroidFontLookup',
     'context');
   return remote.$;

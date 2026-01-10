@@ -24,10 +24,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.DemuxerStream_Initialize_ResponseParamsSpec, 'media.mojom.DemuxerStream_Initialize_ResponseParams', [
-      mojo.internal.StructField('type', 0, 0, media.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, media.mojom.TypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('audio_config', 16, 0, media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('video_config', 24, 0, media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('audio_config', 16, 0, media.mojom.AudioDecoderConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('video_config', 24, 0, media.mojom.VideoDecoderConfigSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -39,10 +39,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.DemuxerStream_Read_ResponseParamsSpec, 'media.mojom.DemuxerStream_Read_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('batch_buffers', 8, 0, mojo.internal.Array(media.mojom.DecoderBufferSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('audio_config', 16, 0, media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('video_config', 24, 0, media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('batch_buffers', 8, 0, mojo.internal.Array(media.mojom.DecoderBufferSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('audio_config', 16, 0, media.mojom.AudioDecoderConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('video_config', 24, 0, media.mojom.VideoDecoderConfigSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -117,9 +117,8 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
 
 media.mojom.DemuxerStream.getRemote = function() {
   let remote = new media.mojom.DemuxerStreamRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.DemuxerStream',
     'context');
   return remote.$;

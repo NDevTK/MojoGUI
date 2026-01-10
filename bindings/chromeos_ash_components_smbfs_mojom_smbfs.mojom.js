@@ -100,14 +100,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     smbfs.mojom.MountOptionsSpec, 'smbfs.mojom.MountOptions', [
       mojo.internal.StructField('share_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('resolved_host', 8, 0, smbfs.mojom.IPAddressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('resolved_host', 8, 0, smbfs.mojom.IPAddressSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('username', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('workgroup', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('password', 32, 0, smbfs.mojom.PasswordSpec, null, true, 0, undefined),
-      mojo.internal.StructField('kerberos_config', 40, 0, smbfs.mojom.KerberosConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('password', 32, 0, smbfs.mojom.PasswordSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('kerberos_config', 40, 0, smbfs.mojom.KerberosConfigSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('allow_ntlm', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('skip_connect', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('credential_storage_options', 56, 0, smbfs.mojom.CredentialStorageOptionsSpec, null, true, 1, undefined),
+      mojo.internal.StructField('credential_storage_options', 56, 0, smbfs.mojom.CredentialStorageOptionsSpec.$, null, true, 1, undefined),
     ],
     [[0, 64], [1, 72]]);
 
@@ -116,21 +116,21 @@ mojo.internal.Struct(
     smbfs.mojom.CredentialsSpec, 'smbfs.mojom.Credentials', [
       mojo.internal.StructField('username', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('workgroup', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('password', 16, 0, smbfs.mojom.PasswordSpec, null, true, 0, undefined),
+      mojo.internal.StructField('password', 16, 0, smbfs.mojom.PasswordSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: SmbFsBootstrap
 mojo.internal.Struct(
     smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_Params', [
-      mojo.internal.StructField('options', 0, 0, smbfs.mojom.MountOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, smbfs.mojom.MountOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('delegate', 8, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsDelegateRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, smbfs.mojom.MountErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, smbfs.mojom.MountErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('smbfs', 8, 0, mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -181,9 +181,8 @@ smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
 
 smbfs.mojom.SmbFsBootstrap.getRemote = function() {
   let remote = new smbfs.mojom.SmbFsBootstrapRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'smbfs.mojom.SmbFsBootstrap',
     'context');
   return remote.$;
@@ -207,13 +206,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec, 'smbfs.mojom.SmbFs_DeleteRecursively_Params', [
-      mojo.internal.StructField('path', 0, 0, smbfs.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, smbfs.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec, 'smbfs.mojom.SmbFs_DeleteRecursively_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, smbfs.mojom.DeleteRecursivelyErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, smbfs.mojom.DeleteRecursivelyErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -273,9 +272,8 @@ smbfs.mojom.SmbFsRemoteCallHandler = class {
 
 smbfs.mojom.SmbFs.getRemote = function() {
   let remote = new smbfs.mojom.SmbFsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'smbfs.mojom.SmbFs',
     'context');
   return remote.$;
@@ -293,7 +291,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParams', [
-      mojo.internal.StructField('credentials', 0, 0, smbfs.mojom.CredentialsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('credentials', 0, 0, smbfs.mojom.CredentialsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -343,9 +341,8 @@ smbfs.mojom.SmbFsDelegateRemoteCallHandler = class {
 
 smbfs.mojom.SmbFsDelegate.getRemote = function() {
   let remote = new smbfs.mojom.SmbFsDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'smbfs.mojom.SmbFsDelegate',
     'context');
   return remote.$;

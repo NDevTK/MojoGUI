@@ -128,9 +128,8 @@ updater.mojom.PostRequestObserverRemoteCallHandler = class {
 
 updater.mojom.PostRequestObserver.getRemote = function() {
   let remote = new updater.mojom.PostRequestObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'updater.mojom.PostRequestObserver',
     'context');
   return remote.$;
@@ -229,9 +228,8 @@ updater.mojom.FileDownloadObserverRemoteCallHandler = class {
 
 updater.mojom.FileDownloadObserver.getRemote = function() {
   let remote = new updater.mojom.FileDownloadObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'updater.mojom.FileDownloadObserver',
     'context');
   return remote.$;
@@ -244,10 +242,10 @@ updater.mojom.FileDownloadObserverRequest = updater.mojom.FileDownloadObserverPe
 // Interface: FetchService
 mojo.internal.Struct(
     updater.mojom.FetchService_PostRequest_ParamsSpec, 'updater.mojom.FetchService_PostRequest_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('additional_headers', 24, 0, mojo.internal.Array(updater.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('additional_headers', 24, 0, mojo.internal.Array(updater.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -259,8 +257,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.FetchService_DownloadToFile_ParamsSpec, 'updater.mojom.FetchService_DownloadToFile_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_file', 8, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 8, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -326,9 +324,8 @@ updater.mojom.FetchServiceRemoteCallHandler = class {
 
 updater.mojom.FetchService.getRemote = function() {
   let remote = new updater.mojom.FetchServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'updater.mojom.FetchService',
     'context');
   return remote.$;

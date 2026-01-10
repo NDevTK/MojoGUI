@@ -20,25 +20,25 @@ gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = { $: {
 // Interface: TraitsTestService
 mojo.internal.Struct(
     gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_Params', [
-      mojo.internal.StructField('g', 0, 0, gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('g', 0, 0, gl.mojom.GpuPreferenceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, gl.mojom.GpuPreferenceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_Params', [
-      mojo.internal.StructField('impl', 0, 0, gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('impl', 0, 0, gl.mojom.GLImplementationPartsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, gl.mojom.GLImplementationPartsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -98,9 +98,8 @@ gl.mojom.TraitsTestServiceRemoteCallHandler = class {
 
 gl.mojom.TraitsTestService.getRemote = function() {
   let remote = new gl.mojom.TraitsTestServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'gl.mojom.TraitsTestService',
     'context');
   return remote.$;

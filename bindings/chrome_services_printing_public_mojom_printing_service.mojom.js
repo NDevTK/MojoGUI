@@ -124,9 +124,8 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
 
 printing.mojom.PrintingService.getRemote = function() {
   let remote = new printing.mojom.PrintingServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'printing.mojom.PrintingService',
     'context');
   return remote.$;

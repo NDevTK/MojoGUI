@@ -24,14 +24,14 @@ mojo.internal.Struct(
 // Struct: FrameMetadata
 mojo.internal.Struct(
     blink.mojom.FrameMetadataSpec, 'blink.mojom.FrameMetadata', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('meta_tags', 8, 0, mojo.internal.Array(blink.mojom.MetaTagSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('meta_tags', 8, 0, mojo.internal.Array(blink.mojom.MetaTagSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PageMetadata
 mojo.internal.Struct(
     blink.mojom.PageMetadataSpec, 'blink.mojom.PageMetadata', [
-      mojo.internal.StructField('frame_metadata', 0, 0, mojo.internal.Array(blink.mojom.FrameMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('frame_metadata', 0, 0, mojo.internal.Array(blink.mojom.FrameMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

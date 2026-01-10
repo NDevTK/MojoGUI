@@ -15,7 +15,7 @@ viz.mojom.SelectionSpec = { $: {} };
 // Struct: Selection
 mojo.internal.Struct(
     viz.mojom.SelectionSpec, 'viz.mojom.Selection', [
-      mojo.internal.StructField('start', 0, 0, gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
-      mojo.internal.StructField('end', 8, 0, gfx.mojom.SelectionBoundSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start', 0, 0, gfx.mojom.SelectionBoundSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('end', 8, 0, gfx.mojom.SelectionBoundSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

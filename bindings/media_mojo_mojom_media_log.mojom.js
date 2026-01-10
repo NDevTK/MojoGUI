@@ -15,7 +15,7 @@ media.mojom.MediaLog_AddLogRecord_ParamsSpec = { $: {} };
 // Interface: MediaLog
 mojo.internal.Struct(
     media.mojom.MediaLog_AddLogRecord_ParamsSpec, 'media.mojom.MediaLog_AddLogRecord_Params', [
-      mojo.internal.StructField('event', 0, 0, media.mojom.MediaLogRecordSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, media.mojom.MediaLogRecordSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -65,9 +65,8 @@ media.mojom.MediaLogRemoteCallHandler = class {
 
 media.mojom.MediaLog.getRemote = function() {
   let remote = new media.mojom.MediaLogRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaLog',
     'context');
   return remote.$;

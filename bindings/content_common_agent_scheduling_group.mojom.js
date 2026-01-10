@@ -29,7 +29,7 @@ content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec 
 // Interface: AgentSchedulingGroupHost
 mojo.internal.Struct(
     content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_Params', [
-      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -79,9 +79,8 @@ content.mojom.AgentSchedulingGroupHostRemoteCallHandler = class {
 
 content.mojom.AgentSchedulingGroupHost.getRemote = function() {
   let remote = new content.mojom.AgentSchedulingGroupHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.AgentSchedulingGroupHost',
     'context');
   return remote.$;
@@ -101,20 +100,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateView_Params', [
-      mojo.internal.StructField('params', 0, 0, content.mojom.CreateViewParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, content.mojom.CreateViewParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateFrame_Params', [
-      mojo.internal.StructField('params', 0, 0, content.mojom.CreateFrameParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, content.mojom.CreateFrameParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_Params', [
       mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.SharedStorageWorkletServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('global_scope_creation_params', 8, 0, blink.mojom.WorkletGlobalScopeCreationParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('global_scope_creation_params', 8, 0, blink.mojom.WorkletGlobalScopeCreationParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -194,9 +193,8 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
 
 content.mojom.AgentSchedulingGroup.getRemote = function() {
   let remote = new content.mojom.AgentSchedulingGroupRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.AgentSchedulingGroup',
     'context');
   return remote.$;

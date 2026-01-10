@@ -31,7 +31,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParams', [
-      mojo.internal.StructField('model_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('model_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -42,7 +42,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec, 'language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, language_detection.mojom.LanguageDetectionModelStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, language_detection.mojom.LanguageDetectionModelStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -102,9 +102,8 @@ language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class
 
 language_detection.mojom.ContentLanguageDetectionDriver.getRemote = function() {
   let remote = new language_detection.mojom.ContentLanguageDetectionDriverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'language_detection.mojom.ContentLanguageDetectionDriver',
     'context');
   return remote.$;

@@ -127,13 +127,13 @@ mojo.internal.Struct(
     updater.mojom.RegistrationRequestSpec, 'updater.mojom.RegistrationRequest', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('brand_code', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('brand_path', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('brand_path', 16, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('ap', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('version', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('existence_checker_path', 40, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ap_path', 48, 0, mojo_base.mojom.FilePathSpec, null, true, 1, undefined),
+      mojo.internal.StructField('existence_checker_path', 40, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ap_path', 48, 0, mojo_base.mojom.FilePathSpec.$, null, true, 1, undefined),
       mojo.internal.StructField('ap_key', 56, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('version_path', 64, 0, mojo_base.mojom.FilePathSpec, null, true, 1, undefined),
+      mojo.internal.StructField('version_path', 64, 0, mojo_base.mojom.FilePathSpec.$, null, true, 1, undefined),
       mojo.internal.StructField('version_key', 72, 0, mojo.internal.String, null, true, 1, undefined),
       mojo.internal.StructField('install_id', 80, 0, mojo.internal.String, null, true, 2, undefined),
       mojo.internal.StructField('lang', 88, 0, mojo.internal.String, null, true, 3, undefined),
@@ -163,11 +163,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('version', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('ap', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('brand_code', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('brand_path', 32, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ecp', 40, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ap_path', 48, 0, mojo_base.mojom.FilePathSpec, null, true, 1, undefined),
+      mojo.internal.StructField('brand_path', 32, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ecp', 40, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ap_path', 48, 0, mojo_base.mojom.FilePathSpec.$, null, true, 1, undefined),
       mojo.internal.StructField('ap_key', 56, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('version_path', 64, 0, mojo_base.mojom.FilePathSpec, null, true, 1, undefined),
+      mojo.internal.StructField('version_path', 64, 0, mojo_base.mojom.FilePathSpec.$, null, true, 1, undefined),
       mojo.internal.StructField('version_key', 72, 0, mojo.internal.String, null, true, 1, undefined),
       mojo.internal.StructField('cohort', 80, 0, mojo.internal.String, null, true, 2, undefined),
     ],
@@ -185,8 +185,8 @@ mojo.internal.Struct(
     updater.mojom.UpdaterStateSpec, 'updater.mojom.UpdaterState', [
       mojo.internal.StructField('active_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('inactive_versions', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('last_checked', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_started', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_checked', 16, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_started', 24, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -204,7 +204,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_FetchPolicies_ParamsSpec, 'updater.mojom.UpdateService_FetchPolicies_Params', [
-      mojo.internal.StructField('reason', 0, 0, enterprise_companion.mojom.PolicyFetchReasonSpec, null, false, 4, undefined),
+      mojo.internal.StructField('reason', 0, 0, enterprise_companion.mojom.PolicyFetchReasonSpec.$, null, false, 4, undefined),
     ],
     [[0, 8], [4, 16]]);
 
@@ -216,7 +216,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_RegisterApp_ParamsSpec, 'updater.mojom.UpdateService_RegisterApp_Params', [
-      mojo.internal.StructField('request', 0, 0, updater.mojom.RegistrationRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, updater.mojom.RegistrationRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -233,7 +233,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec, 'updater.mojom.UpdateService_GetAppStates_ResponseParams', [
-      mojo.internal.StructField('app_states', 0, 0, mojo.internal.Array(updater.mojom.AppStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('app_states', 0, 0, mojo.internal.Array(updater.mojom.AppStateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -262,12 +262,12 @@ mojo.internal.Struct(
     updater.mojom.UpdateService_Update_ParamsSpec, 'updater.mojom.UpdateService_Update_Params', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('install_data_index', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 16, 0, updater.mojom.PrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('policy_same_version_update', 20, 0, updater.mojom.PolicySameVersionUpdateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('do_update_check_only', 24, 0, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('language', 32, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('priority', 16, 0, updater.mojom.PrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('policy_same_version_update', 24, 0, updater.mojom.PolicySameVersionUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('do_update_check_only', 32, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('language', 40, 0, mojo.internal.String, null, true, 3, undefined),
     ],
-    [[0, 32], [1, 40], [3, 48]]);
+    [[0, 40], [1, 48], [3, 56]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_Update_ResponseParamsSpec, 'updater.mojom.UpdateService_Update_ResponseParams', [
@@ -277,10 +277,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_Install_ParamsSpec, 'updater.mojom.UpdateService_Install_Params', [
-      mojo.internal.StructField('registration', 0, 0, updater.mojom.RegistrationRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('registration', 0, 0, updater.mojom.RegistrationRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client_install_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('install_data_index', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 24, 0, updater.mojom.PrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 24, 0, updater.mojom.PrioritySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('language', 32, 0, mojo.internal.String, null, true, 3, undefined),
     ],
     [[0, 40], [3, 48]]);
@@ -300,7 +300,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     updater.mojom.UpdateService_RunInstaller_ParamsSpec, 'updater.mojom.UpdateService_RunInstaller_Params', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('installer_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('installer_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('install_args', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('install_data', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('install_settings', 32, 0, mojo.internal.String, null, false, 0, undefined),
@@ -317,11 +317,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     updater.mojom.UpdateService_CheckForUpdate_ParamsSpec, 'updater.mojom.UpdateService_CheckForUpdate_Params', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 8, 0, updater.mojom.PrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('policy_same_version_update', 12, 0, updater.mojom.PolicySameVersionUpdateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('language', 16, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('priority', 8, 0, updater.mojom.PrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('policy_same_version_update', 16, 0, updater.mojom.PolicySameVersionUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('language', 24, 0, mojo.internal.String, null, true, 3, undefined),
     ],
-    [[0, 24], [3, 32]]);
+    [[0, 32], [3, 40]]);
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec, 'updater.mojom.UpdateService_CheckForUpdate_ResponseParams', [
@@ -336,7 +336,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec, 'updater.mojom.UpdateService_GetUpdaterState_ResponseParams', [
-      mojo.internal.StructField('updater_state', 0, 0, updater.mojom.UpdaterStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('updater_state', 0, 0, updater.mojom.UpdaterStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -347,7 +347,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec, 'updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParams', [
-      mojo.internal.StructField('updater_policies', 0, 0, mojo.internal.Map(mojo.internal.String, updater.mojom.PolicyValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('updater_policies', 0, 0, mojo.internal.Map(mojo.internal.String, updater.mojom.PolicyValueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -358,7 +358,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec, 'updater.mojom.UpdateService_GetAppPolicies_ResponseParams', [
-      mojo.internal.StructField('app_policies', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Map(mojo.internal.String, updater.mojom.PolicyValueSpec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('app_policies', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Map(mojo.internal.String, updater.mojom.PolicyValueSpec.$, false), false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -538,9 +538,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
 
 updater.mojom.UpdateService.getRemote = function() {
   let remote = new updater.mojom.UpdateServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'updater.mojom.UpdateService',
     'context');
   return remote.$;
@@ -553,13 +552,13 @@ updater.mojom.UpdateServiceRequest = updater.mojom.UpdateServicePendingReceiver;
 // Interface: StateChangeObserver
 mojo.internal.Struct(
     updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec, 'updater.mojom.StateChangeObserver_OnStateChange_Params', [
-      mojo.internal.StructField('state', 0, 0, updater.mojom.UpdateStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, updater.mojom.UpdateStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     updater.mojom.StateChangeObserver_OnComplete_ParamsSpec, 'updater.mojom.StateChangeObserver_OnComplete_Params', [
-      mojo.internal.StructField('result', 0, 0, UpdateService.ResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, UpdateService.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -619,9 +618,8 @@ updater.mojom.StateChangeObserverRemoteCallHandler = class {
 
 updater.mojom.StateChangeObserver.getRemote = function() {
   let remote = new updater.mojom.StateChangeObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'updater.mojom.StateChangeObserver',
     'context');
   return remote.$;

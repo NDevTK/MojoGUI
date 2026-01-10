@@ -24,8 +24,8 @@ mojo.internal.Struct(
 // Struct: EpPackageInfo
 mojo.internal.Struct(
     webnn.mojom.EpPackageInfoSpec, 'webnn.mojom.EpPackageInfo', [
-      mojo.internal.StructField('family_name', 0, 0, mojo_base.mojom.WStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('version', 8, 0, webnn.mojom.PackageVersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('library_path', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('family_name', 0, 0, mojo_base.mojom.WStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('version', 8, 0, webnn.mojom.PackageVersionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('library_path', 16, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

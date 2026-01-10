@@ -32,24 +32,24 @@ device.mojom.GeolocationPermissionLevel = {
 mojo.internal.Struct(
     device.mojom.GeolocationContext_BindGeolocation_ParamsSpec, 'device.mojom.GeolocationContext_BindGeolocation_Params', [
       mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), null, false, 0, undefined),
-      mojo.internal.StructField('requesting_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('client_id', 16, 0, device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('has_precise_permission', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('requesting_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 16, 0, device.mojom.GeolocationClientIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('has_precise_permission', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec, 'device.mojom.GeolocationContext_OnPermissionUpdated_Params', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('permission_level', 8, 0, device.mojom.GeolocationPermissionLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('permission_level', 8, 0, device.mojom.GeolocationPermissionLevelSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     device.mojom.GeolocationContext_SetOverride_ParamsSpec, 'device.mojom.GeolocationContext_SetOverride_Params', [
-      mojo.internal.StructField('result', 0, 0, device.mojom.GeopositionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, device.mojom.GeopositionResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.GeolocationContext_ClearOverride_ParamsSpec, 'device.mojom.GeolocationContext_ClearOverride_Params', [
@@ -132,9 +132,8 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
 
 device.mojom.GeolocationContext.getRemote = function() {
   let remote = new device.mojom.GeolocationContextRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.GeolocationContext',
     'context');
   return remote.$;

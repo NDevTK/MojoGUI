@@ -21,7 +21,7 @@ mojo.internal.Struct(
     tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_Params', [
       mojo.internal.StructField('native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('rect', 16, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 16, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -104,9 +104,8 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
 
 tracked_element.mojom.TrackedElementHandler.getRemote = function() {
   let remote = new tracked_element.mojom.TrackedElementHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tracked_element.mojom.TrackedElementHandler',
     'context');
   return remote.$;

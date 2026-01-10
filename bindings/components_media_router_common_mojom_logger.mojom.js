@@ -27,7 +27,7 @@ media_router.mojom.LogCategory = {
 // Interface: Logger
 mojo.internal.Struct(
     media_router.mojom.Logger_LogInfo_ParamsSpec, 'media_router.mojom.Logger_LogInfo_Params', [
-      mojo.internal.StructField('category', 0, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, media_router.mojom.LogCategorySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('component', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -38,7 +38,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_router.mojom.Logger_LogWarning_ParamsSpec, 'media_router.mojom.Logger_LogWarning_Params', [
-      mojo.internal.StructField('category', 0, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, media_router.mojom.LogCategorySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('component', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -49,7 +49,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_router.mojom.Logger_LogError_ParamsSpec, 'media_router.mojom.Logger_LogError_Params', [
-      mojo.internal.StructField('category', 0, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, media_router.mojom.LogCategorySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('component', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -140,9 +140,8 @@ media_router.mojom.LoggerRemoteCallHandler = class {
 
 media_router.mojom.Logger.getRemote = function() {
   let remote = new media_router.mojom.LoggerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media_router.mojom.Logger',
     'context');
   return remote.$;

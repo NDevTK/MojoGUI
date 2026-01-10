@@ -19,7 +19,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = { $
 // Interface: VisitedLinkNotificationSink
 mojo.internal.Struct(
     visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_Params', [
-      mojo.internal.StructField('table_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('table_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -37,7 +37,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_Params', [
-      mojo.internal.StructField('origin_salts', 0, 0, mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('origin_salts', 0, 0, mojo.internal.Map(url.mojom.OriginSpec.$, mojo.internal.Uint64, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -117,9 +117,8 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
 
 visitedlink.mojom.VisitedLinkNotificationSink.getRemote = function() {
   let remote = new visitedlink.mojom.VisitedLinkNotificationSinkRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'visitedlink.mojom.VisitedLinkNotificationSink',
     'context');
   return remote.$;

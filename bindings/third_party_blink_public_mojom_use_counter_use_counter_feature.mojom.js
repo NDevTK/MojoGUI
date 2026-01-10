@@ -26,7 +26,7 @@ blink.mojom.UseCounterFeatureType = {
 // Struct: UseCounterFeature
 mojo.internal.Struct(
     blink.mojom.UseCounterFeatureSpec, 'blink.mojom.UseCounterFeature', [
-      mojo.internal.StructField('type', 0, 0, blink.mojom.UseCounterFeatureTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, blink.mojom.UseCounterFeatureTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

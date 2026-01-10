@@ -20,25 +20,25 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = { $: {} };
 // Interface: RangeTraitsTestService
 mojo.internal.Struct(
     gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_Params', [
-      mojo.internal.StructField('p', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('p', 0, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_Params', [
-      mojo.internal.StructField('p', 0, 0, gfx.mojom.RangeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('p', 0, 0, gfx.mojom.RangeFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, gfx.mojom.RangeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, gfx.mojom.RangeFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -98,9 +98,8 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
 
 gfx.mojom.RangeTraitsTestService.getRemote = function() {
   let remote = new gfx.mojom.RangeTraitsTestServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'gfx.mojom.RangeTraitsTestService',
     'context');
   return remote.$;

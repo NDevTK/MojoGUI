@@ -70,9 +70,8 @@ blink.mojom.FileSystemAccessAccessHandleHostRemoteCallHandler = class {
 
 blink.mojom.FileSystemAccessAccessHandleHost.getRemote = function() {
   let remote = new blink.mojom.FileSystemAccessAccessHandleHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FileSystemAccessAccessHandleHost',
     'context');
   return remote.$;

@@ -15,9 +15,9 @@ viz.mojom.VizDebugOutput_LogFrame_ParamsSpec = { $: {} };
 // Interface: VizDebugOutput
 mojo.internal.Struct(
     viz.mojom.VizDebugOutput_LogFrame_ParamsSpec, 'viz.mojom.VizDebugOutput_LogFrame_Params', [
-      mojo.internal.StructField('frameData', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frameData', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 viz.mojom.VizDebugOutputPendingReceiver = class {
   constructor(handle) {
@@ -65,9 +65,8 @@ viz.mojom.VizDebugOutputRemoteCallHandler = class {
 
 viz.mojom.VizDebugOutput.getRemote = function() {
   let remote = new viz.mojom.VizDebugOutputRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.VizDebugOutput',
     'context');
   return remote.$;

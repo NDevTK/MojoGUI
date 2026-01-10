@@ -26,10 +26,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec, 'ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.quick_start.mojom.QuickStartMessageSpec, null, true, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, ash.quick_start.mojom.QuickStartDecoderErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.quick_start.mojom.QuickStartMessageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, ash.quick_start.mojom.QuickStartDecoderErrorSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 ash.quick_start.mojom.QuickStartDecoderPendingReceiver = class {
   constructor(handle) {
@@ -77,9 +77,8 @@ ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler = class {
 
 ash.quick_start.mojom.QuickStartDecoder.getRemote = function() {
   let remote = new ash.quick_start.mojom.QuickStartDecoderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.quick_start.mojom.QuickStartDecoder',
     'context');
   return remote.$;

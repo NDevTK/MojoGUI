@@ -22,7 +22,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParams', [
-      mojo.internal.StructField('web_page_metadata', 0, 0, webapps.mojom.WebPageMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('web_page_metadata', 0, 0, webapps.mojom.WebPageMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ webapps.mojom.WebPageMetadataAgentRemoteCallHandler = class {
 
 webapps.mojom.WebPageMetadataAgent.getRemote = function() {
   let remote = new webapps.mojom.WebPageMetadataAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'webapps.mojom.WebPageMetadataAgent',
     'context');
   return remote.$;

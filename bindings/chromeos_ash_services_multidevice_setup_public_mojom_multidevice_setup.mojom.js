@@ -119,8 +119,8 @@ ash.multidevice_setup.mojom.FeatureState = {
 // Struct: HostDevice
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.HostDeviceSpec, 'ash.multidevice_setup.mojom.HostDevice', [
-      mojo.internal.StructField('remote_device', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('connectivity_status', 8, 0, ash.device_sync.mojom.ConnectivityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote_device', 0, 0, ash.multidevice.mojom.RemoteDeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('connectivity_status', 8, 0, ash.device_sync.mojom.ConnectivityStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -238,9 +238,8 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
 
 ash.multidevice_setup.mojom.AccountStatusChangeDelegate.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.multidevice_setup.mojom.AccountStatusChangeDelegate',
     'context');
   return remote.$;
@@ -253,8 +252,8 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRequest = ash.multidevice
 // Interface: HostStatusObserver
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec, 'ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_Params', [
-      mojo.internal.StructField('host_status', 0, 0, ash.multidevice_setup.mojom.HostStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('host_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('host_status', 0, 0, ash.multidevice_setup.mojom.HostStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('host_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -304,9 +303,8 @@ ash.multidevice_setup.mojom.HostStatusObserverRemoteCallHandler = class {
 
 ash.multidevice_setup.mojom.HostStatusObserver.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.HostStatusObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.multidevice_setup.mojom.HostStatusObserver',
     'context');
   return remote.$;
@@ -319,7 +317,7 @@ ash.multidevice_setup.mojom.HostStatusObserverRequest = ash.multidevice_setup.mo
 // Interface: FeatureStateObserver
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec, 'ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_Params', [
-      mojo.internal.StructField('feature_states_map', 0, 0, mojo.internal.Map(ash.multidevice_setup.mojom.FeatureSpec, ash.multidevice_setup.mojom.FeatureStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('feature_states_map', 0, 0, mojo.internal.Map(ash.multidevice_setup.mojom.FeatureSpec.$, ash.multidevice_setup.mojom.FeatureStateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -369,9 +367,8 @@ ash.multidevice_setup.mojom.FeatureStateObserverRemoteCallHandler = class {
 
 ash.multidevice_setup.mojom.FeatureStateObserver.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.FeatureStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.multidevice_setup.mojom.FeatureStateObserver',
     'context');
   return remote.$;
@@ -407,7 +404,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParams', [
-      mojo.internal.StructField('eligible_host_devices', 0, 0, mojo.internal.Array(ash.multidevice.mojom.RemoteDeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('eligible_host_devices', 0, 0, mojo.internal.Array(ash.multidevice.mojom.RemoteDeviceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -418,7 +415,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParams', [
-      mojo.internal.StructField('eligible_host_devices', 0, 0, mojo.internal.Array(ash.multidevice_setup.mojom.HostDeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('eligible_host_devices', 0, 0, mojo.internal.Array(ash.multidevice_setup.mojom.HostDeviceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -447,18 +444,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParams', [
-      mojo.internal.StructField('host_status', 0, 0, ash.multidevice_setup.mojom.HostStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('host_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('host_status', 0, 0, ash.multidevice_setup.mojom.HostStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('host_device', 8, 0, ash.multidevice.mojom.RemoteDeviceSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_Params', [
-      mojo.internal.StructField('feature', 0, 0, ash.multidevice_setup.mojom.FeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('auth_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('feature', 0, 0, ash.multidevice_setup.mojom.FeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('auth_token', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParams', [
@@ -473,7 +470,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParams', [
-      mojo.internal.StructField('feature_states_map', 0, 0, mojo.internal.Map(ash.multidevice_setup.mojom.FeatureSpec, ash.multidevice_setup.mojom.FeatureStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('feature_states_map', 0, 0, mojo.internal.Map(ash.multidevice_setup.mojom.FeatureSpec.$, ash.multidevice_setup.mojom.FeatureStateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -490,7 +487,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_Params', [
-      mojo.internal.StructField('type', 0, 0, ash.multidevice_setup.mojom.EventTypeForDebuggingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, ash.multidevice_setup.mojom.EventTypeForDebuggingSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -693,9 +690,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
 
 ash.multidevice_setup.mojom.MultiDeviceSetup.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.MultiDeviceSetupRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.multidevice_setup.mojom.MultiDeviceSetup',
     'context');
   return remote.$;
@@ -764,9 +760,8 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemoteCallHandler = class 
 
 ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.getRemote = function() {
   let remote = new ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter',
     'context');
   return remote.$;

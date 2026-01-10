@@ -20,25 +20,25 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = { $: {} };
 // Interface: ImageTraitsTestService
 mojo.internal.Struct(
     gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_Params', [
-      mojo.internal.StructField('in', 0, 0, gfx.mojom.ImageSkiaRepSpec, null, true, 0, undefined),
+      mojo.internal.StructField('in', 0, 0, gfx.mojom.ImageSkiaRepSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, gfx.mojom.ImageSkiaRepSpec, null, true, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, gfx.mojom.ImageSkiaRepSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkia_Params', [
-      mojo.internal.StructField('in', 0, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('in', 0, 0, gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -98,9 +98,8 @@ gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
 
 gfx.mojom.ImageTraitsTestService.getRemote = function() {
   let remote = new gfx.mojom.ImageTraitsTestServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'gfx.mojom.ImageTraitsTestService',
     'context');
   return remote.$;

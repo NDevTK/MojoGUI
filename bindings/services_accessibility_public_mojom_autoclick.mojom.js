@@ -22,7 +22,7 @@ ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = { $: {} };
 // Interface: Autoclick
 mojo.internal.Struct(
     ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec, 'ax.mojom.Autoclick_RequestScrollableBoundsForPoint_Params', [
-      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ ax.mojom.AutoclickRemoteCallHandler = class {
 
 ax.mojom.Autoclick.getRemote = function() {
   let remote = new ax.mojom.AutoclickRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.Autoclick',
     'context');
   return remote.$;
@@ -87,7 +86,7 @@ ax.mojom.AutoclickRequest = ax.mojom.AutoclickPendingReceiver;
 // Interface: AutoclickClient
 mojo.internal.Struct(
     ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec, 'ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_Params', [
-      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -158,9 +157,8 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
 
 ax.mojom.AutoclickClient.getRemote = function() {
   let remote = new ax.mojom.AutoclickClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ax.mojom.AutoclickClient',
     'context');
   return remote.$;

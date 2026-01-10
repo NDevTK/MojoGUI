@@ -30,10 +30,10 @@ heap_profiling.mojom.ProcessType = {
 // Interface: ProfilingService
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec, 'heap_profiling.mojom.ProfilingService_AddProfilingClient_Params', [
-      mojo.internal.StructField('pid', 0, 0, mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pid', 0, 0, mojo_base.mojom.ProcessIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(heap_profiling.mojom.ProfilingClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('process_type', 16, 0, heap_profiling.mojom.ProcessTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('params', 24, 0, heap_profiling.mojom.ProfilingParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('process_type', 16, 0, heap_profiling.mojom.ProcessTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('params', 24, 0, heap_profiling.mojom.ProfilingParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -50,7 +50,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParams', [
-      mojo.internal.StructField('pids', 0, 0, mojo.internal.Array(mojo_base.mojom.ProcessIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('pids', 0, 0, mojo.internal.Array(mojo_base.mojom.ProcessIdSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -110,9 +110,8 @@ heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {
 
 heap_profiling.mojom.ProfilingService.getRemote = function() {
   let remote = new heap_profiling.mojom.ProfilingServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'heap_profiling.mojom.ProfilingService',
     'context');
   return remote.$;

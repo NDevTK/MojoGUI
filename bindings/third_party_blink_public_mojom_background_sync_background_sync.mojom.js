@@ -73,28 +73,28 @@ mojo.internal.Struct(
     blink.mojom.BackgroundSyncRegistrationInfoSpec, 'blink.mojom.BackgroundSyncRegistrationInfo', [
       mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('sync_type', 16, 0, blink.mojom.BackgroundSyncTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sync_type', 16, 0, blink.mojom.BackgroundSyncTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: OneShotBackgroundSyncService
 mojo.internal.Struct(
     blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_Register_Params', [
-      mojo.internal.StructField('options', 0, 0, blink.mojom.SyncRegistrationOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, blink.mojom.SyncRegistrationOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('service_worker_registration_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_Register_ResponseParams', [
-      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, blink.mojom.SyncRegistrationOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.SyncRegistrationOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_Params', [
-      mojo.internal.StructField('registration_info', 0, 0, blink.mojom.BackgroundSyncRegistrationInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('registration_info', 0, 0, blink.mojom.BackgroundSyncRegistrationInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -106,8 +106,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParams', [
-      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('registrations', 8, 0, mojo.internal.Array(blink.mojom.SyncRegistrationOptionsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('registrations', 8, 0, mojo.internal.Array(blink.mojom.SyncRegistrationOptionsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -177,9 +177,8 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
 
 blink.mojom.OneShotBackgroundSyncService.getRemote = function() {
   let remote = new blink.mojom.OneShotBackgroundSyncServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.OneShotBackgroundSyncService',
     'context');
   return remote.$;
@@ -192,15 +191,15 @@ blink.mojom.OneShotBackgroundSyncServiceRequest = blink.mojom.OneShotBackgroundS
 // Interface: PeriodicBackgroundSyncService
 mojo.internal.Struct(
     blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Register_Params', [
-      mojo.internal.StructField('options', 0, 0, blink.mojom.SyncRegistrationOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, blink.mojom.SyncRegistrationOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('service_worker_registration_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParams', [
-      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 8, 0, blink.mojom.SyncRegistrationOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.SyncRegistrationOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -213,7 +212,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParams', [
-      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -225,8 +224,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParams', [
-      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('registrations', 8, 0, mojo.internal.Array(blink.mojom.SyncRegistrationOptionsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('err', 0, 0, blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('registrations', 8, 0, mojo.internal.Array(blink.mojom.SyncRegistrationOptionsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -296,9 +295,8 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
 
 blink.mojom.PeriodicBackgroundSyncService.getRemote = function() {
   let remote = new blink.mojom.PeriodicBackgroundSyncServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PeriodicBackgroundSyncService',
     'context');
   return remote.$;

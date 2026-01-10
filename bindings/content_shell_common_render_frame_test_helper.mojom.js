@@ -23,7 +23,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParams', [
-      mojo.internal.StructField('token', 0, 0, blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ content.mojom.RenderFrameTestHelperRemoteCallHandler = class {
 
 content.mojom.RenderFrameTestHelper.getRemote = function() {
   let remote = new content.mojom.RenderFrameTestHelperRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.RenderFrameTestHelper',
     'context');
   return remote.$;

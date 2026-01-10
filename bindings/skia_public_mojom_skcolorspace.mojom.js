@@ -35,7 +35,7 @@ mojo.internal.Struct(
 // Struct: SkColorSpace
 mojo.internal.Struct(
     skia.mojom.SkColorSpaceSpec, 'skia.mojom.SkColorSpace', [
-      mojo.internal.StructField('to_linear', 0, 0, skia.mojom.SkcmsTransferFunctionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('to_xyzd50', 8, 0, skia.mojom.SkcmsMatrix3x3Spec, null, true, 0, undefined),
+      mojo.internal.StructField('to_linear', 0, 0, skia.mojom.SkcmsTransferFunctionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('to_xyzd50', 8, 0, skia.mojom.SkcmsMatrix3x3Spec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

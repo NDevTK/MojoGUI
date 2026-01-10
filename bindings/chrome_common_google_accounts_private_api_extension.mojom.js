@@ -65,9 +65,8 @@ chrome.mojom.GoogleAccountsPrivateApiExtensionRemoteCallHandler = class {
 
 chrome.mojom.GoogleAccountsPrivateApiExtension.getRemote = function() {
   let remote = new chrome.mojom.GoogleAccountsPrivateApiExtensionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.GoogleAccountsPrivateApiExtension',
     'context');
   return remote.$;

@@ -27,7 +27,7 @@ chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = { $: {} };
 // Interface: MessageCallback
 mojo.internal.Struct(
     chromecast.mojom.MessageCallback_OnMessage_ParamsSpec, 'chromecast.mojom.MessageCallback_OnMessage_Params', [
-      mojo.internal.StructField('list', 0, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('list', 0, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -77,9 +77,8 @@ chromecast.mojom.MessageCallbackRemoteCallHandler = class {
 
 chromecast.mojom.MessageCallback.getRemote = function() {
   let remote = new chromecast.mojom.MessageCallbackRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.MessageCallback',
     'context');
   return remote.$;
@@ -100,7 +99,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec, 'chromecast.mojom.WebUi_CallJavascriptFunction_Params', [
       mojo.internal.StructField('function', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('args', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('args', 8, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -160,9 +159,8 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
 
 chromecast.mojom.WebUi.getRemote = function() {
   let remote = new chromecast.mojom.WebUiRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.WebUi',
     'context');
   return remote.$;
@@ -181,7 +179,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec, 'chromecast.mojom.Resources_RequestResourceBytes_ResponseParams', [
-      mojo.internal.StructField('bytes', 0, 0, mojo_base.mojom.RefCountedMemorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('bytes', 0, 0, mojo_base.mojom.RefCountedMemorySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -231,9 +229,8 @@ chromecast.mojom.ResourcesRemoteCallHandler = class {
 
 chromecast.mojom.Resources.getRemote = function() {
   let remote = new chromecast.mojom.ResourcesRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.Resources',
     'context');
   return remote.$;
@@ -315,9 +312,8 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
 
 chromecast.mojom.WebUiClient.getRemote = function() {
   let remote = new chromecast.mojom.WebUiClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.WebUiClient',
     'context');
   return remote.$;

@@ -76,9 +76,8 @@ codelabs.mojom.ObjectARemoteCallHandler = class {
 
 codelabs.mojom.ObjectA.getRemote = function() {
   let remote = new codelabs.mojom.ObjectARemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'codelabs.mojom.ObjectA',
     'context');
   return remote.$;
@@ -140,9 +139,8 @@ codelabs.mojom.ObjectBRemoteCallHandler = class {
 
 codelabs.mojom.ObjectB.getRemote = function() {
   let remote = new codelabs.mojom.ObjectBRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'codelabs.mojom.ObjectB',
     'context');
   return remote.$;
@@ -205,9 +203,8 @@ codelabs.mojom.AssociatedProcessRemoteCallHandler = class {
 
 codelabs.mojom.AssociatedProcess.getRemote = function() {
   let remote = new codelabs.mojom.AssociatedProcessRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'codelabs.mojom.AssociatedProcess',
     'context');
   return remote.$;
@@ -254,9 +251,8 @@ codelabs.mojom.GenericInterfaceRemoteCallHandler = class {
 
 codelabs.mojom.GenericInterface.getRemote = function() {
   let remote = new codelabs.mojom.GenericInterfaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'codelabs.mojom.GenericInterface',
     'context');
   return remote.$;
@@ -335,9 +331,8 @@ codelabs.mojom.ProcessRemoteCallHandler = class {
 
 codelabs.mojom.Process.getRemote = function() {
   let remote = new codelabs.mojom.ProcessRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'codelabs.mojom.Process',
     'context');
   return remote.$;

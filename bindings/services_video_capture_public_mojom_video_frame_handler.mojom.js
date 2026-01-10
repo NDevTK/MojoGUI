@@ -33,7 +33,7 @@ mojo.internal.Struct(
     video_capture.mojom.ReadyFrameInBufferSpec, 'video_capture.mojom.ReadyFrameInBuffer', [
       mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('frame_feedback_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_info', 8, 0, media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_info', 8, 0, media.mojom.VideoFrameInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -90,9 +90,8 @@ video_capture.mojom.VideoFrameAccessHandlerRemoteCallHandler = class {
 
 video_capture.mojom.VideoFrameAccessHandler.getRemote = function() {
   let remote = new video_capture.mojom.VideoFrameAccessHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'video_capture.mojom.VideoFrameAccessHandler',
     'context');
   return remote.$;
@@ -111,9 +110,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnNewBuffer_Params', [
       mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('buffer_handle', 8, 0, media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 8, 0, media.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_Params', [
@@ -123,7 +122,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_Params', [
-      mojo.internal.StructField('buffer', 0, 0, video_capture.mojom.ReadyFrameInBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, video_capture.mojom.ReadyFrameInBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -135,19 +134,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, media.mojom.VideoCaptureErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, media.mojom.VideoCaptureErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnFrameDropped_Params', [
-      mojo.internal.StructField('reason', 0, 0, media.mojom.VideoCaptureFrameDropReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, media.mojom.VideoCaptureFrameDropReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_Params', [
-      mojo.internal.StructField('capture_version', 0, 0, media.mojom.CaptureVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_version', 0, 0, media.mojom.CaptureVersionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -343,9 +342,8 @@ video_capture.mojom.VideoFrameHandlerRemoteCallHandler = class {
 
 video_capture.mojom.VideoFrameHandler.getRemote = function() {
   let remote = new video_capture.mojom.VideoFrameHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'video_capture.mojom.VideoFrameHandler',
     'context');
   return remote.$;

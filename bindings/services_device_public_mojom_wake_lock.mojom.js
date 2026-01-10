@@ -53,7 +53,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.WakeLock_ChangeType_ParamsSpec, 'device.mojom.WakeLock_ChangeType_Params', [
-      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -160,9 +160,8 @@ device.mojom.WakeLockRemoteCallHandler = class {
 
 device.mojom.WakeLock.getRemote = function() {
   let remote = new device.mojom.WakeLockRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.WakeLock',
     'context');
   return remote.$;

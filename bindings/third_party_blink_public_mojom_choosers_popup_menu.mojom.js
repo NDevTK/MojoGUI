@@ -99,9 +99,8 @@ blink.mojom.PopupMenuClientRemoteCallHandler = class {
 
 blink.mojom.PopupMenuClient.getRemote = function() {
   let remote = new blink.mojom.PopupMenuClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PopupMenuClient',
     'context');
   return remote.$;

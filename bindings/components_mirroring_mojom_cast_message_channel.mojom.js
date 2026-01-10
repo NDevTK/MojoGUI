@@ -28,7 +28,7 @@ mojo.internal.Struct(
 // Interface: CastMessageChannel
 mojo.internal.Struct(
     mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec, 'mirroring.mojom.CastMessageChannel_OnMessage_Params', [
-      mojo.internal.StructField('message', 0, 0, mirroring.mojom.CastMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mirroring.mojom.CastMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -78,9 +78,8 @@ mirroring.mojom.CastMessageChannelRemoteCallHandler = class {
 
 mirroring.mojom.CastMessageChannel.getRemote = function() {
   let remote = new mirroring.mojom.CastMessageChannelRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'mirroring.mojom.CastMessageChannel',
     'context');
   return remote.$;

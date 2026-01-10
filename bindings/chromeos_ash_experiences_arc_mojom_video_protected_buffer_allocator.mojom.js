@@ -37,10 +37,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_Params', [
       mojo.internal.StructField('handle_fd', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('pixel_format', 4, 0, arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('picture_size', 8, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_format', 8, 0, arc.mojom.HalPixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('picture_size', 16, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParams', [
@@ -120,9 +120,8 @@ arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler = class {
 
 arc.mojom.VideoProtectedBufferAllocator.getRemote = function() {
   let remote = new arc.mojom.VideoProtectedBufferAllocatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.VideoProtectedBufferAllocator',
     'context');
   return remote.$;

@@ -35,7 +35,7 @@ mojo.internal.Union(
     blink.mojom.WebViewMediaIntegrityTokenResponseSpec, 'blink.mojom.WebViewMediaIntegrityTokenResponse', {
       'error_code': {
         'ordinal': 0,
-        'type': blink.mojom.WebViewMediaIntegrityErrorCodeSpec,
+        'type': blink.mojom.WebViewMediaIntegrityErrorCodeSpec.$,
         'nullable': false,
       },
       'token': {
@@ -55,7 +55,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.WebViewMediaIntegrityErrorCodeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.WebViewMediaIntegrityErrorCodeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -105,9 +105,8 @@ blink.mojom.WebViewMediaIntegrityServiceRemoteCallHandler = class {
 
 blink.mojom.WebViewMediaIntegrityService.getRemote = function() {
   let remote = new blink.mojom.WebViewMediaIntegrityServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WebViewMediaIntegrityService',
     'context');
   return remote.$;
@@ -126,9 +125,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec, 'blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, blink.mojom.WebViewMediaIntegrityTokenResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, blink.mojom.WebViewMediaIntegrityTokenResponseSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 blink.mojom.WebViewMediaIntegrityProviderPendingReceiver = class {
   constructor(handle) {
@@ -176,9 +175,8 @@ blink.mojom.WebViewMediaIntegrityProviderRemoteCallHandler = class {
 
 blink.mojom.WebViewMediaIntegrityProvider.getRemote = function() {
   let remote = new blink.mojom.WebViewMediaIntegrityProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WebViewMediaIntegrityProvider',
     'context');
   return remote.$;

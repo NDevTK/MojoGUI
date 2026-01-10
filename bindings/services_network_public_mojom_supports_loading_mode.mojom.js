@@ -24,6 +24,6 @@ network.mojom.LoadingMode = {
 // Struct: SupportsLoadingMode
 mojo.internal.Struct(
     network.mojom.SupportsLoadingModeSpec, 'network.mojom.SupportsLoadingMode', [
-      mojo.internal.StructField('supported_modes', 0, 0, mojo.internal.Array(network.mojom.LoadingModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('supported_modes', 0, 0, mojo.internal.Array(network.mojom.LoadingModeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

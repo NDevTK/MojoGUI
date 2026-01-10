@@ -28,26 +28,26 @@ mojo.internal.Struct(
       mojo.internal.StructField('jelly_colors', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('deprecated_trackpad_scroll_touchscreen_emulation', 0, 2, mojo.internal.Bool, false, false, 2, undefined),
       mojo.internal.StructField('touchscreen_emulation', 0, 3, mojo.internal.Bool, true, false, 2, undefined),
-      mojo.internal.StructField('rounded_window_compat_strategy', 4, 0, arc.mojom.RoundedWindowCompatStrategySpec, null, false, 3, undefined),
-      mojo.internal.StructField('rounded_window_radius', 8, 0, mojo.internal.Int32, 0, false, 3, undefined),
-      mojo.internal.StructField('xdg_mode', 12, 0, mojo.internal.Bool, false, false, 4, undefined),
-      mojo.internal.StructField('enable_pip_double_tap', 12, 1, mojo.internal.Bool, false, false, 5, undefined),
-      mojo.internal.StructField('render_arc_notifications_by_chrome', 12, 2, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('game_dashboard', 12, 3, mojo.internal.Bool, false, false, 7, undefined),
-      mojo.internal.StructField('resize_compat', 12, 4, mojo.internal.Bool, false, false, 8, undefined),
-      mojo.internal.StructField('ignore_hover_event_anr', 12, 5, mojo.internal.Bool, false, false, 9, undefined),
-      mojo.internal.StructField('extend_input_anr_timeout', 12, 6, mojo.internal.Bool, false, false, 10, undefined),
-      mojo.internal.StructField('notification_width_increase', 12, 7, mojo.internal.Bool, false, false, 11, undefined),
-      mojo.internal.StructField('enable_friendlier_error_dialog', 13, 0, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('extend_service_anr_timeout', 13, 1, mojo.internal.Bool, false, false, 13, undefined),
-      mojo.internal.StructField('extend_intent_anr_timeout', 13, 2, mojo.internal.Bool, false, false, 14, undefined),
+      mojo.internal.StructField('rounded_window_compat_strategy', 8, 0, arc.mojom.RoundedWindowCompatStrategySpec.$, null, false, 3, undefined),
+      mojo.internal.StructField('rounded_window_radius', 16, 0, mojo.internal.Int32, 0, false, 3, undefined),
+      mojo.internal.StructField('xdg_mode', 20, 0, mojo.internal.Bool, false, false, 4, undefined),
+      mojo.internal.StructField('enable_pip_double_tap', 20, 1, mojo.internal.Bool, false, false, 5, undefined),
+      mojo.internal.StructField('render_arc_notifications_by_chrome', 20, 2, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('game_dashboard', 20, 3, mojo.internal.Bool, false, false, 7, undefined),
+      mojo.internal.StructField('resize_compat', 20, 4, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('ignore_hover_event_anr', 20, 5, mojo.internal.Bool, false, false, 9, undefined),
+      mojo.internal.StructField('extend_input_anr_timeout', 20, 6, mojo.internal.Bool, false, false, 10, undefined),
+      mojo.internal.StructField('notification_width_increase', 20, 7, mojo.internal.Bool, false, false, 11, undefined),
+      mojo.internal.StructField('enable_friendlier_error_dialog', 21, 0, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('extend_service_anr_timeout', 21, 1, mojo.internal.Bool, false, false, 13, undefined),
+      mojo.internal.StructField('extend_intent_anr_timeout', 21, 2, mojo.internal.Bool, false, false, 14, undefined),
     ],
-    [[0, 16], [2, 16], [3, 24], [4, 24], [5, 24], [6, 24], [7, 24], [8, 24], [9, 24], [10, 24], [11, 24], [12, 24], [13, 24], [14, 24]]);
+    [[0, 16], [2, 16], [3, 32], [4, 32], [5, 32], [6, 32], [7, 32], [8, 32], [9, 32], [10, 32], [11, 32], [12, 32], [13, 32], [14, 32]]);
 
 // Interface: ChromeFeatureFlagsInstance
 mojo.internal.Struct(
     arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec, 'arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_Params', [
-      mojo.internal.StructField('flags', 0, 0, arc.mojom.FeatureFlagsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('flags', 0, 0, arc.mojom.FeatureFlagsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -97,9 +97,8 @@ arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
 
 arc.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
   let remote = new arc.mojom.ChromeFeatureFlagsInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ChromeFeatureFlagsInstance',
     'context');
   return remote.$;

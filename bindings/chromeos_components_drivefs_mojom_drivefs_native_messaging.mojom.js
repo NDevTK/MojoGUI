@@ -85,9 +85,8 @@ drivefs.mojom.NativeMessagingPortRemoteCallHandler = class {
 
 drivefs.mojom.NativeMessagingPort.getRemote = function() {
   let remote = new drivefs.mojom.NativeMessagingPortRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'drivefs.mojom.NativeMessagingPort',
     'context');
   return remote.$;
@@ -150,9 +149,8 @@ drivefs.mojom.NativeMessagingHostRemoteCallHandler = class {
 
 drivefs.mojom.NativeMessagingHost.getRemote = function() {
   let remote = new drivefs.mojom.NativeMessagingHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'drivefs.mojom.NativeMessagingHost',
     'context');
   return remote.$;

@@ -74,9 +74,8 @@ history_clusters_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 history_clusters_internals.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new history_clusters_internals.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'history_clusters_internals.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -159,9 +158,8 @@ history_clusters_internals.mojom.PageHandlerRemoteCallHandler = class {
 
 history_clusters_internals.mojom.PageHandler.getRemote = function() {
   let remote = new history_clusters_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'history_clusters_internals.mojom.PageHandler',
     'context');
   return remote.$;
@@ -224,9 +222,8 @@ history_clusters_internals.mojom.PageRemoteCallHandler = class {
 
 history_clusters_internals.mojom.Page.getRemote = function() {
   let remote = new history_clusters_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'history_clusters_internals.mojom.Page',
     'context');
   return remote.$;

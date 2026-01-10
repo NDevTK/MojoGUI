@@ -79,9 +79,8 @@ blink.mojom.DomStorageProviderRemoteCallHandler = class {
 
 blink.mojom.DomStorageProvider.getRemote = function() {
   let remote = new blink.mojom.DomStorageProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DomStorageProvider',
     'context');
   return remote.$;
@@ -94,8 +93,8 @@ blink.mojom.DomStorageProviderRequest = blink.mojom.DomStorageProviderPendingRec
 // Interface: DomStorage
 mojo.internal.Struct(
     blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec, 'blink.mojom.DomStorage_OpenLocalStorage_Params', [
-      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('local_frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('area', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.StorageAreaRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -109,8 +108,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec, 'blink.mojom.DomStorage_BindSessionStorageArea_Params', [
-      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('local_frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('namespace_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('session_namespace', 24, 0, mojo.internal.InterfaceRequest(blink.mojom.StorageAreaRemote), null, false, 0, undefined),
     ],
@@ -182,9 +181,8 @@ blink.mojom.DomStorageRemoteCallHandler = class {
 
 blink.mojom.DomStorage.getRemote = function() {
   let remote = new blink.mojom.DomStorageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DomStorage',
     'context');
   return remote.$;
@@ -261,9 +259,8 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
 
 blink.mojom.DomStorageClient.getRemote = function() {
   let remote = new blink.mojom.DomStorageClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.DomStorageClient',
     'context');
   return remote.$;

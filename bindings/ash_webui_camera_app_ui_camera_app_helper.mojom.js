@@ -190,12 +190,12 @@ mojo.internal.Union(
     ash.camera_app.mojom.CaptureDestinationSpec, 'ash.camera_app.mojom.CaptureDestination', {
       'cloud_upload': {
         'ordinal': 0,
-        'type': ash.camera_app.mojom.CloudUploadSpec,
+        'type': ash.camera_app.mojom.CloudUploadSpec.$,
         'nullable': false,
       },
       'local_file': {
         'ordinal': 1,
-        'type': ash.camera_app.mojom.LocalFileSpec,
+        'type': ash.camera_app.mojom.LocalFileSpec.$,
         'nullable': false,
       },
     });
@@ -204,14 +204,14 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.camera_app.mojom.WifiConfigSpec, 'ash.camera_app.mojom.WifiConfig', [
       mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('security', 8, 0, ash.camera_app.mojom.WifiSecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('security', 8, 0, ash.camera_app.mojom.WifiSecurityTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('password', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('eap_method', 24, 0, ash.camera_app.mojom.WifiEapMethodSpec, null, true, 0, undefined),
-      mojo.internal.StructField('eap_phase2_method', 28, 0, ash.camera_app.mojom.WifiEapPhase2MethodSpec, null, true, 0, undefined),
-      mojo.internal.StructField('eap_identity', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('eap_anonymous_identity', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('eap_method', 24, 0, ash.camera_app.mojom.WifiEapMethodSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('eap_phase2_method', 32, 0, ash.camera_app.mojom.WifiEapPhase2MethodSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('eap_identity', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('eap_anonymous_identity', 48, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Struct: CloudUpload
 mojo.internal.Struct(
@@ -281,9 +281,8 @@ ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.TabletModeMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.TabletModeMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.TabletModeMonitor',
     'context');
   return remote.$;
@@ -296,7 +295,7 @@ ash.camera_app.mojom.TabletModeMonitorRequest = ash.camera_app.mojom.TabletModeM
 // Interface: ScreenStateMonitor
 mojo.internal.Struct(
     ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.ScreenStateMonitor_Update_Params', [
-      mojo.internal.StructField('state', 0, 0, ash.camera_app.mojom.ScreenStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.camera_app.mojom.ScreenStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -346,9 +345,8 @@ ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.ScreenStateMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.ScreenStateMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.ScreenStateMonitor',
     'context');
   return remote.$;
@@ -411,9 +409,8 @@ ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.ScreenLockedMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.ScreenLockedMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.ScreenLockedMonitor',
     'context');
   return remote.$;
@@ -476,9 +473,8 @@ ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.ExternalScreenMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.ExternalScreenMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.ExternalScreenMonitor',
     'context');
   return remote.$;
@@ -546,9 +542,8 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.CameraUsageOwnershipMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.CameraUsageOwnershipMonitor',
     'context');
   return remote.$;
@@ -561,7 +556,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorRequest = ash.camera_app.mojom.C
 // Interface: LidStateMonitor
 mojo.internal.Struct(
     ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.LidStateMonitor_Update_Params', [
-      mojo.internal.StructField('lid_status', 0, 0, ash.camera_app.mojom.LidStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lid_status', 0, 0, ash.camera_app.mojom.LidStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -611,9 +606,8 @@ ash.camera_app.mojom.LidStateMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.LidStateMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.LidStateMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.LidStateMonitor',
     'context');
   return remote.$;
@@ -676,9 +670,8 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.SWPrivacySwitchMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.SWPrivacySwitchMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.SWPrivacySwitchMonitor',
     'context');
   return remote.$;
@@ -691,7 +684,7 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorRequest = ash.camera_app.mojom.SWPriv
 // Interface: WindowStateMonitor
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec, 'ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_Params', [
-      mojo.internal.StructField('states', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('states', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -757,9 +750,8 @@ ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.WindowStateMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.WindowStateMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.WindowStateMonitor',
     'context');
   return remote.$;
@@ -772,7 +764,7 @@ ash.camera_app.mojom.WindowStateMonitorRequest = ash.camera_app.mojom.WindowStat
 // Interface: StorageMonitor
 mojo.internal.Struct(
     ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.StorageMonitor_Update_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.camera_app.mojom.StorageMonitorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.camera_app.mojom.StorageMonitorStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -822,9 +814,8 @@ ash.camera_app.mojom.StorageMonitorRemoteCallHandler = class {
 
 ash.camera_app.mojom.StorageMonitor.getRemote = function() {
   let remote = new ash.camera_app.mojom.StorageMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.StorageMonitor',
     'context');
   return remote.$;
@@ -843,7 +834,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParams', [
-      mojo.internal.StructField('states', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('states', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -854,7 +845,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParams', [
-      mojo.internal.StructField('states', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('states', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1014,9 +1005,8 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
 
 ash.camera_app.mojom.WindowStateController.getRemote = function() {
   let remote = new ash.camera_app.mojom.WindowStateControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.WindowStateController',
     'context');
   return remote.$;
@@ -1030,10 +1020,10 @@ ash.camera_app.mojom.WindowStateControllerRequest = ash.camera_app.mojom.WindowS
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_Params', [
       mojo.internal.StructField('intent_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('action', 4, 0, arc.mojom.CameraIntentActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('action', 8, 0, arc.mojom.CameraIntentActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParams', [
@@ -1084,7 +1074,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParams', [
-      mojo.internal.StructField('initial_state', 0, 0, ash.camera_app.mojom.ScreenStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initial_state', 0, 0, ash.camera_app.mojom.ScreenStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1125,7 +1115,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1142,10 +1132,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_Params', [
-      mojo.internal.StructField('file_type', 0, 0, ash.camera_app.mojom.FileTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('destination', 8, 0, ash.camera_app.mojom.CaptureDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_type', 0, 0, ash.camera_app.mojom.FileTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 8, 0, ash.camera_app.mojom.CaptureDestinationSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParams', [
@@ -1161,7 +1151,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.camera_app.mojom.FileMonitorResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.camera_app.mojom.FileMonitorResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1195,15 +1185,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParams', [
-      mojo.internal.StructField('corners', 0, 0, mojo.internal.Array(gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('corners', 0, 0, mojo.internal.Array(gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_Params', [
       mojo.internal.StructField('jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('corners', 8, 0, mojo.internal.Array(gfx.mojom.PointF, 4Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('rotation', 16, 0, chromeos.machine_learning.mojom.RotationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('corners', 8, 0, mojo.internal.Array(gfx.mojom.PointF, 4Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('rotation', 16, 0, chromeos.machine_learning.mojom.RotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1226,7 +1216,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParams', [
-      mojo.internal.StructField('initial_status', 0, 0, ash.camera_app.mojom.StorageMonitorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initial_status', 0, 0, ash.camera_app.mojom.StorageMonitorStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1242,7 +1232,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_Params', [
-      mojo.internal.StructField('config', 0, 0, ash.camera_app.mojom.WifiConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, ash.camera_app.mojom.WifiConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1254,7 +1244,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParams', [
-      mojo.internal.StructField('lid_status', 0, 0, ash.camera_app.mojom.LidStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lid_status', 0, 0, ash.camera_app.mojom.LidStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1307,13 +1297,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcr_Params', [
-      mojo.internal.StructField('jpeg_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('jpeg_data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParams', [
-      mojo.internal.StructField('ocr_result', 0, 0, ash.camera_app.mojom.OcrResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ocr_result', 0, 0, ash.camera_app.mojom.OcrResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1325,7 +1315,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParams', [
-      mojo.internal.StructField('ocr_result', 0, 0, ash.camera_app.mojom.OcrResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ocr_result', 0, 0, ash.camera_app.mojom.OcrResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1342,7 +1332,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParams', [
-      mojo.internal.StructField('order', 0, 0, mojo.internal.Array(ash.camera_app.mojom.AspectRatioSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('order', 0, 0, mojo.internal.Array(ash.camera_app.mojom.AspectRatioSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1702,9 +1692,8 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
 
 ash.camera_app.mojom.CameraAppHelper.getRemote = function() {
   let remote = new ash.camera_app.mojom.CameraAppHelperRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.camera_app.mojom.CameraAppHelper',
     'context');
   return remote.$;

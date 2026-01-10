@@ -21,9 +21,9 @@ content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec =
 mojo.internal.Struct(
     content.mojom.FrameRoutingInfoSpec, 'content.mojom.FrameRoutingInfo', [
       mojo.internal.StructField('routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('devtools_frame_token', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('document_token', 24, 0, blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 8, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_frame_token', 16, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('document_token', 24, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -35,7 +35,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, content.mojom.FrameRoutingInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, content.mojom.FrameRoutingInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -46,7 +46,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParams', [
-      mojo.internal.StructField('info_array', 0, 0, mojo.internal.Array(content.mojom.FrameRoutingInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('info_array', 0, 0, mojo.internal.Array(content.mojom.FrameRoutingInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -106,9 +106,8 @@ content.mojom.RenderMessageFilterRemoteCallHandler = class {
 
 content.mojom.RenderMessageFilter.getRemote = function() {
   let remote = new content.mojom.RenderMessageFilterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.RenderMessageFilter',
     'context');
   return remote.$;

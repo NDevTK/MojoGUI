@@ -72,9 +72,8 @@ pdf.mojom.PdfSearchifierRemoteCallHandler = class {
 
 pdf.mojom.PdfSearchifier.getRemote = function() {
   let remote = new pdf.mojom.PdfSearchifierRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'pdf.mojom.PdfSearchifier',
     'context');
   return remote.$;

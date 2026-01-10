@@ -22,7 +22,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('file', 24, 0, blink.mojom.DataElementFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file', 24, 0, blink.mojom.DataElementFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -31,7 +31,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('file', 24, 0, blink.mojom.DataElementFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file', 24, 0, blink.mojom.DataElementFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -96,9 +96,8 @@ blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
 
 blink.mojom.FileBackedBlobFactory.getRemote = function() {
   let remote = new blink.mojom.FileBackedBlobFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FileBackedBlobFactory',
     'context');
   return remote.$;

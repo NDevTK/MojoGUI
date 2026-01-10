@@ -27,7 +27,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParams', [
-      mojo.internal.StructField('telemetry', 0, 0, ash.cros_healthd.mojom.TelemetryInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('telemetry', 0, 0, ash.cros_healthd.mojom.TelemetryInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -39,9 +39,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParams', [
-      mojo.internal.StructField('process_info', 0, 0, ash.cros_healthd.mojom.ProcessResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('process_info', 0, 0, ash.cros_healthd.mojom.ProcessResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver = class {
   constructor(handle) {
@@ -99,9 +99,8 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandler = class {
 
 chromeos.cfm.mojom.MeetDevicesDiagnostics.getRemote = function() {
   let remote = new chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.cfm.mojom.MeetDevicesDiagnostics',
     'context');
   return remote.$;

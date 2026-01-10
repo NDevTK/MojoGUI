@@ -23,8 +23,8 @@ blink.mojom.ServiceWorkerUpdateViaCache = {
 // Struct: ServiceWorkerRegistrationOptions
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationOptionsSpec, 'blink.mojom.ServiceWorkerRegistrationOptions', [
-      mojo.internal.StructField('scope', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, blink.mojom.ScriptTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('update_via_cache', 12, 0, blink.mojom.ServiceWorkerUpdateViaCacheSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('scope', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, blink.mojom.ScriptTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('update_via_cache', 16, 0, blink.mojom.ServiceWorkerUpdateViaCacheSpec.$, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

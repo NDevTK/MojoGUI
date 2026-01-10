@@ -17,13 +17,13 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSp
 // Interface: MemoryConsumerTraitsTest
 mojo.internal.Struct(
     content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_Params', [
-      mojo.internal.StructField('in', 0, 0, content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in', 0, 0, content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ content.mojom.MemoryConsumerTraitsTestRemoteCallHandler = class {
 
 content.mojom.MemoryConsumerTraitsTest.getRemote = function() {
   let remote = new content.mojom.MemoryConsumerTraitsTestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.MemoryConsumerTraitsTest',
     'context');
   return remote.$;

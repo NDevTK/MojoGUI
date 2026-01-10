@@ -24,7 +24,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec, 'ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParams', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -74,9 +74,8 @@ ash.mall.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.mall.mojom.PageHandler.getRemote = function() {
   let remote = new ash.mall.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mall.mojom.PageHandler',
     'context');
   return remote.$;

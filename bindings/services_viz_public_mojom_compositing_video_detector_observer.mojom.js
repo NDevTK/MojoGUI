@@ -80,9 +80,8 @@ viz.mojom.VideoDetectorObserverRemoteCallHandler = class {
 
 viz.mojom.VideoDetectorObserver.getRemote = function() {
   let remote = new viz.mojom.VideoDetectorObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.VideoDetectorObserver',
     'context');
   return remote.$;

@@ -52,9 +52,9 @@ optimization_guide.mojom.ModelUnavailableReason = {
 // Struct: ModelSolutionConfig
 mojo.internal.Struct(
     optimization_guide.mojom.ModelSolutionConfigSpec, 'optimization_guide.mojom.ModelSolutionConfig', [
-      mojo.internal.StructField('feature_config', 0, 0, mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-      mojo.internal.StructField('text_safety_config', 8, 0, mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-      mojo.internal.StructField('model_versions', 16, 0, mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature_config', 0, 0, mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('text_safety_config', 8, 0, mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('model_versions', 16, 0, mojo_base.mojom.ProtoWrapperSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('max_tokens', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -62,16 +62,16 @@ mojo.internal.Struct(
 // Struct: ModelSubscriptionOptions
 mojo.internal.Struct(
     optimization_guide.mojom.ModelSubscriptionOptionsSpec, 'optimization_guide.mojom.ModelSubscriptionOptions', [
-      mojo.internal.StructField('feature', 0, 0, optimization_guide.mojom.OnDeviceFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mark_used', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature', 0, 0, optimization_guide.mojom.OnDeviceFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mark_used', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: ModelSolution
 mojo.internal.Struct(
     optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec, 'optimization_guide.mojom.ModelSolution_CreateSession_Params', [
       mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.SessionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('params', 8, 0, on_device_model.mojom.SessionParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, on_device_model.mojom.SessionParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -152,9 +152,8 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
 
 optimization_guide.mojom.ModelSolution.getRemote = function() {
   let remote = new optimization_guide.mojom.ModelSolutionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'optimization_guide.mojom.ModelSolution',
     'context');
   return remote.$;
@@ -167,13 +166,13 @@ optimization_guide.mojom.ModelSolutionRequest = optimization_guide.mojom.ModelSo
 // Interface: ModelSubscriber
 mojo.internal.Struct(
     optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec, 'optimization_guide.mojom.ModelSubscriber_Unavailable_Params', [
-      mojo.internal.StructField('reason', 0, 0, optimization_guide.mojom.ModelUnavailableReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, optimization_guide.mojom.ModelUnavailableReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec, 'optimization_guide.mojom.ModelSubscriber_Available_Params', [
-      mojo.internal.StructField('config', 0, 0, optimization_guide.mojom.ModelSolutionConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, optimization_guide.mojom.ModelSolutionConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('solution', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.ModelSolutionRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -234,9 +233,8 @@ optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
 
 optimization_guide.mojom.ModelSubscriber.getRemote = function() {
   let remote = new optimization_guide.mojom.ModelSubscriberRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'optimization_guide.mojom.ModelSubscriber',
     'context');
   return remote.$;
@@ -249,7 +247,7 @@ optimization_guide.mojom.ModelSubscriberRequest = optimization_guide.mojom.Model
 // Interface: ModelBroker
 mojo.internal.Struct(
     optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec, 'optimization_guide.mojom.ModelBroker_Subscribe_Params', [
-      mojo.internal.StructField('options', 0, 0, optimization_guide.mojom.ModelSubscriptionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, optimization_guide.mojom.ModelSubscriptionOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('subcriber', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.ModelSubscriberRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -300,9 +298,8 @@ optimization_guide.mojom.ModelBrokerRemoteCallHandler = class {
 
 optimization_guide.mojom.ModelBroker.getRemote = function() {
   let remote = new optimization_guide.mojom.ModelBrokerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'optimization_guide.mojom.ModelBroker',
     'context');
   return remote.$;

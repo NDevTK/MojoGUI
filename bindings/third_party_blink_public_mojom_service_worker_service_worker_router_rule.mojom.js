@@ -36,27 +36,27 @@ mojo.internal.Union(
     blink.mojom.ServiceWorkerRouterSourceSpec, 'blink.mojom.ServiceWorkerRouterSource', {
       'network_source': {
         'ordinal': 0,
-        'type': blink.mojom.ServiceWorkerRouterNetworkSourceSpec,
+        'type': blink.mojom.ServiceWorkerRouterNetworkSourceSpec.$,
         'nullable': false,
       },
       'race_network_and_fetch_event_source': {
         'ordinal': 1,
-        'type': blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec,
+        'type': blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec.$,
         'nullable': false,
       },
       'fetch_event_source': {
         'ordinal': 2,
-        'type': blink.mojom.ServiceWorkerRouterFetchEventSourceSpec,
+        'type': blink.mojom.ServiceWorkerRouterFetchEventSourceSpec.$,
         'nullable': false,
       },
       'cache_source': {
         'ordinal': 3,
-        'type': blink.mojom.ServiceWorkerRouterCacheSourceSpec,
+        'type': blink.mojom.ServiceWorkerRouterCacheSourceSpec.$,
         'nullable': false,
       },
       'race_network_and_cache_source': {
         'ordinal': 4,
-        'type': blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec,
+        'type': blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec.$,
         'nullable': false,
       },
     });
@@ -64,7 +64,7 @@ mojo.internal.Union(
 // Struct: ServiceWorkerRouterRunningStatusCondition
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec, 'blink.mojom.ServiceWorkerRouterRunningStatusCondition', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,34 +73,34 @@ mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterRequestConditionSpec, 'blink.mojom.ServiceWorkerRouterRequestCondition', [
       mojo.internal.StructField('method', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('has_mode', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mode', 12, 0, network.mojom.RequestModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('has_destination', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('destination', 20, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 16, 0, network.mojom.RequestModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('has_destination', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('destination', 32, 0, network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 // Struct: ServiceWorkerRouterOrCondition
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterOrConditionSpec, 'blink.mojom.ServiceWorkerRouterOrCondition', [
-      mojo.internal.StructField('conditions', 0, 0, mojo.internal.Array(blink.mojom.ServiceWorkerRouterConditionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('conditions', 0, 0, mojo.internal.Array(blink.mojom.ServiceWorkerRouterConditionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ServiceWorkerRouterNotCondition
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterNotConditionSpec, 'blink.mojom.ServiceWorkerRouterNotCondition', [
-      mojo.internal.StructField('condition', 0, 0, blink.mojom.ServiceWorkerRouterConditionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('condition', 0, 0, blink.mojom.ServiceWorkerRouterConditionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ServiceWorkerRouterCondition
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterConditionSpec, 'blink.mojom.ServiceWorkerRouterCondition', [
-      mojo.internal.StructField('url_pattern', 0, 0, blink.mojom.SafeUrlPatternSpec, null, true, 0, undefined),
-      mojo.internal.StructField('request', 8, 0, blink.mojom.ServiceWorkerRouterRequestConditionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('running_status', 16, 0, blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('or_condition', 24, 0, blink.mojom.ServiceWorkerRouterOrConditionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('not_condition', 32, 0, blink.mojom.ServiceWorkerRouterNotConditionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url_pattern', 0, 0, blink.mojom.SafeUrlPatternSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('request', 8, 0, blink.mojom.ServiceWorkerRouterRequestConditionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('running_status', 16, 0, blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('or_condition', 24, 0, blink.mojom.ServiceWorkerRouterOrConditionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('not_condition', 32, 0, blink.mojom.ServiceWorkerRouterNotConditionSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -132,21 +132,21 @@ mojo.internal.Struct(
 // Struct: ServiceWorkerRouterRaceNetworkAndCacheSource
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec, 'blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSource', [
-      mojo.internal.StructField('cache_source', 0, 0, blink.mojom.ServiceWorkerRouterCacheSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cache_source', 0, 0, blink.mojom.ServiceWorkerRouterCacheSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ServiceWorkerRouterRule
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterRuleSpec, 'blink.mojom.ServiceWorkerRouterRule', [
-      mojo.internal.StructField('condition', 0, 0, blink.mojom.ServiceWorkerRouterConditionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sources', 8, 0, mojo.internal.Array(blink.mojom.ServiceWorkerRouterSourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('condition', 0, 0, blink.mojom.ServiceWorkerRouterConditionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sources', 8, 0, mojo.internal.Array(blink.mojom.ServiceWorkerRouterSourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ServiceWorkerRouterRules
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRouterRulesSpec, 'blink.mojom.ServiceWorkerRouterRules', [
-      mojo.internal.StructField('rules', 0, 0, mojo.internal.Array(blink.mojom.ServiceWorkerRouterRuleSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('rules', 0, 0, mojo.internal.Array(blink.mojom.ServiceWorkerRouterRuleSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

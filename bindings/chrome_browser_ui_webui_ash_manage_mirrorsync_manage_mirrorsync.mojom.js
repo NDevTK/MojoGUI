@@ -80,9 +80,8 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.manage_mirrorsync.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.manage_mirrorsync.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.manage_mirrorsync.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -95,13 +94,13 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRequest = ash.manage_mirrorsync.mo
 // Interface: PageHandler
 mojo.internal.Struct(
     ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParams', [
-      mojo.internal.StructField('paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -112,8 +111,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('syncing_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('syncing_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -173,9 +172,8 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.manage_mirrorsync.mojom.PageHandler.getRemote = function() {
   let remote = new ash.manage_mirrorsync.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.manage_mirrorsync.mojom.PageHandler',
     'context');
   return remote.$;

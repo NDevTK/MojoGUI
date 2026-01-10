@@ -21,9 +21,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec, 'commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver = class {
   constructor(handle) {
@@ -71,9 +71,8 @@ commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler = class {
 
 commerce_web_extractor.mojom.CommerceWebExtractor.getRemote = function() {
   let remote = new commerce_web_extractor.mojom.CommerceWebExtractorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'commerce_web_extractor.mojom.CommerceWebExtractor',
     'context');
   return remote.$;

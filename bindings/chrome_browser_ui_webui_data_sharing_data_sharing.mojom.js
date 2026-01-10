@@ -70,7 +70,7 @@ data_sharing.mojom.GroupActionProgress = {
 // Struct: ReadGroupsParams
 mojo.internal.Struct(
     data_sharing.mojom.ReadGroupsParamsSpec, 'data_sharing.mojom.ReadGroupsParams', [
-      mojo.internal.StructField('params', 0, 0, mojo.internal.Array(data_sharing.mojom.ReadGroupParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, mojo.internal.Array(data_sharing.mojom.ReadGroupParamsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -85,7 +85,7 @@ mojo.internal.Struct(
 // Struct: ReadGroupsResult
 mojo.internal.Struct(
     data_sharing.mojom.ReadGroupsResultSpec, 'data_sharing.mojom.ReadGroupsResult', [
-      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(data_sharing.mojom.GroupDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(data_sharing.mojom.GroupDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('status_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -101,7 +101,7 @@ mojo.internal.Struct(
 // Struct: ReadGroupWithTokenResult
 mojo.internal.Struct(
     data_sharing.mojom.ReadGroupWithTokenResultSpec, 'data_sharing.mojom.ReadGroupWithTokenResult', [
-      mojo.internal.StructField('group', 0, 0, data_sharing.mojom.GroupDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('group', 0, 0, data_sharing.mojom.GroupDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('status_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -110,7 +110,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     data_sharing.mojom.SharedTabSpec, 'data_sharing.mojom.SharedTab', [
       mojo.internal.StructField('display_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('favicon_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -118,8 +118,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     data_sharing.mojom.GroupPreviewSpec, 'data_sharing.mojom.GroupPreview', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('shared_tabs', 8, 0, mojo.internal.Array(data_sharing.mojom.SharedTabSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('status_code', 16, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_tabs', 8, 0, mojo.internal.Array(data_sharing.mojom.SharedTabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('status_code', 16, 0, mojo_base.mojom.AbslStatusCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -177,9 +177,8 @@ data_sharing.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 data_sharing.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new data_sharing.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'data_sharing.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -216,7 +215,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec, 'data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParams', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -229,7 +228,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec, 'data_sharing.mojom.PageHandler_GetShareLink_ResponseParams', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -242,7 +241,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec, 'data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParams', [
-      mojo.internal.StructField('group_preview', 0, 0, data_sharing.mojom.GroupPreviewSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_preview', 0, 0, data_sharing.mojom.GroupPreviewSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -266,10 +265,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec, 'data_sharing.mojom.PageHandler_OnGroupAction_Params', [
-      mojo.internal.StructField('action', 0, 0, data_sharing.mojom.GroupActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 4, 0, data_sharing.mojom.GroupActionProgressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, data_sharing.mojom.GroupActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 8, 0, data_sharing.mojom.GroupActionProgressSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 data_sharing.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -407,9 +406,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
 
 data_sharing.mojom.PageHandler.getRemote = function() {
   let remote = new data_sharing.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'data_sharing.mojom.PageHandler',
     'context');
   return remote.$;
@@ -428,25 +426,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     data_sharing.mojom.Page_ReadGroups_ParamsSpec, 'data_sharing.mojom.Page_ReadGroups_Params', [
-      mojo.internal.StructField('read_groups_params', 0, 0, data_sharing.mojom.ReadGroupsParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('read_groups_params', 0, 0, data_sharing.mojom.ReadGroupsParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec, 'data_sharing.mojom.Page_ReadGroups_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, data_sharing.mojom.ReadGroupsResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, data_sharing.mojom.ReadGroupsResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec, 'data_sharing.mojom.Page_ReadGroupWithToken_Params', [
-      mojo.internal.StructField('param', 0, 0, data_sharing.mojom.ReadGroupWithTokenParamSpec, null, false, 0, undefined),
+      mojo.internal.StructField('param', 0, 0, data_sharing.mojom.ReadGroupWithTokenParamSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec, 'data_sharing.mojom.Page_ReadGroupWithToken_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, data_sharing.mojom.ReadGroupWithTokenResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, data_sharing.mojom.ReadGroupWithTokenResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -560,9 +558,8 @@ data_sharing.mojom.PageRemoteCallHandler = class {
 
 data_sharing.mojom.Page.getRemote = function() {
   let remote = new data_sharing.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'data_sharing.mojom.Page',
     'context');
   return remote.$;

@@ -40,11 +40,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_Params', [
-      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('storage_type', 8, 0, content_settings.mojom.StorageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('site_for_cookies', 24, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_frame_origin', 32, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('storage_type', 8, 0, content_settings.mojom.StorageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 16, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 24, 0, network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 32, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -56,8 +56,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_OnContentBlocked_Params', [
-      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, content_settings.mojom.ContentSettingsTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, content_settings.mojom.ContentSettingsTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -127,9 +127,8 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
 
 content_settings.mojom.ContentSettingsManager.getRemote = function() {
   let remote = new content_settings.mojom.ContentSettingsManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content_settings.mojom.ContentSettingsManager',
     'context');
   return remote.$;

@@ -33,20 +33,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_Params', [
-      mojo.internal.StructField('redirect_info', 0, 0, network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('redirect_response', 8, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('redirect_info', 0, 0, network.mojom.URLRequestRedirectInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('redirect_response', 8, 0, network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_Params', [
       mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('final_response_url', 8, 0, url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
-      mojo.internal.StructField('head', 16, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request_destination', 24, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_ad_resource', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('final_response_url', 8, 0, url.mojom.SchemeHostPortSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('head', 16, 0, network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('request_destination', 24, 0, network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_ad_resource', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_Params', [
@@ -57,8 +57,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_Params', [
-      mojo.internal.StructField('resource_load_info', 0, 0, blink.mojom.ResourceLoadInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resource_load_info', 0, 0, blink.mojom.ResourceLoadInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, network.mojom.URLLoaderCompletionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -180,9 +180,8 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
 
 blink.mojom.ResourceLoadInfoNotifier.getRemote = function() {
   let remote = new blink.mojom.ResourceLoadInfoNotifierRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ResourceLoadInfoNotifier',
     'context');
   return remote.$;

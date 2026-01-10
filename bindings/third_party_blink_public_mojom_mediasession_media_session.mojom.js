@@ -48,12 +48,12 @@ mojo.internal.Union(
     blink.mojom.MediaSessionActionDetailsSpec, 'blink.mojom.MediaSessionActionDetails', {
       'seek_to': {
         'ordinal': 0,
-        'type': blink.mojom.MediaSessionSeekToDetailsSpec,
+        'type': blink.mojom.MediaSessionSeekToDetailsSpec.$,
         'nullable': false,
       },
       'enter_picture_in_picture': {
         'ordinal': 1,
-        'type': blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec,
+        'type': blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec.$,
         'nullable': false,
       },
     });
@@ -61,7 +61,7 @@ mojo.internal.Union(
 // Struct: MediaSessionSeekToDetails
 mojo.internal.Struct(
     blink.mojom.MediaSessionSeekToDetailsSpec, 'blink.mojom.MediaSessionSeekToDetails', [
-      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('fast_seek', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -69,28 +69,28 @@ mojo.internal.Struct(
 // Struct: MediaSessionEnterPictureInPictureDetails
 mojo.internal.Struct(
     blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec, 'blink.mojom.MediaSessionEnterPictureInPictureDetails', [
-      mojo.internal.StructField('reason', 0, 0, blink.mojom.MediaSessionEnterPictureInPictureReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, blink.mojom.MediaSessionEnterPictureInPictureReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SpecMediaMetadata
 mojo.internal.Struct(
     blink.mojom.SpecMediaMetadataSpec, 'blink.mojom.SpecMediaMetadata', [
-      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('artist', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('album', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('artwork', 24, 0, mojo.internal.Array(media_session.mojom.MediaImageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('chapterInfo', 32, 0, mojo.internal.Array(media_session.mojom.ChapterInformationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('artist', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('album', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('artwork', 24, 0, mojo.internal.Array(media_session.mojom.MediaImageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('chapterInfo', 32, 0, mojo.internal.Array(media_session.mojom.ChapterInformationSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Interface: MediaSessionClient
 mojo.internal.Struct(
     blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec, 'blink.mojom.MediaSessionClient_DidReceiveAction_Params', [
-      mojo.internal.StructField('action', 0, 0, media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('details', 8, 0, blink.mojom.MediaSessionActionDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, media_session.mojom.MediaSessionActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, blink.mojom.MediaSessionActionDetailsSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 blink.mojom.MediaSessionClientPendingReceiver = class {
   constructor(handle) {
@@ -138,9 +138,8 @@ blink.mojom.MediaSessionClientRemoteCallHandler = class {
 
 blink.mojom.MediaSessionClient.getRemote = function() {
   let remote = new blink.mojom.MediaSessionClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.MediaSessionClient',
     'context');
   return remote.$;
@@ -159,43 +158,43 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPlaybackState_Params', [
-      mojo.internal.StructField('state', 0, 0, blink.mojom.MediaSessionPlaybackStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, blink.mojom.MediaSessionPlaybackStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaSessionService_SetPositionState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPositionState_Params', [
-      mojo.internal.StructField('position', 0, 0, media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('position', 0, 0, media_session.mojom.MediaPositionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaSessionService_SetMetadata_ParamsSpec, 'blink.mojom.MediaSessionService_SetMetadata_Params', [
-      mojo.internal.StructField('metadata', 0, 0, blink.mojom.SpecMediaMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, blink.mojom.SpecMediaMetadataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec, 'blink.mojom.MediaSessionService_SetMicrophoneState_Params', [
-      mojo.internal.StructField('microphone_state', 0, 0, media_session.mojom.MicrophoneStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('microphone_state', 0, 0, media_session.mojom.MicrophoneStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaSessionService_SetCameraState_ParamsSpec, 'blink.mojom.MediaSessionService_SetCameraState_Params', [
-      mojo.internal.StructField('camera_state', 0, 0, media_session.mojom.CameraStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('camera_state', 0, 0, media_session.mojom.CameraStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaSessionService_EnableAction_ParamsSpec, 'blink.mojom.MediaSessionService_EnableAction_Params', [
-      mojo.internal.StructField('action', 0, 0, media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, media_session.mojom.MediaSessionActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.MediaSessionService_DisableAction_ParamsSpec, 'blink.mojom.MediaSessionService_DisableAction_Params', [
-      mojo.internal.StructField('action', 0, 0, media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, media_session.mojom.MediaSessionActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -315,9 +314,8 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
 
 blink.mojom.MediaSessionService.getRemote = function() {
   let remote = new blink.mojom.MediaSessionServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.MediaSessionService',
     'context');
   return remote.$;

@@ -22,7 +22,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Params', [
-      mojo.internal.StructField('renderer_settings', 0, 0, content_settings.mojom.RendererContentSettingRulesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('renderer_settings', 0, 0, content_settings.mojom.RendererContentSettingRulesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -82,9 +82,8 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
 
 content_settings.mojom.ContentSettingsAgent.getRemote = function() {
   let remote = new content_settings.mojom.ContentSettingsAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content_settings.mojom.ContentSettingsAgent',
     'context');
   return remote.$;

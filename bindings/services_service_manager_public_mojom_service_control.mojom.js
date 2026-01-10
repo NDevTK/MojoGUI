@@ -64,9 +64,8 @@ service_manager.mojom.ServiceControlRemoteCallHandler = class {
 
 service_manager.mojom.ServiceControl.getRemote = function() {
   let remote = new service_manager.mojom.ServiceControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'service_manager.mojom.ServiceControl',
     'context');
   return remote.$;

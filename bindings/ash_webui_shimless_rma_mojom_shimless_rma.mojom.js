@@ -463,17 +463,17 @@ mojo.internal.Union(
     ash.shimless_rma.mojom.HardwareVerificationResultSpec, 'ash.shimless_rma.mojom.HardwareVerificationResult', {
       'pass_result': {
         'ordinal': 0,
-        'type': ash.shimless_rma.mojom.PassHardwareVerificationResultSpec,
+        'type': ash.shimless_rma.mojom.PassHardwareVerificationResultSpec.$,
         'nullable': false,
       },
       'fail_result': {
         'ordinal': 1,
-        'type': ash.shimless_rma.mojom.FailHardwareVerificationResultSpec,
+        'type': ash.shimless_rma.mojom.FailHardwareVerificationResultSpec.$,
         'nullable': false,
       },
       'skip_result': {
         'ordinal': 2,
-        'type': ash.shimless_rma.mojom.SkipHardwareVerificationResultSpec,
+        'type': ash.shimless_rma.mojom.SkipHardwareVerificationResultSpec.$,
         'nullable': false,
       },
     });
@@ -483,7 +483,7 @@ mojo.internal.Union(
     ash.shimless_rma.mojom.StatePropertySpec, 'ash.shimless_rma.mojom.StateProperty', {
       'update_device_info_state_property': {
         'ordinal': 0,
-        'type': ash.shimless_rma.mojom.UpdateDeviceInfoStatePropertySpec,
+        'type': ash.shimless_rma.mojom.UpdateDeviceInfoStatePropertySpec.$,
         'nullable': false,
       },
     });
@@ -493,12 +493,12 @@ mojo.internal.Union(
     ash.shimless_rma.mojom.StatePropertyResultSpec, 'ash.shimless_rma.mojom.StatePropertyResult', {
       'property': {
         'ordinal': 0,
-        'type': ash.shimless_rma.mojom.StatePropertySpec,
+        'type': ash.shimless_rma.mojom.StatePropertySpec.$,
         'nullable': false,
       },
       'error': {
         'ordinal': 1,
-        'type': ash.shimless_rma.mojom.StatePropertyErrorSpec,
+        'type': ash.shimless_rma.mojom.StatePropertyErrorSpec.$,
         'nullable': false,
       },
     });
@@ -506,12 +506,12 @@ mojo.internal.Union(
 // Struct: StateResult
 mojo.internal.Struct(
     ash.shimless_rma.mojom.StateResultSpec, 'ash.shimless_rma.mojom.StateResult', [
-      mojo.internal.StructField('state', 0, 0, ash.shimless_rma.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('can_exit', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('can_go_back', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.shimless_rma.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('can_exit', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('can_go_back', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: QrCode
 mojo.internal.Struct(
@@ -524,20 +524,20 @@ mojo.internal.Struct(
 // Struct: Component
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ComponentSpec, 'ash.shimless_rma.mojom.Component', [
-      mojo.internal.StructField('component', 0, 0, ash.shimless_rma.mojom.ComponentTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('state', 4, 0, ash.shimless_rma.mojom.ComponentRepairStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('identifier', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('component', 0, 0, ash.shimless_rma.mojom.ComponentTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, ash.shimless_rma.mojom.ComponentRepairStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: CalibrationComponentStatus
 mojo.internal.Struct(
     ash.shimless_rma.mojom.CalibrationComponentStatusSpec, 'ash.shimless_rma.mojom.CalibrationComponentStatus', [
-      mojo.internal.StructField('component', 0, 0, ash.shimless_rma.mojom.ComponentTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 4, 0, ash.shimless_rma.mojom.CalibrationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('component', 0, 0, ash.shimless_rma.mojom.ComponentTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, ash.shimless_rma.mojom.CalibrationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: Shimless3pDiagnosticsAppInfo
 mojo.internal.Struct(
@@ -583,7 +583,7 @@ mojo.internal.Struct(
 // Interface: ErrorObserver
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec, 'ash.shimless_rma.mojom.ErrorObserver_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -633,9 +633,8 @@ ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.ErrorObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.ErrorObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.ErrorObserver',
     'context');
   return remote.$;
@@ -648,11 +647,11 @@ ash.shimless_rma.mojom.ErrorObserverRequest = ash.shimless_rma.mojom.ErrorObserv
 // Interface: OsUpdateObserver
 mojo.internal.Struct(
     ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec, 'ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_Params', [
-      mojo.internal.StructField('operation', 0, 0, ash.shimless_rma.mojom.OsUpdateOperationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('update_error_code', 8, 0, ash.shimless_rma.mojom.UpdateErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('operation', 0, 0, ash.shimless_rma.mojom.OsUpdateOperationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('update_error_code', 16, 0, ash.shimless_rma.mojom.UpdateErrorCodeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 ash.shimless_rma.mojom.OsUpdateObserverPendingReceiver = class {
   constructor(handle) {
@@ -700,9 +699,8 @@ ash.shimless_rma.mojom.OsUpdateObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.OsUpdateObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.OsUpdateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.OsUpdateObserver',
     'context');
   return remote.$;
@@ -715,13 +713,13 @@ ash.shimless_rma.mojom.OsUpdateObserverRequest = ash.shimless_rma.mojom.OsUpdate
 // Interface: CalibrationObserver
 mojo.internal.Struct(
     ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec, 'ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_Params', [
-      mojo.internal.StructField('componentStatus', 0, 0, ash.shimless_rma.mojom.CalibrationComponentStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('componentStatus', 0, 0, ash.shimless_rma.mojom.CalibrationComponentStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec, 'ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.CalibrationOverallStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.CalibrationOverallStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -781,9 +779,8 @@ ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.CalibrationObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.CalibrationObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.CalibrationObserver',
     'context');
   return remote.$;
@@ -796,11 +793,11 @@ ash.shimless_rma.mojom.CalibrationObserverRequest = ash.shimless_rma.mojom.Calib
 // Interface: ProvisioningObserver
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec, 'ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.ProvisioningStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.ProvisioningErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.ProvisioningStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, ash.shimless_rma.mojom.ProvisioningErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 ash.shimless_rma.mojom.ProvisioningObserverPendingReceiver = class {
   constructor(handle) {
@@ -848,9 +845,8 @@ ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.ProvisioningObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.ProvisioningObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.ProvisioningObserver',
     'context');
   return remote.$;
@@ -913,9 +909,8 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemoteCallHandler = c
 
 ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver',
     'context');
   return remote.$;
@@ -978,9 +973,8 @@ ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.PowerCableStateObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.PowerCableStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.PowerCableStateObserver',
     'context');
   return remote.$;
@@ -1043,9 +1037,8 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.ExternalDiskStateObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.ExternalDiskStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.ExternalDiskStateObserver',
     'context');
   return remote.$;
@@ -1058,9 +1051,9 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverRequest = ash.shimless_rma.mojom
 // Interface: HardwareVerificationStatusObserver
 mojo.internal.Struct(
     ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec, 'ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_Params', [
-      mojo.internal.StructField('result', 0, 0, ash.shimless_rma.mojom.HardwareVerificationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.shimless_rma.mojom.HardwareVerificationResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 ash.shimless_rma.mojom.HardwareVerificationStatusObserverPendingReceiver = class {
   constructor(handle) {
@@ -1108,9 +1101,8 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemoteCallHandler = cla
 
 ash.shimless_rma.mojom.HardwareVerificationStatusObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.HardwareVerificationStatusObserver',
     'context');
   return remote.$;
@@ -1123,11 +1115,11 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverRequest = ash.shimless_
 // Interface: FinalizationObserver
 mojo.internal.Struct(
     ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec, 'ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.FinalizationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('progress', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.FinalizationErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.FinalizationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, ash.shimless_rma.mojom.FinalizationErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 ash.shimless_rma.mojom.FinalizationObserverPendingReceiver = class {
   constructor(handle) {
@@ -1175,9 +1167,8 @@ ash.shimless_rma.mojom.FinalizationObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.FinalizationObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.FinalizationObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.FinalizationObserver',
     'context');
   return remote.$;
@@ -1190,7 +1181,7 @@ ash.shimless_rma.mojom.FinalizationObserverRequest = ash.shimless_rma.mojom.Fina
 // Interface: UpdateRoFirmwareObserver
 mojo.internal.Struct(
     ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec, 'ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.UpdateRoFirmwareStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, ash.shimless_rma.mojom.UpdateRoFirmwareStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1240,9 +1231,8 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.UpdateRoFirmwareObserver.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.UpdateRoFirmwareObserver',
     'context');
   return remote.$;
@@ -1260,7 +1250,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1271,9 +1261,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParams', [
-      mojo.internal.StructField('state_property_result', 0, 0, ash.shimless_rma.mojom.StatePropertyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_property_result', 0, 0, ash.shimless_rma.mojom.StatePropertyResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_Params', [
@@ -1282,7 +1272,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1293,7 +1283,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1304,7 +1294,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1320,7 +1310,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1365,7 +1355,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1376,7 +1366,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1387,7 +1377,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1399,7 +1389,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1410,7 +1400,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1421,7 +1411,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1466,7 +1456,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1477,7 +1467,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1488,7 +1478,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParams', [
-      mojo.internal.StructField('action', 0, 0, ash.shimless_rma.mojom.WriteProtectDisableCompleteActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 0, 0, ash.shimless_rma.mojom.WriteProtectDisableCompleteActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1499,7 +1489,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1510,19 +1500,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParams', [
-      mojo.internal.StructField('components', 0, 0, mojo.internal.Array(ash.shimless_rma.mojom.ComponentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('components', 0, 0, mojo.internal.Array(ash.shimless_rma.mojom.ComponentSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_Params', [
-      mojo.internal.StructField('components', 0, 0, mojo.internal.Array(ash.shimless_rma.mojom.ComponentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('components', 0, 0, mojo.internal.Array(ash.shimless_rma.mojom.ComponentSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1533,7 +1523,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1544,7 +1534,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1555,7 +1545,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1566,7 +1556,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1676,7 +1666,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParams', [
-      mojo.internal.StructField('original_feature_level', 0, 0, ash.shimless_rma.mojom.FeatureLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('original_feature_level', 0, 0, ash.shimless_rma.mojom.FeatureLevelSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1694,7 +1684,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1705,7 +1695,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParams', [
-      mojo.internal.StructField('components', 0, 0, mojo.internal.Array(ash.shimless_rma.mojom.CalibrationComponentStatusSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('components', 0, 0, mojo.internal.Array(ash.shimless_rma.mojom.CalibrationComponentStatusSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1716,19 +1706,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParams', [
-      mojo.internal.StructField('instructions', 0, 0, ash.shimless_rma.mojom.CalibrationSetupInstructionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('instructions', 0, 0, ash.shimless_rma.mojom.CalibrationSetupInstructionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_Params', [
-      mojo.internal.StructField('components', 0, 0, mojo.internal.Array(ash.shimless_rma.mojom.CalibrationComponentStatusSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('components', 0, 0, mojo.internal.Array(ash.shimless_rma.mojom.CalibrationComponentStatusSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1739,7 +1729,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1750,7 +1740,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1761,7 +1751,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1772,7 +1762,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1783,7 +1773,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1794,7 +1784,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1805,7 +1795,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1816,7 +1806,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1828,7 +1818,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParams', [
       mojo.internal.StructField('log', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1839,8 +1829,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParams', [
-      mojo.internal.StructField('save_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('save_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1862,13 +1852,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_EndRma_Params', [
-      mojo.internal.StructField('shutdown_method', 0, 0, ash.shimless_rma.mojom.ShutdownMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shutdown_method', 0, 0, ash.shimless_rma.mojom.ShutdownMethodSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParams', [
-      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state_result', 0, 0, ash.shimless_rma.mojom.StateResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1884,7 +1874,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1895,7 +1885,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.shimless_rma.mojom.RmadErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1917,7 +1907,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParams', [
-      mojo.internal.StructField('app_path', 0, 0, mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('app_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1928,7 +1918,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParams', [
-      mojo.internal.StructField('app_info', 0, 0, ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('app_info', 0, 0, ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1950,7 +1940,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec, 'ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.shimless_rma.mojom.Show3pDiagnosticsAppResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.shimless_rma.mojom.Show3pDiagnosticsAppResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2790,9 +2780,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
 
 ash.shimless_rma.mojom.ShimlessRmaService.getRemote = function() {
   let remote = new ash.shimless_rma.mojom.ShimlessRmaServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.shimless_rma.mojom.ShimlessRmaService',
     'context');
   return remote.$;

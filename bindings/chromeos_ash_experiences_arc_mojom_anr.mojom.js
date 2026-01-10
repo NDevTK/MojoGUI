@@ -39,7 +39,7 @@ arc.mojom.AnrSource = {
 // Struct: Anr
 mojo.internal.Struct(
     arc.mojom.AnrSpec, 'arc.mojom.Anr', [
-      mojo.internal.StructField('type', 0, 0, arc.mojom.AnrTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source', 4, 0, arc.mojom.AnrSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, arc.mojom.AnrTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, arc.mojom.AnrSourceSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

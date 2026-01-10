@@ -42,8 +42,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('slow_down_compositing_scale_factor', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('auto_resize_output_surface', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('requires_alpha_channel', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('occlusion_culler_settings', 24, 0, viz.mojom.OcclusionCullerSettingsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('overlay_strategies', 32, 0, mojo.internal.Array(viz.mojom.OverlayStrategySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('occlusion_culler_settings', 24, 0, viz.mojom.OcclusionCullerSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('overlay_strategies', 32, 0, mojo.internal.Array(viz.mojom.OverlayStrategySpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('display_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 56]]);

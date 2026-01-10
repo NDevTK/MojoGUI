@@ -24,7 +24,7 @@ blink.mojom.kAutoplayFlagUserException = 0x00004;
 // Interface: AutoplayConfigurationClient
 mojo.internal.Struct(
     blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec, 'blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_Params', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('flags', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -75,9 +75,8 @@ blink.mojom.AutoplayConfigurationClientRemoteCallHandler = class {
 
 blink.mojom.AutoplayConfigurationClient.getRemote = function() {
   let remote = new blink.mojom.AutoplayConfigurationClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.AutoplayConfigurationClient',
     'context');
   return remote.$;

@@ -28,8 +28,8 @@ media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = { $: {} };
 // Struct: AndroidOverlayConfig
 mojo.internal.Struct(
     media.mojom.AndroidOverlayConfigSpec, 'media.mojom.AndroidOverlayConfig', [
-      mojo.internal.StructField('routing_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('routing_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('secure', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('power_efficient', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -40,7 +40,7 @@ mojo.internal.Struct(
     media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec, 'media.mojom.AndroidOverlayProvider_CreateOverlay_Params', [
       mojo.internal.StructField('overlay', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AndroidOverlayRemote), null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(media.mojom.AndroidOverlayClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('config', 16, 0, media.mojom.AndroidOverlayConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 16, 0, media.mojom.AndroidOverlayConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -90,9 +90,8 @@ media.mojom.AndroidOverlayProviderRemoteCallHandler = class {
 
 media.mojom.AndroidOverlayProvider.getRemote = function() {
   let remote = new media.mojom.AndroidOverlayProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AndroidOverlayProvider',
     'context');
   return remote.$;
@@ -105,7 +104,7 @@ media.mojom.AndroidOverlayProviderRequest = media.mojom.AndroidOverlayProviderPe
 // Interface: AndroidOverlay
 mojo.internal.Struct(
     media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec, 'media.mojom.AndroidOverlay_ScheduleLayout_Params', [
-      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -155,9 +154,8 @@ media.mojom.AndroidOverlayRemoteCallHandler = class {
 
 media.mojom.AndroidOverlay.getRemote = function() {
   let remote = new media.mojom.AndroidOverlayRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AndroidOverlay',
     'context');
   return remote.$;
@@ -271,9 +269,8 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
 
 media.mojom.AndroidOverlayClient.getRemote = function() {
   let remote = new media.mojom.AndroidOverlayClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AndroidOverlayClient',
     'context');
   return remote.$;

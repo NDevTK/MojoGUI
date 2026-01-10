@@ -19,15 +19,15 @@ network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     network.mojom.SystemDnsResolver_Resolve_ParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_Params', [
       mojo.internal.StructField('hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('addr_family', 8, 0, network.mojom.AddressFamilySpec, null, false, 0, undefined),
-      mojo.internal.StructField('flags', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('network', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('addr_family', 8, 0, network.mojom.AddressFamilySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('flags', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('network', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_ResponseParams', [
-      mojo.internal.StructField('addr_list', 0, 0, network.mojom.AddressListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('addr_list', 0, 0, network.mojom.AddressListSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('os_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('net_error', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -79,9 +79,8 @@ network.mojom.SystemDnsResolverRemoteCallHandler = class {
 
 network.mojom.SystemDnsResolver.getRemote = function() {
   let remote = new network.mojom.SystemDnsResolverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.SystemDnsResolver',
     'context');
   return remote.$;

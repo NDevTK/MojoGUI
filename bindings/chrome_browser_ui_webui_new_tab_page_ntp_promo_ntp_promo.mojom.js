@@ -197,9 +197,8 @@ ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
 
 ntp_promo.mojom.NtpPromoHandler.getRemote = function() {
   let remote = new ntp_promo.mojom.NtpPromoHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ntp_promo.mojom.NtpPromoHandler',
     'context');
   return remote.$;
@@ -212,8 +211,8 @@ ntp_promo.mojom.NtpPromoHandlerRequest = ntp_promo.mojom.NtpPromoHandlerPendingR
 // Interface: NtpPromoClient
 mojo.internal.Struct(
     ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec, 'ntp_promo.mojom.NtpPromoClient_SetPromos_Params', [
-      mojo.internal.StructField('eligible', 0, 0, mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('completed', 8, 0, mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('eligible', 0, 0, mojo.internal.Array(ntp_promo.mojom.PromoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('completed', 8, 0, mojo.internal.Array(ntp_promo.mojom.PromoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -263,9 +262,8 @@ ntp_promo.mojom.NtpPromoClientRemoteCallHandler = class {
 
 ntp_promo.mojom.NtpPromoClient.getRemote = function() {
   let remote = new ntp_promo.mojom.NtpPromoClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ntp_promo.mojom.NtpPromoClient',
     'context');
   return remote.$;
@@ -329,9 +327,8 @@ ntp_promo.mojom.NtpPromoHandlerFactoryRemoteCallHandler = class {
 
 ntp_promo.mojom.NtpPromoHandlerFactory.getRemote = function() {
   let remote = new ntp_promo.mojom.NtpPromoHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ntp_promo.mojom.NtpPromoHandlerFactory',
     'context');
   return remote.$;

@@ -54,20 +54,20 @@ app_home.mojom.AppType = {
 // Struct: AppInfo
 mojo.internal.Struct(
     app_home.mojom.AppInfoSpec, 'app_home.mojom.AppInfo', [
-      mojo.internal.StructField('app_type', 0, 0, app_home.mojom.AppTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app_type', 0, 0, app_home.mojom.AppTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('start_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('may_show_run_on_os_login_mode', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('may_toggle_run_on_os_login_mode', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('run_on_os_login_mode', 44, 0, app_home.mojom.RunOnOsLoginModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_locally_installed', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('open_in_window', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('may_uninstall', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('store_page_url', 56, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('run_on_os_login_mode', 48, 0, app_home.mojom.RunOnOsLoginModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_locally_installed', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('open_in_window', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('may_uninstall', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('store_page_url', 64, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);
 
 // Struct: ClickEvent
 mojo.internal.Struct(
@@ -134,9 +134,8 @@ app_home.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 app_home.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new app_home.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'app_home.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -154,7 +153,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     app_home.mojom.PageHandler_GetApps_ResponseParamsSpec, 'app_home.mojom.PageHandler_GetApps_ResponseParams', [
-      mojo.internal.StructField('app_list', 0, 0, mojo.internal.Array(app_home.mojom.AppInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('app_list', 0, 0, mojo.internal.Array(app_home.mojom.AppInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -195,14 +194,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     app_home.mojom.PageHandler_LaunchApp_ParamsSpec, 'app_home.mojom.PageHandler_LaunchApp_Params', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('click_event', 8, 0, app_home.mojom.ClickEventSpec, null, true, 0, undefined),
+      mojo.internal.StructField('click_event', 8, 0, app_home.mojom.ClickEventSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec, 'app_home.mojom.PageHandler_SetRunOnOsLoginMode_Params', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('run_on_os_login_mode', 8, 0, app_home.mojom.RunOnOsLoginModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('run_on_os_login_mode', 8, 0, app_home.mojom.RunOnOsLoginModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -220,7 +219,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec, 'app_home.mojom.PageHandler_SetUserDisplayMode_Params', [
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('display_mode', 8, 0, web_app.mojom.UserDisplayModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_mode', 8, 0, web_app.mojom.UserDisplayModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -360,9 +359,8 @@ app_home.mojom.PageHandlerRemoteCallHandler = class {
 
 app_home.mojom.PageHandler.getRemote = function() {
   let remote = new app_home.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'app_home.mojom.PageHandler',
     'context');
   return remote.$;
@@ -375,19 +373,19 @@ app_home.mojom.PageHandlerRequest = app_home.mojom.PageHandlerPendingReceiver;
 // Interface: Page
 mojo.internal.Struct(
     app_home.mojom.Page_AddApp_ParamsSpec, 'app_home.mojom.Page_AddApp_Params', [
-      mojo.internal.StructField('app_info', 0, 0, app_home.mojom.AppInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app_info', 0, 0, app_home.mojom.AppInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     app_home.mojom.Page_RemoveApp_ParamsSpec, 'app_home.mojom.Page_RemoveApp_Params', [
-      mojo.internal.StructField('app_info', 0, 0, app_home.mojom.AppInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app_info', 0, 0, app_home.mojom.AppInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     app_home.mojom.Page_UpdateApp_ParamsSpec, 'app_home.mojom.Page_UpdateApp_Params', [
-      mojo.internal.StructField('app_info', 0, 0, app_home.mojom.AppInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app_info', 0, 0, app_home.mojom.AppInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -457,9 +455,8 @@ app_home.mojom.PageRemoteCallHandler = class {
 
 app_home.mojom.Page.getRemote = function() {
   let remote = new app_home.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'app_home.mojom.Page',
     'context');
   return remote.$;

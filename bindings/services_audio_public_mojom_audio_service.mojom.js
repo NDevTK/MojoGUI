@@ -173,9 +173,8 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
 
 audio.mojom.AudioService.getRemote = function() {
   let remote = new audio.mojom.AudioServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'audio.mojom.AudioService',
     'context');
   return remote.$;

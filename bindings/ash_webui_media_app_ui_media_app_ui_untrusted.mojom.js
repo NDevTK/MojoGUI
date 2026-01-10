@@ -78,7 +78,7 @@ mojo.internal.Union(
       },
       'error': {
         'ordinal': 1,
-        'type': mantis.mojom.InitializeResultSpec,
+        'type': mantis.mojom.InitializeResultSpec.$,
         'nullable': false,
       },
     });
@@ -87,7 +87,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageMetadataSpec, 'ash.media_app_ui.mojom.PageMetadata', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -121,15 +121,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Params', [
       mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MantisUntrustedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('dlc_uuid', 8, 0, mojo_base.mojom.UuidSpec, null, true, 0, undefined),
+      mojo.internal.StructField('dlc_uuid', 8, 0, mojo_base.mojom.UuidSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 ash.media_app_ui.mojom.UntrustedServiceFactoryPendingReceiver = class {
   constructor(handle) {
@@ -207,9 +207,8 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.UntrustedServiceFactory.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.UntrustedServiceFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.media_app_ui.mojom.UntrustedServiceFactory',
     'context');
   return remote.$;
@@ -222,7 +221,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRequest = ash.media_app_ui.mojom.U
 // Interface: OcrUntrustedService
 mojo.internal.Struct(
     ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec, 'ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_Params', [
-      mojo.internal.StructField('page_metadata', 0, 0, mojo.internal.Array(ash.media_app_ui.mojom.PageMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('page_metadata', 0, 0, mojo.internal.Array(ash.media_app_ui.mojom.PageMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -234,7 +233,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec, 'ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_Params', [
-      mojo.internal.StructField('viewport_box', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('viewport_box', 0, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -305,9 +304,8 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.OcrUntrustedService.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.OcrUntrustedServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.media_app_ui.mojom.OcrUntrustedService',
     'context');
   return remote.$;
@@ -326,13 +324,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec, 'ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParams', [
-      mojo.internal.StructField('page', 0, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, skia.mojom.BitmapN32Spec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec, 'ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_Params', [
-      mojo.internal.StructField('viewport_box', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('viewport_box', 0, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -408,9 +406,8 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.OcrUntrustedPage.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.OcrUntrustedPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.media_app_ui.mojom.OcrUntrustedPage',
     'context');
   return remote.$;
@@ -434,7 +431,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec, 'ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_Params', [
-      mojo.internal.StructField('anchor', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('anchor', 0, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('selected_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -520,9 +517,8 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.MahiUntrustedService.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.MahiUntrustedServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.media_app_ui.mojom.MahiUntrustedService',
     'context');
   return remote.$;
@@ -606,9 +602,8 @@ ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.MahiUntrustedPage.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.MahiUntrustedPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.media_app_ui.mojom.MahiUntrustedPage',
     'context');
   return remote.$;
@@ -628,9 +623,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_Params', [
@@ -643,9 +638,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_Params', [
@@ -657,9 +652,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_Params', [
@@ -671,9 +666,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_Params', [
@@ -683,19 +678,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParams', [
-      mojo.internal.StructField('verdict', 0, 0, mantis.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
+      mojo.internal.StructField('verdict', 0, 0, mantis.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_Params', [
-      mojo.internal.StructField('gesture', 0, 0, mojo.internal.Array(mantis.mojom.TouchPointSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('gesture', 0, 0, mojo.internal.Array(mantis.mojom.TouchPointSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec, 'ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParams', [
-      mojo.internal.StructField('mode', 0, 0, mantis.mojom.SegmentationModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, mantis.mojom.SegmentationModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -795,9 +790,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.MantisUntrustedService.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.MantisUntrustedServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.media_app_ui.mojom.MantisUntrustedService',
     'context');
   return remote.$;
@@ -860,9 +854,8 @@ ash.media_app_ui.mojom.MantisUntrustedPageRemoteCallHandler = class {
 
 ash.media_app_ui.mojom.MantisUntrustedPage.getRemote = function() {
   let remote = new ash.media_app_ui.mojom.MantisUntrustedPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.media_app_ui.mojom.MantisUntrustedPage',
     'context');
   return remote.$;

@@ -78,9 +78,8 @@ ash.settings.date_time.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.settings.date_time.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.settings.date_time.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.date_time.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -178,9 +177,8 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.settings.date_time.mojom.PageHandler.getRemote = function() {
   let remote = new ash.settings.date_time.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.date_time.mojom.PageHandler',
     'context');
   return remote.$;
@@ -259,9 +257,8 @@ ash.settings.date_time.mojom.PageRemoteCallHandler = class {
 
 ash.settings.date_time.mojom.Page.getRemote = function() {
   let remote = new ash.settings.date_time.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.settings.date_time.mojom.Page',
     'context');
   return remote.$;

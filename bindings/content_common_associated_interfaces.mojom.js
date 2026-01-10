@@ -17,7 +17,7 @@ content.mojom.RouteProvider_GetRoute_ParamsSpec = { $: {} };
 // Interface: RouteProvider
 mojo.internal.Struct(
     content.mojom.RouteProvider_GetRoute_ParamsSpec, 'content.mojom.RouteProvider_GetRoute_Params', [
-      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -68,9 +68,8 @@ content.mojom.RouteProviderRemoteCallHandler = class {
 
 content.mojom.RouteProvider.getRemote = function() {
   let remote = new content.mojom.RouteProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.RouteProvider',
     'context');
   return remote.$;

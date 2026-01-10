@@ -140,9 +140,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
 
 blink.mojom.WorkerContentSettingsProxy.getRemote = function() {
   let remote = new blink.mojom.WorkerContentSettingsProxyRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WorkerContentSettingsProxy',
     'context');
   return remote.$;

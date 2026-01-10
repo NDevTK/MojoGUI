@@ -45,14 +45,14 @@ mojo.internal.Struct(
     chrome.mojom.BoundSessionThrottlerParamsSpec, 'chrome.mojom.BoundSessionThrottlerParams', [
       mojo.internal.StructField('domain', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('cookie_expiry_date', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cookie_expiry_date', 16, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: DynamicParams
 mojo.internal.Struct(
     chrome.mojom.DynamicParamsSpec, 'chrome.mojom.DynamicParams', [
-      mojo.internal.StructField('bound_session_throttler_params', 0, 0, mojo.internal.Array(chrome.mojom.BoundSessionThrottlerParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bound_session_throttler_params', 0, 0, mojo.internal.Array(chrome.mojom.BoundSessionThrottlerParamsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('force_safe_search', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('youtube_restrict', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('allowed_domains_for_apps', 16, 0, mojo.internal.String, null, false, 0, undefined),
@@ -69,13 +69,13 @@ mojo.internal.Struct(
 // Interface: BoundSessionRequestThrottledHandler
 mojo.internal.Struct(
     chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec, 'chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Params', [
-      mojo.internal.StructField('untrusted_request_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('untrusted_request_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec, 'chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParams', [
-      mojo.internal.StructField('resume_trigger', 0, 0, chrome.mojom.ResumeBlockedRequestsTriggerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resume_trigger', 0, 0, chrome.mojom.ResumeBlockedRequestsTriggerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -125,9 +125,8 @@ chrome.mojom.BoundSessionRequestThrottledHandlerRemoteCallHandler = class {
 
 chrome.mojom.BoundSessionRequestThrottledHandler.getRemote = function() {
   let remote = new chrome.mojom.BoundSessionRequestThrottledHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.BoundSessionRequestThrottledHandler',
     'context');
   return remote.$;
@@ -189,9 +188,8 @@ chrome.mojom.ChromeOSListenerRemoteCallHandler = class {
 
 chrome.mojom.ChromeOSListener.getRemote = function() {
   let remote = new chrome.mojom.ChromeOSListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.ChromeOSListener',
     'context');
   return remote.$;
@@ -213,13 +211,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetConfiguration_Params', [
-      mojo.internal.StructField('params', 0, 0, chrome.mojom.DynamicParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, chrome.mojom.DynamicParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_Params', [
-      mojo.internal.StructField('params', 0, 0, chrome.mojom.StaticParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, chrome.mojom.StaticParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -289,9 +287,8 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
 
 chrome.mojom.RendererConfiguration.getRemote = function() {
   let remote = new chrome.mojom.RendererConfigurationRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.RendererConfiguration',
     'context');
   return remote.$;

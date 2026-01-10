@@ -31,7 +31,7 @@ storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = { $: {} };
 // Interface: LocalStorageControl
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec, 'storage.mojom.LocalStorageControl_BindStorageArea_Params', [
-      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.StorageAreaRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -43,13 +43,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_GetUsage_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, mojo.internal.Array(storage.mojom.StorageUsageInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, mojo.internal.Array(storage.mojom.StorageUsageInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec, 'storage.mojom.LocalStorageControl_DeleteStorage_Params', [
-      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -80,7 +80,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.LocalStorageControl_ApplyPolicyUpdates_Params', [
-      mojo.internal.StructField('policy_updates', 0, 0, mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('policy_updates', 0, 0, mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -205,9 +205,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
 
 storage.mojom.LocalStorageControl.getRemote = function() {
   let remote = new storage.mojom.LocalStorageControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.LocalStorageControl',
     'context');
   return remote.$;

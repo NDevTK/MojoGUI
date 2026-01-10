@@ -32,9 +32,9 @@ mojo.internal.Union(
 // Interface: BadgeService
 mojo.internal.Struct(
     blink.mojom.BadgeService_SetBadge_ParamsSpec, 'blink.mojom.BadgeService_SetBadge_Params', [
-      mojo.internal.StructField('value', 0, 0, blink.mojom.BadgeValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, blink.mojom.BadgeValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.BadgeService_ClearBadge_ParamsSpec, 'blink.mojom.BadgeService_ClearBadge_Params', [
@@ -97,9 +97,8 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
 
 blink.mojom.BadgeService.getRemote = function() {
   let remote = new blink.mojom.BadgeServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BadgeService',
     'context');
   return remote.$;

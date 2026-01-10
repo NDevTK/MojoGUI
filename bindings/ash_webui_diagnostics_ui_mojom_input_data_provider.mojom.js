@@ -66,36 +66,36 @@ ash.diagnostics.mojom.TouchDeviceType = {
 mojo.internal.Struct(
     ash.diagnostics.mojom.KeyEventSpec, 'ash.diagnostics.mojom.KeyEvent', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 4, 0, ash.diagnostics.mojom.KeyEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('key_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('scan_code', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('top_row_position', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ash.diagnostics.mojom.KeyEventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('key_code', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('scan_code', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('top_row_position', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: TouchDeviceInfo
 mojo.internal.Struct(
     ash.diagnostics.mojom.TouchDeviceInfoSpec, 'ash.diagnostics.mojom.TouchDeviceInfo', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('connection_type', 4, 0, ash.diagnostics.mojom.ConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, ash.diagnostics.mojom.TouchDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('testable', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('connection_type', 8, 0, ash.diagnostics.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, ash.diagnostics.mojom.TouchDeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('testable', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: ConnectedDevices
 mojo.internal.Struct(
     ash.diagnostics.mojom.ConnectedDevicesSpec, 'ash.diagnostics.mojom.ConnectedDevices', [
-      mojo.internal.StructField('keyboards', 0, 0, mojo.internal.Array(ash.diagnostics.mojom.KeyboardInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('touch_devices', 8, 0, mojo.internal.Array(ash.diagnostics.mojom.TouchDeviceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('keyboards', 0, 0, mojo.internal.Array(ash.diagnostics.mojom.KeyboardInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('touch_devices', 8, 0, mojo.internal.Array(ash.diagnostics.mojom.TouchDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: KeyboardObserver
 mojo.internal.Struct(
     ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec, 'ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, ash.diagnostics.mojom.KeyEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, ash.diagnostics.mojom.KeyEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -175,9 +175,8 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.KeyboardObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.KeyboardObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.KeyboardObserver',
     'context');
   return remote.$;
@@ -240,9 +239,8 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class
 
 ash.diagnostics.mojom.InternalDisplayPowerStateObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.InternalDisplayPowerStateObserver',
     'context');
   return remote.$;
@@ -305,9 +303,8 @@ ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.TabletModeObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.TabletModeObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.TabletModeObserver',
     'context');
   return remote.$;
@@ -370,9 +367,8 @@ ash.diagnostics.mojom.LidStateObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.LidStateObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.LidStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.LidStateObserver',
     'context');
   return remote.$;
@@ -385,7 +381,7 @@ ash.diagnostics.mojom.LidStateObserverRequest = ash.diagnostics.mojom.LidStateOb
 // Interface: ConnectedDevicesObserver
 mojo.internal.Struct(
     ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec, 'ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_Params', [
-      mojo.internal.StructField('new_keyboard', 0, 0, ash.diagnostics.mojom.KeyboardInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_keyboard', 0, 0, ash.diagnostics.mojom.KeyboardInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -397,7 +393,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec, 'ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_Params', [
-      mojo.internal.StructField('new_touch_device', 0, 0, ash.diagnostics.mojom.TouchDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_touch_device', 0, 0, ash.diagnostics.mojom.TouchDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -483,9 +479,8 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
 
 ash.diagnostics.mojom.ConnectedDevicesObserver.getRemote = function() {
   let remote = new ash.diagnostics.mojom.ConnectedDevicesObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.ConnectedDevicesObserver',
     'context');
   return remote.$;
@@ -503,7 +498,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec, 'ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParams', [
-      mojo.internal.StructField('devices', 0, 0, ash.diagnostics.mojom.ConnectedDevicesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, ash.diagnostics.mojom.ConnectedDevicesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -693,9 +688,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
 
 ash.diagnostics.mojom.InputDataProvider.getRemote = function() {
   let remote = new ash.diagnostics.mojom.InputDataProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.diagnostics.mojom.InputDataProvider',
     'context');
   return remote.$;

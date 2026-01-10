@@ -39,7 +39,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.LeakDetectionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.LeakDetectionResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -89,9 +89,8 @@ blink.mojom.LeakDetectorRemoteCallHandler = class {
 
 blink.mojom.LeakDetector.getRemote = function() {
   let remote = new blink.mojom.LeakDetectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.LeakDetector',
     'context');
   return remote.$;

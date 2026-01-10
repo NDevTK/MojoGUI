@@ -25,8 +25,8 @@ ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = { $
 // Interface: AcceleratorFetcherObserver
 mojo.internal.Struct(
     ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec, 'ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_Params', [
-      mojo.internal.StructField('actionId', 0, 0, ash.mojom.AcceleratorActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('accelerators', 8, 0, mojo.internal.Array(ash.mojom.StandardAcceleratorPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('actionId', 0, 0, ash.mojom.AcceleratorActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('accelerators', 8, 0, mojo.internal.Array(ash.mojom.StandardAcceleratorPropertiesSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -76,9 +76,8 @@ ash.common.mojom.AcceleratorFetcherObserverRemoteCallHandler = class {
 
 ash.common.mojom.AcceleratorFetcherObserver.getRemote = function() {
   let remote = new ash.common.mojom.AcceleratorFetcherObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.common.mojom.AcceleratorFetcherObserver',
     'context');
   return remote.$;
@@ -91,7 +90,7 @@ ash.common.mojom.AcceleratorFetcherObserverRequest = ash.common.mojom.Accelerato
 // Interface: AcceleratorFetcher
 mojo.internal.Struct(
     ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec, 'ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_Params', [
-      mojo.internal.StructField('actionIds', 0, 0, mojo.internal.Array(ash.mojom.AcceleratorActionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('actionIds', 0, 0, mojo.internal.Array(ash.mojom.AcceleratorActionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(ash.common.mojom.AcceleratorFetcherObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -103,7 +102,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec, 'ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParams', [
-      mojo.internal.StructField('meta_key', 0, 0, ui.mojom.MetaKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('meta_key', 0, 0, ui.mojom.MetaKeySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -163,9 +162,8 @@ ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
 
 ash.common.mojom.AcceleratorFetcher.getRemote = function() {
   let remote = new ash.common.mojom.AcceleratorFetcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.common.mojom.AcceleratorFetcher',
     'context');
   return remote.$;

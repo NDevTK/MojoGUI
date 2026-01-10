@@ -71,9 +71,8 @@ chromecast.mojom.AudioSocketBrokerRemoteCallHandler = class {
 
 chromecast.mojom.AudioSocketBroker.getRemote = function() {
   let remote = new chromecast.mojom.AudioSocketBrokerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.AudioSocketBroker',
     'context');
   return remote.$;

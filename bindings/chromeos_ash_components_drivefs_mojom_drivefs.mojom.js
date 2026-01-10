@@ -402,12 +402,12 @@ mojo.internal.Union(
     drivefs.mojom.FilePathOrErrorSpec, 'drivefs.mojom.FilePathOrError', {
       'error': {
         'ordinal': 0,
-        'type': drivefs.mojom.FileErrorSpec,
+        'type': drivefs.mojom.FileErrorSpec.$,
         'nullable': false,
       },
       'path': {
         'ordinal': 1,
-        'type': mojo_base.mojom.FilePathSpec,
+        'type': mojo_base.mojom.FilePathSpec.$,
         'nullable': false,
       },
     });
@@ -421,17 +421,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('lost_and_found_directory_name', 24, 0, mojo.internal.String, null, true, 3, undefined),
       mojo.internal.StructField('enable_experimental_mirroring', 32, 0, mojo.internal.Bool, false, false, 4, undefined),
       mojo.internal.StructField('enable_verbose_logging', 32, 1, mojo.internal.Bool, false, false, 5, undefined),
-      mojo.internal.StructField('cse_support', 36, 0, drivefs.mojom.CSESupportSpec, 0, false, 7, undefined),
-      mojo.internal.StructField('fetch_modifying_user_metadata', 40, 0, mojo.internal.Bool, false, false, 8, undefined),
-      mojo.internal.StructField('fetch_sharing_user_metadata', 40, 1, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('cse_support', 40, 0, drivefs.mojom.CSESupportSpec.$, 0, false, 7, undefined),
+      mojo.internal.StructField('fetch_modifying_user_metadata', 48, 0, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('fetch_sharing_user_metadata', 48, 1, mojo.internal.Bool, false, false, 8, undefined),
     ],
-    [[0, 16], [1, 24], [2, 32], [3, 40], [4, 48], [5, 48], [7, 48], [8, 56]]);
+    [[0, 16], [1, 24], [2, 32], [3, 40], [4, 48], [5, 48], [7, 56], [8, 64]]);
 
 // Struct: AccessToken
 mojo.internal.Struct(
     drivefs.mojom.AccessTokenSpec, 'drivefs.mojom.AccessToken', [
       mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('expiry_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expiry_time', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -528,21 +528,21 @@ mojo.internal.Struct(
       mojo.internal.StructField('stable_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('path', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('progress', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('file_path', 24, 0, mojo_base.mojom.FilePathSpec, null, true, 1, undefined),
+      mojo.internal.StructField('file_path', 24, 0, mojo_base.mojom.FilePathSpec.$, null, true, 1, undefined),
     ],
     [[0, 32], [1, 40]]);
 
 // Struct: SyncingStatus
 mojo.internal.Struct(
     drivefs.mojom.SyncingStatusSpec, 'drivefs.mojom.SyncingStatus', [
-      mojo.internal.StructField('item_events', 0, 0, mojo.internal.Array(drivefs.mojom.ItemEventSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('item_events', 0, 0, mojo.internal.Array(drivefs.mojom.ItemEventSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: FileChange
 mojo.internal.Struct(
     drivefs.mojom.FileChangeSpec, 'drivefs.mojom.FileChange', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('kCreate', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -557,8 +557,8 @@ mojo.internal.Struct(
 // Struct: QueryItem
 mojo.internal.Struct(
     drivefs.mojom.QueryItemSpec, 'drivefs.mojom.QueryItem', [
-      mojo.internal.StructField('metadata', 0, 0, drivefs.mojom.FileMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, drivefs.mojom.FileMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -573,7 +573,7 @@ mojo.internal.Struct(
 // Struct: PooledQuotaUsage
 mojo.internal.Struct(
     drivefs.mojom.PooledQuotaUsageSpec, 'drivefs.mojom.PooledQuotaUsage', [
-      mojo.internal.StructField('user_type', 0, 0, drivefs.mojom.UserTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_type', 0, 0, drivefs.mojom.UserTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('used_user_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('total_user_bytes', 16, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('organization_limit_exceeded', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -602,7 +602,7 @@ mojo.internal.Struct(
     drivefs.mojom.HttpRequestSpec, 'drivefs.mojom.HttpRequest', [
       mojo.internal.StructField('method', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('url', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('headers', 16, 0, mojo.internal.Array(drivefs.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('headers', 16, 0, mojo.internal.Array(drivefs.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('request_body_bytes', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -611,14 +611,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     drivefs.mojom.HttpResponseSpec, 'drivefs.mojom.HttpResponse', [
       mojo.internal.StructField('response_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('headers', 8, 0, mojo.internal.Array(drivefs.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('headers', 8, 0, mojo.internal.Array(drivefs.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: HttpCompletionStatus
 mojo.internal.Struct(
     drivefs.mojom.HttpCompletionStatusSpec, 'drivefs.mojom.HttpCompletionStatus', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.NetErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.NetErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('response_body_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -641,14 +641,14 @@ mojo.internal.Struct(
 // Struct: MirrorSyncErrorList
 mojo.internal.Struct(
     drivefs.mojom.MirrorSyncErrorListSpec, 'drivefs.mojom.MirrorSyncErrorList', [
-      mojo.internal.StructField('errors', 0, 0, mojo.internal.Array(drivefs.mojom.MirrorSyncErrorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('errors', 0, 0, mojo.internal.Array(drivefs.mojom.MirrorSyncErrorSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: DriveFsBootstrap
 mojo.internal.Struct(
     drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec, 'drivefs.mojom.DriveFsBootstrap_Init_Params', [
-      mojo.internal.StructField('config', 0, 0, drivefs.mojom.DriveFsConfigurationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, drivefs.mojom.DriveFsConfigurationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('drive_fs', 8, 0, mojo.internal.InterfaceRequest(drivefs.mojom.DriveFsRemote), null, false, 0, undefined),
       mojo.internal.StructField('delegate', 16, 0, mojo.internal.InterfaceProxy(drivefs.mojom.DriveFsDelegateRemote), null, false, 0, undefined),
     ],
@@ -700,9 +700,8 @@ drivefs.mojom.DriveFsBootstrapRemoteCallHandler = class {
 
 drivefs.mojom.DriveFsBootstrap.getRemote = function() {
   let remote = new drivefs.mojom.DriveFsBootstrapRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'drivefs.mojom.DriveFsBootstrap',
     'context');
   return remote.$;
@@ -715,27 +714,27 @@ drivefs.mojom.DriveFsBootstrapRequest = drivefs.mojom.DriveFsBootstrapPendingRec
 // Interface: DriveFs
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetMetadata_ParamsSpec, 'drivefs.mojom.DriveFs_GetMetadata_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetMetadata_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('metadata', 8, 0, drivefs.mojom.FileMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, drivefs.mojom.FileMetadataSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_SetPinned_ParamsSpec, 'drivefs.mojom.DriveFs_SetPinned_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('pinned', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec, 'drivefs.mojom.DriveFs_SetPinned_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -753,13 +752,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec, 'drivefs.mojom.DriveFs_ResetCache_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec, 'drivefs.mojom.DriveFs_GetThumbnail_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('crop_to_square', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -772,21 +771,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_CopyFile_ParamsSpec, 'drivefs.mojom.DriveFs_CopyFile_Params', [
-      mojo.internal.StructField('source', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('target', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('target', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec, 'drivefs.mojom.DriveFs_CopyFile_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec, 'drivefs.mojom.DriveFs_StartSearchQuery_Params', [
       mojo.internal.StructField('query', 0, 0, mojo.internal.InterfaceRequest(drivefs.mojom.SearchQueryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('query_params', 8, 0, drivefs.mojom.QueryParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_params', 8, 0, drivefs.mojom.QueryParametersSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -797,7 +796,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec, 'drivefs.mojom.DriveFs_FetchChangeLog_Params', [
-      mojo.internal.StructField('options', 0, 0, mojo.internal.Array(drivefs.mojom.FetchChangeLogOptionsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, mojo.internal.Array(drivefs.mojom.FetchChangeLogOptionsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -809,7 +808,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec, 'drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('response', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -867,7 +866,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec, 'drivefs.mojom.DriveFs_CreateNativeHostSession_Params', [
-      mojo.internal.StructField('params', 0, 0, drivefs.mojom.ExtensionConnectionParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, drivefs.mojom.ExtensionConnectionParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('host', 8, 0, mojo.internal.InterfaceRequest(drivefs.mojom.NativeMessagingHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('port', 16, 0, mojo.internal.InterfaceProxy(drivefs.mojom.NativeMessagingPortRemote), null, false, 0, undefined),
     ],
@@ -881,7 +880,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec, 'drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, mojo.internal.Array(drivefs.mojom.FilePathOrErrorSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, mojo.internal.Array(drivefs.mojom.FilePathOrErrorSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -892,8 +891,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota', 8, 0, drivefs.mojom.QuotaUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('quota', 8, 0, drivefs.mojom.QuotaUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -905,20 +904,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec, 'drivefs.mojom.DriveFs_ToggleMirroring_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, drivefs.mojom.MirrorSyncStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.MirrorSyncStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec, 'drivefs.mojom.DriveFs_ToggleSyncForPath_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, drivefs.mojom.MirrorPathStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, drivefs.mojom.MirrorPathStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec, 'drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -929,8 +928,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -946,8 +945,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota', 8, 0, drivefs.mojom.PooledQuotaUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('quota', 8, 0, drivefs.mojom.PooledQuotaUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -960,7 +959,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec, 'drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -972,15 +971,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('metadata', 8, 0, drivefs.mojom.FileMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, drivefs.mojom.FileMetadataSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec, 'drivefs.mojom.DriveFs_CancelUploadByPath_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('cancel_mode', 8, 0, drivefs.mojom.CancelUploadModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cancel_mode', 8, 0, drivefs.mojom.CancelUploadModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -992,10 +991,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec, 'drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 4, 0, drivefs.mojom.DocsOfflineEnableStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, drivefs.mojom.DocsOfflineEnableStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec, 'drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_Params', [
@@ -1004,7 +1003,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('space_used', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1016,43 +1015,43 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec, 'drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec, 'drivefs.mojom.DriveFs_ImmediatelyUpload_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec, 'drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec, 'drivefs.mojom.DriveFs_UpdateFromPairedDoc_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec, 'drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec, 'drivefs.mojom.DriveFs_GetItemFromCloudStore_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1063,32 +1062,32 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('counts', 8, 0, drivefs.mojom.DocsOfflineStatsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('counts', 8, 0, drivefs.mojom.DocsOfflineStatsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec, 'drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, drivefs.mojom.MirrorItemSyncingStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.MirrorItemSyncingStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec, 'drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec, 'drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, drivefs.mojom.MirrorItemSyncingStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.MirrorItemSyncingStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1498,9 +1497,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
 
 drivefs.mojom.DriveFs.getRemote = function() {
   let remote = new drivefs.mojom.DriveFsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'drivefs.mojom.DriveFs',
     'context');
   return remote.$;
@@ -1521,7 +1519,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec, 'drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, drivefs.mojom.AccessTokenStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.AccessTokenStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('access_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1533,31 +1531,31 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnMountFailed_Params', [
-      mojo.internal.StructField('retry_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('retry_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnUnmounted_Params', [
-      mojo.internal.StructField('retry_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('retry_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_Params', [
-      mojo.internal.StructField('status', 0, 0, drivefs.mojom.SyncingStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.SyncingStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnFilesChanged_Params', [
-      mojo.internal.StructField('changes', 0, 0, mojo.internal.Array(drivefs.mojom.FileChangeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('changes', 0, 0, mojo.internal.Array(drivefs.mojom.FileChangeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnError_Params', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.DriveErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.DriveErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1570,7 +1568,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_Params', [
       mojo.internal.StructField('team_drive_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('change_type', 8, 0, drivefs.mojom.CreateOrDeleteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('change_type', 8, 0, drivefs.mojom.CreateOrDeleteSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1581,7 +1579,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_ConnectToExtension_Params', [
-      mojo.internal.StructField('params', 0, 0, drivefs.mojom.ExtensionConnectionParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, drivefs.mojom.ExtensionConnectionParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('port', 8, 0, mojo.internal.InterfaceRequest(drivefs.mojom.NativeMessagingPortRemote), null, false, 0, undefined),
       mojo.internal.StructField('host', 16, 0, mojo.internal.InterfaceProxy(drivefs.mojom.NativeMessagingHostRemote), null, false, 0, undefined),
     ],
@@ -1589,25 +1587,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec, 'drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.ExtensionConnectionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.ExtensionConnectionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_Params', [
-      mojo.internal.StructField('reason', 0, 0, drivefs.mojom.DialogReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, drivefs.mojom.DialogReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec, 'drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, drivefs.mojom.DialogResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, drivefs.mojom.DialogResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_Params', [
-      mojo.internal.StructField('request', 0, 0, drivefs.mojom.HttpRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, drivefs.mojom.HttpRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('delegate', 8, 0, mojo.internal.InterfaceProxy(drivefs.mojom.HttpDelegateRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1631,13 +1629,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_Params', [
-      mojo.internal.StructField('status', 0, 0, drivefs.mojom.SyncingStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.SyncingStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnItemProgress_Params', [
-      mojo.internal.StructField('progress_event', 0, 0, drivefs.mojom.ProgressEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('progress_event', 0, 0, drivefs.mojom.ProgressEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1651,20 +1649,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec, 'drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, drivefs.mojom.AccessTokenStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('access_token', 8, 0, drivefs.mojom.AccessTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.AccessTokenStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('access_token', 8, 0, drivefs.mojom.AccessTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnNotificationReceived_Params', [
-      mojo.internal.StructField('notification', 0, 0, drivefs.mojom.DriveFsNotificationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('notification', 0, 0, drivefs.mojom.DriveFsNotificationSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_Params', [
-      mojo.internal.StructField('error_list', 0, 0, drivefs.mojom.MirrorSyncErrorListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_list', 0, 0, drivefs.mojom.MirrorSyncErrorListSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1904,9 +1902,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
 
 drivefs.mojom.DriveFsDelegate.getRemote = function() {
   let remote = new drivefs.mojom.DriveFsDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'drivefs.mojom.DriveFsDelegate',
     'context');
   return remote.$;
@@ -1924,8 +1921,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec, 'drivefs.mojom.SearchQuery_GetNextPage_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(drivefs.mojom.QueryItemSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, drivefs.mojom.FileErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(drivefs.mojom.QueryItemSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1975,9 +1972,8 @@ drivefs.mojom.SearchQueryRemoteCallHandler = class {
 
 drivefs.mojom.SearchQuery.getRemote = function() {
   let remote = new drivefs.mojom.SearchQueryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'drivefs.mojom.SearchQuery',
     'context');
   return remote.$;
@@ -1996,7 +1992,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec, 'drivefs.mojom.HttpDelegate_OnReceiveResponse_Params', [
-      mojo.internal.StructField('response', 0, 0, drivefs.mojom.HttpResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, drivefs.mojom.HttpResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2008,7 +2004,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec, 'drivefs.mojom.HttpDelegate_OnRequestComplete_Params', [
-      mojo.internal.StructField('status', 0, 0, drivefs.mojom.HttpCompletionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, drivefs.mojom.HttpCompletionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2088,9 +2084,8 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
 
 drivefs.mojom.HttpDelegate.getRemote = function() {
   let remote = new drivefs.mojom.HttpDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'drivefs.mojom.HttpDelegate',
     'context');
   return remote.$;

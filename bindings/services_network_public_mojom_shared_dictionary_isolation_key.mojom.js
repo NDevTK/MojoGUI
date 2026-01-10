@@ -15,7 +15,7 @@ network.mojom.SharedDictionaryIsolationKeySpec = { $: {} };
 // Struct: SharedDictionaryIsolationKey
 mojo.internal.Struct(
     network.mojom.SharedDictionaryIsolationKeySpec, 'network.mojom.SharedDictionaryIsolationKey', [
-      mojo.internal.StructField('frame_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_frame_site', 8, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_site', 8, 0, network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

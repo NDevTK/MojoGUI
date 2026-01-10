@@ -84,7 +84,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.cdm.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, chromeos.cdm.mojom.CreateCdmStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -154,9 +154,8 @@ chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
 
 chromeos.cdm.mojom.CdmFactory.getRemote = function() {
   let remote = new chromeos.cdm.mojom.CdmFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.cdm.mojom.CdmFactory',
     'context');
   return remote.$;
@@ -234,7 +233,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, chromeos.cdm.mojom.DecryptStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -402,9 +401,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
 
 chromeos.cdm.mojom.CdmFactoryDaemon.getRemote = function() {
   let remote = new chromeos.cdm.mojom.CdmFactoryDaemonRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.cdm.mojom.CdmFactoryDaemon',
     'context');
   return remote.$;

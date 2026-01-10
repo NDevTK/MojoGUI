@@ -28,7 +28,7 @@ enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = { $: {} };
 // Struct: ErpHistoryData
 mojo.internal.Struct(
     enterprise_reporting.mojom.ErpHistoryDataSpec, 'enterprise_reporting.mojom.ErpHistoryData', [
-      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(enterprise_reporting.mojom.ErpHistoryEventSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(enterprise_reporting.mojom.ErpHistoryEventSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -36,7 +36,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     enterprise_reporting.mojom.ErpHistoryEventSpec, 'enterprise_reporting.mojom.ErpHistoryEvent', [
       mojo.internal.StructField('call', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('parameters', 8, 0, mojo.internal.Array(enterprise_reporting.mojom.ErpHistoryEventParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('parameters', 8, 0, mojo.internal.Array(enterprise_reporting.mojom.ErpHistoryEventParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('status', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
@@ -104,9 +104,8 @@ enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 enterprise_reporting.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new enterprise_reporting.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'enterprise_reporting.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -141,7 +140,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParams', [
-      mojo.internal.StructField('history_data', 0, 0, enterprise_reporting.mojom.ErpHistoryDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('history_data', 0, 0, enterprise_reporting.mojom.ErpHistoryDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -211,9 +210,8 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
 
 enterprise_reporting.mojom.PageHandler.getRemote = function() {
   let remote = new enterprise_reporting.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'enterprise_reporting.mojom.PageHandler',
     'context');
   return remote.$;
@@ -226,7 +224,7 @@ enterprise_reporting.mojom.PageHandlerRequest = enterprise_reporting.mojom.PageH
 // Interface: Page
 mojo.internal.Struct(
     enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec, 'enterprise_reporting.mojom.Page_SetErpHistoryData_Params', [
-      mojo.internal.StructField('history_data', 0, 0, enterprise_reporting.mojom.ErpHistoryDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('history_data', 0, 0, enterprise_reporting.mojom.ErpHistoryDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -276,9 +274,8 @@ enterprise_reporting.mojom.PageRemoteCallHandler = class {
 
 enterprise_reporting.mojom.Page.getRemote = function() {
   let remote = new enterprise_reporting.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'enterprise_reporting.mojom.Page',
     'context');
   return remote.$;

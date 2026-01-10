@@ -77,9 +77,8 @@ blink.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler = class {
 
 blink.mojom.BrowsingTopicsDocumentService.getRemote = function() {
   let remote = new blink.mojom.BrowsingTopicsDocumentServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.BrowsingTopicsDocumentService',
     'context');
   return remote.$;

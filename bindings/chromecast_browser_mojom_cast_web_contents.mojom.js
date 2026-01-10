@@ -55,16 +55,16 @@ chromecast.mojom.PageState = {
 // Interface: CastWebContentsObserver
 mojo.internal.Struct(
     chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_PageStateChanged_Params', [
-      mojo.internal.StructField('state', 0, 0, chromecast.mojom.PageStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, chromecast.mojom.PageStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_PageStopped_Params', [
-      mojo.internal.StructField('state', 0, 0, chromecast.mojom.PageStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, chromecast.mojom.PageStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_Params', [
@@ -86,7 +86,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -264,9 +264,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
 
 chromecast.mojom.CastWebContentsObserver.getRemote = function() {
   let remote = new chromecast.mojom.CastWebContentsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.CastWebContentsObserver',
     'context');
   return remote.$;
@@ -282,7 +281,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('is_audio_app', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('app_web_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app_web_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('enforce_feature_permissions', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('feature_permissions', 40, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
       mojo.internal.StructField('additional_feature_permission_origins', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
@@ -298,7 +297,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec, 'chromecast.mojom.CastWebContents_AddRendererFeatures_Params', [
-      mojo.internal.StructField('features', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('features', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -310,7 +309,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec, 'chromecast.mojom.CastWebContents_LoadUrl_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -548,9 +547,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
 
 chromecast.mojom.CastWebContents.getRemote = function() {
   let remote = new chromecast.mojom.CastWebContentsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.CastWebContents',
     'context');
   return remote.$;

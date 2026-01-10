@@ -32,7 +32,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec, 'chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParams', [
-      mojo.internal.StructField('out', 0, 0, chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('out', 0, 0, chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -97,9 +97,8 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
 
 chrome.mojom.OfflinePageAutoFetcher.getRemote = function() {
   let remote = new chrome.mojom.OfflinePageAutoFetcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.OfflinePageAutoFetcher',
     'context');
   return remote.$;

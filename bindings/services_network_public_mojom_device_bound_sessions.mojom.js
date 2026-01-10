@@ -191,22 +191,22 @@ mojo.internal.Union(
     network.mojom.DeviceBoundSessionEventTypeDetailsSpec, 'network.mojom.DeviceBoundSessionEventTypeDetails', {
       'creation': {
         'ordinal': 0,
-        'type': network.mojom.DeviceBoundSessionCreationDetailsSpec,
+        'type': network.mojom.DeviceBoundSessionCreationDetailsSpec.$,
         'nullable': false,
       },
       'refresh': {
         'ordinal': 1,
-        'type': network.mojom.DeviceBoundSessionRefreshDetailsSpec,
+        'type': network.mojom.DeviceBoundSessionRefreshDetailsSpec.$,
         'nullable': false,
       },
       'termination': {
         'ordinal': 2,
-        'type': network.mojom.DeviceBoundSessionTerminationDetailsSpec,
+        'type': network.mojom.DeviceBoundSessionTerminationDetailsSpec.$,
         'nullable': false,
       },
       'challenge': {
         'ordinal': 3,
-        'type': network.mojom.DeviceBoundSessionChallengeDetailsSpec,
+        'type': network.mojom.DeviceBoundSessionChallengeDetailsSpec.$,
         'nullable': false,
       },
     });
@@ -214,7 +214,7 @@ mojo.internal.Union(
 // Struct: DeviceBoundSessionKey
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionKeySpec, 'network.mojom.DeviceBoundSessionKey', [
-      mojo.internal.StructField('site', 0, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('site', 0, 0, network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -222,8 +222,8 @@ mojo.internal.Struct(
 // Struct: DeviceBoundSessionAccess
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionAccessSpec, 'network.mojom.DeviceBoundSessionAccess', [
-      mojo.internal.StructField('access_type', 0, 0, network.mojom.DeviceBoundSessionAccessTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('session_key', 8, 0, network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('access_type', 0, 0, network.mojom.DeviceBoundSessionAccessTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('session_key', 8, 0, network.mojom.DeviceBoundSessionKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('cookies', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -231,7 +231,7 @@ mojo.internal.Struct(
 // Struct: DeviceBoundSessionScopeSpecification
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionScopeSpecificationSpec, 'network.mojom.DeviceBoundSessionScopeSpecification', [
-      mojo.internal.StructField('type', 0, 0, network.mojom.DeviceBoundSessionScopeSpecificationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, network.mojom.DeviceBoundSessionScopeSpecificationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('path', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -241,7 +241,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionScopeSpec, 'network.mojom.DeviceBoundSessionScope', [
       mojo.internal.StructField('include_site', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('specifications', 8, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionScopeSpecificationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('specifications', 8, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionScopeSpecificationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('origin', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -258,10 +258,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionParamsSpec, 'network.mojom.DeviceBoundSessionParams', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('fetcher_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetcher_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('refresh_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('scope', 24, 0, network.mojom.DeviceBoundSessionScopeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('credentials', 32, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('scope', 24, 0, network.mojom.DeviceBoundSessionScopeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('credentials', 32, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionCredentialSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('allowed_refresh_initiators', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -274,14 +274,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('path', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('secure', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('http_only', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('same_site', 28, 0, network.mojom.CookieSameSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('same_site', 32, 0, network.mojom.CookieSameSiteSpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: DeviceBoundSessionUrlRuleDisplay
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, 'network.mojom.DeviceBoundSessionUrlRuleDisplay', [
-      mojo.internal.StructField('rule_type', 0, 0, network.mojom.DeviceBoundSessionInclusionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rule_type', 0, 0, network.mojom.DeviceBoundSessionInclusionResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('host_pattern', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('path_prefix', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -292,18 +292,18 @@ mojo.internal.Struct(
     network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec, 'network.mojom.DeviceBoundSessionInclusionRulesDisplay', [
       mojo.internal.StructField('origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('include_site', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('url_rules', 16, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('url_rules', 16, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionUrlRuleDisplaySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: DeviceBoundSessionDisplay
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionDisplaySpec, 'network.mojom.DeviceBoundSessionDisplay', [
-      mojo.internal.StructField('key', 0, 0, network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('refresh_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('inclusion_rules', 16, 0, network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec, null, false, 0, undefined),
-      mojo.internal.StructField('cookie_cravings', 24, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionCookieCravingDisplaySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('expiry_date', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 0, 0, network.mojom.DeviceBoundSessionKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('refresh_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('inclusion_rules', 16, 0, network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cookie_cravings', 24, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionCookieCravingDisplaySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('expiry_date', 32, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('cached_challenge', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('allowed_refresh_initiators', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
@@ -312,32 +312,32 @@ mojo.internal.Struct(
 // Struct: DeviceBoundSessionCreationDetails
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionCreationDetailsSpec, 'network.mojom.DeviceBoundSessionCreationDetails', [
-      mojo.internal.StructField('fetch_error', 0, 0, network.mojom.DeviceBoundSessionErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('new_session_display', 8, 0, network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
+      mojo.internal.StructField('fetch_error', 0, 0, network.mojom.DeviceBoundSessionErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_session_display', 8, 0, network.mojom.DeviceBoundSessionDisplaySpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DeviceBoundSessionRefreshDetails
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionRefreshDetailsSpec, 'network.mojom.DeviceBoundSessionRefreshDetails', [
-      mojo.internal.StructField('refresh_result', 0, 0, network.mojom.DeviceBoundSessionRefreshResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('fetch_error', 4, 0, network.mojom.DeviceBoundSessionErrorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('new_session_display', 8, 0, network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
-      mojo.internal.StructField('was_fully_proactive_refresh', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('refresh_result', 0, 0, network.mojom.DeviceBoundSessionRefreshResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_error', 8, 0, network.mojom.DeviceBoundSessionErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('new_session_display', 16, 0, network.mojom.DeviceBoundSessionDisplaySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('was_fully_proactive_refresh', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: DeviceBoundSessionTerminationDetails
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionTerminationDetailsSpec, 'network.mojom.DeviceBoundSessionTerminationDetails', [
-      mojo.internal.StructField('deletion_reason', 0, 0, network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('deletion_reason', 0, 0, network.mojom.DeviceBoundSessionDeletionReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: DeviceBoundSessionChallengeDetails
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionChallengeDetailsSpec, 'network.mojom.DeviceBoundSessionChallengeDetails', [
-      mojo.internal.StructField('challenge_result', 0, 0, network.mojom.DeviceBoundSessionChallengeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('challenge_result', 0, 0, network.mojom.DeviceBoundSessionChallengeResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('challenge', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -345,13 +345,13 @@ mojo.internal.Struct(
 // Struct: DeviceBoundSessionEvent
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionEventSpec, 'network.mojom.DeviceBoundSessionEvent', [
-      mojo.internal.StructField('event_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('site', 8, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('site', 8, 0, network.mojom.SchemefulSiteSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('session_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('succeeded', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('event_type_details', 32, 0, network.mojom.DeviceBoundSessionEventTypeDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_type_details', 32, 0, network.mojom.DeviceBoundSessionEventTypeDetailsSpec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Interface: DeviceBoundSessionManager
 mojo.internal.Struct(
@@ -361,23 +361,23 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParams', [
-      mojo.internal.StructField('sessions', 0, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionKeySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sessions', 0, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionKeySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteSession_Params', [
-      mojo.internal.StructField('reason', 0, 0, network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('session', 8, 0, network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, network.mojom.DeviceBoundSessionDeletionReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('session', 8, 0, network.mojom.DeviceBoundSessionKeySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteAllSessions_Params', [
-      mojo.internal.StructField('reason', 0, 0, network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('created_after_time', 8, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('created_before_time', 16, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('filter', 24, 0, network.mojom.ClearDataFilterSpec, null, true, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, network.mojom.DeviceBoundSessionDeletionReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('created_after_time', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('created_before_time', 16, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('filter', 24, 0, network.mojom.ClearDataFilterSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -388,7 +388,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddObserver_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(network.mojom.DeviceBoundSessionAccessObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -401,17 +401,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_CreateBoundSessions_Params', [
-      mojo.internal.StructField('params', 0, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionParamsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('wrapped_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('cookies_to_set', 16, 0, mojo.internal.Array(network.mojom.CanonicalCookieSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('cookie_options', 24, 0, network.mojom.CookieOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cookies_to_set', 16, 0, mojo.internal.Array(network.mojom.CanonicalCookieSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('cookie_options', 24, 0, network.mojom.CookieOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParams', [
-      mojo.internal.StructField('session_results', 0, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionErrorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('cookie_results', 8, 0, mojo.internal.Array(network.mojom.CookieInclusionStatusSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('session_results', 0, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionErrorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('cookie_results', 8, 0, mojo.internal.Array(network.mojom.CookieInclusionStatusSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -511,9 +511,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
 
 network.mojom.DeviceBoundSessionManager.getRemote = function() {
   let remote = new network.mojom.DeviceBoundSessionManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.DeviceBoundSessionManager',
     'context');
   return remote.$;
@@ -526,7 +525,7 @@ network.mojom.DeviceBoundSessionManagerRequest = network.mojom.DeviceBoundSessio
 // Interface: DeviceBoundSessionAccessObserver
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec, 'network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_Params', [
-      mojo.internal.StructField('access', 0, 0, network.mojom.DeviceBoundSessionAccessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('access', 0, 0, network.mojom.DeviceBoundSessionAccessSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -592,9 +591,8 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
 
 network.mojom.DeviceBoundSessionAccessObserver.getRemote = function() {
   let remote = new network.mojom.DeviceBoundSessionAccessObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.DeviceBoundSessionAccessObserver',
     'context');
   return remote.$;
@@ -607,13 +605,13 @@ network.mojom.DeviceBoundSessionAccessObserverRequest = network.mojom.DeviceBoun
 // Interface: DeviceBoundSessionEventObserver
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec, 'network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_Params', [
-      mojo.internal.StructField('event', 0, 0, network.mojom.DeviceBoundSessionEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, network.mojom.DeviceBoundSessionEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec, 'network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_Params', [
-      mojo.internal.StructField('session_displays', 0, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionDisplaySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('session_displays', 0, 0, mojo.internal.Array(network.mojom.DeviceBoundSessionDisplaySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -673,9 +671,8 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
 
 network.mojom.DeviceBoundSessionEventObserver.getRemote = function() {
   let remote = new network.mojom.DeviceBoundSessionEventObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.DeviceBoundSessionEventObserver',
     'context');
   return remote.$;

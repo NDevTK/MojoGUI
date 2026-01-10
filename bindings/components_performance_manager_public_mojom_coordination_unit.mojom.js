@@ -57,7 +57,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_Params', [
-      mojo.internal.StructField('state', 0, 0, performance_manager.mojom.LifecycleStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, performance_manager.mojom.LifecycleStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -100,19 +100,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_Params', [
-      mojo.internal.StructField('time_since_navigation_start', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('time_since_navigation_start', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_Params', [
-      mojo.internal.StructField('mode', 0, 0, WebMemoryMeasurement.ModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, WebMemoryMeasurement.ModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec, 'performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParams', [
-      mojo.internal.StructField('measurement', 0, 0, performance_manager.mojom.WebMemoryMeasurementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('measurement', 0, 0, performance_manager.mojom.WebMemoryMeasurementSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -277,9 +277,8 @@ performance_manager.mojom.DocumentCoordinationUnitRemoteCallHandler = class {
 
 performance_manager.mojom.DocumentCoordinationUnit.getRemote = function() {
   let remote = new performance_manager.mojom.DocumentCoordinationUnitRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'performance_manager.mojom.DocumentCoordinationUnit',
     'context');
   return remote.$;
@@ -298,35 +297,35 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_Params', [
-      mojo.internal.StructField('description', 0, 0, performance_manager.mojom.V8ContextDescriptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('iframe_attribution_data', 8, 0, performance_manager.mojom.IframeAttributionDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('description', 0, 0, performance_manager.mojom.V8ContextDescriptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('iframe_attribution_data', 8, 0, performance_manager.mojom.IframeAttributionDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_Params', [
-      mojo.internal.StructField('v8_context_token', 0, 0, blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('v8_context_token', 0, 0, blink.mojom.V8ContextTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_Params', [
-      mojo.internal.StructField('v8_context_token', 0, 0, blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('v8_context_token', 0, 0, blink.mojom.V8ContextTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_Params', [
-      mojo.internal.StructField('parent_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('remote_frame_token', 8, 0, blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('iframe_attribution_data', 16, 0, performance_manager.mojom.IframeAttributionDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parent_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('remote_frame_token', 8, 0, blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('iframe_attribution_data', 16, 0, performance_manager.mojom.IframeAttributionDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec, 'performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_Params', [
-      mojo.internal.StructField('parent_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('remote_frame_token', 8, 0, blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parent_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('remote_frame_token', 8, 0, blink.mojom.RemoteFrameTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -426,9 +425,8 @@ performance_manager.mojom.ProcessCoordinationUnitRemoteCallHandler = class {
 
 performance_manager.mojom.ProcessCoordinationUnit.getRemote = function() {
   let remote = new performance_manager.mojom.ProcessCoordinationUnitRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'performance_manager.mojom.ProcessCoordinationUnit',
     'context');
   return remote.$;
@@ -446,8 +444,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec, 'performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParams', [
-      mojo.internal.StructField('global_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('process_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('global_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('process_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -497,9 +495,8 @@ performance_manager.mojom.ChildProcessCoordinationUnitRemoteCallHandler = class 
 
 performance_manager.mojom.ChildProcessCoordinationUnit.getRemote = function() {
   let remote = new performance_manager.mojom.ChildProcessCoordinationUnitRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'performance_manager.mojom.ChildProcessCoordinationUnit',
     'context');
   return remote.$;

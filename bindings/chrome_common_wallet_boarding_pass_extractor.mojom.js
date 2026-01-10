@@ -71,9 +71,8 @@ wallet.mojom.BoardingPassExtractorRemoteCallHandler = class {
 
 wallet.mojom.BoardingPassExtractor.getRemote = function() {
   let remote = new wallet.mojom.BoardingPassExtractorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'wallet.mojom.BoardingPassExtractor',
     'context');
   return remote.$;

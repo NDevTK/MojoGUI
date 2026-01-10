@@ -58,15 +58,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('radio_signal_strength', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('channel', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('signal_to_noise', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 24, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('timestamp', 24, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: NetworkLocationDiagnostics
 mojo.internal.Struct(
     device.mojom.NetworkLocationDiagnosticsSpec, 'device.mojom.NetworkLocationDiagnostics', [
-      mojo.internal.StructField('access_point_data', 0, 0, mojo.internal.Array(device.mojom.AccessPointDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('wifi_timestamp', 8, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('access_point_data', 0, 0, mojo.internal.Array(device.mojom.AccessPointDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('wifi_timestamp', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -74,24 +74,24 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.PositionCacheDiagnosticsSpec, 'device.mojom.PositionCacheDiagnostics', [
       mojo.internal.StructField('cache_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('last_hit', 8, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('last_miss', 16, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('last_hit', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('last_miss', 16, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('hit_rate_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'hit_rate_$value', originalFieldName: 'hit_rate' }),
       mojo.internal.StructField('hit_rate_$value', 32, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'hit_rate_$flag', originalFieldName: 'hit_rate' }),
-      mojo.internal.StructField('last_network_result', 40, 0, device.mojom.GeopositionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('last_network_result', 40, 0, device.mojom.GeopositionResultSpec.$, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: WifiPollingPolicyDiagnostics
 mojo.internal.Struct(
     device.mojom.WifiPollingPolicyDiagnosticsSpec, 'device.mojom.WifiPollingPolicyDiagnostics', [
-      mojo.internal.StructField('interval_start', 0, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('interval_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('polling_interval', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('default_interval', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('no_change_interval', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('two_no_change_interval', 40, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('no_wifi_interval', 48, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('interval_start', 0, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('interval_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('polling_interval', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('default_interval', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('no_change_interval', 32, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('two_no_change_interval', 40, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('no_wifi_interval', 48, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -115,19 +115,19 @@ mojo.internal.Struct(
 // Interface: GeolocationInternalsObserver
 mojo.internal.Struct(
     device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec, 'device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_Params', [
-      mojo.internal.StructField('diagnostics', 0, 0, device.mojom.GeolocationDiagnosticsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('diagnostics', 0, 0, device.mojom.GeolocationDiagnosticsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec, 'device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_Params', [
-      mojo.internal.StructField('access_point_data', 0, 0, mojo.internal.Array(device.mojom.AccessPointDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('access_point_data', 0, 0, mojo.internal.Array(device.mojom.AccessPointDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec, 'device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_Params', [
-      mojo.internal.StructField('response', 0, 0, device.mojom.NetworkLocationResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, device.mojom.NetworkLocationResponseSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -197,9 +197,8 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
 
 device.mojom.GeolocationInternalsObserver.getRemote = function() {
   let remote = new device.mojom.GeolocationInternalsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.GeolocationInternalsObserver',
     'context');
   return remote.$;
@@ -218,7 +217,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec, 'device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParams', [
-      mojo.internal.StructField('diagnostics', 0, 0, device.mojom.GeolocationDiagnosticsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('diagnostics', 0, 0, device.mojom.GeolocationDiagnosticsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -268,9 +267,8 @@ device.mojom.GeolocationInternalsRemoteCallHandler = class {
 
 device.mojom.GeolocationInternals.getRemote = function() {
   let remote = new device.mojom.GeolocationInternalsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.GeolocationInternals',
     'context');
   return remote.$;

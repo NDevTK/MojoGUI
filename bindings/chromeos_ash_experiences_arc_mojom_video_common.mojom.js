@@ -131,9 +131,9 @@ mojo.internal.Struct(
 // Struct: VideoFrameLayout
 mojo.internal.Struct(
     arc.mojom.VideoFrameLayoutSpec, 'arc.mojom.VideoFrameLayout', [
-      mojo.internal.StructField('format', 0, 0, arc.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('planes', 16, 0, mojo.internal.Array(arc.mojom.ColorPlaneLayoutSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('format', 0, 0, arc.mojom.VideoPixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('planes', 16, 0, mojo.internal.Array(arc.mojom.ColorPlaneLayoutSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('is_multi_planar', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('buffer_addr_align', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('modifier', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),

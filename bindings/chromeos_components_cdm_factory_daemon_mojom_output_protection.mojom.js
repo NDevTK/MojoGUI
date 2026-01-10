@@ -47,13 +47,13 @@ mojo.internal.Struct(
     chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec, 'chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParams', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('link_mask', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('protection', 8, 0, chromeos.cdm.mojom.ProtectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protection', 8, 0, chromeos.cdm.mojom.ProtectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec, 'chromeos.cdm.mojom.OutputProtection_EnableProtection_Params', [
-      mojo.internal.StructField('desired_protection', 0, 0, chromeos.cdm.mojom.ProtectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('desired_protection', 0, 0, chromeos.cdm.mojom.ProtectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -119,9 +119,8 @@ chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = class {
 
 chromeos.cdm.mojom.OutputProtection.getRemote = function() {
   let remote = new chromeos.cdm.mojom.OutputProtectionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.cdm.mojom.OutputProtection',
     'context');
   return remote.$;

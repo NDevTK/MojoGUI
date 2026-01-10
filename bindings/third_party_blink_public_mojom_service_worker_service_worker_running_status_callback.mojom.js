@@ -16,7 +16,7 @@ blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = { $:
 // Interface: ServiceWorkerRunningStatusCallback
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec, 'blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_Params', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -66,9 +66,8 @@ blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerRunningStatusCallback.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerRunningStatusCallbackRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ServiceWorkerRunningStatusCallback',
     'context');
   return remote.$;

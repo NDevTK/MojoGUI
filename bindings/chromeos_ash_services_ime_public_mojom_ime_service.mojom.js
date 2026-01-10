@@ -125,9 +125,8 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
 
 ash.ime.mojom.InputEngineManager.getRemote = function() {
   let remote = new ash.ime.mojom.InputEngineManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.ime.mojom.InputEngineManager',
     'context');
   return remote.$;
@@ -140,14 +139,14 @@ ash.ime.mojom.InputEngineManagerRequest = ash.ime.mojom.InputEngineManagerPendin
 // Interface: PlatformAccessProvider
 mojo.internal.Struct(
     ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('file_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('file_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParams', [
-      mojo.internal.StructField('file_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -197,9 +196,8 @@ ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = class {
 
 ash.ime.mojom.PlatformAccessProvider.getRemote = function() {
   let remote = new ash.ime.mojom.PlatformAccessProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.ime.mojom.PlatformAccessProvider',
     'context');
   return remote.$;
@@ -294,9 +292,8 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
 
 ash.ime.mojom.ImeService.getRemote = function() {
   let remote = new ash.ime.mojom.ImeServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.ime.mojom.ImeService',
     'context');
   return remote.$;

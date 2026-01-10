@@ -30,17 +30,17 @@ quarantine.mojom.QuarantineFileResult = {
 // Interface: Quarantine
 mojo.internal.Struct(
     quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec, 'quarantine.mojom.Quarantine_QuarantineFile_Params', [
-      mojo.internal.StructField('full_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('referrer_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('request_initiator', 24, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('full_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('referrer_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('request_initiator', 24, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('client_guid', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec, 'quarantine.mojom.Quarantine_QuarantineFile_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, quarantine.mojom.QuarantineFileResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, quarantine.mojom.QuarantineFileResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -90,9 +90,8 @@ quarantine.mojom.QuarantineRemoteCallHandler = class {
 
 quarantine.mojom.Quarantine.getRemote = function() {
   let remote = new quarantine.mojom.QuarantineRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'quarantine.mojom.Quarantine',
     'context');
   return remote.$;

@@ -96,7 +96,7 @@ mojo.internal.Union(
 // Struct: PresentationInfo
 mojo.internal.Struct(
     blink.mojom.PresentationInfoSpec, 'blink.mojom.PresentationInfo', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -104,7 +104,7 @@ mojo.internal.Struct(
 // Struct: PresentationError
 mojo.internal.Struct(
     blink.mojom.PresentationErrorSpec, 'blink.mojom.PresentationError', [
-      mojo.internal.StructField('error_type', 0, 0, blink.mojom.PresentationErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_type', 0, 0, blink.mojom.PresentationErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -112,7 +112,7 @@ mojo.internal.Struct(
 // Struct: PresentationConnectionResult
 mojo.internal.Struct(
     blink.mojom.PresentationConnectionResultSpec, 'blink.mojom.PresentationConnectionResult', [
-      mojo.internal.StructField('presentation_info', 0, 0, blink.mojom.PresentationInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_info', 0, 0, blink.mojom.PresentationInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('connection_remote', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
       mojo.internal.StructField('connection_receiver', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
     ],
@@ -121,19 +121,19 @@ mojo.internal.Struct(
 // Interface: PresentationConnection
 mojo.internal.Struct(
     blink.mojom.PresentationConnection_OnMessage_ParamsSpec, 'blink.mojom.PresentationConnection_OnMessage_Params', [
-      mojo.internal.StructField('message', 0, 0, blink.mojom.PresentationConnectionMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, blink.mojom.PresentationConnectionMessageSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationConnection_DidChangeState_ParamsSpec, 'blink.mojom.PresentationConnection_DidChangeState_Params', [
-      mojo.internal.StructField('state', 0, 0, blink.mojom.PresentationConnectionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, blink.mojom.PresentationConnectionStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationConnection_DidClose_ParamsSpec, 'blink.mojom.PresentationConnection_DidClose_Params', [
-      mojo.internal.StructField('reason', 0, 0, blink.mojom.PresentationConnectionCloseReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, blink.mojom.PresentationConnectionCloseReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -203,9 +203,8 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
 
 blink.mojom.PresentationConnection.getRemote = function() {
   let remote = new blink.mojom.PresentationConnectionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PresentationConnection',
     'context');
   return remote.$;
@@ -230,59 +229,59 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec, 'blink.mojom.PresentationService_SetDefaultPresentationUrls_Params', [
-      mojo.internal.StructField('presentation_urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('presentation_urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec, 'blink.mojom.PresentationService_ListenForScreenAvailability_Params', [
-      mojo.internal.StructField('availability_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('availability_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec, 'blink.mojom.PresentationService_StopListeningForScreenAvailability_Params', [
-      mojo.internal.StructField('availability_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('availability_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_StartPresentation_ParamsSpec, 'blink.mojom.PresentationService_StartPresentation_Params', [
-      mojo.internal.StructField('presentation_urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('presentation_urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec, 'blink.mojom.PresentationService_StartPresentation_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.PresentationConnectionResultSpec, null, true, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, blink.mojom.PresentationErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.PresentationConnectionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, blink.mojom.PresentationErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec, 'blink.mojom.PresentationService_ReconnectPresentation_Params', [
-      mojo.internal.StructField('presentation_urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('presentation_urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('presentation_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec, 'blink.mojom.PresentationService_ReconnectPresentation_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.PresentationConnectionResultSpec, null, true, 0, undefined),
-      mojo.internal.StructField('error', 8, 0, blink.mojom.PresentationErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.PresentationConnectionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, blink.mojom.PresentationErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_CloseConnection_ParamsSpec, 'blink.mojom.PresentationService_CloseConnection_Params', [
-      mojo.internal.StructField('presentation_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('presentation_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationService_Terminate_ParamsSpec, 'blink.mojom.PresentationService_Terminate_Params', [
-      mojo.internal.StructField('presentation_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('presentation_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -413,9 +412,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
 
 blink.mojom.PresentationService.getRemote = function() {
   let remote = new blink.mojom.PresentationServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PresentationService',
     'context');
   return remote.$;
@@ -428,28 +426,28 @@ blink.mojom.PresentationServiceRequest = blink.mojom.PresentationServicePendingR
 // Interface: PresentationController
 mojo.internal.Struct(
     blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec, 'blink.mojom.PresentationController_OnScreenAvailabilityUpdated_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('availability', 8, 0, blink.mojom.ScreenAvailabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('availability', 8, 0, blink.mojom.ScreenAvailabilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec, 'blink.mojom.PresentationController_OnDefaultPresentationStarted_Params', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.PresentationConnectionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.PresentationConnectionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec, 'blink.mojom.PresentationController_OnConnectionStateChanged_Params', [
-      mojo.internal.StructField('presentation_info', 0, 0, blink.mojom.PresentationInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('newState', 8, 0, blink.mojom.PresentationConnectionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_info', 0, 0, blink.mojom.PresentationInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('newState', 8, 0, blink.mojom.PresentationConnectionStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec, 'blink.mojom.PresentationController_OnConnectionClosed_Params', [
-      mojo.internal.StructField('presentation_info', 0, 0, blink.mojom.PresentationInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, blink.mojom.PresentationConnectionCloseReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_info', 0, 0, blink.mojom.PresentationInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, blink.mojom.PresentationConnectionCloseReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('message', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -530,9 +528,8 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
 
 blink.mojom.PresentationController.getRemote = function() {
   let remote = new blink.mojom.PresentationControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PresentationController',
     'context');
   return remote.$;
@@ -545,7 +542,7 @@ blink.mojom.PresentationControllerRequest = blink.mojom.PresentationControllerPe
 // Interface: PresentationReceiver
 mojo.internal.Struct(
     blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec, 'blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_Params', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.PresentationConnectionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, blink.mojom.PresentationConnectionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -595,9 +592,8 @@ blink.mojom.PresentationReceiverRemoteCallHandler = class {
 
 blink.mojom.PresentationReceiver.getRemote = function() {
   let remote = new blink.mojom.PresentationReceiverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PresentationReceiver',
     'context');
   return remote.$;

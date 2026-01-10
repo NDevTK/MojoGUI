@@ -16,13 +16,13 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = { $: {} };
 // Interface: FileUtilitiesHost
 mojo.internal.Struct(
     blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec, 'blink.mojom.FileUtilitiesHost_GetFileInfo_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec, 'blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo_base.mojom.FileInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo_base.mojom.FileInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -72,9 +72,8 @@ blink.mojom.FileUtilitiesHostRemoteCallHandler = class {
 
 blink.mojom.FileUtilitiesHost.getRemote = function() {
   let remote = new blink.mojom.FileUtilitiesHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.FileUtilitiesHost',
     'context');
   return remote.$;

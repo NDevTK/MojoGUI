@@ -22,8 +22,8 @@ auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec = { $: {} };
 // Interface: AuctionNetworkEventsHandler
 mojo.internal.Struct(
     auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec, 'auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_Params', [
-      mojo.internal.StructField('request', 0, 0, network.mojom.URLRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, network.mojom.URLRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -31,15 +31,15 @@ mojo.internal.Struct(
     auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec, 'auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_Params', [
       mojo.internal.StructField('request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('loader_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('request_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('headers', 24, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 24, 0, network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec, 'auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_Params', [
       mojo.internal.StructField('request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, network.mojom.URLLoaderCompletionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -125,9 +125,8 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
 
 auction_worklet.mojom.AuctionNetworkEventsHandler.getRemote = function() {
   let remote = new auction_worklet.mojom.AuctionNetworkEventsHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'auction_worklet.mojom.AuctionNetworkEventsHandler',
     'context');
   return remote.$;

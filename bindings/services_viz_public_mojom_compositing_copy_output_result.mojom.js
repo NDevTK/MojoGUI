@@ -32,12 +32,12 @@ viz.mojom.CopyOutputResultDestination = {
 // Struct: CopyOutputResult
 mojo.internal.Struct(
     viz.mojom.CopyOutputResultSpec, 'viz.mojom.CopyOutputResult', [
-      mojo.internal.StructField('format', 0, 0, viz.mojom.CopyOutputResultFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('destination', 4, 0, viz.mojom.CopyOutputResultDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('bitmap', 16, 0, viz.mojom.BitmapInSharedMemorySpec, null, true, 0, undefined),
-      mojo.internal.StructField('mailbox', 24, 0, gpu.mojom.MailboxSpec, null, true, 0, undefined),
-      mojo.internal.StructField('color_space', 32, 0, gfx.mojom.ColorSpaceSpec, null, true, 0, undefined),
-      mojo.internal.StructField('releaser', 40, 0, mojo.internal.InterfaceProxy(viz.mojom.TextureReleaserRemote), null, true, 0, undefined),
+      mojo.internal.StructField('format', 0, 0, viz.mojom.CopyOutputResultFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 8, 0, viz.mojom.CopyOutputResultDestinationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 16, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bitmap', 24, 0, viz.mojom.BitmapInSharedMemorySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('mailbox', 32, 0, gpu.mojom.MailboxSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('color_space', 40, 0, gfx.mojom.ColorSpaceSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('releaser', 48, 0, mojo.internal.InterfaceProxy(viz.mojom.TextureReleaserRemote), null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);

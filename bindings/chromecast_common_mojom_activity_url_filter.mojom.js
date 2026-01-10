@@ -23,7 +23,7 @@ mojo.internal.Struct(
 // Interface: ActivityUrlFilterConfiguration
 mojo.internal.Struct(
     chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec, 'chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_Params', [
-      mojo.internal.StructField('filter', 0, 0, chromecast.mojom.ActivityUrlFilterCriteriaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filter', 0, 0, chromecast.mojom.ActivityUrlFilterCriteriaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,9 +73,8 @@ chromecast.mojom.ActivityUrlFilterConfigurationRemoteCallHandler = class {
 
 chromecast.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
   let remote = new chromecast.mojom.ActivityUrlFilterConfigurationRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.mojom.ActivityUrlFilterConfiguration',
     'context');
   return remote.$;

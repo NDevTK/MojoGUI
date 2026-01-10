@@ -29,17 +29,17 @@ mojo.internal.Union(
     blink.mojom.PatternTemplateSpec, 'blink.mojom.PatternTemplate', {
       'fixed': {
         'ordinal': 0,
-        'type': blink.mojom.FixedPatternSpec,
+        'type': blink.mojom.FixedPatternSpec.$,
         'nullable': false,
       },
       'full_wildcard': {
         'ordinal': 1,
-        'type': blink.mojom.WildcardPatternSpec,
+        'type': blink.mojom.WildcardPatternSpec.$,
         'nullable': false,
       },
       'segment_wildcard': {
         'ordinal': 2,
-        'type': blink.mojom.WildcardPatternSpec,
+        'type': blink.mojom.WildcardPatternSpec.$,
         'nullable': false,
       },
     });
@@ -47,15 +47,15 @@ mojo.internal.Union(
 // Struct: SafeUrlPattern
 mojo.internal.Struct(
     blink.mojom.SafeUrlPatternSpec, 'blink.mojom.SafeUrlPattern', [
-      mojo.internal.StructField('protocol', 0, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('username', 8, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('password', 16, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('hostname', 24, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('port', 32, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('pathname', 40, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('search', 48, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('hash', 56, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('options', 64, 0, blink.mojom.SafeUrlPatternOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('protocol', 0, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('username', 8, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('password', 16, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('hostname', 24, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('port', 32, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('pathname', 40, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('search', 48, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('hash', 56, 0, mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 64, 0, blink.mojom.SafeUrlPatternOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -79,10 +79,10 @@ mojo.internal.Struct(
 // Struct: SafeUrlPatternPart
 mojo.internal.Struct(
     blink.mojom.SafeUrlPatternPartSpec, 'blink.mojom.SafeUrlPatternPart', [
-      mojo.internal.StructField('pattern', 0, 0, blink.mojom.PatternTemplateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('modifier', 16, 0, blink.mojom.ModifierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pattern', 0, 0, blink.mojom.PatternTemplateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('modifier', 8, 0, blink.mojom.ModifierSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: SafeUrlPatternOptions
 mojo.internal.Struct(

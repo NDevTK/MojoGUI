@@ -89,12 +89,12 @@ mojo.internal.Struct(
     arc.mojom.RunningAppProcessInfoSpec, 'arc.mojom.RunningAppProcessInfo', [
       mojo.internal.StructField('process_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('process_state', 12, 0, arc.mojom.ProcessStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('packages', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('is_focused', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('last_activity_time', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('process_state', 16, 0, arc.mojom.ProcessStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('packages', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('is_focused', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('last_activity_time', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: ArcMemoryDump
 mojo.internal.Struct(
@@ -133,7 +133,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec, 'arc.mojom.ProcessInstance_RequestProcessList_ResponseParams', [
-      mojo.internal.StructField('processes', 0, 0, mojo.internal.Array(arc.mojom.RunningAppProcessInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('processes', 0, 0, mojo.internal.Array(arc.mojom.RunningAppProcessInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -144,7 +144,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec, 'arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParams', [
-      mojo.internal.StructField('process_dumps', 0, 0, mojo.internal.Array(arc.mojom.ArcMemoryDumpSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('process_dumps', 0, 0, mojo.internal.Array(arc.mojom.ArcMemoryDumpSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -156,13 +156,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec, 'arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParams', [
-      mojo.internal.StructField('process_dumps', 0, 0, mojo.internal.Array(arc.mojom.ArcMemoryDumpSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('process_dumps', 0, 0, mojo.internal.Array(arc.mojom.ArcMemoryDumpSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec, 'arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_Params', [
-      mojo.internal.StructField('level', 0, 0, arc.mojom.ProcessStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('level', 0, 0, arc.mojom.ProcessStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('reclaim_target', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -176,7 +176,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec, 'arc.mojom.ProcessInstance_ApplyHostMemoryPressure_Params', [
-      mojo.internal.StructField('level', 0, 0, arc.mojom.PressureLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('level', 0, 0, arc.mojom.PressureLevelSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('reclaim_target', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -195,7 +195,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec, 'arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParams', [
-      mojo.internal.StructField('counts', 0, 0, arc.mojom.LowMemoryKillCountsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('counts', 0, 0, arc.mojom.LowMemoryKillCountsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -305,9 +305,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
 
 arc.mojom.ProcessInstance.getRemote = function() {
   let remote = new arc.mojom.ProcessInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.ProcessInstance',
     'context');
   return remote.$;

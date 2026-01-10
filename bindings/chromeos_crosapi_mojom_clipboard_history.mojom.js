@@ -37,9 +37,9 @@ crosapi.mojom.ClipboardHistoryDisplayFormat = {
 // Struct: ClipboardHistoryItemDescriptor
 mojo.internal.Struct(
     crosapi.mojom.ClipboardHistoryItemDescriptorSpec, 'crosapi.mojom.ClipboardHistoryItemDescriptor', [
-      mojo.internal.StructField('item_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('display_format', 8, 0, crosapi.mojom.ClipboardHistoryDisplayFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('display_text', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('item_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('display_format', 8, 0, crosapi.mojom.ClipboardHistoryDisplayFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('display_text', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('file_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);

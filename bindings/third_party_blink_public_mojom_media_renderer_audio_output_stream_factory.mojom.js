@@ -17,15 +17,15 @@ blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Response
 mojo.internal.Struct(
     blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec, 'blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Params', [
       mojo.internal.StructField('stream_provider_receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioOutputStreamProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('session_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('device_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec, 'blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParams', [
-      mojo.internal.StructField('state', 0, 0, media.mojom.OutputDeviceStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_params', 8, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, media.mojom.OutputDeviceStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_params', 8, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('matched_device_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -76,9 +76,8 @@ blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler = class {
 
 blink.mojom.RendererAudioOutputStreamFactory.getRemote = function() {
   let remote = new blink.mojom.RendererAudioOutputStreamFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.RendererAudioOutputStreamFactory',
     'context');
   return remote.$;

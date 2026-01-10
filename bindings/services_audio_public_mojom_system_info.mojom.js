@@ -37,7 +37,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParams', [
-      mojo.internal.StructField('params', 0, 0, media.mojom.AudioParametersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, media.mojom.AudioParametersSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -49,7 +49,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParams', [
-      mojo.internal.StructField('params', 0, 0, media.mojom.AudioParametersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, media.mojom.AudioParametersSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -82,7 +82,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParams', [
-      mojo.internal.StructField('device_descriptions', 0, 0, mojo.internal.Array(audio.mojom.AudioDeviceDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_descriptions', 0, 0, mojo.internal.Array(audio.mojom.AudioDeviceDescriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -93,7 +93,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParams', [
-      mojo.internal.StructField('device_descriptions', 0, 0, mojo.internal.Array(audio.mojom.AudioDeviceDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_descriptions', 0, 0, mojo.internal.Array(audio.mojom.AudioDeviceDescriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec, 'audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParams', [
-      mojo.internal.StructField('input_params', 0, 0, media.mojom.AudioParametersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('input_params', 0, 0, media.mojom.AudioParametersSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('associated_output_device_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -238,9 +238,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
 
 audio.mojom.SystemInfo.getRemote = function() {
   let remote = new audio.mojom.SystemInfoRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'audio.mojom.SystemInfo',
     'context');
   return remote.$;

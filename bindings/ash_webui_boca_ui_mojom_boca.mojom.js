@@ -289,12 +289,12 @@ mojo.internal.Union(
     ash.boca.mojom.SessionResultSpec, 'ash.boca.mojom.SessionResult', {
       'error': {
         'ordinal': 0,
-        'type': ash.boca.mojom.GetSessionErrorSpec,
+        'type': ash.boca.mojom.GetSessionErrorSpec.$,
         'nullable': false,
       },
       'session': {
         'ordinal': 1,
-        'type': ash.boca.mojom.SessionSpec,
+        'type': ash.boca.mojom.SessionSpec.$,
         'nullable': false,
       },
     });
@@ -304,12 +304,12 @@ mojo.internal.Union(
     ash.boca.mojom.ConfigResultSpec, 'ash.boca.mojom.ConfigResult', {
       'error': {
         'ordinal': 0,
-        'type': ash.boca.mojom.GetSessionErrorSpec,
+        'type': ash.boca.mojom.GetSessionErrorSpec.$,
         'nullable': false,
       },
       'config': {
         'ordinal': 1,
-        'type': ash.boca.mojom.ConfigSpec,
+        'type': ash.boca.mojom.ConfigSpec.$,
         'nullable': false,
       },
     });
@@ -320,8 +320,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'id_$value', originalFieldName: 'id' }),
       mojo.internal.StructField('id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'id_$flag', originalFieldName: 'id' }),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('favicon', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('favicon', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -331,7 +331,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('email', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('photo_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('photo_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -348,7 +348,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.MaterialSpec, 'ash.boca.mojom.Material', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, ash.boca.mojom.MaterialTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ash.boca.mojom.MaterialTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -356,10 +356,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.AssignmentSpec, 'ash.boca.mojom.Assignment', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_update_time', 16, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('materials', 24, 0, mojo.internal.Array(ash.boca.mojom.MaterialSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('type', 32, 0, ash.boca.mojom.AssignmentTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_update_time', 16, 0, mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('materials', 24, 0, mojo.internal.Array(ash.boca.mojom.MaterialSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('type', 32, 0, ash.boca.mojom.AssignmentTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -367,30 +367,30 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.WindowSpec, 'ash.boca.mojom.Window', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('tab_list', 8, 0, mojo.internal.Array(ash.boca.mojom.TabInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tab_list', 8, 0, mojo.internal.Array(ash.boca.mojom.TabInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NetworkInfo
 mojo.internal.Struct(
     ash.boca.mojom.NetworkInfoSpec, 'ash.boca.mojom.NetworkInfo', [
-      mojo.internal.StructField('state', 0, 0, chromeos.network_config.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 4, 0, ash.boca.mojom.NetworkTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('signal_strength', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, chromeos.network_config.mojom.ConnectionStateTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, ash.boca.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: Config
 mojo.internal.Struct(
     ash.boca.mojom.ConfigSpec, 'ash.boca.mojom.Config', [
-      mojo.internal.StructField('session_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('session_start_time', 8, 0, mojo_base.mojom.JSTimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('teacher', 16, 0, ash.boca.mojom.IdentitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('students', 24, 0, mojo.internal.Array(ash.boca.mojom.IdentitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('students_join_via_code', 32, 0, mojo.internal.Array(ash.boca.mojom.IdentitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('on_task_config', 40, 0, ash.boca.mojom.OnTaskConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('caption_config', 48, 0, ash.boca.mojom.CaptionConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('session_start_time', 8, 0, mojo_base.mojom.JSTimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('teacher', 16, 0, ash.boca.mojom.IdentitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('students', 24, 0, mojo.internal.Array(ash.boca.mojom.IdentitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('students_join_via_code', 32, 0, mojo.internal.Array(ash.boca.mojom.IdentitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('on_task_config', 40, 0, ash.boca.mojom.OnTaskConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('caption_config', 48, 0, ash.boca.mojom.CaptionConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('access_code', 56, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 72]]);
@@ -407,8 +407,8 @@ mojo.internal.Struct(
 // Struct: ControlledTab
 mojo.internal.Struct(
     ash.boca.mojom.ControlledTabSpec, 'ash.boca.mojom.ControlledTab', [
-      mojo.internal.StructField('tab', 0, 0, ash.boca.mojom.TabInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('navigation_type', 8, 0, ash.boca.mojom.NavigationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 0, 0, ash.boca.mojom.TabInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_type', 8, 0, ash.boca.mojom.NavigationTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -417,36 +417,36 @@ mojo.internal.Struct(
     ash.boca.mojom.OnTaskConfigSpec, 'ash.boca.mojom.OnTaskConfig', [
       mojo.internal.StructField('is_locked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_paused', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('tabs', 8, 0, mojo.internal.Array(ash.boca.mojom.ControlledTabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tabs', 8, 0, mojo.internal.Array(ash.boca.mojom.ControlledTabSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Session
 mojo.internal.Struct(
     ash.boca.mojom.SessionSpec, 'ash.boca.mojom.Session', [
-      mojo.internal.StructField('config', 0, 0, ash.boca.mojom.ConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activities', 8, 0, mojo.internal.Array(ash.boca.mojom.IdentifiedActivitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, ash.boca.mojom.ConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('activities', 8, 0, mojo.internal.Array(ash.boca.mojom.IdentifiedActivitySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: StudentActivity
 mojo.internal.Struct(
     ash.boca.mojom.StudentActivitySpec, 'ash.boca.mojom.StudentActivity', [
-      mojo.internal.StructField('student_status_detail', 0, 0, ash.boca.mojom.StudentStatusDetailSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_active', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('active_tab', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('is_caption_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_hand_raised', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('join_method', 20, 0, ash.boca.mojom.JoinMethodSpec, null, false, 0, undefined),
-      mojo.internal.StructField('view_screen_session_code', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('student_status_detail', 0, 0, ash.boca.mojom.StudentStatusDetailSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_active', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('active_tab', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_caption_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_hand_raised', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('join_method', 32, 0, ash.boca.mojom.JoinMethodSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('view_screen_session_code', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 56]]);
 
 // Struct: IdentifiedActivity
 mojo.internal.Struct(
     ash.boca.mojom.IdentifiedActivitySpec, 'ash.boca.mojom.IdentifiedActivity', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('activity', 8, 0, ash.boca.mojom.StudentActivitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, ash.boca.mojom.StudentActivitySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -469,7 +469,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParams', [
-      mojo.internal.StructField('window_list', 0, 0, mojo.internal.Array(ash.boca.mojom.WindowSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('window_list', 0, 0, mojo.internal.Array(ash.boca.mojom.WindowSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -480,7 +480,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_ListCourses_ResponseParams', [
-      mojo.internal.StructField('courses', 0, 0, mojo.internal.Array(ash.boca.mojom.CourseSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('courses', 0, 0, mojo.internal.Array(ash.boca.mojom.CourseSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -492,7 +492,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_ListStudents_ResponseParams', [
-      mojo.internal.StructField('students', 0, 0, mojo.internal.Array(ash.boca.mojom.IdentitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('students', 0, 0, mojo.internal.Array(ash.boca.mojom.IdentitySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -504,19 +504,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_ListAssignments_ResponseParams', [
-      mojo.internal.StructField('assignments', 0, 0, mojo.internal.Array(ash.boca.mojom.AssignmentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('assignments', 0, 0, mojo.internal.Array(ash.boca.mojom.AssignmentSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_CreateSession_ParamsSpec, 'ash.boca.mojom.PageHandler_CreateSession_Params', [
-      mojo.internal.StructField('config', 0, 0, ash.boca.mojom.ConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, ash.boca.mojom.ConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_CreateSession_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.CreateSessionErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.CreateSessionErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -527,9 +527,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_GetSession_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.boca.mojom.SessionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.boca.mojom.SessionResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_EndSession_ParamsSpec, 'ash.boca.mojom.PageHandler_EndSession_Params', [
@@ -538,19 +538,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_EndSession_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.UpdateSessionErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.UpdateSessionErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec, 'ash.boca.mojom.PageHandler_ExtendSessionDuration_Params', [
-      mojo.internal.StructField('extended_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extended_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.UpdateSessionErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.UpdateSessionErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -562,7 +562,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_RemoveStudent_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.RemoveStudentErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.RemoveStudentErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -574,43 +574,43 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.RenotifyStudentErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.RenotifyStudentErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_AddStudents_ParamsSpec, 'ash.boca.mojom.PageHandler_AddStudents_Params', [
-      mojo.internal.StructField('students', 0, 0, mojo.internal.Array(ash.boca.mojom.IdentitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('students', 0, 0, mojo.internal.Array(ash.boca.mojom.IdentitySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_AddStudents_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.AddStudentsErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.AddStudentsErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec, 'ash.boca.mojom.PageHandler_UpdateOnTaskConfig_Params', [
-      mojo.internal.StructField('on_task_config', 0, 0, ash.boca.mojom.OnTaskConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('on_task_config', 0, 0, ash.boca.mojom.OnTaskConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.UpdateSessionErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.UpdateSessionErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec, 'ash.boca.mojom.PageHandler_UpdateCaptionConfig_Params', [
-      mojo.internal.StructField('caption_config', 0, 0, ash.boca.mojom.CaptionConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('caption_config', 0, 0, ash.boca.mojom.CaptionConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.UpdateSessionErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.UpdateSessionErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -634,7 +634,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.SubmitAccessCodeErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.SubmitAccessCodeErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -646,7 +646,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.ViewStudentScreenErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.ViewStudentScreenErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -658,7 +658,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.EndViewScreenSessionErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.EndViewScreenSessionErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -670,28 +670,28 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.SetViewScreenSessionActiveErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ash.boca.mojom.SetViewScreenSessionActiveErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec, 'ash.boca.mojom.PageHandler_GetUserPref_Params', [
-      mojo.internal.StructField('pref', 0, 0, ash.boca.mojom.BocaValidPrefSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pref', 0, 0, ash.boca.mojom.BocaValidPrefSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_GetUserPref_ResponseParams', [
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec, 'ash.boca.mojom.PageHandler_SetUserPref_Params', [
-      mojo.internal.StructField('pref', 0, 0, ash.boca.mojom.BocaValidPrefSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pref', 0, 0, ash.boca.mojom.BocaValidPrefSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_SetUserPref_ResponseParams', [
@@ -701,10 +701,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec, 'ash.boca.mojom.PageHandler_SetSitePermission_Params', [
       mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('permission', 8, 0, ash.boca.mojom.PermissionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('setting', 12, 0, ash.boca.mojom.PermissionSettingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('permission', 8, 0, ash.boca.mojom.PermissionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('setting', 16, 0, ash.boca.mojom.PermissionSettingSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_SetSitePermission_ResponseParams', [
@@ -751,7 +751,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParams', [
-      mojo.internal.StructField('state', 0, 0, ash.boca.mojom.SpeechRecognitionInstallStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.boca.mojom.SpeechRecognitionInstallStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -768,7 +768,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec, 'ash.boca.mojom.PageHandler_PresentStudentScreen_Params', [
-      mojo.internal.StructField('student', 0, 0, ash.boca.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('student', 0, 0, ash.boca.mojom.IdentitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1159,9 +1159,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.boca.mojom.PageHandler.getRemote = function() {
   let remote = new ash.boca.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.boca.mojom.PageHandler',
     'context');
   return remote.$;
@@ -1174,19 +1173,19 @@ ash.boca.mojom.PageHandlerRequest = ash.boca.mojom.PageHandlerPendingReceiver;
 // Interface: Page
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec, 'ash.boca.mojom.Page_OnStudentActivityUpdated_Params', [
-      mojo.internal.StructField('activities', 0, 0, mojo.internal.Array(ash.boca.mojom.IdentifiedActivitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('activities', 0, 0, mojo.internal.Array(ash.boca.mojom.IdentifiedActivitySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec, 'ash.boca.mojom.Page_OnSessionConfigUpdated_Params', [
-      mojo.internal.StructField('config', 0, 0, ash.boca.mojom.ConfigResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, ash.boca.mojom.ConfigResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec, 'ash.boca.mojom.Page_OnActiveNetworkStateChanged_Params', [
-      mojo.internal.StructField('active_networks', 0, 0, mojo.internal.Array(ash.boca.mojom.NetworkInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('active_networks', 0, 0, mojo.internal.Array(ash.boca.mojom.NetworkInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1197,7 +1196,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec, 'ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_Params', [
-      mojo.internal.StructField('state', 0, 0, ash.boca.mojom.SpeechRecognitionInstallStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.boca.mojom.SpeechRecognitionInstallStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1209,13 +1208,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec, 'ash.boca.mojom.Page_OnFrameDataReceived_Params', [
-      mojo.internal.StructField('frame_data', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_data', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec, 'ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_Params', [
-      mojo.internal.StructField('state', 0, 0, ash.boca.mojom.CrdConnectionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, ash.boca.mojom.CrdConnectionStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1365,9 +1364,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
 
 ash.boca.mojom.Page.getRemote = function() {
   let remote = new ash.boca.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.boca.mojom.Page',
     'context');
   return remote.$;
@@ -1431,9 +1429,8 @@ ash.boca.mojom.BocaPageHandlerFactoryRemoteCallHandler = class {
 
 ash.boca.mojom.BocaPageHandlerFactory.getRemote = function() {
   let remote = new ash.boca.mojom.BocaPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.boca.mojom.BocaPageHandlerFactory',
     'context');
   return remote.$;

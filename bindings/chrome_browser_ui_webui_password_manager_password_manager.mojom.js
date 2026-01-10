@@ -44,7 +44,7 @@ password_manager.mojom.Page.$interfaceName = 'password_manager.mojom.Page';
 mojo.internal.Struct(
     password_manager.mojom.DomainInfoSpec, 'password_manager.mojom.DomainInfo', [
       mojo.internal.StructField('human_readable_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('signon_realm', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -52,8 +52,8 @@ mojo.internal.Struct(
 // Struct: ActorLoginPermission
 mojo.internal.Struct(
     password_manager.mojom.ActorLoginPermissionSpec, 'password_manager.mojom.ActorLoginPermission', [
-      mojo.internal.StructField('domain_info', 0, 0, password_manager.mojom.DomainInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('favicon_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('domain_info', 0, 0, password_manager.mojom.DomainInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('username', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -112,9 +112,8 @@ password_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 password_manager.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new password_manager.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'password_manager.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -166,13 +165,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec, 'password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParams', [
-      mojo.internal.StructField('sites', 0, 0, mojo.internal.Array(password_manager.mojom.ActorLoginPermissionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sites', 0, 0, mojo.internal.Array(password_manager.mojom.ActorLoginPermissionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec, 'password_manager.mojom.PageHandler_RevokeActorLoginPermission_Params', [
-      mojo.internal.StructField('site', 0, 0, password_manager.mojom.ActorLoginPermissionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('site', 0, 0, password_manager.mojom.ActorLoginPermissionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -408,9 +407,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
 
 password_manager.mojom.PageHandler.getRemote = function() {
   let remote = new password_manager.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'password_manager.mojom.PageHandler',
     'context');
   return remote.$;
@@ -457,9 +455,8 @@ password_manager.mojom.PageRemoteCallHandler = class {
 
 password_manager.mojom.Page.getRemote = function() {
   let remote = new password_manager.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'password_manager.mojom.Page',
     'context');
   return remote.$;

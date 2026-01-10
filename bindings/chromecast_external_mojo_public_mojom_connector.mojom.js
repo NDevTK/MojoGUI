@@ -27,8 +27,8 @@ chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParams
 mojo.internal.Struct(
     chromecast.external_mojo.mojom.ExternalServiceInfoSpec, 'chromecast.external_mojo.mojom.ExternalServiceInfo', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('connect_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('disconnect_time', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connect_time', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('disconnect_time', 16, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -94,9 +94,8 @@ chromecast.external_mojo.mojom.ExternalServiceRemoteCallHandler = class {
 
 chromecast.external_mojo.mojom.ExternalService.getRemote = function() {
   let remote = new chromecast.external_mojo.mojom.ExternalServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.external_mojo.mojom.ExternalService',
     'context');
   return remote.$;
@@ -109,7 +108,7 @@ chromecast.external_mojo.mojom.ExternalServiceRequest = chromecast.external_mojo
 // Interface: ExternalConnector
 mojo.internal.Struct(
     chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_Params', [
-      mojo.internal.StructField('instances_info', 0, 0, mojo.internal.Array(chromecast.external_mojo.mojom.ServiceInstanceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('instances_info', 0, 0, mojo.internal.Array(chromecast.external_mojo.mojom.ServiceInstanceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -140,7 +139,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParams', [
-      mojo.internal.StructField('services', 0, 0, mojo.internal.Array(chromecast.external_mojo.mojom.ExternalServiceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('services', 0, 0, mojo.internal.Array(chromecast.external_mojo.mojom.ExternalServiceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -230,9 +229,8 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
 
 chromecast.external_mojo.mojom.ExternalConnector.getRemote = function() {
   let remote = new chromecast.external_mojo.mojom.ExternalConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromecast.external_mojo.mojom.ExternalConnector',
     'context');
   return remote.$;

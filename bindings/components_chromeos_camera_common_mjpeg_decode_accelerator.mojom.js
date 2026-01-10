@@ -40,10 +40,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('memory_handle', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('offset', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('key_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('iv', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('subsamples', 56, 0, mojo.internal.Array(media.mojom.SubsampleEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('subsamples', 56, 0, mojo.internal.Array(media.mojom.SubsampleEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -61,8 +61,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_Params', [
-      mojo.internal.StructField('input_buffer', 0, 0, chromeos_camera.mojom.BitstreamBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_buffer', 0, 0, chromeos_camera.mojom.BitstreamBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('output_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('output_buffer_size', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -71,9 +71,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParams', [
       mojo.internal.StructField('bitstream_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('error', 4, 0, chromeos_camera.mojom.DecodeErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, chromeos_camera.mojom.DecodeErrorSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_Params', [
@@ -81,13 +81,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('src_dmabuf_fd', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('src_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('src_offset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('dst_frame', 16, 0, chromeos_camera.mojom.DmaBufVideoFrameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dst_frame', 16, 0, chromeos_camera.mojom.DmaBufVideoFrameSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, chromeos_camera.mojom.DecodeErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, chromeos_camera.mojom.DecodeErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -172,9 +172,8 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHandler = class {
 
 chromeos_camera.mojom.MjpegDecodeAccelerator.getRemote = function() {
   let remote = new chromeos_camera.mojom.MjpegDecodeAcceleratorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos_camera.mojom.MjpegDecodeAccelerator',
     'context');
   return remote.$;

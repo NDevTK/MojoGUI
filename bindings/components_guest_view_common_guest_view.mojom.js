@@ -53,9 +53,8 @@ guest_view.mojom.ViewHandleRemoteCallHandler = class {
 
 guest_view.mojom.ViewHandle.getRemote = function() {
   let remote = new guest_view.mojom.ViewHandleRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'guest_view.mojom.ViewHandle',
     'context');
   return remote.$;
@@ -70,7 +69,7 @@ mojo.internal.Struct(
     guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_Params', [
       mojo.internal.StructField('element_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('guest_instance_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('params', 8, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -143,9 +142,8 @@ guest_view.mojom.GuestViewHostRemoteCallHandler = class {
 
 guest_view.mojom.GuestViewHost.getRemote = function() {
   let remote = new guest_view.mojom.GuestViewHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'guest_view.mojom.GuestViewHost',
     'context');
   return remote.$;

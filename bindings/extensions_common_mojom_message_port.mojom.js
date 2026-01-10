@@ -64,7 +64,7 @@ mojo.internal.Union(
       },
       'structured_clone': {
         'ordinal': 1,
-        'type': mojo_base.mojom.BigBufferSpec,
+        'type': mojo_base.mojom.BigBufferSpec.$,
         'nullable': false,
       },
     });
@@ -72,17 +72,17 @@ mojo.internal.Union(
 // Struct: PortId
 mojo.internal.Struct(
     extensions.mojom.PortIdSpec, 'extensions.mojom.PortId', [
-      mojo.internal.StructField('context_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('port_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('is_opener', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('serialization_format', 16, 0, extensions.mojom.SerializationFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('serialization_format', 16, 0, extensions.mojom.SerializationFormatSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: MessagingEndpoint
 mojo.internal.Struct(
     extensions.mojom.MessagingEndpointSpec, 'extensions.mojom.MessagingEndpoint', [
-      mojo.internal.StructField('type', 0, 0, extensions.mojom.MessagingEndpointTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, extensions.mojom.MessagingEndpointTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('extension_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('native_app_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -91,7 +91,7 @@ mojo.internal.Struct(
 // Struct: TabConnectionInfo
 mojo.internal.Struct(
     extensions.mojom.TabConnectionInfoSpec, 'extensions.mojom.TabConnectionInfo', [
-      mojo.internal.StructField('tab', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 0, 0, mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('document_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('document_lifecycle', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -101,10 +101,10 @@ mojo.internal.Struct(
 // Struct: ExternalConnectionInfo
 mojo.internal.Struct(
     extensions.mojom.ExternalConnectionInfoSpec, 'extensions.mojom.ExternalConnectionInfo', [
-      mojo.internal.StructField('source_endpoint', 0, 0, extensions.mojom.MessagingEndpointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_endpoint', 0, 0, extensions.mojom.MessagingEndpointSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('target_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('source_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source_origin', 24, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('source_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source_origin', 24, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('guest_process_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('guest_render_frame_routing_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -113,10 +113,10 @@ mojo.internal.Struct(
 // Struct: Message
 mojo.internal.Struct(
     extensions.mojom.MessageSpec, 'extensions.mojom.Message', [
-      mojo.internal.StructField('data', 0, 0, extensions.mojom.MessageDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('format', 16, 0, extensions.mojom.SerializationFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('user_gesture', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('from_privileged_context', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, extensions.mojom.MessageDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('format', 8, 0, extensions.mojom.SerializationFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('from_privileged_context', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -129,7 +129,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     extensions.mojom.MessagePort_DeliverMessage_ParamsSpec, 'extensions.mojom.MessagePort_DeliverMessage_Params', [
-      mojo.internal.StructField('message', 0, 0, extensions.mojom.MessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, extensions.mojom.MessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -189,9 +189,8 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
 
 extensions.mojom.MessagePort.getRemote = function() {
   let remote = new extensions.mojom.MessagePortRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions.mojom.MessagePort',
     'context');
   return remote.$;
@@ -211,7 +210,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     extensions.mojom.MessagePortHost_PostMessage_ParamsSpec, 'extensions.mojom.MessagePortHost_PostMessage_Params', [
-      mojo.internal.StructField('message', 0, 0, extensions.mojom.MessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, extensions.mojom.MessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -286,9 +285,8 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
 
 extensions.mojom.MessagePortHost.getRemote = function() {
   let remote = new extensions.mojom.MessagePortHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions.mojom.MessagePortHost',
     'context');
   return remote.$;

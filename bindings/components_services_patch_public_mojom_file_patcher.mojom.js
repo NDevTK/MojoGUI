@@ -34,9 +34,9 @@ patch.mojom.ZucchiniStatus = {
 // Interface: FilePatcher
 mojo.internal.Struct(
     patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec, 'patch.mojom.FilePatcher_PatchFilePuffPatch_Params', [
-      mojo.internal.StructField('input_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('patch_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_file', 16, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('patch_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 16, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -48,15 +48,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_Params', [
-      mojo.internal.StructField('input_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('patch_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('output_file', 16, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('patch_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 16, 0, mojo_base.mojom.FileSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, patch.mojom.ZucchiniStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, patch.mojom.ZucchiniStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -116,9 +116,8 @@ patch.mojom.FilePatcherRemoteCallHandler = class {
 
 patch.mojom.FilePatcher.getRemote = function() {
   let remote = new patch.mojom.FilePatcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'patch.mojom.FilePatcher',
     'context');
   return remote.$;

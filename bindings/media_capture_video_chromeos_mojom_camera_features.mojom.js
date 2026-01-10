@@ -31,7 +31,7 @@ mojo.internal.Union(
       },
       'portrait_mode_config': {
         'ordinal': 1,
-        'type': cros.mojom.PortraitModeConfigSpec,
+        'type': cros.mojom.PortraitModeConfigSpec.$,
         'nullable': false,
       },
     });

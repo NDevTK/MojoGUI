@@ -15,7 +15,7 @@ content.mojom.MediaInternalLogRecords_Log_ParamsSpec = { $: {} };
 // Interface: MediaInternalLogRecords
 mojo.internal.Struct(
     content.mojom.MediaInternalLogRecords_Log_ParamsSpec, 'content.mojom.MediaInternalLogRecords_Log_Params', [
-      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(media.mojom.MediaLogRecordSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(media.mojom.MediaLogRecordSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -65,9 +65,8 @@ content.mojom.MediaInternalLogRecordsRemoteCallHandler = class {
 
 content.mojom.MediaInternalLogRecords.getRemote = function() {
   let remote = new content.mojom.MediaInternalLogRecordsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.MediaInternalLogRecords',
     'context');
   return remote.$;

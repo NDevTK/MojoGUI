@@ -65,9 +65,8 @@ web_cache.mojom.WebCacheRemoteCallHandler = class {
 
 web_cache.mojom.WebCache.getRemote = function() {
   let remote = new web_cache.mojom.WebCacheRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'web_cache.mojom.WebCache',
     'context');
   return remote.$;

@@ -20,23 +20,23 @@ viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec = { $: {} };
 // Struct: CopyOutputRequest
 mojo.internal.Struct(
     viz.mojom.CopyOutputRequestSpec, 'viz.mojom.CopyOutputRequest', [
-      mojo.internal.StructField('result_format', 0, 0, viz.mojom.CopyOutputResultFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('result_destination', 4, 0, viz.mojom.CopyOutputResultDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('send_result_delay', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale_from', 16, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale_to', 24, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source', 32, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('area', 40, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('result_selection', 48, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('blit_request', 56, 0, viz.mojom.BlitRequestSpec, null, true, 0, undefined),
-      mojo.internal.StructField('result_sender', 64, 0, mojo.internal.InterfaceProxy(viz.mojom.CopyOutputResultSenderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('result_format', 0, 0, viz.mojom.CopyOutputResultFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('result_destination', 8, 0, viz.mojom.CopyOutputResultDestinationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('send_result_delay', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scale_from', 24, 0, gfx.mojom.Vector2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('scale_to', 32, 0, gfx.mojom.Vector2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('source', 40, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('area', 48, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('result_selection', 56, 0, gfx.mojom.RectSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('blit_request', 64, 0, viz.mojom.BlitRequestSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('result_sender', 72, 0, mojo.internal.InterfaceProxy(viz.mojom.CopyOutputResultSenderRemote), null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Interface: CopyOutputResultSender
 mojo.internal.Struct(
     viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec, 'viz.mojom.CopyOutputResultSender_SendResult_Params', [
-      mojo.internal.StructField('result', 0, 0, viz.mojom.CopyOutputResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, viz.mojom.CopyOutputResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -86,9 +86,8 @@ viz.mojom.CopyOutputResultSenderRemoteCallHandler = class {
 
 viz.mojom.CopyOutputResultSender.getRemote = function() {
   let remote = new viz.mojom.CopyOutputResultSenderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.CopyOutputResultSender',
     'context');
   return remote.$;

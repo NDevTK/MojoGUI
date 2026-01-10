@@ -29,9 +29,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec, 'device.mojom.Geolocation_QueryNextPosition_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, device.mojom.GeopositionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, device.mojom.GeopositionResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 device.mojom.GeolocationPendingReceiver = class {
   constructor(handle) {
@@ -89,9 +89,8 @@ device.mojom.GeolocationRemoteCallHandler = class {
 
 device.mojom.Geolocation.getRemote = function() {
   let remote = new device.mojom.GeolocationRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.Geolocation',
     'context');
   return remote.$;

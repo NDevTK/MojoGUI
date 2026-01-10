@@ -35,12 +35,12 @@ mojo.internal.Union(
     sensor.mojom.SensorUpdateInfoSpec, 'sensor.mojom.SensorUpdateInfo', {
       'lid_angle_update_info': {
         'ordinal': 0,
-        'type': sensor.mojom.LidAngleUpdateInfoSpec,
+        'type': sensor.mojom.LidAngleUpdateInfoSpec.$,
         'nullable': false,
       },
       'update_info': {
         'ordinal': 1,
-        'type': sensor.mojom.NonLidAngleUpdateInfoSpec,
+        'type': sensor.mojom.NonLidAngleUpdateInfoSpec.$,
         'nullable': false,
       },
     });
@@ -48,20 +48,20 @@ mojo.internal.Union(
 // Struct: NonLidAngleUpdateInfo
 mojo.internal.Struct(
     sensor.mojom.NonLidAngleUpdateInfoSpec, 'sensor.mojom.NonLidAngleUpdateInfo', [
-      mojo.internal.StructField('sensor_type', 0, 0, sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('y', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('z', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('sensor_type', 0, 0, sensor.mojom.SensorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('z', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: LidAngleUpdateInfo
 mojo.internal.Struct(
     sensor.mojom.LidAngleUpdateInfoSpec, 'sensor.mojom.LidAngleUpdateInfo', [
-      mojo.internal.StructField('sensor_type', 0, 0, sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('sensor_type', 0, 0, sensor.mojom.SensorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
@@ -116,9 +116,8 @@ sensor.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 sensor.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new sensor.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sensor.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -195,9 +194,8 @@ sensor.mojom.PageHandlerRemoteCallHandler = class {
 
 sensor.mojom.PageHandler.getRemote = function() {
   let remote = new sensor.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sensor.mojom.PageHandler',
     'context');
   return remote.$;

@@ -29,49 +29,49 @@ blink.mojom.Mode = {
 // Struct: PerContextV8MemoryUsage
 mojo.internal.Struct(
     blink.mojom.PerContextV8MemoryUsageSpec, 'blink.mojom.PerContextV8MemoryUsage', [
-      mojo.internal.StructField('token', 0, 0, blink.mojom.ExecutionContextTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('memory_used', 16, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, blink.mojom.ExecutionContextTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('memory_used', 8, 0, mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: PerContextCanvasMemoryUsage
 mojo.internal.Struct(
     blink.mojom.PerContextCanvasMemoryUsageSpec, 'blink.mojom.PerContextCanvasMemoryUsage', [
-      mojo.internal.StructField('token', 0, 0, blink.mojom.ExecutionContextTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('memory_used', 16, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, blink.mojom.ExecutionContextTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('memory_used', 8, 0, mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: PerIsolateV8MemoryUsage
 mojo.internal.Struct(
     blink.mojom.PerIsolateV8MemoryUsageSpec, 'blink.mojom.PerIsolateV8MemoryUsage', [
       mojo.internal.StructField('num_detached_contexts', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('detached_memory_used', 8, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shared_memory_used', 16, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('blink_memory_used', 24, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('contexts', 32, 0, mojo.internal.Array(blink.mojom.PerContextV8MemoryUsageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('canvas_contexts', 40, 0, mojo.internal.Array(blink.mojom.PerContextCanvasMemoryUsageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('detached_memory_used', 8, 0, mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('shared_memory_used', 16, 0, mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('blink_memory_used', 24, 0, mojo_base.mojom.ByteSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('contexts', 32, 0, mojo.internal.Array(blink.mojom.PerContextV8MemoryUsageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('canvas_contexts', 40, 0, mojo.internal.Array(blink.mojom.PerContextCanvasMemoryUsageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: PerProcessV8MemoryUsage
 mojo.internal.Struct(
     blink.mojom.PerProcessV8MemoryUsageSpec, 'blink.mojom.PerProcessV8MemoryUsage', [
-      mojo.internal.StructField('isolates', 0, 0, mojo.internal.Array(blink.mojom.PerIsolateV8MemoryUsageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('isolates', 0, 0, mojo.internal.Array(blink.mojom.PerIsolateV8MemoryUsageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: V8DetailedMemoryReporter
 mojo.internal.Struct(
     blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec, 'blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_Params', [
-      mojo.internal.StructField('mode', 0, 0, blink.mojom.ModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, blink.mojom.ModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec, 'blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParams', [
-      mojo.internal.StructField('memory_usage', 0, 0, blink.mojom.PerProcessV8MemoryUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('memory_usage', 0, 0, blink.mojom.PerProcessV8MemoryUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -121,9 +121,8 @@ blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {
 
 blink.mojom.V8DetailedMemoryReporter.getRemote = function() {
   let remote = new blink.mojom.V8DetailedMemoryReporterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.V8DetailedMemoryReporter',
     'context');
   return remote.$;

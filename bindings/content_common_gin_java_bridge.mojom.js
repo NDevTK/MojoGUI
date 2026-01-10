@@ -45,7 +45,7 @@ mojo.internal.Struct(
     content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec, 'content.mojom.GinJavaBridge_AddNamedObject_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('object_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('origin_matcher', 16, 0, origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin_matcher', 16, 0, origin_matcher.mojom.OriginMatcherSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -127,9 +127,8 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
 
 content.mojom.GinJavaBridge.getRemote = function() {
   let remote = new content.mojom.GinJavaBridgeRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.GinJavaBridge',
     'context');
   return remote.$;
@@ -166,14 +165,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec, 'content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_Params', [
       mojo.internal.StructField('method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arguments', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arguments', 8, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec, 'content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParams', [
-      mojo.internal.StructField('error_code', 0, 0, content.mojom.GinJavaBridgeErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_code', 0, 0, content.mojom.GinJavaBridgeErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -243,9 +242,8 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
 
 content.mojom.GinJavaBridgeRemoteObject.getRemote = function() {
   let remote = new content.mojom.GinJavaBridgeRemoteObjectRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.GinJavaBridgeRemoteObject',
     'context');
   return remote.$;
@@ -325,9 +323,8 @@ content.mojom.GinJavaBridgeHostRemoteCallHandler = class {
 
 content.mojom.GinJavaBridgeHost.getRemote = function() {
   let remote = new content.mojom.GinJavaBridgeHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.GinJavaBridgeHost',
     'context');
   return remote.$;

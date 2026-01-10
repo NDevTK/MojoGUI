@@ -27,7 +27,7 @@ arc.mojom.ArcPipEvent = {
 // Interface: PipHost
 mojo.internal.Struct(
     arc.mojom.PipHost_OnPipEvent_ParamsSpec, 'arc.mojom.PipHost_OnPipEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, arc.mojom.ArcPipEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, arc.mojom.ArcPipEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -77,9 +77,8 @@ arc.mojom.PipHostRemoteCallHandler = class {
 
 arc.mojom.PipHost.getRemote = function() {
   let remote = new arc.mojom.PipHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.PipHost',
     'context');
   return remote.$;
@@ -178,9 +177,8 @@ arc.mojom.PipInstanceRemoteCallHandler = class {
 
 arc.mojom.PipInstance.getRemote = function() {
   let remote = new arc.mojom.PipInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.PipInstance',
     'context');
   return remote.$;

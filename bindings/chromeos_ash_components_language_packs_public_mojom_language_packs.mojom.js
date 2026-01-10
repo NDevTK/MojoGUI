@@ -59,27 +59,27 @@ ash.language.mojom.ErrorCode = {
 // Struct: LanguagePackInfo
 mojo.internal.Struct(
     ash.language.mojom.LanguagePackInfoSpec, 'ash.language.mojom.LanguagePackInfo', [
-      mojo.internal.StructField('pack_state', 0, 0, ash.language.mojom.PackStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pack_state', 0, 0, ash.language.mojom.PackStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, ash.language.mojom.ErrorCodeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('feature_id', 20, 0, ash.language.mojom.FeatureIdSpec, null, false, 3, undefined),
-      mojo.internal.StructField('locale', 24, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('error', 16, 0, ash.language.mojom.ErrorCodeSpec.$, null, false, 2, undefined),
+      mojo.internal.StructField('feature_id', 24, 0, ash.language.mojom.FeatureIdSpec.$, null, false, 3, undefined),
+      mojo.internal.StructField('locale', 32, 0, mojo.internal.String, null, true, 3, undefined),
     ],
-    [[0, 24], [2, 32], [3, 40]]);
+    [[0, 24], [2, 32], [3, 48]]);
 
 // Struct: BasePackInfo
 mojo.internal.Struct(
     ash.language.mojom.BasePackInfoSpec, 'ash.language.mojom.BasePackInfo', [
-      mojo.internal.StructField('pack_state', 0, 0, ash.language.mojom.PackStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pack_state', 0, 0, ash.language.mojom.PackStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, ash.language.mojom.ErrorCodeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('error', 16, 0, ash.language.mojom.ErrorCodeSpec.$, null, false, 2, undefined),
     ],
     [[0, 24], [2, 32]]);
 
 // Interface: LanguagePacksObserver
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec, 'ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_Params', [
-      mojo.internal.StructField('info', 0, 0, ash.language.mojom.LanguagePackInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, ash.language.mojom.LanguagePackInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -129,9 +129,8 @@ ash.language.mojom.LanguagePacksObserverRemoteCallHandler = class {
 
 ash.language.mojom.LanguagePacksObserver.getRemote = function() {
   let remote = new ash.language.mojom.LanguagePacksObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.language.mojom.LanguagePacksObserver',
     'context');
   return remote.$;
@@ -144,45 +143,45 @@ ash.language.mojom.LanguagePacksObserverRequest = ash.language.mojom.LanguagePac
 // Interface: LanguagePacks
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec, 'ash.language.mojom.LanguagePacks_GetPackInfo_Params', [
-      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec, 'ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, ash.language.mojom.LanguagePackInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, ash.language.mojom.LanguagePackInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec, 'ash.language.mojom.LanguagePacks_InstallPack_Params', [
-      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec, 'ash.language.mojom.LanguagePacks_InstallPack_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, ash.language.mojom.LanguagePackInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, ash.language.mojom.LanguagePackInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec, 'ash.language.mojom.LanguagePacks_InstallBasePack_Params', [
-      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec, 'ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, ash.language.mojom.BasePackInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, ash.language.mojom.BasePackInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec, 'ash.language.mojom.LanguagePacks_UninstallPack_Params', [
-      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature_id', 0, 0, ash.language.mojom.FeatureIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('language', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -284,9 +283,8 @@ ash.language.mojom.LanguagePacksRemoteCallHandler = class {
 
 ash.language.mojom.LanguagePacks.getRemote = function() {
   let remote = new ash.language.mojom.LanguagePacksRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.language.mojom.LanguagePacks',
     'context');
   return remote.$;

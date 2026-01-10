@@ -193,7 +193,7 @@ arc.mojom.CaptionTextShadowType = {
 mojo.internal.Struct(
     arc.mojom.PatternMatcherSpec, 'arc.mojom.PatternMatcher', [
       mojo.internal.StructField('pattern', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, arc.mojom.PatternTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, arc.mojom.PatternTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -224,7 +224,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('clip_data_uri', 32, 0, mojo.internal.String, null, true, 13, undefined),
       mojo.internal.StructField('ui_bypassed', 40, 0, mojo.internal.Bool, false, false, 20, undefined),
       mojo.internal.StructField('extras', 48, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 22, undefined),
-      mojo.internal.StructField('uri_components', 56, 0, arc.mojom.UriComponentsSpec, null, true, 30, undefined),
+      mojo.internal.StructField('uri_components', 56, 0, arc.mojom.UriComponentsSpec.$, null, true, 30, undefined),
     ],
     [[0, 40], [13, 48], [20, 56], [22, 64], [30, 72]]);
 
@@ -234,9 +234,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('categories', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('data_schemes', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('data_authorities', 24, 0, mojo.internal.Array(arc.mojom.AuthorityEntrySpec, false), null, true, 10, undefined),
-      mojo.internal.StructField('data_paths', 32, 0, mojo.internal.Array(arc.mojom.PatternMatcherSpec, false), null, true, 10, undefined),
-      mojo.internal.StructField('deprecated_data_scheme_specific_parts', 40, 0, mojo.internal.Array(arc.mojom.PatternMatcherSpec, false), null, true, 10, undefined),
+      mojo.internal.StructField('data_authorities', 24, 0, mojo.internal.Array(arc.mojom.AuthorityEntrySpec.$, false), null, true, 10, undefined),
+      mojo.internal.StructField('data_paths', 32, 0, mojo.internal.Array(arc.mojom.PatternMatcherSpec.$, false), null, true, 10, undefined),
+      mojo.internal.StructField('deprecated_data_scheme_specific_parts', 40, 0, mojo.internal.Array(arc.mojom.PatternMatcherSpec.$, false), null, true, 10, undefined),
       mojo.internal.StructField('package_name', 48, 0, mojo.internal.String, null, true, 21, undefined),
       mojo.internal.StructField('mime_types', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 38, undefined),
       mojo.internal.StructField('activity_name', 64, 0, mojo.internal.String, null, true, 39, undefined),
@@ -250,21 +250,21 @@ mojo.internal.Struct(
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('activity_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('action_type', 24, 0, arc.mojom.ActionTypeSpec, null, false, 4, undefined),
-      mojo.internal.StructField('is_preferred', 28, 0, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('action', 32, 0, mojo.internal.String, null, true, 11, undefined),
-      mojo.internal.StructField('fallback_url', 40, 0, mojo.internal.String, null, true, 14, undefined),
+      mojo.internal.StructField('action_type', 24, 0, arc.mojom.ActionTypeSpec.$, null, false, 4, undefined),
+      mojo.internal.StructField('is_preferred', 32, 0, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('action', 40, 0, mojo.internal.String, null, true, 11, undefined),
+      mojo.internal.StructField('fallback_url', 48, 0, mojo.internal.String, null, true, 14, undefined),
     ],
-    [[0, 32], [4, 40], [6, 40], [11, 48], [14, 56]]);
+    [[0, 32], [4, 40], [6, 48], [11, 56], [14, 64]]);
 
 // Struct: ActivityIcon
 mojo.internal.Struct(
     arc.mojom.ActivityIconSpec, 'arc.mojom.ActivityIcon', [
-      mojo.internal.StructField('activity', 0, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 0, 0, arc.mojom.ActivityNameSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('icon', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('icon_png_data', 24, 0, arc.mojom.RawIconPngDataSpec, null, true, 40, undefined),
+      mojo.internal.StructField('icon_png_data', 24, 0, arc.mojom.RawIconPngDataSpec.$, null, true, 40, undefined),
     ],
     [[0, 32], [40, 40]]);
 
@@ -279,23 +279,23 @@ mojo.internal.Struct(
 // Struct: TextSelectionAction
 mojo.internal.Struct(
     arc.mojom.TextSelectionActionSpec, 'arc.mojom.TextSelectionAction', [
-      mojo.internal.StructField('icon', 0, 0, arc.mojom.ActivityIconSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 0, 0, arc.mojom.ActivityIconSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('action_intent', 24, 0, arc.mojom.IntentInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_intent', 24, 0, arc.mojom.IntentInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('text_classifier_action', 32, 0, mojo.internal.Bool, false, false, 23, undefined),
-      mojo.internal.StructField('bitmap_icon', 40, 0, arc.mojom.ArcBitmapSpec, null, true, 23, undefined),
+      mojo.internal.StructField('bitmap_icon', 40, 0, arc.mojom.ArcBitmapSpec.$, null, true, 23, undefined),
     ],
     [[0, 40], [23, 56]]);
 
 // Struct: LaunchFileInfo
 mojo.internal.Struct(
     arc.mojom.LaunchFileInfoSpec, 'arc.mojom.LaunchFileInfo', [
-      mojo.internal.StructField('content_uri', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_uri', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('removed_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('name', 32, 0, mojo_base.mojom.SafeBaseNameSpec, null, true, 48, undefined),
+      mojo.internal.StructField('name', 32, 0, mojo_base.mojom.SafeBaseNameSpec.$, null, true, 48, undefined),
     ],
     [[0, 40], [48, 48]]);
 
@@ -303,11 +303,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.LaunchIntentSpec, 'arc.mojom.LaunchIntent', [
       mojo.internal.StructField('action', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('type', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('extra_subject', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('extra_text', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('files', 40, 0, mojo.internal.Array(arc.mojom.LaunchFileInfoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('files', 40, 0, mojo.internal.Array(arc.mojom.LaunchFileInfoSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -315,7 +315,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.SupportedLinksPackageSpec, 'arc.mojom.SupportedLinksPackage', [
       mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('deprecated_filters', 8, 0, mojo.internal.Array(arc.mojom.IntentFilterSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('deprecated_filters', 8, 0, mojo.internal.Array(arc.mojom.IntentFilterSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -334,9 +334,9 @@ mojo.internal.Struct(
     arc.mojom.CaptionStyleSpec, 'arc.mojom.CaptionStyle', [
       mojo.internal.StructField('user_locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('font_scale', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('text_color', 16, 0, arc.mojom.CaptionColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('background_color', 24, 0, arc.mojom.CaptionColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('text_shadow_type', 32, 0, arc.mojom.CaptionTextShadowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_color', 16, 0, arc.mojom.CaptionColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('background_color', 24, 0, arc.mojom.CaptionColorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('text_shadow_type', 32, 0, arc.mojom.CaptionTextShadowTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -404,9 +404,8 @@ arc.mojom.CustomTabSessionRemoteCallHandler = class {
 
 arc.mojom.CustomTabSession.getRemote = function() {
   let remote = new arc.mojom.CustomTabSessionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.CustomTabSession',
     'context');
   return remote.$;
@@ -425,7 +424,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec, 'arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_Params', [
-      mojo.internal.StructField('intent_filters', 0, 0, mojo.internal.Array(arc.mojom.IntentFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('intent_filters', 0, 0, mojo.internal.Array(arc.mojom.IntentFilterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -465,7 +464,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenChromePage_Params', [
-      mojo.internal.StructField('page', 0, 0, arc.mojom.ChromePageSpec, null, false, 18, undefined),
+      mojo.internal.StructField('page', 0, 0, arc.mojom.ChromePageSpec.$, null, false, 18, undefined),
     ],
     [[0, 8], [18, 16]]);
 
@@ -483,18 +482,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec, 'arc.mojom.IntentHelperHost_LaunchCameraApp_Params', [
       mojo.internal.StructField('intent_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('mode', 4, 0, arc.mojom.CameraIntentModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('should_handle_result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('should_down_scale', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_secure', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('task_id', 12, 0, mojo.internal.Int32, 0, false, 36, undefined),
+      mojo.internal.StructField('mode', 8, 0, arc.mojom.CameraIntentModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('should_handle_result', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_down_scale', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_secure', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('task_id', 20, 0, mojo.internal.Int32, 0, false, 36, undefined),
     ],
-    [[0, 24], [36, 24]]);
+    [[0, 32], [36, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec, 'arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_Params', [
       mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('intent_filters', 8, 0, mojo.internal.Array(arc.mojom.IntentFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('intent_filters', 8, 0, mojo.internal.Array(arc.mojom.IntentFilterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -505,7 +504,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec, 'arc.mojom.IntentHelperHost_IsChromeAppEnabled_Params', [
-      mojo.internal.StructField('app', 0, 0, arc.mojom.ChromeAppSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app', 0, 0, arc.mojom.ChromeAppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -517,9 +516,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec, 'arc.mojom.IntentHelperHost_OnSupportedLinksChanged_Params', [
-      mojo.internal.StructField('added_packages', 0, 0, mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('removed_packages', 8, 0, mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('source', 16, 0, arc.mojom.SupportedLinkChangeSourceSpec, null, false, 48, undefined),
+      mojo.internal.StructField('added_packages', 0, 0, mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('removed_packages', 8, 0, mojo.internal.Array(arc.mojom.SupportedLinksPackageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('source', 16, 0, arc.mojom.SupportedLinkChangeSourceSpec.$, null, false, 48, undefined),
     ],
     [[0, 24], [48, 32]]);
 
@@ -532,8 +531,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenAppWithIntent_Params', [
-      mojo.internal.StructField('start_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('intent', 8, 0, arc.mojom.LaunchIntentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('intent', 8, 0, arc.mojom.LaunchIntentSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -549,10 +548,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec, 'arc.mojom.IntentHelperHost_OnAndroidSettingChange_Params', [
-      mojo.internal.StructField('setting', 0, 0, arc.mojom.AndroidSettingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('setting', 0, 0, arc.mojom.AndroidSettingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 arc.mojom.IntentHelperHostPendingReceiver = class {
   constructor(handle) {
@@ -790,9 +789,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
 
 arc.mojom.IntentHelperHost.getRemote = function() {
   let remote = new arc.mojom.IntentHelperHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.IntentHelperHost',
     'context');
   return remote.$;
@@ -818,16 +816,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec, 'arc.mojom.IntentHelperInstance_HandleIntent_Params', [
-      mojo.internal.StructField('intent', 0, 0, arc.mojom.IntentInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('intent', 0, 0, arc.mojom.IntentInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec, 'arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_Params', [
-      mojo.internal.StructField('intent', 0, 0, arc.mojom.IntentInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('window_info', 16, 0, arc.mojom.WindowInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('intent', 0, 0, arc.mojom.IntentInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, arc.mojom.ActivityNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('window_info', 16, 0, arc.mojom.WindowInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -851,26 +849,26 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestActivityIcons_Params', [
-      mojo.internal.StructField('activities', 0, 0, mojo.internal.Array(arc.mojom.ActivityNameSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('scale_factor', 8, 0, arc.mojom.ScaleFactorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activities', 0, 0, mojo.internal.Array(arc.mojom.ActivityNameSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 8, 0, arc.mojom.ScaleFactorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParams', [
-      mojo.internal.StructField('icons', 0, 0, mojo.internal.Array(arc.mojom.ActivityIconSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('icons', 0, 0, mojo.internal.Array(arc.mojom.ActivityIconSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestIntentHandlerList_Params', [
-      mojo.internal.StructField('intent', 0, 0, arc.mojom.IntentInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('intent', 0, 0, arc.mojom.IntentInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParams', [
-      mojo.internal.StructField('handlers', 0, 0, mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('handlers', 0, 0, mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -882,19 +880,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParams', [
-      mojo.internal.StructField('handlers', 0, 0, mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('handlers', 0, 0, mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_Params', [
-      mojo.internal.StructField('urls', 0, 0, mojo.internal.Array(arc.mojom.UrlWithMimeTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('urls', 0, 0, mojo.internal.Array(arc.mojom.UrlWithMimeTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParams', [
-      mojo.internal.StructField('handlers', 0, 0, mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('handlers', 0, 0, mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -910,23 +908,23 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec, 'arc.mojom.IntentHelperInstance_RequestTextSelectionActions_Params', [
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('scale_factor', 8, 0, arc.mojom.ScaleFactorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 8, 0, arc.mojom.ScaleFactorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParams', [
-      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(arc.mojom.TextSelectionActionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(arc.mojom.TextSelectionActionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec, 'arc.mojom.IntentHelperInstance_HandleCameraResult_Params', [
       mojo.internal.StructField('intent_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('action', 4, 0, arc.mojom.CameraIntentActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('action', 8, 0, arc.mojom.CameraIntentActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec, 'arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParams', [
@@ -941,13 +939,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec, 'arc.mojom.IntentHelperInstance_SetCaptionStyle_Params', [
-      mojo.internal.StructField('style', 0, 0, arc.mojom.CaptionStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('style', 0, 0, arc.mojom.CaptionStyleSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec, 'arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_Params', [
-      mojo.internal.StructField('features', 0, 0, arc.mojom.AccessibilityFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('features', 0, 0, arc.mojom.AccessibilityFeaturesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1147,9 +1145,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
 
 arc.mojom.IntentHelperInstance.getRemote = function() {
   let remote = new arc.mojom.IntentHelperInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.IntentHelperInstance',
     'context');
   return remote.$;

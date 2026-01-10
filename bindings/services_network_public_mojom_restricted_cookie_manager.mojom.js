@@ -52,7 +52,7 @@ network.mojom.RestrictedCookieManagerRole = {
 mojo.internal.Struct(
     network.mojom.CookieManagerGetOptionsSpec, 'network.mojom.CookieManagerGetOptions', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('match_type', 8, 0, network.mojom.CookieMatchTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('match_type', 8, 0, network.mojom.CookieMatchTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -60,7 +60,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.CookiesResponseSpec, 'network.mojom.CookiesResponse', [
       mojo.internal.StructField('version', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('version_buffer', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('version_buffer', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('cookies', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -68,11 +68,11 @@ mojo.internal.Struct(
 // Interface: RestrictedCookieManager
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec, 'network.mojom.RestrictedCookieManager_GetAllForUrl_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('options', 32, 0, network.mojom.CookieManagerGetOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('options', 32, 0, network.mojom.CookieManagerGetOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_ad_tagged', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('apply_devtools_overrides', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('force_disable_third_party_cookies', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -81,18 +81,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec, 'network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParams', [
-      mojo.internal.StructField('cookies', 0, 0, mojo.internal.Array(network.mojom.CookieWithAccessResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('cookies', 0, 0, mojo.internal.Array(network.mojom.CookieWithAccessResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec, 'network.mojom.RestrictedCookieManager_SetCanonicalCookie_Params', [
-      mojo.internal.StructField('cookie', 0, 0, network.mojom.CanonicalCookieSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('site_for_cookies', 16, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_frame_origin', 24, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 32, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status', 40, 0, network.mojom.CookieInclusionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cookie', 0, 0, network.mojom.CanonicalCookieSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 16, 0, network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 24, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 32, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status', 40, 0, network.mojom.CookieInclusionStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_ad_tagged', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('apply_devtools_overrides', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -106,10 +106,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec, 'network.mojom.RestrictedCookieManager_AddChangeListener_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('listener', 32, 0, mojo.internal.InterfaceProxy(network.mojom.CookieChangeListenerRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -121,53 +121,53 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec, 'network.mojom.RestrictedCookieManager_SetCookieFromString_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('get_version_shared_memory', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_ad_tagged', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('apply_devtools_overrides', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cookie', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('get_version_shared_memory', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_ad_tagged', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('apply_devtools_overrides', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cookie', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec, 'network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, network.mojom.CookiesResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, network.mojom.CookiesResponseSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec, 'network.mojom.RestrictedCookieManager_GetCookiesString_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('get_version_shared_memory', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_ad_tagged', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('apply_devtools_overrides', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('force_disable_third_party_cookies', 28, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('get_version_shared_memory', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_ad_tagged', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('apply_devtools_overrides', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force_disable_third_party_cookies', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec, 'network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParams', [
       mojo.internal.StructField('version', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('version_buffer', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('version_buffer', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('cookies', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec, 'network.mojom.RestrictedCookieManager_CookiesEnabledFor_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('apply_devtools_overrides', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 8, 0, network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 16, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 24, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('apply_devtools_overrides', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec, 'network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParams', [
@@ -271,9 +271,8 @@ network.mojom.RestrictedCookieManagerRemoteCallHandler = class {
 
 network.mojom.RestrictedCookieManager.getRemote = function() {
   let remote = new network.mojom.RestrictedCookieManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.RestrictedCookieManager',
     'context');
   return remote.$;

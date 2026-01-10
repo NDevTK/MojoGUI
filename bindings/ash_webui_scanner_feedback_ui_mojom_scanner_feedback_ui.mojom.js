@@ -22,7 +22,7 @@ ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, 'ash.mojom.scanner_feedback_ui.FeedbackInfo', [
       mojo.internal.StructField('action_details', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('screenshot_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('screenshot_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -34,7 +34,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParams', [
-      mojo.internal.StructField('feedback_info', 0, 0, ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feedback_info', 0, 0, ash.mojom.scanner_feedback_ui.FeedbackInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -115,9 +115,8 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
 
 ash.mojom.scanner_feedback_ui.PageHandler.getRemote = function() {
   let remote = new ash.mojom.scanner_feedback_ui.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mojom.scanner_feedback_ui.PageHandler',
     'context');
   return remote.$;

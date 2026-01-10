@@ -17,15 +17,15 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = { $: {} };
 // Interface: ConfigTraitsTestService
 mojo.internal.Struct(
     wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_Params', [
-      mojo.internal.StructField('t', 0, 0, wl.mojom.TransformUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('t', 0, 0, wl.mojom.TransformUnionSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParams', [
-      mojo.internal.StructField('pass', 0, 0, wl.mojom.TransformUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pass', 0, 0, wl.mojom.TransformUnionSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 wl.mojom.ConfigTraitsTestServicePendingReceiver = class {
   constructor(handle) {
@@ -73,9 +73,8 @@ wl.mojom.ConfigTraitsTestServiceRemoteCallHandler = class {
 
 wl.mojom.ConfigTraitsTestService.getRemote = function() {
   let remote = new wl.mojom.ConfigTraitsTestServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'wl.mojom.ConfigTraitsTestService',
     'context');
   return remote.$;

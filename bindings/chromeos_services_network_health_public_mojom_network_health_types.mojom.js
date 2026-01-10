@@ -49,23 +49,23 @@ mojo.internal.Struct(
 // Struct: Network
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkSpec, 'chromeos.network_health.mojom.Network', [
-      mojo.internal.StructField('type', 0, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('state', 4, 0, chromeos.network_health.mojom.NetworkStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('guid', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('mac_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('signal_strength', 32, 0, chromeos.network_health.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('ipv4_address', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('ipv6_addresses', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('portal_state', 56, 0, chromeos.network_config.mojom.PortalStateSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('signal_strength_stats', 64, 0, chromeos.network_health.mojom.SignalStrengthStatsSpec, null, true, 1, undefined),
-      mojo.internal.StructField('portal_probe_url', 72, 0, url.mojom.UrlSpec, null, true, 3, undefined),
+      mojo.internal.StructField('type', 0, 0, chromeos.network_config.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, chromeos.network_health.mojom.NetworkStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('guid', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('mac_address', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('signal_strength', 40, 0, chromeos.network_health.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('ipv4_address', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ipv6_addresses', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('portal_state', 64, 0, chromeos.network_config.mojom.PortalStateSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_strength_stats', 72, 0, chromeos.network_health.mojom.SignalStrengthStatsSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('portal_probe_url', 80, 0, url.mojom.UrlSpec.$, null, true, 3, undefined),
     ],
-    [[0, 72], [1, 80], [3, 88]]);
+    [[0, 80], [1, 88], [3, 96]]);
 
 // Struct: NetworkHealthState
 mojo.internal.Struct(
     chromeos.network_health.mojom.NetworkHealthStateSpec, 'chromeos.network_health.mojom.NetworkHealthState', [
-      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

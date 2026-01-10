@@ -67,9 +67,8 @@ viz.mojom.GpuLoggingRemoteCallHandler = class {
 
 viz.mojom.GpuLogging.getRemote = function() {
   let remote = new viz.mojom.GpuLoggingRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.GpuLogging',
     'context');
   return remote.$;

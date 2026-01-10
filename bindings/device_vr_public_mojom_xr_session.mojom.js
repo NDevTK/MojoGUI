@@ -87,8 +87,8 @@ device.mojom.XRDepthType = {
 // Struct: XRTrackedImage
 mojo.internal.Struct(
     device.mojom.XRTrackedImageSpec, 'device.mojom.XRTrackedImage', [
-      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
-      mojo.internal.StructField('size_in_pixels', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('size_in_pixels', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('width_in_meters', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -96,9 +96,9 @@ mojo.internal.Struct(
 // Struct: XRDepthOptions
 mojo.internal.Struct(
     device.mojom.XRDepthOptionsSpec, 'device.mojom.XRDepthOptions', [
-      mojo.internal.StructField('usage_preferences', 0, 0, mojo.internal.Array(device.mojom.XRDepthUsageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('data_format_preferences', 8, 0, mojo.internal.Array(device.mojom.XRDepthDataFormatSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('depth_type_request', 16, 0, mojo.internal.Array(device.mojom.XRDepthTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('usage_preferences', 0, 0, mojo.internal.Array(device.mojom.XRDepthUsageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('data_format_preferences', 8, 0, mojo.internal.Array(device.mojom.XRDepthDataFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('depth_type_request', 16, 0, mojo.internal.Array(device.mojom.XRDepthTypeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('match_depth_view', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -106,11 +106,11 @@ mojo.internal.Struct(
 // Struct: XRSessionOptions
 mojo.internal.Struct(
     device.mojom.XRSessionOptionsSpec, 'device.mojom.XRSessionOptions', [
-      mojo.internal.StructField('mode', 0, 0, device.mojom.XRSessionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('required_features', 8, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('optional_features', 16, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('tracked_images', 24, 0, mojo.internal.Array(device.mojom.XRTrackedImageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('depth_options', 32, 0, device.mojom.XRDepthOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, device.mojom.XRSessionModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('required_features', 8, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('optional_features', 16, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('tracked_images', 24, 0, mojo.internal.Array(device.mojom.XRTrackedImageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('depth_options', 32, 0, device.mojom.XRDepthOptionsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('trace_id', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -119,12 +119,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.XrFrameStatisticsSpec, 'device.mojom.XrFrameStatistics', [
       mojo.internal.StructField('trace_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('num_frames', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('dropped_frames', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('frame_data_time', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_animation_frame_time', 40, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('submit_frame_time', 48, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_data_time', 32, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('page_animation_frame_time', 40, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('submit_frame_time', 48, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 

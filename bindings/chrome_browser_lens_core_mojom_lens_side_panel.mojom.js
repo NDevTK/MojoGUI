@@ -102,9 +102,8 @@ lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
 
 lens.mojom.LensSidePanelPageHandlerFactory.getRemote = function() {
   let remote = new lens.mojom.LensSidePanelPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'lens.mojom.LensSidePanelPageHandlerFactory',
     'context');
   return remote.$;
@@ -250,9 +249,8 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
 
 lens.mojom.LensSidePanelPageHandler.getRemote = function() {
   let remote = new lens.mojom.LensSidePanelPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'lens.mojom.LensSidePanelPageHandler',
     'context');
   return remote.$;
@@ -265,7 +263,7 @@ lens.mojom.LensSidePanelPageHandlerRequest = lens.mojom.LensSidePanelPageHandler
 // Interface: LensSidePanelPage
 mojo.internal.Struct(
     lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec, 'lens.mojom.LensSidePanelPage_LoadResultsInFrame_Params', [
-      mojo.internal.StructField('results_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('results_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -290,9 +288,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetShowErrorPage_Params', [
       mojo.internal.StructField('should_show_error_page', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('status', 4, 0, lens.mojom.SidePanelResultStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, lens.mojom.SidePanelResultStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec, 'lens.mojom.LensSidePanelPage_SuppressGhostLoader_Params', [
@@ -301,7 +299,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec, 'lens.mojom.LensSidePanelPage_PageContentTypeChanged_Params', [
-      mojo.internal.StructField('new_page_content_type', 0, 0, lens.mojom.PageContentTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_page_content_type', 0, 0, lens.mojom.PageContentTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -520,9 +518,8 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
 
 lens.mojom.LensSidePanelPage.getRemote = function() {
   let remote = new lens.mojom.LensSidePanelPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'lens.mojom.LensSidePanelPage',
     'context');
   return remote.$;

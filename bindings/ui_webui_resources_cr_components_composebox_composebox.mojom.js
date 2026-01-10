@@ -80,9 +80,8 @@ composebox.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 composebox.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new composebox.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'composebox.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -125,7 +124,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     composebox.mojom.PageHandler_NavigateUrl_ParamsSpec, 'composebox.mojom.PageHandler_NavigateUrl_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -225,9 +224,8 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
 
 composebox.mojom.PageHandler.getRemote = function() {
   let remote = new composebox.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'composebox.mojom.PageHandler',
     'context');
   return remote.$;
@@ -274,9 +272,8 @@ composebox.mojom.PageRemoteCallHandler = class {
 
 composebox.mojom.Page.getRemote = function() {
   let remote = new composebox.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'composebox.mojom.Page',
     'context');
   return remote.$;

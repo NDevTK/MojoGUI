@@ -26,10 +26,10 @@ network.mojom.PrivateNetworkRequestPolicy = {
 // Struct: ClientSecurityState
 mojo.internal.Struct(
     network.mojom.ClientSecurityStateSpec, 'network.mojom.ClientSecurityState', [
-      mojo.internal.StructField('cross_origin_embedder_policy', 0, 0, network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('cross_origin_embedder_policy', 0, 0, network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_web_secure_context', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ip_address_space', 12, 0, network.mojom.IPAddressSpaceSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('private_network_request_policy', 16, 0, network.mojom.PrivateNetworkRequestPolicySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('document_isolation_policy', 24, 0, network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('ip_address_space', 16, 0, network.mojom.IPAddressSpaceSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('private_network_request_policy', 24, 0, network.mojom.PrivateNetworkRequestPolicySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('document_isolation_policy', 32, 0, network.mojom.DocumentIsolationPolicySpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);

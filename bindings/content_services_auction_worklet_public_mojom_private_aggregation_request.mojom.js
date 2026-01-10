@@ -67,12 +67,12 @@ mojo.internal.Union(
     auction_worklet.mojom.ForEventSignalBucketSpec, 'auction_worklet.mojom.ForEventSignalBucket', {
       'id_bucket': {
         'ordinal': 0,
-        'type': mojo_base.mojom.Uint128Spec,
+        'type': mojo_base.mojom.Uint128Spec.$,
         'nullable': false,
       },
       'signal_bucket': {
         'ordinal': 1,
-        'type': auction_worklet.mojom.SignalBucketSpec,
+        'type': auction_worklet.mojom.SignalBucketSpec.$,
         'nullable': false,
       },
     });
@@ -87,7 +87,7 @@ mojo.internal.Union(
       },
       'signal_value': {
         'ordinal': 1,
-        'type': auction_worklet.mojom.SignalValueSpec,
+        'type': auction_worklet.mojom.SignalValueSpec.$,
         'nullable': false,
       },
     });
@@ -97,12 +97,12 @@ mojo.internal.Union(
     auction_worklet.mojom.EventTypeSpec, 'auction_worklet.mojom.EventType', {
       'reserved_non_error': {
         'ordinal': 0,
-        'type': auction_worklet.mojom.ReservedNonErrorEventTypeSpec,
+        'type': auction_worklet.mojom.ReservedNonErrorEventTypeSpec.$,
         'nullable': false,
       },
       'reserved_error': {
         'ordinal': 1,
-        'type': auction_worklet.mojom.ReservedErrorEventTypeSpec,
+        'type': auction_worklet.mojom.ReservedErrorEventTypeSpec.$,
         'nullable': false,
       },
       'non_reserved': {
@@ -117,12 +117,12 @@ mojo.internal.Union(
     auction_worklet.mojom.AggregatableReportContributionSpec, 'auction_worklet.mojom.AggregatableReportContribution', {
       'histogram_contribution': {
         'ordinal': 0,
-        'type': blink.mojom.AggregatableReportHistogramContributionSpec,
+        'type': blink.mojom.AggregatableReportHistogramContributionSpec.$,
         'nullable': false,
       },
       'for_event_contribution': {
         'ordinal': 1,
-        'type': auction_worklet.mojom.AggregatableReportForEventContributionSpec,
+        'type': auction_worklet.mojom.AggregatableReportForEventContributionSpec.$,
         'nullable': false,
       },
     });
@@ -130,7 +130,7 @@ mojo.internal.Union(
 // Struct: BucketOffset
 mojo.internal.Struct(
     auction_worklet.mojom.BucketOffsetSpec, 'auction_worklet.mojom.BucketOffset', [
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.Uint128Spec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.Uint128Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_negative', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -138,16 +138,16 @@ mojo.internal.Struct(
 // Struct: SignalBucket
 mojo.internal.Struct(
     auction_worklet.mojom.SignalBucketSpec, 'auction_worklet.mojom.SignalBucket', [
-      mojo.internal.StructField('base_value', 0, 0, auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('base_value', 0, 0, auction_worklet.mojom.BaseValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('scale', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
-      mojo.internal.StructField('offset', 16, 0, auction_worklet.mojom.BucketOffsetSpec, null, true, 0, undefined),
+      mojo.internal.StructField('offset', 16, 0, auction_worklet.mojom.BucketOffsetSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SignalValue
 mojo.internal.Struct(
     auction_worklet.mojom.SignalValueSpec, 'auction_worklet.mojom.SignalValue', [
-      mojo.internal.StructField('base_value', 0, 0, auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('base_value', 0, 0, auction_worklet.mojom.BaseValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('scale', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
       mojo.internal.StructField('offset', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -156,27 +156,27 @@ mojo.internal.Struct(
 // Struct: AggregatableReportForEventContribution
 mojo.internal.Struct(
     auction_worklet.mojom.AggregatableReportForEventContributionSpec, 'auction_worklet.mojom.AggregatableReportForEventContribution', [
-      mojo.internal.StructField('bucket', 0, 0, auction_worklet.mojom.ForEventSignalBucketSpec, null, false, 0, undefined),
-      mojo.internal.StructField('value', 16, 0, auction_worklet.mojom.ForEventSignalValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('filtering_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'filtering_id_$value', originalFieldName: 'filtering_id' }),
-      mojo.internal.StructField('filtering_id_$value', 40, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'filtering_id_$flag', originalFieldName: 'filtering_id' }),
-      mojo.internal.StructField('event_type', 48, 0, auction_worklet.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket', 0, 0, auction_worklet.mojom.ForEventSignalBucketSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, auction_worklet.mojom.ForEventSignalValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('filtering_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'filtering_id_$value', originalFieldName: 'filtering_id' }),
+      mojo.internal.StructField('filtering_id_$value', 24, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'filtering_id_$flag', originalFieldName: 'filtering_id' }),
+      mojo.internal.StructField('event_type', 32, 0, auction_worklet.mojom.EventTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 48]]);
 
 // Struct: PrivateAggregationRequest
 mojo.internal.Struct(
     auction_worklet.mojom.PrivateAggregationRequestSpec, 'auction_worklet.mojom.PrivateAggregationRequest', [
-      mojo.internal.StructField('contribution', 0, 0, auction_worklet.mojom.AggregatableReportContributionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('debug_mode_details', 16, 0, blink.mojom.DebugModeDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('contribution', 0, 0, auction_worklet.mojom.AggregatableReportContributionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('debug_mode_details', 8, 0, blink.mojom.DebugModeDetailsSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: FinalizedPrivateAggregationRequest
 mojo.internal.Struct(
     auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec, 'auction_worklet.mojom.FinalizedPrivateAggregationRequest', [
-      mojo.internal.StructField('contribution', 0, 0, blink.mojom.AggregatableReportHistogramContributionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('debug_mode_details', 8, 0, blink.mojom.DebugModeDetailsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('error_event', 16, 0, blink.mojom.PrivateAggregationErrorEventSpec, null, true, 0, undefined),
+      mojo.internal.StructField('contribution', 0, 0, blink.mojom.AggregatableReportHistogramContributionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('debug_mode_details', 8, 0, blink.mojom.DebugModeDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('error_event', 16, 0, blink.mojom.PrivateAggregationErrorEventSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);

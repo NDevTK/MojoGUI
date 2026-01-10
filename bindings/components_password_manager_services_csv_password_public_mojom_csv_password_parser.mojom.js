@@ -27,7 +27,7 @@ password_manager.mojom.Status = {
 // Struct: CSVPasswordSequence
 mojo.internal.Struct(
     password_manager.mojom.CSVPasswordSequenceSpec, 'password_manager.mojom.CSVPasswordSequence', [
-      mojo.internal.StructField('csv_passwords', 0, 0, mojo.internal.Array(password_manager.mojom.CSVPasswordSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('csv_passwords', 0, 0, mojo.internal.Array(password_manager.mojom.CSVPasswordSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -47,7 +47,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec, 'password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParams', [
-      mojo.internal.StructField('sequence', 0, 0, password_manager.mojom.CSVPasswordSequenceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('sequence', 0, 0, password_manager.mojom.CSVPasswordSequenceSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -97,9 +97,8 @@ password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {
 
 password_manager.mojom.CSVPasswordParser.getRemote = function() {
   let remote = new password_manager.mojom.CSVPasswordParserRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'password_manager.mojom.CSVPasswordParser',
     'context');
   return remote.$;

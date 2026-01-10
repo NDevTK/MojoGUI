@@ -24,13 +24,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_Params', [
-      mojo.internal.StructField('theme', 0, 0, dom_distiller.mojom.ThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('theme', 0, 0, dom_distiller.mojom.ThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_Params', [
-      mojo.internal.StructField('font_family', 0, 0, dom_distiller.mojom.FontFamilySpec, null, false, 0, undefined),
+      mojo.internal.StructField('font_family', 0, 0, dom_distiller.mojom.FontFamilySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -116,9 +116,8 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
 
 dom_distiller.mojom.DistillerJavaScriptService.getRemote = function() {
   let remote = new dom_distiller.mojom.DistillerJavaScriptServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'dom_distiller.mojom.DistillerJavaScriptService',
     'context');
   return remote.$;

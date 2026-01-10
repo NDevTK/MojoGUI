@@ -43,18 +43,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.URLLoader_FollowRedirect_ParamsSpec, 'network.mojom.URLLoader_FollowRedirect_Params', [
       mojo.internal.StructField('removed_headers', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('modified_headers', 8, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('modified_cors_exempt_headers', 16, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('new_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('modified_headers', 8, 0, network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('modified_cors_exempt_headers', 16, 0, network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoader_SetPriority_ParamsSpec, 'network.mojom.URLLoader_SetPriority_Params', [
-      mojo.internal.StructField('priority', 0, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('intra_priority_value', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('priority', 0, 0, network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('intra_priority_value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 network.mojom.URLLoaderPendingReceiver = class {
   constructor(handle) {
@@ -112,9 +112,8 @@ network.mojom.URLLoaderRemoteCallHandler = class {
 
 network.mojom.URLLoader.getRemote = function() {
   let remote = new network.mojom.URLLoaderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.URLLoader',
     'context');
   return remote.$;
@@ -127,22 +126,22 @@ network.mojom.URLLoaderRequest = network.mojom.URLLoaderPendingReceiver;
 // Interface: URLLoaderClient
 mojo.internal.Struct(
     network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveEarlyHints_Params', [
-      mojo.internal.StructField('early_hints', 0, 0, network.mojom.EarlyHintsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('early_hints', 0, 0, network.mojom.EarlyHintsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveResponse_Params', [
-      mojo.internal.StructField('head', 0, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('head', 0, 0, network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('body', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
-      mojo.internal.StructField('cached_metadata', 16, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cached_metadata', 16, 0, mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveRedirect_Params', [
-      mojo.internal.StructField('redirect_info', 0, 0, network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('head', 8, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('redirect_info', 0, 0, network.mojom.URLRequestRedirectInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('head', 8, 0, network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -166,7 +165,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.URLLoaderClient_OnComplete_ParamsSpec, 'network.mojom.URLLoaderClient_OnComplete_Params', [
-      mojo.internal.StructField('status', 0, 0, network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, network.mojom.URLLoaderCompletionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -266,9 +265,8 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
 
 network.mojom.URLLoaderClient.getRemote = function() {
   let remote = new network.mojom.URLLoaderClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'network.mojom.URLLoaderClient',
     'context');
   return remote.$;

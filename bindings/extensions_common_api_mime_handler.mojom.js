@@ -48,13 +48,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParams', [
-      mojo.internal.StructField('stream_info', 0, 0, extensions.mime_handler.StreamInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('stream_info', 0, 0, extensions.mime_handler.StreamInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec, 'extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_Params', [
-      mojo.internal.StructField('pdf_plugin_attributes', 0, 0, extensions.mime_handler.PdfPluginAttributesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_plugin_attributes', 0, 0, extensions.mime_handler.PdfPluginAttributesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -114,9 +114,8 @@ extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
 
 extensions.mime_handler.MimeHandlerService.getRemote = function() {
   let remote = new extensions.mime_handler.MimeHandlerServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions.mime_handler.MimeHandlerService',
     'context');
   return remote.$;
@@ -184,9 +183,8 @@ extensions.mime_handler.BeforeUnloadControlRemoteCallHandler = class {
 
 extensions.mime_handler.BeforeUnloadControl.getRemote = function() {
   let remote = new extensions.mime_handler.BeforeUnloadControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'extensions.mime_handler.BeforeUnloadControl',
     'context');
   return remote.$;

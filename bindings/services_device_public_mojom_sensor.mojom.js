@@ -70,13 +70,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec, 'device.mojom.Sensor_GetDefaultConfiguration_ResponseParams', [
-      mojo.internal.StructField('configuration', 0, 0, device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('configuration', 0, 0, device.mojom.SensorConfigurationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.Sensor_AddConfiguration_ParamsSpec, 'device.mojom.Sensor_AddConfiguration_Params', [
-      mojo.internal.StructField('configuration', 0, 0, device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('configuration', 0, 0, device.mojom.SensorConfigurationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -88,7 +88,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.Sensor_RemoveConfiguration_ParamsSpec, 'device.mojom.Sensor_RemoveConfiguration_Params', [
-      mojo.internal.StructField('configuration', 0, 0, device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('configuration', 0, 0, device.mojom.SensorConfigurationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -204,9 +204,8 @@ device.mojom.SensorRemoteCallHandler = class {
 
 device.mojom.Sensor.getRemote = function() {
   let remote = new device.mojom.SensorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.Sensor',
     'context');
   return remote.$;
@@ -283,9 +282,8 @@ device.mojom.SensorClientRemoteCallHandler = class {
 
 device.mojom.SensorClient.getRemote = function() {
   let remote = new device.mojom.SensorClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.SensorClient',
     'context');
   return remote.$;

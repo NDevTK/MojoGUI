@@ -21,7 +21,7 @@ mojo.internal.Union(
       },
       'shared_memory': {
         'ordinal': 1,
-        'type': mojo_base.mojom.BigBufferSharedMemoryRegionSpec,
+        'type': mojo_base.mojom.BigBufferSharedMemoryRegionSpec.$,
         'nullable': false,
       },
       'invalid_buffer': {

@@ -137,10 +137,10 @@ tab_search.mojom.UserFeedback = {
 // Struct: ProfileData
 mojo.internal.Struct(
     tab_search.mojom.ProfileDataSpec, 'tab_search.mojom.ProfileData', [
-      mojo.internal.StructField('windows', 0, 0, mojo.internal.Array(tab_search.mojom.WindowSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('tab_groups', 8, 0, mojo.internal.Array(tab_search.mojom.TabGroupSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('recently_closed_tabs', 16, 0, mojo.internal.Array(tab_search.mojom.RecentlyClosedTabSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('recently_closed_tab_groups', 24, 0, mojo.internal.Array(tab_search.mojom.RecentlyClosedTabGroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('windows', 0, 0, mojo.internal.Array(tab_search.mojom.WindowSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('tab_groups', 8, 0, mojo.internal.Array(tab_search.mojom.TabGroupSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('recently_closed_tabs', 16, 0, mojo.internal.Array(tab_search.mojom.RecentlyClosedTabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('recently_closed_tab_groups', 24, 0, mojo.internal.Array(tab_search.mojom.RecentlyClosedTabGroupSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('recently_closed_section_expanded', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -151,7 +151,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_host_window', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('height', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('tabs', 8, 0, mojo.internal.Array(tab_search.mojom.TabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tabs', 8, 0, mojo.internal.Array(tab_search.mojom.TabSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -160,18 +160,18 @@ mojo.internal.Struct(
     tab_search.mojom.TabSpec, 'tab_search.mojom.Tab', [
       mojo.internal.StructField('active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('visible', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('alert_states', 8, 0, mojo.internal.Array(tabs.mojom.TabAlertStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('alert_states', 8, 0, mojo.internal.Array(tabs.mojom.TabAlertStateSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('tab_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('group_id', 24, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('group_id', 24, 0, mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('pinned', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('split', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('title', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 48, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('favicon_url', 56, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('url', 48, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_url', 56, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('is_default_favicon', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('show_icon', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('last_active_time_ticks', 72, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_time_ticks', 72, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('last_active_elapsed_text', 80, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 96]]);
@@ -180,10 +180,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tab_search.mojom.RecentlyClosedTabSpec, 'tab_search.mojom.RecentlyClosedTab', [
       mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('group_id', 8, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('group_id', 8, 0, mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('last_active_time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_time', 32, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('last_active_elapsed_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -191,8 +191,8 @@ mojo.internal.Struct(
 // Struct: TabGroup
 mojo.internal.Struct(
     tab_search.mojom.TabGroupSpec, 'tab_search.mojom.TabGroup', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('color', 8, 0, tab_groups.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('color', 8, 0, tab_groups.mojom.ColorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -201,11 +201,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tab_search.mojom.RecentlyClosedTabGroupSpec, 'tab_search.mojom.RecentlyClosedTabGroup', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('id', 8, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('color', 16, 0, tab_groups.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('color', 16, 0, tab_groups.mojom.ColorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('tab_count', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('last_active_time', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_time', 40, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('last_active_elapsed_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -221,9 +221,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tab_search.mojom.TabOrganizationSpec, 'tab_search.mojom.TabOrganization', [
       mojo.internal.StructField('organization_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('tabs', 8, 0, mojo.internal.Array(tab_search.mojom.TabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tabs', 8, 0, mojo.internal.Array(tab_search.mojom.TabSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('first_new_tab_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('name', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -231,19 +231,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tab_search.mojom.TabOrganizationSessionSpec, 'tab_search.mojom.TabOrganizationSession', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 4, 0, tab_search.mojom.TabOrganizationStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('organizations', 8, 0, mojo.internal.Array(tab_search.mojom.TabOrganizationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('error', 16, 0, tab_search.mojom.TabOrganizationErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('active_tab_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, tab_search.mojom.TabOrganizationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('organizations', 16, 0, mojo.internal.Array(tab_search.mojom.TabOrganizationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 24, 0, tab_search.mojom.TabOrganizationErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('active_tab_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 // Struct: TabUpdateInfo
 mojo.internal.Struct(
     tab_search.mojom.TabUpdateInfoSpec, 'tab_search.mojom.TabUpdateInfo', [
       mojo.internal.StructField('in_active_window', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('in_host_window', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('tab', 8, 0, tab_search.mojom.TabSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 8, 0, tab_search.mojom.TabSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -251,15 +251,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tab_search.mojom.TabsRemovedInfoSpec, 'tab_search.mojom.TabsRemovedInfo', [
       mojo.internal.StructField('tab_ids', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('recently_closed_tabs', 8, 0, mojo.internal.Array(tab_search.mojom.RecentlyClosedTabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('recently_closed_tabs', 8, 0, mojo.internal.Array(tab_search.mojom.RecentlyClosedTabSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: UnusedTabInfo
 mojo.internal.Struct(
     tab_search.mojom.UnusedTabInfoSpec, 'tab_search.mojom.UnusedTabInfo', [
-      mojo.internal.StructField('stale_tabs', 0, 0, mojo.internal.Array(tab_search.mojom.TabSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('duplicate_tabs', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(tab_search.mojom.TabSpec, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('stale_tabs', 0, 0, mojo.internal.Array(tab_search.mojom.TabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('duplicate_tabs', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(tab_search.mojom.TabSpec.$, false), false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -317,9 +317,8 @@ tab_search.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 tab_search.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new tab_search.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tab_search.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -344,7 +343,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec, 'tab_search.mojom.PageHandler_DeclutterTabs_Params', [
       mojo.internal.StructField('tab_ids', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('urls', 8, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('urls', 8, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -352,7 +351,7 @@ mojo.internal.Struct(
     tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_AcceptTabOrganization_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('organization_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('tabs', 8, 0, mojo.internal.Array(tab_search.mojom.TabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tabs', 8, 0, mojo.internal.Array(tab_search.mojom.TabSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -367,7 +366,7 @@ mojo.internal.Struct(
     tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_RenameTabOrganization_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('organization_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -379,7 +378,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec, 'tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -390,7 +389,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetProfileData_ResponseParams', [
-      mojo.internal.StructField('profile_data', 0, 0, tab_search.mojom.ProfileDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile_data', 0, 0, tab_search.mojom.ProfileDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -401,7 +400,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParams', [
-      mojo.internal.StructField('tabs', 0, 0, tab_search.mojom.UnusedTabInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tabs', 0, 0, tab_search.mojom.UnusedTabInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -412,7 +411,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParams', [
-      mojo.internal.StructField('section', 0, 0, tab_search.mojom.TabSearchSectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('section', 0, 0, tab_search.mojom.TabSearchSectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -423,7 +422,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParams', [
-      mojo.internal.StructField('feature', 0, 0, tab_search.mojom.TabOrganizationFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature', 0, 0, tab_search.mojom.TabOrganizationFeatureSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -434,7 +433,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParams', [
-      mojo.internal.StructField('session', 0, 0, tab_search.mojom.TabOrganizationSessionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, tab_search.mojom.TabOrganizationSessionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -445,7 +444,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParams', [
-      mojo.internal.StructField('strategy', 0, 0, tab_search.mojom.TabOrganizationModelStrategySpec, null, false, 0, undefined),
+      mojo.internal.StructField('strategy', 0, 0, tab_search.mojom.TabOrganizationModelStrategySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -462,7 +461,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec, 'tab_search.mojom.PageHandler_SwitchToTab_Params', [
-      mojo.internal.StructField('switch_to_tab_info', 0, 0, tab_search.mojom.SwitchToTabInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('switch_to_tab_info', 0, 0, tab_search.mojom.SwitchToTabInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -481,7 +480,7 @@ mojo.internal.Struct(
     tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_RemoveTabFromOrganization_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('organization_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('tab', 8, 0, tab_search.mojom.TabSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 8, 0, tab_search.mojom.TabSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -510,7 +509,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec, 'tab_search.mojom.PageHandler_SetOrganizationFeature_Params', [
-      mojo.internal.StructField('feature', 0, 0, tab_search.mojom.TabOrganizationFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature', 0, 0, tab_search.mojom.TabOrganizationFeatureSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -537,7 +536,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec, 'tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_Params', [
-      mojo.internal.StructField('strategy', 0, 0, tab_search.mojom.TabOrganizationModelStrategySpec, null, false, 0, undefined),
+      mojo.internal.StructField('strategy', 0, 0, tab_search.mojom.TabOrganizationModelStrategySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -550,9 +549,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec, 'tab_search.mojom.PageHandler_SetUserFeedback_Params', [
       mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('feedback', 4, 0, tab_search.mojom.UserFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feedback', 8, 0, tab_search.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec, 'tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_Params', [
@@ -930,9 +929,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
 
 tab_search.mojom.PageHandler.getRemote = function() {
   let remote = new tab_search.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tab_search.mojom.PageHandler',
     'context');
   return remote.$;
@@ -945,13 +943,13 @@ tab_search.mojom.PageHandlerRequest = tab_search.mojom.PageHandlerPendingReceive
 // Interface: Page
 mojo.internal.Struct(
     tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec, 'tab_search.mojom.Page_TabOrganizationSessionUpdated_Params', [
-      mojo.internal.StructField('session', 0, 0, tab_search.mojom.TabOrganizationSessionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, tab_search.mojom.TabOrganizationSessionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec, 'tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_Params', [
-      mojo.internal.StructField('strategy', 0, 0, tab_search.mojom.TabOrganizationModelStrategySpec, null, false, 0, undefined),
+      mojo.internal.StructField('strategy', 0, 0, tab_search.mojom.TabOrganizationModelStrategySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -962,31 +960,31 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.Page_TabsChanged_ParamsSpec, 'tab_search.mojom.Page_TabsChanged_Params', [
-      mojo.internal.StructField('profile_tabs', 0, 0, tab_search.mojom.ProfileDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('profile_tabs', 0, 0, tab_search.mojom.ProfileDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tab_search.mojom.Page_TabUpdated_ParamsSpec, 'tab_search.mojom.Page_TabUpdated_Params', [
-      mojo.internal.StructField('tabUpdateInfo', 0, 0, tab_search.mojom.TabUpdateInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tabUpdateInfo', 0, 0, tab_search.mojom.TabUpdateInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tab_search.mojom.Page_TabsRemoved_ParamsSpec, 'tab_search.mojom.Page_TabsRemoved_Params', [
-      mojo.internal.StructField('tabsRemovedInfo', 0, 0, tab_search.mojom.TabsRemovedInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tabsRemovedInfo', 0, 0, tab_search.mojom.TabsRemovedInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec, 'tab_search.mojom.Page_TabSearchSectionChanged_Params', [
-      mojo.internal.StructField('section', 0, 0, tab_search.mojom.TabSearchSectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('section', 0, 0, tab_search.mojom.TabSearchSectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec, 'tab_search.mojom.Page_TabOrganizationFeatureChanged_Params', [
-      mojo.internal.StructField('feature', 0, 0, tab_search.mojom.TabOrganizationFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature', 0, 0, tab_search.mojom.TabOrganizationFeatureSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1004,7 +1002,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec, 'tab_search.mojom.Page_UnusedTabsChanged_Params', [
-      mojo.internal.StructField('tabs', 0, 0, tab_search.mojom.UnusedTabInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tabs', 0, 0, tab_search.mojom.UnusedTabInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1169,9 +1167,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
 
 tab_search.mojom.Page.getRemote = function() {
   let remote = new tab_search.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'tab_search.mojom.Page',
     'context');
   return remote.$;

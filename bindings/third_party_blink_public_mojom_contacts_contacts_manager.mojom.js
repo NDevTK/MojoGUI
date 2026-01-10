@@ -30,8 +30,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('name', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('email', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('tel', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('address', 24, 0, mojo.internal.Array(payments.mojom.PaymentAddressSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('icon', 32, 0, mojo.internal.Array(blink.mojom.ContactIconBlobSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('address', 24, 0, mojo.internal.Array(payments.mojom.PaymentAddressSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('icon', 32, 0, mojo.internal.Array(blink.mojom.ContactIconBlobSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -49,7 +49,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ContactsManager_Select_ResponseParamsSpec, 'blink.mojom.ContactsManager_Select_ResponseParams', [
-      mojo.internal.StructField('contacts', 0, 0, mojo.internal.Array(blink.mojom.ContactInfoSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('contacts', 0, 0, mojo.internal.Array(blink.mojom.ContactInfoSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -99,9 +99,8 @@ blink.mojom.ContactsManagerRemoteCallHandler = class {
 
 blink.mojom.ContactsManager.getRemote = function() {
   let remote = new blink.mojom.ContactsManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ContactsManager',
     'context');
   return remote.$;

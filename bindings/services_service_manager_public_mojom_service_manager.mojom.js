@@ -33,48 +33,48 @@ service_manager.mojom.InstanceState = {
 // Struct: RunningServiceInfo
 mojo.internal.Struct(
     service_manager.mojom.RunningServiceInfoSpec, 'service_manager.mojom.RunningServiceInfo', [
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 12, 0, service_manager.mojom.InstanceStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 16, 0, service_manager.mojom.InstanceStateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: ServiceManagerListener
 mojo.internal.Struct(
     service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnInit_Params', [
-      mojo.internal.StructField('running_services', 0, 0, mojo.internal.Array(service_manager.mojom.RunningServiceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('running_services', 0, 0, mojo.internal.Array(service_manager.mojom.RunningServiceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceCreated_Params', [
-      mojo.internal.StructField('service', 0, 0, service_manager.mojom.RunningServiceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service', 0, 0, service_manager.mojom.RunningServiceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceStarted_Params', [
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('pid_deprecated', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_Params', [
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_Params', [
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceStopped_Params', [
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -174,9 +174,8 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
 
 service_manager.mojom.ServiceManagerListener.getRemote = function() {
   let remote = new service_manager.mojom.ServiceManagerListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'service_manager.mojom.ServiceManagerListener',
     'context');
   return remote.$;
@@ -239,9 +238,8 @@ service_manager.mojom.ServiceManagerRemoteCallHandler = class {
 
 service_manager.mojom.ServiceManager.getRemote = function() {
   let remote = new service_manager.mojom.ServiceManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'service_manager.mojom.ServiceManager',
     'context');
   return remote.$;

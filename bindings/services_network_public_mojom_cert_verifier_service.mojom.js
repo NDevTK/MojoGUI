@@ -32,11 +32,11 @@ cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = { $: {} };
 // Struct: RequestParams
 mojo.internal.Struct(
     cert_verifier.mojom.RequestParamsSpec, 'cert_verifier.mojom.RequestParams', [
-      mojo.internal.StructField('certificate', 0, 0, network.mojom.X509CertificateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('certificate', 0, 0, network.mojom.X509CertificateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('hostname', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('flags', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('ocsp_response', 24, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sct_list', 32, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ocsp_response', 24, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sct_list', 32, 0, mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -102,9 +102,8 @@ cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHandler = class {
 
 cert_verifier.mojom.URLLoaderFactoryConnector.getRemote = function() {
   let remote = new cert_verifier.mojom.URLLoaderFactoryConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cert_verifier.mojom.URLLoaderFactoryConnector',
     'context');
   return remote.$;
@@ -124,8 +123,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify_Params', [
-      mojo.internal.StructField('params', 0, 0, cert_verifier.mojom.RequestParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('net_log_source', 8, 0, network.mojom.NetLogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, cert_verifier.mojom.RequestParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('net_log_source', 8, 0, network.mojom.NetLogSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('cert_verifier_request', 16, 0, mojo.internal.InterfaceProxy(cert_verifier.mojom.CertVerifierRequestRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -134,20 +133,20 @@ mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_Params', [
       mojo.internal.StructField('binding', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('hostname', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('tls_certificate', 16, 0, network.mojom.X509CertificateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('net_log_source', 24, 0, network.mojom.NetLogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tls_certificate', 16, 0, network.mojom.X509CertificateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('net_log_source', 24, 0, network.mojom.NetLogSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParams', [
-      mojo.internal.StructField('verified_cert', 0, 0, network.mojom.X509CertificateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('verified_cert', 0, 0, network.mojom.X509CertificateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec, 'cert_verifier.mojom.CertVerifierService_SetConfig_Params', [
-      mojo.internal.StructField('config', 0, 0, cert_verifier.mojom.CertVerifierConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, cert_verifier.mojom.CertVerifierConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -227,9 +226,8 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
 
 cert_verifier.mojom.CertVerifierService.getRemote = function() {
   let remote = new cert_verifier.mojom.CertVerifierServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cert_verifier.mojom.CertVerifierService',
     'context');
   return remote.$;
@@ -291,9 +289,8 @@ cert_verifier.mojom.CertVerifierServiceClientRemoteCallHandler = class {
 
 cert_verifier.mojom.CertVerifierServiceClient.getRemote = function() {
   let remote = new cert_verifier.mojom.CertVerifierServiceClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cert_verifier.mojom.CertVerifierServiceClient',
     'context');
   return remote.$;
@@ -306,7 +303,7 @@ cert_verifier.mojom.CertVerifierServiceClientRequest = cert_verifier.mojom.CertV
 // Interface: CertVerifierRequest
 mojo.internal.Struct(
     cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec, 'cert_verifier.mojom.CertVerifierRequest_Complete_Params', [
-      mojo.internal.StructField('result', 0, 0, network.mojom.CertVerifyResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, network.mojom.CertVerifyResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -357,9 +354,8 @@ cert_verifier.mojom.CertVerifierRequestRemoteCallHandler = class {
 
 cert_verifier.mojom.CertVerifierRequest.getRemote = function() {
   let remote = new cert_verifier.mojom.CertVerifierRequestRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cert_verifier.mojom.CertVerifierRequest',
     'context');
   return remote.$;

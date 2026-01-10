@@ -35,17 +35,17 @@ mojo.internal.Union(
       },
       'exception': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.ExceptionSpec,
+        'type': ash.cros_healthd.mojom.ExceptionSpec.$,
         'nullable': false,
       },
       'supported': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.SupportedSpec,
+        'type': ash.cros_healthd.mojom.SupportedSpec.$,
         'nullable': false,
       },
       'unsupported': {
         'ordinal': 3,
-        'type': ash.cros_healthd.mojom.UnsupportedSpec,
+        'type': ash.cros_healthd.mojom.UnsupportedSpec.$,
         'nullable': false,
       },
     });
@@ -77,6 +77,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.UnsupportedSpec, 'ash.cros_healthd.mojom.Unsupported', [
       mojo.internal.StructField('debug_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, ash.cros_healthd.mojom.UnsupportedReasonSpec, null, true, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, ash.cros_healthd.mojom.UnsupportedReasonSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);

@@ -15,8 +15,8 @@ blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec = { $: {} };
 // Interface: MemoryUsageMonitorLinux
 mojo.internal.Struct(
     blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec, 'blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_Params', [
-      mojo.internal.StructField('statm_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('status_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('statm_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('status_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -66,9 +66,8 @@ blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = class {
 
 blink.mojom.MemoryUsageMonitorLinux.getRemote = function() {
   let remote = new blink.mojom.MemoryUsageMonitorLinuxRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.MemoryUsageMonitorLinux',
     'context');
   return remote.$;

@@ -76,37 +76,37 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_Params', [
-      mojo.internal.StructField('status', 0, 0, system_media_controls.mojom.PlaybackStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, system_media_controls.mojom.PlaybackStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetTitle_Params', [
-      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetArtist_Params', [
-      mojo.internal.StructField('artist', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('artist', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetAlbum_Params', [
-      mojo.internal.StructField('album', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('album', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetThumbnail_Params', [
-      mojo.internal.StructField('thumbnail', 0, 0, media_session.mojom.MediaImageBitmapSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thumbnail', 0, 0, media_session.mojom.MediaImageBitmapSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetPosition_Params', [
-      mojo.internal.StructField('position', 0, 0, media_session.mojom.MediaPositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 0, 0, media_session.mojom.MediaPositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -271,9 +271,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
 
 system_media_controls.mojom.SystemMediaControls.getRemote = function() {
   let remote = new system_media_controls.mojom.SystemMediaControlsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'system_media_controls.mojom.SystemMediaControls',
     'context');
   return remote.$;
@@ -316,7 +315,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_Params', [
-      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -456,9 +455,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
 
 system_media_controls.mojom.SystemMediaControlsObserver.getRemote = function() {
   let remote = new system_media_controls.mojom.SystemMediaControlsObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'system_media_controls.mojom.SystemMediaControlsObserver',
     'context');
   return remote.$;

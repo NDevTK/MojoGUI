@@ -73,7 +73,7 @@ mojo.internal.Union(
       },
       'success': {
         'ordinal': 1,
-        'type': certificate_manager.mojom.SuccessResultSpec,
+        'type': certificate_manager.mojom.SuccessResultSpec.$,
         'nullable': false,
       },
     });
@@ -153,9 +153,8 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemoteCallHandler 
 
 certificate_manager.mojom.CertificateManagerPageHandlerFactory.getRemote = function() {
   let remote = new certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'certificate_manager.mojom.CertificateManagerPageHandlerFactory',
     'context');
   return remote.$;
@@ -168,13 +167,13 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryRequest = certific
 // Interface: CertificateManagerPageHandler
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_Params', [
-      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParams', [
-      mojo.internal.StructField('certs', 0, 0, mojo.internal.Array(certificate_manager.mojom.SummaryCertInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('certs', 0, 0, mojo.internal.Array(certificate_manager.mojom.SummaryCertInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -185,50 +184,50 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParams', [
-      mojo.internal.StructField('metadata', 0, 0, certificate_manager.mojom.CertManagementMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, certificate_manager.mojom.CertManagementMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_Params', [
-      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('sha256_hash_hex', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_Params', [
-      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Params', [
-      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, certificate_manager.mojom.ActionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, certificate_manager.mojom.ActionResultSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_Params', [
-      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, certificate_manager.mojom.ActionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, certificate_manager.mojom.ActionResultSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params', [
-      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, certificate_manager.mojom.CertificateSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('sha256_hash_hex', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -236,9 +235,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, certificate_manager.mojom.ActionResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, certificate_manager.mojom.ActionResultSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_Params', [
@@ -377,9 +376,8 @@ certificate_manager.mojom.CertificateManagerPageHandlerRemoteCallHandler = class
 
 certificate_manager.mojom.CertificateManagerPageHandler.getRemote = function() {
   let remote = new certificate_manager.mojom.CertificateManagerPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'certificate_manager.mojom.CertificateManagerPageHandler',
     'context');
   return remote.$;
@@ -416,7 +414,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPage_TriggerReload_Params', [
-      mojo.internal.StructField('sources', 0, 0, mojo.internal.Array(certificate_manager.mojom.CertificateSourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sources', 0, 0, mojo.internal.Array(certificate_manager.mojom.CertificateSourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -501,9 +499,8 @@ certificate_manager.mojom.CertificateManagerPageRemoteCallHandler = class {
 
 certificate_manager.mojom.CertificateManagerPage.getRemote = function() {
   let remote = new certificate_manager.mojom.CertificateManagerPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'certificate_manager.mojom.CertificateManagerPage',
     'context');
   return remote.$;

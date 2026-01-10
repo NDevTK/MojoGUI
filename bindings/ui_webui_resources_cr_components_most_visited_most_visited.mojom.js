@@ -47,20 +47,20 @@ most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = { 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedTileSpec, 'most_visited.mojom.MostVisitedTile', [
       mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('title_direction', 8, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title_direction', 8, 0, mojo_base.mojom.TextDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_query_tile', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('allow_user_edit', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('allow_user_delete', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('source', 28, 0, ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('title_source', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('source', 32, 0, ntp_tiles.mojom.TileSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('title_source', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: MostVisitedTheme
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedThemeSpec, 'most_visited.mojom.MostVisitedTheme', [
-      mojo.internal.StructField('background_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('background_color', 0, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('use_white_tile_icon', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_dark', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -72,7 +72,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('custom_links_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('enterprise_shortcuts_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('visible', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('tiles', 8, 0, mojo.internal.Array(most_visited.mojom.MostVisitedTileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tiles', 8, 0, mojo.internal.Array(most_visited.mojom.MostVisitedTileSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -130,9 +130,8 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
 
 most_visited.mojom.MostVisitedPageHandlerFactory.getRemote = function() {
   let remote = new most_visited.mojom.MostVisitedPageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'most_visited.mojom.MostVisitedPageHandlerFactory',
     'context');
   return remote.$;
@@ -145,7 +144,7 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRequest = most_visited.mojom.Mos
 // Interface: MostVisitedPageHandler
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -158,20 +157,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_Params', [
-      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_Params', [
-      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('new_pos', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_Params', [
-      mojo.internal.StructField('source', 0, 0, ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, ntp_tiles.mojom.TileSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -182,7 +181,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_Params', [
-      mojo.internal.StructField('source', 0, 0, ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, ntp_tiles.mojom.TileSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -193,8 +192,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_Params', [
-      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('new_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('new_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('new_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -207,19 +206,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_Params', [
-      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_Params', [
-      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_Params', [
-      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -247,14 +246,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_Params', [
-      mojo.internal.StructField('tiles', 0, 0, mojo.internal.Array(most_visited.mojom.MostVisitedTileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tiles', 0, 0, mojo.internal.Array(most_visited.mojom.MostVisitedTileSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_Params', [
-      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tile', 0, 0, most_visited.mojom.MostVisitedTileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('mouse_button', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('alt_key', 13, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -460,9 +459,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
 
 most_visited.mojom.MostVisitedPageHandler.getRemote = function() {
   let remote = new most_visited.mojom.MostVisitedPageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'most_visited.mojom.MostVisitedPageHandler',
     'context');
   return remote.$;
@@ -475,7 +473,7 @@ most_visited.mojom.MostVisitedPageHandlerRequest = most_visited.mojom.MostVisite
 // Interface: MostVisitedPage
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec, 'most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_Params', [
-      mojo.internal.StructField('info', 0, 0, most_visited.mojom.MostVisitedInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, most_visited.mojom.MostVisitedInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -540,9 +538,8 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
 
 most_visited.mojom.MostVisitedPage.getRemote = function() {
   let remote = new most_visited.mojom.MostVisitedPageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'most_visited.mojom.MostVisitedPage',
     'context');
   return remote.$;

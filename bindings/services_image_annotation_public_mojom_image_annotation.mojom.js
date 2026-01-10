@@ -44,12 +44,12 @@ mojo.internal.Union(
     image_annotation.mojom.AnnotateImageResultSpec, 'image_annotation.mojom.AnnotateImageResult', {
       'error_code': {
         'ordinal': 0,
-        'type': image_annotation.mojom.AnnotateImageErrorSpec,
+        'type': image_annotation.mojom.AnnotateImageErrorSpec.$,
         'nullable': false,
       },
       'annotations': {
         'ordinal': 1,
-        'type': mojo.internal.Array(image_annotation.mojom.AnnotationSpec, false),
+        'type': mojo.internal.Array(image_annotation.mojom.AnnotationSpec.$, false),
         'nullable': false,
       },
     });
@@ -57,7 +57,7 @@ mojo.internal.Union(
 // Struct: Annotation
 mojo.internal.Struct(
     image_annotation.mojom.AnnotationSpec, 'image_annotation.mojom.Annotation', [
-      mojo.internal.StructField('type', 0, 0, image_annotation.mojom.AnnotationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, image_annotation.mojom.AnnotationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('text', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -123,9 +123,8 @@ image_annotation.mojom.ImageProcessorRemoteCallHandler = class {
 
 image_annotation.mojom.ImageProcessor.getRemote = function() {
   let remote = new image_annotation.mojom.ImageProcessorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'image_annotation.mojom.ImageProcessor',
     'context');
   return remote.$;
@@ -146,9 +145,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec, 'image_annotation.mojom.Annotator_AnnotateImage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, image_annotation.mojom.AnnotateImageResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, image_annotation.mojom.AnnotateImageResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 image_annotation.mojom.AnnotatorPendingReceiver = class {
   constructor(handle) {
@@ -196,9 +195,8 @@ image_annotation.mojom.AnnotatorRemoteCallHandler = class {
 
 image_annotation.mojom.Annotator.getRemote = function() {
   let remote = new image_annotation.mojom.AnnotatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'image_annotation.mojom.Annotator',
     'context');
   return remote.$;
@@ -261,9 +259,8 @@ image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler = class {
 
 image_annotation.mojom.ImageAnnotationService.getRemote = function() {
   let remote = new image_annotation.mojom.ImageAnnotationServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'image_annotation.mojom.ImageAnnotationService',
     'context');
   return remote.$;

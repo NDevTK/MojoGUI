@@ -42,8 +42,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     payments.mojom.PaymentValidationErrorsSpec, 'payments.mojom.PaymentValidationErrors', [
       mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('payer', 8, 0, payments.mojom.PayerErrorsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('shipping_address', 16, 0, payments.mojom.AddressErrorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('payer', 8, 0, payments.mojom.PayerErrorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('shipping_address', 16, 0, payments.mojom.AddressErrorsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

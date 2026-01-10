@@ -13,6 +13,6 @@ mojo_base.mojom.SafeBaseNameSpec = { $: {} };
 // Struct: SafeBaseName
 mojo.internal.Struct(
     mojo_base.mojom.SafeBaseNameSpec, 'mojo_base.mojom.SafeBaseName', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);

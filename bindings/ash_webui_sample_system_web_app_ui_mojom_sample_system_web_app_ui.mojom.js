@@ -87,9 +87,8 @@ ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.mojom.sample_swa.PageHandlerFactory.getRemote = function() {
   let remote = new ash.mojom.sample_swa.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mojom.sample_swa.PageHandlerFactory',
     'context');
   return remote.$;
@@ -107,7 +106,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParams', [
-      mojo.internal.StructField('preferences', 0, 0, ash.mojom.sample_swa.PreferencesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preferences', 0, 0, ash.mojom.sample_swa.PreferencesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -188,9 +187,8 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
 
 ash.mojom.sample_swa.PageHandler.getRemote = function() {
   let remote = new ash.mojom.sample_swa.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mojom.sample_swa.PageHandler',
     'context');
   return remote.$;
@@ -270,9 +268,8 @@ ash.mojom.sample_swa.PageRemoteCallHandler = class {
 
 ash.mojom.sample_swa.Page.getRemote = function() {
   let remote = new ash.mojom.sample_swa.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.mojom.sample_swa.Page',
     'context');
   return remote.$;

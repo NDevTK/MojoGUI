@@ -64,9 +64,8 @@ chrome.mojom.SandboxStatusExtensionRemoteCallHandler = class {
 
 chrome.mojom.SandboxStatusExtension.getRemote = function() {
   let remote = new chrome.mojom.SandboxStatusExtensionRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.SandboxStatusExtension',
     'context');
   return remote.$;

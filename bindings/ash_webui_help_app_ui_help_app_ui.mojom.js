@@ -130,9 +130,8 @@ ash.help_app.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 ash.help_app.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new ash.help_app.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.help_app.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -166,7 +165,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec, 'ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_Params', [
-      mojo.internal.StructField('action_type_id', 0, 0, ash.help_app.mojom.ActionTypeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action_type_id', 0, 0, ash.help_app.mojom.ActionTypeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -198,19 +197,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec, 'ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParams', [
-      mojo.internal.StructField('device_info', 0, 0, ash.help_app.mojom.DeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 0, 0, ash.help_app.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec, 'ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec, 'ash.help_app.mojom.PageHandler_OpenSettings_Params', [
-      mojo.internal.StructField('component', 0, 0, ash.help_app.mojom.SettingsComponentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('component', 0, 0, ash.help_app.mojom.SettingsComponentSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -380,9 +379,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
 
 ash.help_app.mojom.PageHandler.getRemote = function() {
   let remote = new ash.help_app.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.help_app.mojom.PageHandler',
     'context');
   return remote.$;

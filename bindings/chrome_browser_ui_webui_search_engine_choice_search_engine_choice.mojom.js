@@ -80,9 +80,8 @@ search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler = class {
 
 search_engine_choice.mojom.PageHandlerFactory.getRemote = function() {
   let remote = new search_engine_choice.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'search_engine_choice.mojom.PageHandlerFactory',
     'context');
   return remote.$;
@@ -117,7 +116,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec, 'search_engine_choice.mojom.PageHandler_RecordScrollState_Params', [
-      mojo.internal.StructField('scroll_state', 0, 0, search_engine_choice.mojom.ScrollStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_state', 0, 0, search_engine_choice.mojom.ScrollStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -207,9 +206,8 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
 
 search_engine_choice.mojom.PageHandler.getRemote = function() {
   let remote = new search_engine_choice.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'search_engine_choice.mojom.PageHandler',
     'context');
   return remote.$;

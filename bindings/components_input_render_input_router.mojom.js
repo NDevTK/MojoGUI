@@ -35,7 +35,7 @@ input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_P
 mojo.internal.Struct(
     input.mojom.RenderInputRouterConfigSpec, 'input.mojom.RenderInputRouterConfig', [
       mojo.internal.StructField('rir_client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('grouping_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('grouping_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('force_enable_zoom', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -43,51 +43,51 @@ mojo.internal.Struct(
 // Struct: TouchTransferState
 mojo.internal.Struct(
     input.mojom.TouchTransferStateSpec, 'input.mojom.TouchTransferState', [
-      mojo.internal.StructField('down_time_ms', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('root_widget_frame_sink_id', 8, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('down_time_ms', 0, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('root_widget_frame_sink_id', 8, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('web_contents_y_offset_pix', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('dip_scale', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('browser_would_have_handled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('down_event', 32, 0, ui.mojom.CachedMotionEventAndroidSpec, null, true, 0, undefined),
+      mojo.internal.StructField('down_event', 32, 0, ui.mojom.CachedMotionEventAndroidSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Interface: RenderInputRouterDelegate
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_Params', [
-      mojo.internal.StructField('state', 0, 0, input.mojom.TouchTransferStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, input.mojom.TouchTransferStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_Params', [
       mojo.internal.StructField('force_enable_zoom', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('frame_sink_id', 8, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 8, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_Params', [
-      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_Params', [
-      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_Params', [
-      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_hidden', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ResetGestureDetection_Params', [
-      mojo.internal.StructField('root_widget_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('root_widget_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -187,9 +187,8 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
 
 input.mojom.RenderInputRouterDelegate.getRemote = function() {
   let remote = new input.mojom.RenderInputRouterDelegateRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'input.mojom.RenderInputRouterDelegate',
     'context');
   return remote.$;
@@ -202,18 +201,18 @@ input.mojom.RenderInputRouterDelegateRequest = input.mojom.RenderInputRouterDele
 // Interface: RenderInputRouterDelegateClient
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, blink.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, blink.mojom.EventSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('dispatched_to_renderer', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_Params', [
-      mojo.internal.StructField('ack_source', 0, 0, blink.mojom.InputEventResultSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ack_result', 4, 0, blink.mojom.InputEventResultStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('event', 8, 0, blink.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ack_source', 0, 0, blink.mojom.InputEventResultSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ack_result', 8, 0, blink.mojom.InputEventResultStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('event', 16, 0, blink.mojom.EventSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_Params', [
@@ -222,14 +221,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_Params', [
-      mojo.internal.StructField('overscroll', 0, 0, blink.mojom.DidOverscrollParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('overscroll', 0, 0, blink.mojom.DidOverscrollParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_Params', [
       mojo.internal.StructField('is_responsive', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ack_timeout_ts', 8, 0, mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ack_timeout_ts', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -319,9 +318,8 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
 
 input.mojom.RenderInputRouterDelegateClient.getRemote = function() {
   let remote = new input.mojom.RenderInputRouterDelegateClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'input.mojom.RenderInputRouterDelegateClient',
     'context');
   return remote.$;

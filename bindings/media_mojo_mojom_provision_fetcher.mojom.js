@@ -17,7 +17,7 @@ media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = { $: {} };
 // Interface: ProvisionFetcher
 mojo.internal.Struct(
     media.mojom.ProvisionFetcher_Retrieve_ParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_Params', [
-      mojo.internal.StructField('default_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('default_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('request_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -75,9 +75,8 @@ media.mojom.ProvisionFetcherRemoteCallHandler = class {
 
 media.mojom.ProvisionFetcher.getRemote = function() {
   let remote = new media.mojom.ProvisionFetcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.ProvisionFetcher',
     'context');
   return remote.$;

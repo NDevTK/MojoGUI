@@ -26,10 +26,10 @@ sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec = { $
 // Interface: TcpSocketFactory
 mojo.internal.Struct(
     sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec, 'sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_Params', [
-      mojo.internal.StructField('local_addr', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
-      mojo.internal.StructField('port', 8, 0, sharing.mojom.TcpServerSocketPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('local_addr', 0, 0, network.mojom.IPAddressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('port', 8, 0, sharing.mojom.TcpServerSocketPortSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('backlog', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('traffic_annotation', 24, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 24, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('socket', 32, 0, mojo.internal.InterfaceRequest(network.mojom.TCPServerSocketRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -37,17 +37,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec, 'sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('local_addr_out', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('local_addr_out', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec, 'sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_Params', [
-      mojo.internal.StructField('timeout', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_addr', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('remote_addr_list', 16, 0, network.mojom.AddressListSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tcp_connected_socket_options', 24, 0, network.mojom.TCPConnectedSocketOptionsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('traffic_annotation', 32, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timeout', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('local_addr', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('remote_addr_list', 16, 0, network.mojom.AddressListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tcp_connected_socket_options', 24, 0, network.mojom.TCPConnectedSocketOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 32, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('socket', 40, 0, mojo.internal.InterfaceRequest(network.mojom.TCPConnectedSocketRemote), null, false, 0, undefined),
       mojo.internal.StructField('observer', 48, 0, mojo.internal.InterfaceProxy(network.mojom.SocketObserverRemote), null, true, 0, undefined),
     ],
@@ -56,8 +56,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec, 'sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('local_addr', 8, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('peer_addr', 16, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('local_addr', 8, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('peer_addr', 16, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('receive_stream', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
       mojo.internal.StructField('send_stream', 32, 0, mojo.internal.Pointer, null, true, 0, undefined),
     ],
@@ -119,9 +119,8 @@ sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {
 
 sharing.mojom.TcpSocketFactory.getRemote = function() {
   let remote = new sharing.mojom.TcpSocketFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.TcpSocketFactory',
     'context');
   return remote.$;

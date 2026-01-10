@@ -70,9 +70,8 @@ device.mojom.PowerMonitorRemoteCallHandler = class {
 
 device.mojom.PowerMonitor.getRemote = function() {
   let remote = new device.mojom.PowerMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.PowerMonitor',
     'context');
   return remote.$;
@@ -85,7 +84,7 @@ device.mojom.PowerMonitorRequest = device.mojom.PowerMonitorPendingReceiver;
 // Interface: PowerMonitorClient
 mojo.internal.Struct(
     device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec, 'device.mojom.PowerMonitorClient_PowerStateChange_Params', [
-      mojo.internal.StructField('battery_power_status', 0, 0, mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('battery_power_status', 0, 0, mojo_base.mojom.BatteryPowerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -165,9 +164,8 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
 
 device.mojom.PowerMonitorClient.getRemote = function() {
   let remote = new device.mojom.PowerMonitorClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'device.mojom.PowerMonitorClient',
     'context');
   return remote.$;

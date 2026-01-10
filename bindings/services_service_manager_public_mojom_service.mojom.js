@@ -24,15 +24,15 @@ service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = { $: {}
 // Struct: BindSourceInfo
 mojo.internal.Struct(
     service_manager.mojom.BindSourceInfoSpec, 'service_manager.mojom.BindSourceInfo', [
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('required_capabilities', 8, 0, service_manager.mojom.CapabilitySetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('required_capabilities', 8, 0, service_manager.mojom.CapabilitySetSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: Service
 mojo.internal.Struct(
     service_manager.mojom.Service_OnStart_ParamsSpec, 'service_manager.mojom.Service_OnStart_Params', [
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -45,7 +45,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     service_manager.mojom.Service_OnBindInterface_ParamsSpec, 'service_manager.mojom.Service_OnBindInterface_Params', [
-      mojo.internal.StructField('source', 0, 0, service_manager.mojom.BindSourceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, service_manager.mojom.BindSourceInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('interface_pipe', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
@@ -58,7 +58,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec, 'service_manager.mojom.Service_CreatePackagedServiceInstance_Params', [
-      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ServiceRemote), null, false, 0, undefined),
       mojo.internal.StructField('metadata', 16, 0, mojo.internal.InterfaceProxy(service_manager.mojom.ProcessMetadataRemote), null, false, 0, undefined),
     ],
@@ -130,9 +130,8 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
 
 service_manager.mojom.Service.getRemote = function() {
   let remote = new service_manager.mojom.ServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'service_manager.mojom.Service',
     'context');
   return remote.$;

@@ -65,9 +65,8 @@ blink.mojom.SessionStorageNamespaceRemoteCallHandler = class {
 
 blink.mojom.SessionStorageNamespace.getRemote = function() {
   let remote = new blink.mojom.SessionStorageNamespaceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SessionStorageNamespace',
     'context');
   return remote.$;

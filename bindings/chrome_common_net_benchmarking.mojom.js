@@ -136,9 +136,8 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
 
 chrome.mojom.NetBenchmarking.getRemote = function() {
   let remote = new chrome.mojom.NetBenchmarkingRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.NetBenchmarking',
     'context');
   return remote.$;

@@ -58,12 +58,12 @@ mojo.internal.Union(
     ash.cfm.mojom.CtrlTypeSpec, 'ash.cfm.mojom.CtrlType', {
       'mapping_ctrl': {
         'ordinal': 0,
-        'type': ash.cfm.mojom.ControlMappingSpec,
+        'type': ash.cfm.mojom.ControlMappingSpec.$,
         'nullable': false,
       },
       'query_ctrl': {
         'ordinal': 1,
-        'type': ash.cfm.mojom.ControlQuerySpec,
+        'type': ash.cfm.mojom.ControlQuerySpec.$,
         'nullable': false,
       },
     });
@@ -79,7 +79,7 @@ mojo.internal.Struct(
 // Struct: MenuEntries
 mojo.internal.Struct(
     ash.cfm.mojom.MenuEntriesSpec, 'ash.cfm.mojom.MenuEntries', [
-      mojo.internal.StructField('menu_info', 0, 0, mojo.internal.Array(ash.cfm.mojom.MenuInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('menu_info', 0, 0, mojo.internal.Array(ash.cfm.mojom.MenuInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -94,7 +94,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('offset', 26, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('v4l2_type', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('data_type', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('menu_entries', 40, 0, ash.cfm.mojom.MenuEntriesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('menu_entries', 40, 0, ash.cfm.mojom.MenuEntriesSpec.$, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -109,10 +109,10 @@ mojo.internal.Struct(
 // Interface: XuCamera
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec, 'ash.cfm.mojom.XuCamera_GetUnitId_Params', [
-      mojo.internal.StructField('id', 0, 0, ash.cfm.mojom.WebcamIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('guid', 16, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('guid', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec, 'ash.cfm.mojom.XuCamera_GetUnitId_ResponseParams', [
@@ -123,10 +123,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec, 'ash.cfm.mojom.XuCamera_MapCtrl_Params', [
-      mojo.internal.StructField('id', 0, 0, ash.cfm.mojom.WebcamIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mapping_ctrl', 16, 0, ash.cfm.mojom.ControlMappingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('mapping_ctrl', 8, 0, ash.cfm.mojom.ControlMappingSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec, 'ash.cfm.mojom.XuCamera_MapCtrl_ResponseParams', [
@@ -136,11 +136,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec, 'ash.cfm.mojom.XuCamera_GetCtrl_Params', [
-      mojo.internal.StructField('id', 0, 0, ash.cfm.mojom.WebcamIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ctrl', 16, 0, ash.cfm.mojom.CtrlTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('fn', 32, 0, ash.cfm.mojom.GetFnSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ctrl', 8, 0, ash.cfm.mojom.CtrlTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('fn', 16, 0, ash.cfm.mojom.GetFnSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec, 'ash.cfm.mojom.XuCamera_GetCtrl_ResponseParams', [
@@ -151,11 +151,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec, 'ash.cfm.mojom.XuCamera_SetCtrl_Params', [
-      mojo.internal.StructField('id', 0, 0, ash.cfm.mojom.WebcamIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('ctrl', 16, 0, ash.cfm.mojom.CtrlTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, ash.cfm.mojom.WebcamIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('ctrl', 8, 0, ash.cfm.mojom.CtrlTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec, 'ash.cfm.mojom.XuCamera_SetCtrl_ResponseParams', [
@@ -239,9 +239,8 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
 
 ash.cfm.mojom.XuCamera.getRemote = function() {
   let remote = new ash.cfm.mojom.XuCameraRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.cfm.mojom.XuCamera',
     'context');
   return remote.$;

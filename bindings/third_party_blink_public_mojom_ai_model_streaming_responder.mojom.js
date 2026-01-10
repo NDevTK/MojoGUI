@@ -48,14 +48,14 @@ mojo.internal.Struct(
 // Interface: ModelStreamingResponder
 mojo.internal.Struct(
     blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnCompletion_Params', [
-      mojo.internal.StructField('context_info', 0, 0, blink.mojom.ModelExecutionContextInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('context_info', 0, 0, blink.mojom.ModelExecutionContextInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.ModelStreamingResponder_OnError_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnError_Params', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.ModelStreamingResponseStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.ModelStreamingResponseStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('quota_error_info', 8, 0, blink.mojom.QuotaErrorInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -146,9 +146,8 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
 
 blink.mojom.ModelStreamingResponder.getRemote = function() {
   let remote = new blink.mojom.ModelStreamingResponderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ModelStreamingResponder',
     'context');
   return remote.$;

@@ -25,14 +25,14 @@ mojo.native.SerializedHandleType = {
 mojo.internal.Struct(
     mojo.native.SerializedHandleSpec, 'mojo.native.SerializedHandle', [
       mojo.internal.StructField('the_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('type', 4, 0, mojo.native.SerializedHandleTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, mojo.native.SerializedHandleTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: NativeStruct
 mojo.internal.Struct(
     mojo.native.NativeStructSpec, 'mojo.native.NativeStruct', [
       mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('handles', 8, 0, mojo.internal.Array(mojo.native.SerializedHandleSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('handles', 8, 0, mojo.internal.Array(mojo.native.SerializedHandleSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);

@@ -152,77 +152,77 @@ mojo.internal.Union(
       },
       'audio_jack_event_info': {
         'ordinal': 1,
-        'type': crosapi.mojom.TelemetryAudioJackEventInfoSpec,
+        'type': crosapi.mojom.TelemetryAudioJackEventInfoSpec.$,
         'nullable': false,
       },
       'lid_event_info': {
         'ordinal': 2,
-        'type': crosapi.mojom.TelemetryLidEventInfoSpec,
+        'type': crosapi.mojom.TelemetryLidEventInfoSpec.$,
         'nullable': false,
       },
       'usb_event_info': {
         'ordinal': 3,
-        'type': crosapi.mojom.TelemetryUsbEventInfoSpec,
+        'type': crosapi.mojom.TelemetryUsbEventInfoSpec.$,
         'nullable': false,
       },
       'sd_card_event_info': {
         'ordinal': 4,
-        'type': crosapi.mojom.TelemetrySdCardEventInfoSpec,
+        'type': crosapi.mojom.TelemetrySdCardEventInfoSpec.$,
         'nullable': false,
       },
       'power_event_info': {
         'ordinal': 5,
-        'type': crosapi.mojom.TelemetryPowerEventInfoSpec,
+        'type': crosapi.mojom.TelemetryPowerEventInfoSpec.$,
         'nullable': false,
       },
       'keyboard_diagnostic_event_info': {
         'ordinal': 6,
-        'type': crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec,
+        'type': crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec.$,
         'nullable': false,
       },
       'stylus_garage_event_info': {
         'ordinal': 7,
-        'type': crosapi.mojom.TelemetryStylusGarageEventInfoSpec,
+        'type': crosapi.mojom.TelemetryStylusGarageEventInfoSpec.$,
         'nullable': false,
       },
       'touchpad_button_event_info': {
         'ordinal': 8,
-        'type': crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec,
+        'type': crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec.$,
         'nullable': false,
       },
       'touchpad_touch_event_info': {
         'ordinal': 9,
-        'type': crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec,
+        'type': crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec.$,
         'nullable': false,
       },
       'touchpad_connected_event_info': {
         'ordinal': 10,
-        'type': crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec,
+        'type': crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec.$,
         'nullable': false,
       },
       'external_display_event_info': {
         'ordinal': 11,
-        'type': crosapi.mojom.TelemetryExternalDisplayEventInfoSpec,
+        'type': crosapi.mojom.TelemetryExternalDisplayEventInfoSpec.$,
         'nullable': false,
       },
       'stylus_touch_event_info': {
         'ordinal': 12,
-        'type': crosapi.mojom.TelemetryStylusTouchEventInfoSpec,
+        'type': crosapi.mojom.TelemetryStylusTouchEventInfoSpec.$,
         'nullable': false,
       },
       'stylus_connected_event_info': {
         'ordinal': 13,
-        'type': crosapi.mojom.TelemetryStylusConnectedEventInfoSpec,
+        'type': crosapi.mojom.TelemetryStylusConnectedEventInfoSpec.$,
         'nullable': false,
       },
       'touchscreen_touch_event_info': {
         'ordinal': 14,
-        'type': crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec,
+        'type': crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec.$,
         'nullable': false,
       },
       'touchscreen_connected_event_info': {
         'ordinal': 15,
-        'type': crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec,
+        'type': crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec.$,
         'nullable': false,
       },
     });
@@ -284,7 +284,7 @@ mojo.internal.Struct(
 // Struct: TelemetryTouchpadButtonEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec, 'crosapi.mojom.TelemetryTouchpadButtonEventInfo', [
-      mojo.internal.StructField('button', 0, 0, crosapi.mojom.TelemetryInputTouchButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('button', 0, 0, crosapi.mojom.TelemetryInputTouchButtonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('kUnmappedEnumField', 8, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -295,16 +295,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('tracking_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('x', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('y', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('pressure', 16, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('touch_major', 24, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('touch_minor', 32, 0, crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pressure', 16, 0, crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('touch_major', 24, 0, crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('touch_minor', 32, 0, crosapi.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: TelemetryTouchpadTouchEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec, 'crosapi.mojom.TelemetryTouchpadTouchEventInfo', [
-      mojo.internal.StructField('touch_points', 0, 0, mojo.internal.Array(crosapi.mojom.TelemetryTouchPointInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('touch_points', 0, 0, mojo.internal.Array(crosapi.mojom.TelemetryTouchPointInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -314,14 +314,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('max_x', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('max_y', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('max_pressure', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('buttons', 16, 0, mojo.internal.Array(crosapi.mojom.TelemetryInputTouchButtonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('buttons', 16, 0, mojo.internal.Array(crosapi.mojom.TelemetryInputTouchButtonSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: TelemetryTouchscreenTouchEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec, 'crosapi.mojom.TelemetryTouchscreenTouchEventInfo', [
-      mojo.internal.StructField('touch_points', 0, 0, mojo.internal.Array(crosapi.mojom.TelemetryTouchPointInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('touch_points', 0, 0, mojo.internal.Array(crosapi.mojom.TelemetryTouchPointInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -352,7 +352,7 @@ mojo.internal.Struct(
 // Struct: TelemetryStylusTouchEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetryStylusTouchEventInfoSpec, 'crosapi.mojom.TelemetryStylusTouchEventInfo', [
-      mojo.internal.StructField('touch_point', 0, 0, crosapi.mojom.TelemetryStylusTouchPointInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('touch_point', 0, 0, crosapi.mojom.TelemetryStylusTouchPointInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -371,9 +371,9 @@ mojo.internal.Struct(
 // Interface: TelemetryEventObserver
 mojo.internal.Struct(
     crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec, 'crosapi.mojom.TelemetryEventObserver_OnEvent_Params', [
-      mojo.internal.StructField('info', 0, 0, crosapi.mojom.TelemetryEventInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, crosapi.mojom.TelemetryEventInfoSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 crosapi.mojom.TelemetryEventObserverPendingReceiver = class {
   constructor(handle) {
@@ -421,9 +421,8 @@ crosapi.mojom.TelemetryEventObserverRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryEventObserver.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryEventObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.TelemetryEventObserver',
     'context');
   return remote.$;
@@ -436,22 +435,22 @@ crosapi.mojom.TelemetryEventObserverRequest = crosapi.mojom.TelemetryEventObserv
 // Interface: TelemetryEventService
 mojo.internal.Struct(
     crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec, 'crosapi.mojom.TelemetryEventService_AddEventObserver_Params', [
-      mojo.internal.StructField('category', 0, 0, crosapi.mojom.TelemetryEventCategoryEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, crosapi.mojom.TelemetryEventCategoryEnumSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryEventObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec, 'crosapi.mojom.TelemetryEventService_IsEventSupported_Params', [
-      mojo.internal.StructField('category', 0, 0, crosapi.mojom.TelemetryEventCategoryEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('category', 0, 0, crosapi.mojom.TelemetryEventCategoryEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec, 'crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, crosapi.mojom.TelemetryExtensionSupportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, crosapi.mojom.TelemetryExtensionSupportStatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 crosapi.mojom.TelemetryEventServicePendingReceiver = class {
   constructor(handle) {
@@ -509,9 +508,8 @@ crosapi.mojom.TelemetryEventServiceRemoteCallHandler = class {
 
 crosapi.mojom.TelemetryEventService.getRemote = function() {
   let remote = new crosapi.mojom.TelemetryEventServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.TelemetryEventService',
     'context');
   return remote.$;

@@ -21,7 +21,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Respons
 // Struct: MediaEngagementScoreDetails
 mojo.internal.Struct(
     media.mojom.MediaEngagementScoreDetailsSpec, 'media.mojom.MediaEngagementScoreDetails', [
-      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('visits', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('media_playbacks', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -56,7 +56,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, mojo.internal.Array(media.mojom.MediaEngagementScoreDetailsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, mojo.internal.Array(media.mojom.MediaEngagementScoreDetailsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -67,7 +67,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParams', [
-      mojo.internal.StructField('config', 0, 0, media.mojom.MediaEngagementConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, media.mojom.MediaEngagementConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -127,9 +127,8 @@ media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
 
 media.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
   let remote = new media.mojom.MediaEngagementScoreDetailsProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.MediaEngagementScoreDetailsProvider',
     'context');
   return remote.$;

@@ -64,7 +64,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec, 'blink.mojom.PeerConnectionManager_OnThermalStateChange_Params', [
-      mojo.internal.StructField('thermal_state', 0, 0, blink.mojom.DeviceThermalStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thermal_state', 0, 0, blink.mojom.DeviceThermalStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -219,9 +219,8 @@ blink.mojom.PeerConnectionManagerRemoteCallHandler = class {
 
 blink.mojom.PeerConnectionManager.getRemote = function() {
   let remote = new blink.mojom.PeerConnectionManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PeerConnectionManager',
     'context');
   return remote.$;
@@ -234,7 +233,7 @@ blink.mojom.PeerConnectionManagerRequest = blink.mojom.PeerConnectionManagerPend
 // Interface: PeerConnectionTrackerHost
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_Params', [
-      mojo.internal.StructField('info', 0, 0, blink.mojom.PeerConnectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, blink.mojom.PeerConnectionInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -330,7 +329,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_AddStandardStats_Params', [
       mojo.internal.StructField('lid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ListValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -500,9 +499,8 @@ blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = class {
 
 blink.mojom.PeerConnectionTrackerHost.getRemote = function() {
   let remote = new blink.mojom.PeerConnectionTrackerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.PeerConnectionTrackerHost',
     'context');
   return remote.$;

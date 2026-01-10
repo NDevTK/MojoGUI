@@ -59,15 +59,15 @@ storage.mojom.ForceCloseReason = {
 // Interface: IndexedDBObserver
 mojo.internal.Struct(
     storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec, 'storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec, 'storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('database_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('object_store_name', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('database_name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('object_store_name', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -127,9 +127,8 @@ storage.mojom.IndexedDBObserverRemoteCallHandler = class {
 
 storage.mojom.IndexedDBObserver.getRemote = function() {
   let remote = new storage.mojom.IndexedDBObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.IndexedDBObserver',
     'context');
   return remote.$;
@@ -142,8 +141,8 @@ storage.mojom.IndexedDBObserverRequest = storage.mojom.IndexedDBObserverPendingR
 // Interface: IndexedDBControl
 mojo.internal.Struct(
     storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec, 'storage.mojom.IndexedDBControl_BindIndexedDB_Params', [
-      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('client_info', 8, 0, storage.mojom.BucketClientInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('client_info', 8, 0, storage.mojom.BucketClientInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client_state_checker_remote', 16, 0, mojo.internal.InterfaceProxy(storage.mojom.IndexedDBClientStateCheckerRemote), null, false, 0, undefined),
       mojo.internal.StructField('receiver', 24, 0, mojo.internal.InterfaceRequest(blink.mojom.IDBFactoryRemote), null, false, 0, undefined),
     ],
@@ -151,8 +150,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControl_ForceClose_ParamsSpec, 'storage.mojom.IndexedDBControl_ForceClose_Params', [
-      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('reason', 8, 0, storage.mojom.ForceCloseReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, storage.mojom.ForceCloseReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -163,15 +162,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec, 'storage.mojom.IndexedDBControl_DownloadBucketData_Params', [
-      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec, 'storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParams', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('temp_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('zip_path', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('temp_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('zip_path', 16, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -183,13 +182,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec, 'storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParams', [
       mojo.internal.StructField('incognito', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('details', 8, 0, mojo.internal.Array(storage.mojom.IdbOriginMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('details', 8, 0, mojo.internal.Array(storage.mojom.IdbOriginMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec, 'storage.mojom.IndexedDBControl_StartMetadataRecording_Params', [
-      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -200,13 +199,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec, 'storage.mojom.IndexedDBControl_StopMetadataRecording_Params', [
-      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_id', 0, 0, storage.mojom.BucketIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec, 'storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParams', [
-      mojo.internal.StructField('metadata', 0, 0, mojo.internal.Array(storage.mojom.IdbBucketMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, mojo.internal.Array(storage.mojom.IdbBucketMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -223,7 +222,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.IndexedDBControl_ApplyPolicyUpdates_Params', [
-      mojo.internal.StructField('policy_updates', 0, 0, mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('policy_updates', 0, 0, mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -369,9 +368,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
 
 storage.mojom.IndexedDBControl.getRemote = function() {
   let remote = new storage.mojom.IndexedDBControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'storage.mojom.IndexedDBControl',
     'context');
   return remote.$;

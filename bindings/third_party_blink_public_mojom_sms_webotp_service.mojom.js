@@ -33,7 +33,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.WebOTPService_Receive_ResponseParamsSpec, 'blink.mojom.WebOTPService_Receive_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.SmsStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.SmsStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('otp', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -99,9 +99,8 @@ blink.mojom.WebOTPServiceRemoteCallHandler = class {
 
 blink.mojom.WebOTPService.getRemote = function() {
   let remote = new blink.mojom.WebOTPServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.WebOTPService',
     'context');
   return remote.$;

@@ -16,9 +16,9 @@ content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec, 'content.mojom.ThreadTypeSwitcher_SetThreadType_Params', [
       mojo.internal.StructField('platform_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('thread_type', 4, 0, mojo_base.mojom.ThreadTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('thread_type', 8, 0, mojo_base.mojom.ThreadTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 content.mojom.ThreadTypeSwitcherPendingReceiver = class {
   constructor(handle) {
@@ -66,9 +66,8 @@ content.mojom.ThreadTypeSwitcherRemoteCallHandler = class {
 
 content.mojom.ThreadTypeSwitcher.getRemote = function() {
   let remote = new content.mojom.ThreadTypeSwitcherRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.ThreadTypeSwitcher',
     'context');
   return remote.$;

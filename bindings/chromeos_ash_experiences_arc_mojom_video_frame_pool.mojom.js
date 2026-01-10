@@ -28,9 +28,9 @@ mojo.internal.Struct(
     arc.mojom.VideoFrameSpec, 'arc.mojom.VideoFrame', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('handle_fd', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 16, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('format', 24, 0, arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('planes', 32, 0, mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 16, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('format', 24, 0, arc.mojom.HalPixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('planes', 32, 0, mojo.internal.Array(arc.mojom.VideoFramePlaneSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('modifier', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -44,7 +44,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec, 'arc.mojom.VideoFramePool_AddVideoFrame_Params', [
-      mojo.internal.StructField('video_frame', 0, 0, arc.mojom.VideoFrameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video_frame', 0, 0, arc.mojom.VideoFrameSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -110,9 +110,8 @@ arc.mojom.VideoFramePoolRemoteCallHandler = class {
 
 arc.mojom.VideoFramePool.getRemote = function() {
   let remote = new arc.mojom.VideoFramePoolRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.VideoFramePool',
     'context');
   return remote.$;
@@ -125,9 +124,9 @@ arc.mojom.VideoFramePoolRequest = arc.mojom.VideoFramePoolPendingReceiver;
 // Interface: VideoFramePoolClient
 mojo.internal.Struct(
     arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec, 'arc.mojom.VideoFramePoolClient_RequestVideoFrames_Params', [
-      mojo.internal.StructField('format', 0, 0, arc.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('visible_rect', 16, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('format', 0, 0, arc.mojom.VideoPixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('coded_size', 8, 0, arc.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('visible_rect', 16, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('num_frames', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -183,9 +182,8 @@ arc.mojom.VideoFramePoolClientRemoteCallHandler = class {
 
 arc.mojom.VideoFramePoolClient.getRemote = function() {
   let remote = new arc.mojom.VideoFramePoolClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.VideoFramePoolClient',
     'context');
   return remote.$;

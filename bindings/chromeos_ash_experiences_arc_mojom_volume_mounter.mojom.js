@@ -41,15 +41,15 @@ arc.mojom.DeviceType = {
 // Struct: MountPointInfo
 mojo.internal.Struct(
     arc.mojom.MountPointInfoSpec, 'arc.mojom.MountPointInfo', [
-      mojo.internal.StructField('mount_event', 0, 0, arc.mojom.MountEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mount_event', 0, 0, arc.mojom.MountEventSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('source_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('mount_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('fs_uuid', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('label', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('device_type', 40, 0, arc.mojom.DeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('visible', 44, 0, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('device_type', 40, 0, arc.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('visible', 48, 0, mojo.internal.Bool, false, false, 2, undefined),
     ],
-    [[0, 56], [2, 56]]);
+    [[0, 56], [2, 64]]);
 
 // Interface: VolumeMounterHost
 mojo.internal.Struct(
@@ -141,9 +141,8 @@ arc.mojom.VolumeMounterHostRemoteCallHandler = class {
 
 arc.mojom.VolumeMounterHost.getRemote = function() {
   let remote = new arc.mojom.VolumeMounterHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.VolumeMounterHost',
     'context');
   return remote.$;
@@ -167,13 +166,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec, 'arc.mojom.VolumeMounterInstance_OnMountEvent_Params', [
-      mojo.internal.StructField('mount_point_info', 0, 0, arc.mojom.MountPointInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mount_point_info', 0, 0, arc.mojom.MountPointInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec, 'arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_Params', [
-      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -249,9 +248,8 @@ arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
 
 arc.mojom.VolumeMounterInstance.getRemote = function() {
   let remote = new arc.mojom.VolumeMounterInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'arc.mojom.VolumeMounterInstance',
     'context');
   return remote.$;

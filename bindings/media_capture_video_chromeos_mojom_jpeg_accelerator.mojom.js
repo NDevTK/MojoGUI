@@ -84,9 +84,8 @@ cros.mojom.JpegAcceleratorProviderRemoteCallHandler = class {
 
 cros.mojom.JpegAcceleratorProvider.getRemote = function() {
   let remote = new cros.mojom.JpegAcceleratorProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cros.mojom.JpegAcceleratorProvider',
     'context');
   return remote.$;

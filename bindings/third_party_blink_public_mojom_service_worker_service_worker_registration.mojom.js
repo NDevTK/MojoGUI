@@ -48,26 +48,26 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, 'blink.mojom.ServiceWorkerRegistrationObjectInfo', [
       mojo.internal.StructField('registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('scope', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('update_via_cache', 16, 0, blink.mojom.ServiceWorkerUpdateViaCacheSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scope', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('update_via_cache', 16, 0, blink.mojom.ServiceWorkerUpdateViaCacheSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('host_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerRegistrationObjectHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.ServiceWorkerRegistrationObjectRemote), null, false, 0, undefined),
-      mojo.internal.StructField('installing', 40, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('waiting', 48, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('active', 56, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('installing', 40, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('waiting', 48, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('active', 56, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 72]]);
 
 // Interface: ServiceWorkerRegistrationObjectHost
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Update_Params', [
-      mojo.internal.StructField('outside_fetch_client_settings_object', 0, 0, blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('outside_fetch_client_settings_object', 0, 0, blink.mojom.FetchClientSettingsObjectSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -79,7 +79,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -92,7 +92,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -104,9 +104,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('state', 16, 0, blink.mojom.NavigationPreloadStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('state', 16, 0, blink.mojom.NavigationPreloadStateSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -118,7 +118,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParams', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ServiceWorkerErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('error_msg', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -209,9 +209,8 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerRegistrationObjectHost.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerRegistrationObjectHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ServiceWorkerRegistrationObjectHost',
     'context');
   return remote.$;
@@ -224,16 +223,16 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRequest = blink.mojom.ServiceWork
 // Interface: ServiceWorkerRegistrationObject
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_Params', [
-      mojo.internal.StructField('changed_mask', 0, 0, blink.mojom.ChangedServiceWorkerObjectsMaskSpec, null, false, 0, undefined),
-      mojo.internal.StructField('installing', 8, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('waiting', 16, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('active', 24, 0, blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('changed_mask', 0, 0, blink.mojom.ChangedServiceWorkerObjectsMaskSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('installing', 8, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('waiting', 16, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('active', 24, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_Params', [
-      mojo.internal.StructField('update_via_cache', 0, 0, blink.mojom.ServiceWorkerUpdateViaCacheSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_via_cache', 0, 0, blink.mojom.ServiceWorkerUpdateViaCacheSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -308,9 +307,8 @@ blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
 
 blink.mojom.ServiceWorkerRegistrationObject.getRemote = function() {
   let remote = new blink.mojom.ServiceWorkerRegistrationObjectRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.ServiceWorkerRegistrationObject',
     'context');
   return remote.$;

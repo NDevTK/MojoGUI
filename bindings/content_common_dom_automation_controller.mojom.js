@@ -65,9 +65,8 @@ content.mojom.DomAutomationControllerHostRemoteCallHandler = class {
 
 content.mojom.DomAutomationControllerHost.getRemote = function() {
   let remote = new content.mojom.DomAutomationControllerHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'content.mojom.DomAutomationControllerHost',
     'context');
   return remote.$;

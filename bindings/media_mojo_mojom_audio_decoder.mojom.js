@@ -29,8 +29,8 @@ media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = { $: {} };
 // Struct: SupportedAudioDecoderConfig
 mojo.internal.Struct(
     media.mojom.SupportedAudioDecoderConfigSpec, 'media.mojom.SupportedAudioDecoderConfig', [
-      mojo.internal.StructField('codec', 0, 0, media.mojom.AudioCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('profile', 8, 0, media.mojom.AudioCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('codec', 0, 0, media.mojom.AudioCodecSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 8, 0, media.mojom.AudioCodecProfileSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -42,7 +42,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec, 'media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParams', [
-      mojo.internal.StructField('supported_configs', 0, 0, mojo.internal.Array(media.mojom.SupportedAudioDecoderConfigSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('supported_configs', 0, 0, mojo.internal.Array(media.mojom.SupportedAudioDecoderConfigSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -55,16 +55,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.AudioDecoder_Initialize_ParamsSpec, 'media.mojom.AudioDecoder_Initialize_Params', [
-      mojo.internal.StructField('config', 0, 0, media.mojom.AudioDecoderConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('cdm_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('config', 0, 0, media.mojom.AudioDecoderConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     media.mojom.AudioDecoder_Initialize_ResponseParamsSpec, 'media.mojom.AudioDecoder_Initialize_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, media.mojom.DecoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('success', 0, 0, media.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('needs_bitstream_conversion', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('decoder_type', 16, 0, media.mojom.AudioDecoderTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('decoder_type', 16, 0, media.mojom.AudioDecoderTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -76,13 +76,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.AudioDecoder_Decode_ParamsSpec, 'media.mojom.AudioDecoder_Decode_Params', [
-      mojo.internal.StructField('buffer', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, media.mojom.DecoderBufferSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.AudioDecoder_Decode_ResponseParamsSpec, 'media.mojom.AudioDecoder_Decode_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, media.mojom.DecoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, media.mojom.DecoderStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -192,9 +192,8 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
 
 media.mojom.AudioDecoder.getRemote = function() {
   let remote = new media.mojom.AudioDecoderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AudioDecoder',
     'context');
   return remote.$;
@@ -207,13 +206,13 @@ media.mojom.AudioDecoderRequest = media.mojom.AudioDecoderPendingReceiver;
 // Interface: AudioDecoderClient
 mojo.internal.Struct(
     media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec, 'media.mojom.AudioDecoderClient_OnBufferDecoded_Params', [
-      mojo.internal.StructField('buffer', 0, 0, media.mojom.AudioBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, media.mojom.AudioBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec, 'media.mojom.AudioDecoderClient_OnWaiting_Params', [
-      mojo.internal.StructField('reason', 0, 0, media.mojom.WaitingReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 0, 0, media.mojom.WaitingReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -273,9 +272,8 @@ media.mojom.AudioDecoderClientRemoteCallHandler = class {
 
 media.mojom.AudioDecoderClient.getRemote = function() {
   let remote = new media.mojom.AudioDecoderClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.AudioDecoderClient',
     'context');
   return remote.$;

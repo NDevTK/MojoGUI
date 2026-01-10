@@ -29,14 +29,14 @@ audio.mojom.DebugRecordingStreamType = {
 // Interface: DebugRecordingFileProvider
 mojo.internal.Struct(
     audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec, 'audio.mojom.DebugRecordingFileProvider_CreateWavFile_Params', [
-      mojo.internal.StructField('stream_type', 0, 0, audio.mojom.DebugRecordingStreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 0, 0, audio.mojom.DebugRecordingStreamTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec, 'audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParams', [
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -48,7 +48,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec, 'audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParams', [
-      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -108,9 +108,8 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
 
 audio.mojom.DebugRecordingFileProvider.getRemote = function() {
   let remote = new audio.mojom.DebugRecordingFileProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'audio.mojom.DebugRecordingFileProvider',
     'context');
   return remote.$;
@@ -173,9 +172,8 @@ audio.mojom.DebugRecordingRemoteCallHandler = class {
 
 audio.mojom.DebugRecording.getRemote = function() {
   let remote = new audio.mojom.DebugRecordingRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'audio.mojom.DebugRecording',
     'context');
   return remote.$;

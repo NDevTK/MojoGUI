@@ -73,7 +73,7 @@ mojo.internal.Struct(
 // Interface: SpeechSynthesisVoiceListObserver
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec, 'blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_Params', [
-      mojo.internal.StructField('voice_list', 0, 0, mojo.internal.Array(blink.mojom.SpeechSynthesisVoiceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('voice_list', 0, 0, mojo.internal.Array(blink.mojom.SpeechSynthesisVoiceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -123,9 +123,8 @@ blink.mojom.SpeechSynthesisVoiceListObserverRemoteCallHandler = class {
 
 blink.mojom.SpeechSynthesisVoiceListObserver.getRemote = function() {
   let remote = new blink.mojom.SpeechSynthesisVoiceListObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SpeechSynthesisVoiceListObserver',
     'context');
   return remote.$;
@@ -143,7 +142,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_Params', [
-      mojo.internal.StructField('error_code', 0, 0, blink.mojom.SpeechSynthesisErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_code', 0, 0, blink.mojom.SpeechSynthesisErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -282,9 +281,8 @@ blink.mojom.SpeechSynthesisClientRemoteCallHandler = class {
 
 blink.mojom.SpeechSynthesisClient.getRemote = function() {
   let remote = new blink.mojom.SpeechSynthesisClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SpeechSynthesisClient',
     'context');
   return remote.$;
@@ -303,7 +301,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesis_Speak_ParamsSpec, 'blink.mojom.SpeechSynthesis_Speak_Params', [
-      mojo.internal.StructField('utterance', 0, 0, blink.mojom.SpeechSynthesisUtteranceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('utterance', 0, 0, blink.mojom.SpeechSynthesisUtteranceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -409,9 +407,8 @@ blink.mojom.SpeechSynthesisRemoteCallHandler = class {
 
 blink.mojom.SpeechSynthesis.getRemote = function() {
   let remote = new blink.mojom.SpeechSynthesisRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SpeechSynthesis',
     'context');
   return remote.$;

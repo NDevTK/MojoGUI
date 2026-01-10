@@ -68,9 +68,8 @@ dom_distiller.mojom.DistillabilityServiceRemoteCallHandler = class {
 
 dom_distiller.mojom.DistillabilityService.getRemote = function() {
   let remote = new dom_distiller.mojom.DistillabilityServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'dom_distiller.mojom.DistillabilityService',
     'context');
   return remote.$;

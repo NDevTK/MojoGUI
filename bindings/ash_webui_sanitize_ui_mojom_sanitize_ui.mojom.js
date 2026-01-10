@@ -66,9 +66,8 @@ ash.sanitize_ui.mojom.SettingsResetterRemoteCallHandler = class {
 
 ash.sanitize_ui.mojom.SettingsResetter.getRemote = function() {
   let remote = new ash.sanitize_ui.mojom.SettingsResetterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'ash.sanitize_ui.mojom.SettingsResetter',
     'context');
   return remote.$;

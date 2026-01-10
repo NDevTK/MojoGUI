@@ -20,7 +20,7 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = { $:
 // Interface: SpellCheckService
 mojo.internal.Struct(
     quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_Params', [
-      mojo.internal.StructField('dictionary_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dictionary_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -76,9 +76,8 @@ quick_answers.mojom.SpellCheckServiceRemoteCallHandler = class {
 
 quick_answers.mojom.SpellCheckService.getRemote = function() {
   let remote = new quick_answers.mojom.SpellCheckServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'quick_answers.mojom.SpellCheckService',
     'context');
   return remote.$;
@@ -147,9 +146,8 @@ quick_answers.mojom.SpellCheckDictionaryRemoteCallHandler = class {
 
 quick_answers.mojom.SpellCheckDictionary.getRemote = function() {
   let remote = new quick_answers.mojom.SpellCheckDictionaryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'quick_answers.mojom.SpellCheckDictionary',
     'context');
   return remote.$;

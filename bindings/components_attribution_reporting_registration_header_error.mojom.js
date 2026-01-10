@@ -19,22 +19,22 @@ mojo.internal.Union(
     attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, 'attribution_reporting.mojom.RegistrationHeaderErrorDetails', {
       'source_error': {
         'ordinal': 0,
-        'type': attribution_reporting.mojom.SourceRegistrationErrorSpec,
+        'type': attribution_reporting.mojom.SourceRegistrationErrorSpec.$,
         'nullable': false,
       },
       'trigger_error': {
         'ordinal': 1,
-        'type': attribution_reporting.mojom.TriggerRegistrationErrorSpec,
+        'type': attribution_reporting.mojom.TriggerRegistrationErrorSpec.$,
         'nullable': false,
       },
       'os_source_error': {
         'ordinal': 2,
-        'type': attribution_reporting.mojom.OsRegistrationErrorSpec,
+        'type': attribution_reporting.mojom.OsRegistrationErrorSpec.$,
         'nullable': false,
       },
       'os_trigger_error': {
         'ordinal': 3,
-        'type': attribution_reporting.mojom.OsRegistrationErrorSpec,
+        'type': attribution_reporting.mojom.OsRegistrationErrorSpec.$,
         'nullable': false,
       },
     });
@@ -43,6 +43,6 @@ mojo.internal.Union(
 mojo.internal.Struct(
     attribution_reporting.mojom.RegistrationHeaderErrorSpec, 'attribution_reporting.mojom.RegistrationHeaderError', [
       mojo.internal.StructField('header_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('error_details', 8, 0, attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_details', 8, 0, attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);

@@ -21,10 +21,10 @@ blink.mojom.SharedWorkerConnector_Connect_ParamsSpec = { $: {} };
 // Interface: SharedWorkerConnector
 mojo.internal.Struct(
     blink.mojom.SharedWorkerConnector_Connect_ParamsSpec, 'blink.mojom.SharedWorkerConnector_Connect_Params', [
-      mojo.internal.StructField('info', 0, 0, blink.mojom.SharedWorkerInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, blink.mojom.SharedWorkerInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.SharedWorkerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('creation_context_type', 16, 0, blink.mojom.SharedWorkerCreationContextTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('message_port', 24, 0, blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('creation_context_type', 16, 0, blink.mojom.SharedWorkerCreationContextTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('message_port', 24, 0, blink.mojom.MessagePortDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('blob_url_token', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
     ],
     [[0, 48]]);
@@ -75,9 +75,8 @@ blink.mojom.SharedWorkerConnectorRemoteCallHandler = class {
 
 blink.mojom.SharedWorkerConnector.getRemote = function() {
   let remote = new blink.mojom.SharedWorkerConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SharedWorkerConnector',
     'context');
   return remote.$;

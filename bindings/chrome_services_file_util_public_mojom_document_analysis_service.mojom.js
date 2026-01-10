@@ -66,9 +66,8 @@ chrome.mojom.DocumentAnalysisServiceRemoteCallHandler = class {
 
 chrome.mojom.DocumentAnalysisService.getRemote = function() {
   let remote = new chrome.mojom.DocumentAnalysisServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chrome.mojom.DocumentAnalysisService',
     'context');
   return remote.$;

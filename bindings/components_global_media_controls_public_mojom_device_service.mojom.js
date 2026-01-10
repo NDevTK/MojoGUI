@@ -60,7 +60,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('status_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon', 24, 0, global_media_controls.mojom.IconTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 24, 0, global_media_controls.mojom.IconTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -117,9 +117,8 @@ global_media_controls.mojom.DeviceListHostRemoteCallHandler = class {
 
 global_media_controls.mojom.DeviceListHost.getRemote = function() {
   let remote = new global_media_controls.mojom.DeviceListHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'global_media_controls.mojom.DeviceListHost',
     'context');
   return remote.$;
@@ -132,7 +131,7 @@ global_media_controls.mojom.DeviceListHostRequest = global_media_controls.mojom.
 // Interface: DeviceListClient
 mojo.internal.Struct(
     global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec, 'global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_Params', [
-      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(global_media_controls.mojom.DeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(global_media_controls.mojom.DeviceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -197,9 +196,8 @@ global_media_controls.mojom.DeviceListClientRemoteCallHandler = class {
 
 global_media_controls.mojom.DeviceListClient.getRemote = function() {
   let remote = new global_media_controls.mojom.DeviceListClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'global_media_controls.mojom.DeviceListClient',
     'context');
   return remote.$;
@@ -297,9 +295,8 @@ global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
 
 global_media_controls.mojom.DeviceService.getRemote = function() {
   let remote = new global_media_controls.mojom.DeviceServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'global_media_controls.mojom.DeviceService',
     'context');
   return remote.$;
@@ -312,7 +309,7 @@ global_media_controls.mojom.DeviceServiceRequest = global_media_controls.mojom.D
 // Interface: DevicePickerProvider
 mojo.internal.Struct(
     global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec, 'global_media_controls.mojom.DevicePickerProvider_CreateItem_Params', [
-      mojo.internal.StructField('source_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -333,19 +330,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec, 'global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_Params', [
-      mojo.internal.StructField('metadata', 0, 0, media_session.mojom.MediaMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, media_session.mojom.MediaMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec, 'global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_Params', [
-      mojo.internal.StructField('artwork_image', 0, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('artwork_image', 0, 0, gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec, 'global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_Params', [
-      mojo.internal.StructField('favicon_image', 0, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('favicon_image', 0, 0, gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -486,9 +483,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
 
 global_media_controls.mojom.DevicePickerProvider.getRemote = function() {
   let remote = new global_media_controls.mojom.DevicePickerProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'global_media_controls.mojom.DevicePickerProvider',
     'context');
   return remote.$;
@@ -595,9 +591,8 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
 
 global_media_controls.mojom.DevicePickerObserver.getRemote = function() {
   let remote = new global_media_controls.mojom.DevicePickerObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'global_media_controls.mojom.DevicePickerObserver',
     'context');
   return remote.$;

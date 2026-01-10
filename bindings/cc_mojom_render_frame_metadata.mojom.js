@@ -44,20 +44,20 @@ mojo.internal.Struct(
 // Struct: RenderFrameMetadata
 mojo.internal.Struct(
     cc.mojom.RenderFrameMetadataSpec, 'cc.mojom.RenderFrameMetadata', [
-      mojo.internal.StructField('root_background_color', 0, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
-      mojo.internal.StructField('root_scroll_offset', 8, 0, gfx.mojom.PointFSpec, null, true, 0, undefined),
+      mojo.internal.StructField('root_background_color', 0, 0, skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('root_scroll_offset', 8, 0, gfx.mojom.PointFSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('is_scroll_offset_at_top', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('selection', 24, 0, viz.mojom.SelectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('selection', 24, 0, viz.mojom.SelectionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('is_mobile_optimized', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('delegated_ink_metadata', 40, 0, cc.mojom.DelegatedInkBrowserMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('delegated_ink_metadata', 40, 0, cc.mojom.DelegatedInkBrowserMetadataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('device_scale_factor', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('viewport_size_in_pixels', 56, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('local_surface_id', 64, 0, viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('viewport_size_in_pixels', 56, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('local_surface_id', 64, 0, viz.mojom.LocalSurfaceIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('page_scale_factor', 72, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('external_page_scale_factor', 76, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('top_controls_height', 80, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('top_controls_shown_ratio', 84, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('new_vertical_scroll_direction', 88, 0, viz.mojom.VerticalScrollDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_vertical_scroll_direction', 88, 0, viz.mojom.VerticalScrollDirectionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('primary_main_frame_item_sequence_number', 96, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('bottom_controls_height', 104, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('bottom_controls_shown_ratio', 108, 0, mojo.internal.Float, 0, false, 0, undefined),
@@ -66,8 +66,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('min_page_scale_factor', 120, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('max_page_scale_factor', 124, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('root_overflow_y_hidden', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('scrollable_viewport_size', 136, 0, gfx.mojom.SizeFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('root_layer_size', 144, 0, gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrollable_viewport_size', 136, 0, gfx.mojom.SizeFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('root_layer_size', 144, 0, gfx.mojom.SizeFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('has_transparent_background', 152, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 168]]);
@@ -75,7 +75,7 @@ mojo.internal.Struct(
 // Interface: RenderFrameMetadataObserver
 mojo.internal.Struct(
     cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_Params', [
-      mojo.internal.StructField('frequency', 0, 0, cc.mojom.RootScrollOffsetUpdateFrequencySpec, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 0, 0, cc.mojom.RootScrollOffsetUpdateFrequencySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -141,9 +141,8 @@ cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
 
 cc.mojom.RenderFrameMetadataObserver.getRemote = function() {
   let remote = new cc.mojom.RenderFrameMetadataObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cc.mojom.RenderFrameMetadataObserver',
     'context');
   return remote.$;
@@ -157,7 +156,7 @@ cc.mojom.RenderFrameMetadataObserverRequest = cc.mojom.RenderFrameMetadataObserv
 mojo.internal.Struct(
     cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_Params', [
       mojo.internal.StructField('frame_token', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('metadata', 8, 0, cc.mojom.RenderFrameMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, cc.mojom.RenderFrameMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -169,7 +168,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_Params', [
-      mojo.internal.StructField('root_scroll_offset', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('root_scroll_offset', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -239,9 +238,8 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
 
 cc.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
   let remote = new cc.mojom.RenderFrameMetadataObserverClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'cc.mojom.RenderFrameMetadataObserverClient',
     'context');
   return remote.$;

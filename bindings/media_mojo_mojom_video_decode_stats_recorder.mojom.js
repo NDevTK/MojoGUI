@@ -16,13 +16,13 @@ media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = { $: {} };
 // Interface: VideoDecodeStatsRecorder
 mojo.internal.Struct(
     media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_StartNewRecord_Params', [
-      mojo.internal.StructField('features', 0, 0, media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('features', 0, 0, media.mojom.PredictionFeaturesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_UpdateRecord_Params', [
-      mojo.internal.StructField('targets', 0, 0, media.mojom.PredictionTargetsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('targets', 0, 0, media.mojom.PredictionTargetsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -82,9 +82,8 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
 
 media.mojom.VideoDecodeStatsRecorder.getRemote = function() {
   let remote = new media.mojom.VideoDecodeStatsRecorderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.VideoDecodeStatsRecorder',
     'context');
   return remote.$;

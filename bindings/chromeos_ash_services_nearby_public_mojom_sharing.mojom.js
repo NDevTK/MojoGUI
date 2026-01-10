@@ -74,9 +74,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     sharing.mojom.NearbyDependenciesSpec, 'sharing.mojom.NearbyDependencies', [
       mojo.internal.StructField('bluetooth_adapter', 0, 0, mojo.internal.InterfaceProxy(bluetooth.mojom.AdapterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('webrtc_dependencies', 8, 0, sharing.mojom.WebRtcDependenciesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('wifilan_dependencies', 16, 0, sharing.mojom.WifiLanDependenciesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('wifidirect_dependencies', 24, 0, sharing.mojom.WifiDirectDependenciesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('webrtc_dependencies', 8, 0, sharing.mojom.WebRtcDependenciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('wifilan_dependencies', 16, 0, sharing.mojom.WifiLanDependenciesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('wifidirect_dependencies', 24, 0, sharing.mojom.WifiDirectDependenciesSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('nearby_presence_credential_storage', 32, 0, mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote), null, true, 0, undefined),
     ],
     [[0, 48]]);
@@ -84,7 +84,7 @@ mojo.internal.Struct(
 // Interface: Sharing
 mojo.internal.Struct(
     sharing.mojom.Sharing_Connect_ParamsSpec, 'sharing.mojom.Sharing_Connect_Params', [
-      mojo.internal.StructField('deps', 0, 0, sharing.mojom.NearbyDependenciesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('deps', 0, 0, sharing.mojom.NearbyDependenciesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('nearby_connections', 8, 0, mojo.internal.InterfaceRequest(nearby.connections.mojom.NearbyConnectionsRemote), null, false, 0, undefined),
       mojo.internal.StructField('nearby_presence', 16, 0, mojo.internal.InterfaceRequest(ash.nearby.presence.mojom.NearbyPresenceRemote), null, false, 0, undefined),
       mojo.internal.StructField('decoder', 24, 0, mojo.internal.InterfaceRequest(sharing.mojom.NearbySharingDecoderRemote), null, false, 0, undefined),
@@ -158,9 +158,8 @@ sharing.mojom.SharingRemoteCallHandler = class {
 
 sharing.mojom.Sharing.getRemote = function() {
   let remote = new sharing.mojom.SharingRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'sharing.mojom.Sharing',
     'context');
   return remote.$;

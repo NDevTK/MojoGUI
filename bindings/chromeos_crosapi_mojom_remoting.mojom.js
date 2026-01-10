@@ -23,21 +23,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec, 'crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParams', [
-      mojo.internal.StructField('host_details', 0, 0, remoting.mojom.SupportHostDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_details', 0, 0, remoting.mojom.SupportHostDetailsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.Remoting_StartSupportSession_ParamsSpec, 'crosapi.mojom.Remoting_StartSupportSession_Params', [
-      mojo.internal.StructField('params', 0, 0, remoting.mojom.SupportSessionParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, remoting.mojom.SupportSessionParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec, 'crosapi.mojom.Remoting_StartSupportSession_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, remoting.mojom.StartSupportSessionResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, remoting.mojom.StartSupportSessionResponseSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 crosapi.mojom.RemotingPendingReceiver = class {
   constructor(handle) {
@@ -95,9 +95,8 @@ crosapi.mojom.RemotingRemoteCallHandler = class {
 
 crosapi.mojom.Remoting.getRemote = function() {
   let remote = new crosapi.mojom.RemotingRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'crosapi.mojom.Remoting',
     'context');
   return remote.$;

@@ -22,7 +22,7 @@ mojo.internal.Struct(
 // Struct: VideoMemoryUsageStats
 mojo.internal.Struct(
     gpu.mojom.VideoMemoryUsageStatsSpec, 'gpu.mojom.VideoMemoryUsageStats', [
-      mojo.internal.StructField('process_map', 0, 0, mojo.internal.Map(mojo.internal.Int32, gpu.mojom.VideoMemoryProcessStatsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('process_map', 0, 0, mojo.internal.Map(mojo.internal.Int32, gpu.mojom.VideoMemoryProcessStatsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('bytes_allocated', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);

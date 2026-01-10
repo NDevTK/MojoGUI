@@ -73,7 +73,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.PolicyInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.PolicyInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -84,7 +84,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.SysInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.SysInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -95,7 +95,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParams', [
-      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.MachineStatisticsInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.MachineStatisticsInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -175,9 +175,8 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
 
 chromeos.cfm.mojom.MeetDevicesInfo.getRemote = function() {
   let remote = new chromeos.cfm.mojom.MeetDevicesInfoRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.cfm.mojom.MeetDevicesInfo',
     'context');
   return remote.$;
@@ -190,7 +189,7 @@ chromeos.cfm.mojom.MeetDevicesInfoRequest = chromeos.cfm.mojom.MeetDevicesInfoPe
 // Interface: PolicyInfoObserver
 mojo.internal.Struct(
     chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec, 'chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_Params', [
-      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.PolicyInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.PolicyInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -240,9 +239,8 @@ chromeos.cfm.mojom.PolicyInfoObserverRemoteCallHandler = class {
 
 chromeos.cfm.mojom.PolicyInfoObserver.getRemote = function() {
   let remote = new chromeos.cfm.mojom.PolicyInfoObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.cfm.mojom.PolicyInfoObserver',
     'context');
   return remote.$;

@@ -25,9 +25,9 @@ media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = { $: {} };
 // Struct: MediaFoundationCdmData
 mojo.internal.Struct(
     media.mojom.MediaFoundationCdmDataSpec, 'media.mojom.MediaFoundationCdmData', [
-      mojo.internal.StructField('origin_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client_token', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('cdm_store_path_root', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_store_path_root', 16, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -79,7 +79,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParams', [
-      mojo.internal.StructField('cdm_data', 0, 0, media.mojom.MediaFoundationCdmDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_data', 0, 0, media.mojom.MediaFoundationCdmDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -91,10 +91,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec, 'media.mojom.CdmDocumentService_OnCdmEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, media.mojom.CdmEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hresult', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('event', 0, 0, media.mojom.CdmEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('hresult', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 media.mojom.CdmDocumentServicePendingReceiver = class {
   constructor(handle) {
@@ -192,9 +192,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
 
 media.mojom.CdmDocumentService.getRemote = function() {
   let remote = new media.mojom.CdmDocumentServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'media.mojom.CdmDocumentService',
     'context');
   return remote.$;

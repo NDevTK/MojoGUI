@@ -156,11 +156,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     bluetooth.mojom.ScanRecordSpec, 'bluetooth.mojom.ScanRecord', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('uuids', 8, 0, mojo.internal.Array(bluetooth.mojom.UUIDSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('appearance', 16, 0, bluetooth.mojom.AppearanceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('tx_power', 24, 0, bluetooth.mojom.PowerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uuids', 8, 0, mojo.internal.Array(bluetooth.mojom.UUIDSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('appearance', 16, 0, bluetooth.mojom.AppearanceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('tx_power', 24, 0, bluetooth.mojom.PowerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('manufacturer_data', 32, 0, mojo.internal.Map(mojo.internal.Uint16, mojo.internal.Array(mojo.internal.Uint8, false), false), null, true, 0, undefined),
-      mojo.internal.StructField('service_data', 40, 0, bluetooth.mojom.ServiceDataMapSpec, null, true, 0, undefined),
+      mojo.internal.StructField('service_data', 40, 0, bluetooth.mojom.ServiceDataMapSpec.$, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -169,7 +169,7 @@ mojo.internal.Struct(
     bluetooth.mojom.ScanResultSpec, 'bluetooth.mojom.ScanResult', [
       mojo.internal.StructField('device_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('rssi', 8, 0, mojo.internal.Int8, 0, false, 0, undefined),
-      mojo.internal.StructField('scan_record', 16, 0, bluetooth.mojom.ScanRecordSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scan_record', 16, 0, bluetooth.mojom.ScanRecordSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -201,7 +201,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec, 'bluetooth.mojom.FakeBluetooth_SimulateCentral_Params', [
-      mojo.internal.StructField('state', 0, 0, bluetooth.mojom.CentralStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, bluetooth.mojom.CentralStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -288,9 +288,8 @@ bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
 
 bluetooth.mojom.FakeBluetooth.getRemote = function() {
   let remote = new bluetooth.mojom.FakeBluetoothRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.FakeBluetooth',
     'context');
   return remote.$;
@@ -306,7 +305,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('address', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('manufacturer_data', 16, 0, mojo.internal.Map(mojo.internal.Uint16, mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('known_service_uuids', 24, 0, mojo.internal.Array(bluetooth.mojom.UUIDSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('known_service_uuids', 24, 0, mojo.internal.Array(bluetooth.mojom.UUIDSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -317,7 +316,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec, 'bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_Params', [
-      mojo.internal.StructField('result', 0, 0, bluetooth.mojom.ScanResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, bluetooth.mojom.ScanResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -328,7 +327,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SetState_ParamsSpec, 'bluetooth.mojom.FakeCentral_SetState_Params', [
-      mojo.internal.StructField('state', 0, 0, bluetooth.mojom.CentralStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, bluetooth.mojom.CentralStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -365,7 +364,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec, 'bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_Params', [
-      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.GATTOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.GATTOperationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('address', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('code', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
@@ -403,7 +402,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec, 'bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_Params', [
-      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.CharacteristicOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.CharacteristicOperationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('characteristic_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('service_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('peripheral_address', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -420,7 +419,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec, 'bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_Params', [
-      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.DescriptorOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.DescriptorOperationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('descriptor_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('characteristic_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('service_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -439,7 +438,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec, 'bluetooth.mojom.FakeCentral_AddFakeService_Params', [
       mojo.internal.StructField('peripheral_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_uuid', 8, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_uuid', 8, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -464,8 +463,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec, 'bluetooth.mojom.FakeCentral_AddFakeCharacteristic_Params', [
-      mojo.internal.StructField('characteristic_uuid', 0, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('properties', 8, 0, bluetooth.mojom.CharacteristicPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('characteristic_uuid', 0, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 8, 0, bluetooth.mojom.CharacteristicPropertiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('service_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('peripheral_address', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -493,7 +492,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec, 'bluetooth.mojom.FakeCentral_AddFakeDescriptor_Params', [
-      mojo.internal.StructField('descriptor_uuid', 0, 0, bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('descriptor_uuid', 0, 0, bluetooth.mojom.UUIDSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('characteristic_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('service_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('peripheral_address', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -609,7 +608,7 @@ mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec, 'bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParams', [
       mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('write_type', 16, 0, bluetooth.mojom.WriteTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('write_type', 16, 0, bluetooth.mojom.WriteTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -964,9 +963,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
 bluetooth.mojom.FakeCentral.getRemote = function() {
   let remote = new bluetooth.mojom.FakeCentralRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.FakeCentral',
     'context');
   return remote.$;
@@ -979,23 +977,23 @@ bluetooth.mojom.FakeCentralRequest = bluetooth.mojom.FakeCentralPendingReceiver;
 // Interface: FakeCentralClient
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec, 'bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_Params', [
-      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.GATTOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.GATTOperationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('peripheral_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec, 'bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_Params', [
-      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.CharacteristicOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.CharacteristicOperationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('write_type', 16, 0, bluetooth.mojom.WriteTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('write_type', 16, 0, bluetooth.mojom.WriteTypeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('characteristic_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec, 'bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_Params', [
-      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.DescriptorOperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, bluetooth.mojom.DescriptorOperationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('descriptor_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -1067,9 +1065,8 @@ bluetooth.mojom.FakeCentralClientRemoteCallHandler = class {
 
 bluetooth.mojom.FakeCentralClient.getRemote = function() {
   let remote = new bluetooth.mojom.FakeCentralClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'bluetooth.mojom.FakeCentralClient',
     'context');
   return remote.$;

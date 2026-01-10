@@ -25,7 +25,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -75,9 +75,8 @@ blink.mojom.GeolocationServiceRemoteCallHandler = class {
 
 blink.mojom.GeolocationService.getRemote = function() {
   let remote = new blink.mojom.GeolocationServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.GeolocationService',
     'context');
   return remote.$;

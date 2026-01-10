@@ -22,9 +22,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec, 'blink.mojom.SmartCardService_CreateContext_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, device.mojom.SmartCardCreateContextResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, device.mojom.SmartCardCreateContextResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 blink.mojom.SmartCardServicePendingReceiver = class {
   constructor(handle) {
@@ -72,9 +72,8 @@ blink.mojom.SmartCardServiceRemoteCallHandler = class {
 
 blink.mojom.SmartCardService.getRemote = function() {
   let remote = new blink.mojom.SmartCardServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'blink.mojom.SmartCardService',
     'context');
   return remote.$;

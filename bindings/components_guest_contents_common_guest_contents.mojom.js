@@ -17,7 +17,7 @@ guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = { $: {} };
 // Interface: GuestContentsHost
 mojo.internal.Struct(
     guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec, 'guest_contents.mojom.GuestContentsHost_Attach_Params', [
-      mojo.internal.StructField('frame_to_swap', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_to_swap', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('guest_contents_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -74,9 +74,8 @@ guest_contents.mojom.GuestContentsHostRemoteCallHandler = class {
 
 guest_contents.mojom.GuestContentsHost.getRemote = function() {
   let remote = new guest_contents.mojom.GuestContentsHostRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'guest_contents.mojom.GuestContentsHost',
     'context');
   return remote.$;

@@ -58,12 +58,12 @@ mojo.internal.Union(
     viz.mojom.VideoCaptureSubTargetSpec, 'viz.mojom.VideoCaptureSubTarget', {
       'subtree_capture_id': {
         'ordinal': 0,
-        'type': viz.mojom.SubtreeCaptureIdSpec,
+        'type': viz.mojom.SubtreeCaptureIdSpec.$,
         'nullable': false,
       },
       'region_capture_crop_id': {
         'ordinal': 1,
-        'type': mojo_base.mojom.TokenSpec,
+        'type': mojo_base.mojom.TokenSpec.$,
         'nullable': false,
       },
     });
@@ -71,10 +71,10 @@ mojo.internal.Union(
 // Struct: VideoCaptureTarget
 mojo.internal.Struct(
     viz.mojom.VideoCaptureTargetSpec, 'viz.mojom.VideoCaptureTarget', [
-      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('sub_target', 8, 0, viz.mojom.VideoCaptureSubTargetSpec, null, true, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('sub_target', 8, 0, viz.mojom.VideoCaptureSubTargetSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Interface: FrameSinkVideoConsumerFrameCallbacks
 mojo.internal.Struct(
@@ -84,7 +84,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec, 'viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_Params', [
-      mojo.internal.StructField('feedback', 0, 0, media.mojom.VideoCaptureFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feedback', 0, 0, media.mojom.VideoCaptureFeedbackSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -144,9 +144,8 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallHandler = class {
 
 viz.mojom.FrameSinkVideoConsumerFrameCallbacks.getRemote = function() {
   let remote = new viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.FrameSinkVideoConsumerFrameCallbacks',
     'context');
   return remote.$;
@@ -159,16 +158,16 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksRequest = viz.mojom.FrameSinkVideo
 // Interface: FrameSinkVideoConsumer
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec, 'viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_Params', [
-      mojo.internal.StructField('data', 0, 0, media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('info', 16, 0, media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('content_rect', 24, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('callbacks', 32, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote), null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, media.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('info', 8, 0, media.mojom.VideoFrameInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('content_rect', 16, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('callbacks', 24, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote), null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec, 'viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_Params', [
-      mojo.internal.StructField('capture_version', 0, 0, media.mojom.CaptureVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_version', 0, 0, media.mojom.CaptureVersionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -274,9 +273,8 @@ viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class {
 
 viz.mojom.FrameSinkVideoConsumer.getRemote = function() {
   let remote = new viz.mojom.FrameSinkVideoConsumerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.FrameSinkVideoConsumer',
     'context');
   return remote.$;
@@ -289,26 +287,26 @@ viz.mojom.FrameSinkVideoConsumerRequest = viz.mojom.FrameSinkVideoConsumerPendin
 // Interface: FrameSinkVideoCapturer
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_SetFormat_Params', [
-      mojo.internal.StructField('format', 0, 0, media.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('format', 0, 0, media.mojom.VideoPixelFormatSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_Params', [
-      mojo.internal.StructField('min_period', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_period', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_Params', [
-      mojo.internal.StructField('min_period', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_period', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_Params', [
-      mojo.internal.StructField('min_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('max_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('max_size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('use_fixed_aspect_ratio', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -328,7 +326,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_ChangeTarget_Params', [
-      mojo.internal.StructField('target', 0, 0, viz.mojom.VideoCaptureTargetSpec, null, true, 0, undefined),
+      mojo.internal.StructField('target', 0, 0, viz.mojom.VideoCaptureTargetSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('sub_capture_version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -336,7 +334,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_Start_Params', [
       mojo.internal.StructField('consumer', 0, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('buffer_format_preference', 8, 0, viz.mojom.BufferFormatPreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_format_preference', 8, 0, viz.mojom.BufferFormatPreferenceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -503,9 +501,8 @@ viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class {
 
 viz.mojom.FrameSinkVideoCapturer.getRemote = function() {
   let remote = new viz.mojom.FrameSinkVideoCapturerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.FrameSinkVideoCapturer',
     'context');
   return remote.$;
@@ -518,20 +515,20 @@ viz.mojom.FrameSinkVideoCapturerRequest = viz.mojom.FrameSinkVideoCapturerPendin
 // Interface: FrameSinkVideoCaptureOverlay
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec, 'viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_Params', [
-      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
-      mojo.internal.StructField('bounds', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image', 0, 0, skia.mojom.BitmapN32Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 8, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec, 'viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_Params', [
-      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec, 'viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_Params', [
-      mojo.internal.StructField('coordinates', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('coordinates', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -601,9 +598,8 @@ viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler = class {
 
 viz.mojom.FrameSinkVideoCaptureOverlay.getRemote = function() {
   let remote = new viz.mojom.FrameSinkVideoCaptureOverlayRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'viz.mojom.FrameSinkVideoCaptureOverlay',
     'context');
   return remote.$;

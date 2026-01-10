@@ -31,33 +31,33 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, chromeos.payments.mojom.IsPaymentImplementedResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, chromeos.payments.mojom.IsPaymentImplementedResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_Params', [
-      mojo.internal.StructField('parameters', 0, 0, chromeos.payments.mojom.PaymentParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parameters', 0, 0, chromeos.payments.mojom.PaymentParametersSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, chromeos.payments.mojom.IsReadyToPayResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, chromeos.payments.mojom.IsReadyToPayResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_Params', [
-      mojo.internal.StructField('parameters', 0, 0, chromeos.payments.mojom.PaymentParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('parameters', 0, 0, chromeos.payments.mojom.PaymentParametersSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, chromeos.payments.mojom.InvokePaymentAppResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, chromeos.payments.mojom.InvokePaymentAppResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_Params', [
@@ -147,9 +147,8 @@ chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandler = class {
 
 chromeos.payments.mojom.PaymentAppInstance.getRemote = function() {
   let remote = new chromeos.payments.mojom.PaymentAppInstanceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
+  remote.bindNewPipeAndPassReceiver();
+  remote.proxy.endpoint_.bindInBrowser(
     'chromeos.payments.mojom.PaymentAppInstance',
     'context');
   return remote.$;
