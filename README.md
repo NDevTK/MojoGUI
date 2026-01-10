@@ -40,7 +40,7 @@ Visit the hosted version: `https://ndevtk.github.io/MojoGUI`
 
 3. Open in Chrome with MojoJS enabled:
    ```bash
-   chrome --enable-blink-features=MojoJS http://localhost:8080
+   chrome --enable-blink-features=MojoJS,MojoJSTest http://localhost:8080
    ```
 
 ## Usage
@@ -57,13 +57,13 @@ MojoJS is disabled by default in Chrome. To enable it for security research:
 
 ```bash
 # Windows
-chrome.exe --enable-blink-features=MojoJS
+chrome.exe --enable-blink-features=MojoJS,MojoJSTest
 
 # macOS
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-blink-features=MojoJS
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-blink-features=MojoJS,MojoJSTest
 
 # Linux
-google-chrome --enable-blink-features=MojoJS
+google-chrome --enable-blink-features=MojoJS,MojoJSTest
 ```
 
 > ⚠️ **Warning**: Only enable MojoJS for security research. Do not browse untrusted websites with this flag enabled.
