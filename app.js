@@ -198,83 +198,9 @@
     }
 
     function loadDemoInterfaces() {
-        // Demo interfaces for testing when bindings aren't available
-        state.interfaces = [
-            {
-                name: 'BlobRegistry',
-                module: 'blink.mojom',
-                file: 'blink_blob_registry.mojom.js',
-                methods: ['Register', 'RegisterFromStream', 'GetBlobFromUUID']
-            },
-            {
-                name: 'FileSystemManager',
-                module: 'blink.mojom',
-                file: 'file_system_manager.mojom.js',
-                methods: ['Open', 'ResolveURL', 'Move', 'Copy', 'Remove', 'ReadMetadata', 'Create', 'Exists', 'ReadDirectory', 'Write', 'Truncate', 'CreateSnapshotFile']
-            },
-            {
-                name: 'GeolocationService',
-                module: 'device.mojom',
-                file: 'geolocation_service.mojom.js',
-                methods: ['CreateGeolocation']
-            },
-            {
-                name: 'PaymentRequest',
-                module: 'payments.mojom',
-                file: 'payment_request.mojom.js',
-                methods: ['Init', 'Show', 'UpdateWith', 'OnPaymentDetailsNotUpdated', 'Abort', 'Complete', 'Retry', 'CanMakePayment', 'HasEnrolledInstrument']
-            },
-            {
-                name: 'WebBluetoothService',
-                module: 'blink.mojom',
-                file: 'web_bluetooth.mojom.js',
-                methods: ['RequestDevice', 'RemoteServerConnect', 'RemoteServerDisconnect', 'RemoteServerGetPrimaryServices']
-            },
-            {
-                name: 'WebUSB',
-                module: 'blink.mojom',
-                file: 'webusb.mojom.js',
-                methods: ['GetDevices', 'GetDevice', 'GetPermission', 'SetClient']
-            },
-            {
-                name: 'SerialService',
-                module: 'blink.mojom',
-                file: 'serial.mojom.js',
-                methods: ['SetClient', 'GetPorts', 'RequestPort', 'OpenPort', 'ForgetPort']
-            },
-            {
-                name: 'HidService',
-                module: 'blink.mojom',
-                file: 'hid.mojom.js',
-                methods: ['RegisterClient', 'GetDevices', 'RequestDevice', 'Connect', 'Forget']
-            },
-            {
-                name: 'SensorProvider',
-                module: 'device.mojom',
-                file: 'sensor_provider.mojom.js',
-                methods: ['GetSensor']
-            },
-            {
-                name: 'NetworkContext',
-                module: 'network.mojom',
-                file: 'network_context.mojom.js',
-                methods: ['CreateURLLoaderFactory', 'ResetURLLoaderFactories', 'GetCookieManager', 'GetRestrictedCookieManager']
-            },
-            {
-                name: 'CredentialManager',
-                module: 'blink.mojom',
-                file: 'credential_manager.mojom.js',
-                methods: ['Get', 'Store', 'PreventSilentAccess']
-            },
-            {
-                name: 'Authenticator',
-                module: 'blink.mojom',
-                file: 'authenticator.mojom.js',
-                methods: ['MakeCredential', 'GetAssertion', 'IsUserVerifyingPlatformAuthenticatorAvailable', 'Cancel']
-            }
-        ];
-
-        renderInterfaceList(state.interfaces);
+        // Demo interfaces removed as requested.
+        // We rely solely on bindings loaded from the page/extension context.
+        state.interfaces = [];
     }
 
     // ========================================
@@ -429,8 +355,22 @@
     }
 
     function getMethodParams(interfaceName, methodName) {
-        // First try to look up parameters in global scope from loaded bindings
-        const ifaceMetadata = state.selectedInterface;
+        // First look up metadata from state.interfaces
+        // This handles cases where interfaceName might be simple or fully qualified
+        let ifaceMetadata = state.interfaces.find(i => i.name === interfaceName);
+
+        // If not found by exact match, try matching by suffix (e.g. blink.mojom.Foo vs Foo)
+        if (!ifaceMetadata) {
+            ifaceMetadata = state.interfaces.find(i =>
+                i.name.endsWith('.' + interfaceName) || interfaceName.endsWith('.' + i.name)
+            );
+        }
+
+        // If called from Manual Execution (selectMethod), state.selectedInterface is reliable
+        if (!ifaceMetadata && state.selectedInterface && state.selectedInterface.name === interfaceName) {
+            ifaceMetadata = state.selectedInterface;
+        }
+
         if (ifaceMetadata && ifaceMetadata.module) {
             const specName = `${interfaceName}_${methodName}_ParamsSpec`;
             const namespace = resolveNamespace(ifaceMetadata.module);
@@ -474,82 +414,36 @@
             }
         }
 
-        // Demo parameter definitions fallback
-        const paramDefs = {
-            'BlobRegistry': {
-                'Register': [
-                    { name: 'blob', type: 'pending_remote<Blob>', optional: false },
-                    { name: 'uuid', type: 'string', optional: false },
-                    { name: 'content_type', type: 'string', optional: false },
-                    { name: 'content_disposition', type: 'string', optional: true }
-                ],
-                'GetBlobFromUUID': [
-                    { name: 'blob', type: 'pending_receiver<Blob>', optional: false },
-                    { name: 'uuid', type: 'string', optional: false }
-                ]
-            },
-            'FileSystemManager': {
-                'Open': [
-                    { name: 'path', type: 'string', optional: false },
-                    { name: 'mode', type: 'FileSystemAccessMode', optional: false }
-                ],
-                'Create': [
-                    { name: 'path', type: 'string', optional: false },
-                    { name: 'exclusive', type: 'bool', optional: false },
-                    { name: 'is_directory', type: 'bool', optional: false }
-                ]
-            },
-            'PaymentRequest': {
-                'Init': [
-                    { name: 'client', type: 'pending_remote<PaymentRequestClient>', optional: false },
-                    { name: 'method_data', type: 'array<PaymentMethodData>', optional: false },
-                    { name: 'details', type: 'PaymentDetails', optional: false },
-                    { name: 'options', type: 'PaymentOptions', optional: true }
-                ],
-                'Show': [
-                    { name: 'is_user_gesture', type: 'bool', optional: false },
-                    { name: 'wait_for_updated_details', type: 'bool', optional: false }
-                ],
-                'Abort': [],
-                'Complete': [
-                    { name: 'result', type: 'PaymentComplete', optional: false }
-                ]
-            },
-            'WebBluetoothService': {
-                'RequestDevice': [
-                    { name: 'options', type: 'RequestDeviceOptions', optional: false }
-                ],
-                'RemoteServerConnect': [
-                    { name: 'device_id', type: 'string', optional: false }
-                ]
-            },
-            'WebUSB': {
-                'GetDevices': [],
-                'GetDevice': [
-                    { name: 'guid', type: 'string', optional: false }
-                ],
-                'RequestPort': [
-                    { name: 'filters', type: 'array<DeviceFilter>', optional: true }
-                ]
-            },
-            'Authenticator': {
-                'MakeCredential': [
-                    { name: 'options', type: 'PublicKeyCredentialCreationOptions', optional: false }
-                ],
-                'GetAssertion': [
-                    { name: 'options', type: 'PublicKeyCredentialRequestOptions', optional: false }
-                ],
-                'Cancel': []
-            }
-        };
-
-        return paramDefs[interfaceName]?.[methodName] || generateDefaultParams(methodName);
+        return generateDefaultParams(methodName);
     }
 
     function findMethodDefinition(interfaceName, methodName) {
+        // Use the existing robust lookup from getMethodParams
+        // It handles:
+        // 1. Runtime loaded bindings (real schema)
+        // 2. Fallback paramDefs (hardcoded schema)
+        // 3. Default inference
+
+        // However, findMethodDefinition is expected to return a method object { name, parameters: [] }
+        // getMethodParams returns just the array of parameters.
+
+        const params = getMethodParams(interfaceName, methodName);
+        if (params && params.length > 0) {
+            return {
+                name: methodName,
+                parameters: params
+            };
+        }
+
+        // If we really need the interface object for some reason, we can look it up,
+        // but for rendering the form, we just need the parameters.
         const iface = state.interfaces.find(i => i.name === interfaceName);
-        if (!iface) return null;
-        return iface.methods.find(m => m.name === methodName);
+        if (iface) {
+            const m = iface.methods.find(m => m.name === methodName);
+            if (m) return m;
+        }
+
+        return null;
     }
 
     function renderInput(param, value, options = {}) {
