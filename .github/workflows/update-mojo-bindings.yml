@@ -499,18 +499,44 @@ jobs:
                   # Basics
                   if type_name in TYPE_MAPPING: return TYPE_MAPPING[type_name]
                   
-                  fq_name = f"{module}.{clean_name}"
-                  kind = global_kind_map.get(fq_name) or global_kind_map.get(clean_name)
-                  
-                  suffix = 'Spec'
-                  if kind == 'interface': suffix = 'Remote'
-                  
+                  # Explicit FQN?
+                  if '.' in clean_name and not clean_name.startswith('mojo.'):
+                      parts = clean_name.split('.')
+                      iface_name = parts[-1]
+                      mod_prefix = '.'.join(parts[:-1])
+                      
+                      kind = global_kind_map.get(clean_name)
+                      suffix = 'Spec'
+                      if kind == 'interface': suffix = 'Remote'
+                      
+                      return f"{mod_prefix}.{iface_name}{suffix}"
+
+                  # Local or Imported
                   if clean_name in valid_types:
-                      return f"{current_ns}.{clean_name}{suffix}"
-                  elif '.' in clean_name:
-                      return f"{clean_name}{suffix}"
-                  elif clean_name and clean_name[0].isupper():
-                      return f"{current_ns}.{clean_name}{suffix}"
+                      kind = 'struct' # mismatch doesn't hurt much here, we know it exists locally
+                      # We can refine if needed by looking up type
+                      return f"{current_ns}.{clean_name}Spec" 
+                      # Wait, if it's an interface locally, we need Remote.
+                      # But valid_types set doesn't store kind.
+                      # However, global_kind_map does!
+                      fqn = f"{module}.{clean_name}"
+                      if global_kind_map.get(fqn) == 'interface':
+                          return f"{current_ns}.{clean_name}Remote"
+                      return f"{current_ns}.{clean_name}Spec"
+
+                  # Unqualified name - Find Module
+                  target_mod = find_type_module(clean_name)
+                  if target_mod:
+                      fqn = f"{target_mod}.{clean_name}"
+                      kind = global_kind_map.get(fqn)
+                      suffix = 'Spec'
+                      if kind == 'interface': suffix = 'Remote'
+                      return f"{target_mod}.{clean_name}{suffix}"
+
+                  # Fallback heuristic
+                  if clean_name and clean_name[0].isupper():
+                       return f"{current_ns}.{clean_name}Spec"
+
                   return 'mojo.internal.Pointer'
 
               def get_struct_layout(params):
