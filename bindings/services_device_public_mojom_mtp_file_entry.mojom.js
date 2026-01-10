@@ -25,6 +25,7 @@ device.mojom.FileType = {
   FILE_TYPE_UNKNOWN: 11,
   FILE_TYPE_OTHER: 12,
 };
+device.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MtpFileEntry
 device.mojom.MtpFileEntrySpec = {
@@ -33,9 +34,9 @@ device.mojom.MtpFileEntrySpec = {
       name: 'device.mojom.MtpFileEntry',
       packedSize: 16,
       fields: [
-        { name: 'FILE_TYPE_FOLDER', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'FILE_TYPE_FOLDER', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

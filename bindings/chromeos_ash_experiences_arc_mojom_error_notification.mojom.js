@@ -13,6 +13,7 @@ arc.mojom = arc.mojom || {};
 arc.mojom.ErrorType = {
   ANR: 0,
 };
+arc.mojom.ErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ErrorDetails
 arc.mojom.ErrorDetailsSpec = {
@@ -21,12 +22,12 @@ arc.mojom.ErrorDetailsSpec = {
       name: 'arc.mojom.ErrorDetails',
       packedSize: 40,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.ErrorTypeSpec, nullable: false },
-        { name: 'buttonLabels', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ErrorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'buttonLabels', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -66,6 +67,15 @@ arc.mojom.ErrorNotificationHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  sendErrorDetails(details, action_handler) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec,
+      arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec,
+      [details, action_handler]);
+  }
+
 };
 
 arc.mojom.ErrorNotificationHost.getRemote = function() {
@@ -76,6 +86,34 @@ arc.mojom.ErrorNotificationHost.getRemote = function() {
     'arc.mojom.ErrorNotificationHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SendErrorDetails
+arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ErrorNotificationHost.SendErrorDetails_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ErrorDetailsSpec, nullable: false, minVersion: 0 },
+        { name: 'action_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -118,6 +156,15 @@ arc.mojom.ErrorNotificationInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.ErrorNotificationInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.ErrorNotificationInstance.getRemote = function() {
@@ -128,6 +175,20 @@ arc.mojom.ErrorNotificationInstance.getRemote = function() {
     'arc.mojom.ErrorNotificationInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.ErrorNotificationInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ErrorNotificationInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -170,6 +231,15 @@ arc.mojom.ErrorNotificationItemRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  closeErrorNotification() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 arc.mojom.ErrorNotificationItem.getRemote = function() {
@@ -180,6 +250,19 @@ arc.mojom.ErrorNotificationItem.getRemote = function() {
     'arc.mojom.ErrorNotificationItem',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for CloseErrorNotification
+arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ErrorNotificationItem.CloseErrorNotification_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -222,6 +305,24 @@ arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onNotificationButtonClicked(buttonIndex) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec,
+      null,
+      [buttonIndex]);
+  }
+
+  onNotificationClosed() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 arc.mojom.ErrorNotificationActionHandler.getRemote = function() {
@@ -232,6 +333,33 @@ arc.mojom.ErrorNotificationActionHandler.getRemote = function() {
     'arc.mojom.ErrorNotificationActionHandler',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnNotificationButtonClicked
+arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ErrorNotificationActionHandler.OnNotificationButtonClicked_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'buttonIndex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OnNotificationClosed
+arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ErrorNotificationActionHandler.OnNotificationClosed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility

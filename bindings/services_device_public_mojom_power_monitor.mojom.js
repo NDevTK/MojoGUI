@@ -72,9 +72,9 @@ device.mojom.PowerMonitor_AddClient_ParamsSpec = {
       name: 'device.mojom.PowerMonitor.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -165,9 +165,9 @@ device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
       name: 'device.mojom.PowerMonitorClient.PowerStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'battery_power_status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false },
+        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,7 +180,7 @@ device.mojom.PowerMonitorClient_Suspend_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -193,7 +193,7 @@ device.mojom.PowerMonitorClient_Resume_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

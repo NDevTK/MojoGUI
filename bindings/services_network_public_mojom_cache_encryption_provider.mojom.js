@@ -73,7 +73,7 @@ network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = {
 network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.CacheEncryptionProvider.GetEncryptor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'encryptor', packedOffset: 8, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false },
+        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

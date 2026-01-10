@@ -9,6 +9,28 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+// Union: SharedStorageModifierMethod
+network.mojom.SharedStorageModifierMethodSpec = { $: mojo.internal.Union(
+    'network.mojom.SharedStorageModifierMethod', {
+      'set_method': {
+        'ordinal': 0,
+        'type': network.mojom.SharedStorageSetMethodSpec,
+      }},
+      'append_method': {
+        'ordinal': 1,
+        'type': network.mojom.SharedStorageAppendMethodSpec,
+      }},
+      'delete_method': {
+        'ordinal': 2,
+        'type': network.mojom.SharedStorageDeleteMethodSpec,
+      }},
+      'clear_method': {
+        'ordinal': 3,
+        'type': network.mojom.SharedStorageClearMethodSpec,
+      }},
+    })
+};
+
 // Struct: SharedStorageKeyArgument
 network.mojom.SharedStorageKeyArgumentSpec = {
   $: {
@@ -16,9 +38,9 @@ network.mojom.SharedStorageKeyArgumentSpec = {
       name: 'network.mojom.SharedStorageKeyArgument',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -30,9 +52,9 @@ network.mojom.SharedStorageValueArgumentSpec = {
       name: 'network.mojom.SharedStorageValueArgument',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -44,9 +66,9 @@ network.mojom.LockNameSpec = {
       name: 'network.mojom.LockName',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -58,11 +80,11 @@ network.mojom.SharedStorageSetMethodSpec = {
       name: 'network.mojom.SharedStorageSetMethod',
       packedSize: 32,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SharedStorageKeyArgumentSpec, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SharedStorageValueArgumentSpec, nullable: false },
-        { name: 'ignore_if_present', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageKeyArgumentSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SharedStorageValueArgumentSpec, nullable: false, minVersion: 0 },
+        { name: 'ignore_if_present', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -74,10 +96,10 @@ network.mojom.SharedStorageAppendMethodSpec = {
       name: 'network.mojom.SharedStorageAppendMethod',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SharedStorageKeyArgumentSpec, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SharedStorageValueArgumentSpec, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageKeyArgumentSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SharedStorageValueArgumentSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -89,9 +111,9 @@ network.mojom.SharedStorageDeleteMethodSpec = {
       name: 'network.mojom.SharedStorageDeleteMethod',
       packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SharedStorageKeyArgumentSpec, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageKeyArgumentSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -104,7 +126,7 @@ network.mojom.SharedStorageClearMethodSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -114,12 +136,12 @@ network.mojom.SharedStorageModifierMethodWithOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedStorageModifierMethodWithOptions',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SharedStorageModifierMethodSpec, nullable: false },
-        { name: 'with_lock', packedOffset: 16, packedBitOffset: 0, type: network.mojom.LockNameSpec, nullable: true },
+        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageModifierMethodSpec, nullable: false, minVersion: 0 },
+        { name: 'with_lock', packedOffset: 16, packedBitOffset: 0, type: network.mojom.LockNameSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -131,9 +153,9 @@ network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec = {
       name: 'network.mojom.SharedStorageBatchUpdateMethodsArgument',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SharedStorageModifierMethodWithOptionsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

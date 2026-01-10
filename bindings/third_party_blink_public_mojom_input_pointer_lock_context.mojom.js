@@ -72,9 +72,9 @@ blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
       name: 'blink.mojom.PointerLockContext.RequestMouseLockChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'unadjusted_movement', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'unadjusted_movement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
 blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.PointerLockContext.RequestMouseLockChange_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PointerLockResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PointerLockResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

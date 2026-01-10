@@ -9,24 +9,31 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+blink.mojom.kMaximumDeveloperDataSize = 1048576;
+
+blink.mojom.kMaximumActions = 2;
+
 // Enum: NotificationDirection
 blink.mojom.NotificationDirection = {
   LEFT_TO_RIGHT: 0,
   RIGHT_TO_LEFT: 1,
   AUTO: 2,
 };
+blink.mojom.NotificationDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: NotificationActionType
 blink.mojom.NotificationActionType = {
   BUTTON: 0,
   TEXT: 1,
 };
+blink.mojom.NotificationActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NotificationScenario
 blink.mojom.NotificationScenario = {
   DEFAULT: 0,
   INCOMING_CALL: 1,
 };
+blink.mojom.NotificationScenarioSpec = { $: mojo.internal.Enum() };
 
 // Struct: NotificationAction
 blink.mojom.NotificationActionSpec = {
@@ -35,13 +42,13 @@ blink.mojom.NotificationActionSpec = {
       name: 'blink.mojom.NotificationAction',
       packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationActionTypeSpec, nullable: false },
-        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'placeholder', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.NotificationActionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'placeholder', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -51,29 +58,29 @@ blink.mojom.NotificationDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.NotificationData',
-      packedSize: 144,
+      packedSize: 136,
       fields: [
-        { name: 'kMaximumDeveloperDataSize', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'kMaximumActions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'direction', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.NotificationDirectionSpec, nullable: false },
-        { name: 'lang', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'body', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'tag', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'image', packedOffset: 64, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'icon', packedOffset: 72, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'badge', packedOffset: 80, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'vibration_pattern', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'timestamp', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'renotify', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'silent', packedOffset: 104, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'require_interaction', packedOffset: 104, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'data', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'actions', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'show_trigger_timestamp', packedOffset: 128, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'scenario', packedOffset: 136, packedBitOffset: 0, type: blink.mojom.NotificationScenarioSpec, nullable: false },
+        { name: 'kMaximumDeveloperDataSize', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'kMaximumActions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'direction', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.NotificationDirectionSpec, nullable: false, minVersion: 0 },
+        { name: 'lang', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'body', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'tag', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'image', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 64, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'badge', packedOffset: 72, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'vibration_pattern', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: true, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'renotify', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'silent', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'require_interaction', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'actions', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.NotificationActionSpec, false), nullable: true, minVersion: 0 },
+        { name: 'show_trigger_timestamp', packedOffset: 112, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+        { name: 'scenario', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.NotificationScenarioSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 136}]
     }
   }
 };
@@ -85,12 +92,12 @@ blink.mojom.NotificationResourcesSpec = {
       name: 'blink.mojom.NotificationResources',
       packedSize: 40,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
-        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
-        { name: 'badge', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
-        { name: 'action_icons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'badge', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'action_icons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.BitmapN32Spec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

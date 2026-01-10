@@ -16,3 +16,4 @@ skia.mojom.TileMode = {
   MIRROR: 2,
   DECAL: 3,
 };
+skia.mojom.TileModeSpec = { $: mojo.internal.Enum() };

@@ -24,6 +24,7 @@ ash.settings.mojom.DisplaySettingsType = {
   kUnifiedMode: 9,
   kPrimaryDisplay: 10,
 };
+ash.settings.mojom.DisplaySettingsTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplaySettingsNightLightScheduleOption
 ash.settings.mojom.DisplaySettingsNightLightScheduleOption = {
@@ -31,6 +32,7 @@ ash.settings.mojom.DisplaySettingsNightLightScheduleOption = {
   kSunsetToSunrise: 1,
   kCustom: 2,
 };
+ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplaySettingsOrientationOption
 ash.settings.mojom.DisplaySettingsOrientationOption = {
@@ -40,23 +42,29 @@ ash.settings.mojom.DisplaySettingsOrientationOption = {
   k180Degree: 3,
   k270Degree: 4,
 };
+ash.settings.mojom.DisplaySettingsOrientationOptionSpec = { $: mojo.internal.Enum() };
 
 // Struct: DisplaySettingsValue
 ash.settings.mojom.DisplaySettingsValueSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.DisplaySettingsValue',
-      packedSize: 56,
+      packedSize: 32,
       fields: [
-        { name: 'is_internal_display', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: true },
-        { name: 'orientation', packedOffset: 24, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsOrientationOptionSpec, nullable: true },
-        { name: 'night_light_status', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'night_light_schedule', packedOffset: 40, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec, nullable: true },
-        { name: 'mirror_mode_status', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'unified_mode_status', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: true },
+        { name: 'is_internal_display_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_internal_display_$value', originalFieldName: 'is_internal_display' } },
+        { name: 'is_internal_display_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_internal_display_$flag', originalFieldName: 'is_internal_display' } },
+        { name: 'display_id_$flag', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'display_id_$value', originalFieldName: 'display_id' } },
+        { name: 'display_id_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'display_id_$flag', originalFieldName: 'display_id' } },
+        { name: 'orientation', packedOffset: 4, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsOrientationOptionSpec, nullable: true, minVersion: 0 },
+        { name: 'night_light_status_$flag', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'night_light_status_$value', originalFieldName: 'night_light_status' } },
+        { name: 'night_light_status_$value', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'night_light_status_$flag', originalFieldName: 'night_light_status' } },
+        { name: 'night_light_schedule', packedOffset: 16, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec, nullable: true, minVersion: 0 },
+        { name: 'mirror_mode_status_$flag', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'mirror_mode_status_$value', originalFieldName: 'mirror_mode_status' } },
+        { name: 'mirror_mode_status_$value', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'mirror_mode_status_$flag', originalFieldName: 'mirror_mode_status' } },
+        { name: 'unified_mode_status_$flag', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'unified_mode_status_$value', originalFieldName: 'unified_mode_status' } },
+        { name: 'unified_mode_status_$value', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'unified_mode_status_$flag', originalFieldName: 'unified_mode_status' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -124,9 +132,9 @@ ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
       name: 'ash.settings.mojom.TabletModeObserver.OnTabletModeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_tablet_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -200,7 +208,7 @@ ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -273,10 +281,10 @@ ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_
       name: 'ash.settings.mojom.DisplayBrightnessSettingsObserver.OnDisplayBrightnessChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'brightness_percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'triggered_by_als', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'triggered_by_als', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -349,9 +357,9 @@ ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged
       name: 'ash.settings.mojom.AmbientLightSensorObserver.OnAmbientLightSensorEnabledChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_ambient_light_sensor_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -505,9 +513,9 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec = {
       name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveTabletMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -515,12 +523,12 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec = {
 ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveTabletMode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_tablet_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -532,9 +540,9 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpe
       name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveDisplayConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -546,9 +554,9 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Para
       name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveDisplayBrightnessSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -556,12 +564,12 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Para
 ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveDisplayBrightnessSettings_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'brightness_percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'brightness_percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -573,9 +581,9 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec 
       name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveAmbientLightSensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -583,12 +591,12 @@ ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec 
 ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveAmbientLightSensor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_ambient_light_sensor_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_ambient_light_sensor_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -600,10 +608,10 @@ ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsS
       name: 'ash.settings.mojom.DisplaySettingsProvider.RecordChangingDisplaySettings_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsTypeSpec, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsValueSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: ash.settings.mojom.DisplaySettingsValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -615,9 +623,9 @@ ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec = {
       name: 'ash.settings.mojom.DisplaySettingsProvider.SetShinyPerformance_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -629,9 +637,9 @@ ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_Pa
       name: 'ash.settings.mojom.DisplaySettingsProvider.SetInternalDisplayScreenBrightness_Params',
       packedSize: 16,
       fields: [
-        { name: 'percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -643,9 +651,9 @@ ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorE
       name: 'ash.settings.mojom.DisplaySettingsProvider.SetInternalDisplayAmbientLightSensorEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -658,7 +666,7 @@ ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperien
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -671,7 +679,7 @@ ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -679,12 +687,12 @@ ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec = {
 ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.settings.mojom.DisplaySettingsProvider.HasAmbientLightSensor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_ambient_light_sensor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_ambient_light_sensor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

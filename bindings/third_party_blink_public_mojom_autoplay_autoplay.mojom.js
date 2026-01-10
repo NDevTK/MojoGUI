@@ -9,6 +9,14 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+blink.mojom.kAutoplayFlagNone = 0x00000;
+
+blink.mojom.kAutoplayFlagHighMediaEngagement = 0x00001;
+
+blink.mojom.kAutoplayFlagForceAllow = 0x00002;
+
+blink.mojom.kAutoplayFlagUserException = 0x00004;
+
 // Interface: AutoplayConfigurationClient
 blink.mojom.AutoplayConfigurationClient = {};
 
@@ -72,10 +80,10 @@ blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = {
       name: 'blink.mojom.AutoplayConfigurationClient.AddAutoplayFlags_Params',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

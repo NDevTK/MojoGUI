@@ -16,10 +16,10 @@ blink.mojom.BlockingDetailsSpec = {
       name: 'blink.mojom.BlockingDetails',
       packedSize: 24,
       fields: [
-        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebSchedulerTrackedFeatureSpec, nullable: false },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebSchedulerTrackedFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -96,10 +96,10 @@ blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec 
       name: 'blink.mojom.BackForwardCacheControllerHost.EvictFromBackForwardCache_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RendererEvictionReasonSpec, nullable: false },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RendererEvictionReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -111,9 +111,9 @@ blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFea
       name: 'blink.mojom.BackForwardCacheControllerHost.DidChangeBackForwardCacheDisablingFeatures_Params',
       packedSize: 16,
       fields: [
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.BlockingDetailsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

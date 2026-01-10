@@ -73,7 +73,7 @@ network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
 network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.DhcpWpadUrlClient.GetPacUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

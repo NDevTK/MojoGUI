@@ -100,7 +100,7 @@ content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -112,10 +112,10 @@ content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = {
       name: 'content_capture.mojom.ContentCaptureReceiver.DidCaptureContent_Params',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false },
-        { name: 'first_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false, minVersion: 0 },
+        { name: 'first_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -127,9 +127,9 @@ content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = {
       name: 'content_capture.mojom.ContentCaptureReceiver.DidUpdateContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content_capture.mojom.ContentCaptureDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,9 +141,9 @@ content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = {
       name: 'content_capture.mojom.ContentCaptureReceiver.DidRemoveContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -226,7 +226,7 @@ content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -239,7 +239,7 @@ content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

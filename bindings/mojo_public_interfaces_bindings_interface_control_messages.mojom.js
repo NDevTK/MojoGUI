@@ -9,16 +9,66 @@ var mojo = mojo || {};
 mojo.interface_control = mojo.interface_control || {};
 
 
+mojo.interface_control.kRunMessageId = 0xFFFFFFFF;
+
+mojo.interface_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
+
+// Union: RunInput
+mojo.interface_control.RunInputSpec = { $: mojo.internal.Union(
+    'mojo.interface_control.RunInput', {
+      'query_version': {
+        'ordinal': 0,
+        'type': mojo.interface_control.QueryVersionSpec,
+      }},
+      'flush_for_testing': {
+        'ordinal': 1,
+        'type': mojo.interface_control.FlushForTestingSpec,
+      }},
+    })
+};
+
+// Union: RunOutput
+mojo.interface_control.RunOutputSpec = { $: mojo.internal.Union(
+    'mojo.interface_control.RunOutput', {
+      'query_version_result': {
+        'ordinal': 0,
+        'type': mojo.interface_control.QueryVersionResultSpec,
+      }},
+    })
+};
+
+// Union: RunOrClosePipeInput
+mojo.interface_control.RunOrClosePipeInputSpec = { $: mojo.internal.Union(
+    'mojo.interface_control.RunOrClosePipeInput', {
+      'require_version': {
+        'ordinal': 0,
+        'type': mojo.interface_control.RequireVersionSpec,
+      }},
+      'enable_idle_tracking': {
+        'ordinal': 1,
+        'type': mojo.interface_control.EnableIdleTrackingSpec,
+      }},
+      'message_ack': {
+        'ordinal': 2,
+        'type': mojo.interface_control.MessageAckSpec,
+      }},
+      'notify_idle': {
+        'ordinal': 3,
+        'type': mojo.interface_control.NotifyIdleSpec,
+      }},
+    })
+};
+
 // Struct: RunMessageParams
 mojo.interface_control.RunMessageParamsSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.RunMessageParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.interface_control.RunInputSpec, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.interface_control.RunInputSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -28,11 +78,11 @@ mojo.interface_control.RunResponseMessageParamsSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.RunResponseMessageParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'output', packedOffset: 8, packedBitOffset: 0, type: mojo.interface_control.RunOutputSpec, nullable: true },
+        { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.interface_control.RunOutputSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -45,7 +95,7 @@ mojo.interface_control.QueryVersionSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -57,9 +107,9 @@ mojo.interface_control.QueryVersionResultSpec = {
       name: 'mojo.interface_control.QueryVersionResult',
       packedSize: 16,
       fields: [
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -72,7 +122,7 @@ mojo.interface_control.FlushForTestingSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -82,11 +132,11 @@ mojo.interface_control.RunOrClosePipeMessageParamsSpec = {
   $: {
     structSpec: {
       name: 'mojo.interface_control.RunOrClosePipeMessageParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.interface_control.RunOrClosePipeInputSpec, nullable: false },
+        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.interface_control.RunOrClosePipeInputSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -98,9 +148,9 @@ mojo.interface_control.RequireVersionSpec = {
       name: 'mojo.interface_control.RequireVersion',
       packedSize: 16,
       fields: [
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -112,9 +162,9 @@ mojo.interface_control.EnableIdleTrackingSpec = {
       name: 'mojo.interface_control.EnableIdleTracking',
       packedSize: 16,
       fields: [
-        { name: 'timeout_in_microseconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'timeout_in_microseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,7 +177,7 @@ mojo.interface_control.MessageAckSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -140,7 +190,7 @@ mojo.interface_control.NotifyIdleSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -72,10 +72,10 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
       name: 'viz.mojom.InputTargetClient.FrameSinkIdAt_Params',
       packedSize: 24,
       fields: [
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -83,13 +83,13 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
 viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.InputTargetClient.FrameSinkIdAt_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'local_point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'local_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

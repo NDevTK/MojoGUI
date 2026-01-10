@@ -18,6 +18,7 @@ ash.focus_mode.mojom.PlaybackState = {
   kEnded: 3,
   kNone: 4,
 };
+ash.focus_mode.mojom.PlaybackStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: TrackDefinition
 ash.focus_mode.mojom.TrackDefinitionSpec = {
@@ -26,13 +27,13 @@ ash.focus_mode.mojom.TrackDefinitionSpec = {
       name: 'ash.focus_mode.mojom.TrackDefinition',
       packedSize: 48,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'artist', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'thumbnail_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'media_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'enable_playback_reporting', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'artist', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'thumbnail_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'media_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'enable_playback_reporting', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -42,20 +43,20 @@ ash.focus_mode.mojom.PlaybackDataSpec = {
   $: {
     structSpec: {
       name: 'ash.focus_mode.mojom.PlaybackData',
-      packedSize: 72,
+      packedSize: 64,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.focus_mode.mojom.PlaybackStateSpec, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'client_current_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
-        { name: 'playback_start_offset', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'media_time_current', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'media_start', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'media_end', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'client_start_time', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false },
-        { name: 'initial_playback', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.PlaybackStateSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'client_current_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
+        { name: 'playback_start_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'media_time_current', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'media_start', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'media_end', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'client_start_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
+        { name: 'initial_playback', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -123,9 +124,9 @@ ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = {
       name: 'ash.focus_mode.mojom.MediaClient.StartPlay_Params',
       packedSize: 16,
       fields: [
-        { name: 'track', packedOffset: 8, packedBitOffset: 0, type: ash.focus_mode.mojom.TrackDefinitionSpec, nullable: false },
+        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.TrackDefinitionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -226,7 +227,7 @@ ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -234,12 +235,12 @@ ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = {
 ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.focus_mode.mojom.TrackProvider.GetTrack_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'track', packedOffset: 8, packedBitOffset: 0, type: ash.focus_mode.mojom.TrackDefinitionSpec, nullable: false },
+        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.TrackDefinitionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -251,9 +252,9 @@ ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec = {
       name: 'ash.focus_mode.mojom.TrackProvider.SetMediaClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -265,9 +266,9 @@ ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = {
       name: 'ash.focus_mode.mojom.TrackProvider.ReportPlayback_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: ash.focus_mode.mojom.PlaybackDataSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.PlaybackDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -280,7 +281,7 @@ ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

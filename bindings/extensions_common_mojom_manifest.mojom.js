@@ -23,3 +23,4 @@ extensions.mojom.ManifestLocation = {
   kExternalPolicy: 9,
   kExternalComponent: 10,
 };
+extensions.mojom.ManifestLocationSpec = { $: mojo.internal.Enum() };

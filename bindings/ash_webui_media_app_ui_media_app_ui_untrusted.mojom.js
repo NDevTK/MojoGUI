@@ -10,6 +10,20 @@ ash.media_app_ui = ash.media_app_ui || {};
 ash.media_app_ui.mojom = ash.media_app_ui.mojom || {};
 
 
+// Union: MantisUntrustedServiceResult
+ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec = { $: mojo.internal.Union(
+    'ash.media_app_ui.mojom.MantisUntrustedServiceResult', {
+      'service': {
+        'ordinal': 0,
+        'type': mojo.internal.InterfaceProxy,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mantis.mojom.InitializeResultSpec,
+      }},
+    })
+};
+
 // Struct: PageMetadata
 ash.media_app_ui.mojom.PageMetadataSpec = {
   $: {
@@ -17,10 +31,10 @@ ash.media_app_ui.mojom.PageMetadataSpec = {
       name: 'ash.media_app_ui.mojom.PageMetadata',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -115,10 +129,10 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsS
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateOcrUntrustedService_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -130,11 +144,11 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_Params
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMahiUntrustedService_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'file_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -147,7 +161,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -155,12 +169,12 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec = {
 ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.IsMantisAvailable_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,10 +186,10 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Para
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMantisUntrustedService_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'dlc_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'dlc_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -183,12 +197,12 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Para
 ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMantisUntrustedService_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -279,9 +293,9 @@ ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.OcrUntrustedService.PageMetadataUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'page_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.media_app_ui.mojom.PageMetadataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -293,9 +307,9 @@ ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.OcrUntrustedService.PageContentsUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'dirty_page_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dirty_page_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -307,10 +321,10 @@ ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.OcrUntrustedService.ViewportUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'viewport_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'viewport_box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -401,9 +415,9 @@ ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.OcrUntrustedPage.RequestBitmap_Params',
       packedSize: 16,
       fields: [
-        { name: 'requestedPageId', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'requestedPageId', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -411,12 +425,12 @@ ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec = {
 ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.OcrUntrustedPage.RequestBitmap_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -428,9 +442,9 @@ ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.OcrUntrustedPage.SetViewport_Params',
       packedSize: 16,
       fields: [
-        { name: 'viewport_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'viewport_box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -442,9 +456,9 @@ ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.OcrUntrustedPage.SetPdfOcrEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -545,7 +559,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -557,9 +571,9 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MahiUntrustedService.OnPdfFileNameUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -571,10 +585,10 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MahiUntrustedService.OnPdfContextMenuShow_Params',
       packedSize: 24,
       fields: [
-        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'selected_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'anchor', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'selected_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -587,7 +601,7 @@ ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -670,7 +684,7 @@ ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -682,9 +696,9 @@ ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MahiUntrustedPage.GetPdfContent_Params',
       packedSize: 16,
       fields: [
-        { name: 'limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -692,12 +706,12 @@ ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec = {
 ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.MahiUntrustedPage.GetPdfContent_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -815,10 +829,10 @@ ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.SegmentImage_Params',
       packedSize: 24,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'selection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -826,12 +840,12 @@ ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.MantisUntrustedService.SegmentImage_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -843,12 +857,12 @@ ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.GenerativeFillImage_Params',
       packedSize: 40,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'seed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'seed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -856,12 +870,12 @@ ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.MantisUntrustedService.GenerativeFillImage_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -873,11 +887,11 @@ ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.InpaintImage_Params',
       packedSize: 32,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'seed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -885,12 +899,12 @@ ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.MantisUntrustedService.InpaintImage_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -902,11 +916,11 @@ ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.OutpaintImage_Params',
       packedSize: 32,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'seed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -914,12 +928,12 @@ ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.MantisUntrustedService.OutpaintImage_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -931,9 +945,9 @@ ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.ClassifyImageSafety_Params',
       packedSize: 16,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -941,12 +955,12 @@ ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.MantisUntrustedService.ClassifyImageSafety_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'verdict', packedOffset: 8, packedBitOffset: 0, type: mantis.mojom.SafetyClassifierVerdictSpec, nullable: false },
+        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -958,9 +972,9 @@ ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec =
       name: 'ash.media_app_ui.mojom.MantisUntrustedService.InferSegmentationMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'gesture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mantis.mojom.TouchPointSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -968,12 +982,12 @@ ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec =
 ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.media_app_ui.mojom.MantisUntrustedService.InferSegmentationMode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: mantis.mojom.SegmentationModeSpec, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SegmentationModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1046,9 +1060,9 @@ ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec = {
       name: 'ash.media_app_ui.mojom.MantisUntrustedPage.ReportMantisProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

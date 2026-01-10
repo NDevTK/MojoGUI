@@ -17,23 +17,125 @@ blink.mojom.ReportingDestination = {
   kSharedStorageSelectUrl: 3,
   kDirectSeller: 4,
 };
+blink.mojom.ReportingDestinationSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeprecatedFencedFrameMode
 blink.mojom.DeprecatedFencedFrameMode = {
   kDefault: 0,
   kOpaqueAds: 1,
 };
+blink.mojom.DeprecatedFencedFrameModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Opaque
 blink.mojom.Opaque = {
   kOpaque: 0,
 };
+blink.mojom.OpaqueSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutomaticBeaconType
 blink.mojom.AutomaticBeaconType = {
   kDeprecatedTopNavigation: 0,
   kTopNavigationStart: 1,
   kTopNavigationCommit: 2,
+};
+blink.mojom.AutomaticBeaconTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: PotentiallyOpaqueURL
+blink.mojom.PotentiallyOpaqueURLSpec = { $: mojo.internal.Union(
+    'blink.mojom.PotentiallyOpaqueURL', {
+      'transparent': {
+        'ordinal': 0,
+        'type': url.mojom.UrlSpec,
+      }},
+      'opaque': {
+        'ordinal': 1,
+        'type': blink.mojom.OpaqueSpec,
+      }},
+    })
+};
+
+// Union: PotentiallyOpaqueSize
+blink.mojom.PotentiallyOpaqueSizeSpec = { $: mojo.internal.Union(
+    'blink.mojom.PotentiallyOpaqueSize', {
+      'transparent': {
+        'ordinal': 0,
+        'type': gfx.mojom.SizeSpec,
+      }},
+      'opaque': {
+        'ordinal': 1,
+        'type': blink.mojom.OpaqueSpec,
+      }},
+    })
+};
+
+// Union: PotentiallyOpaqueBool
+blink.mojom.PotentiallyOpaqueBoolSpec = { $: mojo.internal.Union(
+    'blink.mojom.PotentiallyOpaqueBool', {
+      'transparent': {
+        'ordinal': 0,
+        'type': mojo.internal.Bool,
+      }},
+      'opaque': {
+        'ordinal': 1,
+        'type': blink.mojom.OpaqueSpec,
+      }},
+    })
+};
+
+// Union: PotentiallyOpaqueAdAuctionData
+blink.mojom.PotentiallyOpaqueAdAuctionDataSpec = { $: mojo.internal.Union(
+    'blink.mojom.PotentiallyOpaqueAdAuctionData', {
+      'transparent': {
+        'ordinal': 0,
+        'type': blink.mojom.AdAuctionDataSpec,
+      }},
+      'opaque': {
+        'ordinal': 1,
+        'type': blink.mojom.OpaqueSpec,
+      }},
+    })
+};
+
+// Union: PotentiallyOpaqueConfigVector
+blink.mojom.PotentiallyOpaqueConfigVectorSpec = { $: mojo.internal.Union(
+    'blink.mojom.PotentiallyOpaqueConfigVector', {
+      'transparent': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(blink.mojom.FencedFrameConfigSpec, false),
+      }},
+      'opaque': {
+        'ordinal': 1,
+        'type': blink.mojom.OpaqueSpec,
+      }},
+    })
+};
+
+// Union: PotentiallyOpaqueURNConfigVector
+blink.mojom.PotentiallyOpaqueURNConfigVectorSpec = { $: mojo.internal.Union(
+    'blink.mojom.PotentiallyOpaqueURNConfigVector', {
+      'transparent': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(blink.mojom.URNConfigPairSpec, false),
+      }},
+      'opaque': {
+        'ordinal': 1,
+        'type': blink.mojom.OpaqueSpec,
+      }},
+    })
+};
+
+// Union: PotentiallyOpaqueSharedStorageBudgetMetadata
+blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec = { $: mojo.internal.Union(
+    'blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadata', {
+      'transparent': {
+        'ordinal': 0,
+        'type': blink.mojom.SharedStorageBudgetMetadataSpec,
+      }},
+      'opaque': {
+        'ordinal': 1,
+        'type': blink.mojom.OpaqueSpec,
+      }},
+    })
 };
 
 // Struct: AdAuctionData
@@ -43,10 +145,10 @@ blink.mojom.AdAuctionDataSpec = {
       name: 'blink.mojom.AdAuctionData',
       packedSize: 24,
       fields: [
-        { name: 'interest_group_owner', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'interest_group_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'interest_group_owner', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'interest_group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -58,10 +160,10 @@ blink.mojom.URNConfigPairSpec = {
       name: 'blink.mojom.URNConfigPair',
       packedSize: 24,
       fields: [
-        { name: 'urn', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: false },
+        { name: 'urn', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -73,11 +175,11 @@ blink.mojom.SharedStorageBudgetMetadataSpec = {
       name: 'blink.mojom.SharedStorageBudgetMetadata',
       packedSize: 32,
       fields: [
-        { name: 'site', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
-        { name: 'budget_to_charge', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'top_navigated', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
+        { name: 'budget_to_charge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'top_navigated', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -89,10 +191,10 @@ blink.mojom.ParentPermissionsInfoSpec = {
       name: 'blink.mojom.ParentPermissionsInfo',
       packedSize: 24,
       fields: [
-        { name: 'parsed_permissions_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'parsed_permissions_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -102,21 +204,21 @@ blink.mojom.FencedFrameConfigSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FencedFrameConfig',
-      packedSize: 96,
+      packedSize: 152,
       fields: [
-        { name: 'mapped_url', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueURLSpec, nullable: true },
-        { name: 'container_size', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSizeSpec, nullable: true },
-        { name: 'content_size', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSizeSpec, nullable: true },
-        { name: 'deprecated_should_freeze_initial_size', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueBoolSpec, nullable: true },
-        { name: 'ad_auction_data', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueAdAuctionDataSpec, nullable: true },
-        { name: 'nested_configs', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueConfigVectorSpec, nullable: true },
-        { name: 'shared_storage_budget_metadata', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec, nullable: true },
-        { name: 'urn_uuid', packedOffset: 64, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'mode', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.DeprecatedFencedFrameModeSpec, nullable: false },
-        { name: 'effective_enabled_permissions', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'parent_permissions_info', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.ParentPermissionsInfoSpec, nullable: true },
+        { name: 'mapped_url', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueURLSpec, nullable: true, minVersion: 0 },
+        { name: 'container_size', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSizeSpec, nullable: true, minVersion: 0 },
+        { name: 'content_size', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSizeSpec, nullable: true, minVersion: 0 },
+        { name: 'deprecated_should_freeze_initial_size', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueBoolSpec, nullable: true, minVersion: 0 },
+        { name: 'ad_auction_data', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueAdAuctionDataSpec, nullable: true, minVersion: 0 },
+        { name: 'nested_configs', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueConfigVectorSpec, nullable: true, minVersion: 0 },
+        { name: 'shared_storage_budget_metadata', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec, nullable: true, minVersion: 0 },
+        { name: 'urn_uuid', packedOffset: 112, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.DeprecatedFencedFrameModeSpec, nullable: false, minVersion: 0 },
+        { name: 'effective_enabled_permissions', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.PermissionsPolicyFeatureSpec, false), nullable: false, minVersion: 0 },
+        { name: 'parent_permissions_info', packedOffset: 136, packedBitOffset: 0, type: blink.mojom.ParentPermissionsInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 152}]
     }
   }
 };
@@ -126,23 +228,23 @@ blink.mojom.FencedFramePropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FencedFrameProperties',
-      packedSize: 96,
+      packedSize: 144,
       fields: [
-        { name: 'mapped_url', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueURLSpec, nullable: true },
-        { name: 'container_size', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSizeSpec, nullable: true },
-        { name: 'content_size', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSizeSpec, nullable: true },
-        { name: 'deprecated_should_freeze_initial_size', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueBoolSpec, nullable: true },
-        { name: 'ad_auction_data', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueAdAuctionDataSpec, nullable: true },
-        { name: 'nested_urn_config_pairs', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueURNConfigVectorSpec, nullable: true },
-        { name: 'shared_storage_budget_metadata', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec, nullable: true },
-        { name: 'mode', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.DeprecatedFencedFrameModeSpec, nullable: false },
-        { name: 'effective_enabled_permissions', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'parent_permissions_info', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.ParentPermissionsInfoSpec, nullable: true },
-        { name: 'can_disable_untrusted_network', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_cross_origin_content', packedOffset: 88, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_cross_origin_event_reporting', packedOffset: 88, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'mapped_url', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueURLSpec, nullable: true, minVersion: 0 },
+        { name: 'container_size', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSizeSpec, nullable: true, minVersion: 0 },
+        { name: 'content_size', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSizeSpec, nullable: true, minVersion: 0 },
+        { name: 'deprecated_should_freeze_initial_size', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueBoolSpec, nullable: true, minVersion: 0 },
+        { name: 'ad_auction_data', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueAdAuctionDataSpec, nullable: true, minVersion: 0 },
+        { name: 'nested_urn_config_pairs', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueURNConfigVectorSpec, nullable: true, minVersion: 0 },
+        { name: 'shared_storage_budget_metadata', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec, nullable: true, minVersion: 0 },
+        { name: 'mode', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.DeprecatedFencedFrameModeSpec, nullable: false, minVersion: 0 },
+        { name: 'effective_enabled_permissions', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.PermissionsPolicyFeatureSpec, false), nullable: false, minVersion: 0 },
+        { name: 'parent_permissions_info', packedOffset: 128, packedBitOffset: 0, type: blink.mojom.ParentPermissionsInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'can_disable_untrusted_network', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_cross_origin_content', packedOffset: 116, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_cross_origin_event_reporting', packedOffset: 116, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 144}]
     }
   }
 };

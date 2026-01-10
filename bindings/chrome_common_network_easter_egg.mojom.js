@@ -91,7 +91,7 @@ chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -99,12 +99,12 @@ chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = {
 chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.NetworkEasterEgg.GetHighScore_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'high_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -116,9 +116,9 @@ chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = {
       name: 'chrome.mojom.NetworkEasterEgg.UpdateHighScore_Params',
       packedSize: 16,
       fields: [
-        { name: 'high_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -131,7 +131,7 @@ chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

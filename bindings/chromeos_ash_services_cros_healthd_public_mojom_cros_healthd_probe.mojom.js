@@ -16,6 +16,7 @@ ash.cros_healthd.mojom.CpuArchitectureEnum = {
   kAArch64: 1,
   kArmv7l: 2,
 };
+ash.cros_healthd.mojom.CpuArchitectureEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProbeCategoryEnum
 ash.cros_healthd.mojom.ProbeCategoryEnum = {
@@ -39,6 +40,7 @@ ash.cros_healthd.mojom.ProbeCategoryEnum = {
   kNetworkInterface: 17,
   kInput: 18,
 };
+ash.cros_healthd.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: ErrorType
 ash.cros_healthd.mojom.ErrorType = {
@@ -47,6 +49,7 @@ ash.cros_healthd.mojom.ErrorType = {
   kSystemUtilityError: 2,
   kServiceUnavailable: 3,
 };
+ash.cros_healthd.mojom.ErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProcessState
 ash.cros_healthd.mojom.ProcessState = {
@@ -58,12 +61,14 @@ ash.cros_healthd.mojom.ProcessState = {
   kTracingStop: 5,
   kDead: 6,
 };
+ash.cros_healthd.mojom.ProcessStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: StorageDevicePurpose
 ash.cros_healthd.mojom.StorageDevicePurpose = {
   kBootDevice: 0,
   DEPRECATED_kSwapDevice: 1,
 };
+ash.cros_healthd.mojom.StorageDevicePurposeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SMTControl
 ash.cros_healthd.mojom.SMTControl = {
@@ -73,6 +78,7 @@ ash.cros_healthd.mojom.SMTControl = {
   kNotSupported: 3,
   kNotImplemented: 4,
 };
+ash.cros_healthd.mojom.SMTControlSpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
 ash.cros_healthd.mojom.Status = {
@@ -82,12 +88,14 @@ ash.cros_healthd.mojom.Status = {
   kUnknown: 3,
   kUnrecognized: 4,
 };
+ash.cros_healthd.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
 ash.cros_healthd.mojom.Type = {
   kVMX: 0,
   kSVM: 1,
 };
+ash.cros_healthd.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EncryptionState
 ash.cros_healthd.mojom.EncryptionState = {
@@ -95,12 +103,14 @@ ash.cros_healthd.mojom.EncryptionState = {
   kTmeEnabled: 1,
   kMktmeEnabled: 2,
 };
+ash.cros_healthd.mojom.EncryptionStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CryptoAlgorithm
 ash.cros_healthd.mojom.CryptoAlgorithm = {
   kAesXts128: 0,
   kAesXts256: 1,
 };
+ash.cros_healthd.mojom.CryptoAlgorithmSpec = { $: mojo.internal.Enum() };
 
 // Enum: BluetoothDeviceType
 ash.cros_healthd.mojom.BluetoothDeviceType = {
@@ -109,6 +119,7 @@ ash.cros_healthd.mojom.BluetoothDeviceType = {
   kLe: 2,
   kDual: 3,
 };
+ash.cros_healthd.mojom.BluetoothDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EfiPlatformSize
 ash.cros_healthd.mojom.EfiPlatformSize = {
@@ -116,6 +127,7 @@ ash.cros_healthd.mojom.EfiPlatformSize = {
   k64: 1,
   k32: 2,
 };
+ash.cros_healthd.mojom.EfiPlatformSizeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BootMode
 ash.cros_healthd.mojom.BootMode = {
@@ -124,6 +136,7 @@ ash.cros_healthd.mojom.BootMode = {
   kCrosLegacy: 2,
   kCrosEfiSecure: 3,
 };
+ash.cros_healthd.mojom.BootModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventType
 ash.cros_healthd.mojom.EventType = {
@@ -133,6 +146,7 @@ ash.cros_healthd.mojom.EventType = {
   kPrtcFailure: 3,
   kSvnIncrease: 4,
 };
+ash.cros_healthd.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LogState
 ash.cros_healthd.mojom.LogState = {
@@ -140,6 +154,7 @@ ash.cros_healthd.mojom.LogState = {
   kStarted: 1,
   kStopped: 2,
 };
+ash.cros_healthd.mojom.LogStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BusDeviceClass
 ash.cros_healthd.mojom.BusDeviceClass = {
@@ -150,6 +165,7 @@ ash.cros_healthd.mojom.BusDeviceClass = {
   kThunderboltController: 4,
   kAudioCard: 5,
 };
+ash.cros_healthd.mojom.BusDeviceClassSpec = { $: mojo.internal.Enum() };
 
 // Enum: FwupdVersionFormat
 ash.cros_healthd.mojom.FwupdVersionFormat = {
@@ -167,6 +183,7 @@ ash.cros_healthd.mojom.FwupdVersionFormat = {
   kDellBios: 11,
   kHex: 12,
 };
+ash.cros_healthd.mojom.FwupdVersionFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: UsbVersion
 ash.cros_healthd.mojom.UsbVersion = {
@@ -175,6 +192,7 @@ ash.cros_healthd.mojom.UsbVersion = {
   kUsb2: 2,
   kUsb3: 3,
 };
+ash.cros_healthd.mojom.UsbVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: UsbSpecSpeed
 ash.cros_healthd.mojom.UsbSpecSpeed = {
@@ -187,18 +205,21 @@ ash.cros_healthd.mojom.UsbSpecSpeed = {
   k10Gbps: 6,
   k20Gbps: 7,
 };
+ash.cros_healthd.mojom.UsbSpecSpeedSpec = { $: mojo.internal.Enum() };
 
 // Enum: TpmGSCVersion
 ash.cros_healthd.mojom.TpmGSCVersion = {
   kCr50: 0,
   kTi50: 1,
 };
+ash.cros_healthd.mojom.TpmGSCVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayInputType
 ash.cros_healthd.mojom.DisplayInputType = {
   kDigital: 0,
   kAnalog: 1,
 };
+ash.cros_healthd.mojom.DisplayInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ThunderboltSecurityLevel
 ash.cros_healthd.mojom.ThunderboltSecurityLevel = {
@@ -208,6 +229,7 @@ ash.cros_healthd.mojom.ThunderboltSecurityLevel = {
   kUsbOnlyLevel: 3,
   kNoPcieLevel: 4,
 };
+ash.cros_healthd.mojom.ThunderboltSecurityLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionType
 ash.cros_healthd.mojom.ConnectionType = {
@@ -216,6 +238,7 @@ ash.cros_healthd.mojom.ConnectionType = {
   kBluetooth: 2,
   kUnknown: 3,
 };
+ash.cros_healthd.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
 ash.cros_healthd.mojom.Type = {
@@ -225,6 +248,7 @@ ash.cros_healthd.mojom.Type = {
   kAngle: 3,
   kGravity: 4,
 };
+ash.cros_healthd.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Location
 ash.cros_healthd.mojom.Location = {
@@ -233,11 +257,496 @@ ash.cros_healthd.mojom.Location = {
   kLid: 2,
   kCamera: 3,
 };
+ash.cros_healthd.mojom.LocationSpec = { $: mojo.internal.Enum() };
 
 // Enum: ThermalSensorSource
 ash.cros_healthd.mojom.ThermalSensorSource = {
   kEc: 0,
   kSysFs: 1,
+};
+ash.cros_healthd.mojom.ThermalSensorSourceSpec = { $: mojo.internal.Enum() };
+
+// Union: ProcessResult
+ash.cros_healthd.mojom.ProcessResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.ProcessResult', {
+      'process_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.ProcessInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: BatteryResult
+ash.cros_healthd.mojom.BatteryResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BatteryResult', {
+      'battery_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.BatteryInfoSpec,
+        'nullable': true,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: NonRemovableBlockDeviceResult
+ash.cros_healthd.mojom.NonRemovableBlockDeviceResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.NonRemovableBlockDeviceResult', {
+      'block_device_info': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(ash.cros_healthd.mojom.NonRemovableBlockDeviceInfoSpec, false),
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: BlockDeviceVendor
+ash.cros_healthd.mojom.BlockDeviceVendorSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BlockDeviceVendor', {
+      'nvme_subsystem_vendor': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint32,
+      }},
+      'emmc_oemid': {
+        'ordinal': 1,
+        'type': mojo.internal.Uint16,
+      }},
+      'other': {
+        'ordinal': 2,
+        'type': mojo.internal.Uint16,
+      }},
+      'unknown': {
+        'ordinal': 3,
+        'type': mojo.internal.Uint64,
+      }},
+      'jedec_manfid': {
+        'ordinal': 4,
+        'type': mojo.internal.Uint16,
+      }},
+    })
+};
+
+// Union: BlockDeviceProduct
+ash.cros_healthd.mojom.BlockDeviceProductSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BlockDeviceProduct', {
+      'nvme_subsystem_device': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint32,
+      }},
+      'emmc_pnm': {
+        'ordinal': 1,
+        'type': mojo.internal.Uint64,
+      }},
+      'other': {
+        'ordinal': 2,
+        'type': mojo.internal.Uint16,
+      }},
+      'unknown': {
+        'ordinal': 3,
+        'type': mojo.internal.Uint64,
+      }},
+    })
+};
+
+// Union: BlockDeviceRevision
+ash.cros_healthd.mojom.BlockDeviceRevisionSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BlockDeviceRevision', {
+      'nvme_pcie_rev': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint8,
+      }},
+      'emmc_prv': {
+        'ordinal': 1,
+        'type': mojo.internal.Uint8,
+      }},
+      'other': {
+        'ordinal': 2,
+        'type': mojo.internal.Uint16,
+      }},
+      'unknown': {
+        'ordinal': 3,
+        'type': mojo.internal.Uint64,
+      }},
+    })
+};
+
+// Union: BlockDeviceFirmware
+ash.cros_healthd.mojom.BlockDeviceFirmwareSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BlockDeviceFirmware', {
+      'nvme_firmware_rev': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint64,
+      }},
+      'emmc_fwrev': {
+        'ordinal': 1,
+        'type': mojo.internal.Uint64,
+      }},
+      'other': {
+        'ordinal': 2,
+        'type': mojo.internal.Uint16,
+      }},
+      'unknown': {
+        'ordinal': 3,
+        'type': mojo.internal.Uint64,
+      }},
+      'ufs_fwrev': {
+        'ordinal': 4,
+        'type': mojo.internal.Uint64,
+      }},
+    })
+};
+
+// Union: BlockDeviceInfo
+ash.cros_healthd.mojom.BlockDeviceInfoSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BlockDeviceInfo', {
+      'unrecognized': {
+        'ordinal': 0,
+        'type': mojo.internal.Bool,
+      }},
+      'nvme_device_info': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.NvmeDeviceInfoSpec,
+      }},
+      'emmc_device_info': {
+        'ordinal': 2,
+        'type': ash.cros_healthd.mojom.EmmcDeviceInfoSpec,
+      }},
+      'ufs_device_info': {
+        'ordinal': 3,
+        'type': ash.cros_healthd.mojom.UfsDeviceInfoSpec,
+      }},
+    })
+};
+
+// Union: CpuResult
+ash.cros_healthd.mojom.CpuResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.CpuResult', {
+      'cpu_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.CpuInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: TimezoneResult
+ash.cros_healthd.mojom.TimezoneResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.TimezoneResult', {
+      'timezone_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.TimezoneInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: MemoryResult
+ash.cros_healthd.mojom.MemoryResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.MemoryResult', {
+      'memory_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.MemoryInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: BacklightResult
+ash.cros_healthd.mojom.BacklightResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BacklightResult', {
+      'backlight_info': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(ash.cros_healthd.mojom.BacklightInfoSpec, false),
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: FanResult
+ash.cros_healthd.mojom.FanResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.FanResult', {
+      'fan_info': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(ash.cros_healthd.mojom.FanInfoSpec, false),
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: StatefulPartitionResult
+ash.cros_healthd.mojom.StatefulPartitionResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.StatefulPartitionResult', {
+      'partition_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.StatefulPartitionInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: BluetoothResult
+ash.cros_healthd.mojom.BluetoothResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BluetoothResult', {
+      'bluetooth_adapter_info': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(ash.cros_healthd.mojom.BluetoothAdapterInfoSpec, false),
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: DEPRECATED_SystemResult
+ash.cros_healthd.mojom.DEPRECATED_SystemResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.DEPRECATED_SystemResult', {
+      'error': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: SystemResult
+ash.cros_healthd.mojom.SystemResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.SystemResult', {
+      'system_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.SystemInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: NetworkResult
+ash.cros_healthd.mojom.NetworkResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.NetworkResult', {
+      'network_health': {
+        'ordinal': 0,
+        'type': chromeos.network_health.mojom.NetworkHealthStateSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: NetworkInterfaceResult
+ash.cros_healthd.mojom.NetworkInterfaceResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.NetworkInterfaceResult', {
+      'network_interface_info': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(ash.cros_healthd.mojom.NetworkInterfaceInfoSpec, false),
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: NetworkInterfaceInfo
+ash.cros_healthd.mojom.NetworkInterfaceInfoSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.NetworkInterfaceInfo', {
+      'wireless_interface_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.WirelessInterfaceInfoSpec,
+      }},
+    })
+};
+
+// Union: AudioResult
+ash.cros_healthd.mojom.AudioResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.AudioResult', {
+      'audio_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.AudioInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: AudioHardwareResult
+ash.cros_healthd.mojom.AudioHardwareResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.AudioHardwareResult', {
+      'audio_hardware_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.AudioHardwareInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: BootPerformanceResult
+ash.cros_healthd.mojom.BootPerformanceResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BootPerformanceResult', {
+      'boot_performance_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.BootPerformanceInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: BusResult
+ash.cros_healthd.mojom.BusResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BusResult', {
+      'bus_devices': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(ash.cros_healthd.mojom.BusDeviceSpec, false),
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: BusInfo
+ash.cros_healthd.mojom.BusInfoSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.BusInfo', {
+      'pci_bus_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.PciBusInfoSpec,
+      }},
+      'usb_bus_info': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.UsbBusInfoSpec,
+      }},
+      'thunderbolt_bus_info': {
+        'ordinal': 2,
+        'type': ash.cros_healthd.mojom.ThunderboltBusInfoSpec,
+      }},
+      'unmapped_field': {
+        'ordinal': 3,
+        'type': mojo.internal.Bool,
+      }},
+    })
+};
+
+// Union: TpmResult
+ash.cros_healthd.mojom.TpmResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.TpmResult', {
+      'tpm_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.TpmInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: GraphicsResult
+ash.cros_healthd.mojom.GraphicsResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.GraphicsResult', {
+      'graphics_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.GraphicsInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: DisplayResult
+ash.cros_healthd.mojom.DisplayResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.DisplayResult', {
+      'display_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.DisplayInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: InputResult
+ash.cros_healthd.mojom.InputResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.InputResult', {
+      'input_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.InputInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: SensorResult
+ash.cros_healthd.mojom.SensorResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.SensorResult', {
+      'sensor_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.SensorInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
+};
+
+// Union: ThermalResult
+ash.cros_healthd.mojom.ThermalResultSpec = { $: mojo.internal.Union(
+    'ash.cros_healthd.mojom.ThermalResult', {
+      'thermal_info': {
+        'ordinal': 0,
+        'type': ash.cros_healthd.mojom.ThermalInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.cros_healthd.mojom.ProbeErrorSpec,
+      }},
+    })
 };
 
 // Struct: ProbeError
@@ -245,10 +754,12 @@ ash.cros_healthd.mojom.ProbeErrorSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ProbeError',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.ErrorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -258,10 +769,12 @@ ash.cros_healthd.mojom.MultipleProcessResultSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.MultipleProcessResult',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'process_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, ash.cros_healthd.mojom.ProcessInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'errors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, ash.cros_healthd.mojom.ProbeErrorSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -271,10 +784,31 @@ ash.cros_healthd.mojom.ProcessInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ProcessInfo',
-      packedSize: 8,
+      packedSize: 128,
       fields: [
+        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'user_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
+        { name: 'nice', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
+        { name: 'uptime_ticks', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.ProcessStateSpec, nullable: false, minVersion: 0 },
+        { name: 'total_memory_kib', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'resident_memory_kib', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'free_memory_kib', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bytes_read', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'bytes_written', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'read_system_calls', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'write_system_calls', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'physical_bytes_read', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'physical_bytes_written', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'cancelled_bytes_written', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'parent_process_id', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
+        { name: 'process_group_id', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
+        { name: 'threads', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
+        { name: 'process_id', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 104}, {version: 1, packedSize: 128}, {version: 2, packedSize: 128}]
     }
   }
 };
@@ -284,10 +818,24 @@ ash.cros_healthd.mojom.BatteryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BatteryInfo',
-      packedSize: 8,
+      packedSize: 120,
       fields: [
+        { name: 'cycle_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'voltage_now', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'vendor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'serial_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'charge_full_design', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'charge_full', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'voltage_min_design', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'model_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'charge_now', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'current_now', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'technology', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'manufacture_date', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'temperature', packedOffset: 104, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint64Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 120}]
     }
   }
 };
@@ -297,10 +845,14 @@ ash.cros_healthd.mojom.NvmeDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NvmeDeviceInfo',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'subsystem_vendor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'subsystem_device', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pcie_rev', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'firmware_rev', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -310,10 +862,14 @@ ash.cros_healthd.mojom.EmmcDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.EmmcDeviceInfo',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'manfid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'pnm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'prv', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'fwrev', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -323,10 +879,12 @@ ash.cros_healthd.mojom.UfsDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UfsDeviceInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'jedec_manfid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'fwrev', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -336,10 +894,31 @@ ash.cros_healthd.mojom.NonRemovableBlockDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.NonRemovableBlockDeviceInfo',
-      packedSize: 8,
+      packedSize: 192,
       fields: [
+        { name: 'bytes_read_since_last_boot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'bytes_written_since_last_boot', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'read_time_seconds_since_last_boot', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'write_time_seconds_since_last_boot', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'io_time_seconds_since_last_boot', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'discard_time_seconds_since_last_boot', packedOffset: 40, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint64Spec, nullable: true, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 48, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceVendorSpec, nullable: false, minVersion: 0 },
+        { name: 'product_id', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceProductSpec, nullable: false, minVersion: 0 },
+        { name: 'revision', packedOffset: 80, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceRevisionSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'firmware_version', packedOffset: 112, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceFirmwareSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'purpose', packedOffset: 136, packedBitOffset: 0, type: ash.cros_healthd.mojom.StorageDevicePurposeSpec, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'manufacturer_id', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'serial', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'device_info', packedOffset: 160, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceInfoSpec, nullable: true, minVersion: 1 },
+        { name: 'firmware_string', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'is_rotational_$flag', packedOffset: 141, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 3, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_rotational_$value', originalFieldName: 'is_rotational' } },
+        { name: 'is_rotational_$value', packedOffset: 141, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 3, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_rotational_$flag', originalFieldName: 'is_rotational' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 168}, {version: 1, packedSize: 184}, {version: 2, packedSize: 192}, {version: 3, packedSize: 192}]
     }
   }
 };
@@ -349,10 +928,17 @@ ash.cros_healthd.mojom.CpuInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CpuInfo',
-      packedSize: 8,
+      packedSize: 56,
       fields: [
+        { name: 'num_total_threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'architecture', packedOffset: 4, packedBitOffset: 0, type: ash.cros_healthd.mojom.CpuArchitectureEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'physical_cpus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.PhysicalCpuInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'temperature_channels', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.CpuTemperatureChannelSpec, false), nullable: false, minVersion: 0 },
+        { name: 'keylocker_info', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.KeylockerInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'virtualization', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.VirtualizationInfoSpec, nullable: true, minVersion: 1 },
+        { name: 'vulnerabilities', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, ash.cros_healthd.mojom.VulnerabilityInfoSpec, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 56}]
     }
   }
 };
@@ -364,9 +950,9 @@ ash.cros_healthd.mojom.VirtualizationInfoSpec = {
       name: 'ash.cros_healthd.mojom.VirtualizationInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -378,9 +964,9 @@ ash.cros_healthd.mojom.VulnerabilityInfoSpec = {
       name: 'ash.cros_healthd.mojom.VulnerabilityInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -390,10 +976,11 @@ ash.cros_healthd.mojom.KeylockerInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.KeylockerInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'keylocker_configured', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -403,10 +990,14 @@ ash.cros_healthd.mojom.PhysicalCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PhysicalCpuInfo',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'model_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'logical_cpus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.LogicalCpuInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 1 },
+        { name: 'virtualization', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.CpuVirtualizationInfoSpec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 40}]
     }
   }
 };
@@ -418,9 +1009,9 @@ ash.cros_healthd.mojom.CpuVirtualizationInfoSpec = {
       name: 'ash.cros_healthd.mojom.CpuVirtualizationInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -430,10 +1021,18 @@ ash.cros_healthd.mojom.LogicalCpuInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.LogicalCpuInfo',
-      packedSize: 8,
+      packedSize: 56,
       fields: [
+        { name: 'max_clock_speed_khz', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'scaling_max_frequency_khz', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'scaling_current_frequency_khz', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'user_time_user_hz', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'system_time_user_hz', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'idle_time_user_hz', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'c_states', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.CpuCStateInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'core_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 56}]
     }
   }
 };
@@ -443,10 +1042,12 @@ ash.cros_healthd.mojom.CpuCStateInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CpuCStateInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'time_in_state_since_last_boot_us', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -456,10 +1057,12 @@ ash.cros_healthd.mojom.CpuTemperatureChannelSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CpuTemperatureChannel',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'temperature_celsius', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -469,10 +1072,12 @@ ash.cros_healthd.mojom.TimezoneInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TimezoneInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'posix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -482,10 +1087,37 @@ ash.cros_healthd.mojom.MemoryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.MemoryInfo',
-      packedSize: 8,
+      packedSize: 128,
       fields: [
+        { name: 'total_memory_kib', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'free_memory_kib', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'available_memory_kib', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'page_faults_since_last_boot', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'memory_encryption_info', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.MemoryEncryptionInfoSpec, nullable: true, minVersion: 1 },
+        { name: 'buffers_kib_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'buffers_kib_$value', originalFieldName: 'buffers_kib' } },
+        { name: 'buffers_kib_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'buffers_kib_$flag', originalFieldName: 'buffers_kib' } },
+        { name: 'page_cache_kib_$flag', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'page_cache_kib_$value', originalFieldName: 'page_cache_kib' } },
+        { name: 'page_cache_kib_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'page_cache_kib_$flag', originalFieldName: 'page_cache_kib' } },
+        { name: 'shared_memory_kib_$flag', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'shared_memory_kib_$value', originalFieldName: 'shared_memory_kib' } },
+        { name: 'shared_memory_kib_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'shared_memory_kib_$flag', originalFieldName: 'shared_memory_kib' } },
+        { name: 'active_memory_kib_$flag', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'active_memory_kib_$value', originalFieldName: 'active_memory_kib' } },
+        { name: 'active_memory_kib_$value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'active_memory_kib_$flag', originalFieldName: 'active_memory_kib' } },
+        { name: 'inactive_memory_kib_$flag', packedOffset: 12, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'inactive_memory_kib_$value', originalFieldName: 'inactive_memory_kib' } },
+        { name: 'inactive_memory_kib_$value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'inactive_memory_kib_$flag', originalFieldName: 'inactive_memory_kib' } },
+        { name: 'total_swap_memory_kib_$flag', packedOffset: 12, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'total_swap_memory_kib_$value', originalFieldName: 'total_swap_memory_kib' } },
+        { name: 'total_swap_memory_kib_$value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'total_swap_memory_kib_$flag', originalFieldName: 'total_swap_memory_kib' } },
+        { name: 'free_swap_memory_kib_$flag', packedOffset: 12, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'free_swap_memory_kib_$value', originalFieldName: 'free_swap_memory_kib' } },
+        { name: 'free_swap_memory_kib_$value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'free_swap_memory_kib_$flag', originalFieldName: 'free_swap_memory_kib' } },
+        { name: 'cached_swap_memory_kib_$flag', packedOffset: 12, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'cached_swap_memory_kib_$value', originalFieldName: 'cached_swap_memory_kib' } },
+        { name: 'cached_swap_memory_kib_$value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'cached_swap_memory_kib_$flag', originalFieldName: 'cached_swap_memory_kib' } },
+        { name: 'total_slab_memory_kib_$flag', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'total_slab_memory_kib_$value', originalFieldName: 'total_slab_memory_kib' } },
+        { name: 'total_slab_memory_kib_$value', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'total_slab_memory_kib_$flag', originalFieldName: 'total_slab_memory_kib' } },
+        { name: 'reclaimable_slab_memory_kib_$flag', packedOffset: 13, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'reclaimable_slab_memory_kib_$value', originalFieldName: 'reclaimable_slab_memory_kib' } },
+        { name: 'reclaimable_slab_memory_kib_$value', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'reclaimable_slab_memory_kib_$flag', originalFieldName: 'reclaimable_slab_memory_kib' } },
+        { name: 'unreclaimable_slab_memory_kib_$flag', packedOffset: 13, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'unreclaimable_slab_memory_kib_$value', originalFieldName: 'unreclaimable_slab_memory_kib' } },
+        { name: 'unreclaimable_slab_memory_kib_$value', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'unreclaimable_slab_memory_kib_$flag', originalFieldName: 'unreclaimable_slab_memory_kib' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}, {version: 2, packedSize: 128}]
     }
   }
 };
@@ -495,10 +1127,14 @@ ash.cros_healthd.mojom.MemoryEncryptionInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.MemoryEncryptionInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'encryption_state', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.EncryptionStateSpec, nullable: false, minVersion: 0 },
+        { name: 'max_key_number', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'key_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'active_algorithm', packedOffset: 12, packedBitOffset: 0, type: ash.cros_healthd.mojom.CryptoAlgorithmSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -508,10 +1144,13 @@ ash.cros_healthd.mojom.BacklightInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BacklightInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'max_brightness', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'brightness', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -521,10 +1160,11 @@ ash.cros_healthd.mojom.FanInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.FanInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'speed_rpm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -534,10 +1174,14 @@ ash.cros_healthd.mojom.StatefulPartitionInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.StatefulPartitionInfo',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'available_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'total_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'filesystem', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mount_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -547,10 +1191,21 @@ ash.cros_healthd.mojom.BluetoothAdapterInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothAdapterInfo',
-      packedSize: 8,
+      packedSize: 72,
       fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'powered', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'num_connected_devices', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'connected_devices', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.BluetoothDeviceInfoSpec, false), nullable: true, minVersion: 1 },
+        { name: 'discoverable', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'discovering', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'uuids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 1 },
+        { name: 'modalias', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'service_allow_list', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 2 },
+        { name: 'deprecated_capabilities', packedOffset: 56, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilitiesSpec, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 56}, {version: 2, packedSize: 72}]
     }
   }
 };
@@ -560,10 +1215,20 @@ ash.cros_healthd.mojom.BluetoothDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BluetoothDeviceInfo',
-      packedSize: 8,
+      packedSize: 88,
       fields: [
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.BluetoothDeviceTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'appearance', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 0 },
+        { name: 'modalias', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'rssi', packedOffset: 40, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableInt16Spec, nullable: true, minVersion: 0 },
+        { name: 'deprecated_mtu', packedOffset: 48, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 0 },
+        { name: 'uuids', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'battery_percentage', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint8Spec, nullable: true, minVersion: 1 },
+        { name: 'bluetooth_class', packedOffset: 72, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}, {version: 1, packedSize: 80}, {version: 2, packedSize: 88}]
     }
   }
 };
@@ -576,7 +1241,7 @@ ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilitiesSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -586,10 +1251,14 @@ ash.cros_healthd.mojom.SystemInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SystemInfo',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'os_info', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.OsInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'vpd_info', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.VpdInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'dmi_info', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.DmiInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'psr_info', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.PsrInfoSpec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}]
     }
   }
 };
@@ -599,11 +1268,16 @@ ash.cros_healthd.mojom.OsInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.OsInfo',
-      packedSize: 16,
+      packedSize: 56,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'code_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'marketing_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'os_version', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.OsVersionSpec, nullable: false, minVersion: 0 },
+        { name: 'boot_mode', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.BootModeSpec, nullable: false, minVersion: 0 },
+        { name: 'oem_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'kUnmappedEnumField', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 56}]
     }
   }
 };
@@ -613,10 +1287,15 @@ ash.cros_healthd.mojom.OsVersionSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.OsVersion',
-      packedSize: 8,
+      packedSize: 48,
       fields: [
+        { name: 'release_milestone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'build_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'patch_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'release_channel', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'branch_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 48}]
     }
   }
 };
@@ -626,10 +1305,17 @@ ash.cros_healthd.mojom.VpdInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.VpdInfo',
-      packedSize: 8,
+      packedSize: 64,
       fields: [
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'mfg_date', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'activate_date', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'sku_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'model_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'oem_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 64}]
     }
   }
 };
@@ -639,10 +1325,21 @@ ash.cros_healthd.mojom.DmiInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.DmiInfo',
-      packedSize: 8,
+      packedSize: 96,
       fields: [
+        { name: 'bios_vendor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'bios_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'board_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'board_vendor', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'board_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'chassis_vendor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'chassis_type', packedOffset: 48, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint64Spec, nullable: true, minVersion: 0 },
+        { name: 'product_family', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'product_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'product_version', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'sys_vendor', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 96}]
     }
   }
 };
@@ -654,9 +1351,9 @@ ash.cros_healthd.mojom.PsrEventSpec = {
       name: 'ash.cros_healthd.mojom.PsrEvent',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -668,9 +1365,9 @@ ash.cros_healthd.mojom.PsrInfoSpec = {
       name: 'ash.cros_healthd.mojom.PsrInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -680,10 +1377,13 @@ ash.cros_healthd.mojom.WirelessInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.WirelessInterfaceInfo',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'power_management_on', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'wireless_link_info', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.WirelessLinkInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -693,10 +1393,17 @@ ash.cros_healthd.mojom.WirelessLinkInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.WirelessLinkInfo',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'access_point_address_str', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tx_bit_rate_mbps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'rx_bit_rate_mbps', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'tx_power_dBm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'encyption_on', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'link_quality', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'signal_level_dBm', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -706,10 +1413,20 @@ ash.cros_healthd.mojom.AudioInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioInfo',
-      packedSize: 8,
+      packedSize: 64,
       fields: [
+        { name: 'output_mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'input_mute', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'output_volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'output_device_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'input_gain', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'input_device_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'underruns', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'severe_underruns', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'output_nodes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.AudioNodeInfoSpec, false), nullable: true, minVersion: 1 },
+        { name: 'input_nodes', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.AudioNodeInfoSpec, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 64}]
     }
   }
 };
@@ -719,10 +1436,16 @@ ash.cros_healthd.mojom.AudioNodeInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioNodeInfo',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'active', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'node_volume', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'input_node_gain', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -732,10 +1455,11 @@ ash.cros_healthd.mojom.AudioHardwareInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioHardwareInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'audio_cards', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.AudioCardSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -745,10 +1469,13 @@ ash.cros_healthd.mojom.AudioCardSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.AudioCard',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'alsa_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'bus_device', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.BusDeviceSpec, nullable: true, minVersion: 0 },
+        { name: 'hd_audio_codecs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.HDAudioCodecSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -758,10 +1485,12 @@ ash.cros_healthd.mojom.HDAudioCodecSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.HDAudioCodec',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -771,10 +1500,26 @@ ash.cros_healthd.mojom.BootPerformanceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BootPerformanceInfo',
-      packedSize: 8,
+      packedSize: 104,
       fields: [
+        { name: 'boot_up_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'boot_up_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'shutdown_seconds', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'shutdown_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'shutdown_reason', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tpm_initialization_seconds', packedOffset: 40, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableDoubleSpec, nullable: true, minVersion: 1 },
+        { name: 'power_on_to_kernel_seconds_$flag', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'power_on_to_kernel_seconds_$value', originalFieldName: 'power_on_to_kernel_seconds' } },
+        { name: 'power_on_to_kernel_seconds_$value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'power_on_to_kernel_seconds_$flag', originalFieldName: 'power_on_to_kernel_seconds' } },
+        { name: 'kernel_to_pre_startup_seconds_$flag', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'kernel_to_pre_startup_seconds_$value', originalFieldName: 'kernel_to_pre_startup_seconds' } },
+        { name: 'kernel_to_pre_startup_seconds_$value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'kernel_to_pre_startup_seconds_$flag', originalFieldName: 'kernel_to_pre_startup_seconds' } },
+        { name: 'kernel_to_post_startup_seconds_$flag', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'kernel_to_post_startup_seconds_$value', originalFieldName: 'kernel_to_post_startup_seconds' } },
+        { name: 'kernel_to_post_startup_seconds_$value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'kernel_to_post_startup_seconds_$flag', originalFieldName: 'kernel_to_post_startup_seconds' } },
+        { name: 'startup_to_chrome_exec_seconds_$flag', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'startup_to_chrome_exec_seconds_$value', originalFieldName: 'startup_to_chrome_exec_seconds' } },
+        { name: 'startup_to_chrome_exec_seconds_$value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'startup_to_chrome_exec_seconds_$flag', originalFieldName: 'startup_to_chrome_exec_seconds' } },
+        { name: 'chrome_exec_to_login_seconds_$flag', packedOffset: 48, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'chrome_exec_to_login_seconds_$value', originalFieldName: 'chrome_exec_to_login_seconds' } },
+        { name: 'chrome_exec_to_login_seconds_$value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'chrome_exec_to_login_seconds_$flag', originalFieldName: 'chrome_exec_to_login_seconds' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 56}, {version: 2, packedSize: 104}]
     }
   }
 };
@@ -784,10 +1529,14 @@ ash.cros_healthd.mojom.BusDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.BusDevice',
-      packedSize: 8,
+      packedSize: 48,
       fields: [
+        { name: 'vendor_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'product_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_class', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.BusDeviceClassSpec, nullable: false, minVersion: 0 },
+        { name: 'bus_info', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.BusInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -797,10 +1546,18 @@ ash.cros_healthd.mojom.PciBusInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.PciBusInfo',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'class_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'subclass_id', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'prog_if_id', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'driver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'sub_vendor_id', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 1 },
+        { name: 'sub_device_id', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 40}]
     }
   }
 };
@@ -810,10 +1567,19 @@ ash.cros_healthd.mojom.UsbBusInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UsbBusInfo',
-      packedSize: 8,
+      packedSize: 48,
       fields: [
+        { name: 'class_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'subclass_id', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'protocol_id', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'product_id', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.UsbBusInterfaceInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'fwupd_firmware_version_info', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.FwupdFirmwareVersionInfoSpec, nullable: true, minVersion: 1 },
+        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.UsbVersionSpec, nullable: false, minVersion: 2 },
+        { name: 'spec_speed', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.UsbSpecSpeedSpec, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 32}, {version: 2, packedSize: 48}]
     }
   }
 };
@@ -823,10 +1589,12 @@ ash.cros_healthd.mojom.FwupdFirmwareVersionInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.FwupdFirmwareVersionInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'version_format', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.FwupdVersionFormatSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -836,10 +1604,15 @@ ash.cros_healthd.mojom.UsbBusInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.UsbBusInterfaceInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'interface_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'class_id', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'subclass_id', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'protocol_id', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'driver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -849,10 +1622,16 @@ ash.cros_healthd.mojom.TpmInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmInfo',
-      packedSize: 8,
+      packedSize: 56,
       fields: [
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.TpmVersionSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.TpmStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'dictionary_attack', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.TpmDictionaryAttackSpec, nullable: false, minVersion: 0 },
+        { name: 'attestation', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.TpmAttestationSpec, nullable: false, minVersion: 0 },
+        { name: 'supported_features', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.TpmSupportedFeaturesSpec, nullable: false, minVersion: 0 },
+        { name: 'did_vid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -862,10 +1641,17 @@ ash.cros_healthd.mojom.TpmVersionSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmVersion',
-      packedSize: 8,
+      packedSize: 48,
       fields: [
+        { name: 'gsc_version', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.TpmGSCVersionSpec, nullable: false, minVersion: 0 },
+        { name: 'family', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'spec_level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'manufacturer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'tpm_model', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'firmware_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'vendor_specific', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -875,10 +1661,13 @@ ash.cros_healthd.mojom.TpmStatusSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmStatus',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'owned', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'owner_password_is_present', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -888,10 +1677,14 @@ ash.cros_healthd.mojom.TpmDictionaryAttackSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmDictionaryAttack',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'counter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'threshold', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'lockout_in_effect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'lockout_seconds_remaining', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -901,10 +1694,12 @@ ash.cros_healthd.mojom.TpmAttestationSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmAttestation',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'prepared_for_enrollment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enrolled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -914,10 +1709,14 @@ ash.cros_healthd.mojom.TpmSupportedFeaturesSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TpmSupportedFeatures',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'support_u2f', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'support_pinweaver', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'support_runtime_selection', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -927,10 +1726,12 @@ ash.cros_healthd.mojom.GraphicsInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.GraphicsInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'gles_info', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.GLESInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'egl_info', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.EGLInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -940,10 +1741,15 @@ ash.cros_healthd.mojom.GLESInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.GLESInfo',
-      packedSize: 8,
+      packedSize: 48,
       fields: [
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'shading_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'vendor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'renderer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'extensions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -953,10 +1759,14 @@ ash.cros_healthd.mojom.EGLInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.EGLInfo',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'vendor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'client_api', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'extensions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -966,10 +1776,12 @@ ash.cros_healthd.mojom.DisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.DisplayInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'embedded_display', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.EmbeddedDisplayInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'external_displays', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.ExternalDisplayInfoSpec, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
     }
   }
 };
@@ -979,10 +1791,25 @@ ash.cros_healthd.mojom.EmbeddedDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.EmbeddedDisplayInfo',
-      packedSize: 8,
+      packedSize: 112,
       fields: [
+        { name: 'privacy_screen_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'privacy_screen_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'display_width', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
+        { name: 'display_height', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
+        { name: 'resolution_horizontal', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
+        { name: 'resolution_vertical', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
+        { name: 'refresh_rate', packedOffset: 40, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableDoubleSpec, nullable: true, minVersion: 1 },
+        { name: 'manufacturer', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'model_id', packedOffset: 56, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 2 },
+        { name: 'serial_number', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 2 },
+        { name: 'manufacture_week', packedOffset: 72, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint8Spec, nullable: true, minVersion: 2 },
+        { name: 'manufacture_year', packedOffset: 80, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 2 },
+        { name: 'edid_version', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'input_type', packedOffset: 4, packedBitOffset: 0, type: ash.cros_healthd.mojom.DisplayInputTypeSpec, nullable: false, minVersion: 2 },
+        { name: 'display_name', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 56}, {version: 2, packedSize: 112}]
     }
   }
 };
@@ -992,10 +1819,23 @@ ash.cros_healthd.mojom.ExternalDisplayInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ExternalDisplayInfo',
-      packedSize: 8,
+      packedSize: 112,
       fields: [
+        { name: 'display_width', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+        { name: 'display_height', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+        { name: 'resolution_horizontal', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+        { name: 'resolution_vertical', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 0 },
+        { name: 'refresh_rate', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableDoubleSpec, nullable: true, minVersion: 0 },
+        { name: 'manufacturer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'model_id', packedOffset: 48, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 1 },
+        { name: 'serial_number', packedOffset: 56, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
+        { name: 'manufacture_week', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint8Spec, nullable: true, minVersion: 1 },
+        { name: 'manufacture_year', packedOffset: 72, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 1 },
+        { name: 'edid_version', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'input_type', packedOffset: 88, packedBitOffset: 0, type: ash.cros_healthd.mojom.DisplayInputTypeSpec, nullable: false, minVersion: 1 },
+        { name: 'display_name', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 112}]
     }
   }
 };
@@ -1005,10 +1845,18 @@ ash.cros_healthd.mojom.ThunderboltBusInterfaceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThunderboltBusInterfaceInfo',
-      packedSize: 8,
+      packedSize: 64,
       fields: [
+        { name: 'vendor_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_uuid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tx_speed_gbs', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'rx_speed_gbs', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'authorized', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'device_fw_version', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -1018,10 +1866,12 @@ ash.cros_healthd.mojom.ThunderboltBusInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThunderboltBusInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'security_level', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.ThunderboltSecurityLevelSpec, nullable: false, minVersion: 0 },
+        { name: 'thunderbolt_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.ThunderboltBusInterfaceInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1031,10 +1881,13 @@ ash.cros_healthd.mojom.InputInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.InputInfo',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'touchpad_library_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'touchscreen_devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.TouchscreenDeviceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'touchpad_devices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.TouchpadDeviceSpec, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 32}]
     }
   }
 };
@@ -1044,10 +1897,14 @@ ash.cros_healthd.mojom.TouchscreenDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchscreenDevice',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'input_device', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.InputDeviceSpec, nullable: false, minVersion: 0 },
+        { name: 'touch_points', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'has_stylus', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_stylus_garage_switch', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1057,10 +1914,14 @@ ash.cros_healthd.mojom.TouchpadDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TouchpadDevice',
-      packedSize: 8,
+      packedSize: 40,
       fields: [
+        { name: 'input_device', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.InputDeviceSpec, nullable: false, minVersion: 0 },
+        { name: 'driver_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'product_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 40}]
     }
   }
 };
@@ -1070,11 +1931,12 @@ ash.cros_healthd.mojom.InputDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.InputDevice',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1084,10 +1946,12 @@ ash.cros_healthd.mojom.SensorInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.SensorInfo',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'lid_angle', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 0 },
+        { name: 'sensors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.SensorSpec, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
     }
   }
 };
@@ -1097,11 +1961,13 @@ ash.cros_healthd.mojom.SensorSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.Sensor',
-      packedSize: 16,
+      packedSize: 32,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'kUnmappedEnumField', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1111,10 +1977,11 @@ ash.cros_healthd.mojom.ThermalInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.ThermalInfo',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'thermal_sensors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.ThermalSensorInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1126,9 +1993,9 @@ ash.cros_healthd.mojom.ThermalSensorInfoSpec = {
       name: 'ash.cros_healthd.mojom.ThermalSensorInfo',
       packedSize: 16,
       fields: [
-        { name: 'kUnmappedEnumField', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnmappedEnumField', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1138,10 +2005,33 @@ ash.cros_healthd.mojom.TelemetryInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.TelemetryInfo',
-      packedSize: 8,
+      packedSize: 376,
       fields: [
+        { name: 'battery_result', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.BatteryResultSpec, nullable: true, minVersion: 0 },
+        { name: 'block_device_result', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.NonRemovableBlockDeviceResultSpec, nullable: true, minVersion: 0 },
+        { name: 'cpu_result', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.CpuResultSpec, nullable: true, minVersion: 0 },
+        { name: 'timezone_result', packedOffset: 48, packedBitOffset: 0, type: ash.cros_healthd.mojom.TimezoneResultSpec, nullable: true, minVersion: 0 },
+        { name: 'memory_result', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.MemoryResultSpec, nullable: true, minVersion: 0 },
+        { name: 'backlight_result', packedOffset: 80, packedBitOffset: 0, type: ash.cros_healthd.mojom.BacklightResultSpec, nullable: true, minVersion: 0 },
+        { name: 'fan_result', packedOffset: 96, packedBitOffset: 0, type: ash.cros_healthd.mojom.FanResultSpec, nullable: true, minVersion: 0 },
+        { name: 'stateful_partition_result', packedOffset: 112, packedBitOffset: 0, type: ash.cros_healthd.mojom.StatefulPartitionResultSpec, nullable: true, minVersion: 0 },
+        { name: 'bluetooth_result', packedOffset: 128, packedBitOffset: 0, type: ash.cros_healthd.mojom.BluetoothResultSpec, nullable: true, minVersion: 0 },
+        { name: 'deprecated_system_result', packedOffset: 144, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_SystemResultSpec, nullable: true, minVersion: 0 },
+        { name: 'network_result', packedOffset: 160, packedBitOffset: 0, type: ash.cros_healthd.mojom.NetworkResultSpec, nullable: true, minVersion: 0 },
+        { name: 'audio_result', packedOffset: 176, packedBitOffset: 0, type: ash.cros_healthd.mojom.AudioResultSpec, nullable: true, minVersion: 0 },
+        { name: 'boot_performance_result', packedOffset: 192, packedBitOffset: 0, type: ash.cros_healthd.mojom.BootPerformanceResultSpec, nullable: true, minVersion: 0 },
+        { name: 'bus_result', packedOffset: 208, packedBitOffset: 0, type: ash.cros_healthd.mojom.BusResultSpec, nullable: true, minVersion: 0 },
+        { name: 'system_result', packedOffset: 224, packedBitOffset: 0, type: ash.cros_healthd.mojom.SystemResultSpec, nullable: true, minVersion: 0 },
+        { name: 'tpm_result', packedOffset: 240, packedBitOffset: 0, type: ash.cros_healthd.mojom.TpmResultSpec, nullable: true, minVersion: 0 },
+        { name: 'graphics_result', packedOffset: 256, packedBitOffset: 0, type: ash.cros_healthd.mojom.GraphicsResultSpec, nullable: true, minVersion: 0 },
+        { name: 'display_result', packedOffset: 272, packedBitOffset: 0, type: ash.cros_healthd.mojom.DisplayResultSpec, nullable: true, minVersion: 1 },
+        { name: 'network_interface_result', packedOffset: 288, packedBitOffset: 0, type: ash.cros_healthd.mojom.NetworkInterfaceResultSpec, nullable: true, minVersion: 2 },
+        { name: 'input_result', packedOffset: 304, packedBitOffset: 0, type: ash.cros_healthd.mojom.InputResultSpec, nullable: true, minVersion: 3 },
+        { name: 'audio_hardware_result', packedOffset: 320, packedBitOffset: 0, type: ash.cros_healthd.mojom.AudioHardwareResultSpec, nullable: true, minVersion: 4 },
+        { name: 'sensor_result', packedOffset: 336, packedBitOffset: 0, type: ash.cros_healthd.mojom.SensorResultSpec, nullable: true, minVersion: 5 },
+        { name: 'thermal_result', packedOffset: 352, packedBitOffset: 0, type: ash.cros_healthd.mojom.ThermalResultSpec, nullable: true, minVersion: 6 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 280}, {version: 1, packedSize: 296}, {version: 2, packedSize: 312}, {version: 3, packedSize: 328}, {version: 4, packedSize: 344}, {version: 5, packedSize: 360}, {version: 6, packedSize: 376}]
     }
   }
 };

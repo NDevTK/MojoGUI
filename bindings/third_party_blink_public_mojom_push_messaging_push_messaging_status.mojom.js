@@ -23,6 +23,7 @@ blink.mojom.PushEventStatus = {
   NO_APP_LEVEL_PERMISSION_UNSUBSCRIBE: 9,
   PERMISSION_REVOKED_DISRUPTIVE: 10,
 };
+blink.mojom.PushEventStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: PushGetRegistrationStatus
 blink.mojom.PushGetRegistrationStatus = {
@@ -35,6 +36,7 @@ blink.mojom.PushGetRegistrationStatus = {
   RENDERER_SHUTDOWN: 6,
   NO_LIVE_SERVICE_WORKER: 7,
 };
+blink.mojom.PushGetRegistrationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: PushRegistrationStatus
 blink.mojom.PushRegistrationStatus = {
@@ -57,6 +59,7 @@ blink.mojom.PushRegistrationStatus = {
   SUCCESS_NEW_SUBSCRIPTION_FROM_PUSH_SERVICE: 16,
   UNSUPPORTED_GCM_SENDER_ID: 17,
 };
+blink.mojom.PushRegistrationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: PushUnregistrationReason
 blink.mojom.PushUnregistrationReason = {
@@ -77,6 +80,7 @@ blink.mojom.PushUnregistrationReason = {
   NO_APP_LEVEL_PERMISSION: 14,
   PERMISSION_REVOKED_DISRUPTIVE: 15,
 };
+blink.mojom.PushUnregistrationReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: PushUnregistrationStatus
 blink.mojom.PushUnregistrationStatus = {
@@ -89,3 +93,4 @@ blink.mojom.PushUnregistrationStatus = {
   STORAGE_ERROR: 6,
   NETWORK_ERROR: 7,
 };
+blink.mojom.PushUnregistrationStatusSpec = { $: mojo.internal.Enum() };

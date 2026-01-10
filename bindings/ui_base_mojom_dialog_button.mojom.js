@@ -15,3 +15,4 @@ ui.mojom.DialogButton = {
   kOk: 1,
   kCancel: 2,
 };
+ui.mojom.DialogButtonSpec = { $: mojo.internal.Enum() };

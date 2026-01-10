@@ -17,3 +17,4 @@ chromeos.machine_learning.mojom.Rotation = {
   ROTATION_180: 2,
   ROTATION_270: 3,
 };
+chromeos.machine_learning.mojom.RotationSpec = { $: mojo.internal.Enum() };

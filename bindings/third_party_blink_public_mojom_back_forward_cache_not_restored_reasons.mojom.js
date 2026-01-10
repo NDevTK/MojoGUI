@@ -16,10 +16,10 @@ blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec = {
       name: 'blink.mojom.SameOriginBfcacheNotRestoredDetails',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'children', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'children', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.BackForwardCacheNotRestoredReasonsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,10 +31,10 @@ blink.mojom.BFCacheBlockingDetailedReasonSpec = {
       name: 'blink.mojom.BFCacheBlockingDetailedReason',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptSourceLocationSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -46,13 +46,13 @@ blink.mojom.BackForwardCacheNotRestoredReasonsSpec = {
       name: 'blink.mojom.BackForwardCacheNotRestoredReasons',
       packedSize: 48,
       fields: [
-        { name: 'src', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'reasons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'same_origin_details', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec, nullable: true },
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'reasons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.BFCacheBlockingDetailedReasonSpec, false), nullable: false, minVersion: 0 },
+        { name: 'same_origin_details', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

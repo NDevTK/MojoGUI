@@ -15,12 +15,14 @@ blink.mojom.StopFindAction = {
   kStopFindActionKeepSelection: 1,
   kStopFindActionActivateSelection: 2,
 };
+blink.mojom.StopFindActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: FindMatchUpdateType
 blink.mojom.FindMatchUpdateType = {
   kFinalUpdate: 0,
   kMoreUpdatesComing: 1,
 };
+blink.mojom.FindMatchUpdateTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FindOptions
 blink.mojom.FindOptionsSpec = {
@@ -29,14 +31,14 @@ blink.mojom.FindOptionsSpec = {
       name: 'blink.mojom.FindOptions',
       packedSize: 16,
       fields: [
-        { name: 'forward', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'match_case', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'new_session', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'find_match', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'force', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'run_synchronously_for_testing', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
+        { name: 'forward', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'match_case', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'new_session', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'find_match', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'force', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'run_synchronously_for_testing', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,11 +160,11 @@ blink.mojom.FindInPage_Find_ParamsSpec = {
       name: 'blink.mojom.FindInPage.Find_Params',
       packedSize: 32,
       fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'search_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FindOptionsSpec, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'search_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FindOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -174,9 +176,9 @@ blink.mojom.FindInPage_StopFinding_ParamsSpec = {
       name: 'blink.mojom.FindInPage.StopFinding_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StopFindActionSpec, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StopFindActionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -189,7 +191,7 @@ blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -201,9 +203,9 @@ blink.mojom.FindInPage_SetClient_ParamsSpec = {
       name: 'blink.mojom.FindInPage.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -215,9 +217,9 @@ blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec = {
       name: 'blink.mojom.FindInPage.GetNearestFindResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,12 +227,12 @@ blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec = {
 blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FindInPage.GetNearestFindResult_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'distance', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'distance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -242,10 +244,10 @@ blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec = {
       name: 'blink.mojom.FindInPage.ActivateNearestFindResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -257,9 +259,9 @@ blink.mojom.FindInPage_FindMatchRects_ParamsSpec = {
       name: 'blink.mojom.FindInPage.FindMatchRects_Params',
       packedSize: 16,
       fields: [
-        { name: 'current_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'current_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -267,14 +269,14 @@ blink.mojom.FindInPage_FindMatchRects_ParamsSpec = {
 blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FindInPage.FindMatchRects_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'rects', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'active_match_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'rects', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectFSpec, false), nullable: false, minVersion: 0 },
+        { name: 'active_match_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -356,11 +358,11 @@ blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec = {
       name: 'blink.mojom.FindInPageClient.SetNumberOfMatches_Params',
       packedSize: 24,
       fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'number_of_matches', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'update_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FindMatchUpdateTypeSpec, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'number_of_matches', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FindMatchUpdateTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -370,14 +372,14 @@ blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FindInPageClient.SetActiveMatch_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'active_match_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'active_match_ordinal', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'update_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FindMatchUpdateTypeSpec, nullable: false },
+        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'active_match_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'active_match_ordinal', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'update_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FindMatchUpdateTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

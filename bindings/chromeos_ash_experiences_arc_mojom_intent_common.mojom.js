@@ -17,6 +17,7 @@ arc.mojom.ActionType = {
   CREATE_NOTE: 3,
   EDIT: 4,
 };
+arc.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ActivityName
 arc.mojom.ActivityNameSpec = {
@@ -25,10 +26,10 @@ arc.mojom.ActivityNameSpec = {
       name: 'arc.mojom.ActivityName',
       packedSize: 24,
       fields: [
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'activity_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'activity_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

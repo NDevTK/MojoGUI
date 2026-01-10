@@ -16,6 +16,7 @@ ash.settings.mojom.SearchResultType = {
   kSubpage: 1,
   kSetting: 2,
 };
+ash.settings.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SearchResultDefaultRank
 ash.settings.mojom.SearchResultDefaultRank = {
@@ -23,11 +24,31 @@ ash.settings.mojom.SearchResultDefaultRank = {
   kMedium: 1,
   kLow: 2,
 };
+ash.settings.mojom.SearchResultDefaultRankSpec = { $: mojo.internal.Enum() };
 
 // Enum: ParentResultBehavior
 ash.settings.mojom.ParentResultBehavior = {
   kAllowParentResults: 0,
   kDoNotIncludeParentResults: 1,
+};
+ash.settings.mojom.ParentResultBehaviorSpec = { $: mojo.internal.Enum() };
+
+// Union: SearchResultIdentifier
+ash.settings.mojom.SearchResultIdentifierSpec = { $: mojo.internal.Union(
+    'ash.settings.mojom.SearchResultIdentifier', {
+      'section': {
+        'ordinal': 0,
+        'type': chromeos.settings.mojom.SectionSpec,
+      }},
+      'subpage': {
+        'ordinal': 1,
+        'type': chromeos.settings.mojom.SubpageSpec,
+      }},
+      'setting': {
+        'ordinal': 2,
+        'type': chromeos.settings.mojom.SettingSpec,
+      }},
+    })
 };
 
 // Struct: SearchResult
@@ -35,20 +56,20 @@ ash.settings.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.SearchResult',
-      packedSize: 88,
+      packedSize: 80,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'canonical_text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'url_path_with_parameters', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: ash.settings.mojom.SearchResultIconSpec, nullable: false },
-        { name: 'relevance_score', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'settings_page_hierarchy', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'default_rank', packedOffset: 56, packedBitOffset: 0, type: ash.settings.mojom.SearchResultDefaultRankSpec, nullable: false },
-        { name: 'was_generated_from_text_match', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'type', packedOffset: 72, packedBitOffset: 0, type: ash.settings.mojom.SearchResultTypeSpec, nullable: false },
-        { name: 'id', packedOffset: 80, packedBitOffset: 0, type: ash.settings.mojom.SearchResultIdentifierSpec, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'canonical_text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'url_path_with_parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 24, packedBitOffset: 0, type: ash.settings.mojom.SearchResultIconSpec, nullable: false, minVersion: 0 },
+        { name: 'relevance_score', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'settings_page_hierarchy', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
+        { name: 'default_rank', packedOffset: 28, packedBitOffset: 0, type: ash.settings.mojom.SearchResultDefaultRankSpec, nullable: false, minVersion: 0 },
+        { name: 'was_generated_from_text_match', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 52, packedBitOffset: 0, type: ash.settings.mojom.SearchResultTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 56, packedBitOffset: 0, type: ash.settings.mojom.SearchResultIdentifierSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };
@@ -117,7 +138,7 @@ ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -197,13 +218,13 @@ ash.settings.mojom.SearchHandler_Search_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.mojom.SearchHandler.Search_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'max_num_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'parent_result_behavior', packedOffset: 24, packedBitOffset: 0, type: ash.settings.mojom.ParentResultBehaviorSpec, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'parent_result_behavior', packedOffset: 12, packedBitOffset: 0, type: ash.settings.mojom.ParentResultBehaviorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -211,12 +232,12 @@ ash.settings.mojom.SearchHandler_Search_ParamsSpec = {
 ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.settings.mojom.SearchHandler.Search_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -228,9 +249,9 @@ ash.settings.mojom.SearchHandler_Observe_ParamsSpec = {
       name: 'ash.settings.mojom.SearchHandler.Observe_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,9 +16,9 @@ blink.mojom.DetectionArgsSpec = {
       name: 'blink.mojom.DetectionArgs',
       packedSize: 16,
       fields: [
-        { name: 'private_footprint_threshold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'private_footprint_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -87,7 +87,7 @@ blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -158,15 +158,15 @@ blink.mojom.OomIntervention_StartDetection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OomIntervention.StartDetection_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'detection_args', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DetectionArgsSpec, nullable: false },
-        { name: 'renderer_pause_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'navigate_ads_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'purge_v8_memory_enabled', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'detection_args', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DetectionArgsSpec, nullable: false, minVersion: 0 },
+        { name: 'renderer_pause_enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'navigate_ads_enabled', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'purge_v8_memory_enabled', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

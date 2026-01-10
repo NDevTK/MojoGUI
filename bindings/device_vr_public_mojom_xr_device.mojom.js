@@ -15,3 +15,4 @@ device.mojom.XRDeviceId = {
   FAKE_DEVICE_ID: 1,
   ORIENTATION_DEVICE_ID: 2,
 };
+device.mojom.XRDeviceIdSpec = { $: mojo.internal.Enum() };

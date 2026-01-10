@@ -16,6 +16,7 @@ blink.mojom.AdSignals = {
   kTargeting: 2,
   kUserAdInterests: 3,
 };
+blink.mojom.AdSignalsSpec = { $: mojo.internal.Enum() };
 
 // Struct: AdProperties
 blink.mojom.AdPropertiesSpec = {
@@ -24,14 +25,14 @@ blink.mojom.AdPropertiesSpec = {
       name: 'blink.mojom.AdProperties',
       packedSize: 56,
       fields: [
-        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'slot', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'lang', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'ad_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bid_floor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'slot', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'lang', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'ad_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'bid_floor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -43,10 +44,10 @@ blink.mojom.AdGeolocationSpec = {
       name: 'blink.mojom.AdGeolocation',
       packedSize: 24,
       fields: [
-        { name: 'latitude', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'longitude', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'latitude', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'longitude', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -58,10 +59,10 @@ blink.mojom.AdTargetingSpec = {
       name: 'blink.mojom.AdTargeting',
       packedSize: 24,
       fields: [
-        { name: 'interests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'geolocation', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AdGeolocationSpec, nullable: true },
+        { name: 'interests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'geolocation', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AdGeolocationSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -73,14 +74,14 @@ blink.mojom.AdRequestConfigSpec = {
       name: 'blink.mojom.AdRequestConfig',
       packedSize: 56,
       fields: [
-        { name: 'ad_request_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'ad_properties', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'publisher_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'targeting', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.AdTargetingSpec, nullable: true },
-        { name: 'anonymized_proxied_signals', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'fallback_source', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'ad_request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'ad_properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AdPropertiesSpec, false), nullable: false, minVersion: 0 },
+        { name: 'publisher_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'targeting', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AdTargetingSpec, nullable: true, minVersion: 0 },
+        { name: 'anonymized_proxied_signals', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AdSignalsSpec, false), nullable: true, minVersion: 0 },
+        { name: 'fallback_source', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

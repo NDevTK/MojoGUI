@@ -72,9 +72,9 @@ blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec 
       name: 'blink.mojom.PaidContentMetadataObserver.OnPaidContentMetadataChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'has_paid_content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_paid_content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -147,9 +147,9 @@ blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = {
       name: 'blink.mojom.MetaTagsObserver.OnMetaTagsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'meta_tags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'meta_tags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.MetaTagSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,9 +231,9 @@ blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsS
       name: 'blink.mojom.FrameMetadataObserverRegistry.AddPaidContentMetadataObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -245,10 +245,10 @@ blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = {
       name: 'blink.mojom.FrameMetadataObserverRegistry.AddMetaTagsObserver_Params',
       packedSize: 24,
       fields: [
-        { name: 'names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

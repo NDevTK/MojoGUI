@@ -14,3 +14,4 @@ contextual_tasks.mojom.TabSelectionMode = {
   kEmbeddingsMatch: 0,
   kMultiSignalScoring: 1,
 };
+contextual_tasks.mojom.TabSelectionModeSpec = { $: mojo.internal.Enum() };

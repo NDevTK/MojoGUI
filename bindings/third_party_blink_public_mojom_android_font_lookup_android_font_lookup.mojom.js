@@ -91,7 +91,7 @@ blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -99,12 +99,12 @@ blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec = {
 blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.AndroidFontLookup.GetUniqueNameLookupTable_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'unique_font_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'unique_font_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -116,9 +116,9 @@ blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec = {
       name: 'blink.mojom.AndroidFontLookup.MatchLocalFontByUniqueName_Params',
       packedSize: 16,
       fields: [
-        { name: 'font_unique_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'font_unique_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,12 +126,12 @@ blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec = {
 blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.AndroidFontLookup.MatchLocalFontByUniqueName_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'font_file_handle', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
+        { name: 'font_file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -144,7 +144,7 @@ blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -152,12 +152,12 @@ blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec = {
 blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.AndroidFontLookup.FetchAllFontFiles_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'font_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'font_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

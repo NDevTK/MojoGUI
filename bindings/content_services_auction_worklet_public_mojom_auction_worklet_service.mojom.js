@@ -16,10 +16,10 @@ auction_worklet.mojom.BrowserSignalsSpec = {
       name: 'auction_worklet.mojom.BrowserSignals',
       packedSize: 24,
       fields: [
-        { name: 'top_frame_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'seller', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'top_frame_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'seller', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,10 +31,10 @@ auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec = {
       name: 'auction_worklet.mojom.AuctionWorkletPermissionsPolicyState',
       packedSize: 16,
       fields: [
-        { name: 'private_aggregation_allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'shared_storage_allowed', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'private_aggregation_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'shared_storage_allowed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -46,10 +46,10 @@ auction_worklet.mojom.TrustedSignalsPublicKeySpec = {
       name: 'auction_worklet.mojom.TrustedSignalsPublicKey',
       packedSize: 24,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -117,9 +117,9 @@ auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec = {
       name: 'auction_worklet.mojom.LoadSellerWorkletClient.SellerWorkletLoaded_Params',
       packedSize: 16,
       fields: [
-        { name: 'trusted_signals_url_allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'trusted_signals_url_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -210,9 +210,9 @@ auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec = 
       name: 'auction_worklet.mojom.AuctionWorkletService.SetTrustedSignalsCache_Params',
       packedSize: 16,
       fields: [
-        { name: 'trusted_signals_cache', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'trusted_signals_cache', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -222,23 +222,24 @@ auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.AuctionWorkletService.LoadBidderWorklet_Params',
-      packedSize: 104,
+      packedSize: 88,
       fields: [
-        { name: 'bidder_worklet', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'shared_storage_hosts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'pause_for_debugger_on_start', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'url_loader_factory', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'auction_network_events_handler', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'script_source_load', packedOffset: 40, packedBitOffset: 0, type: auction_worklet.mojom.InProgressAuctionDownloadSpec, nullable: false },
-        { name: 'wasm_helper_load', packedOffset: 48, packedBitOffset: 0, type: auction_worklet.mojom.InProgressAuctionDownloadSpec, nullable: true },
-        { name: 'trusted_bidding_signals_url', packedOffset: 56, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'trusted_bidding_signals_slot_size_param', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'top_window_origin', packedOffset: 72, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'permissions_policy_state', packedOffset: 80, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec, nullable: false },
-        { name: 'experiment_group_id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
-        { name: 'public_key', packedOffset: 96, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsPublicKeySpec, nullable: true },
+        { name: 'bidder_worklet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'shared_storage_hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy, false), nullable: true, minVersion: 0 },
+        { name: 'pause_for_debugger_on_start', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'url_loader_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'auction_network_events_handler', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'script_source_load', packedOffset: 24, packedBitOffset: 0, type: auction_worklet.mojom.InProgressAuctionDownloadSpec, nullable: false, minVersion: 0 },
+        { name: 'wasm_helper_load', packedOffset: 32, packedBitOffset: 0, type: auction_worklet.mojom.InProgressAuctionDownloadSpec, nullable: true, minVersion: 0 },
+        { name: 'trusted_bidding_signals_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'trusted_bidding_signals_slot_size_param', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'top_window_origin', packedOffset: 56, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'permissions_policy_state', packedOffset: 64, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec, nullable: false, minVersion: 0 },
+        { name: 'experiment_group_id_$flag', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'experiment_group_id_$value', originalFieldName: 'experiment_group_id' } },
+        { name: 'experiment_group_id_$value', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'experiment_group_id_$flag', originalFieldName: 'experiment_group_id' } },
+        { name: 'public_key', packedOffset: 72, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsPublicKeySpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };
@@ -248,23 +249,25 @@ auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.AuctionWorkletService.LoadSellerWorklet_Params',
-      packedSize: 104,
+      packedSize: 80,
       fields: [
-        { name: 'seller_worklet', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'shared_storage_hosts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'pause_for_debugger_on_start', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'url_loader_factory', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'auction_network_events_handler', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'script_source_load', packedOffset: 40, packedBitOffset: 0, type: auction_worklet.mojom.InProgressAuctionDownloadSpec, nullable: false },
-        { name: 'trusted_scoring_signals_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'top_window_origin', packedOffset: 56, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'permissions_policy_state', packedOffset: 64, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec, nullable: false },
-        { name: 'experiment_group_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: true },
-        { name: 'send_creative_scanning_metadata', packedOffset: 74, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'public_key', packedOffset: 88, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsPublicKeySpec, nullable: true },
-        { name: 'load_seller_worklet_client', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'seller_worklet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'shared_storage_hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy, false), nullable: true, minVersion: 0 },
+        { name: 'pause_for_debugger_on_start', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'url_loader_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'auction_network_events_handler', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'script_source_load', packedOffset: 24, packedBitOffset: 0, type: auction_worklet.mojom.InProgressAuctionDownloadSpec, nullable: false, minVersion: 0 },
+        { name: 'trusted_scoring_signals_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'top_window_origin', packedOffset: 40, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'permissions_policy_state', packedOffset: 48, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec, nullable: false, minVersion: 0 },
+        { name: 'experiment_group_id_$flag', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'experiment_group_id_$value', originalFieldName: 'experiment_group_id' } },
+        { name: 'experiment_group_id_$value', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'experiment_group_id_$flag', originalFieldName: 'experiment_group_id' } },
+        { name: 'send_creative_scanning_metadata_$flag', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'send_creative_scanning_metadata_$value', originalFieldName: 'send_creative_scanning_metadata' } },
+        { name: 'send_creative_scanning_metadata_$value', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'send_creative_scanning_metadata_$flag', originalFieldName: 'send_creative_scanning_metadata' } },
+        { name: 'public_key', packedOffset: 56, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsPublicKeySpec, nullable: true, minVersion: 0 },
+        { name: 'load_seller_worklet_client', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };

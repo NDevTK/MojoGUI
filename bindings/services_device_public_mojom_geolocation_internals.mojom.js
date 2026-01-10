@@ -9,12 +9,19 @@ var device = device || {};
 device.mojom = device.mojom || {};
 
 
+device.mojom.kInvalidRadioSignalStrength = -2147483648;
+
+device.mojom.kInvalidChannel = -2147483648;
+
+device.mojom.kInvalidSignalToNoise = -2147483648;
+
 // Enum: ProviderState
 device.mojom.ProviderState = {
   kHighAccuracy: 0,
   kLowAccuracy: 1,
   kBlockedBySystemPermission: 2,
 };
+device.mojom.ProviderStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: LocationProviderManagerMode
 device.mojom.LocationProviderManagerMode = {
@@ -25,6 +32,7 @@ device.mojom.LocationProviderManagerMode = {
   kHybridFallbackNetwork: 4,
   kHybridPlatform2: 5,
 };
+device.mojom.LocationProviderManagerModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AccessPointData
 device.mojom.AccessPointDataSpec = {
@@ -33,13 +41,13 @@ device.mojom.AccessPointDataSpec = {
       name: 'device.mojom.AccessPointData',
       packedSize: 40,
       fields: [
-        { name: 'mac_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'radio_signal_strength', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'channel', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'signal_to_noise', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'mac_address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'radio_signal_strength', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'channel', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'signal_to_noise', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -51,10 +59,10 @@ device.mojom.NetworkLocationDiagnosticsSpec = {
       name: 'device.mojom.NetworkLocationDiagnostics',
       packedSize: 24,
       fields: [
-        { name: 'access_point_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'wifi_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'access_point_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.AccessPointDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'wifi_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -64,15 +72,16 @@ device.mojom.PositionCacheDiagnosticsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PositionCacheDiagnostics',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
-        { name: 'cache_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'last_hit', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'last_miss', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'hit_rate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
-        { name: 'last_network_result', packedOffset: 40, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: true },
+        { name: 'cache_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'last_hit', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+        { name: 'last_miss', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+        { name: 'hit_rate_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'hit_rate_$value', originalFieldName: 'hit_rate' } },
+        { name: 'hit_rate_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'hit_rate_$flag', originalFieldName: 'hit_rate' } },
+        { name: 'last_network_result', packedOffset: 32, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -84,15 +93,15 @@ device.mojom.WifiPollingPolicyDiagnosticsSpec = {
       name: 'device.mojom.WifiPollingPolicyDiagnostics',
       packedSize: 64,
       fields: [
-        { name: 'interval_start', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'interval_duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'polling_interval', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'default_interval', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'no_change_interval', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'two_no_change_interval', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'no_wifi_interval', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'interval_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+        { name: 'interval_duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'polling_interval', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'default_interval', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'no_change_interval', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'two_no_change_interval', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'no_wifi_interval', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -104,9 +113,9 @@ device.mojom.GeolocationDiagnosticsSpec = {
       name: 'device.mojom.GeolocationDiagnostics',
       packedSize: 16,
       fields: [
-        { name: 'kStopped', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kStopped', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -116,13 +125,14 @@ device.mojom.NetworkLocationResponseSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NetworkLocationResponse',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'latitude', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'longitude', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'accuracy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: true },
+        { name: 'latitude', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'longitude', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'accuracy_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'accuracy_$value', originalFieldName: 'accuracy' } },
+        { name: 'accuracy_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'accuracy_$flag', originalFieldName: 'accuracy' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -208,9 +218,9 @@ device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = {
       name: 'device.mojom.GeolocationInternalsObserver.OnDiagnosticsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'diagnostics', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GeolocationDiagnosticsSpec, nullable: false },
+        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeolocationDiagnosticsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -222,9 +232,9 @@ device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec 
       name: 'device.mojom.GeolocationInternalsObserver.OnNetworkLocationRequested_Params',
       packedSize: 16,
       fields: [
-        { name: 'access_point_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'access_point_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.AccessPointDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -236,9 +246,9 @@ device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec =
       name: 'device.mojom.GeolocationInternalsObserver.OnNetworkLocationReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: device.mojom.NetworkLocationResponseSpec, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NetworkLocationResponseSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -311,9 +321,9 @@ device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = {
       name: 'device.mojom.GeolocationInternals.AddInternalsObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -321,12 +331,12 @@ device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = {
 device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.GeolocationInternals.AddInternalsObserver_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'diagnostics', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GeolocationDiagnosticsSpec, nullable: true },
+        { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeolocationDiagnosticsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

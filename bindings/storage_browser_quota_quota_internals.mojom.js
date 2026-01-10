@@ -16,15 +16,15 @@ storage.mojom.BucketTableEntrySpec = {
       name: 'storage.mojom.BucketTableEntry',
       packedSize: 64,
       fields: [
-        { name: 'bucket_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'storage_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'usage', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'use_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'last_accessed', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'last_modified', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'bucket_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'storage_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'usage', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'use_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'last_accessed', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'last_modified', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -138,7 +138,7 @@ storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -146,14 +146,14 @@ storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpe
 storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.QuotaInternalsHandler.GetDiskAvailabilityAndTempPoolSize_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'total_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'available_space', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'temp_pool_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'total_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'available_space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'temp_pool_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -166,7 +166,7 @@ storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -174,12 +174,12 @@ storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
 storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.QuotaInternalsHandler.GetStatistics_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'eviction_statistics', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'eviction_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -191,9 +191,9 @@ storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = {
       name: 'storage.mojom.QuotaInternalsHandler.SimulateStoragePressure_Params',
       packedSize: 16,
       fields: [
-        { name: 'origin_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'origin_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,7 +206,7 @@ storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -214,12 +214,12 @@ storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
 storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.QuotaInternalsHandler.RetrieveBucketsTable_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.BucketTableEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -232,7 +232,7 @@ storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -240,13 +240,13 @@ storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = {
 storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.QuotaInternalsHandler.GetGlobalUsageForInternals_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'unlimited_usage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'unlimited_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -259,7 +259,7 @@ storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -267,12 +267,12 @@ storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpe
 storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.QuotaInternalsHandler.IsSimulateStoragePressureAvailable_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -9,6 +9,26 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+blink.mojom.kMaximumEmbeddedDataSize = 256000;
+
+// Union: DataElement
+blink.mojom.DataElementSpec = { $: mojo.internal.Union(
+    'blink.mojom.DataElement', {
+      'bytes': {
+        'ordinal': 0,
+        'type': blink.mojom.DataElementBytesSpec,
+      }},
+      'file': {
+        'ordinal': 1,
+        'type': blink.mojom.DataElementFileSpec,
+      }},
+      'blob': {
+        'ordinal': 2,
+        'type': blink.mojom.DataElementBlobSpec,
+      }},
+    })
+};
+
 // Struct: DataElementBytes
 blink.mojom.DataElementBytesSpec = {
   $: {
@@ -16,12 +36,12 @@ blink.mojom.DataElementBytesSpec = {
       name: 'blink.mojom.DataElementBytes',
       packedSize: 40,
       fields: [
-        { name: 'kMaximumEmbeddedDataSize', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'embedded_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'kMaximumEmbeddedDataSize', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'embedded_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -33,12 +53,12 @@ blink.mojom.DataElementFileSpec = {
       name: 'blink.mojom.DataElementFile',
       packedSize: 40,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'expected_modification_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'expected_modification_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -50,11 +70,11 @@ blink.mojom.DataElementBlobSpec = {
       name: 'blink.mojom.DataElementBlob',
       packedSize: 32,
       fields: [
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -141,7 +161,7 @@ blink.mojom.BytesProvider_RequestAsReply_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -149,12 +169,12 @@ blink.mojom.BytesProvider_RequestAsReply_ParamsSpec = {
 blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.BytesProvider.RequestAsReply_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -166,9 +186,9 @@ blink.mojom.BytesProvider_RequestAsStream_ParamsSpec = {
       name: 'blink.mojom.BytesProvider.RequestAsStream_Params',
       packedSize: 16,
       fields: [
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,12 +200,12 @@ blink.mojom.BytesProvider_RequestAsFile_ParamsSpec = {
       name: 'blink.mojom.BytesProvider.RequestAsFile_Params',
       packedSize: 40,
       fields: [
-        { name: 'source_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'source_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
-        { name: 'file_offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'source_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'source_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
+        { name: 'file_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -193,12 +213,12 @@ blink.mojom.BytesProvider_RequestAsFile_ParamsSpec = {
 blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.BytesProvider.RequestAsFile_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'time_file_modified', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'time_file_modified', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,10 +16,10 @@ discards.mojom.SiteDataFeatureSpec = {
       name: 'discards.mojom.SiteDataFeature',
       packedSize: 24,
       fields: [
-        { name: 'observation_duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'use_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'observation_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'use_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,11 +31,11 @@ discards.mojom.SiteDataPerformanceMeasurementSpec = {
       name: 'discards.mojom.SiteDataPerformanceMeasurement',
       packedSize: 24,
       fields: [
-        { name: 'avg_cpu_usage_us', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'avg_footprint_kb', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'avg_load_duration_us', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'avg_cpu_usage_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'avg_footprint_kb', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'avg_load_duration_us', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -47,10 +47,10 @@ discards.mojom.SiteDataDatabaseSizeSpec = {
       name: 'discards.mojom.SiteDataDatabaseSize',
       packedSize: 24,
       fields: [
-        { name: 'num_rows', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'on_disk_size_kb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'num_rows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'on_disk_size_kb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -62,13 +62,13 @@ discards.mojom.SiteDataValueSpec = {
       name: 'discards.mojom.SiteDataValue',
       packedSize: 48,
       fields: [
-        { name: 'last_loaded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'updates_favicon_in_background', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
-        { name: 'updates_title_in_background', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
-        { name: 'uses_audio_in_background', packedOffset: 32, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false },
-        { name: 'load_time_estimates', packedOffset: 40, packedBitOffset: 0, type: discards.mojom.SiteDataPerformanceMeasurementSpec, nullable: true },
+        { name: 'last_loaded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'updates_favicon_in_background', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'updates_title_in_background', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'uses_audio_in_background', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'load_time_estimates', packedOffset: 32, packedBitOffset: 0, type: discards.mojom.SiteDataPerformanceMeasurementSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -80,11 +80,11 @@ discards.mojom.SiteDataEntrySpec = {
       name: 'discards.mojom.SiteDataEntry',
       packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_dirty', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.SiteDataValueSpec, nullable: true },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_dirty', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataValueSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -96,9 +96,9 @@ discards.mojom.SiteDataArraySpec = {
       name: 'discards.mojom.SiteDataArray',
       packedSize: 16,
       fields: [
-        { name: 'db_rows', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'db_rows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(discards.mojom.SiteDataEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -175,9 +175,9 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_Params',
       packedSize: 16,
       fields: [
-        { name: 'explicitly_requested_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'explicitly_requested_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,12 +185,12 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
 discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataArraySpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataArraySpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -203,7 +203,7 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -211,12 +211,12 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
 discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'db_size', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataDatabaseSizeSpec, nullable: true },
+        { name: 'db_size', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataDatabaseSizeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

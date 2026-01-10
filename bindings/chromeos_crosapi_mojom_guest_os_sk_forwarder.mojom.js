@@ -44,6 +44,15 @@ crosapi.mojom.GuestOsSkForwarderFactoryRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  bindGuestOsSkForwarder(remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec,
+      null,
+      [remote]);
+  }
+
 };
 
 crosapi.mojom.GuestOsSkForwarderFactory.getRemote = function() {
@@ -54,6 +63,20 @@ crosapi.mojom.GuestOsSkForwarderFactory.getRemote = function() {
     'crosapi.mojom.GuestOsSkForwarderFactory',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for BindGuestOsSkForwarder
+crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.GuestOsSkForwarderFactory.BindGuestOsSkForwarder_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -96,6 +119,15 @@ crosapi.mojom.GuestOsSkForwarderRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  forwardRequest(message) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec,
+      crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec,
+      [message]);
+  }
+
 };
 
 crosapi.mojom.GuestOsSkForwarder.getRemote = function() {
@@ -106,6 +138,33 @@ crosapi.mojom.GuestOsSkForwarder.getRemote = function() {
     'crosapi.mojom.GuestOsSkForwarder',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for ForwardRequest
+crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.GuestOsSkForwarder.ForwardRequest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

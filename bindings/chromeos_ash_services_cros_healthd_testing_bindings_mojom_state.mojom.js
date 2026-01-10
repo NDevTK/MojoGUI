@@ -93,7 +93,7 @@ ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -101,12 +101,12 @@ ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec = {
 ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.cros_healthd.connectivity.mojom.State.LastCallHasNext_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_next', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_next', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,7 +119,7 @@ ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -132,7 +132,7 @@ ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -214,10 +214,10 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsS
       name: 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.BindContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -229,10 +229,10 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_Pa
       name: 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.BindTestProvider_Params',
       packedSize: 24,
       fields: [
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

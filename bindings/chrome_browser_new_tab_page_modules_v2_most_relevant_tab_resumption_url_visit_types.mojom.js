@@ -20,6 +20,7 @@ ntp.most_relevant_tab_resumption.mojom.FormFactor = {
   kWearable: 5,
   kTv: 6,
 };
+ntp.most_relevant_tab_resumption.mojom.FormFactorSpec = { $: mojo.internal.Enum() };
 
 // Enum: DecorationType
 ntp.most_relevant_tab_resumption.mojom.DecorationType = {
@@ -28,12 +29,14 @@ ntp.most_relevant_tab_resumption.mojom.DecorationType = {
   kFrequentlyVisited: 2,
   kFrequentlyVisitedAtTime: 3,
 };
+ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: VisitSource
 ntp.most_relevant_tab_resumption.mojom.VisitSource = {
   kTab: 0,
   kHistory: 1,
 };
+ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: Decoration
 ntp.most_relevant_tab_resumption.mojom.DecorationSpec = {
@@ -42,10 +45,10 @@ ntp.most_relevant_tab_resumption.mojom.DecorationSpec = {
       name: 'ntp.most_relevant_tab_resumption.mojom.Decoration',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec, nullable: false },
-        { name: 'display_string', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'display_string', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -55,21 +58,21 @@ ntp.most_relevant_tab_resumption.mojom.URLVisitSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.URLVisit',
-      packedSize: 96,
+      packedSize: 88,
       fields: [
-        { name: 'form_factor', packedOffset: 8, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.FormFactorSpec, nullable: false },
-        { name: 'is_known_to_sync', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec, nullable: false },
-        { name: 'session_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'title', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'decoration', packedOffset: 56, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.DecorationSpec, nullable: false },
-        { name: 'relative_time', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'timestamp', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'url_key', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'training_request_id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'form_factor', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.FormFactorSpec, nullable: false, minVersion: 0 },
+        { name: 'is_known_to_sync', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'session_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'decoration', packedOffset: 40, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.DecorationSpec, nullable: false, minVersion: 0 },
+        { name: 'relative_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+        { name: 'url_key', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'training_request_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };

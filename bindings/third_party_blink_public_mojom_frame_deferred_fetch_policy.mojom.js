@@ -15,3 +15,4 @@ blink.mojom.DeferredFetchPolicy = {
   kDeferredFetch: 1,
   kDeferredFetchMinimal: 2,
 };
+blink.mojom.DeferredFetchPolicySpec = { $: mojo.internal.Enum() };

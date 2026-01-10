@@ -20,6 +20,7 @@ chrome.mojom.ResumeBlockedRequestsTrigger = {
   kRendererDisconnected: 6,
   kThrottlingRequestsPaused: 7,
 };
+chrome.mojom.ResumeBlockedRequestsTriggerSpec = { $: mojo.internal.Enum() };
 
 // Struct: BoundSessionThrottlerParams
 chrome.mojom.BoundSessionThrottlerParamsSpec = {
@@ -28,11 +29,11 @@ chrome.mojom.BoundSessionThrottlerParamsSpec = {
       name: 'chrome.mojom.BoundSessionThrottlerParams',
       packedSize: 32,
       fields: [
-        { name: 'domain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'cookie_expiry_date', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'domain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'cookie_expiry_date', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -42,14 +43,14 @@ chrome.mojom.DynamicParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.DynamicParams',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'bound_session_throttler_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'force_safe_search', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'youtube_restrict', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'allowed_domains_for_apps', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'bound_session_throttler_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.BoundSessionThrottlerParamsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'force_safe_search', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'youtube_restrict', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'allowed_domains_for_apps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -61,9 +62,9 @@ chrome.mojom.StaticParamsSpec = {
       name: 'chrome.mojom.StaticParams',
       packedSize: 16,
       fields: [
-        { name: 'is_instant_process', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_instant_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -131,9 +132,9 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Pa
       name: 'chrome.mojom.BoundSessionRequestThrottledHandler.HandleRequestBlockedOnCookie_Params',
       packedSize: 16,
       fields: [
-        { name: 'untrusted_request_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'untrusted_request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,12 +142,12 @@ chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Pa
 chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.BoundSessionRequestThrottledHandler.HandleRequestBlockedOnCookie_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'resume_trigger', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.ResumeBlockedRequestsTriggerSpec, nullable: false },
+        { name: 'resume_trigger', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ResumeBlockedRequestsTriggerSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -220,7 +221,7 @@ chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -309,14 +310,14 @@ chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.RendererConfiguration.SetInitialConfiguration_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'is_incognito_process', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'chromeos_listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'content_settings_manager', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'bound_session_request_throttled_handler', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'is_incognito_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'chromeos_listener', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'content_settings_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'bound_session_request_throttled_handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -328,9 +329,9 @@ chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = {
       name: 'chrome.mojom.RendererConfiguration.SetConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.DynamicParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.DynamicParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -342,9 +343,9 @@ chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpe
       name: 'chrome.mojom.RendererConfiguration.SetConfigurationOnProcessLockUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.StaticParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.StaticParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

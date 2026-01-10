@@ -14,10 +14,11 @@ crosapi.mojom.DoubleValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DoubleValue',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -27,10 +28,11 @@ crosapi.mojom.Int64ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Int64Value',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -40,10 +42,11 @@ crosapi.mojom.UInt8ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.UInt8Value',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -53,10 +56,11 @@ crosapi.mojom.UInt16ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.UInt16Value',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -66,10 +70,11 @@ crosapi.mojom.UInt32ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.UInt32Value',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -79,10 +84,11 @@ crosapi.mojom.UInt64ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.UInt64Value',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -92,10 +98,11 @@ crosapi.mojom.BoolValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.BoolValue',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

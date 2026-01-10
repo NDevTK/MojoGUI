@@ -15,3 +15,4 @@ blink.mojom.CommitResult = {
   Aborted: 1,
   RestartCrossDocument: 2,
 };
+blink.mojom.CommitResultSpec = { $: mojo.internal.Enum() };

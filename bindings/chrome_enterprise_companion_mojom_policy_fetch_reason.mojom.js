@@ -14,3 +14,4 @@ enterprise_companion.mojom.PolicyFetchReason = {
   USER_REQUEST: 0,
   SCHEDULED: 1,
 };
+enterprise_companion.mojom.PolicyFetchReasonSpec = { $: mojo.internal.Enum() };

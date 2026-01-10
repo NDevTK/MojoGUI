@@ -108,9 +108,9 @@ content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
       name: 'content.mojom.RendererHost.GetBrowserHistogram_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,12 +118,12 @@ content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
 content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.RendererHost.GetBrowserHistogram_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'histogram_json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'histogram_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -135,9 +135,9 @@ content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = {
       name: 'content.mojom.RendererHost.SuddenTerminationAllowedChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -149,9 +149,9 @@ content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = {
       name: 'content.mojom.RendererHost.RecordUserMetricsAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -163,9 +163,9 @@ content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = {
       name: 'content.mojom.RendererHost.SetPrivateMemoryFootprint_Params',
       packedSize: 16,
       fields: [
-        { name: 'private_memory_footprint_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'private_memory_footprint_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,7 +178,7 @@ content.mojom.RendererHost_HasGpuProcess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -186,12 +186,12 @@ content.mojom.RendererHost_HasGpuProcess_ParamsSpec = {
 content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.RendererHost.HasGpuProcess_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_gpu_process', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_gpu_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

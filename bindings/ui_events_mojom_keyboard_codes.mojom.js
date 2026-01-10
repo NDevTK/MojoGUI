@@ -190,3 +190,4 @@ ui.mojom.KeyboardCode = {
   ALTGR: 176,
   COMPOSE: 177,
 };
+ui.mojom.KeyboardCodeSpec = { $: mojo.internal.Enum() };

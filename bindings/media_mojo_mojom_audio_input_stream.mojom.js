@@ -19,6 +19,7 @@ media.mojom.DisconnectReason = {
   kSystemPermissions: 5,
   kDeviceInUse: 6,
 };
+media.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: AudioInputStream
 media.mojom.AudioInputStream = {};
@@ -93,7 +94,7 @@ media.mojom.AudioInputStream_Record_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -105,9 +106,9 @@ media.mojom.AudioInputStream_SetVolume_ParamsSpec = {
       name: 'media.mojom.AudioInputStream.SetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -189,9 +190,9 @@ media.mojom.AudioInputStreamClient_OnError_ParamsSpec = {
       name: 'media.mojom.AudioInputStreamClient.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: media.mojom.InputStreamErrorCodeSpec, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: media.mojom.InputStreamErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -203,9 +204,9 @@ media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec = {
       name: 'media.mojom.AudioInputStreamClient.OnMutedStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_muted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -279,7 +280,7 @@ media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

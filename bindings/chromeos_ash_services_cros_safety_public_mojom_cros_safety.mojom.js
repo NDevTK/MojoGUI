@@ -16,11 +16,13 @@ ash.cros_safety.mojom.SafetyClassifierVerdict = {
   kFailedText: 1,
   kFailedImage: 2,
 };
+ash.cros_safety.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
 
 // Enum: SafetyRuleset
 ash.cros_safety.mojom.SafetyRuleset = {
   kMantis: 0,
 };
+ash.cros_safety.mojom.SafetyRulesetSpec = { $: mojo.internal.Enum() };
 
 // Interface: CloudSafetySession
 ash.cros_safety.mojom.CloudSafetySession = {};
@@ -57,6 +59,24 @@ ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  classifyTextSafety(rules, text) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec,
+      ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec,
+      [rules, text]);
+  }
+
+  classifyImageSafety(rules, prompt, image) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec,
+      ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec,
+      [rules, prompt, image]);
+  }
+
 };
 
 ash.cros_safety.mojom.CloudSafetySession.getRemote = function() {
@@ -67,6 +87,63 @@ ash.cros_safety.mojom.CloudSafetySession.getRemote = function() {
     'ash.cros_safety.mojom.CloudSafetySession',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for ClassifyTextSafety
+ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.CloudSafetySession.ClassifyTextSafety_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyRulesetSpec, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for ClassifyImageSafety
+ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.CloudSafetySession.ClassifyImageSafety_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyRulesetSpec, nullable: false, minVersion: 0 },
+        { name: 'prompt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'image', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -109,6 +186,24 @@ ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  classifyTextSafety(rules, text) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec,
+      ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec,
+      [rules, text]);
+  }
+
+  classifyImageSafety(rules, image) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec,
+      ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec,
+      [rules, image]);
+  }
+
 };
 
 ash.cros_safety.mojom.OnDeviceSafetySession.getRemote = function() {
@@ -119,6 +214,62 @@ ash.cros_safety.mojom.OnDeviceSafetySession.getRemote = function() {
     'ash.cros_safety.mojom.OnDeviceSafetySession',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for ClassifyTextSafety
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.OnDeviceSafetySession.ClassifyTextSafety_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyRulesetSpec, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for ClassifyImageSafety
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_safety.mojom.OnDeviceSafetySession.ClassifyImageSafety_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyRulesetSpec, nullable: false, minVersion: 0 },
+        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

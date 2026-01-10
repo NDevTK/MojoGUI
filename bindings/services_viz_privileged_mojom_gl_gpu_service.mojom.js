@@ -358,14 +358,14 @@ viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.GpuService.EstablishGpuChannel_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'client_tracing_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'is_gpu_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_extra_handles_validation', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'client_tracing_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'is_gpu_host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_extra_handles_validation', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -373,15 +373,15 @@ viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec = {
 viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.GpuService.EstablishGpuChannel_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'channel_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'gpu_info', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
-        { name: 'gpu_feature_info', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false },
-        { name: 'shared_image_capabilities', packedOffset: 32, packedBitOffset: 0, type: gpu.mojom.SharedImageCapabilitiesSpec, nullable: false },
+        { name: 'channel_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'gpu_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'gpu_feature_info', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_image_capabilities', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.SharedImageCapabilitiesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -393,10 +393,10 @@ viz.mojom.GpuService_SetChannelClientPid_ParamsSpec = {
       name: 'viz.mojom.GpuService.SetChannelClientPid_Params',
       packedSize: 24,
       fields: [
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'client_pid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'client_pid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -406,12 +406,12 @@ viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.GpuService.SetChannelDiskCacheHandle_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'cache_handle', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'cache_handle', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -421,13 +421,13 @@ viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.GpuService.SetChannelPersistentCachePendingBackend_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'cache_handle', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false },
-        { name: 'pending_backend', packedOffset: 24, packedBitOffset: 0, type: persistent_cache.mojom.PendingReadWriteBackendSpec, nullable: false },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'cache_handle', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'pending_backend', packedOffset: 24, packedBitOffset: 0, type: persistent_cache.mojom.PendingReadWriteBackendSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -437,11 +437,11 @@ viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.GpuService.OnDiskCacheHandleDestoyed_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'cache_handle', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false },
+        { name: 'cache_handle', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -453,9 +453,9 @@ viz.mojom.GpuService_CloseChannel_ParamsSpec = {
       name: 'viz.mojom.GpuService.CloseChannel_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -467,9 +467,9 @@ viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec = {
       name: 'viz.mojom.GpuService.CreateJpegDecodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jda', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -481,9 +481,9 @@ viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec = {
       name: 'viz.mojom.GpuService.CreateJpegEncodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jea', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'jea', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -495,9 +495,9 @@ viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec = {
       name: 'viz.mojom.GpuService.RegisterDCOMPSurfaceHandle_Params',
       packedSize: 16,
       fields: [
-        { name: 'surface_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'surface_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -505,12 +505,12 @@ viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec = {
 viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.GpuService.RegisterDCOMPSurfaceHandle_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -522,9 +522,9 @@ viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec = {
       name: 'viz.mojom.GpuService.UnregisterDCOMPSurfaceHandle_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -536,9 +536,9 @@ viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
       name: 'viz.mojom.GpuService.CreateVideoEncodeAcceleratorProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'vea_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -550,10 +550,10 @@ viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec = {
       name: 'viz.mojom.GpuService.BindWebNNContextProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'client_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'client_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -566,7 +566,7 @@ viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -574,12 +574,12 @@ viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec = {
 viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.GpuService.GetVideoMemoryUsageStats_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'stats', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.VideoMemoryUsageStatsSpec, nullable: false },
+        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.VideoMemoryUsageStatsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -591,9 +591,9 @@ viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec = {
       name: 'viz.mojom.GpuService.StartPeakMemoryMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'sequence_num', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'sequence_num', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -605,9 +605,9 @@ viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec = {
       name: 'viz.mojom.GpuService.GetPeakMemoryUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'sequence_num', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'sequence_num', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -615,13 +615,13 @@ viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec = {
 viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.GpuService.GetPeakMemoryUsage_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'memory_usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'memory_per_allocation_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'memory_per_allocation_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(gpu.mojom.GpuPeakMemoryAllocationSourceSpec, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -634,7 +634,7 @@ viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -642,12 +642,12 @@ viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec = {
 viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.GpuService.RequestDXGIInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dxgi_info', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.DXGIInfoSpec, nullable: false },
+        { name: 'dxgi_info', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DXGIInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -657,13 +657,13 @@ viz.mojom.GpuService_LoadedBlob_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.GpuService.LoadedBlob_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'cache_handle', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'cache_handle', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuDiskCacheHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -676,7 +676,7 @@ viz.mojom.GpuService_WakeUpGpu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -689,7 +689,7 @@ viz.mojom.GpuService_GpuSwitched_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -702,7 +702,7 @@ viz.mojom.GpuService_DisplayAdded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -715,7 +715,7 @@ viz.mojom.GpuService_DisplayRemoved_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -728,7 +728,7 @@ viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -741,7 +741,7 @@ viz.mojom.GpuService_DestroyAllChannels_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -754,7 +754,7 @@ viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -767,7 +767,7 @@ viz.mojom.GpuService_OnBackgrounded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -780,7 +780,7 @@ viz.mojom.GpuService_OnForegrounded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -793,7 +793,7 @@ viz.mojom.GpuService_BeginCATransaction_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -806,7 +806,7 @@ viz.mojom.GpuService_CommitCATransaction_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -819,7 +819,7 @@ viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -831,9 +831,9 @@ viz.mojom.GpuService_GetDawnInfo_ParamsSpec = {
       name: 'viz.mojom.GpuService.GetDawnInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'collect_metrics', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'collect_metrics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -841,12 +841,12 @@ viz.mojom.GpuService_GetDawnInfo_ParamsSpec = {
 viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.GpuService.GetDawnInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dawn_info_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'dawn_info_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -859,7 +859,7 @@ viz.mojom.GpuService_Crash_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -872,7 +872,7 @@ viz.mojom.GpuService_Hang_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -885,7 +885,7 @@ viz.mojom.GpuService_ThrowJavaException_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

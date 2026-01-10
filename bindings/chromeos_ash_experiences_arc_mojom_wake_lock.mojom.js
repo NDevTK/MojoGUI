@@ -44,6 +44,24 @@ arc.mojom.WakeLockHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  acquirePartialWakeLock() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec,
+      arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec,
+      []);
+  }
+
+  releasePartialWakeLock() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec,
+      arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec,
+      []);
+  }
+
 };
 
 arc.mojom.WakeLockHost.getRemote = function() {
@@ -54,6 +72,58 @@ arc.mojom.WakeLockHost.getRemote = function() {
     'arc.mojom.WakeLockHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for AcquirePartialWakeLock
+arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WakeLockHost.AcquirePartialWakeLock_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for ReleasePartialWakeLock
+arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WakeLockHost.ReleasePartialWakeLock_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -96,6 +166,15 @@ arc.mojom.WakeLockInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.WakeLockInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.WakeLockInstance.getRemote = function() {
@@ -106,6 +185,20 @@ arc.mojom.WakeLockInstance.getRemote = function() {
     'arc.mojom.WakeLockInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.WakeLockInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.WakeLockInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

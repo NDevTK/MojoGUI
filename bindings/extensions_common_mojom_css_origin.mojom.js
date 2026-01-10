@@ -14,3 +14,4 @@ extensions.mojom.CSSOrigin = {
   kAuthor: 0,
   kUser: 1,
 };
+extensions.mojom.CSSOriginSpec = { $: mojo.internal.Enum() };

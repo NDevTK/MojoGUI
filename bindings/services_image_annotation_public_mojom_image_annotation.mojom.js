@@ -15,6 +15,7 @@ image_annotation.mojom.AnnotateImageError = {
   kFailure: 1,
   kAdult: 2,
 };
+image_annotation.mojom.AnnotateImageErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: AnnotationType
 image_annotation.mojom.AnnotationType = {
@@ -22,6 +23,21 @@ image_annotation.mojom.AnnotationType = {
   kLabel: 1,
   kCaption: 2,
   kIcon: 3,
+};
+image_annotation.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: AnnotateImageResult
+image_annotation.mojom.AnnotateImageResultSpec = { $: mojo.internal.Union(
+    'image_annotation.mojom.AnnotateImageResult', {
+      'error_code': {
+        'ordinal': 0,
+        'type': image_annotation.mojom.AnnotateImageErrorSpec,
+      }},
+      'annotations': {
+        'ordinal': 1,
+        'type': mojo.internal.Array(image_annotation.mojom.AnnotationSpec, false),
+      }},
+    })
 };
 
 // Struct: Annotation
@@ -31,11 +47,11 @@ image_annotation.mojom.AnnotationSpec = {
       name: 'image_annotation.mojom.Annotation',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: image_annotation.mojom.AnnotationTypeSpec, nullable: false },
-        { name: 'score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: image_annotation.mojom.AnnotationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -104,7 +120,7 @@ image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -112,14 +128,14 @@ image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = {
 image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'image_annotation.mojom.ImageProcessor.GetJpgImageData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -192,11 +208,11 @@ image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = {
       name: 'image_annotation.mojom.Annotator.AnnotateImage_Params',
       packedSize: 32,
       fields: [
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'description_language_tag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'image_processor', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'description_language_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'image_processor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -204,12 +220,12 @@ image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = {
 image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'image_annotation.mojom.Annotator.AnnotateImage_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: image_annotation.mojom.AnnotateImageResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: image_annotation.mojom.AnnotateImageResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -282,9 +298,9 @@ image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = {
       name: 'image_annotation.mojom.ImageAnnotationService.BindAnnotator_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

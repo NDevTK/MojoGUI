@@ -28,3 +28,4 @@ attribution_reporting.mojom.StoreSourceResult = {
   kExceedsMaxScopesChannelCapacity: 14,
   kExceedsMaxEventStatesLimit: 15,
 };
+attribution_reporting.mojom.StoreSourceResultSpec = { $: mojo.internal.Enum() };

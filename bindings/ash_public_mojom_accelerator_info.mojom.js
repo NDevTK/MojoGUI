@@ -17,6 +17,7 @@ ash.mojom.AcceleratorSource = {
   kAmbient: 3,
   kAndroid: 4,
 };
+ash.mojom.AcceleratorSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorType
 ash.mojom.AcceleratorType = {
@@ -26,6 +27,7 @@ ash.mojom.AcceleratorType = {
   kDeveloper: 3,
   kDebug: 4,
 };
+ash.mojom.AcceleratorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorState
 ash.mojom.AcceleratorState = {
@@ -34,12 +36,14 @@ ash.mojom.AcceleratorState = {
   kDisabledByUser: 2,
   kDisabledByUnavailableKeys: 3,
 };
+ash.mojom.AcceleratorStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorLayoutStyle
 ash.mojom.AcceleratorLayoutStyle = {
   kDefault: 0,
   kText: 1,
 };
+ash.mojom.AcceleratorLayoutStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorCategory
 ash.mojom.AcceleratorCategory = {
@@ -52,6 +56,7 @@ ash.mojom.AcceleratorCategory = {
   kDebug: 6,
   kDeveloper: 7,
 };
+ash.mojom.AcceleratorCategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: AcceleratorSubcategory
 ash.mojom.AcceleratorSubcategory = {
@@ -75,6 +80,7 @@ ash.mojom.AcceleratorSubcategory = {
   kVisibility: 17,
   kAccessibilityNavigation: 18,
 };
+ash.mojom.AcceleratorSubcategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: TextAcceleratorPartType
 ash.mojom.TextAcceleratorPartType = {
@@ -82,6 +88,21 @@ ash.mojom.TextAcceleratorPartType = {
   kModifier: 1,
   kKey: 2,
   kDelimiter: 3,
+};
+ash.mojom.TextAcceleratorPartTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: LayoutStyleProperties
+ash.mojom.LayoutStylePropertiesSpec = { $: mojo.internal.Union(
+    'ash.mojom.LayoutStyleProperties', {
+      'standard_accelerator': {
+        'ordinal': 0,
+        'type': ash.mojom.StandardAcceleratorPropertiesSpec,
+      }},
+      'text_accelerator': {
+        'ordinal': 1,
+        'type': ash.mojom.TextAcceleratorPropertiesSpec,
+      }},
+    })
 };
 
 // Struct: TextAcceleratorPart
@@ -91,10 +112,10 @@ ash.mojom.TextAcceleratorPartSpec = {
       name: 'ash.mojom.TextAcceleratorPart',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.TextAcceleratorPartTypeSpec, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.TextAcceleratorPartTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -106,9 +127,9 @@ ash.mojom.TextAcceleratorPropertiesSpec = {
       name: 'ash.mojom.TextAcceleratorProperties',
       packedSize: 16,
       fields: [
-        { name: 'parts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'parts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.TextAcceleratorPartSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -120,11 +141,11 @@ ash.mojom.StandardAcceleratorPropertiesSpec = {
       name: 'ash.mojom.StandardAcceleratorProperties',
       packedSize: 32,
       fields: [
-        { name: 'accelerator', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.AcceleratorSpec, nullable: false },
-        { name: 'key_display', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'original_accelerator', packedOffset: 24, packedBitOffset: 0, type: ui.mojom.AcceleratorSpec, nullable: true },
+        { name: 'accelerator', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.AcceleratorSpec, nullable: false, minVersion: 0 },
+        { name: 'key_display', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'original_accelerator', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.AcceleratorSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -136,13 +157,13 @@ ash.mojom.AcceleratorInfoSpec = {
       name: 'ash.mojom.AcceleratorInfo',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorTypeSpec, nullable: false },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.AcceleratorStateSpec, nullable: false },
-        { name: 'locked', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'accelerator_locked', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'layout_properties', packedOffset: 32, packedBitOffset: 0, type: ash.mojom.LayoutStylePropertiesSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 4, packedBitOffset: 0, type: ash.mojom.AcceleratorStateSpec, nullable: false, minVersion: 0 },
+        { name: 'locked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'accelerator_locked', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'layout_properties', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.LayoutStylePropertiesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -152,16 +173,16 @@ ash.mojom.AcceleratorLayoutInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.AcceleratorLayoutInfo',
-      packedSize: 56,
+      packedSize: 40,
       fields: [
-        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.AcceleratorCategorySpec, nullable: false },
-        { name: 'sub_category', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.AcceleratorSubcategorySpec, nullable: false },
-        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'style', packedOffset: 32, packedBitOffset: 0, type: ash.mojom.AcceleratorLayoutStyleSpec, nullable: false },
-        { name: 'source', packedOffset: 40, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false },
-        { name: 'action', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorCategorySpec, nullable: false, minVersion: 0 },
+        { name: 'sub_category', packedOffset: 4, packedBitOffset: 0, type: ash.mojom.AcceleratorSubcategorySpec, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'style', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.AcceleratorLayoutStyleSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 20, packedBitOffset: 0, type: ash.mojom.AcceleratorSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

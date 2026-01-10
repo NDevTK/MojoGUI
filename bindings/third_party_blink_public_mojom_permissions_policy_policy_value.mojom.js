@@ -16,3 +16,26 @@ blink.mojom.PolicyValueType = {
   kDecDouble: 2,
   kEnum: 3,
 };
+blink.mojom.PolicyValueTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: PolicyValue
+blink.mojom.PolicyValueSpec = { $: mojo.internal.Union(
+    'blink.mojom.PolicyValue', {
+      'null_value': {
+        'ordinal': 0,
+        'type': mojo.internal.Bool,
+      }},
+      'bool_value': {
+        'ordinal': 1,
+        'type': mojo.internal.Bool,
+      }},
+      'dec_double_value': {
+        'ordinal': 2,
+        'type': mojo.internal.Double,
+      }},
+      'enum_value': {
+        'ordinal': 3,
+        'type': mojo.internal.Int32,
+      }},
+    })
+};

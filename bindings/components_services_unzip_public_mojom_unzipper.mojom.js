@@ -16,10 +16,10 @@ unzip.mojom.UnzipOptionsSpec = {
       name: 'unzip.mojom.UnzipOptions',
       packedSize: 24,
       fields: [
-        { name: 'encoding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'encoding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -29,14 +29,14 @@ unzip.mojom.InfoSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Info',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'size_is_valid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'is_encrypted', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'uses_aes_encryption', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'size_is_valid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'is_encrypted', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'uses_aes_encryption', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -104,9 +104,9 @@ unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = {
       name: 'unzip.mojom.UnzipFilter.ShouldUnzipFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -114,12 +114,12 @@ unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = {
 unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'unzip.mojom.UnzipFilter.ShouldUnzipFile_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,9 +192,9 @@ unzip.mojom.UnzipListener_OnProgress_ParamsSpec = {
       name: 'unzip.mojom.UnzipListener.OnProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -294,13 +294,13 @@ unzip.mojom.Unzipper_Unzip_ParamsSpec = {
       name: 'unzip.mojom.Unzipper.Unzip_Params',
       packedSize: 40,
       fields: [
-        { name: 'zip_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'output_dir', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: unzip.mojom.UnzipOptionsSpec, nullable: false },
-        { name: 'filter', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'listener', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'output_dir', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: unzip.mojom.UnzipOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -308,12 +308,12 @@ unzip.mojom.Unzipper_Unzip_ParamsSpec = {
 unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'unzip.mojom.Unzipper.Unzip_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -325,9 +325,9 @@ unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = {
       name: 'unzip.mojom.Unzipper.DetectEncoding_Params',
       packedSize: 16,
       fields: [
-        { name: 'zip_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -335,12 +335,12 @@ unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = {
 unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'unzip.mojom.Unzipper.DetectEncoding_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'encoding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'encoding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -352,9 +352,9 @@ unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = {
       name: 'unzip.mojom.Unzipper.GetExtractedInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'zip_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -362,12 +362,12 @@ unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = {
 unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'unzip.mojom.Unzipper.GetExtractedInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: unzip.mojom.InfoSpec, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: unzip.mojom.InfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -379,10 +379,10 @@ unzip.mojom.Unzipper_DecodeXz_ParamsSpec = {
       name: 'unzip.mojom.Unzipper.DecodeXz_Params',
       packedSize: 24,
       fields: [
-        { name: 'in_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'out_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'in_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'out_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -390,12 +390,12 @@ unzip.mojom.Unzipper_DecodeXz_ParamsSpec = {
 unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'unzip.mojom.Unzipper.DecodeXz_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

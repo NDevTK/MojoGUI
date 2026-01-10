@@ -17,6 +17,7 @@ network.mojom.ServiceWorkerRouterSourceType = {
   kCache: 3,
   kRaceNetworkAndCache: 4,
 };
+network.mojom.ServiceWorkerRouterSourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerStatus
 network.mojom.ServiceWorkerStatus = {
@@ -27,23 +28,25 @@ network.mojom.ServiceWorkerStatus = {
   kWarmingUp: 4,
   kWarmedUp: 5,
 };
+network.mojom.ServiceWorkerStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerRouterInfo
 network.mojom.ServiceWorkerRouterInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ServiceWorkerRouterInfo',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'rule_id_matched', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
-        { name: 'matched_source_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterSourceTypeSpec, nullable: true },
-        { name: 'actual_source_type', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterSourceTypeSpec, nullable: true },
-        { name: 'route_rule_num', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'router_evaluation_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'cache_lookup_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'evaluation_worker_status', packedOffset: 56, packedBitOffset: 0, type: network.mojom.ServiceWorkerStatusSpec, nullable: true },
+        { name: 'rule_id_matched_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'rule_id_matched_$value', originalFieldName: 'rule_id_matched' } },
+        { name: 'rule_id_matched_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'rule_id_matched_$flag', originalFieldName: 'rule_id_matched' } },
+        { name: 'matched_source_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterSourceTypeSpec, nullable: true, minVersion: 0 },
+        { name: 'actual_source_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterSourceTypeSpec, nullable: true, minVersion: 0 },
+        { name: 'route_rule_num', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'router_evaluation_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'cache_lookup_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'evaluation_worker_status', packedOffset: 40, packedBitOffset: 0, type: network.mojom.ServiceWorkerStatusSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

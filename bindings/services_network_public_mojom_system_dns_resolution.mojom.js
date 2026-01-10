@@ -70,14 +70,14 @@ network.mojom.SystemDnsResolver_Resolve_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SystemDnsResolver.Resolve_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'addr_family', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false },
-        { name: 'flags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'network', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'addr_family', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'network', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -85,14 +85,14 @@ network.mojom.SystemDnsResolver_Resolve_ParamsSpec = {
 network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.SystemDnsResolver.Resolve_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'addr_list', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false },
-        { name: 'os_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'net_error', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'addr_list', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
+        { name: 'os_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'net_error', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

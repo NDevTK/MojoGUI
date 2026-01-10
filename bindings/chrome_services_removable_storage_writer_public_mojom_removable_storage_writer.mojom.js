@@ -9,6 +9,18 @@ var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
 
+chrome.mojom.kRemovableStorageWriterSandbox = sandbox.mojom.Sandbox.kNoSandboxAndElevatedPrivileges;
+
+chrome.mojom.kRemovableStorageWriterSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+
+chrome.mojom.kTestDevice = "chrome:
+
+  
+  
+  Write(mojo_base.mojom.FilePath source,
+        mojo_base.mojom.FilePath target,
+        pending_remote<RemovableStorageWriterClient> client);
+
 // Interface: RemovableStorageWriter
 chrome.mojom.RemovableStorageWriter = {};
 
@@ -81,11 +93,11 @@ chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = {
       name: 'chrome.mojom.RemovableStorageWriter.Write_Params',
       packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'target', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -97,11 +109,11 @@ chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = {
       name: 'chrome.mojom.RemovableStorageWriter.Verify_Params',
       packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'target', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -183,9 +195,9 @@ chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = {
       name: 'chrome.mojom.RemovableStorageWriterClient.Progress_Params',
       packedSize: 16,
       fields: [
-        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -197,9 +209,9 @@ chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = {
       name: 'chrome.mojom.RemovableStorageWriterClient.Complete_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

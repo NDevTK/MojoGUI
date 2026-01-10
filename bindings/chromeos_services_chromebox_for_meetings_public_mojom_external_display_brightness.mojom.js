@@ -45,6 +45,42 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  setExternalDisplayALSBrightness(enabled) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec,
+      null,
+      [enabled]);
+  }
+
+  getExternalDisplayALSBrightness() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec,
+      chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec,
+      []);
+  }
+
+  setExternalDisplayBrightnessPercent(percent) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec,
+      null,
+      [percent]);
+  }
+
+  getExternalDisplayBrightnessPercent() {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec,
+      chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec,
+      []);
+  }
+
 };
 
 chromeos.cfm.mojom.ExternalDisplayBrightness.getRemote = function() {
@@ -55,6 +91,86 @@ chromeos.cfm.mojom.ExternalDisplayBrightness.getRemote = function() {
     'chromeos.cfm.mojom.ExternalDisplayBrightness',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SetExternalDisplayALSBrightness
+chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.SetExternalDisplayALSBrightness_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetExternalDisplayALSBrightness
+chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.GetExternalDisplayALSBrightness_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for SetExternalDisplayBrightnessPercent
+chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.SetExternalDisplayBrightnessPercent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetExternalDisplayBrightnessPercent
+chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.cfm.mojom.ExternalDisplayBrightness.GetExternalDisplayBrightnessPercent_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

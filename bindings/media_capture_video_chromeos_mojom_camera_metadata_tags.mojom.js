@@ -46,6 +46,7 @@ cros.mojom.CameraMetadataSection = {
   ANDROID_SECTION_COUNT: 32,
   VENDOR_SECTION: 33,
 };
+cros.mojom.CameraMetadataSectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraMetadataSectionStart
 cros.mojom.CameraMetadataSectionStart = {
@@ -82,6 +83,7 @@ cros.mojom.CameraMetadataSectionStart = {
   ANDROID_AUTOMOTIVE_START: 30,
   ANDROID_AUTOMOTIVE_LENS_START: 31,
 };
+cros.mojom.CameraMetadataSectionStartSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraMetadataTag
 cros.mojom.CameraMetadataTag = {
@@ -412,6 +414,7 @@ cros.mojom.CameraMetadataTag = {
   ANDROID_AUTOMOTIVE_LENS_FACING: 324,
   ANDROID_AUTOMOTIVE_LENS_END: 325,
 };
+cros.mojom.CameraMetadataTagSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidColorCorrectionMode
 cros.mojom.AndroidColorCorrectionMode = {
@@ -419,6 +422,7 @@ cros.mojom.AndroidColorCorrectionMode = {
   ANDROID_COLOR_CORRECTION_MODE_FAST: 1,
   ANDROID_COLOR_CORRECTION_MODE_HIGH_QUALITY: 2,
 };
+cros.mojom.AndroidColorCorrectionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidColorCorrectionAberrationMode
 cros.mojom.AndroidColorCorrectionAberrationMode = {
@@ -426,6 +430,7 @@ cros.mojom.AndroidColorCorrectionAberrationMode = {
   ANDROID_COLOR_CORRECTION_ABERRATION_MODE_FAST: 1,
   ANDROID_COLOR_CORRECTION_ABERRATION_MODE_HIGH_QUALITY: 2,
 };
+cros.mojom.AndroidColorCorrectionAberrationModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAeAntibandingMode
 cros.mojom.AndroidControlAeAntibandingMode = {
@@ -434,12 +439,14 @@ cros.mojom.AndroidControlAeAntibandingMode = {
   ANDROID_CONTROL_AE_ANTIBANDING_MODE_60HZ: 2,
   ANDROID_CONTROL_AE_ANTIBANDING_MODE_AUTO: 3,
 };
+cros.mojom.AndroidControlAeAntibandingModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAeLock
 cros.mojom.AndroidControlAeLock = {
   ANDROID_CONTROL_AE_LOCK_OFF: 0,
   ANDROID_CONTROL_AE_LOCK_ON: 1,
 };
+cros.mojom.AndroidControlAeLockSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAeMode
 cros.mojom.AndroidControlAeMode = {
@@ -450,6 +457,7 @@ cros.mojom.AndroidControlAeMode = {
   ANDROID_CONTROL_AE_MODE_ON_AUTO_FLASH_REDEYE: 4,
   ANDROID_CONTROL_AE_MODE_ON_EXTERNAL_FLASH: 5,
 };
+cros.mojom.AndroidControlAeModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAePrecaptureTrigger
 cros.mojom.AndroidControlAePrecaptureTrigger = {
@@ -457,6 +465,7 @@ cros.mojom.AndroidControlAePrecaptureTrigger = {
   ANDROID_CONTROL_AE_PRECAPTURE_TRIGGER_START: 1,
   ANDROID_CONTROL_AE_PRECAPTURE_TRIGGER_CANCEL: 2,
 };
+cros.mojom.AndroidControlAePrecaptureTriggerSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAfMode
 cros.mojom.AndroidControlAfMode = {
@@ -467,6 +476,7 @@ cros.mojom.AndroidControlAfMode = {
   ANDROID_CONTROL_AF_MODE_CONTINUOUS_PICTURE: 4,
   ANDROID_CONTROL_AF_MODE_EDOF: 5,
 };
+cros.mojom.AndroidControlAfModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAfTrigger
 cros.mojom.AndroidControlAfTrigger = {
@@ -474,12 +484,14 @@ cros.mojom.AndroidControlAfTrigger = {
   ANDROID_CONTROL_AF_TRIGGER_START: 1,
   ANDROID_CONTROL_AF_TRIGGER_CANCEL: 2,
 };
+cros.mojom.AndroidControlAfTriggerSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAwbLock
 cros.mojom.AndroidControlAwbLock = {
   ANDROID_CONTROL_AWB_LOCK_OFF: 0,
   ANDROID_CONTROL_AWB_LOCK_ON: 1,
 };
+cros.mojom.AndroidControlAwbLockSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAwbMode
 cros.mojom.AndroidControlAwbMode = {
@@ -493,6 +505,7 @@ cros.mojom.AndroidControlAwbMode = {
   ANDROID_CONTROL_AWB_MODE_TWILIGHT: 7,
   ANDROID_CONTROL_AWB_MODE_SHADE: 8,
 };
+cros.mojom.AndroidControlAwbModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlCaptureIntent
 cros.mojom.AndroidControlCaptureIntent = {
@@ -505,6 +518,7 @@ cros.mojom.AndroidControlCaptureIntent = {
   ANDROID_CONTROL_CAPTURE_INTENT_MANUAL: 6,
   ANDROID_CONTROL_CAPTURE_INTENT_MOTION_TRACKING: 7,
 };
+cros.mojom.AndroidControlCaptureIntentSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlEffectMode
 cros.mojom.AndroidControlEffectMode = {
@@ -518,6 +532,7 @@ cros.mojom.AndroidControlEffectMode = {
   ANDROID_CONTROL_EFFECT_MODE_BLACKBOARD: 7,
   ANDROID_CONTROL_EFFECT_MODE_AQUA: 8,
 };
+cros.mojom.AndroidControlEffectModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlMode
 cros.mojom.AndroidControlMode = {
@@ -527,6 +542,7 @@ cros.mojom.AndroidControlMode = {
   ANDROID_CONTROL_MODE_OFF_KEEP_STATE: 3,
   ANDROID_CONTROL_MODE_USE_EXTENDED_SCENE_MODE: 4,
 };
+cros.mojom.AndroidControlModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlSceneMode
 cros.mojom.AndroidControlSceneMode = {
@@ -553,6 +569,7 @@ cros.mojom.AndroidControlSceneMode = {
   ANDROID_CONTROL_SCENE_MODE_DEVICE_CUSTOM_START: 20,
   ANDROID_CONTROL_SCENE_MODE_DEVICE_CUSTOM_END: 21,
 };
+cros.mojom.AndroidControlSceneModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlVideoStabilizationMode
 cros.mojom.AndroidControlVideoStabilizationMode = {
@@ -560,6 +577,7 @@ cros.mojom.AndroidControlVideoStabilizationMode = {
   ANDROID_CONTROL_VIDEO_STABILIZATION_MODE_ON: 1,
   ANDROID_CONTROL_VIDEO_STABILIZATION_MODE_PREVIEW_STABILIZATION: 2,
 };
+cros.mojom.AndroidControlVideoStabilizationModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAeState
 cros.mojom.AndroidControlAeState = {
@@ -570,6 +588,7 @@ cros.mojom.AndroidControlAeState = {
   ANDROID_CONTROL_AE_STATE_FLASH_REQUIRED: 4,
   ANDROID_CONTROL_AE_STATE_PRECAPTURE: 5,
 };
+cros.mojom.AndroidControlAeStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAfState
 cros.mojom.AndroidControlAfState = {
@@ -581,6 +600,7 @@ cros.mojom.AndroidControlAfState = {
   ANDROID_CONTROL_AF_STATE_NOT_FOCUSED_LOCKED: 5,
   ANDROID_CONTROL_AF_STATE_PASSIVE_UNFOCUSED: 6,
 };
+cros.mojom.AndroidControlAfStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAwbState
 cros.mojom.AndroidControlAwbState = {
@@ -589,30 +609,35 @@ cros.mojom.AndroidControlAwbState = {
   ANDROID_CONTROL_AWB_STATE_CONVERGED: 2,
   ANDROID_CONTROL_AWB_STATE_LOCKED: 3,
 };
+cros.mojom.AndroidControlAwbStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAeLockAvailable
 cros.mojom.AndroidControlAeLockAvailable = {
   ANDROID_CONTROL_AE_LOCK_AVAILABLE_FALSE: 0,
   ANDROID_CONTROL_AE_LOCK_AVAILABLE_TRUE: 1,
 };
+cros.mojom.AndroidControlAeLockAvailableSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAwbLockAvailable
 cros.mojom.AndroidControlAwbLockAvailable = {
   ANDROID_CONTROL_AWB_LOCK_AVAILABLE_FALSE: 0,
   ANDROID_CONTROL_AWB_LOCK_AVAILABLE_TRUE: 1,
 };
+cros.mojom.AndroidControlAwbLockAvailableSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlEnableZsl
 cros.mojom.AndroidControlEnableZsl = {
   ANDROID_CONTROL_ENABLE_ZSL_FALSE: 0,
   ANDROID_CONTROL_ENABLE_ZSL_TRUE: 1,
 };
+cros.mojom.AndroidControlEnableZslSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAfSceneChange
 cros.mojom.AndroidControlAfSceneChange = {
   ANDROID_CONTROL_AF_SCENE_CHANGE_NOT_DETECTED: 0,
   ANDROID_CONTROL_AF_SCENE_CHANGE_DETECTED: 1,
 };
+cros.mojom.AndroidControlAfSceneChangeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlExtendedSceneMode
 cros.mojom.AndroidControlExtendedSceneMode = {
@@ -621,30 +646,35 @@ cros.mojom.AndroidControlExtendedSceneMode = {
   ANDROID_CONTROL_EXTENDED_SCENE_MODE_BOKEH_CONTINUOUS: 2,
   ANDROID_CONTROL_EXTENDED_SCENE_MODE_VENDOR_START: 3,
 };
+cros.mojom.AndroidControlExtendedSceneModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAfRegionsSet
 cros.mojom.AndroidControlAfRegionsSet = {
   ANDROID_CONTROL_AF_REGIONS_SET_FALSE: 0,
   ANDROID_CONTROL_AF_REGIONS_SET_TRUE: 1,
 };
+cros.mojom.AndroidControlAfRegionsSetSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAeRegionsSet
 cros.mojom.AndroidControlAeRegionsSet = {
   ANDROID_CONTROL_AE_REGIONS_SET_FALSE: 0,
   ANDROID_CONTROL_AE_REGIONS_SET_TRUE: 1,
 };
+cros.mojom.AndroidControlAeRegionsSetSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidControlAwbRegionsSet
 cros.mojom.AndroidControlAwbRegionsSet = {
   ANDROID_CONTROL_AWB_REGIONS_SET_FALSE: 0,
   ANDROID_CONTROL_AWB_REGIONS_SET_TRUE: 1,
 };
+cros.mojom.AndroidControlAwbRegionsSetSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidDemosaicMode
 cros.mojom.AndroidDemosaicMode = {
   ANDROID_DEMOSAIC_MODE_FAST: 0,
   ANDROID_DEMOSAIC_MODE_HIGH_QUALITY: 1,
 };
+cros.mojom.AndroidDemosaicModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidEdgeMode
 cros.mojom.AndroidEdgeMode = {
@@ -653,6 +683,7 @@ cros.mojom.AndroidEdgeMode = {
   ANDROID_EDGE_MODE_HIGH_QUALITY: 2,
   ANDROID_EDGE_MODE_ZERO_SHUTTER_LAG: 3,
 };
+cros.mojom.AndroidEdgeModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidFlashMode
 cros.mojom.AndroidFlashMode = {
@@ -660,6 +691,7 @@ cros.mojom.AndroidFlashMode = {
   ANDROID_FLASH_MODE_SINGLE: 1,
   ANDROID_FLASH_MODE_TORCH: 2,
 };
+cros.mojom.AndroidFlashModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidFlashState
 cros.mojom.AndroidFlashState = {
@@ -669,12 +701,14 @@ cros.mojom.AndroidFlashState = {
   ANDROID_FLASH_STATE_FIRED: 3,
   ANDROID_FLASH_STATE_PARTIAL: 4,
 };
+cros.mojom.AndroidFlashStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidFlashInfoAvailable
 cros.mojom.AndroidFlashInfoAvailable = {
   ANDROID_FLASH_INFO_AVAILABLE_FALSE: 0,
   ANDROID_FLASH_INFO_AVAILABLE_TRUE: 1,
 };
+cros.mojom.AndroidFlashInfoAvailableSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidHotPixelMode
 cros.mojom.AndroidHotPixelMode = {
@@ -682,12 +716,14 @@ cros.mojom.AndroidHotPixelMode = {
   ANDROID_HOT_PIXEL_MODE_FAST: 1,
   ANDROID_HOT_PIXEL_MODE_HIGH_QUALITY: 2,
 };
+cros.mojom.AndroidHotPixelModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidLensOpticalStabilizationMode
 cros.mojom.AndroidLensOpticalStabilizationMode = {
   ANDROID_LENS_OPTICAL_STABILIZATION_MODE_OFF: 0,
   ANDROID_LENS_OPTICAL_STABILIZATION_MODE_ON: 1,
 };
+cros.mojom.AndroidLensOpticalStabilizationModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidLensFacing
 cros.mojom.AndroidLensFacing = {
@@ -695,12 +731,14 @@ cros.mojom.AndroidLensFacing = {
   ANDROID_LENS_FACING_BACK: 1,
   ANDROID_LENS_FACING_EXTERNAL: 2,
 };
+cros.mojom.AndroidLensFacingSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidLensState
 cros.mojom.AndroidLensState = {
   ANDROID_LENS_STATE_STATIONARY: 0,
   ANDROID_LENS_STATE_MOVING: 1,
 };
+cros.mojom.AndroidLensStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidLensPoseReference
 cros.mojom.AndroidLensPoseReference = {
@@ -709,6 +747,7 @@ cros.mojom.AndroidLensPoseReference = {
   ANDROID_LENS_POSE_REFERENCE_UNDEFINED: 2,
   ANDROID_LENS_POSE_REFERENCE_AUTOMOTIVE: 3,
 };
+cros.mojom.AndroidLensPoseReferenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidLensInfoFocusDistanceCalibration
 cros.mojom.AndroidLensInfoFocusDistanceCalibration = {
@@ -716,6 +755,7 @@ cros.mojom.AndroidLensInfoFocusDistanceCalibration = {
   ANDROID_LENS_INFO_FOCUS_DISTANCE_CALIBRATION_APPROXIMATE: 1,
   ANDROID_LENS_INFO_FOCUS_DISTANCE_CALIBRATION_CALIBRATED: 2,
 };
+cros.mojom.AndroidLensInfoFocusDistanceCalibrationSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidNoiseReductionMode
 cros.mojom.AndroidNoiseReductionMode = {
@@ -725,24 +765,28 @@ cros.mojom.AndroidNoiseReductionMode = {
   ANDROID_NOISE_REDUCTION_MODE_MINIMAL: 3,
   ANDROID_NOISE_REDUCTION_MODE_ZERO_SHUTTER_LAG: 4,
 };
+cros.mojom.AndroidNoiseReductionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidQuirksPartialResult
 cros.mojom.AndroidQuirksPartialResult = {
   ANDROID_QUIRKS_PARTIAL_RESULT_FINAL: 0,
   ANDROID_QUIRKS_PARTIAL_RESULT_PARTIAL: 1,
 };
+cros.mojom.AndroidQuirksPartialResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidRequestMetadataMode
 cros.mojom.AndroidRequestMetadataMode = {
   ANDROID_REQUEST_METADATA_MODE_NONE: 0,
   ANDROID_REQUEST_METADATA_MODE_FULL: 1,
 };
+cros.mojom.AndroidRequestMetadataModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidRequestType
 cros.mojom.AndroidRequestType = {
   ANDROID_REQUEST_TYPE_CAPTURE: 0,
   ANDROID_REQUEST_TYPE_REPROCESS: 1,
 };
+cros.mojom.AndroidRequestTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidRequestAvailableCapabilities
 cros.mojom.AndroidRequestAvailableCapabilities = {
@@ -767,6 +811,7 @@ cros.mojom.AndroidRequestAvailableCapabilities = {
   ANDROID_REQUEST_AVAILABLE_CAPABILITIES_DYNAMIC_RANGE_TEN_BIT: 18,
   ANDROID_REQUEST_AVAILABLE_CAPABILITIES_STREAM_USE_CASE: 19,
 };
+cros.mojom.AndroidRequestAvailableCapabilitiesSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidRequestAvailableDynamicRangeProfilesMap
 cros.mojom.AndroidRequestAvailableDynamicRangeProfilesMap = {
@@ -784,6 +829,7 @@ cros.mojom.AndroidRequestAvailableDynamicRangeProfilesMap = {
   ANDROID_REQUEST_AVAILABLE_DYNAMIC_RANGE_PROFILES_MAP_DOLBY_VISION_8B_HDR_OEM_PO: 11,
   ANDROID_REQUEST_AVAILABLE_DYNAMIC_RANGE_PROFILES_MAP_MAX: 12,
 };
+cros.mojom.AndroidRequestAvailableDynamicRangeProfilesMapSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerAvailableFormats
 cros.mojom.AndroidScalerAvailableFormats = {
@@ -798,18 +844,21 @@ cros.mojom.AndroidScalerAvailableFormats = {
   ANDROID_SCALER_AVAILABLE_FORMATS_RAW12: 8,
   ANDROID_SCALER_AVAILABLE_FORMATS_Y8: 9,
 };
+cros.mojom.AndroidScalerAvailableFormatsSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerAvailableStreamConfigurations
 cros.mojom.AndroidScalerAvailableStreamConfigurations = {
   ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT: 0,
   ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_INPUT: 1,
 };
+cros.mojom.AndroidScalerAvailableStreamConfigurationsSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerCroppingType
 cros.mojom.AndroidScalerCroppingType = {
   ANDROID_SCALER_CROPPING_TYPE_CENTER_ONLY: 0,
   ANDROID_SCALER_CROPPING_TYPE_FREEFORM: 1,
 };
+cros.mojom.AndroidScalerCroppingTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerAvailableRecommendedStreamConfigurations
 cros.mojom.AndroidScalerAvailableRecommendedStreamConfigurations = {
@@ -825,6 +874,7 @@ cros.mojom.AndroidScalerAvailableRecommendedStreamConfigurations = {
   ANDROID_SCALER_AVAILABLE_RECOMMENDED_STREAM_CONFIGURATIONS_PUBLIC_END_3_8: 9,
   ANDROID_SCALER_AVAILABLE_RECOMMENDED_STREAM_CONFIGURATIONS_VENDOR_START: 10,
 };
+cros.mojom.AndroidScalerAvailableRecommendedStreamConfigurationsSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerRotateAndCrop
 cros.mojom.AndroidScalerRotateAndCrop = {
@@ -834,30 +884,35 @@ cros.mojom.AndroidScalerRotateAndCrop = {
   ANDROID_SCALER_ROTATE_AND_CROP_270: 3,
   ANDROID_SCALER_ROTATE_AND_CROP_AUTO: 4,
 };
+cros.mojom.AndroidScalerRotateAndCropSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerPhysicalCameraMultiResolutionStreamConfigurations
 cros.mojom.AndroidScalerPhysicalCameraMultiResolutionStreamConfigurations = {
   ANDROID_SCALER_PHYSICAL_CAMERA_MULTI_RESOLUTION_STREAM_CONFIGURATIONS_OUTPUT: 0,
   ANDROID_SCALER_PHYSICAL_CAMERA_MULTI_RESOLUTION_STREAM_CONFIGURATIONS_INPUT: 1,
 };
+cros.mojom.AndroidScalerPhysicalCameraMultiResolutionStreamConfigurationsSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerAvailableStreamConfigurationsMaximumResolution
 cros.mojom.AndroidScalerAvailableStreamConfigurationsMaximumResolution = {
   ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_MAXIMUM_RESOLUTION_OUTPUT: 0,
   ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_MAXIMUM_RESOLUTION_INPUT: 1,
 };
+cros.mojom.AndroidScalerAvailableStreamConfigurationsMaximumResolutionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerMultiResolutionStreamSupported
 cros.mojom.AndroidScalerMultiResolutionStreamSupported = {
   ANDROID_SCALER_MULTI_RESOLUTION_STREAM_SUPPORTED_FALSE: 0,
   ANDROID_SCALER_MULTI_RESOLUTION_STREAM_SUPPORTED_TRUE: 1,
 };
+cros.mojom.AndroidScalerMultiResolutionStreamSupportedSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerCropRegionSet
 cros.mojom.AndroidScalerCropRegionSet = {
   ANDROID_SCALER_CROP_REGION_SET_FALSE: 0,
   ANDROID_SCALER_CROP_REGION_SET_TRUE: 1,
 };
+cros.mojom.AndroidScalerCropRegionSetSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidScalerAvailableStreamUseCases
 cros.mojom.AndroidScalerAvailableStreamUseCases = {
@@ -869,6 +924,7 @@ cros.mojom.AndroidScalerAvailableStreamUseCases = {
   ANDROID_SCALER_AVAILABLE_STREAM_USE_CASES_VIDEO_CALL: 5,
   ANDROID_SCALER_AVAILABLE_STREAM_USE_CASES_VENDOR_START: 6,
 };
+cros.mojom.AndroidScalerAvailableStreamUseCasesSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSensorReferenceIlluminant1
 cros.mojom.AndroidSensorReferenceIlluminant1 = {
@@ -892,6 +948,7 @@ cros.mojom.AndroidSensorReferenceIlluminant1 = {
   ANDROID_SENSOR_REFERENCE_ILLUMINANT1_D50: 17,
   ANDROID_SENSOR_REFERENCE_ILLUMINANT1_ISO_STUDIO_TUNGSTEN: 18,
 };
+cros.mojom.AndroidSensorReferenceIlluminant1Spec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSensorTestPatternMode
 cros.mojom.AndroidSensorTestPatternMode = {
@@ -903,18 +960,21 @@ cros.mojom.AndroidSensorTestPatternMode = {
   ANDROID_SENSOR_TEST_PATTERN_MODE_BLACK: 5,
   ANDROID_SENSOR_TEST_PATTERN_MODE_CUSTOM1: 6,
 };
+cros.mojom.AndroidSensorTestPatternModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSensorPixelMode
 cros.mojom.AndroidSensorPixelMode = {
   ANDROID_SENSOR_PIXEL_MODE_DEFAULT: 0,
   ANDROID_SENSOR_PIXEL_MODE_MAXIMUM_RESOLUTION: 1,
 };
+cros.mojom.AndroidSensorPixelModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSensorRawBinningFactorUsed
 cros.mojom.AndroidSensorRawBinningFactorUsed = {
   ANDROID_SENSOR_RAW_BINNING_FACTOR_USED_TRUE: 0,
   ANDROID_SENSOR_RAW_BINNING_FACTOR_USED_FALSE: 1,
 };
+cros.mojom.AndroidSensorRawBinningFactorUsedSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSensorInfoColorFilterArrangement
 cros.mojom.AndroidSensorInfoColorFilterArrangement = {
@@ -926,18 +986,21 @@ cros.mojom.AndroidSensorInfoColorFilterArrangement = {
   ANDROID_SENSOR_INFO_COLOR_FILTER_ARRANGEMENT_MONO: 5,
   ANDROID_SENSOR_INFO_COLOR_FILTER_ARRANGEMENT_NIR: 6,
 };
+cros.mojom.AndroidSensorInfoColorFilterArrangementSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSensorInfoTimestampSource
 cros.mojom.AndroidSensorInfoTimestampSource = {
   ANDROID_SENSOR_INFO_TIMESTAMP_SOURCE_UNKNOWN: 0,
   ANDROID_SENSOR_INFO_TIMESTAMP_SOURCE_REALTIME: 1,
 };
+cros.mojom.AndroidSensorInfoTimestampSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSensorInfoLensShadingApplied
 cros.mojom.AndroidSensorInfoLensShadingApplied = {
   ANDROID_SENSOR_INFO_LENS_SHADING_APPLIED_FALSE: 0,
   ANDROID_SENSOR_INFO_LENS_SHADING_APPLIED_TRUE: 1,
 };
+cros.mojom.AndroidSensorInfoLensShadingAppliedSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidShadingMode
 cros.mojom.AndroidShadingMode = {
@@ -945,6 +1008,7 @@ cros.mojom.AndroidShadingMode = {
   ANDROID_SHADING_MODE_FAST: 1,
   ANDROID_SHADING_MODE_HIGH_QUALITY: 2,
 };
+cros.mojom.AndroidShadingModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidStatisticsFaceDetectMode
 cros.mojom.AndroidStatisticsFaceDetectMode = {
@@ -952,24 +1016,28 @@ cros.mojom.AndroidStatisticsFaceDetectMode = {
   ANDROID_STATISTICS_FACE_DETECT_MODE_SIMPLE: 1,
   ANDROID_STATISTICS_FACE_DETECT_MODE_FULL: 2,
 };
+cros.mojom.AndroidStatisticsFaceDetectModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidStatisticsHistogramMode
 cros.mojom.AndroidStatisticsHistogramMode = {
   ANDROID_STATISTICS_HISTOGRAM_MODE_OFF: 0,
   ANDROID_STATISTICS_HISTOGRAM_MODE_ON: 1,
 };
+cros.mojom.AndroidStatisticsHistogramModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidStatisticsSharpnessMapMode
 cros.mojom.AndroidStatisticsSharpnessMapMode = {
   ANDROID_STATISTICS_SHARPNESS_MAP_MODE_OFF: 0,
   ANDROID_STATISTICS_SHARPNESS_MAP_MODE_ON: 1,
 };
+cros.mojom.AndroidStatisticsSharpnessMapModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidStatisticsHotPixelMapMode
 cros.mojom.AndroidStatisticsHotPixelMapMode = {
   ANDROID_STATISTICS_HOT_PIXEL_MAP_MODE_OFF: 0,
   ANDROID_STATISTICS_HOT_PIXEL_MAP_MODE_ON: 1,
 };
+cros.mojom.AndroidStatisticsHotPixelMapModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidStatisticsSceneFlicker
 cros.mojom.AndroidStatisticsSceneFlicker = {
@@ -977,18 +1045,21 @@ cros.mojom.AndroidStatisticsSceneFlicker = {
   ANDROID_STATISTICS_SCENE_FLICKER_50HZ: 1,
   ANDROID_STATISTICS_SCENE_FLICKER_60HZ: 2,
 };
+cros.mojom.AndroidStatisticsSceneFlickerSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidStatisticsLensShadingMapMode
 cros.mojom.AndroidStatisticsLensShadingMapMode = {
   ANDROID_STATISTICS_LENS_SHADING_MAP_MODE_OFF: 0,
   ANDROID_STATISTICS_LENS_SHADING_MAP_MODE_ON: 1,
 };
+cros.mojom.AndroidStatisticsLensShadingMapModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidStatisticsOisDataMode
 cros.mojom.AndroidStatisticsOisDataMode = {
   ANDROID_STATISTICS_OIS_DATA_MODE_OFF: 0,
   ANDROID_STATISTICS_OIS_DATA_MODE_ON: 1,
 };
+cros.mojom.AndroidStatisticsOisDataModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidTonemapMode
 cros.mojom.AndroidTonemapMode = {
@@ -998,23 +1069,27 @@ cros.mojom.AndroidTonemapMode = {
   ANDROID_TONEMAP_MODE_GAMMA_VALUE: 3,
   ANDROID_TONEMAP_MODE_PRESET_CURVE: 4,
 };
+cros.mojom.AndroidTonemapModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidTonemapPresetCurve
 cros.mojom.AndroidTonemapPresetCurve = {
   ANDROID_TONEMAP_PRESET_CURVE_SRGB: 0,
   ANDROID_TONEMAP_PRESET_CURVE_REC709: 1,
 };
+cros.mojom.AndroidTonemapPresetCurveSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidLedTransmit
 cros.mojom.AndroidLedTransmit = {
   ANDROID_LED_TRANSMIT_OFF: 0,
   ANDROID_LED_TRANSMIT_ON: 1,
 };
+cros.mojom.AndroidLedTransmitSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidLedAvailableLeds
 cros.mojom.AndroidLedAvailableLeds = {
   ANDROID_LED_AVAILABLE_LEDS_TRANSMIT: 0,
 };
+cros.mojom.AndroidLedAvailableLedsSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidInfoSupportedHardwareLevel
 cros.mojom.AndroidInfoSupportedHardwareLevel = {
@@ -1024,65 +1099,76 @@ cros.mojom.AndroidInfoSupportedHardwareLevel = {
   ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_3: 3,
   ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_EXTERNAL: 4,
 };
+cros.mojom.AndroidInfoSupportedHardwareLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidInfoSupportedBufferManagementVersion
 cros.mojom.AndroidInfoSupportedBufferManagementVersion = {
   ANDROID_INFO_SUPPORTED_BUFFER_MANAGEMENT_VERSION_HIDL_DEVICE_3_5: 0,
 };
+cros.mojom.AndroidInfoSupportedBufferManagementVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidBlackLevelLock
 cros.mojom.AndroidBlackLevelLock = {
   ANDROID_BLACK_LEVEL_LOCK_OFF: 0,
   ANDROID_BLACK_LEVEL_LOCK_ON: 1,
 };
+cros.mojom.AndroidBlackLevelLockSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSyncFrameNumber
 cros.mojom.AndroidSyncFrameNumber = {
   ANDROID_SYNC_FRAME_NUMBER_CONVERGING: 0,
   ANDROID_SYNC_FRAME_NUMBER_UNKNOWN: 1,
 };
+cros.mojom.AndroidSyncFrameNumberSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSyncMaxLatency
 cros.mojom.AndroidSyncMaxLatency = {
   ANDROID_SYNC_MAX_LATENCY_PER_FRAME_CONTROL: 0,
   ANDROID_SYNC_MAX_LATENCY_UNKNOWN: 1,
 };
+cros.mojom.AndroidSyncMaxLatencySpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidDepthAvailableDepthStreamConfigurations
 cros.mojom.AndroidDepthAvailableDepthStreamConfigurations = {
   ANDROID_DEPTH_AVAILABLE_DEPTH_STREAM_CONFIGURATIONS_OUTPUT: 0,
   ANDROID_DEPTH_AVAILABLE_DEPTH_STREAM_CONFIGURATIONS_INPUT: 1,
 };
+cros.mojom.AndroidDepthAvailableDepthStreamConfigurationsSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidDepthDepthIsExclusive
 cros.mojom.AndroidDepthDepthIsExclusive = {
   ANDROID_DEPTH_DEPTH_IS_EXCLUSIVE_FALSE: 0,
   ANDROID_DEPTH_DEPTH_IS_EXCLUSIVE_TRUE: 1,
 };
+cros.mojom.AndroidDepthDepthIsExclusiveSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidDepthAvailableDynamicDepthStreamConfigurations
 cros.mojom.AndroidDepthAvailableDynamicDepthStreamConfigurations = {
   ANDROID_DEPTH_AVAILABLE_DYNAMIC_DEPTH_STREAM_CONFIGURATIONS_OUTPUT: 0,
   ANDROID_DEPTH_AVAILABLE_DYNAMIC_DEPTH_STREAM_CONFIGURATIONS_INPUT: 1,
 };
+cros.mojom.AndroidDepthAvailableDynamicDepthStreamConfigurationsSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidDepthAvailableDepthStreamConfigurationsMaximumResolution
 cros.mojom.AndroidDepthAvailableDepthStreamConfigurationsMaximumResolution = {
   ANDROID_DEPTH_AVAILABLE_DEPTH_STREAM_CONFIGURATIONS_MAXIMUM_RESOLUTION_OUTPUT: 0,
   ANDROID_DEPTH_AVAILABLE_DEPTH_STREAM_CONFIGURATIONS_MAXIMUM_RESOLUTION_INPUT: 1,
 };
+cros.mojom.AndroidDepthAvailableDepthStreamConfigurationsMaximumResolutionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidDepthAvailableDynamicDepthStreamConfigurationsMaximumResolution
 cros.mojom.AndroidDepthAvailableDynamicDepthStreamConfigurationsMaximumResolution = {
   ANDROID_DEPTH_AVAILABLE_DYNAMIC_DEPTH_STREAM_CONFIGURATIONS_MAXIMUM_RESOLUTION_OUTPUT: 0,
   ANDROID_DEPTH_AVAILABLE_DYNAMIC_DEPTH_STREAM_CONFIGURATIONS_MAXIMUM_RESOLUTION_INPUT: 1,
 };
+cros.mojom.AndroidDepthAvailableDynamicDepthStreamConfigurationsMaximumResolutionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidLogicalMultiCameraSensorSyncType
 cros.mojom.AndroidLogicalMultiCameraSensorSyncType = {
   ANDROID_LOGICAL_MULTI_CAMERA_SENSOR_SYNC_TYPE_APPROXIMATE: 0,
   ANDROID_LOGICAL_MULTI_CAMERA_SENSOR_SYNC_TYPE_CALIBRATED: 1,
 };
+cros.mojom.AndroidLogicalMultiCameraSensorSyncTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidDistortionCorrectionMode
 cros.mojom.AndroidDistortionCorrectionMode = {
@@ -1090,24 +1176,28 @@ cros.mojom.AndroidDistortionCorrectionMode = {
   ANDROID_DISTORTION_CORRECTION_MODE_FAST: 1,
   ANDROID_DISTORTION_CORRECTION_MODE_HIGH_QUALITY: 2,
 };
+cros.mojom.AndroidDistortionCorrectionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidHeicAvailableHeicStreamConfigurations
 cros.mojom.AndroidHeicAvailableHeicStreamConfigurations = {
   ANDROID_HEIC_AVAILABLE_HEIC_STREAM_CONFIGURATIONS_OUTPUT: 0,
   ANDROID_HEIC_AVAILABLE_HEIC_STREAM_CONFIGURATIONS_INPUT: 1,
 };
+cros.mojom.AndroidHeicAvailableHeicStreamConfigurationsSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidHeicAvailableHeicStreamConfigurationsMaximumResolution
 cros.mojom.AndroidHeicAvailableHeicStreamConfigurationsMaximumResolution = {
   ANDROID_HEIC_AVAILABLE_HEIC_STREAM_CONFIGURATIONS_MAXIMUM_RESOLUTION_OUTPUT: 0,
   ANDROID_HEIC_AVAILABLE_HEIC_STREAM_CONFIGURATIONS_MAXIMUM_RESOLUTION_INPUT: 1,
 };
+cros.mojom.AndroidHeicAvailableHeicStreamConfigurationsMaximumResolutionSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidHeicInfoSupported
 cros.mojom.AndroidHeicInfoSupported = {
   ANDROID_HEIC_INFO_SUPPORTED_FALSE: 0,
   ANDROID_HEIC_INFO_SUPPORTED_TRUE: 1,
 };
+cros.mojom.AndroidHeicInfoSupportedSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidAutomotiveLocation
 cros.mojom.AndroidAutomotiveLocation = {
@@ -1123,6 +1213,7 @@ cros.mojom.AndroidAutomotiveLocation = {
   ANDROID_AUTOMOTIVE_LOCATION_EXTRA_LEFT: 9,
   ANDROID_AUTOMOTIVE_LOCATION_EXTRA_RIGHT: 10,
 };
+cros.mojom.AndroidAutomotiveLocationSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidAutomotiveLensFacing
 cros.mojom.AndroidAutomotiveLensFacing = {
@@ -1142,3 +1233,4 @@ cros.mojom.AndroidAutomotiveLensFacing = {
   ANDROID_AUTOMOTIVE_LENS_FACING_INTERIOR_SEAT_ROW_3_CENTER: 13,
   ANDROID_AUTOMOTIVE_LENS_FACING_INTERIOR_SEAT_ROW_3_RIGHT: 14,
 };
+cros.mojom.AndroidAutomotiveLensFacingSpec = { $: mojo.internal.Enum() };

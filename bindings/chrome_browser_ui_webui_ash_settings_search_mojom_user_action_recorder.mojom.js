@@ -10,6 +10,24 @@ ash.settings = ash.settings || {};
 ash.settings.mojom = ash.settings.mojom || {};
 
 
+// Union: SettingChangeValue
+ash.settings.mojom.SettingChangeValueSpec = { $: mojo.internal.Union(
+    'ash.settings.mojom.SettingChangeValue', {
+      'bool_value': {
+        'ordinal': 0,
+        'type': mojo.internal.Bool,
+      }},
+      'int_value': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+      }},
+      'string_value': {
+        'ordinal': 2,
+        'type': mojo.internal.String,
+      }},
+    })
+};
+
 // Interface: UserActionRecorder
 ash.settings.mojom.UserActionRecorder = {};
 
@@ -128,7 +146,7 @@ ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -141,7 +159,7 @@ ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -154,7 +172,7 @@ ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -167,7 +185,7 @@ ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -180,7 +198,7 @@ ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -193,7 +211,7 @@ ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -203,12 +221,12 @@ ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec 
   $: {
     structSpec: {
       name: 'ash.settings.mojom.UserActionRecorder.RecordSettingChangeWithDetails_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'setting', packedOffset: 8, packedBitOffset: 0, type: chromeos.settings.mojom.SettingSpec, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: ash.settings.mojom.SettingChangeValueSpec, nullable: true },
+        { name: 'setting', packedOffset: 0, packedBitOffset: 0, type: chromeos.settings.mojom.SettingSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: ash.settings.mojom.SettingChangeValueSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

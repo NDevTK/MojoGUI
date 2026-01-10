@@ -16,10 +16,10 @@ blink.mojom.ImpressionSpec = {
       name: 'blink.mojom.Impression',
       packedSize: 24,
       fields: [
-        { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false },
-        { name: 'is_empty_attribution_src_tag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'is_empty_attribution_src_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -103,14 +103,14 @@ blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AttributionHost.RegisterDataHost_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'data_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'registration_eligibility', packedOffset: 16, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationEligibilitySpec, nullable: false },
-        { name: 'is_for_background_requests', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'reporting_origins', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'registration_eligibility', packedOffset: 4, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationEligibilitySpec, nullable: false, minVersion: 0 },
+        { name: 'is_for_background_requests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reporting_origins', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -122,10 +122,10 @@ blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
       name: 'blink.mojom.AttributionHost.RegisterNavigationDataHost_Params',
       packedSize: 24,
       fields: [
-        { name: 'data_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'attribution_src_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false },
+        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -137,10 +137,10 @@ blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart
       name: 'blink.mojom.AttributionHost.NotifyNavigationWithBackgroundRegistrationsWillStart_Params',
       packedSize: 24,
       fields: [
-        { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false },
-        { name: 'expected_registrations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'expected_registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

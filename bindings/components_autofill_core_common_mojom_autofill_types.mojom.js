@@ -26,6 +26,7 @@ autofill.mojom.FormControlType = {
   kTextArea: 12,
   kInputDate: 13,
 };
+autofill.mojom.FormControlTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HtmlFieldMode
 autofill.mojom.HtmlFieldMode = {
@@ -33,6 +34,7 @@ autofill.mojom.HtmlFieldMode = {
   kBilling: 1,
   kShipping: 2,
 };
+autofill.mojom.HtmlFieldModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HtmlFieldType
 autofill.mojom.HtmlFieldType = {
@@ -86,6 +88,7 @@ autofill.mojom.HtmlFieldType = {
   kIban: 47,
   kUnrecognized: 48,
 };
+autofill.mojom.HtmlFieldTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubmissionIndicatorEvent
 autofill.mojom.SubmissionIndicatorEvent = {
@@ -98,6 +101,7 @@ autofill.mojom.SubmissionIndicatorEvent = {
   CHANGE_PASSWORD_FORM_CLEARED: 6,
   DOM_MUTATION_AFTER_AUTOFILL: 7,
 };
+autofill.mojom.SubmissionIndicatorEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubmissionSource
 autofill.mojom.SubmissionSource = {
@@ -109,6 +113,7 @@ autofill.mojom.SubmissionSource = {
   FORM_SUBMISSION: 5,
   DOM_MUTATION_AFTER_AUTOFILL: 6,
 };
+autofill.mojom.SubmissionSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: FocusedFieldType
 autofill.mojom.FocusedFieldType = {
@@ -121,6 +126,7 @@ autofill.mojom.FocusedFieldType = {
   kFillableUsernameField: 6,
   kFillablePasswordField: 7,
 };
+autofill.mojom.FocusedFieldTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ButtonTitleType
 autofill.mojom.ButtonTitleType = {
@@ -133,6 +139,7 @@ autofill.mojom.ButtonTitleType = {
   DIV: 6,
   SPAN: 7,
 };
+autofill.mojom.ButtonTitleTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubmissionReadinessState
 autofill.mojom.SubmissionReadinessState = {
@@ -147,6 +154,7 @@ autofill.mojom.SubmissionReadinessState = {
   kNoPasswordField: 8,
   kLikelyHasCaptcha: 9,
 };
+autofill.mojom.SubmissionReadinessStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CheckStatus
 autofill.mojom.CheckStatus = {
@@ -154,12 +162,14 @@ autofill.mojom.CheckStatus = {
   kCheckableButUnchecked: 1,
   kChecked: 2,
 };
+autofill.mojom.CheckStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: RoleAttribute
 autofill.mojom.RoleAttribute = {
   kPresentation: 0,
   kOther: 1,
 };
+autofill.mojom.RoleAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LabelSource
 autofill.mojom.LabelSource = {
@@ -180,6 +190,7 @@ autofill.mojom.LabelSource = {
   kForShadowHostName: 14,
   kOverlayingLabel: 15,
 };
+autofill.mojom.LabelSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutofillSuggestionAvailability
 autofill.mojom.AutofillSuggestionAvailability = {
@@ -187,18 +198,21 @@ autofill.mojom.AutofillSuggestionAvailability = {
   kAutofillAvailable: 1,
   kAutocompleteAvailable: 2,
 };
+autofill.mojom.AutofillSuggestionAvailabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionPersistence
 autofill.mojom.ActionPersistence = {
   kFill: 0,
   kPreview: 1,
 };
+autofill.mojom.ActionPersistenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: FormActionType
 autofill.mojom.FormActionType = {
   kFill: 0,
   kUndo: 1,
 };
+autofill.mojom.FormActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FieldActionType
 autofill.mojom.FieldActionType = {
@@ -206,6 +220,7 @@ autofill.mojom.FieldActionType = {
   kReplaceSelection: 1,
   kSelectAll: 2,
 };
+autofill.mojom.FieldActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutofillSuggestionTriggerSource
 autofill.mojom.AutofillSuggestionTriggerSource = {
@@ -226,6 +241,7 @@ autofill.mojom.AutofillSuggestionTriggerSource = {
   kPlusAddressUpdatedInBrowserProcess: 14,
   kProactivePasswordRecovery: 15,
 };
+autofill.mojom.AutofillSuggestionTriggerSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: FrameToken
 autofill.mojom.FrameTokenSpec = {
@@ -234,10 +250,10 @@ autofill.mojom.FrameTokenSpec = {
       name: 'autofill.mojom.FrameToken',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'is_local', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'is_local', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -249,10 +265,10 @@ autofill.mojom.FrameTokenWithPredecessorSpec = {
       name: 'autofill.mojom.FrameTokenWithPredecessor',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FrameTokenSpec, nullable: false },
-        { name: 'predecessor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'predecessor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -264,9 +280,9 @@ autofill.mojom.FormRendererIdSpec = {
       name: 'autofill.mojom.FormRendererId',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -278,9 +294,9 @@ autofill.mojom.FieldRendererIdSpec = {
       name: 'autofill.mojom.FieldRendererId',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -292,9 +308,9 @@ autofill.mojom.FillIdSpec = {
       name: 'autofill.mojom.FillId',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -306,10 +322,10 @@ autofill.mojom.SelectOptionSpec = {
       name: 'autofill.mojom.SelectOption',
       packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -319,15 +335,15 @@ autofill.mojom.AutocompleteParsingResultSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.AutocompleteParsingResult',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'section', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.HtmlFieldModeSpec, nullable: false },
-        { name: 'field_type', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.HtmlFieldTypeSpec, nullable: false },
-        { name: 'webauthn', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'webidentity', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.HtmlFieldModeSpec, nullable: false, minVersion: 0 },
+        { name: 'field_type', packedOffset: 12, packedBitOffset: 0, type: autofill.mojom.HtmlFieldTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'webauthn', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'webidentity', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -339,9 +355,9 @@ autofill.mojom.FormFieldDataSpec = {
       name: 'autofill.mojom.FormFieldData',
       packedSize: 16,
       fields: [
-        { name: 'kNotCheckable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kNotCheckable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -353,13 +369,13 @@ autofill.mojom.FormFieldData_FillDataSpec = {
       name: 'autofill.mojom.FormFieldData_FillData',
       packedSize: 40,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
-        { name: 'host_form_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false },
-        { name: 'is_autofilled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'force_override', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'host_form_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'is_autofilled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'force_override', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -371,10 +387,10 @@ autofill.mojom.ButtonTitleInfoSpec = {
       name: 'autofill.mojom.ButtonTitleInfo',
       packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.ButtonTitleTypeSpec, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.ButtonTitleTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -384,23 +400,23 @@ autofill.mojom.FormDataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.FormData',
-      packedSize: 104,
+      packedSize: 88,
       fields: [
-        { name: 'id_attribute', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'name_attribute', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'button_titles', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'action', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'is_action_empty', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'renderer_id', packedOffset: 56, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false },
-        { name: 'child_frames', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'submission_event', packedOffset: 72, packedBitOffset: 0, type: autofill.mojom.SubmissionIndicatorEventSpec, nullable: false },
-        { name: 'fields', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'username_predictions', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_gaia_with_skip_save_password_form', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'likely_contains_captcha', packedOffset: 96, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'id_attribute', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'name_attribute', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'button_titles', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.ButtonTitleInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'is_action_empty', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'renderer_id', packedOffset: 48, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'child_frames', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FrameTokenWithPredecessorSpec, false), nullable: false, minVersion: 0 },
+        { name: 'submission_event', packedOffset: 44, packedBitOffset: 0, type: autofill.mojom.SubmissionIndicatorEventSpec, nullable: false, minVersion: 0 },
+        { name: 'fields', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormFieldDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'username_predictions', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FieldRendererIdSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_gaia_with_skip_save_password_form', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'likely_contains_captcha', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };
@@ -412,24 +428,24 @@ autofill.mojom.FormFieldDataPredictionsSpec = {
       name: 'autofill.mojom.FormFieldDataPredictions',
       packedSize: 120,
       fields: [
-        { name: 'host_form_signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'heuristic_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'pwm_ml_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'server_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'html_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'overall_type', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'attribute_types', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'format_string', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'parseable_name', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'parseable_label', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'section', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'rank', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'rank_in_signature_group', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'rank_in_host_form', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'rank_in_host_form_signature_group', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'host_form_signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'heuristic_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pwm_ml_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'server_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'html_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'overall_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'attribute_types', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'format_string', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'parseable_name', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'parseable_label', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'section', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'rank', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'rank_in_signature_group', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'rank_in_host_form', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'rank_in_host_form_signature_group', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 120}]
     }
   }
 };
@@ -441,13 +457,13 @@ autofill.mojom.FormDataPredictionsSpec = {
       name: 'autofill.mojom.FormDataPredictions',
       packedSize: 48,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'alternative_signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'structural_form_signature', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'fields', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'alternative_signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'structural_form_signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'fields', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormFieldDataPredictionsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -459,13 +475,13 @@ autofill.mojom.PasswordAndMetadataSpec = {
       name: 'autofill.mojom.PasswordAndMetadata',
       packedSize: 40,
       fields: [
-        { name: 'username_value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'password_value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'realm', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'uses_account_store', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_grouped_affiliation', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'username_value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'password_value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'uses_account_store', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_grouped_affiliation', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -475,19 +491,19 @@ autofill.mojom.PasswordFormFillDataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.PasswordFormFillData',
-      packedSize: 80,
+      packedSize: 72,
       fields: [
-        { name: 'form_renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'username_element_renderer_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
-        { name: 'password_element_renderer_id', packedOffset: 32, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
-        { name: 'preferred_login', packedOffset: 40, packedBitOffset: 0, type: autofill.mojom.PasswordAndMetadataSpec, nullable: false },
-        { name: 'additional_logins', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'wait_for_username', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'suggestion_banned_fields', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'notify_browser_of_successful_filling', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'form_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'username_element_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'password_element_renderer_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'preferred_login', packedOffset: 32, packedBitOffset: 0, type: autofill.mojom.PasswordAndMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'additional_logins', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.PasswordAndMetadataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'wait_for_username', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'suggestion_banned_fields', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FieldRendererIdSpec, false), nullable: false, minVersion: 0 },
+        { name: 'notify_browser_of_successful_filling', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -499,10 +515,10 @@ autofill.mojom.PasswordFormGenerationDataSpec = {
       name: 'autofill.mojom.PasswordFormGenerationData',
       packedSize: 24,
       fields: [
-        { name: 'new_password_renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
-        { name: 'confirmation_password_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'new_password_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'confirmation_password_renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -512,18 +528,18 @@ autofill.mojom.PasswordGenerationUIDataSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.PasswordGenerationUIData',
-      packedSize: 72,
+      packedSize: 56,
       fields: [
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'max_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'generation_element', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'generation_element_id', packedOffset: 32, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
-        { name: 'is_generation_element_password_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'text_direction', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
-        { name: 'form_data', packedOffset: 56, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false },
-        { name: 'generation_rejected', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'max_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'generation_element', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'generation_element_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'is_generation_element_password_type', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'text_direction', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
+        { name: 'form_data', packedOffset: 40, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
+        { name: 'generation_rejected', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -533,17 +549,17 @@ autofill.mojom.TriggeringFieldSpec = {
   $: {
     structSpec: {
       name: 'autofill.mojom.TriggeringField',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'element_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
-        { name: 'trigger_source', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.AutofillSuggestionTriggerSourceSpec, nullable: false },
-        { name: 'text_direction', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false },
-        { name: 'typed_username', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'show_webauthn_credentials', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'show_identity_credentials', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'bounds', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
+        { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'trigger_source', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.AutofillSuggestionTriggerSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'text_direction', packedOffset: 12, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
+        { name: 'typed_username', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'show_webauthn_credentials', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'show_identity_credentials', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'bounds', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -555,12 +571,12 @@ autofill.mojom.PasswordSuggestionRequestSpec = {
       name: 'autofill.mojom.PasswordSuggestionRequest',
       packedSize: 40,
       fields: [
-        { name: 'field', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.TriggeringFieldSpec, nullable: false },
-        { name: 'form_data', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false },
-        { name: 'username_field_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'password_field_index', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.TriggeringFieldSpec, nullable: false, minVersion: 0 },
+        { name: 'form_data', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
+        { name: 'username_field_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'password_field_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -572,12 +588,12 @@ autofill.mojom.ParsingResultSpec = {
       name: 'autofill.mojom.ParsingResult',
       packedSize: 40,
       fields: [
-        { name: 'username_renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
-        { name: 'password_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
-        { name: 'new_password_renderer_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
-        { name: 'confirm_password_renderer_id', packedOffset: 32, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false },
+        { name: 'username_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'password_renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'new_password_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
+        { name: 'confirm_password_renderer_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

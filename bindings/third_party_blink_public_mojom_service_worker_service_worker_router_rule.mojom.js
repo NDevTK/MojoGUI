@@ -14,6 +14,33 @@ blink.mojom.ServiceWorkerRouterRunningStatusEnum = {
   kRunning: 0,
   kNotRunning: 1,
 };
+blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec = { $: mojo.internal.Enum() };
+
+// Union: ServiceWorkerRouterSource
+blink.mojom.ServiceWorkerRouterSourceSpec = { $: mojo.internal.Union(
+    'blink.mojom.ServiceWorkerRouterSource', {
+      'network_source': {
+        'ordinal': 0,
+        'type': blink.mojom.ServiceWorkerRouterNetworkSourceSpec,
+      }},
+      'race_network_and_fetch_event_source': {
+        'ordinal': 1,
+        'type': blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec,
+      }},
+      'fetch_event_source': {
+        'ordinal': 2,
+        'type': blink.mojom.ServiceWorkerRouterFetchEventSourceSpec,
+      }},
+      'cache_source': {
+        'ordinal': 3,
+        'type': blink.mojom.ServiceWorkerRouterCacheSourceSpec,
+      }},
+      'race_network_and_cache_source': {
+        'ordinal': 4,
+        'type': blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec,
+      }},
+    })
+};
 
 // Struct: ServiceWorkerRouterRunningStatusCondition
 blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec = {
@@ -22,9 +49,9 @@ blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec = {
       name: 'blink.mojom.ServiceWorkerRouterRunningStatusCondition',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -34,15 +61,15 @@ blink.mojom.ServiceWorkerRouterRequestConditionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRequestCondition',
-      packedSize: 48,
+      packedSize: 32,
       fields: [
-        { name: 'method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'has_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'mode', packedOffset: 24, packedBitOffset: 0, type: network.mojom.RequestModeSpec, nullable: false },
-        { name: 'has_destination', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'destination', packedOffset: 40, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false },
+        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'has_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 12, packedBitOffset: 0, type: network.mojom.RequestModeSpec, nullable: false, minVersion: 0 },
+        { name: 'has_destination', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -54,9 +81,9 @@ blink.mojom.ServiceWorkerRouterOrConditionSpec = {
       name: 'blink.mojom.ServiceWorkerRouterOrCondition',
       packedSize: 16,
       fields: [
-        { name: 'conditions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'conditions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ServiceWorkerRouterConditionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -68,9 +95,9 @@ blink.mojom.ServiceWorkerRouterNotConditionSpec = {
       name: 'blink.mojom.ServiceWorkerRouterNotCondition',
       packedSize: 16,
       fields: [
-        { name: 'condition', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterConditionSpec, nullable: false },
+        { name: 'condition', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterConditionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,13 +109,13 @@ blink.mojom.ServiceWorkerRouterConditionSpec = {
       name: 'blink.mojom.ServiceWorkerRouterCondition',
       packedSize: 48,
       fields: [
-        { name: 'url_pattern', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SafeUrlPatternSpec, nullable: true },
-        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRequestConditionSpec, nullable: true },
-        { name: 'running_status', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec, nullable: true },
-        { name: 'or_condition', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterOrConditionSpec, nullable: true },
-        { name: 'not_condition', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterNotConditionSpec, nullable: true },
+        { name: 'url_pattern', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SafeUrlPatternSpec, nullable: true, minVersion: 0 },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRequestConditionSpec, nullable: true, minVersion: 0 },
+        { name: 'running_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec, nullable: true, minVersion: 0 },
+        { name: 'or_condition', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterOrConditionSpec, nullable: true, minVersion: 0 },
+        { name: 'not_condition', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterNotConditionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -101,7 +128,7 @@ blink.mojom.ServiceWorkerRouterNetworkSourceSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -114,7 +141,7 @@ blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -127,7 +154,7 @@ blink.mojom.ServiceWorkerRouterFetchEventSourceSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -139,9 +166,9 @@ blink.mojom.ServiceWorkerRouterCacheSourceSpec = {
       name: 'blink.mojom.ServiceWorkerRouterCacheSource',
       packedSize: 16,
       fields: [
-        { name: 'cache_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -153,9 +180,9 @@ blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec = {
       name: 'blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSource',
       packedSize: 16,
       fields: [
-        { name: 'cache_source', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterCacheSourceSpec, nullable: false },
+        { name: 'cache_source', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterCacheSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -167,10 +194,10 @@ blink.mojom.ServiceWorkerRouterRuleSpec = {
       name: 'blink.mojom.ServiceWorkerRouterRule',
       packedSize: 24,
       fields: [
-        { name: 'condition', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterConditionSpec, nullable: false },
-        { name: 'sources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'condition', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterConditionSpec, nullable: false, minVersion: 0 },
+        { name: 'sources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ServiceWorkerRouterSourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -182,9 +209,9 @@ blink.mojom.ServiceWorkerRouterRulesSpec = {
       name: 'blink.mojom.ServiceWorkerRouterRules',
       packedSize: 16,
       fields: [
-        { name: 'rules', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ServiceWorkerRouterRuleSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

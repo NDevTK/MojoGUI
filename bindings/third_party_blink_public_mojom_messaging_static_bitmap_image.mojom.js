@@ -9,19 +9,33 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
 
+// Union: SerializedStaticBitmapImage
+blink.mojom.SerializedStaticBitmapImageSpec = { $: mojo.internal.Union(
+    'blink.mojom.SerializedStaticBitmapImage', {
+      'bitmap': {
+        'ordinal': 0,
+        'type': skia.mojom.BitmapN32Spec,
+      }},
+      'accelerated_image': {
+        'ordinal': 1,
+        'type': blink.mojom.AcceleratedStaticBitmapImageSpec,
+      }},
+    })
+};
+
 // Struct: AcceleratedStaticBitmapImage
 blink.mojom.AcceleratedStaticBitmapImageSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AcceleratedStaticBitmapImage',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'shared_image', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.ExportedSharedImageSpec, nullable: false },
-        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
-        { name: 'alpha_type', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: false },
-        { name: 'release_callback', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'shared_image', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ExportedSharedImageSpec, nullable: false, minVersion: 0 },
+        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'alpha_type', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'release_callback', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -89,9 +103,9 @@ blink.mojom.ImageReleaseCallback_Release_ParamsSpec = {
       name: 'blink.mojom.ImageReleaseCallback.Release_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

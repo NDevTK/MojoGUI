@@ -17,3 +17,4 @@ chrome.file_util.mojom.ExtractionResult = {
   kInvalidSrcFile: 2,
   kDstFileError: 3,
 };
+chrome.file_util.mojom.ExtractionResultSpec = { $: mojo.internal.Enum() };

@@ -14,14 +14,14 @@ ui.mojom.CursorSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.Cursor',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.CursorTypeSpec, nullable: false },
-        { name: 'hotspot', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'bitmap', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
-        { name: 'image_scale_factor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.CursorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'hotspot', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'bitmap', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'image_scale_factor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

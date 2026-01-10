@@ -16,9 +16,9 @@ network.mojom.BlockedByResponseReasonWrapperSpec = {
       name: 'network.mojom.BlockedByResponseReasonWrapper',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: network.mojom.BlockedByResponseReasonSpec, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: network.mojom.BlockedByResponseReasonSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -28,23 +28,23 @@ network.mojom.URLLoaderCompletionStatusSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderCompletionStatus',
-      packedSize: 104,
+      packedSize: 88,
       fields: [
-        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'extended_error_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'exists_in_cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'completion_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'encoded_data_length', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'encoded_body_length', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'decoded_body_length', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'cors_error_status', packedOffset: 56, packedBitOffset: 0, type: network.mojom.CorsErrorStatusSpec, nullable: true },
-        { name: 'ssl_info', packedOffset: 64, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true },
-        { name: 'blocked_by_response_reason', packedOffset: 72, packedBitOffset: 0, type: network.mojom.BlockedByResponseReasonWrapperSpec, nullable: true },
-        { name: 'should_report_orb_blocking', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'resolve_error_info', packedOffset: 88, packedBitOffset: 0, type: network.mojom.ResolveErrorInfoSpec, nullable: false },
-        { name: 'should_collapse_initiator', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'extended_error_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'exists_in_cache', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'completion_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'encoded_data_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'encoded_body_length', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'decoded_body_length', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'cors_error_status', packedOffset: 48, packedBitOffset: 0, type: network.mojom.CorsErrorStatusSpec, nullable: true, minVersion: 0 },
+        { name: 'ssl_info', packedOffset: 56, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'blocked_by_response_reason', packedOffset: 64, packedBitOffset: 0, type: network.mojom.BlockedByResponseReasonWrapperSpec, nullable: true, minVersion: 0 },
+        { name: 'should_report_orb_blocking', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'resolve_error_info', packedOffset: 72, packedBitOffset: 0, type: network.mojom.ResolveErrorInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'should_collapse_initiator', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };

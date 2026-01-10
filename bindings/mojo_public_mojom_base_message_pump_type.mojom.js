@@ -16,3 +16,4 @@ mojo_base.mojom.MessagePumpType = {
   kCustom: 2,
   kIo: 3,
 };
+mojo_base.mojom.MessagePumpTypeSpec = { $: mojo.internal.Enum() };

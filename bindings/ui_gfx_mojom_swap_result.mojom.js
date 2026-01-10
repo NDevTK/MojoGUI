@@ -16,3 +16,4 @@ gfx.mojom.SwapResult = {
   SKIPPED: 2,
   NAK_RECREATE_BUFFERS: 3,
 };
+gfx.mojom.SwapResultSpec = { $: mojo.internal.Enum() };

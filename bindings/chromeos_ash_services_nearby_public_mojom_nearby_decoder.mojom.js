@@ -81,9 +81,9 @@ sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeAdvertisement_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,12 +91,12 @@ sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
 sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'sharing.mojom.NearbySharingDecoder.DecodeAdvertisement_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'advertisement', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.AdvertisementSpec, nullable: true },
+        { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.AdvertisementSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -108,9 +108,9 @@ sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
       name: 'sharing.mojom.NearbySharingDecoder.DecodeFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,12 +118,12 @@ sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
 sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'sharing.mojom.NearbySharingDecoder.DecodeFrame_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.FrameSpec, nullable: true },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.FrameSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

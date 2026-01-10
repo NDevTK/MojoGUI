@@ -16,3 +16,4 @@ nearby_share.mojom.ShareTargetType = {
   kTablet: 2,
   kLaptop: 3,
 };
+nearby_share.mojom.ShareTargetTypeSpec = { $: mojo.internal.Enum() };

@@ -16,14 +16,14 @@ viz.mojom.FrameSinkManagerParamsSpec = {
       name: 'viz.mojom.FrameSinkManagerParams',
       packedSize: 40,
       fields: [
-        { name: 'restart_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'use_activation_deadline', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'activation_deadline_in_frames', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'frame_sink_manager', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'frame_sink_manager_client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'debug_renderer_settings', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.DebugRendererSettingsSpec, nullable: false },
+        { name: 'restart_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'use_activation_deadline', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'activation_deadline_in_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_manager', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_manager_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'debug_renderer_settings', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.DebugRendererSettingsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -35,9 +35,9 @@ viz.mojom.GpuServiceCreationParamsSpec = {
       name: 'viz.mojom.GpuServiceCreationParams',
       packedSize: 16,
       fields: [
-        { name: 'supports_overlays', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'supports_overlays', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -177,9 +177,9 @@ viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = {
       name: 'viz.mojom.VizMain.CreateFrameSinkManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkManagerParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkManagerParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -191,14 +191,14 @@ viz.mojom.VizMain_CreateGpuService_ParamsSpec = {
       name: 'viz.mojom.VizMain.CreateGpuService_Params',
       packedSize: 40,
       fields: [
-        { name: 'gpu_service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'gpu_host', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'gpu_logging', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'discardable_memory_manager', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'use_shader_cache_shm_count', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true },
-        { name: 'params', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.GpuServiceCreationParamsSpec, nullable: false },
+        { name: 'gpu_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'gpu_host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'gpu_logging', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'discardable_memory_manager', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'use_shader_cache_shm_count', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
+        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.GpuServiceCreationParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -210,11 +210,11 @@ viz.mojom.VizMain_SetRenderParams_ParamsSpec = {
       name: 'viz.mojom.VizMain.SetRenderParams_Params',
       packedSize: 24,
       fields: [
-        { name: 'subpixel_rendering', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SubpixelRenderingSpec, nullable: false },
-        { name: 'text_contrast', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'text_gamma', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'subpixel_rendering', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SubpixelRenderingSpec, nullable: false, minVersion: 0 },
+        { name: 'text_contrast', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'text_gamma', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -226,9 +226,9 @@ viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = {
       name: 'viz.mojom.VizMain.CreateInfoCollectionGpuService_Params',
       packedSize: 16,
       fields: [
-        { name: 'info_collection_gpu_service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'info_collection_gpu_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -240,9 +240,9 @@ viz.mojom.VizMain_SetHostProcessId_ParamsSpec = {
       name: 'viz.mojom.VizMain.SetHostProcessId_Params',
       packedSize: 16,
       fields: [
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -255,7 +255,7 @@ viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -267,9 +267,9 @@ viz.mojom.VizMain_StartDebugStream_ParamsSpec = {
       name: 'viz.mojom.VizMain.StartDebugStream_Params',
       packedSize: 16,
       fields: [
-        { name: 'viz_debug', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'viz_debug', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -281,9 +281,9 @@ viz.mojom.VizMain_FilterDebugStream_ParamsSpec = {
       name: 'viz.mojom.VizMain.FilterDebugStream_Params',
       packedSize: 16,
       fields: [
-        { name: 'filterData', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'filterData', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -296,7 +296,7 @@ viz.mojom.VizMain_StopDebugStream_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

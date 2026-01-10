@@ -15,6 +15,7 @@ chromecast.mojom.SideSwipeEvent = {
   CONTINUE: 1,
   END: 2,
 };
+chromecast.mojom.SideSwipeEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: SideSwipeOrigin
 chromecast.mojom.SideSwipeOrigin = {
@@ -23,6 +24,7 @@ chromecast.mojom.SideSwipeOrigin = {
   LEFT: 2,
   RIGHT: 3,
 };
+chromecast.mojom.SideSwipeOriginSpec = { $: mojo.internal.Enum() };
 
 // Interface: SettingsClient
 chromecast.mojom.SettingsClient = {};
@@ -94,13 +96,13 @@ chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.SettingsClient.HandleSideSwipe_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.SideSwipeEventSpec, nullable: false },
-        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: chromecast.mojom.SideSwipeOriginSpec, nullable: false },
-        { name: 'touch_location', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.SideSwipeEventSpec, nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 4, packedBitOffset: 0, type: chromecast.mojom.SideSwipeOriginSpec, nullable: false, minVersion: 0 },
+        { name: 'touch_location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -112,9 +114,9 @@ chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = {
       name: 'chromecast.mojom.SettingsClient.SendPlatformInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'platform_info_json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'platform_info_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -196,9 +198,9 @@ chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = {
       name: 'chromecast.mojom.SettingsPlatform.Connect_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -210,9 +212,9 @@ chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = {
       name: 'chromecast.mojom.SettingsPlatform.RequestVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

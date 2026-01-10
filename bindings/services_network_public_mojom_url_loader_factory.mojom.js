@@ -9,6 +9,28 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+network.mojom.kURLLoadOptionNone = 0;
+
+network.mojom.kURLLoadOptionSendSSLInfoWithResponse = 1;
+
+network.mojom.kURLLoadOptionSniffMimeType = 2;
+
+network.mojom.kURLLoadOptionSynchronous = 4;
+
+network.mojom.kURLLoadOptionSendSSLInfoForCertificateError = 8;
+
+network.mojom.kURLLoadOptionUseHeaderClient = 16;
+
+network.mojom.kURLLoadOptionBlockAllCookies = 32;
+
+network.mojom.kURLLoadOptionBlockThirdPartyCookies = 64;
+
+network.mojom.kURLLoadOptionAsCorsPreflight = 128;
+
+network.mojom.kURLLoadOptionBlockLocalRequest = 256;
+
+network.mojom.kURLLoadOptionReadAndDiscardBody = 512;
+
 // Interface: URLLoaderFactory
 network.mojom.URLLoaderFactory = {};
 
@@ -79,16 +101,16 @@ network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderFactory.CreateLoaderAndStart_Params',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'loader', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'request_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'request', packedOffset: 24, packedBitOffset: 0, type: network.mojom.URLRequestSpec, nullable: false },
-        { name: 'client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'traffic_annotation', packedOffset: 40, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
+        { name: 'loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -100,9 +122,9 @@ network.mojom.URLLoaderFactory_Clone_ParamsSpec = {
       name: 'network.mojom.URLLoaderFactory.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

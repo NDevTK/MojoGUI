@@ -24,6 +24,7 @@ ui.mojom.WindowOpenDisposition = {
   SWITCH_TO_TAB: 10,
   NEW_PICTURE_IN_PICTURE: 11,
 };
+ui.mojom.WindowOpenDispositionSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClickModifiers
 ui.mojom.ClickModifiersSpec = {
@@ -32,13 +33,13 @@ ui.mojom.ClickModifiersSpec = {
       name: 'ui.mojom.ClickModifiers',
       packedSize: 16,
       fields: [
-        { name: 'middle_button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'alt_key', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'ctrl_key', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'meta_key', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'shift_key', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'middle_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'alt_key', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ctrl_key', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'meta_key', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'shift_key', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

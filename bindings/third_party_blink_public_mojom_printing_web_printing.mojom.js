@@ -14,6 +14,7 @@ blink.mojom.WebPrintingMultipleDocumentHandling = {
   kSeparateDocumentsCollatedCopies: 0,
   kSeparateDocumentsUncollatedCopies: 1,
 };
+blink.mojom.WebPrintingMultipleDocumentHandlingSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintingSides
 blink.mojom.WebPrintingSides = {
@@ -21,6 +22,7 @@ blink.mojom.WebPrintingSides = {
   kTwoSidedLongEdge: 1,
   kTwoSidedShortEdge: 2,
 };
+blink.mojom.WebPrintingSidesSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintQuality
 blink.mojom.WebPrintQuality = {
@@ -28,18 +30,21 @@ blink.mojom.WebPrintQuality = {
   kNormal: 1,
   kHigh: 2,
 };
+blink.mojom.WebPrintQualitySpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintColorMode
 blink.mojom.WebPrintColorMode = {
   kColor: 0,
   kMonochrome: 1,
 };
+blink.mojom.WebPrintColorModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintingOrientationRequested
 blink.mojom.WebPrintingOrientationRequested = {
   kPortrait: 0,
   kLandscape: 1,
 };
+blink.mojom.WebPrintingOrientationRequestedSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrinterState
 blink.mojom.WebPrinterState = {
@@ -47,6 +52,7 @@ blink.mojom.WebPrinterState = {
   kProcessing: 1,
   kStopped: 2,
 };
+blink.mojom.WebPrinterStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrinterStateReason
 blink.mojom.WebPrinterStateReason = {
@@ -86,6 +92,7 @@ blink.mojom.WebPrinterStateReason = {
   kTonerLow: 33,
   kCupsPkiExpired: 34,
 };
+blink.mojom.WebPrinterStateReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintJobState
 blink.mojom.WebPrintJobState = {
@@ -95,17 +102,20 @@ blink.mojom.WebPrintJobState = {
   kCanceled: 3,
   kAborted: 4,
 };
+blink.mojom.WebPrintJobStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetPrintersError
 blink.mojom.GetPrintersError = {
   kUserPermissionDenied: 0,
 };
+blink.mojom.GetPrintersErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrinterFetchError
 blink.mojom.WebPrinterFetchError = {
   kPrinterUnreachable: 0,
   kUserPermissionDenied: 1,
 };
+blink.mojom.WebPrinterFetchErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintError
 blink.mojom.WebPrintError = {
@@ -113,6 +123,63 @@ blink.mojom.WebPrintError = {
   kDocumentMalformed: 1,
   kPrintJobTemplateAttributesMismatch: 2,
   kUserPermissionDenied: 3,
+};
+blink.mojom.WebPrintErrorSpec = { $: mojo.internal.Enum() };
+
+// Union: WebPrintingMediaSizeDimension
+blink.mojom.WebPrintingMediaSizeDimensionSpec = { $: mojo.internal.Union(
+    'blink.mojom.WebPrintingMediaSizeDimension', {
+      'range': {
+        'ordinal': 0,
+        'type': blink.mojom.WebPrintingRangeSpec,
+      }},
+      'value': {
+        'ordinal': 1,
+        'type': mojo.internal.Uint32,
+      }},
+    })
+};
+
+// Union: GetPrintersResult
+blink.mojom.GetPrintersResultSpec = { $: mojo.internal.Union(
+    'blink.mojom.GetPrintersResult', {
+      'printers': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(blink.mojom.WebPrinterInfoSpec, false),
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': blink.mojom.GetPrintersErrorSpec,
+      }},
+    })
+};
+
+// Union: WebPrinterFetchResult
+blink.mojom.WebPrinterFetchResultSpec = { $: mojo.internal.Union(
+    'blink.mojom.WebPrinterFetchResult', {
+      'printer_attributes': {
+        'ordinal': 0,
+        'type': blink.mojom.WebPrinterAttributesSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': blink.mojom.WebPrinterFetchErrorSpec,
+      }},
+    })
+};
+
+// Union: WebPrintResult
+blink.mojom.WebPrintResultSpec = { $: mojo.internal.Union(
+    'blink.mojom.WebPrintResult', {
+      'print_job_info': {
+        'ordinal': 0,
+        'type': blink.mojom.WebPrintJobInfoSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': blink.mojom.WebPrintErrorSpec,
+      }},
+    })
 };
 
 // Struct: WebPrinterInfo
@@ -122,11 +189,11 @@ blink.mojom.WebPrinterInfoSpec = {
       name: 'blink.mojom.WebPrinterInfo',
       packedSize: 32,
       fields: [
-        { name: 'printer_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'printer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'printer_remote', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'printer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'printer_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -138,10 +205,10 @@ blink.mojom.WebPrintingRangeSpec = {
       name: 'blink.mojom.WebPrintingRange',
       packedSize: 16,
       fields: [
-        { name: 'from', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'to', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'from', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'to', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -151,12 +218,12 @@ blink.mojom.WebPrintingMediaSizeSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrintingMediaSize',
-      packedSize: 24,
+      packedSize: 40,
       fields: [
-        { name: 'x_dimension', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeDimensionSpec, nullable: false },
-        { name: 'y_dimension', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeDimensionSpec, nullable: false },
+        { name: 'x_dimension', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeDimensionSpec, nullable: false, minVersion: 0 },
+        { name: 'y_dimension', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeDimensionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -168,10 +235,10 @@ blink.mojom.WebPrintingMediaCollectionSpec = {
       name: 'blink.mojom.WebPrintingMediaCollection',
       packedSize: 24,
       fields: [
-        { name: 'media_size', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeSpec, nullable: false },
-        { name: 'media_size_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeSpec, nullable: false, minVersion: 0 },
+        { name: 'media_size_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -181,32 +248,32 @@ blink.mojom.WebPrinterAttributesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrinterAttributes',
-      packedSize: 184,
+      packedSize: 160,
       fields: [
-        { name: 'copies_default', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'copies_supported', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebPrintingRangeSpec, nullable: false },
-        { name: 'media_col_default', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaCollectionSpec, nullable: false },
-        { name: 'media_col_database', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'media_source_default', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'media_source_supported', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'multiple_document_handling_default', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.WebPrintingMultipleDocumentHandlingSpec, nullable: false },
-        { name: 'multiple_document_handling_supported', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'orientation_requested_default', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.WebPrintingOrientationRequestedSpec, nullable: false },
-        { name: 'orientation_requested_supported', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'printer_resolution_default', packedOffset: 88, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'printer_resolution_supported', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'print_color_mode_default', packedOffset: 104, packedBitOffset: 0, type: blink.mojom.WebPrintColorModeSpec, nullable: false },
-        { name: 'print_color_mode_supported', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'print_quality_default', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.WebPrintQualitySpec, nullable: true },
-        { name: 'print_quality_supported', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'printer_state', packedOffset: 136, packedBitOffset: 0, type: blink.mojom.WebPrinterStateSpec, nullable: false },
-        { name: 'printer_state_message', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'printer_state_reasons', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'sides_default', packedOffset: 160, packedBitOffset: 0, type: blink.mojom.WebPrintingSidesSpec, nullable: true },
-        { name: 'sides_supported', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'printer_id', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'copies_default', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'copies_supported', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintingRangeSpec, nullable: false, minVersion: 0 },
+        { name: 'media_col_default', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaCollectionSpec, nullable: false, minVersion: 0 },
+        { name: 'media_col_database', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintingMediaCollectionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'media_source_default', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'media_source_supported', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'multiple_document_handling_default', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.WebPrintingMultipleDocumentHandlingSpec, nullable: false, minVersion: 0 },
+        { name: 'multiple_document_handling_supported', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintingMultipleDocumentHandlingSpec, false), nullable: false, minVersion: 0 },
+        { name: 'orientation_requested_default', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.WebPrintingOrientationRequestedSpec, nullable: false, minVersion: 0 },
+        { name: 'orientation_requested_supported', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintingOrientationRequestedSpec, false), nullable: false, minVersion: 0 },
+        { name: 'printer_resolution_default', packedOffset: 72, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'printer_resolution_supported', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'print_color_mode_default', packedOffset: 60, packedBitOffset: 0, type: blink.mojom.WebPrintColorModeSpec, nullable: false, minVersion: 0 },
+        { name: 'print_color_mode_supported', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintColorModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'print_quality_default', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.WebPrintQualitySpec, nullable: true, minVersion: 0 },
+        { name: 'print_quality_supported', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintQualitySpec, false), nullable: false, minVersion: 0 },
+        { name: 'printer_state', packedOffset: 100, packedBitOffset: 0, type: blink.mojom.WebPrinterStateSpec, nullable: false, minVersion: 0 },
+        { name: 'printer_state_message', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'printer_state_reasons', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrinterStateReasonSpec, false), nullable: false, minVersion: 0 },
+        { name: 'sides_default', packedOffset: 128, packedBitOffset: 0, type: blink.mojom.WebPrintingSidesSpec, nullable: true, minVersion: 0 },
+        { name: 'sides_supported', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintingSidesSpec, false), nullable: false, minVersion: 0 },
+        { name: 'printer_id', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 160}]
     }
   }
 };
@@ -218,9 +285,9 @@ blink.mojom.WebPrintingMediaCollectionRequestedSpec = {
       name: 'blink.mojom.WebPrintingMediaCollectionRequested',
       packedSize: 16,
       fields: [
-        { name: 'media_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,20 +297,20 @@ blink.mojom.WebPrintJobTemplateAttributesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrintJobTemplateAttributes',
-      packedSize: 88,
+      packedSize: 64,
       fields: [
-        { name: 'job_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'copies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'media_col', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaCollectionRequestedSpec, nullable: true },
-        { name: 'media_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'multiple_document_handling', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.WebPrintingMultipleDocumentHandlingSpec, nullable: true },
-        { name: 'orientation_requested', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.WebPrintingOrientationRequestedSpec, nullable: true },
-        { name: 'printer_resolution', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true },
-        { name: 'print_color_mode', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.WebPrintColorModeSpec, nullable: true },
-        { name: 'print_quality', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.WebPrintQualitySpec, nullable: true },
-        { name: 'sides', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.WebPrintingSidesSpec, nullable: true },
+        { name: 'job_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'copies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'media_col', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaCollectionRequestedSpec, nullable: true, minVersion: 0 },
+        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'multiple_document_handling', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.WebPrintingMultipleDocumentHandlingSpec, nullable: true, minVersion: 0 },
+        { name: 'orientation_requested', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.WebPrintingOrientationRequestedSpec, nullable: true, minVersion: 0 },
+        { name: 'printer_resolution', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
+        { name: 'print_color_mode', packedOffset: 36, packedBitOffset: 0, type: blink.mojom.WebPrintColorModeSpec, nullable: true, minVersion: 0 },
+        { name: 'print_quality', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.WebPrintQualitySpec, nullable: true, minVersion: 0 },
+        { name: 'sides', packedOffset: 52, packedBitOffset: 0, type: blink.mojom.WebPrintingSidesSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -253,12 +320,12 @@ blink.mojom.WebPrintJobUpdateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPrintJobUpdate',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintJobStateSpec, nullable: false },
-        { name: 'pages_printed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintJobStateSpec, nullable: false, minVersion: 0 },
+        { name: 'pages_printed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -270,12 +337,12 @@ blink.mojom.WebPrintJobInfoSpec = {
       name: 'blink.mojom.WebPrintJobInfo',
       packedSize: 32,
       fields: [
-        { name: 'job_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'job_pages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'observer', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'controller', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'job_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'job_pages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'controller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -343,9 +410,9 @@ blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = {
       name: 'blink.mojom.WebPrintJobStateObserver.OnWebPrintJobUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintJobUpdateSpec, nullable: false },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintJobUpdateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -419,7 +486,7 @@ blink.mojom.WebPrintJobController_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -502,7 +569,7 @@ blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -510,12 +577,12 @@ blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = {
 blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WebPrinter.FetchAttributes_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrinterFetchResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrinterFetchResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -527,10 +594,10 @@ blink.mojom.WebPrinter_Print_ParamsSpec = {
       name: 'blink.mojom.WebPrinter.Print_Params',
       packedSize: 24,
       fields: [
-        { name: 'document', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'attributes', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebPrintJobTemplateAttributesSpec, nullable: false },
+        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintJobTemplateAttributesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -538,12 +605,12 @@ blink.mojom.WebPrinter_Print_ParamsSpec = {
 blink.mojom.WebPrinter_Print_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WebPrinter.Print_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -617,7 +684,7 @@ blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -625,12 +692,12 @@ blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = {
 blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WebPrintingService.GetPrinters_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.GetPrintersResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetPrintersResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

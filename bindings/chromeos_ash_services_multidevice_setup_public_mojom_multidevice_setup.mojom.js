@@ -16,6 +16,7 @@ ash.multidevice_setup.mojom.CameraRollOptInEntryPoint = {
   kOnboardingDialog: 1,
   kSettings: 2,
 };
+ash.multidevice_setup.mojom.CameraRollOptInEntryPointSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventTypeForDebugging
 ash.multidevice_setup.mojom.EventTypeForDebugging = {
@@ -23,6 +24,7 @@ ash.multidevice_setup.mojom.EventTypeForDebugging = {
   kExistingUserConnectedHostSwitched: 1,
   kExistingUserNewChromebookAdded: 2,
 };
+ash.multidevice_setup.mojom.EventTypeForDebuggingSpec = { $: mojo.internal.Enum() };
 
 // Enum: HostStatus
 ash.multidevice_setup.mojom.HostStatus = {
@@ -32,6 +34,7 @@ ash.multidevice_setup.mojom.HostStatus = {
   kHostSetButNotYetVerified: 3,
   kHostVerified: 4,
 };
+ash.multidevice_setup.mojom.HostStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Feature
 ash.multidevice_setup.mojom.Feature = {
@@ -46,6 +49,7 @@ ash.multidevice_setup.mojom.Feature = {
   kEche: 8,
   kPhoneHubCameraRoll: 9,
 };
+ash.multidevice_setup.mojom.FeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeatureState
 ash.multidevice_setup.mojom.FeatureState = {
@@ -61,6 +65,7 @@ ash.multidevice_setup.mojom.FeatureState = {
   kUnavailableNoVerifiedHost_NoEligibleHosts: 9,
   kUnavailableNoVerifiedHost_HostExistsButNotSetAndVerified: 10,
 };
+ash.multidevice_setup.mojom.FeatureStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: HostDevice
 ash.multidevice_setup.mojom.HostDeviceSpec = {
@@ -69,10 +74,10 @@ ash.multidevice_setup.mojom.HostDeviceSpec = {
       name: 'ash.multidevice_setup.mojom.HostDevice',
       packedSize: 24,
       fields: [
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false },
-        { name: 'connectivity_status', packedOffset: 16, packedBitOffset: 0, type: ash.device_sync.mojom.ConnectivityStatusSpec, nullable: false },
+        { name: 'remote_device', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: false, minVersion: 0 },
+        { name: 'connectivity_status', packedOffset: 8, packedBitOffset: 0, type: ash.device_sync.mojom.ConnectivityStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -177,7 +182,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsFor
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -190,7 +195,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -202,9 +207,9 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedF
       name: 'ash.multidevice_setup.mojom.AccountStatusChangeDelegate.OnConnectedHostSwitchedForExistingUser_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_host_device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_host_device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -216,9 +221,9 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForE
       name: 'ash.multidevice_setup.mojom.AccountStatusChangeDelegate.OnNewChromebookAddedForExistingUser_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_host_device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'new_host_device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,7 +236,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -304,10 +309,10 @@ ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec = 
       name: 'ash.multidevice_setup.mojom.HostStatusObserver.OnHostStatusChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'host_status', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice_setup.mojom.HostStatusSpec, nullable: false },
-        { name: 'host_device', packedOffset: 16, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: true },
+        { name: 'host_status', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice_setup.mojom.HostStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'host_device', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -380,9 +385,9 @@ ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSp
       name: 'ash.multidevice_setup.mojom.FeatureStateObserver.OnFeatureStatesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature_states_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'feature_states_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ash.multidevice_setup.mojom.FeatureSpec, ash.multidevice_setup.mojom.FeatureStateSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -572,9 +577,9 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_Para
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetAccountStatusChangeDelegate_Params',
       packedSize: 16,
       fields: [
-        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -586,9 +591,9 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec = 
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.AddHostStatusObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -600,9 +605,9 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec 
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.AddFeatureStateObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -615,7 +620,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -623,12 +628,12 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec =
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetEligibleHostDevices_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'eligible_host_devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'eligible_host_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.multidevice.mojom.RemoteDeviceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -641,7 +646,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -649,12 +654,12 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_Params
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetEligibleActiveHostDevices_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'eligible_host_devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'eligible_host_devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.multidevice_setup.mojom.HostDeviceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -666,10 +671,10 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec = {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetHostDevice_Params',
       packedSize: 24,
       fields: [
-        { name: 'instance_id_or_legacy_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'auth_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'instance_id_or_legacy_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -677,12 +682,12 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec = {
 ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetHostDevice_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -695,7 +700,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -708,7 +713,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -716,13 +721,13 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec = {
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetHostStatus_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'host_status', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice_setup.mojom.HostStatusSpec, nullable: false },
-        { name: 'host_device', packedOffset: 16, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: true },
+        { name: 'host_status', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice_setup.mojom.HostStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'host_device', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -732,13 +737,13 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec =
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetFeatureEnabledState_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice_setup.mojom.FeatureSpec, nullable: false },
-        { name: 'enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'auth_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice_setup.mojom.FeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -746,12 +751,12 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec =
 ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetFeatureEnabledState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -764,7 +769,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -772,12 +777,12 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec = {
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetFeatureStates_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'feature_states_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'feature_states_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ash.multidevice_setup.mojom.FeatureSpec, ash.multidevice_setup.mojom.FeatureStateSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -790,7 +795,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -798,12 +803,12 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec = {
 ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.RetrySetHostNow_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -815,9 +820,9 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.TriggerEventForDebugging_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice_setup.mojom.EventTypeForDebuggingSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice_setup.mojom.EventTypeForDebuggingSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -825,12 +830,12 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec
 ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.TriggerEventForDebugging_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -842,9 +847,9 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_Params
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetQuickStartPhoneInstanceID_Params',
       packedSize: 16,
       fields: [
-        { name: 'qs_phone_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'qs_phone_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -857,7 +862,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -865,12 +870,12 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_Params
 ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetQuickStartPhoneInstanceID_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'qs_phone_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'qs_phone_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -943,9 +948,9 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec 
       name: 'ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.SetHostDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_id_or_legacy_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'instance_id_or_legacy_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -953,12 +958,12 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec 
 ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.SetHostDevice_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,11 +16,11 @@ media.mojom.CastApplicationMediaInfoSpec = {
       name: 'media.mojom.CastApplicationMediaInfo',
       packedSize: 24,
       fields: [
-        { name: 'application_session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mixer_audio_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_audio_only_session', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'application_session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mixer_audio_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_audio_only_session', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -89,7 +89,7 @@ media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -97,12 +97,12 @@ media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSp
 media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.CastApplicationMediaInfoManager.GetCastApplicationMediaInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'cast_application_media_info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CastApplicationMediaInfoSpec, nullable: false },
+        { name: 'cast_application_media_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CastApplicationMediaInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

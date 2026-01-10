@@ -15,19 +15,20 @@ service_manager.mojom.InstanceState = {
   kStarted: 1,
   kUnreachable: 2,
 };
+service_manager.mojom.InstanceStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: RunningServiceInfo
 service_manager.mojom.RunningServiceInfoSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.RunningServiceInfo',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
-        { name: 'pid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'state', packedOffset: 24, packedBitOffset: 0, type: service_manager.mojom.InstanceStateSpec, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 12, packedBitOffset: 0, type: service_manager.mojom.InstanceStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -140,9 +141,9 @@ service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnInit_Params',
       packedSize: 16,
       fields: [
-        { name: 'running_services', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'running_services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(service_manager.mojom.RunningServiceInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -154,9 +155,9 @@ service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnServiceCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'service', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.RunningServiceInfoSpec, nullable: false },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.RunningServiceInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -168,10 +169,10 @@ service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnServiceStarted_Params',
       packedSize: 24,
       fields: [
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
-        { name: 'pid_deprecated', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
+        { name: 'pid_deprecated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -183,10 +184,10 @@ service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnServicePIDReceived_Params',
       packedSize: 24,
       fields: [
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
-        { name: 'pid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -198,9 +199,9 @@ service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec =
       name: 'service_manager.mojom.ServiceManagerListener.OnServiceFailedToStart_Params',
       packedSize: 16,
       fields: [
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -212,9 +213,9 @@ service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManagerListener.OnServiceStopped_Params',
       packedSize: 16,
       fields: [
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false },
+        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -287,9 +288,9 @@ service_manager.mojom.ServiceManager_AddListener_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManager.AddListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -81,11 +81,11 @@ video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec = {
       name: 'video_capture.mojom.SharedMemoryVirtualDevice.RequestFrameBuffer_Params',
       packedSize: 32,
       fields: [
-        { name: 'dimension', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'pixel_format', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCapturePixelFormatSpec, nullable: false },
-        { name: 'strides', packedOffset: 24, packedBitOffset: 0, type: media.mojom.PlaneStridesSpec, nullable: true },
+        { name: 'dimension', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'pixel_format', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCapturePixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'strides', packedOffset: 16, packedBitOffset: 0, type: media.mojom.PlaneStridesSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -93,12 +93,12 @@ video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec = {
 video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'video_capture.mojom.SharedMemoryVirtualDevice.RequestFrameBuffer_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,10 +110,10 @@ video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = 
       name: 'video_capture.mojom.SharedMemoryVirtualDevice.OnFrameReadyInBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'frame_info', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -213,10 +213,10 @@ video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec
       name: 'video_capture.mojom.TextureVirtualDevice.OnNewSharedImageBufferHandle_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'shared_image_handle', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SharedImageBufferHandleSetSpec, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'shared_image_handle', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SharedImageBufferHandleSetSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -228,9 +228,9 @@ video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec = 
       name: 'video_capture.mojom.TextureVirtualDevice.OnFrameAccessHandlerReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_access_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -242,10 +242,10 @@ video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec = {
       name: 'video_capture.mojom.TextureVirtualDevice.OnFrameReadyInBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'frame_info', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -257,9 +257,9 @@ video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec = {
       name: 'video_capture.mojom.TextureVirtualDevice.OnBufferRetired_Params',
       packedSize: 16,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -359,10 +359,10 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_Para
       name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice.OnNewGpuMemoryBufferHandle_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'gmb_handle', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'gmb_handle', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -374,9 +374,9 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_Param
       name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice.OnFrameAccessHandlerReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_access_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -388,10 +388,10 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec
       name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice.OnFrameReadyInBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'frame_info', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -403,9 +403,9 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec = {
       name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice.OnBufferRetired_Params',
       packedSize: 16,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

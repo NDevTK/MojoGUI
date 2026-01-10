@@ -17,3 +17,4 @@ mojo_base.mojom.ApplicationState = {
   HAS_STOPPED_ACTIVITIES: 3,
   HAS_DESTROYED_ACTIVITIES: 4,
 };
+mojo_base.mojom.ApplicationStateSpec = { $: mojo.internal.Enum() };

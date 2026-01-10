@@ -23,6 +23,7 @@ safe_browsing.mojom.PhishingDetectorResult = {
   TERM_EXTRACTION_FAILED: 9,
   VISUAL_EXTRACTION_FAILED: 10,
 };
+safe_browsing.mojom.PhishingDetectorResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClientSideDetectionType
 safe_browsing.mojom.ClientSideDetectionType = {
@@ -38,6 +39,7 @@ safe_browsing.mojom.ClientSideDetectionType = {
   kCreditCardForm: 9,
   kImageEmbeddingMatch: 10,
 };
+safe_browsing.mojom.ClientSideDetectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PhishingImageEmbeddingResult
 safe_browsing.mojom.PhishingImageEmbeddingResult = {
@@ -47,18 +49,21 @@ safe_browsing.mojom.PhishingImageEmbeddingResult = {
   kForwardBackTransition: 3,
   kFailed: 4,
 };
+safe_browsing.mojom.PhishingImageEmbeddingResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebRequestProtocolType
 safe_browsing.mojom.WebRequestProtocolType = {
   kHttpHttps: 0,
   kWebSocket: 1,
 };
+safe_browsing.mojom.WebRequestProtocolTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebRequestContactInitiatorType
 safe_browsing.mojom.WebRequestContactInitiatorType = {
   kExtension: 0,
   kContentScript: 1,
 };
+safe_browsing.mojom.WebRequestContactInitiatorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AttributeNameValue
 safe_browsing.mojom.AttributeNameValueSpec = {
@@ -67,10 +72,10 @@ safe_browsing.mojom.AttributeNameValueSpec = {
       name: 'safe_browsing.mojom.AttributeNameValue',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -82,18 +87,18 @@ safe_browsing.mojom.ThreatDOMDetailsNodeSpec = {
       name: 'safe_browsing.mojom.ThreatDOMDetailsNode',
       packedSize: 88,
       fields: [
-        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'tag_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'parent', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'parent_node_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'children', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'child_node_ids', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'attributes', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'child_frame_token', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true },
-        { name: 'inner_html', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'tag_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'parent', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'parent_node_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'children', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+        { name: 'child_node_ids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'attributes', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(safe_browsing.mojom.AttributeNameValueSpec, false), nullable: false, minVersion: 0 },
+        { name: 'child_frame_token', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'inner_html', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };
@@ -168,18 +173,18 @@ safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.SafeBrowsing.CreateCheckerAndCheck_Params',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: true },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'method', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'headers', packedOffset: 40, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false },
-        { name: 'load_flags', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'has_user_gesture', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'originated_from_service_worker', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'method', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 32, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'load_flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'has_user_gesture', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'originated_from_service_worker', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -187,13 +192,13 @@ safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = {
 safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'safe_browsing.mojom.SafeBrowsing.CreateCheckerAndCheck_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'proceed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'showed_interstitial', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'proceed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'showed_interstitial', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -205,9 +210,9 @@ safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec = {
       name: 'safe_browsing.mojom.SafeBrowsing.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -281,7 +286,7 @@ safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -289,12 +294,12 @@ safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = {
 safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'safe_browsing.mojom.ThreatReporter.GetThreatDOMDetails_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'nodes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(safe_browsing.mojom.ThreatDOMDetailsNodeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -367,10 +372,10 @@ safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = {
       name: 'safe_browsing.mojom.PhishingDetector.StartPhishingDetection_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'request_type', packedOffset: 16, packedBitOffset: 0, type: safe_browsing.mojom.ClientSideDetectionTypeSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'request_type', packedOffset: 8, packedBitOffset: 0, type: safe_browsing.mojom.ClientSideDetectionTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -378,13 +383,13 @@ safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = {
 safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'safe_browsing.mojom.PhishingDetector.StartPhishingDetection_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: safe_browsing.mojom.PhishingDetectorResultSpec, nullable: false },
-        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: safe_browsing.mojom.PhishingDetectorResultSpec, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -493,11 +498,11 @@ safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferMo
       name: 'safe_browsing.mojom.PhishingModelSetter.SetImageEmbeddingAndPhishingFlatBufferModel_Params',
       packedSize: 32,
       fields: [
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'tflite_model', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
-        { name: 'image_embedding_model', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'tflite_model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
+        { name: 'image_embedding_model', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -509,9 +514,9 @@ safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = {
       name: 'safe_browsing.mojom.PhishingModelSetter.AttachImageEmbeddingModel_Params',
       packedSize: 16,
       fields: [
-        { name: 'image_embedding_model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
+        { name: 'image_embedding_model', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -523,10 +528,10 @@ safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = 
       name: 'safe_browsing.mojom.PhishingModelSetter.SetPhishingFlatBufferModel_Params',
       packedSize: 24,
       fields: [
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'tflite_model', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'tflite_model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -539,7 +544,7 @@ safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -551,9 +556,9 @@ safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = {
       name: 'safe_browsing.mojom.PhishingModelSetter.SetTestObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -627,7 +632,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -700,9 +705,9 @@ safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec
       name: 'safe_browsing.mojom.PhishingImageEmbedderDetector.StartImageEmbedding_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -710,13 +715,13 @@ safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec
 safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'safe_browsing.mojom.PhishingImageEmbedderDetector.StartImageEmbedding_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: safe_browsing.mojom.PhishingImageEmbeddingResultSpec, nullable: false },
-        { name: 'image_embedding_request', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: safe_browsing.mojom.PhishingImageEmbeddingResultSpec, nullable: false, minVersion: 0 },
+        { name: 'image_embedding_request', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -796,14 +801,14 @@ safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = 
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.ExtensionWebRequestReporter.SendWebRequestData_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'origin_extension_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'telemetry_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'protocol_type', packedOffset: 24, packedBitOffset: 0, type: safe_browsing.mojom.WebRequestProtocolTypeSpec, nullable: false },
-        { name: 'contact_initiator_type', packedOffset: 32, packedBitOffset: 0, type: safe_browsing.mojom.WebRequestContactInitiatorTypeSpec, nullable: false },
+        { name: 'origin_extension_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'telemetry_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'protocol_type', packedOffset: 16, packedBitOffset: 0, type: safe_browsing.mojom.WebRequestProtocolTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'contact_initiator_type', packedOffset: 20, packedBitOffset: 0, type: safe_browsing.mojom.WebRequestContactInitiatorTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -815,9 +820,9 @@ safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = {
       name: 'safe_browsing.mojom.ExtensionWebRequestReporter.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

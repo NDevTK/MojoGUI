@@ -22,3 +22,4 @@ extensions.mojom.ContextType = {
   kUserScript: 8,
   kUnspecified: 9,
 };
+extensions.mojom.ContextTypeSpec = { $: mojo.internal.Enum() };

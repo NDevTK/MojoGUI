@@ -100,7 +100,7 @@ ax.mojom.AutomationClient_Enable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -108,12 +108,12 @@ ax.mojom.AutomationClient_Enable_ParamsSpec = {
 ax.mojom.AutomationClient_Enable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ax.mojom.AutomationClient.Enable_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'desktop_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
+        { name: 'desktop_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -126,7 +126,7 @@ ax.mojom.AutomationClient_Disable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -136,11 +136,11 @@ ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AutomationClient.EnableChildTree_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'tree_id', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false },
+        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -152,9 +152,9 @@ ax.mojom.AutomationClient_PerformAction_ParamsSpec = {
       name: 'ax.mojom.AutomationClient.PerformAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action_data', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXActionDataSpec, nullable: false },
+        { name: 'action_data', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXActionDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,9 +16,9 @@ emoji_search.mojom.SearchResultsSpec = {
       name: 'emoji_search.mojom.SearchResults',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,10 +95,10 @@ emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
       name: 'emoji_search.mojom.EmojiSearch.SearchEmoji_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'language_codes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'language_codes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -106,14 +106,14 @@ emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
 emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'emoji_search.mojom.EmojiSearch.SearchEmoji_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'emoji_results', packedOffset: 8, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false },
-        { name: 'symbol_results', packedOffset: 16, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false },
-        { name: 'emoticon_results', packedOffset: 24, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false },
+        { name: 'emoji_results', packedOffset: 0, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false, minVersion: 0 },
+        { name: 'symbol_results', packedOffset: 8, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false, minVersion: 0 },
+        { name: 'emoticon_results', packedOffset: 16, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -125,9 +125,9 @@ emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
       name: 'emoji_search.mojom.EmojiSearch.LoadEmojiLanguages_Params',
       packedSize: 16,
       fields: [
-        { name: 'language_codes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'language_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -19,3 +19,4 @@ blink.mojom.DocumentPolicyFeature = {
   kExpectNoLinkedResources: 5,
   kNetworkEfficiencyGuardrails: 6,
 };
+blink.mojom.DocumentPolicyFeatureSpec = { $: mojo.internal.Enum() };

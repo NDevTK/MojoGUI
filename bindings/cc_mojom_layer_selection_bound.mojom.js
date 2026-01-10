@@ -14,15 +14,15 @@ cc.mojom.LayerSelectionBoundSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.LayerSelectionBound',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SelectionBoundTypeSpec, nullable: false },
-        { name: 'edge_start', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'edge_end', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'layer_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'hidden', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'edge_start', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'edge_end', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'layer_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'hidden', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -34,10 +34,10 @@ cc.mojom.LayerSelectionSpec = {
       name: 'cc.mojom.LayerSelection',
       packedSize: 24,
       fields: [
-        { name: 'start', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.LayerSelectionBoundSpec, nullable: false },
-        { name: 'end', packedOffset: 16, packedBitOffset: 0, type: cc.mojom.LayerSelectionBoundSpec, nullable: false },
+        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.LayerSelectionBoundSpec, nullable: false, minVersion: 0 },
+        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.LayerSelectionBoundSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

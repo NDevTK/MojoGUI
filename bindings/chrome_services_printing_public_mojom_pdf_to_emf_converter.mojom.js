@@ -90,9 +90,9 @@ printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
       name: 'printing.mojom.PdfToEmfConverter.ConvertPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -100,13 +100,13 @@ printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
 printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'printing.mojom.PdfToEmfConverter.ConvertPage_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'emf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
-        { name: 'scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'emf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
+        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -118,9 +118,9 @@ printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = {
       name: 'printing.mojom.PdfToEmfConverter.SetWebContentsURL_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -132,9 +132,9 @@ printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
       name: 'printing.mojom.PdfToEmfConverter.SetUseSkiaRendererPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_skia', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -207,10 +207,10 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
       name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_Params',
       packedSize: 24,
       fields: [
-        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'render_settings', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false },
+        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'render_settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -218,13 +218,13 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
 printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'converter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'page_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'converter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'page_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

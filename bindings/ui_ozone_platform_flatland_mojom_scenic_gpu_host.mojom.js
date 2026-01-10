@@ -72,10 +72,10 @@ ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = {
       name: 'ui.mojom.ScenicGpuHost.AttachSurfaceToWindow_Params',
       packedSize: 24,
       fields: [
-        { name: 'window_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'view_holder_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'view_holder_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

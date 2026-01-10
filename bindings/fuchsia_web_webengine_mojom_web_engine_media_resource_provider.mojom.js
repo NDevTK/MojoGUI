@@ -15,9 +15,9 @@ mojom.AudioConsumerRequestSpec = {
       name: 'mojom.AudioConsumerRequest',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,7 +95,7 @@ mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -103,12 +103,12 @@ mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = {
 mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.WebEngineMediaResourceProvider.ShouldUseAudioConsumer_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -120,9 +120,9 @@ mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = {
       name: 'mojom.WebEngineMediaResourceProvider.CreateAudioConsumer_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojom.AudioConsumerRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojom.AudioConsumerRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

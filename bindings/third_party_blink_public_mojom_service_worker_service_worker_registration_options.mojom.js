@@ -15,19 +15,20 @@ blink.mojom.ServiceWorkerUpdateViaCache = {
   kAll: 1,
   kNone: 2,
 };
+blink.mojom.ServiceWorkerUpdateViaCacheSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerRegistrationOptions
 blink.mojom.ServiceWorkerRegistrationOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationOptions',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ScriptTypeSpec, nullable: false },
-        { name: 'update_via_cache', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerUpdateViaCacheSpec, nullable: false },
+        { name: 'scope', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'update_via_cache', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.ServiceWorkerUpdateViaCacheSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

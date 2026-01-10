@@ -72,9 +72,9 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
       name: 'media.mojom.VideoDecodePerfHistory.GetPerfInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'features', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PredictionFeaturesSpec, nullable: false },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionFeaturesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,13 +82,13 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
 media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.VideoDecodePerfHistory.GetPerfInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_smooth', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_power_efficient', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -15,12 +15,14 @@ media.mojom.Status = {
   kInUse: 1,
   kFailure: 2,
 };
+media.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
 media.mojom.Status = {
   kSuccess: 0,
   kFailure: 1,
 };
+media.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: CdmStorage
 media.mojom.CdmStorage = {};
@@ -85,9 +87,9 @@ media.mojom.CdmStorage_Open_ParamsSpec = {
       name: 'media.mojom.CdmStorage.Open_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,13 +97,13 @@ media.mojom.CdmStorage_Open_ParamsSpec = {
 media.mojom.CdmStorage_Open_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.CdmStorage.Open_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
-        { name: 'cdm_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'cdm_file', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -184,7 +186,7 @@ media.mojom.CdmFile_Read_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -192,13 +194,13 @@ media.mojom.CdmFile_Read_ParamsSpec = {
 media.mojom.CdmFile_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.CdmFile.Read_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -210,9 +212,9 @@ media.mojom.CdmFile_Write_ParamsSpec = {
       name: 'media.mojom.CdmFile.Write_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -220,12 +222,12 @@ media.mojom.CdmFile_Write_ParamsSpec = {
 media.mojom.CdmFile_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.CdmFile.Write_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

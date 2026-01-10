@@ -15,6 +15,7 @@ mahi.mojom.ResponseStatus = {
   kUnknownError: 1,
   kScreen2xNotAvailable: 2,
 };
+mahi.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ExtractionMethods
 mahi.mojom.ExtractionMethodsSpec = {
@@ -23,10 +24,10 @@ mahi.mojom.ExtractionMethodsSpec = {
       name: 'mahi.mojom.ExtractionMethods',
       packedSize: 16,
       fields: [
-        { name: 'use_algorithm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'use_screen2x', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_algorithm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'use_screen2x', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -36,10 +37,15 @@ mahi.mojom.ExtractionRequestSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ExtractionRequest',
-      packedSize: 8,
+      packedSize: 48,
       fields: [
+        { name: 'deprecated_ukm_source_id_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'deprecated_ukm_source_id_$value', originalFieldName: 'deprecated_ukm_source_id' } },
+        { name: 'deprecated_ukm_source_id_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'deprecated_ukm_source_id_$flag', originalFieldName: 'deprecated_ukm_source_id' } },
+        { name: 'snapshot', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: true, minVersion: 0 },
+        { name: 'extraction_methods', packedOffset: 24, packedBitOffset: 0, type: mahi.mojom.ExtractionMethodsSpec, nullable: false, minVersion: 0 },
+        { name: 'updates', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXTreeUpdateSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -49,10 +55,12 @@ mahi.mojom.ExtractionResponseSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ExtractionResponse',
-      packedSize: 8,
+      packedSize: 24,
       fields: [
+        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mahi.mojom.ResponseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -62,10 +70,12 @@ mahi.mojom.ContentSizeResponseSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentSizeResponse',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'word_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 4, packedBitOffset: 0, type: mahi.mojom.ResponseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -105,6 +115,24 @@ mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  extractContent(extraction_request) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
+      mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
+      [extraction_request]);
+  }
+
+  getContentSize(extraction_request) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
+      mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
+      [extraction_request]);
+  }
+
 };
 
 mahi.mojom.ContentExtractionService.getRemote = function() {
@@ -115,6 +143,60 @@ mahi.mojom.ContentExtractionService.getRemote = function() {
     'mahi.mojom.ContentExtractionService',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for ExtractContent
+mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ContentExtractionService.ExtractContent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'extraction_request', packedOffset: 0, packedBitOffset: 0, type: mahi.mojom.ExtractionRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'extraction_response', packedOffset: 0, packedBitOffset: 0, type: mahi.mojom.ExtractionResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetContentSize
+mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ContentExtractionService.GetContentSize_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'extraction_request', packedOffset: 0, packedBitOffset: 0, type: mahi.mojom.ExtractionRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'contents_size_response', packedOffset: 0, packedBitOffset: 0, type: mahi.mojom.ContentSizeResponseSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -157,6 +239,24 @@ mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  bindContentExtractionService(content_extraction_service) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
+      null,
+      [content_extraction_service]);
+  }
+
+  onScreen2xReady(extractor) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
+      null,
+      [extractor]);
+  }
+
 };
 
 mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
@@ -167,6 +267,34 @@ mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
     'mahi.mojom.ContentExtractionServiceFactory',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for BindContentExtractionService
+mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ContentExtractionServiceFactory.BindContentExtractionService_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'content_extraction_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for OnScreen2xReady
+mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mahi.mojom.ContentExtractionServiceFactory.OnScreen2xReady_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

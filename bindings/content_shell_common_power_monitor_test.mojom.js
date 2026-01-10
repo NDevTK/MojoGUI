@@ -73,7 +73,7 @@ content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
 content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.PowerMonitorTest.QueryNextState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'battery_power_status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false },
+        { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

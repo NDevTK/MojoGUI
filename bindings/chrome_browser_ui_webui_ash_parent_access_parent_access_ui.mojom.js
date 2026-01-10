@@ -15,6 +15,7 @@ parent_access_ui.mojom.GetOauthTokenStatus = {
   kError: 1,
   kOnlyOneFetchAtATime: 2,
 };
+parent_access_ui.mojom.GetOauthTokenStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ParentAccessServerMessageType
 parent_access_ui.mojom.ParentAccessServerMessageType = {
@@ -22,12 +23,14 @@ parent_access_ui.mojom.ParentAccessServerMessageType = {
   kError: 1,
   kIgnore: 2,
 };
+parent_access_ui.mojom.ParentAccessServerMessageTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FlowType
 parent_access_ui.mojom.FlowType = {
   kWebsiteAccess: 0,
   kExtensionAccess: 1,
 };
+parent_access_ui.mojom.FlowTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ParentAccessResult
 parent_access_ui.mojom.ParentAccessResult = {
@@ -37,6 +40,21 @@ parent_access_ui.mojom.ParentAccessResult = {
   kDisabled: 3,
   kError: 4,
 };
+parent_access_ui.mojom.ParentAccessResultSpec = { $: mojo.internal.Enum() };
+
+// Union: FlowTypeParams
+parent_access_ui.mojom.FlowTypeParamsSpec = { $: mojo.internal.Union(
+    'parent_access_ui.mojom.FlowTypeParams', {
+      'web_approvals_params': {
+        'ordinal': 0,
+        'type': parent_access_ui.mojom.WebApprovalsParamsSpec,
+      }},
+      'extension_approvals_params': {
+        'ordinal': 1,
+        'type': parent_access_ui.mojom.ExtensionApprovalsParamsSpec,
+      }},
+    })
+};
 
 // Struct: ParentAccessServerMessage
 parent_access_ui.mojom.ParentAccessServerMessageSpec = {
@@ -45,9 +63,9 @@ parent_access_ui.mojom.ParentAccessServerMessageSpec = {
       name: 'parent_access_ui.mojom.ParentAccessServerMessage',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessServerMessageTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessServerMessageTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -59,9 +77,9 @@ parent_access_ui.mojom.ParentAccessParamsSpec = {
       name: 'parent_access_ui.mojom.ParentAccessParams',
       packedSize: 16,
       fields: [
-        { name: 'kWebsiteAccess', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kWebsiteAccess', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -73,11 +91,11 @@ parent_access_ui.mojom.WebApprovalsParamsSpec = {
       name: 'parent_access_ui.mojom.WebApprovalsParams',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'child_display_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'favicon_png_bytes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'child_display_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'favicon_png_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -89,12 +107,12 @@ parent_access_ui.mojom.ExtensionApprovalsParamsSpec = {
       name: 'parent_access_ui.mojom.ExtensionApprovalsParams',
       packedSize: 40,
       fields: [
-        { name: 'extension_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'icon_png_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'child_display_name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'permissions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'extension_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'icon_png_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'child_display_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'permissions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(parent_access_ui.mojom.ExtensionPermissionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -106,10 +124,10 @@ parent_access_ui.mojom.ExtensionPermissionSpec = {
       name: 'parent_access_ui.mojom.ExtensionPermission',
       packedSize: 24,
       fields: [
-        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -223,7 +241,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -231,13 +249,13 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec = {
 parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetOauthToken_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: parent_access_ui.mojom.GetOauthTokenStatusSpec, nullable: false },
-        { name: 'oauth_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.GetOauthTokenStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -249,9 +267,9 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Para
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.OnParentAccessCallbackReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'encoded_parent_access_callback_proto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'encoded_parent_access_callback_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -259,12 +277,12 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Para
 parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'parent_access_ui.mojom.ParentAccessUiHandler.OnParentAccessCallbackReceived_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessServerMessageSpec, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessServerMessageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -277,7 +295,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -285,12 +303,12 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec = 
 parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetParentAccessParams_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -303,7 +321,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -311,12 +329,12 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec = {
 parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetParentAccessUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -328,9 +346,9 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec = {
       name: 'parent_access_ui.mojom.ParentAccessUiHandler.OnParentAccessDone_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -343,7 +361,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

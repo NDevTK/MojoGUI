@@ -17,28 +17,30 @@ blink.mojom.StylusWritingGestureAction = {
   SPLIT_OR_MERGE: 3,
   SELECT_TEXT: 4,
 };
+blink.mojom.StylusWritingGestureActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: StylusWritingGestureGranularity
 blink.mojom.StylusWritingGestureGranularity = {
   CHARACTER: 0,
   WORD: 1,
 };
+blink.mojom.StylusWritingGestureGranularitySpec = { $: mojo.internal.Enum() };
 
 // Struct: StylusWritingGestureData
 blink.mojom.StylusWritingGestureDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.StylusWritingGestureData',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureActionSpec, nullable: false },
-        { name: 'granularity', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureGranularitySpec, nullable: false },
-        { name: 'start_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'end_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true },
-        { name: 'text_alternative', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'text_to_insert', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureActionSpec, nullable: false, minVersion: 0 },
+        { name: 'granularity', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.StylusWritingGestureGranularitySpec, nullable: false, minVersion: 0 },
+        { name: 'start_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'end_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
+        { name: 'text_alternative', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'text_to_insert', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

@@ -16,6 +16,25 @@ blink.mojom.Modifier = {
   kOneOrMore: 2,
   kNone: 3,
 };
+blink.mojom.ModifierSpec = { $: mojo.internal.Enum() };
+
+// Union: PatternTemplate
+blink.mojom.PatternTemplateSpec = { $: mojo.internal.Union(
+    'blink.mojom.PatternTemplate', {
+      'fixed': {
+        'ordinal': 0,
+        'type': blink.mojom.FixedPatternSpec,
+      }},
+      'full_wildcard': {
+        'ordinal': 1,
+        'type': blink.mojom.WildcardPatternSpec,
+      }},
+      'segment_wildcard': {
+        'ordinal': 2,
+        'type': blink.mojom.WildcardPatternSpec,
+      }},
+    })
+};
 
 // Struct: SafeUrlPattern
 blink.mojom.SafeUrlPatternSpec = {
@@ -24,17 +43,17 @@ blink.mojom.SafeUrlPatternSpec = {
       name: 'blink.mojom.SafeUrlPattern',
       packedSize: 80,
       fields: [
-        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'password', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'hostname', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'port', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'pathname', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'search', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'hash', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'options', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.SafeUrlPatternOptionsSpec, nullable: false },
+        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
+        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
+        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
+        { name: 'hostname', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
+        { name: 'pathname', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
+        { name: 'search', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
+        { name: 'hash', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternPartSpec, false), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.SafeUrlPatternOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };
@@ -46,9 +65,9 @@ blink.mojom.FixedPatternSpec = {
       name: 'blink.mojom.FixedPattern',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -60,12 +79,12 @@ blink.mojom.WildcardPatternSpec = {
       name: 'blink.mojom.WildcardPattern',
       packedSize: 40,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'prefix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'suffix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'suffix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -75,12 +94,12 @@ blink.mojom.SafeUrlPatternPartSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SafeUrlPatternPart',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'pattern', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PatternTemplateSpec, nullable: false },
-        { name: 'modifier', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ModifierSpec, nullable: false },
+        { name: 'pattern', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PatternTemplateSpec, nullable: false, minVersion: 0 },
+        { name: 'modifier', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ModifierSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -92,9 +111,9 @@ blink.mojom.SafeUrlPatternOptionsSpec = {
       name: 'blink.mojom.SafeUrlPatternOptions',
       packedSize: 16,
       fields: [
-        { name: 'ignore_case', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ignore_case', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

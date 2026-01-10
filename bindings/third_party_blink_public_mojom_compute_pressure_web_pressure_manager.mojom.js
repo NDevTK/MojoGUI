@@ -70,12 +70,12 @@ blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebPressureManager.AddClient_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -83,12 +83,12 @@ blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
 blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WebPressureManager.AddClient_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureManagerAddClientResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureManagerAddClientResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,9 +161,9 @@ blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
       name: 'blink.mojom.WebPressureClient.OnPressureUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPressureUpdateSpec, nullable: false },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPressureUpdateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

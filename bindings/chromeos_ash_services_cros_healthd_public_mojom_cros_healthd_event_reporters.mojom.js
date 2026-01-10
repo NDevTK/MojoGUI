@@ -45,6 +45,15 @@ ash.cros_healthd.mojom.AshEventReporterRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  sendKeyboardDiagnosticEvent(info) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec,
+      null,
+      [info]);
+  }
+
 };
 
 ash.cros_healthd.mojom.AshEventReporter.getRemote = function() {
@@ -55,6 +64,20 @@ ash.cros_healthd.mojom.AshEventReporter.getRemote = function() {
     'ash.cros_healthd.mojom.AshEventReporter',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SendKeyboardDiagnosticEvent
+ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cros_healthd.mojom.AshEventReporter.SendKeyboardDiagnosticEvent_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

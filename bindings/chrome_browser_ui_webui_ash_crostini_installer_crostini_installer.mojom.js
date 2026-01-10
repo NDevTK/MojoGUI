@@ -73,10 +73,10 @@ ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,10 +185,10 @@ ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.PageHandler.Install_Params',
       packedSize: 24,
       fields: [
-        { name: 'disk_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'username', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'disk_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'username', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -201,7 +201,7 @@ ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -214,7 +214,7 @@ ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -227,7 +227,7 @@ ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -240,7 +240,7 @@ ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -248,14 +248,14 @@ ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec
 ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.crostini_installer.mojom.PageHandler.RequestAmountOfFreeDiskSpace_ResponseParams',
-      packedSize: 32,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'ticks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'default_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false },
-        { name: 'is_low_space_available', packedOffset: 17, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ticks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crostini.mojom.DiskSliderTickSpec, false), nullable: false, minVersion: 0 },
+        { name: 'default_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
+        { name: 'is_low_space_available', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -355,10 +355,10 @@ ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.Page.OnProgressUpdate_Params',
       packedSize: 24,
       fields: [
-        { name: 'install_state', packedOffset: 8, packedBitOffset: 0, type: crostini.mojom.InstallerStateSpec, nullable: false },
-        { name: 'progress_fraction', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'install_state', packedOffset: 0, packedBitOffset: 0, type: crostini.mojom.InstallerStateSpec, nullable: false, minVersion: 0 },
+        { name: 'progress_fraction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -370,9 +370,9 @@ ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
       name: 'ash.crostini_installer.mojom.Page.OnInstallFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: crostini.mojom.InstallerErrorSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: crostini.mojom.InstallerErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -385,7 +385,7 @@ ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -398,7 +398,7 @@ ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

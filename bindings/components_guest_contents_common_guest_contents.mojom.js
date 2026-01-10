@@ -72,10 +72,10 @@ guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = {
       name: 'guest_contents.mojom.GuestContentsHost.Attach_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_to_swap', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
-        { name: 'guest_contents_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'frame_to_swap', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -83,12 +83,12 @@ guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = {
 guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'guest_contents.mojom.GuestContentsHost.Attach_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

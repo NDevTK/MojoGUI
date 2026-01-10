@@ -72,10 +72,10 @@ viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec = {
       name: 'viz.mojom.VSyncParameterObserver.OnUpdateVSyncParameters_Params',
       packedSize: 24,
       fields: [
-        { name: 'timebase', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'interval', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'timebase', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

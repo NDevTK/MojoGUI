@@ -17,3 +17,4 @@ blink.mojom.V8CacheOptions = {
   kCodeWithoutHeatCheck: 3,
   kFullCodeWithoutHeatCheck: 4,
 };
+blink.mojom.V8CacheOptionsSpec = { $: mojo.internal.Enum() };

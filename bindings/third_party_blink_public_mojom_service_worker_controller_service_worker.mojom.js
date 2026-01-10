@@ -16,12 +16,12 @@ blink.mojom.ServiceWorkerRouterDataSpec = {
       name: 'blink.mojom.ServiceWorkerRouterData',
       packedSize: 32,
       fields: [
-        { name: 'router_rules', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRulesSpec, nullable: false },
-        { name: 'initial_running_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, nullable: true },
-        { name: 'running_status_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true },
-        { name: 'remote_cache_storage', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'router_rules', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterRulesSpec, nullable: false, minVersion: 0 },
+        { name: 'initial_running_status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, nullable: true, minVersion: 0 },
+        { name: 'running_status_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'remote_cache_storage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -31,19 +31,19 @@ blink.mojom.ControllerServiceWorkerInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ControllerServiceWorkerInfo',
-      packedSize: 80,
+      packedSize: 72,
       fields: [
-        { name: 'fetch_handler_bypass_option', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, nullable: false },
-        { name: 'sha256_script_checksum', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'need_router_evaluate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'router_data', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterDataSpec, nullable: true },
-        { name: 'remote_controller', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'client_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'fetch_request_window_id', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'object_info', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true },
-        { name: 'used_features', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'fetch_handler_bypass_option', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, nullable: false, minVersion: 0 },
+        { name: 'sha256_script_checksum', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'need_router_evaluate', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'router_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterDataSpec, nullable: true, minVersion: 0 },
+        { name: 'remote_controller', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'client_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'fetch_request_window_id', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'object_info', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'used_features', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebFeatureSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -120,10 +120,10 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec 
       name: 'blink.mojom.ControllerServiceWorker.DispatchFetchEventForSubresource_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DispatchFetchEventParamsSpec, nullable: false },
-        { name: 'response_callback', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DispatchFetchEventParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -131,12 +131,12 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec 
 blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.ControllerServiceWorker.DispatchFetchEventForSubresource_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -146,15 +146,15 @@ blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ControllerServiceWorker.Clone_Params',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'cross_origin_embedder_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false },
-        { name: 'coep_reporter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'document_isolation_policy', packedOffset: 32, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false },
-        { name: 'dip_reporter', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'cross_origin_embedder_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'coep_reporter', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'document_isolation_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'dip_reporter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -227,9 +227,9 @@ blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = {
       name: 'blink.mojom.ControllerServiceWorkerConnector.UpdateController_Params',
       packedSize: 16,
       fields: [
-        { name: 'controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

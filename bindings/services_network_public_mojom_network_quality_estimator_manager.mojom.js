@@ -72,12 +72,12 @@ network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Param
       name: 'network.mojom.NetworkQualityEstimatorManagerClient.OnNetworkQualityChanged_Params',
       packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.EffectiveConnectionTypeSpec, nullable: false },
-        { name: 'http_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'transport_rtt', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'downlink_bandwidth_kbps', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EffectiveConnectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'http_rtt', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'transport_rtt', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'downlink_bandwidth_kbps', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -150,9 +150,9 @@ network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
       name: 'network.mojom.NetworkQualityEstimatorManager.RequestNotifications_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

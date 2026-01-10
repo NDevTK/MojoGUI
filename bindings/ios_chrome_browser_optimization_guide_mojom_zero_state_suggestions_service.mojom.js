@@ -9,6 +9,20 @@ var ai = ai || {};
 ai.mojom = ai.mojom || {};
 
 
+// Union: ZeroStateSuggestionsResponseResult
+ai.mojom.ZeroStateSuggestionsResponseResultSpec = { $: mojo.internal.Union(
+    'ai.mojom.ZeroStateSuggestionsResponseResult', {
+      'response': {
+        'ordinal': 0,
+        'type': mojo_base.mojom.ProtoWrapperSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
+};
+
 // Interface: ZeroStateSuggestionsService
 ai.mojom.ZeroStateSuggestionsService = {};
 
@@ -73,7 +87,7 @@ ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +95,12 @@ ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = {
 ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ai.mojom.ZeroStateSuggestionsService.FetchZeroStateSuggestions_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ai.mojom.ZeroStateSuggestionsResponseResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.ZeroStateSuggestionsResponseResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

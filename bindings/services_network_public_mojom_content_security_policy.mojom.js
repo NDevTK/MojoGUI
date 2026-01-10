@@ -14,18 +14,21 @@ network.mojom.ContentSecurityPolicyType = {
   kReport: 0,
   kEnforce: 1,
 };
+network.mojom.ContentSecurityPolicyTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContentSecurityPolicySource
 network.mojom.ContentSecurityPolicySource = {
   kHTTP: 0,
   kMeta: 1,
 };
+network.mojom.ContentSecurityPolicySourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: CSPDisposition
 network.mojom.CSPDisposition = {
   CHECK: 0,
   DO_NOT_CHECK: 1,
 };
+network.mojom.CSPDispositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: CSPDirectiveName
 network.mojom.CSPDirectiveName = {
@@ -60,11 +63,31 @@ network.mojom.CSPDirectiveName = {
   UpgradeInsecureRequests: 28,
   WorkerSrc: 29,
 };
+network.mojom.CSPDirectiveNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: CSPRequireTrustedTypesFor
 network.mojom.CSPRequireTrustedTypesFor = {
   None: 0,
   Script: 1,
+};
+network.mojom.CSPRequireTrustedTypesForSpec = { $: mojo.internal.Enum() };
+
+// Union: AllowCSPFromHeaderValue
+network.mojom.AllowCSPFromHeaderValueSpec = { $: mojo.internal.Union(
+    'network.mojom.AllowCSPFromHeaderValue', {
+      'allow_star': {
+        'ordinal': 0,
+        'type': mojo.internal.Bool,
+      }},
+      'origin': {
+        'ordinal': 1,
+        'type': url.mojom.OriginSpec,
+      }},
+      'error_message': {
+        'ordinal': 2,
+        'type': mojo.internal.String,
+      }},
+    })
 };
 
 // Struct: ContentSecurityPolicyHeader
@@ -72,13 +95,13 @@ network.mojom.ContentSecurityPolicyHeaderSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ContentSecurityPolicyHeader',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'header_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ContentSecurityPolicyTypeSpec, nullable: false },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ContentSecurityPolicySourceSpec, nullable: false },
+        { name: 'header_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ContentSecurityPolicyTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 12, packedBitOffset: 0, type: network.mojom.ContentSecurityPolicySourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -88,16 +111,16 @@ network.mojom.CSPSourceSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CSPSource',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'scheme', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'port', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'path', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_host_wildcard', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_port_wildcard', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_host_wildcard', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_port_wildcard', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -107,28 +130,28 @@ network.mojom.CSPSourceListSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CSPSourceList',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'sources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'nonces', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'hashes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'url_hashes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'eval_hashes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'allow_self', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_star', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_inline', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_inline_speculation_rules', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_eval', packedOffset: 48, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_wasm_eval', packedOffset: 48, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_wasm_unsafe_eval', packedOffset: 48, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_dynamic', packedOffset: 48, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_dynamic_url', packedOffset: 48, packedBitOffset: 8, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_unsafe_hashes', packedOffset: 48, packedBitOffset: 9, type: mojo.internal.Bool, nullable: false },
-        { name: 'report_sample', packedOffset: 48, packedBitOffset: 10, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_trusted_types_eval', packedOffset: 48, packedBitOffset: 11, type: mojo.internal.Bool, nullable: false },
-        { name: 'report_hash_algorithm', packedOffset: 56, packedBitOffset: 0, type: network.mojom.IntegrityAlgorithmSpec, nullable: true },
+        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CSPSourceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'nonces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'hashes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IntegrityMetadataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'url_hashes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IntegrityMetadataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'eval_hashes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IntegrityMetadataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'allow_self', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_star', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_inline', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_inline_speculation_rules', packedOffset: 40, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_eval', packedOffset: 40, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_wasm_eval', packedOffset: 40, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_wasm_unsafe_eval', packedOffset: 40, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_dynamic', packedOffset: 40, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_dynamic_url', packedOffset: 41, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_unsafe_hashes', packedOffset: 41, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'report_sample', packedOffset: 41, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_trusted_types_eval', packedOffset: 41, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'report_hash_algorithm', packedOffset: 44, packedBitOffset: 0, type: network.mojom.IntegrityAlgorithmSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -140,11 +163,11 @@ network.mojom.CSPTrustedTypesSpec = {
       name: 'network.mojom.CSPTrustedTypes',
       packedSize: 24,
       fields: [
-        { name: 'list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'allow_any', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'allow_duplicates', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'allow_any', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_duplicates', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -154,22 +177,22 @@ network.mojom.ContentSecurityPolicySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ContentSecurityPolicy',
-      packedSize: 88,
+      packedSize: 72,
       fields: [
-        { name: 'self_origin', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CSPSourceSpec, nullable: false },
-        { name: 'raw_directives', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'directives', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'upgrade_insecure_requests', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'treat_as_public_address', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'block_all_mixed_content', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'sandbox', packedOffset: 40, packedBitOffset: 0, type: network.mojom.WebSandboxFlagsSpec, nullable: false },
-        { name: 'header', packedOffset: 48, packedBitOffset: 0, type: network.mojom.ContentSecurityPolicyHeaderSpec, nullable: false },
-        { name: 'use_reporting_api', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'report_endpoints', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'trusted_types', packedOffset: 72, packedBitOffset: 0, type: network.mojom.CSPTrustedTypesSpec, nullable: true },
-        { name: 'parsing_errors', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'self_origin', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CSPSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'raw_directives', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.CSPDirectiveNameSpec, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'directives', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.CSPDirectiveNameSpec, network.mojom.CSPSourceListSpec, false), nullable: false, minVersion: 0 },
+        { name: 'upgrade_insecure_requests', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'treat_as_public_address', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'block_all_mixed_content', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'sandbox', packedOffset: 28, packedBitOffset: 0, type: network.mojom.WebSandboxFlagsSpec, nullable: false, minVersion: 0 },
+        { name: 'header', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ContentSecurityPolicyHeaderSpec, nullable: false, minVersion: 0 },
+        { name: 'use_reporting_api', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'report_endpoints', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'trusted_types', packedOffset: 48, packedBitOffset: 0, type: network.mojom.CSPTrustedTypesSpec, nullable: true, minVersion: 0 },
+        { name: 'parsing_errors', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -179,19 +202,19 @@ network.mojom.CSPViolationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CSPViolation',
-      packedSize: 80,
+      packedSize: 72,
       fields: [
-        { name: 'directive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'effective_directive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'console_message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'blocked_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'report_endpoints', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'use_reporting_api', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'header', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: network.mojom.ContentSecurityPolicyTypeSpec, nullable: false },
-        { name: 'source_location', packedOffset: 72, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false },
+        { name: 'directive', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'effective_directive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'console_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'blocked_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'report_endpoints', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'use_reporting_api', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'header', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 44, packedBitOffset: 0, type: network.mojom.ContentSecurityPolicyTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'source_location', packedOffset: 56, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };

@@ -16,9 +16,9 @@ extensions.mojom.ExtraResponseDataSpec = {
       name: 'extensions.mojom.ExtraResponseData',
       packedSize: 16,
       fields: [
-        { name: 'blobs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'blobs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerializedBlobSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -81,9 +81,9 @@ audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = {
       name: 'audio.mojom.MlModelManager.SetResidualEchoEstimationModel_Params',
       packedSize: 16,
       fields: [
-        { name: 'tflite_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
+        { name: 'tflite_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +96,7 @@ audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -70,12 +70,12 @@ blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GeolocationService.CreateGeolocation_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'user_gesture', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'user_gesture', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -83,12 +83,12 @@ blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
 blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.GeolocationService.CreateGeolocation_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

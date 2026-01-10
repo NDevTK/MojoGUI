@@ -16,13 +16,13 @@ blink.mojom.ServiceWorkerObjectInfoSpec = {
       name: 'blink.mojom.ServiceWorkerObjectInfo',
       packedSize: 40,
       fields: [
-        { name: 'version_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStateSpec, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'host_remote', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'receiver', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStateSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -99,9 +99,9 @@ blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerObjectHost.PostMessageToServiceWorker_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TransferableMessageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -114,7 +114,7 @@ blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -187,9 +187,9 @@ blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerObject.StateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStateSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

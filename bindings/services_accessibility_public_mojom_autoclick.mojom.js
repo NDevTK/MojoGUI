@@ -72,9 +72,9 @@ ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec = {
       name: 'ax.mojom.Autoclick.RequestScrollableBoundsForPoint_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,9 +156,9 @@ ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec = {
       name: 'ax.mojom.AutoclickClient.HandleScrollableBoundsForPointFound_Params',
       packedSize: 16,
       fields: [
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -171,7 +171,7 @@ ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -179,12 +179,12 @@ ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
 ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ax.mojom.AutoclickClient.BindAutoclick_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'autoclick_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'autoclick_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -72,9 +72,9 @@ media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
       name: 'media.mojom.GpuInfoObserver.OnGpuInfoUpdate_Params',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
+        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -156,9 +156,9 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
       name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_system', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -166,13 +166,13 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
 media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'key_system_capability', packedOffset: 16, packedBitOffset: 0, type: media.mojom.KeySystemCapabilitySpec, nullable: false },
+        { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'key_system_capability', packedOffset: 8, packedBitOffset: 0, type: media.mojom.KeySystemCapabilitySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -184,10 +184,10 @@ media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
       name: 'media.mojom.MediaFoundationService.CreateInterfaceFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'frame_interfaces', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'frame_interfaces', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -269,9 +269,9 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
       name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false },
+        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -279,12 +279,12 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
 media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'gpu_info_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -296,10 +296,10 @@ media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
       name: 'media.mojom.MediaFoundationServiceBroker.GetService_Params',
       packedSize: 24,
       fields: [
-        { name: 'cdm_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

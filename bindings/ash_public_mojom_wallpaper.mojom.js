@@ -15,16 +15,34 @@ ash.mojom.WallpaperLayout = {
   kCenter: 1,
   kCenterCropped: 2,
 };
+ash.mojom.WallpaperLayoutSpec = { $: mojo.internal.Enum() };
+
+// Union: SetWallpaperResult
+ash.mojom.SetWallpaperResultSpec = { $: mojo.internal.Union(
+    'ash.mojom.SetWallpaperResult', {
+      'thumbnail_data': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(mojo.internal.Uint8, false),
+      }},
+      'error_message': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
+};
 
 // Struct: WallpaperSettings
 ash.mojom.WallpaperSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.WallpaperSettings',
-      packedSize: 8,
+      packedSize: 32,
       fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.WallpaperLayoutSpec, nullable: false, minVersion: 0 },
+        { name: 'filename', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

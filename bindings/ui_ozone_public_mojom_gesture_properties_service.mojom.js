@@ -19,6 +19,33 @@ ui.ozone.mojom.SetGesturePropErrorCode = {
   TYPE_MISMATCH: 4,
   SIZE_MISMATCH: 5,
 };
+ui.ozone.mojom.SetGesturePropErrorCodeSpec = { $: mojo.internal.Enum() };
+
+// Union: GesturePropValue
+ui.ozone.mojom.GesturePropValueSpec = { $: mojo.internal.Union(
+    'ui.ozone.mojom.GesturePropValue', {
+      'ints': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(mojo.internal.Int32, false),
+      }},
+      'shorts': {
+        'ordinal': 1,
+        'type': mojo.internal.Array(mojo.internal.Int16, false),
+      }},
+      'bools': {
+        'ordinal': 2,
+        'type': mojo.internal.Array(mojo.internal.Bool, false),
+      }},
+      'str': {
+        'ordinal': 3,
+        'type': mojo.internal.String,
+      }},
+      'reals': {
+        'ordinal': 4,
+        'type': mojo.internal.Array(mojo.internal.Double, false),
+      }},
+    })
+};
 
 // Interface: GesturePropertiesService
 ui.ozone.mojom.GesturePropertiesService = {};
@@ -111,7 +138,7 @@ ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -119,12 +146,12 @@ ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
 ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ui.ozone.mojom.GesturePropertiesService.ListDevices_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -136,9 +163,9 @@ ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
       name: 'ui.ozone.mojom.GesturePropertiesService.ListProperties_Params',
       packedSize: 16,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -146,12 +173,12 @@ ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
 ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ui.ozone.mojom.GesturePropertiesService.ListProperties_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -163,10 +190,10 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
       name: 'ui.ozone.mojom.GesturePropertiesService.GetProperty_Params',
       packedSize: 24,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -174,13 +201,13 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
 ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ui.ozone.mojom.GesturePropertiesService.GetProperty_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 32,
       fields: [
-        { name: 'is_read_only', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: true },
+        { name: 'is_read_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -190,13 +217,13 @@ ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.GesturePropertiesService.SetProperty_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: false },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: ui.ozone.mojom.GesturePropValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -204,12 +231,12 @@ ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
 ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ui.ozone.mojom.GesturePropertiesService.SetProperty_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ui.ozone.mojom.SetGesturePropErrorCodeSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ui.ozone.mojom.SetGesturePropErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

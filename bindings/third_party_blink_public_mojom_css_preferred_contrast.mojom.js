@@ -16,3 +16,4 @@ blink.mojom.PreferredContrast = {
   kNoPreference: 2,
   kCustom: 3,
 };
+blink.mojom.PreferredContrastSpec = { $: mojo.internal.Enum() };

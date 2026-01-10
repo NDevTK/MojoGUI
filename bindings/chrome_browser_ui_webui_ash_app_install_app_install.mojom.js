@@ -10,6 +10,24 @@ ash.app_install = ash.app_install || {};
 ash.app_install.mojom = ash.app_install.mojom || {};
 
 
+// Union: DialogArgs
+ash.app_install.mojom.DialogArgsSpec = { $: mojo.internal.Union(
+    'ash.app_install.mojom.DialogArgs', {
+      'app_info_args': {
+        'ordinal': 0,
+        'type': ash.app_install.mojom.AppInfoArgsSpec,
+      }},
+      'no_app_error_args': {
+        'ordinal': 1,
+        'type': ash.app_install.mojom.NoAppErrorArgsSpec,
+      }},
+      'connection_error_actions': {
+        'ordinal': 2,
+        'type': mojo.internal.InterfaceProxy,
+      }},
+    })
+};
+
 // Struct: AppInfoArgs
 ash.app_install.mojom.AppInfoArgsSpec = {
   $: {
@@ -17,10 +35,10 @@ ash.app_install.mojom.AppInfoArgsSpec = {
       name: 'ash.app_install.mojom.AppInfoArgs',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: ash.app_install.mojom.AppInfoDataSpec, nullable: false },
-        { name: 'actions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: ash.app_install.mojom.AppInfoDataSpec, nullable: false, minVersion: 0 },
+        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -32,14 +50,14 @@ ash.app_install.mojom.AppInfoDataSpec = {
       name: 'ash.app_install.mojom.AppInfoData',
       packedSize: 56,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'screenshots', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_already_installed', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'screenshots', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ash.app_install.mojom.ScreenshotSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_already_installed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -51,10 +69,10 @@ ash.app_install.mojom.ScreenshotSpec = {
       name: 'ash.app_install.mojom.Screenshot',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -67,7 +85,7 @@ ash.app_install.mojom.NoAppErrorArgsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -145,7 +163,7 @@ ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -153,12 +171,12 @@ ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
 ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.app_install.mojom.AppInfoActions.InstallApp_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'installed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -171,7 +189,7 @@ ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -245,7 +263,7 @@ ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -318,9 +336,9 @@ ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.app_install.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -403,7 +421,7 @@ ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -411,12 +429,12 @@ ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
 ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.app_install.mojom.PageHandler.GetDialogArgs_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'dialog_args', packedOffset: 8, packedBitOffset: 0, type: ash.app_install.mojom.DialogArgsSpec, nullable: false },
+        { name: 'dialog_args', packedOffset: 0, packedBitOffset: 0, type: ash.app_install.mojom.DialogArgsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -429,7 +447,7 @@ ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -10,17 +10,28 @@ arc.keymaster = arc.keymaster || {};
 arc.keymaster.mojom = arc.keymaster.mojom || {};
 
 
+// Union: KeyData
+arc.keymaster.mojom.KeyDataSpec = { $: mojo.internal.Union(
+    'arc.keymaster.mojom.KeyData', {
+      'chaps_key_data': {
+        'ordinal': 0,
+        'type': arc.keymaster.mojom.ChapsKeyDataSpec,
+      }},
+    })
+};
+
 // Struct: ChapsKeyData
 arc.keymaster.mojom.ChapsKeyDataSpec = {
   $: {
     structSpec: {
       name: 'arc.keymaster.mojom.ChapsKeyData',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'slot', packedOffset: 16, packedBitOffset: 0, type: arc.keymanagement.mojom.ChapsSlotSpec, nullable: false, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 32}]
     }
   }
 };
@@ -30,12 +41,12 @@ arc.keymaster.mojom.ChromeOsKeySpec = {
   $: {
     structSpec: {
       name: 'arc.keymaster.mojom.ChromeOsKey',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'base64_subject_public_key_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: arc.keymaster.mojom.KeyDataSpec, nullable: false },
+        { name: 'base64_subject_public_key_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: arc.keymaster.mojom.KeyDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -75,6 +86,15 @@ arc.keymaster.mojom.CertStoreInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  updatePlaceholderKeys(keys) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec,
+      arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec,
+      [keys]);
+  }
+
 };
 
 arc.keymaster.mojom.CertStoreInstance.getRemote = function() {
@@ -85,6 +105,33 @@ arc.keymaster.mojom.CertStoreInstance.getRemote = function() {
     'arc.keymaster.mojom.CertStoreInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for UpdatePlaceholderKeys
+arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.keymaster.mojom.CertStoreInstance.UpdatePlaceholderKeys_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.keymaster.mojom.ChromeOsKeySpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

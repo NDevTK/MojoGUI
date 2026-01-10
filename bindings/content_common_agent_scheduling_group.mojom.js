@@ -72,9 +72,9 @@ content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroupHost.DidUnloadRenderFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -174,10 +174,10 @@ content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroup.BindAssociatedInterfaces_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'route_provider_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'remote_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'route_provider_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -189,9 +189,9 @@ content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroup.CreateView_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: content.mojom.CreateViewParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.CreateViewParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -203,9 +203,9 @@ content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
       name: 'content.mojom.AgentSchedulingGroup.CreateFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: content.mojom.CreateFrameParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.CreateFrameParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -217,10 +217,10 @@ content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec 
       name: 'content.mojom.AgentSchedulingGroup.CreateSharedStorageWorkletService_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'global_scope_creation_params', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WorkletGlobalScopeCreationParamsSpec, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'global_scope_creation_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WorkletGlobalScopeCreationParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

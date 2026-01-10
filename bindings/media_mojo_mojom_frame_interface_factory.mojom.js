@@ -72,9 +72,9 @@ media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = {
       name: 'media.mojom.MuteStateObserver.OnMuteStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'muted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,9 +192,9 @@ media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.CreateProvisionFetcher_Params',
       packedSize: 16,
       fields: [
-        { name: 'provision_fetcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'provision_fetcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -206,9 +206,9 @@ media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.CreateCdmStorage_Params',
       packedSize: 16,
       fields: [
-        { name: 'cdm_storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'cdm_storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -220,9 +220,9 @@ media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.RegisterMuteStateObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'site_mute_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'site_mute_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,9 +234,9 @@ media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.CreateDCOMPSurfaceRegistry_Params',
       packedSize: 16,
       fields: [
-        { name: 'registry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'registry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -249,7 +249,7 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -257,12 +257,12 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
 media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.FrameInterfaceFactory.GetCdmOrigin_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'cdm_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'cdm_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -274,9 +274,9 @@ media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.BindEmbedderReceiver_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

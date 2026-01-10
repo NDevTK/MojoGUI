@@ -15,6 +15,7 @@ media_router.mojom.PlayState = {
   PAUSED: 1,
   BUFFERING: 2,
 };
+media_router.mojom.PlayStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: MediaImage
 media_router.mojom.MediaImageSpec = {
@@ -23,10 +24,10 @@ media_router.mojom.MediaImageSpec = {
       name: 'media_router.mojom.MediaImage',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -38,9 +39,9 @@ media_router.mojom.MediaStatusSpec = {
       name: 'media_router.mojom.MediaStatus',
       packedSize: 16,
       fields: [
-        { name: 'PLAYING', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'PLAYING', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -108,9 +109,9 @@ media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = {
       name: 'media_router.mojom.MediaStatusObserver.OnMediaStatusUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.MediaStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

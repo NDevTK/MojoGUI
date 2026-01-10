@@ -28,6 +28,7 @@ ash.wifi_direct.mojom.WifiDirectOperationResult = {
   kInvalidGroupProperties: 13,
   kUnknownFailure: 14,
 };
+ash.wifi_direct.mojom.WifiDirectOperationResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: WifiP2PCapabilities
 ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = {
@@ -36,11 +37,11 @@ ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = {
       name: 'ash.wifi_direct.mojom.WifiP2PCapabilities',
       packedSize: 16,
       fields: [
-        { name: 'is_owner_ready', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_client_ready', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_p2p_supported', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_owner_ready', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_client_ready', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_p2p_supported', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -52,10 +53,10 @@ ash.wifi_direct.mojom.WifiCredentialsSpec = {
       name: 'ash.wifi_direct.mojom.WifiCredentials',
       packedSize: 24,
       fields: [
-        { name: 'ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'passphrase', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'passphrase', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -67,11 +68,11 @@ ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = {
       name: 'ash.wifi_direct.mojom.WifiDirectConnectionProperties',
       packedSize: 32,
       fields: [
-        { name: 'credentials', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: false },
-        { name: 'frequency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'ipv4_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: false, minVersion: 0 },
+        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'ipv4_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -157,9 +158,9 @@ ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.CreateWifiDirectGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'credentials', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: true },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -167,13 +168,13 @@ ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
 ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager.CreateWifiDirectGroup_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false },
-        { name: 'wifi_direct_connection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false, minVersion: 0 },
+        { name: 'wifi_direct_connection', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,10 +186,11 @@ ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.ConnectToWifiDirectGroup_Params',
       packedSize: 24,
       fields: [
-        { name: 'credentials', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: false },
-        { name: 'frequency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: true },
+        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: false, minVersion: 0 },
+        { name: 'frequency_$flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'frequency_$value', originalFieldName: 'frequency' } },
+        { name: 'frequency_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'frequency_$flag', originalFieldName: 'frequency' } },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -196,13 +198,13 @@ ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
 ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager.ConnectToWifiDirectGroup_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false },
-        { name: 'wifi_direct_connection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false, minVersion: 0 },
+        { name: 'wifi_direct_connection', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -215,7 +217,7 @@ ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -223,12 +225,12 @@ ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
 ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager.GetWifiP2PCapabilities_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec, nullable: false },
+        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -311,7 +313,7 @@ ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -319,12 +321,12 @@ ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
 ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectConnection.GetProperties_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec, nullable: false },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -336,9 +338,9 @@ ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
       name: 'ash.wifi_direct.mojom.WifiDirectConnection.AssociateSocket_Params',
       packedSize: 16,
       fields: [
-        { name: 'socket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -346,12 +348,12 @@ ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
 ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectConnection.AssociateSocket_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

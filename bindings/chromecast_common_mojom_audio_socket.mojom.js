@@ -73,7 +73,7 @@ chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
 chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chromecast.mojom.AudioSocketBroker.GetSocketDescriptor_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -15,3 +15,4 @@ lens.mojom.PageContentType = {
   kPdf: 1,
   kHtml: 2,
 };
+lens.mojom.PageContentTypeSpec = { $: mojo.internal.Enum() };

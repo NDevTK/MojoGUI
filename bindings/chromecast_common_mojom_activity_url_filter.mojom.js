@@ -16,9 +16,9 @@ chromecast.mojom.ActivityUrlFilterCriteriaSpec = {
       name: 'chromecast.mojom.ActivityUrlFilterCriteria',
       packedSize: 16,
       fields: [
-        { name: 'criteria', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'criteria', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -86,9 +86,9 @@ chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = {
       name: 'chromecast.mojom.ActivityUrlFilterConfiguration.SetFilter_Params',
       packedSize: 16,
       fields: [
-        { name: 'filter', packedOffset: 8, packedBitOffset: 0, type: chromecast.mojom.ActivityUrlFilterCriteriaSpec, nullable: false },
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.ActivityUrlFilterCriteriaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -9,6 +9,20 @@ var ai = ai || {};
 ai.mojom = ai.mojom || {};
 
 
+// Union: EnhancedCalendarResponseResult
+ai.mojom.EnhancedCalendarResponseResultSpec = { $: mojo.internal.Union(
+    'ai.mojom.EnhancedCalendarResponseResult', {
+      'response': {
+        'ordinal': 0,
+        'type': mojo_base.mojom.ProtoWrapperSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
+};
+
 // Struct: EnhancedCalendarServiceRequestParams
 ai.mojom.EnhancedCalendarServiceRequestParamsSpec = {
   $: {
@@ -16,11 +30,11 @@ ai.mojom.EnhancedCalendarServiceRequestParamsSpec = {
       name: 'ai.mojom.EnhancedCalendarServiceRequestParams',
       packedSize: 32,
       fields: [
-        { name: 'selected_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'surrounding_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'optional_prompt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'selected_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'surrounding_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'optional_prompt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -88,9 +102,9 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
       name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_Params',
       packedSize: 16,
       fields: [
-        { name: 'request_params', packedOffset: 8, packedBitOffset: 0, type: ai.mojom.EnhancedCalendarServiceRequestParamsSpec, nullable: false },
+        { name: 'request_params', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.EnhancedCalendarServiceRequestParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -98,12 +112,12 @@ ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec = {
 ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ai.mojom.EnhancedCalendarService.ExecuteEnhancedCalendarRequest_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ai.mojom.EnhancedCalendarResponseResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.EnhancedCalendarResponseResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

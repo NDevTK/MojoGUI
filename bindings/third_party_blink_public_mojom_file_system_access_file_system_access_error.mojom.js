@@ -23,19 +23,20 @@ blink.mojom.FileSystemAccessStatus = {
   kOperationAborted: 9,
   kFileError: 10,
 };
+blink.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: FileSystemAccessError
 blink.mojom.FileSystemAccessErrorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessError',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessStatusSpec, nullable: false },
-        { name: 'file_error', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'file_error', packedOffset: 4, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

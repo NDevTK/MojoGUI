@@ -23,3 +23,4 @@ extensions.mojom.ViewType = {
   kExtensionSidePanel: 9,
   kDeveloperTools: 10,
 };
+extensions.mojom.ViewTypeSpec = { $: mojo.internal.Enum() };

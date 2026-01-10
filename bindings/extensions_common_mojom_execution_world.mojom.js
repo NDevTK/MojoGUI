@@ -15,3 +15,4 @@ extensions.mojom.ExecutionWorld = {
   kMain: 1,
   kUserScript: 2,
 };
+extensions.mojom.ExecutionWorldSpec = { $: mojo.internal.Enum() };

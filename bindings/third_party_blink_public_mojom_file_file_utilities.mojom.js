@@ -72,9 +72,9 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
       name: 'blink.mojom.FileUtilitiesHost.GetFileInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
 blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileUtilitiesHost.GetFileInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

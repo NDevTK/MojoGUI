@@ -73,7 +73,7 @@ blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
 blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.InnerHtmlAgent.GetInnerHtml_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'inner_html', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'inner_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

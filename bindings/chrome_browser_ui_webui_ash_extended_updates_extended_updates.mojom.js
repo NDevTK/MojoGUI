@@ -17,10 +17,10 @@ ash.extended_updates.mojom.AppSpec = {
       name: 'ash.extended_updates.mojom.App',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -88,10 +88,10 @@ ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.extended_updates.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -183,7 +183,7 @@ ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -191,12 +191,12 @@ ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = {
 ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler.OptInToExtendedUpdates_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,7 +209,7 @@ ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -222,7 +222,7 @@ ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -230,12 +230,12 @@ ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = {
 ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler.GetInstalledAndroidApps_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.extended_updates.mojom.AppSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

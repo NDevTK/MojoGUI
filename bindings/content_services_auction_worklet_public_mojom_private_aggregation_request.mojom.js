@@ -28,6 +28,7 @@ auction_worklet.mojom.BaseValue = {
   kInterestGroupStorageUsed: 14,
   kPercentInterestGroupStorageQuotaUsed: 15,
 };
+auction_worklet.mojom.BaseValueSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReservedNonErrorEventType
 auction_worklet.mojom.ReservedNonErrorEventType = {
@@ -36,6 +37,7 @@ auction_worklet.mojom.ReservedNonErrorEventType = {
   kReservedLoss: 2,
   kReservedOnce: 3,
 };
+auction_worklet.mojom.ReservedNonErrorEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReservedErrorEventType
 auction_worklet.mojom.ReservedErrorEventType = {
@@ -46,6 +48,67 @@ auction_worklet.mojom.ReservedErrorEventType = {
   kInsufficientBudget: 4,
   kUncaughtError: 5,
 };
+auction_worklet.mojom.ReservedErrorEventTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: ForEventSignalBucket
+auction_worklet.mojom.ForEventSignalBucketSpec = { $: mojo.internal.Union(
+    'auction_worklet.mojom.ForEventSignalBucket', {
+      'id_bucket': {
+        'ordinal': 0,
+        'type': mojo_base.mojom.Uint128Spec,
+      }},
+      'signal_bucket': {
+        'ordinal': 1,
+        'type': auction_worklet.mojom.SignalBucketSpec,
+      }},
+    })
+};
+
+// Union: ForEventSignalValue
+auction_worklet.mojom.ForEventSignalValueSpec = { $: mojo.internal.Union(
+    'auction_worklet.mojom.ForEventSignalValue', {
+      'int_value': {
+        'ordinal': 0,
+        'type': mojo.internal.Int32,
+      }},
+      'signal_value': {
+        'ordinal': 1,
+        'type': auction_worklet.mojom.SignalValueSpec,
+      }},
+    })
+};
+
+// Union: EventType
+auction_worklet.mojom.EventTypeSpec = { $: mojo.internal.Union(
+    'auction_worklet.mojom.EventType', {
+      'reserved_non_error': {
+        'ordinal': 0,
+        'type': auction_worklet.mojom.ReservedNonErrorEventTypeSpec,
+      }},
+      'reserved_error': {
+        'ordinal': 1,
+        'type': auction_worklet.mojom.ReservedErrorEventTypeSpec,
+      }},
+      'non_reserved': {
+        'ordinal': 2,
+        'type': mojo.internal.String,
+      }},
+    })
+};
+
+// Union: AggregatableReportContribution
+auction_worklet.mojom.AggregatableReportContributionSpec = { $: mojo.internal.Union(
+    'auction_worklet.mojom.AggregatableReportContribution', {
+      'histogram_contribution': {
+        'ordinal': 0,
+        'type': blink.mojom.AggregatableReportHistogramContributionSpec,
+      }},
+      'for_event_contribution': {
+        'ordinal': 1,
+        'type': auction_worklet.mojom.AggregatableReportForEventContributionSpec,
+      }},
+    })
+};
 
 // Struct: BucketOffset
 auction_worklet.mojom.BucketOffsetSpec = {
@@ -54,10 +117,10 @@ auction_worklet.mojom.BucketOffsetSpec = {
       name: 'auction_worklet.mojom.BucketOffset',
       packedSize: 24,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false },
-        { name: 'is_negative', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false, minVersion: 0 },
+        { name: 'is_negative', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -69,11 +132,11 @@ auction_worklet.mojom.SignalBucketSpec = {
       name: 'auction_worklet.mojom.SignalBucket',
       packedSize: 32,
       fields: [
-        { name: 'base_value', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false },
-        { name: 'scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'offset', packedOffset: 24, packedBitOffset: 0, type: auction_worklet.mojom.BucketOffsetSpec, nullable: true },
+        { name: 'base_value', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false, minVersion: 0 },
+        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.BucketOffsetSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -83,13 +146,13 @@ auction_worklet.mojom.SignalValueSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SignalValue',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'base_value', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false },
-        { name: 'scale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'base_value', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false, minVersion: 0 },
+        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -99,14 +162,15 @@ auction_worklet.mojom.AggregatableReportForEventContributionSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.AggregatableReportForEventContribution',
-      packedSize: 40,
+      packedSize: 72,
       fields: [
-        { name: 'bucket', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalBucketSpec, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalValueSpec, nullable: false },
-        { name: 'filtering_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'event_type', packedOffset: 32, packedBitOffset: 0, type: auction_worklet.mojom.EventTypeSpec, nullable: false },
+        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalBucketSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalValueSpec, nullable: false, minVersion: 0 },
+        { name: 'filtering_id_$flag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'filtering_id_$value', originalFieldName: 'filtering_id' } },
+        { name: 'filtering_id_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'filtering_id_$flag', originalFieldName: 'filtering_id' } },
+        { name: 'event_type', packedOffset: 48, packedBitOffset: 0, type: auction_worklet.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -116,12 +180,12 @@ auction_worklet.mojom.PrivateAggregationRequestSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.PrivateAggregationRequest',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'contribution', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.AggregatableReportContributionSpec, nullable: false },
-        { name: 'debug_mode_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DebugModeDetailsSpec, nullable: false },
+        { name: 'contribution', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.AggregatableReportContributionSpec, nullable: false, minVersion: 0 },
+        { name: 'debug_mode_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DebugModeDetailsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -133,11 +197,11 @@ auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec = {
       name: 'auction_worklet.mojom.FinalizedPrivateAggregationRequest',
       packedSize: 32,
       fields: [
-        { name: 'contribution', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AggregatableReportHistogramContributionSpec, nullable: false },
-        { name: 'debug_mode_details', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DebugModeDetailsSpec, nullable: false },
-        { name: 'error_event', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PrivateAggregationErrorEventSpec, nullable: true },
+        { name: 'contribution', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AggregatableReportHistogramContributionSpec, nullable: false, minVersion: 0 },
+        { name: 'debug_mode_details', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DebugModeDetailsSpec, nullable: false, minVersion: 0 },
+        { name: 'error_event', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PrivateAggregationErrorEventSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

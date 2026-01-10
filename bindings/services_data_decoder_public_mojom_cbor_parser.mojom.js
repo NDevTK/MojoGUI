@@ -70,11 +70,11 @@ data_decoder.mojom.CborParser_Parse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.CborParser.Parse_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'cbor', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'cbor', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -82,13 +82,13 @@ data_decoder.mojom.CborParser_Parse_ParamsSpec = {
 data_decoder.mojom.CborParser_Parse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'data_decoder.mojom.CborParser.Parse_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

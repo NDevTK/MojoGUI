@@ -14,6 +14,7 @@ sharing.mojom.LocationStandardFormat = {
   E164_CALLING: 0,
   ISO_3166_1_ALPHA_2: 1,
 };
+sharing.mojom.LocationStandardFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: LocationHint
 sharing.mojom.LocationHintSpec = {
@@ -22,10 +23,10 @@ sharing.mojom.LocationHintSpec = {
       name: 'sharing.mojom.LocationHint',
       packedSize: 24,
       fields: [
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.LocationStandardFormatSpec, nullable: false },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.LocationStandardFormatSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -102,9 +103,9 @@ sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = {
       name: 'sharing.mojom.IncomingMessagesListener.OnMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -116,9 +117,9 @@ sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = {
       name: 'sharing.mojom.IncomingMessagesListener.OnComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -192,7 +193,7 @@ sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -274,12 +275,12 @@ sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
       name: 'sharing.mojom.WebRtcSignalingMessenger.SendMessage_Params',
       packedSize: 40,
       fields: [
-        { name: 'self_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'peer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'location_hint', packedOffset: 24, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false },
-        { name: 'message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'self_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'peer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'location_hint', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -287,12 +288,12 @@ sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = {
 sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'sharing.mojom.WebRtcSignalingMessenger.SendMessage_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -304,11 +305,11 @@ sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
       name: 'sharing.mojom.WebRtcSignalingMessenger.StartReceivingMessages_Params',
       packedSize: 32,
       fields: [
-        { name: 'self_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'location_hint', packedOffset: 16, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false },
-        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'self_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'location_hint', packedOffset: 8, packedBitOffset: 0, type: sharing.mojom.LocationHintSpec, nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -316,13 +317,13 @@ sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = {
 sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'sharing.mojom.WebRtcSignalingMessenger.StartReceivingMessages_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

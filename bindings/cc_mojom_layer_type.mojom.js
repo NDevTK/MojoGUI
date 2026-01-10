@@ -27,3 +27,4 @@ cc.mojom.LayerType = {
   kVideo: 13,
   kViewTransitionContent: 14,
 };
+cc.mojom.LayerTypeSpec = { $: mojo.internal.Enum() };

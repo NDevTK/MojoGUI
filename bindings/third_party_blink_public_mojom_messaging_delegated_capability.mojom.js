@@ -16,3 +16,4 @@ blink.mojom.DelegatedCapability = {
   kFullscreenRequest: 2,
   kDisplayCaptureRequest: 3,
 };
+blink.mojom.DelegatedCapabilitySpec = { $: mojo.internal.Enum() };

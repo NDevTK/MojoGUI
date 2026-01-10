@@ -20,3 +20,4 @@ blink.mojom.ScrollDirection = {
   kScrollInlineDirectionBackward: 6,
   kScrollInlineDirectionForward: 7,
 };
+blink.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum() };

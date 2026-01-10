@@ -14,6 +14,7 @@ media.mojom.ProtectionType = {
   NONE: 0,
   HDCP: 1,
 };
+media.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkType
 media.mojom.LinkType = {
@@ -26,6 +27,7 @@ media.mojom.LinkType = {
   DISPLAYPORT: 6,
   NETWORK: 7,
 };
+media.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: OutputProtection
 media.mojom.OutputProtection = {};
@@ -100,7 +102,7 @@ media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -108,14 +110,14 @@ media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
 media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.OutputProtection.QueryStatus_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'link_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'protection_mask', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'link_mask', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'protection_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -127,9 +129,9 @@ media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
       name: 'media.mojom.OutputProtection.EnableProtection_Params',
       packedSize: 16,
       fields: [
-        { name: 'desired_protection_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'desired_protection_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -137,12 +139,12 @@ media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
 media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.OutputProtection.EnableProtection_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

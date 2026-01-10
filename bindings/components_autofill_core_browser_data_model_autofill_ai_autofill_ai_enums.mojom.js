@@ -19,3 +19,4 @@ autofill.mojom.EntityTypeName = {
   kRedressNumber: 5,
   kFlightReservation: 6,
 };
+autofill.mojom.EntityTypeNameSpec = { $: mojo.internal.Enum() };

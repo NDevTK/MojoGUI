@@ -26,6 +26,7 @@ blink.mojom.ServiceWorkerErrorType = {
   kType: 12,
   kUnknown: 13,
 };
+blink.mojom.ServiceWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerResponseError
 blink.mojom.ServiceWorkerResponseError = {
@@ -47,3 +48,4 @@ blink.mojom.ServiceWorkerResponseError = {
   kDisallowedByCorp: 15,
   kRequestBodyUnusable: 16,
 };
+blink.mojom.ServiceWorkerResponseErrorSpec = { $: mojo.internal.Enum() };

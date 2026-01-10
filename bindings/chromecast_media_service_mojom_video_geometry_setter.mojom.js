@@ -73,10 +73,10 @@ chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpe
       name: 'chromecast.media.mojom.VideoGeometryChangeClient.OnVideoGeometryChange_Params',
       packedSize: 24,
       fields: [
-        { name: 'rect_f', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false },
+        { name: 'rect_f', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'transform', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -149,10 +149,10 @@ chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryCha
       name: 'chromecast.media.mojom.VideoGeometryChangeSubscriber.SubscribeToVideoGeometryChange_Params',
       packedSize: 24,
       fields: [
-        { name: 'overlay_plane_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'client_pending_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'client_pending_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -225,11 +225,11 @@ chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = {
       name: 'chromecast.media.mojom.VideoGeometrySetter.SetVideoGeometry_Params',
       packedSize: 32,
       fields: [
-        { name: 'rect_f', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false },
-        { name: 'overlay_plane_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'rect_f', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'transform', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false, minVersion: 0 },
+        { name: 'overlay_plane_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

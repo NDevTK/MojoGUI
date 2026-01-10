@@ -17,10 +17,10 @@ chromecast.shell.mojom.FeatureSpec = {
       name: 'chromecast.shell.mojom.Feature',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -88,9 +88,9 @@ chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = {
       name: 'chromecast.shell.mojom.FeatureManager.ConfigureFeatures_Params',
       packedSize: 16,
       fields: [
-        { name: 'features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.shell.mojom.FeatureSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

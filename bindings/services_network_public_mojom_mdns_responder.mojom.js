@@ -81,9 +81,9 @@ network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
       name: 'network.mojom.MdnsResponder.CreateNameForAddress_Params',
       packedSize: 16,
       fields: [
-        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,13 +91,13 @@ network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
 network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.MdnsResponder.CreateNameForAddress_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'announcement_scheduled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'announcement_scheduled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -109,9 +109,9 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
       name: 'network.mojom.MdnsResponder.RemoveNameForAddress_Params',
       packedSize: 16,
       fields: [
-        { name: 'address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,13 +119,13 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
 network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.MdnsResponder.RemoveNameForAddress_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'removed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'goodbye_scheduled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'removed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'goodbye_scheduled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

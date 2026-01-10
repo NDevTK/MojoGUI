@@ -16,6 +16,7 @@ remoting.mojom.TransportRouteType = {
   kStun: 2,
   kRelay: 3,
 };
+remoting.mojom.TransportRouteTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TransportRoute
 remoting.mojom.TransportRouteSpec = {
@@ -24,11 +25,11 @@ remoting.mojom.TransportRouteSpec = {
       name: 'remoting.mojom.TransportRoute',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.TransportRouteTypeSpec, nullable: false },
-        { name: 'remote_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'local_address', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TransportRouteTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'local_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -114,9 +115,9 @@ remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = {
       name: 'remoting.mojom.RemotingHostControl.ApplyHostConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -128,10 +129,10 @@ remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = {
       name: 'remoting.mojom.RemotingHostControl.InitializePairingRegistry_Params',
       packedSize: 24,
       fields: [
-        { name: 'privileged_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'unprivileged_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'privileged_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'unprivileged_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -143,10 +144,10 @@ remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = {
       name: 'remoting.mojom.RemotingHostControl.BindChromotingHostServices_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'peer_pid', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'peer_pid', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -228,9 +229,9 @@ remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec 
       name: 'remoting.mojom.DesktopSessionConnectionEvents.OnTerminalDisconnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -242,11 +243,11 @@ remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Para
       name: 'remoting.mojom.DesktopSessionConnectionEvents.OnDesktopSessionAgentAttached_Params',
       packedSize: 24,
       fields: [
-        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'session_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'desktop_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'desktop_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -373,9 +374,9 @@ remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientAccessDenied_Params',
       packedSize: 16,
       fields: [
-        { name: 'signaling_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -387,9 +388,9 @@ remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientAuthenticated_Params',
       packedSize: 16,
       fields: [
-        { name: 'signaling_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -401,9 +402,9 @@ remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientConnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'signaling_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -415,9 +416,9 @@ remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientDisconnected_Params',
       packedSize: 16,
       fields: [
-        { name: 'signaling_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -429,11 +430,11 @@ remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnClientRouteChange_Params',
       packedSize: 32,
       fields: [
-        { name: 'signaling_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'channel_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'route', packedOffset: 24, packedBitOffset: 0, type: remoting.mojom.TransportRouteSpec, nullable: false },
+        { name: 'signaling_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'route', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.TransportRouteSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -445,9 +446,9 @@ remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = {
       name: 'remoting.mojom.HostStatusObserver.OnHostStarted_Params',
       packedSize: 16,
       fields: [
-        { name: 'owner_email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'owner_email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -460,7 +461,7 @@ remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -16,6 +16,7 @@ remoting.mojom.OpenUrlResult = {
   FAILURE: 2,
   LOCAL_FALLBACK: 3,
 };
+remoting.mojom.OpenUrlResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: RemoteUrlOpener
 remoting.mojom.RemoteUrlOpener = {};
@@ -80,9 +81,9 @@ remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
       name: 'remoting.mojom.RemoteUrlOpener.OpenUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -90,12 +91,12 @@ remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
 remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remoting.mojom.RemoteUrlOpener.OpenUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.OpenUrlResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.OpenUrlResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

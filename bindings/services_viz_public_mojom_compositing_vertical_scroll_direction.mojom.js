@@ -15,3 +15,4 @@ viz.mojom.VerticalScrollDirection = {
   kDown: 1,
   kUp: 2,
 };
+viz.mojom.VerticalScrollDirectionSpec = { $: mojo.internal.Enum() };

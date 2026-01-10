@@ -16,6 +16,7 @@ custom_help_bubble.mojom.CustomHelpBubbleUserAction = {
   kAction: 2,
   kCancel: 3,
 };
+custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec = { $: mojo.internal.Enum() };
 
 // Interface: CustomHelpBubbleHandlerFactory
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory = {};
@@ -80,9 +81,9 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHa
       name: 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.CreateCustomHelpBubbleHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -155,9 +156,9 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
       name: 'custom_help_bubble.mojom.CustomHelpBubbleHandler.NotifyUserAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

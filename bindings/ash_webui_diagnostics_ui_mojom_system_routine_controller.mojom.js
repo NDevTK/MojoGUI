@@ -34,6 +34,7 @@ ash.diagnostics.mojom.RoutineType = {
   kArcPing: 19,
   kArcDnsResolution: 20,
 };
+ash.diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: StandardRoutineResult
 ash.diagnostics.mojom.StandardRoutineResult = {
@@ -42,19 +43,34 @@ ash.diagnostics.mojom.StandardRoutineResult = {
   kExecutionError: 2,
   kUnableToRun: 3,
 };
+ash.diagnostics.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum() };
+
+// Union: RoutineResult
+ash.diagnostics.mojom.RoutineResultSpec = { $: mojo.internal.Union(
+    'ash.diagnostics.mojom.RoutineResult', {
+      'simple_result': {
+        'ordinal': 0,
+        'type': ash.diagnostics.mojom.StandardRoutineResultSpec,
+      }},
+      'power_result': {
+        'ordinal': 1,
+        'type': ash.diagnostics.mojom.PowerRoutineResultSpec,
+      }},
+    })
+};
 
 // Struct: PowerRoutineResult
 ash.diagnostics.mojom.PowerRoutineResultSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.PowerRoutineResult',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'simple_result', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.StandardRoutineResultSpec, nullable: false },
-        { name: 'percent_change', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'time_elapsed_seconds', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'simple_result', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.StandardRoutineResultSpec, nullable: false, minVersion: 0 },
+        { name: 'percent_change', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'time_elapsed_seconds', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -64,12 +80,12 @@ ash.diagnostics.mojom.RoutineResultInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.RoutineResultInfo',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -137,9 +153,9 @@ ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
       name: 'ash.diagnostics.mojom.RoutineRunner.OnRoutineResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -222,7 +238,7 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -230,12 +246,12 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = 
 ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.diagnostics.mojom.SystemRoutineController.GetSupportedRoutines_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'routines', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'routines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.diagnostics.mojom.RoutineTypeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -245,12 +261,12 @@ ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemRoutineController.RunRoutine_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false },
-        { name: 'runner', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'runner', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

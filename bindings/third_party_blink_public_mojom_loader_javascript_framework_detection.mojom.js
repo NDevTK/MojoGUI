@@ -28,6 +28,7 @@ blink.mojom.JavaScriptFramework = {
   kWix: 14,
   kWordPress: 15,
 };
+blink.mojom.JavaScriptFrameworkSpec = { $: mojo.internal.Enum() };
 
 // Struct: JavaScriptFrameworkDetectionResult
 blink.mojom.JavaScriptFrameworkDetectionResultSpec = {
@@ -36,9 +37,9 @@ blink.mojom.JavaScriptFrameworkDetectionResultSpec = {
       name: 'blink.mojom.JavaScriptFrameworkDetectionResult',
       packedSize: 16,
       fields: [
-        { name: 'detected_versions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'detected_versions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.JavaScriptFrameworkSpec, mojo.internal.Int16, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

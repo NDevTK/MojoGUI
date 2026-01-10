@@ -17,12 +17,14 @@ performance_manager.mojom.Scope = {
   kServiceWorker: 3,
   kSharedWorker: 4,
 };
+performance_manager.mojom.ScopeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mode
 performance_manager.mojom.Mode = {
   kDefault: 0,
   kEager: 1,
 };
+performance_manager.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: WebMemoryAttribution
 performance_manager.mojom.WebMemoryAttributionSpec = {
@@ -31,9 +33,9 @@ performance_manager.mojom.WebMemoryAttributionSpec = {
       name: 'performance_manager.mojom.WebMemoryAttribution',
       packedSize: 16,
       fields: [
-        { name: 'kCrossOriginAggregated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kCrossOriginAggregated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -45,11 +47,11 @@ performance_manager.mojom.WebMemoryBreakdownEntrySpec = {
       name: 'performance_manager.mojom.WebMemoryBreakdownEntry',
       packedSize: 32,
       fields: [
-        { name: 'memory', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: true },
-        { name: 'canvas_memory', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: true },
-        { name: 'attribution', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: true, minVersion: 0 },
+        { name: 'canvas_memory', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: true, minVersion: 0 },
+        { name: 'attribution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(performance_manager.mojom.WebMemoryAttributionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -61,9 +63,9 @@ performance_manager.mojom.WebMemoryMeasurementSpec = {
       name: 'performance_manager.mojom.WebMemoryMeasurement',
       packedSize: 16,
       fields: [
-        { name: 'kDefault', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kDefault', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

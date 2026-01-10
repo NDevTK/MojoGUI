@@ -23,6 +23,7 @@ optimization_guide.mojom.OnDeviceFeature = {
   kOnDeviceSpeechRecognition: 9,
   kProofreaderApi: 10,
 };
+optimization_guide.mojom.OnDeviceFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: ModelUnavailableReason
 optimization_guide.mojom.ModelUnavailableReason = {
@@ -31,6 +32,7 @@ optimization_guide.mojom.ModelUnavailableReason = {
   kPendingAssets: 2,
   kPendingUsage: 3,
 };
+optimization_guide.mojom.ModelUnavailableReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: ModelSolutionConfig
 optimization_guide.mojom.ModelSolutionConfigSpec = {
@@ -39,12 +41,12 @@ optimization_guide.mojom.ModelSolutionConfigSpec = {
       name: 'optimization_guide.mojom.ModelSolutionConfig',
       packedSize: 40,
       fields: [
-        { name: 'feature_config', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
-        { name: 'text_safety_config', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
-        { name: 'model_versions', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false },
-        { name: 'max_tokens', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'feature_config', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
+        { name: 'text_safety_config', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
+        { name: 'model_versions', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
+        { name: 'max_tokens', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -54,12 +56,12 @@ optimization_guide.mojom.ModelSubscriptionOptionsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide.mojom.ModelSubscriptionOptions',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: optimization_guide.mojom.OnDeviceFeatureSpec, nullable: false },
-        { name: 'mark_used', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.OnDeviceFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'mark_used', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -145,10 +147,10 @@ optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelSolution.CreateSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.SessionParamsSpec, nullable: false },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SessionParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -160,9 +162,9 @@ optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelSolution.CreateTextSafetySession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -175,7 +177,7 @@ optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -257,9 +259,9 @@ optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelSubscriber.Unavailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: optimization_guide.mojom.ModelUnavailableReasonSpec, nullable: false },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.ModelUnavailableReasonSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -271,10 +273,10 @@ optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelSubscriber.Available_Params',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: optimization_guide.mojom.ModelSolutionConfigSpec, nullable: false },
-        { name: 'solution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.ModelSolutionConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'solution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -347,10 +349,10 @@ optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelBroker.Subscribe_Params',
       packedSize: 24,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: optimization_guide.mojom.ModelSubscriptionOptionsSpec, nullable: false },
-        { name: 'subcriber', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.ModelSubscriptionOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'subcriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -19,3 +19,4 @@ blink.mojom.RendererEvictionReason = {
   kBroadcastChannelOnMessage: 5,
   kSharedWorkerMessage: 6,
 };
+blink.mojom.RendererEvictionReasonSpec = { $: mojo.internal.Enum() };

@@ -10,17 +10,28 @@ arc.keymint = arc.keymint || {};
 arc.keymint.mojom = arc.keymint.mojom || {};
 
 
+// Union: KeyData
+arc.keymint.mojom.KeyDataSpec = { $: mojo.internal.Union(
+    'arc.keymint.mojom.KeyData', {
+      'chaps_key_data': {
+        'ordinal': 0,
+        'type': arc.keymint.mojom.ChapsKeyDataSpec,
+      }},
+    })
+};
+
 // Struct: ChapsKeyData
 arc.keymint.mojom.ChapsKeyDataSpec = {
   $: {
     structSpec: {
       name: 'arc.keymint.mojom.ChapsKeyData',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'slot', packedOffset: 16, packedBitOffset: 0, type: arc.keymanagement.mojom.ChapsSlotSpec, nullable: false, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 32}]
     }
   }
 };
@@ -30,12 +41,12 @@ arc.keymint.mojom.ChromeOsKeySpec = {
   $: {
     structSpec: {
       name: 'arc.keymint.mojom.ChromeOsKey',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'base64_subject_public_key_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: arc.keymint.mojom.KeyDataSpec, nullable: false },
+        { name: 'base64_subject_public_key_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: arc.keymint.mojom.KeyDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -75,6 +86,24 @@ arc.keymint.mojom.CertStoreInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  updatePlaceholderKeys(keys) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec,
+      arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec,
+      [keys]);
+  }
+
+  setSerialNumber(serial_number) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec,
+      null,
+      [serial_number]);
+  }
+
 };
 
 arc.keymint.mojom.CertStoreInstance.getRemote = function() {
@@ -85,6 +114,47 @@ arc.keymint.mojom.CertStoreInstance.getRemote = function() {
     'arc.keymint.mojom.CertStoreInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for UpdatePlaceholderKeys
+arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.keymint.mojom.CertStoreInstance.UpdatePlaceholderKeys_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.keymint.mojom.ChromeOsKeySpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for SetSerialNumber
+arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.keymint.mojom.CertStoreInstance.SetSerialNumber_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

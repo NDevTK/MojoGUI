@@ -15,6 +15,7 @@ remote_cocoa.mojom.AlertDisposition = {
   SECONDARY_BUTTON: 1,
   CLOSE: 2,
 };
+remote_cocoa.mojom.AlertDispositionSpec = { $: mojo.internal.Enum() };
 
 // Struct: AlertBridgeInitParams
 remote_cocoa.mojom.AlertBridgeInitParamsSpec = {
@@ -23,14 +24,14 @@ remote_cocoa.mojom.AlertBridgeInitParamsSpec = {
       name: 'remote_cocoa.mojom.AlertBridgeInitParams',
       packedSize: 56,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'message_text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'primary_button_text', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'secondary_button_text', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'text_field_text', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'check_box_text', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'message_text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'primary_button_text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'secondary_button_text', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'text_field_text', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'check_box_text', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -107,9 +108,9 @@ remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
       name: 'remote_cocoa.mojom.AlertBridge.Show_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.AlertBridgeInitParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.AlertBridgeInitParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,14 +118,14 @@ remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
 remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remote_cocoa.mojom.AlertBridge.Show_ResponseParams',
-      packedSize: 32,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'disposition', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.AlertDispositionSpec, nullable: false },
-        { name: 'text_field_value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'check_box_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'disposition', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.AlertDispositionSpec, nullable: false, minVersion: 0 },
+        { name: 'text_field_value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'check_box_value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -137,7 +138,7 @@ remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -14,10 +14,26 @@ paint_preview.mojom.RecordingPersistence = {
   kFileSystem: 0,
   kMemoryBuffer: 1,
 };
+paint_preview.mojom.RecordingPersistenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClipCoordOverride
 paint_preview.mojom.ClipCoordOverride = {
   kNone: 0,
   kCenterOnScrollOffset: 1,
   kScrollOffset: 2,
+};
+paint_preview.mojom.ClipCoordOverrideSpec = { $: mojo.internal.Enum() };
+
+// Union: SerializedRecording
+paint_preview.mojom.SerializedRecordingSpec = { $: mojo.internal.Union(
+    'paint_preview.mojom.SerializedRecording', {
+      'file': {
+        'ordinal': 0,
+        'type': mojo_base.mojom.FileSpec,
+      }},
+      'buffer': {
+        'ordinal': 1,
+        'type': mojo_base.mojom.BigBufferSpec,
+      }},
+    })
 };

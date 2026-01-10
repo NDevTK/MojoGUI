@@ -9,6 +9,20 @@ var js_injection = js_injection || {};
 js_injection.mojom = js_injection.mojom || {};
 
 
+// Union: JsWebMessage
+js_injection.mojom.JsWebMessageSpec = { $: mojo.internal.Union(
+    'js_injection.mojom.JsWebMessage', {
+      'string_value': {
+        'ordinal': 0,
+        'type': mojo_base.mojom.String16Spec,
+      }},
+      'array_buffer_value': {
+        'ordinal': 1,
+        'type': js_injection.mojom.JsWebMessageArrayBufferValueSpec,
+      }},
+    })
+};
+
 // Struct: JsObject
 js_injection.mojom.JsObjectSpec = {
   $: {
@@ -16,13 +30,13 @@ js_injection.mojom.JsObjectSpec = {
       name: 'js_injection.mojom.JsObject',
       packedSize: 40,
       fields: [
-        { name: 'js_object_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'js_to_browser_messaging', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'browser_to_js_factory', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'origin_matcher', packedOffset: 24, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false },
-        { name: 'js_world', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'js_object_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'js_to_browser_messaging', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'browser_to_js_factory', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'origin_matcher', packedOffset: 16, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false, minVersion: 0 },
+        { name: 'js_world', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -32,15 +46,15 @@ js_injection.mojom.JavaScriptExecutableSpec = {
   $: {
     structSpec: {
       name: 'js_injection.mojom.JavaScriptExecutable',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'script_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'script', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'origin_matcher', packedOffset: 24, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false },
-        { name: 'injection_time', packedOffset: 32, packedBitOffset: 0, type: js_injection.mojom.DocumentInjectionTimeSpec, nullable: false },
-        { name: 'js_world', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'script', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'origin_matcher', packedOffset: 16, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false, minVersion: 0 },
+        { name: 'injection_time', packedOffset: 4, packedBitOffset: 0, type: js_injection.mojom.DocumentInjectionTimeSpec, nullable: false, minVersion: 0 },
+        { name: 'js_world', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -50,13 +64,13 @@ js_injection.mojom.JsWebMessageArrayBufferValueSpec = {
   $: {
     structSpec: {
       name: 'js_injection.mojom.JsWebMessageArrayBufferValue',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'array_buffer_value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
-        { name: 'is_resizable_by_user_javascript', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'max_byte_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'array_buffer_value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'is_resizable_by_user_javascript', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'max_byte_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -131,12 +145,12 @@ js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'js_injection.mojom.JsToBrowserMessaging.PostMessage_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: js_injection.mojom.JsWebMessageSpec, nullable: false },
-        { name: 'ports', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: js_injection.mojom.JsWebMessageSpec, nullable: false, minVersion: 0 },
+        { name: 'ports', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.MessagePortDescriptorSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -148,9 +162,9 @@ js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec = {
       name: 'js_injection.mojom.JsToBrowserMessaging.SetBrowserToJsMessaging_Params',
       packedSize: 16,
       fields: [
-        { name: 'browser_to_js_messaging', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'browser_to_js_messaging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -224,7 +238,7 @@ js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -297,9 +311,9 @@ js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSp
       name: 'js_injection.mojom.BrowserToJsMessagingFactory.SendBrowserToJsMessaging_Params',
       packedSize: 16,
       fields: [
-        { name: 'browser_to_js_messaging', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
+        { name: 'browser_to_js_messaging', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -370,11 +384,11 @@ js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'js_injection.mojom.BrowserToJsMessaging.OnPostMessage_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: js_injection.mojom.JsWebMessageSpec, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: js_injection.mojom.JsWebMessageSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -465,10 +479,10 @@ js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec = {
       name: 'js_injection.mojom.JsCommunication.SetJsObjects_Params',
       packedSize: 24,
       fields: [
-        { name: 'js_objects', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'js_objects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(js_injection.mojom.JsObjectSpec, false), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -480,9 +494,9 @@ js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec = {
       name: 'js_injection.mojom.JsCommunication.AddPersistentJavaScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script', packedOffset: 8, packedBitOffset: 0, type: js_injection.mojom.JavaScriptExecutableSpec, nullable: false },
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: js_injection.mojom.JavaScriptExecutableSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -494,9 +508,9 @@ js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec = {
       name: 'js_injection.mojom.JsCommunication.RemovePersistentJavaScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

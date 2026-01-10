@@ -16,6 +16,7 @@ network.mojom.NetworkChangeEvent = {
   kConnected: 2,
   kDefaultNetworkChanged: 3,
 };
+network.mojom.NetworkChangeEventSpec = { $: mojo.internal.Enum() };
 
 // Struct: ConnectionKeepAliveConfig
 network.mojom.ConnectionKeepAliveConfigSpec = {
@@ -24,12 +25,12 @@ network.mojom.ConnectionKeepAliveConfigSpec = {
       name: 'network.mojom.ConnectionKeepAliveConfig',
       packedSize: 32,
       fields: [
-        { name: 'idle_timeout_in_seconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'ping_interval_in_seconds', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'enable_connection_keep_alive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'quic_connection_options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'idle_timeout_in_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'ping_interval_in_seconds', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'enable_connection_keep_alive', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'quic_connection_options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -116,7 +117,7 @@ network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -128,9 +129,9 @@ network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
       name: 'network.mojom.ConnectionChangeObserverClient.OnNetworkEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetworkChangeEventSpec, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkChangeEventSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -143,7 +144,7 @@ network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

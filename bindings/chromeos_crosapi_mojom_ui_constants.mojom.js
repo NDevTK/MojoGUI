@@ -15,3 +15,4 @@ crosapi.mojom.ResourceScaleFactor = {
   k200Percent: 1,
   k300Percent: 2,
 };
+crosapi.mojom.ResourceScaleFactorSpec = { $: mojo.internal.Enum() };

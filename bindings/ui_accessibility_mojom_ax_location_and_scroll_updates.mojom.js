@@ -16,10 +16,10 @@ ax.mojom.AXLocationChangeSpec = {
       name: 'ax.mojom.AXLocationChange',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'new_location', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'new_location', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXRelativeBoundsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,11 +31,11 @@ ax.mojom.AXScrollChangeSpec = {
       name: 'ax.mojom.AXScrollChange',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'scroll_x', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'scroll_y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'scroll_x', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'scroll_y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -47,10 +47,10 @@ ax.mojom.AXLocationAndScrollUpdatesSpec = {
       name: 'ax.mojom.AXLocationAndScrollUpdates',
       packedSize: 24,
       fields: [
-        { name: 'location_changes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'scroll_changes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'location_changes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXLocationChangeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'scroll_changes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXScrollChangeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -81,10 +81,10 @@ viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec = {
       name: 'viz.mojom.LayeredWindowUpdater.OnAllocatedSharedMemory_Params',
       packedSize: 24,
       fields: [
-        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'region', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false },
+        { name: 'pixel_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,7 +97,7 @@ viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

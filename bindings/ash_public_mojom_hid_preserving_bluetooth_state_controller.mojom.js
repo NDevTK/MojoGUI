@@ -14,6 +14,7 @@ ash.mojom.HidWarningDialogSource = {
   kOsSettings: 0,
   kQuickSettings: 1,
 };
+ash.mojom.HidWarningDialogSourceSpec = { $: mojo.internal.Enum() };
 
 // Interface: HidPreservingBluetoothStateController
 ash.mojom.HidPreservingBluetoothStateController = {};
@@ -76,12 +77,12 @@ ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_Pa
   $: {
     structSpec: {
       name: 'ash.mojom.HidPreservingBluetoothStateController.TryToSetBluetoothEnabledState_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.HidWarningDialogSourceSpec, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 4, packedBitOffset: 0, type: ash.mojom.HidWarningDialogSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

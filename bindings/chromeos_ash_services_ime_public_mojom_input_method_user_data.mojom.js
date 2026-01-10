@@ -10,6 +10,20 @@ ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
 
 
+// Union: JapaneseDictionaryResponse
+ash.ime.mojom.JapaneseDictionaryResponseSpec = { $: mojo.internal.Union(
+    'ash.ime.mojom.JapaneseDictionaryResponse', {
+      'error_reason': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+      }},
+      'dictionaries': {
+        'ordinal': 1,
+        'type': mojo.internal.Array(ash.ime.mojom.JapaneseDictionarySpec, false),
+      }},
+    })
+};
+
 // Struct: Status
 ash.ime.mojom.StatusSpec = {
   $: {
@@ -17,10 +31,10 @@ ash.ime.mojom.StatusSpec = {
       name: 'ash.ime.mojom.Status',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -170,7 +184,7 @@ ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -178,12 +192,12 @@ ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec = {
 ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.FetchJapaneseDictionary_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryResponseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -195,10 +209,10 @@ ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec =
       name: 'ash.ime.mojom.InputMethodUserDataService.AddJapaneseDictionaryEntry_Params',
       packedSize: 24,
       fields: [
-        { name: 'dict_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'entry', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false },
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -206,12 +220,12 @@ ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec =
 ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.AddJapaneseDictionaryEntry_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -223,11 +237,11 @@ ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec 
       name: 'ash.ime.mojom.InputMethodUserDataService.EditJapaneseDictionaryEntry_Params',
       packedSize: 32,
       fields: [
-        { name: 'dict_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'entry_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'entry', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false },
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'entry_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'entry', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.JapaneseDictionaryEntrySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -235,12 +249,12 @@ ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec 
 ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.EditJapaneseDictionaryEntry_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,10 +266,10 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpe
       name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionaryEntry_Params',
       packedSize: 24,
       fields: [
-        { name: 'dict_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'entry_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'entry_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -263,12 +277,12 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpe
 ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionaryEntry_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -280,9 +294,9 @@ ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec = {
       name: 'ash.ime.mojom.InputMethodUserDataService.CreateJapaneseDictionary_Params',
       packedSize: 16,
       fields: [
-        { name: 'dictionary_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dictionary_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -290,12 +304,12 @@ ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec = {
 ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.CreateJapaneseDictionary_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -307,10 +321,10 @@ ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec = {
       name: 'ash.ime.mojom.InputMethodUserDataService.RenameJapaneseDictionary_Params',
       packedSize: 24,
       fields: [
-        { name: 'dict_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'dictionary_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'dictionary_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -318,12 +332,12 @@ ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec = {
 ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.RenameJapaneseDictionary_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -335,9 +349,9 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec = {
       name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionary_Params',
       packedSize: 16,
       fields: [
-        { name: 'dict_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -345,12 +359,12 @@ ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec = {
 ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.DeleteJapaneseDictionary_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -362,9 +376,9 @@ ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec = {
       name: 'ash.ime.mojom.InputMethodUserDataService.ExportJapaneseDictionary_Params',
       packedSize: 16,
       fields: [
-        { name: 'dict_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -372,12 +386,12 @@ ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec = {
 ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.ExportJapaneseDictionary_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -389,10 +403,10 @@ ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = {
       name: 'ash.ime.mojom.InputMethodUserDataService.ImportJapaneseDictionary_Params',
       packedSize: 24,
       fields: [
-        { name: 'dict_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'tsv_data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false },
+        { name: 'dict_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'tsv_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -400,12 +414,12 @@ ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = {
 ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.ImportJapaneseDictionary_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -417,10 +431,10 @@ ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_Params
       name: 'ash.ime.mojom.InputMethodUserDataService.ClearJapanesePersonalizationData_Params',
       packedSize: 16,
       fields: [
-        { name: 'clear_conversion_history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'clear_suggestion_history', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'clear_conversion_history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'clear_suggestion_history', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -428,12 +442,12 @@ ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_Params
 ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputMethodUserDataService.ClearJapanesePersonalizationData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.StatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

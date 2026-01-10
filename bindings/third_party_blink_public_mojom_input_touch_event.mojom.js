@@ -18,6 +18,7 @@ blink.mojom.TouchState = {
   kStateStationary: 4,
   kStateCancelled: 5,
 };
+blink.mojom.TouchStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: TouchEventConsumers
 blink.mojom.TouchEventConsumersSpec = {
@@ -26,10 +27,10 @@ blink.mojom.TouchEventConsumersSpec = {
       name: 'blink.mojom.TouchEventConsumers',
       packedSize: 16,
       fields: [
-        { name: 'has_touch_event_handlers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_hit_testable_scrollbar', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_touch_event_handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_hit_testable_scrollbar', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

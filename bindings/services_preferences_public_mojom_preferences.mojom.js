@@ -14,18 +14,21 @@ prefs.mojom.EnforcementLevel = {
   NO_ENFORCEMENT: 0,
   ENFORCE_ON_LOAD: 1,
 };
+prefs.mojom.EnforcementLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrefTrackingStrategy
 prefs.mojom.PrefTrackingStrategy = {
   ATOMIC: 0,
   SPLIT: 1,
 };
+prefs.mojom.PrefTrackingStrategySpec = { $: mojo.internal.Enum() };
 
 // Enum: ValueType
 prefs.mojom.ValueType = {
   IMPERSONAL: 0,
   PERSONAL: 1,
 };
+prefs.mojom.ValueTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TrackedPersistentPrefStoreConfiguration
 prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = {
@@ -34,17 +37,17 @@ prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = {
       name: 'prefs.mojom.TrackedPersistentPrefStoreConfiguration',
       packedSize: 72,
       fields: [
-        { name: 'unprotected_pref_filename', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'protected_pref_filename', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'tracking_configuration', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'reporting_ids_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'seed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'registry_seed', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'registry_path', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'validation_delegate', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'reset_on_load_observer', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'unprotected_pref_filename', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'protected_pref_filename', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'tracking_configuration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(prefs.mojom.TrackedPreferenceMetadataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'reporting_ids_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'seed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'registry_seed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'registry_path', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'validation_delegate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'reset_on_load_observer', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -56,9 +59,9 @@ prefs.mojom.TrackedPreferenceMetadataSpec = {
       name: 'prefs.mojom.TrackedPreferenceMetadata',
       packedSize: 16,
       fields: [
-        { name: 'NO_ENFORCEMENT', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'NO_ENFORCEMENT', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -127,7 +130,7 @@ prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

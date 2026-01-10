@@ -253,7 +253,7 @@ security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -266,7 +266,7 @@ security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -279,7 +279,7 @@ security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -292,7 +292,7 @@ security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -305,7 +305,7 @@ security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -318,7 +318,7 @@ security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -331,7 +331,7 @@ security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -344,7 +344,7 @@ security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -357,7 +357,7 @@ security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -370,7 +370,7 @@ security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -383,7 +383,7 @@ security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -396,7 +396,7 @@ security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -409,7 +409,7 @@ security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -422,7 +422,7 @@ security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -435,7 +435,7 @@ security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -448,7 +448,7 @@ security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -461,7 +461,7 @@ security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -474,7 +474,7 @@ security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -487,7 +487,7 @@ security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -500,7 +500,7 @@ security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -513,7 +513,7 @@ security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

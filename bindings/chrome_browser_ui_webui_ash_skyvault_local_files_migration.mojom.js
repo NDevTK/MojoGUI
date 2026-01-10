@@ -16,24 +16,26 @@ policy.local_user_files.mojom.CloudProvider = {
   kOneDrive: 1,
   kDelete: 2,
 };
+policy.local_user_files.mojom.CloudProviderSpec = { $: mojo.internal.Enum() };
 
 // Enum: TimeUnit
 policy.local_user_files.mojom.TimeUnit = {
   kMinutes: 0,
   kHours: 1,
 };
+policy.local_user_files.mojom.TimeUnitSpec = { $: mojo.internal.Enum() };
 
 // Struct: TimeUnitAndValue
 policy.local_user_files.mojom.TimeUnitAndValueSpec = {
   $: {
     structSpec: {
       name: 'policy.local_user_files.mojom.TimeUnitAndValue',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'unit', packedOffset: 8, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitSpec, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'unit', packedOffset: 0, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -101,10 +103,10 @@ policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = 
       name: 'policy.local_user_files.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -196,7 +198,7 @@ policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -204,14 +206,14 @@ policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = {
 policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'policy.local_user_files.mojom.PageHandler.GetInitialDialogInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'cloud_provider', packedOffset: 8, packedBitOffset: 0, type: policy.local_user_files.mojom.CloudProviderSpec, nullable: false },
-        { name: 'remaining_time', packedOffset: 16, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitAndValueSpec, nullable: false },
-        { name: 'start_date_and_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'cloud_provider', packedOffset: 0, packedBitOffset: 0, type: policy.local_user_files.mojom.CloudProviderSpec, nullable: false, minVersion: 0 },
+        { name: 'remaining_time', packedOffset: 8, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitAndValueSpec, nullable: false, minVersion: 0 },
+        { name: 'start_date_and_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -224,7 +226,7 @@ policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -237,7 +239,7 @@ policy.local_user_files.mojom.PageHandler_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -310,9 +312,9 @@ policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = {
       name: 'policy.local_user_files.mojom.Page.UpdateRemainingTime_Params',
       packedSize: 16,
       fields: [
-        { name: 'remaining_time', packedOffset: 8, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitAndValueSpec, nullable: false },
+        { name: 'remaining_time', packedOffset: 0, packedBitOffset: 0, type: policy.local_user_files.mojom.TimeUnitAndValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

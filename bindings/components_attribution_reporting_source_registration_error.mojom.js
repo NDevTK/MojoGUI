@@ -55,3 +55,4 @@ attribution_reporting.mojom.SourceRegistrationError = {
   kAggregatableNamedBudgetsKeyTooLong: 41,
   kAggregatableNamedBudgetsValueInvalid: 42,
 };
+attribution_reporting.mojom.SourceRegistrationErrorSpec = { $: mojo.internal.Enum() };

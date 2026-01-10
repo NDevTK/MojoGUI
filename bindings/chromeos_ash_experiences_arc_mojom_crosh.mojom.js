@@ -15,16 +15,32 @@ arc.mojom.ArcShellCommand = {
   kCpuinfo: 1,
   kMeminfo: 2,
 };
+arc.mojom.ArcShellCommandSpec = { $: mojo.internal.Enum() };
+
+// Union: ArcShellExecutionResult
+arc.mojom.ArcShellExecutionResultSpec = { $: mojo.internal.Union(
+    'arc.mojom.ArcShellExecutionResult', {
+      'stdout': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+      }},
+    })
+};
 
 // Struct: ArcShellExecutionRequest
 arc.mojom.ArcShellExecutionRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcShellExecutionRequest',
-      packedSize: 8,
+      packedSize: 16,
       fields: [
+        { name: 'command', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcShellCommandSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -64,6 +80,15 @@ arc.mojom.ArcShellExecutionInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  exec(request) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec,
+      arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec,
+      [request]);
+  }
+
 };
 
 arc.mojom.ArcShellExecutionInstance.getRemote = function() {
@@ -74,6 +99,33 @@ arc.mojom.ArcShellExecutionInstance.getRemote = function() {
     'arc.mojom.ArcShellExecutionInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Exec
+arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.ArcShellExecutionInstance.Exec_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcShellExecutionRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcShellExecutionResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
 };
 
 // Legacy compatibility

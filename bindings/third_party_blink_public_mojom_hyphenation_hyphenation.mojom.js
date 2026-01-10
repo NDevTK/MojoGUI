@@ -72,9 +72,9 @@ blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
       name: 'blink.mojom.Hyphenation.OpenDictionary_Params',
       packedSize: 16,
       fields: [
-        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = {
 blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.Hyphenation.OpenDictionary_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'hyphenation_dictionary_handle', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true },
+        { name: 'hyphenation_dictionary_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

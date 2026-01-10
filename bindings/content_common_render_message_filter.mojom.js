@@ -16,12 +16,12 @@ content.mojom.FrameRoutingInfoSpec = {
       name: 'content.mojom.FrameRoutingInfo',
       packedSize: 40,
       fields: [
-        { name: 'routing_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'frame_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
-        { name: 'devtools_frame_token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'document_token', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false },
+        { name: 'routing_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'devtools_frame_token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'document_token', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -99,7 +99,7 @@ content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -107,12 +107,12 @@ content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
 content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.RenderMessageFilter.GenerateSingleFrameRoutingInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: content.mojom.FrameRoutingInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: content.mojom.FrameRoutingInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -125,7 +125,7 @@ content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -133,12 +133,12 @@ content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
 content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.RenderMessageFilter.GenerateFrameRoutingInfos_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'info_array', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'info_array', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.mojom.FrameRoutingInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

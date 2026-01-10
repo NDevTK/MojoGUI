@@ -33,3 +33,4 @@ network.mojom.WebSandboxFlags = {
   kAllowSameSiteNoneCookies: 19,
   kAll: 20,
 };
+network.mojom.WebSandboxFlagsSpec = { $: mojo.internal.Enum() };

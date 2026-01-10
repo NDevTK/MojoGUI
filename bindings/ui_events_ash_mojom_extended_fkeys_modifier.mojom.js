@@ -16,3 +16,4 @@ ui.mojom.ExtendedFkeysModifier = {
   kShift: 2,
   kCtrlShift: 3,
 };
+ui.mojom.ExtendedFkeysModifierSpec = { $: mojo.internal.Enum() };

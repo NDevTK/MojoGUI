@@ -15,3 +15,4 @@ ntp_tiles.mojom.TileType = {
   kCustomLinks: 1,
   kEnterpriseShortcuts: 2,
 };
+ntp_tiles.mojom.TileTypeSpec = { $: mojo.internal.Enum() };

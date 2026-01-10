@@ -24,3 +24,4 @@ auction_worklet.mojom.RejectReason = {
   kWrongScoreAdCurrency: 10,
   kMultiBidLimitExceeded: 11,
 };
+auction_worklet.mojom.RejectReasonSpec = { $: mojo.internal.Enum() };

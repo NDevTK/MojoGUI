@@ -17,10 +17,10 @@ ash.mojom.sample_swa.PreferencesSpec = {
       name: 'ash.mojom.sample_swa.Preferences',
       packedSize: 24,
       fields: [
-        { name: 'background', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'foreground', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'background', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'foreground', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -88,10 +88,10 @@ ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.mojom.sample_swa.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -183,7 +183,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -191,12 +191,12 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
 ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandler.GetPreferences_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'preferences', packedOffset: 8, packedBitOffset: 0, type: ash.mojom.sample_swa.PreferencesSpec, nullable: false },
+        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.sample_swa.PreferencesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,9 +208,9 @@ ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = {
       name: 'ash.mojom.sample_swa.PageHandler.Send_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -223,7 +223,7 @@ ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -305,9 +305,9 @@ ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = {
       name: 'ash.mojom.sample_swa.Page.OnEventOccurred_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -319,10 +319,10 @@ ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = {
       name: 'ash.mojom.sample_swa.Page.CreateParentPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'child_untrusted_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'parent_trusted_page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'child_untrusted_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'parent_trusted_page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

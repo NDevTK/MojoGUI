@@ -90,10 +90,10 @@ pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec = {
       name: 'pdf.mojom.PdfProgressiveSearchifier.AddPage_Params',
       packedSize: 24,
       fields: [
-        { name: 'image', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
-        { name: 'page_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
+        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -105,9 +105,9 @@ pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec = {
       name: 'pdf.mojom.PdfProgressiveSearchifier.DeletePage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -120,7 +120,7 @@ pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -128,12 +128,12 @@ pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
 pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'pdf.mojom.PdfProgressiveSearchifier.Save_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'searchified_pdf', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'searchified_pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

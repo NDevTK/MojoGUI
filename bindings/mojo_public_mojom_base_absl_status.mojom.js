@@ -29,3 +29,4 @@ mojo_base.mojom.AbslStatusCode = {
   kDataLoss: 15,
   kUnauthenticated: 16,
 };
+mojo_base.mojom.AbslStatusCodeSpec = { $: mojo.internal.Enum() };

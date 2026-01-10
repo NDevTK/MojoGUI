@@ -136,9 +136,9 @@ commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsS
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.TrackPriceForBookmark_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'bookmark_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -150,9 +150,9 @@ commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_Param
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.UntrackPriceForBookmark_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'bookmark_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -164,9 +164,9 @@ commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurr
       name: 'commerce.price_tracking.mojom.PriceTrackingHandler.SetPriceTrackingStatusForCurrentUrl_Params',
       packedSize: 16,
       fields: [
-        { name: 'track', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -179,7 +179,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProduct
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -187,12 +187,12 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProduct
 commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetAllShoppingBookmarkProductInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'productInfos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'productInfos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -205,7 +205,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkPro
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -213,12 +213,12 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkPro
 commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetAllPriceTrackedBookmarkProductInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'productInfos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'productInfos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -231,7 +231,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmark
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -239,12 +239,12 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmark
 commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetShoppingCollectionBookmarkFolderId_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'collectionId', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'collectionId', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -257,7 +257,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -265,12 +265,12 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
 commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetParentBookmarkFolderNameForCurrentUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -283,7 +283,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentU
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -383,9 +383,9 @@ commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec = {
       name: 'commerce.price_tracking.mojom.Page.PriceTrackedForBookmark_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_product', packedOffset: 8, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false },
+        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -397,9 +397,9 @@ commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = {
       name: 'commerce.price_tracking.mojom.Page.PriceUntrackedForBookmark_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_product', packedOffset: 8, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false },
+        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -411,10 +411,10 @@ commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec = {
       name: 'commerce.price_tracking.mojom.Page.OperationFailedForBookmark_Params',
       packedSize: 24,
       fields: [
-        { name: 'bookmark_product', packedOffset: 8, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false },
-        { name: 'attempted_track', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'attempted_track', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -426,9 +426,9 @@ commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec = {
       name: 'commerce.price_tracking.mojom.Page.OnProductBookmarkMoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmark_product', packedOffset: 8, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false },
+        { name: 'bookmark_product', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.BookmarkProductInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -501,10 +501,10 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHan
       name: 'commerce.price_tracking.mojom.PriceTrackingHandlerFactory.CreatePriceTrackingHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

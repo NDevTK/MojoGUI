@@ -14,6 +14,7 @@ add_supervision.mojom.OAuthTokenFetchStatus = {
   OK: 0,
   ERROR: 1,
 };
+add_supervision.mojom.OAuthTokenFetchStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: AddSupervisionHandler
 add_supervision.mojom.AddSupervisionHandler = {};
@@ -124,7 +125,7 @@ add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -132,12 +133,12 @@ add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
 add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'add_supervision.mojom.AddSupervisionHandler.RequestClose_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'closed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'closed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -150,7 +151,7 @@ add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -158,12 +159,12 @@ add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = {
 add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'add_supervision.mojom.AddSupervisionHandler.GetInstalledArcApps_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'package_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -176,7 +177,7 @@ add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -184,13 +185,13 @@ add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
 add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'add_supervision.mojom.AddSupervisionHandler.GetOAuthToken_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: add_supervision.mojom.OAuthTokenFetchStatusSpec, nullable: false },
-        { name: 'oauth_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: add_supervision.mojom.OAuthTokenFetchStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -203,7 +204,7 @@ add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -216,7 +217,7 @@ add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -228,9 +229,9 @@ add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = {
       name: 'add_supervision.mojom.AddSupervisionHandler.SetCloseOnEscape_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,11 +16,11 @@ blink.mojom.ServiceWorkerInstalledScriptsInfoSpec = {
       name: 'blink.mojom.ServiceWorkerInstalledScriptsInfo',
       packedSize: 24,
       fields: [
-        { name: 'manager_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'manager_host_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'installed_urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'manager_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'manager_host_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'installed_urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -32,15 +32,15 @@ blink.mojom.ServiceWorkerScriptInfoSpec = {
       name: 'blink.mojom.ServiceWorkerScriptInfo',
       packedSize: 64,
       fields: [
-        { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'encoding', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'body', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'body_size', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'meta_data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'meta_data_size', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'encoding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'body_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'meta_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'meta_data_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -108,9 +108,9 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Para
       name: 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost.RequestInstalledScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'script_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -183,9 +183,9 @@ blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsS
       name: 'blink.mojom.ServiceWorkerInstalledScriptsManager.TransferInstalledScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerScriptInfoSpec, nullable: false },
+        { name: 'script_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerScriptInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

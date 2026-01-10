@@ -15,6 +15,7 @@ network.mojom.SiteType = {
   kAssociated: 1,
   kService: 2,
 };
+network.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FirstPartySetEntry
 network.mojom.FirstPartySetEntrySpec = {
@@ -23,10 +24,10 @@ network.mojom.FirstPartySetEntrySpec = {
       name: 'network.mojom.FirstPartySetEntry',
       packedSize: 24,
       fields: [
-        { name: 'primary', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
-        { name: 'site_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SiteTypeSpec, nullable: false },
+        { name: 'primary', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
+        { name: 'site_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SiteTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -38,10 +39,10 @@ network.mojom.FirstPartySetMetadataSpec = {
       name: 'network.mojom.FirstPartySetMetadata',
       packedSize: 24,
       fields: [
-        { name: 'frame_entry', packedOffset: 8, packedBitOffset: 0, type: network.mojom.FirstPartySetEntrySpec, nullable: true },
-        { name: 'top_frame_entry', packedOffset: 16, packedBitOffset: 0, type: network.mojom.FirstPartySetEntrySpec, nullable: true },
+        { name: 'frame_entry', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetEntrySpec, nullable: true, minVersion: 0 },
+        { name: 'top_frame_entry', packedOffset: 8, packedBitOffset: 0, type: network.mojom.FirstPartySetEntrySpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -53,9 +54,9 @@ network.mojom.FirstPartySetEntryOverrideSpec = {
       name: 'network.mojom.FirstPartySetEntryOverride',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: network.mojom.FirstPartySetEntrySpec, nullable: true },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetEntrySpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -67,10 +68,10 @@ network.mojom.FirstPartySetsContextConfigSpec = {
       name: 'network.mojom.FirstPartySetsContextConfig',
       packedSize: 24,
       fields: [
-        { name: 'customizations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'aliases', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'customizations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.FirstPartySetEntryOverrideSpec, false), nullable: false, minVersion: 0 },
+        { name: 'aliases', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.SchemefulSiteSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -82,10 +83,10 @@ network.mojom.FirstPartySetsCacheFilterSpec = {
       name: 'network.mojom.FirstPartySetsCacheFilter',
       packedSize: 24,
       fields: [
-        { name: 'filter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'browser_run_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, mojo.internal.Int64, false), nullable: false, minVersion: 0 },
+        { name: 'browser_run_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,12 +98,12 @@ network.mojom.GlobalFirstPartySetsSpec = {
       name: 'network.mojom.GlobalFirstPartySets',
       packedSize: 40,
       fields: [
-        { name: 'public_sets_version', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: false },
-        { name: 'sets', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'aliases', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'manual_config', packedOffset: 32, packedBitOffset: 0, type: network.mojom.FirstPartySetsContextConfigSpec, nullable: false },
+        { name: 'public_sets_version', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: false, minVersion: 0 },
+        { name: 'sets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.FirstPartySetEntrySpec, false), nullable: false, minVersion: 0 },
+        { name: 'aliases', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.SchemefulSiteSpec, false), nullable: false, minVersion: 0 },
+        { name: 'manual_config', packedOffset: 24, packedBitOffset: 0, type: network.mojom.FirstPartySetsContextConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

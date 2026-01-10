@@ -15,26 +15,27 @@ feed_internals.mojom.FeedOrder = {
   kGrouped: 1,
   kReverseChron: 2,
 };
+feed_internals.mojom.FeedOrderSpec = { $: mojo.internal.Enum() };
 
 // Struct: Properties
 feed_internals.mojom.PropertiesSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.Properties',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'is_feed_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_feed_visible', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_feed_allowed', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_prefetching_enabled', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_web_feed_follow_intro_debug_enabled', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'use_feed_query_requests', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'load_stream_status', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'feed_fetch_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'feed_actions_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'following_feed_order', packedOffset: 40, packedBitOffset: 0, type: feed_internals.mojom.FeedOrderSpec, nullable: false },
+        { name: 'is_feed_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_feed_visible', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_feed_allowed', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_prefetching_enabled', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_web_feed_follow_intro_debug_enabled', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'use_feed_query_requests', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'load_stream_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'feed_fetch_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'feed_actions_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'following_feed_order', packedOffset: 4, packedBitOffset: 0, type: feed_internals.mojom.FeedOrderSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -44,17 +45,17 @@ feed_internals.mojom.LastFetchPropertiesSpec = {
   $: {
     structSpec: {
       name: 'feed_internals.mojom.LastFetchProperties',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'last_fetch_status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'last_fetch_trigger', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_fetch_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'refresh_suppress_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'last_bless_nonce', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'last_action_upload_status', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'last_action_upload_time', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'last_fetch_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'last_fetch_trigger', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'last_fetch_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'refresh_suppress_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'last_bless_nonce', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'last_action_upload_status', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'last_action_upload_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -231,7 +232,7 @@ feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -239,12 +240,12 @@ feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
 feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'feed_internals.mojom.PageHandler.GetGeneralProperties_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: feed_internals.mojom.PropertiesSpec, nullable: false },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: feed_internals.mojom.PropertiesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -257,7 +258,7 @@ feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -265,12 +266,12 @@ feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
 feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'feed_internals.mojom.PageHandler.GetLastFetchProperties_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: feed_internals.mojom.LastFetchPropertiesSpec, nullable: false },
+        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: feed_internals.mojom.LastFetchPropertiesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -283,7 +284,7 @@ feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -296,7 +297,7 @@ feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -309,7 +310,7 @@ feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -322,7 +323,7 @@ feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -330,12 +331,12 @@ feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
 feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'feed_internals.mojom.PageHandler.GetFeedProcessScopeDump_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dump', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -348,7 +349,7 @@ feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -356,12 +357,12 @@ feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
 feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'feed_internals.mojom.PageHandler.GetFeedHistograms_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'log', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -373,9 +374,9 @@ feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.OverrideFeedHost_Params',
       packedSize: 16,
       fields: [
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -387,9 +388,9 @@ feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.OverrideDiscoverApiEndpoint_Params',
       packedSize: 16,
       fields: [
-        { name: 'endpoint_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'endpoint_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -401,9 +402,9 @@ feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.OverrideFeedStreamData_Params',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -415,9 +416,9 @@ feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = 
       name: 'feed_internals.mojom.PageHandler.SetWebFeedFollowIntroDebugEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -429,9 +430,9 @@ feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.SetUseFeedQueryRequests_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_legacy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_legacy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -443,9 +444,9 @@ feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = {
       name: 'feed_internals.mojom.PageHandler.SetFollowingFeedOrder_Params',
       packedSize: 16,
       fields: [
-        { name: 'order', packedOffset: 8, packedBitOffset: 0, type: feed_internals.mojom.FeedOrderSpec, nullable: false },
+        { name: 'order', packedOffset: 0, packedBitOffset: 0, type: feed_internals.mojom.FeedOrderSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

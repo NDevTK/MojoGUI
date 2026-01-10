@@ -16,10 +16,10 @@ blink.mojom.WebRtcIpHandlingUrlEntrySpec = {
       name: 'blink.mojom.WebRtcIpHandlingUrlEntry',
       packedSize: 24,
       fields: [
-        { name: 'url_pattern', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false },
-        { name: 'handling', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebRtcIpHandlingPolicySpec, nullable: false },
+        { name: 'url_pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false, minVersion: 0 },
+        { name: 'handling', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebRtcIpHandlingPolicySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

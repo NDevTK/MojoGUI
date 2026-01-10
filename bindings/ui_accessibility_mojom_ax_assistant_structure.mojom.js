@@ -16,9 +16,9 @@ ax.mojom.AssistantTreeSpec = {
       name: 'ax.mojom.AssistantTree',
       packedSize: 16,
       fields: [
-        { name: 'nodes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AssistantNodeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -28,23 +28,23 @@ ax.mojom.AssistantNodeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantNode',
-      packedSize: 80,
+      packedSize: 72,
       fields: [
-        { name: 'children_indices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'text', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'text_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'color', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'bgcolor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'bold', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'italic', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'underline', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'line_through', packedOffset: 44, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'selection', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: true },
-        { name: 'class_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'role', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'children_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'text_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bgcolor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bold', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'italic', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'underline', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'line_through', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'selection', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: true, minVersion: 0 },
+        { name: 'class_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'role', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -56,11 +56,11 @@ ax.mojom.AssistantExtraSpec = {
       name: 'ax.mojom.AssistantExtra',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'bounds_pixel', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'bounds_pixel', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -72,10 +72,10 @@ ax.mojom.AssistantStructureSpec = {
       name: 'ax.mojom.AssistantStructure',
       packedSize: 24,
       fields: [
-        { name: 'assistant_tree', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistantTreeSpec, nullable: true },
-        { name: 'assistant_extra', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.AssistantExtraSpec, nullable: true },
+        { name: 'assistant_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AssistantTreeSpec, nullable: true, minVersion: 0 },
+        { name: 'assistant_extra', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistantExtraSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

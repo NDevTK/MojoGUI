@@ -72,9 +72,9 @@ content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = {
       name: 'content.mojom.DomAutomationControllerHost.DomOperationResponse_Params',
       packedSize: 16,
       fields: [
-        { name: 'json_string', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'json_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -14,6 +14,7 @@ history_sync_optin.mojom.LaunchContext = {
   kWindow: 0,
   kModal: 1,
 };
+history_sync_optin.mojom.LaunchContextSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScreenMode
 history_sync_optin.mojom.ScreenMode = {
@@ -22,6 +23,7 @@ history_sync_optin.mojom.ScreenMode = {
   kUnrestricted: 2,
   kDeadlined: 3,
 };
+history_sync_optin.mojom.ScreenModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AccountInfo
 history_sync_optin.mojom.AccountInfoSpec = {
@@ -30,9 +32,9 @@ history_sync_optin.mojom.AccountInfoSpec = {
       name: 'history_sync_optin.mojom.AccountInfo',
       packedSize: 16,
       fields: [
-        { name: 'account_image_src', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'account_image_src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -100,10 +102,10 @@ history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params
       name: 'history_sync_optin.mojom.PageHandlerFactory.CreateHistorySyncOptinHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -204,7 +206,7 @@ history_sync_optin.mojom.PageHandler_Accept_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -217,7 +219,7 @@ history_sync_optin.mojom.PageHandler_Reject_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -230,7 +232,7 @@ history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -242,9 +244,9 @@ history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = {
       name: 'history_sync_optin.mojom.PageHandler.UpdateDialogHeight_Params',
       packedSize: 16,
       fields: [
-        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'height', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -326,9 +328,9 @@ history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = {
       name: 'history_sync_optin.mojom.Page.SendAccountInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'account_info', packedOffset: 8, packedBitOffset: 0, type: history_sync_optin.mojom.AccountInfoSpec, nullable: false },
+        { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: history_sync_optin.mojom.AccountInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -340,9 +342,9 @@ history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = {
       name: 'history_sync_optin.mojom.Page.SendScreenMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'screen_mode', packedOffset: 8, packedBitOffset: 0, type: history_sync_optin.mojom.ScreenModeSpec, nullable: false },
+        { name: 'screen_mode', packedOffset: 0, packedBitOffset: 0, type: history_sync_optin.mojom.ScreenModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

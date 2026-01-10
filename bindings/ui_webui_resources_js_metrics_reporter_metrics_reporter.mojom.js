@@ -99,9 +99,9 @@ metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnPageRemoteCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -113,9 +113,9 @@ metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnGetMark_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,12 +123,12 @@ metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
 metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost.OnGetMark_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'marked_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -140,9 +140,9 @@ metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnClearMark_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -154,10 +154,10 @@ metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
       name: 'metrics_reporter.mojom.PageMetricsHost.OnUmaReportTime_Params',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -239,9 +239,9 @@ metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
       name: 'metrics_reporter.mojom.PageMetrics.OnGetMark_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -249,12 +249,12 @@ metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
 metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'metrics_reporter.mojom.PageMetrics.OnGetMark_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'marked_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -266,9 +266,9 @@ metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = {
       name: 'metrics_reporter.mojom.PageMetrics.OnClearMark_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

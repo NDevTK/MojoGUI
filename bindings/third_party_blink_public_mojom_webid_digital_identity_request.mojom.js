@@ -19,18 +19,19 @@ blink.mojom.RequestDigitalIdentityStatus = {
   kErrorNoTransientUserActivation: 5,
   kErrorInvalidJson: 6,
 };
+blink.mojom.RequestDigitalIdentityStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DigitalCredentialGetRequest
 blink.mojom.DigitalCredentialGetRequestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DigitalCredentialGetRequest',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -40,12 +41,12 @@ blink.mojom.DigitalCredentialCreateRequestSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DigitalCredentialCreateRequest',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -131,9 +132,9 @@ blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = {
       name: 'blink.mojom.DigitalIdentityRequest.Get_Params',
       packedSize: 16,
       fields: [
-        { name: 'digital_credential_requests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DigitalCredentialGetRequestSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,14 +142,14 @@ blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = {
 blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest.Get_ResponseParams',
-      packedSize: 32,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 40,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false },
-        { name: 'protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -160,9 +161,9 @@ blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = {
       name: 'blink.mojom.DigitalIdentityRequest.Create_Params',
       packedSize: 16,
       fields: [
-        { name: 'digital_credential_requests', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'digital_credential_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DigitalCredentialCreateRequestSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -170,14 +171,14 @@ blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = {
 blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.DigitalIdentityRequest.Create_ResponseParams',
-      packedSize: 32,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 40,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false },
-        { name: 'protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -190,7 +191,7 @@ blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

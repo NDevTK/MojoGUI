@@ -15,3 +15,4 @@ blink.mojom.WasActivatedOption = {
   kYes: 1,
   kNo: 2,
 };
+blink.mojom.WasActivatedOptionSpec = { $: mojo.internal.Enum() };

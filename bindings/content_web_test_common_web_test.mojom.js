@@ -15,23 +15,50 @@ content.mojom.AutoResponseMode = {
   kAutoAccept: 1,
   kAutoReject: 2,
 };
+content.mojom.AutoResponseModeSpec = { $: mojo.internal.Enum() };
+
+// Union: WorkItem
+content.mojom.WorkItemSpec = { $: mojo.internal.Union(
+    'content.mojom.WorkItem', {
+      'back_forward': {
+        'ordinal': 0,
+        'type': content.mojom.WorkItemBackForwardSpec,
+      }},
+      'load': {
+        'ordinal': 1,
+        'type': content.mojom.WorkItemLoadSpec,
+      }},
+      'reload': {
+        'ordinal': 2,
+        'type': content.mojom.WorkItemReloadSpec,
+      }},
+      'loading_script': {
+        'ordinal': 3,
+        'type': content.mojom.WorkItemLoadingScriptSpec,
+      }},
+      'non_loading_script': {
+        'ordinal': 4,
+        'type': content.mojom.WorkItemNonLoadingScriptSpec,
+      }},
+    })
+};
 
 // Struct: WebTestRunTestConfiguration
 content.mojom.WebTestRunTestConfigurationSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WebTestRunTestConfiguration',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'current_working_directory', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'temp_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'test_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'allow_external_pages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'expected_pixel_hash', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'wpt_print_mode', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'protocol_mode', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'current_working_directory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'temp_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'test_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'allow_external_pages', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'expected_pixel_hash', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'wpt_print_mode', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'protocol_mode', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -43,13 +70,13 @@ content.mojom.WebTestRendererDumpResultSpec = {
       name: 'content.mojom.WebTestRendererDumpResult',
       packedSize: 48,
       fields: [
-        { name: 'audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'layout', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true },
-        { name: 'pixels', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
-        { name: 'actual_pixel_hash', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'selection_rect', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true, minVersion: 0 },
+        { name: 'pixels', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'actual_pixel_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'selection_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -61,9 +88,9 @@ content.mojom.WorkItemBackForwardSpec = {
       name: 'content.mojom.WorkItemBackForward',
       packedSize: 16,
       fields: [
-        { name: 'distance', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'distance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -75,10 +102,10 @@ content.mojom.WorkItemLoadSpec = {
       name: 'content.mojom.WorkItemLoad',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'target', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -91,7 +118,7 @@ content.mojom.WorkItemReloadSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -103,9 +130,9 @@ content.mojom.WorkItemLoadingScriptSpec = {
       name: 'content.mojom.WorkItemLoadingScript',
       packedSize: 16,
       fields: [
-        { name: 'script', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,9 +144,9 @@ content.mojom.WorkItemNonLoadingScriptSpec = {
       name: 'content.mojom.WorkItemNonLoadingScript',
       packedSize: 16,
       fields: [
-        { name: 'script', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -296,7 +323,7 @@ content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -309,7 +336,7 @@ content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -317,12 +344,12 @@ content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec = {
 content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.DumpFrameLayout_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'frame_layout_dump', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'frame_layout_dump', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -334,10 +361,10 @@ content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec = {
       name: 'content.mojom.WebTestRenderFrame.SetTestConfiguration_Params',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: content.mojom.WebTestRunTestConfigurationSpec, nullable: false },
-        { name: 'starting_test', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WebTestRunTestConfigurationSpec, nullable: false, minVersion: 0 },
+        { name: 'starting_test', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -350,7 +377,7 @@ content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -363,7 +390,7 @@ content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -376,7 +403,7 @@ content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -389,7 +416,7 @@ content.mojom.WebTestRenderFrame_StartTest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -402,7 +429,7 @@ content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -414,9 +441,9 @@ content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec 
       name: 'content.mojom.WebTestRenderFrame.ReplicateWebTestRuntimeFlagsChanges_Params',
       packedSize: 16,
       fields: [
-        { name: 'changed_layout_test_runtime_flags', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'changed_layout_test_runtime_flags', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -429,7 +456,7 @@ content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -442,7 +469,7 @@ content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -452,11 +479,11 @@ content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WebTestRenderFrame.ProcessWorkItem_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'work_item', packedOffset: 8, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false },
+        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -468,9 +495,9 @@ content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec = {
       name: 'content.mojom.WebTestRenderFrame.ReplicateWorkQueueStates_Params',
       packedSize: 16,
       fields: [
-        { name: 'work_queue_states', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'work_queue_states', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -894,11 +921,11 @@ content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.InitiateCaptureDump_Params',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: content.mojom.WebTestRendererDumpResultSpec, nullable: false },
-        { name: 'capture_navigation_history', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'capture_pixels', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WebTestRendererDumpResultSpec, nullable: false, minVersion: 0 },
+        { name: 'capture_navigation_history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'capture_pixels', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -911,7 +938,7 @@ content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -923,9 +950,9 @@ content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.PrintMessageToStderr_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -937,9 +964,9 @@ content.mojom.WebTestControlHost_PrintMessage_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.PrintMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -951,9 +978,9 @@ content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.OverridePreferences_Params',
       packedSize: 16,
       fields: [
-        { name: 'web_preferences', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPreferencesSpec, nullable: false },
+        { name: 'web_preferences', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPreferencesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -966,7 +993,7 @@ content.mojom.WebTestControlHost_Reload_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -979,7 +1006,7 @@ content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -991,9 +1018,9 @@ content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SetMainWindowHidden_Params',
       packedSize: 16,
       fields: [
-        { name: 'hidden', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'hidden', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1005,10 +1032,10 @@ content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SetFrameWindowHidden_Params',
       packedSize: 24,
       fields: [
-        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false },
-        { name: 'hidden', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'hidden', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1020,9 +1047,9 @@ content.mojom.WebTestControlHost_GoToOffset_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.GoToOffset_Params',
       packedSize: 16,
       fields: [
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1034,10 +1061,10 @@ content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SendBluetoothManualChooserEvent_Params',
       packedSize: 24,
       fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'argument', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'argument', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1049,9 +1076,9 @@ content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SetBluetoothManualChooser_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1064,7 +1091,7 @@ content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1072,12 +1099,12 @@ content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec = {
 content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.WebTestControlHost.GetBluetoothManualChooserEvents_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'events', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1089,9 +1116,9 @@ content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SetPopupBlockingEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'block_popups', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'block_popups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1103,10 +1130,10 @@ content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.LoadURLForFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'frame_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1119,7 +1146,7 @@ content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1131,12 +1158,12 @@ content.mojom.WebTestControlHost_SetPermission_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SetPermission_Params',
       packedSize: 40,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false },
-        { name: 'origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'embedding_origin', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'embedding_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -1148,9 +1175,9 @@ content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.BlockThirdPartyCookies_Params',
       packedSize: 16,
       fields: [
-        { name: 'block', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1163,7 +1190,7 @@ content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1171,12 +1198,12 @@ content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec = {
 content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.WebTestControlHost.GetWritableDirectory_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1188,9 +1215,9 @@ content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SetFilePathForMockFileDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1202,9 +1229,9 @@ content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec =
       name: 'content.mojom.WebTestControlHost.CreateSubresourceFilterRulesetFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'disallowed_suffixes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'disallowed_suffixes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1212,12 +1239,12 @@ content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec =
 content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.WebTestControlHost.CreateSubresourceFilterRulesetFile_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1230,7 +1257,7 @@ content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1242,9 +1269,9 @@ content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SetTrustTokenKeyCommitments_Params',
       packedSize: 16,
       fields: [
-        { name: 'raw_commitments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'raw_commitments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1257,7 +1284,7 @@ content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1269,11 +1296,11 @@ content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SimulateWebNotificationClick_Params',
       packedSize: 32,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'action_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'reply', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'action_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'reply', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1285,10 +1312,10 @@ content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SimulateWebNotificationClose_Params',
       packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'by_user', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'by_user', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1300,9 +1327,9 @@ content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SimulateWebContentIndexDelete_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1314,9 +1341,9 @@ content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.WebTestRuntimeFlagsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'changed_web_test_runtime_flags', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'changed_web_test_runtime_flags', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1328,9 +1355,9 @@ content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.RegisterIsolatedFileSystem_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1338,12 +1365,12 @@ content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec = {
 content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.WebTestControlHost.RegisterIsolatedFileSystem_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'filesystem_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'filesystem_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1356,7 +1383,7 @@ content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1369,7 +1396,7 @@ content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1382,7 +1409,7 @@ content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1395,7 +1422,7 @@ content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1405,11 +1432,11 @@ content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.WebTestControlHost.WorkItemAdded_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'work_item', packedOffset: 8, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false },
+        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1422,7 +1449,7 @@ content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1434,9 +1461,9 @@ content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.WorkQueueStatesChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'changed_work_queue_states', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'changed_work_queue_states', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1448,9 +1475,9 @@ content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SetAcceptLanguages_Params',
       packedSize: 16,
       fields: [
-        { name: 'accept_languages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'accept_languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1462,9 +1489,9 @@ content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.SetRegisterProtocolHandlerMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: content.mojom.AutoResponseModeSpec, nullable: false },
+        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: content.mojom.AutoResponseModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1476,10 +1503,10 @@ content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.EnableAutoResize_Params',
       packedSize: 24,
       fields: [
-        { name: 'min_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'max_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'min_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1491,9 +1518,9 @@ content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec = {
       name: 'content.mojom.WebTestControlHost.DisableAutoResize_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'new_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1566,9 +1593,9 @@ content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec =
       name: 'content.mojom.NonAssociatedWebTestControlHost.SetLCPPNavigationHint_Params',
       packedSize: 16,
       fields: [
-        { name: 'hint', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec, nullable: false },
+        { name: 'hint', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

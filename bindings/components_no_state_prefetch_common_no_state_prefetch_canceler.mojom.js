@@ -82,7 +82,7 @@ prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedSchem
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -95,7 +95,7 @@ prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDi
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

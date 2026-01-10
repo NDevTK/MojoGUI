@@ -14,6 +14,7 @@ arc.mojom.VideoFrameStorageType = {
   SHMEM: 0,
   DMABUF: 1,
 };
+arc.mojom.VideoFrameStorageTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Error
 arc.mojom.Error = {
@@ -22,6 +23,7 @@ arc.mojom.Error = {
   kPlatformFailureError: 2,
   kErrorMax: 3,
 };
+arc.mojom.ErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: Result
 arc.mojom.Result = {
@@ -31,6 +33,21 @@ arc.mojom.Result = {
   kPlatformFailureError: 3,
   kInsufficientResourcesError: 4,
 };
+arc.mojom.ResultSpec = { $: mojo.internal.Enum() };
+
+// Union: Bitrate
+arc.mojom.BitrateSpec = { $: mojo.internal.Union(
+    'arc.mojom.Bitrate', {
+      'constant': {
+        'ordinal': 0,
+        'type': arc.mojom.ConstantBitrateSpec,
+      }},
+      'variable': {
+        'ordinal': 1,
+        'type': arc.mojom.VariableBitrateSpec,
+      }},
+    })
+};
 
 // Struct: VideoEncodeProfile
 arc.mojom.VideoEncodeProfileSpec = {
@@ -39,12 +56,12 @@ arc.mojom.VideoEncodeProfileSpec = {
       name: 'arc.mojom.VideoEncodeProfile',
       packedSize: 32,
       fields: [
-        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.VideoCodecProfileSpec, nullable: false },
-        { name: 'max_resolution', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false },
-        { name: 'max_framerate_numerator', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'max_framerate_denominator', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoCodecProfileSpec, nullable: false, minVersion: 0 },
+        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_framerate_numerator', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'max_framerate_denominator', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -56,9 +73,9 @@ arc.mojom.ConstantBitrateSpec = {
       name: 'arc.mojom.ConstantBitrate',
       packedSize: 16,
       fields: [
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -70,10 +87,10 @@ arc.mojom.VariableBitrateSpec = {
       name: 'arc.mojom.VariableBitrate',
       packedSize: 16,
       fields: [
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'peak', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'peak', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -83,18 +100,20 @@ arc.mojom.VideoEncodeAcceleratorConfigSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoEncodeAcceleratorConfig',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'input_format', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false },
-        { name: 'input_visible_size', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false },
-        { name: 'output_profile', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.VideoCodecProfileSpec, nullable: false },
-        { name: 'initial_bitrate_deprecated', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'initial_framerate', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'has_initial_framerate_deprecated', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'h264_output_level', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'has_h264_output_level', packedOffset: 49, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'input_format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'input_visible_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'output_profile', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.VideoCodecProfileSpec, nullable: false, minVersion: 0 },
+        { name: 'initial_bitrate_deprecated', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'initial_framerate', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'has_initial_framerate_deprecated', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'h264_output_level', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'has_h264_output_level', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'storage_type', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.VideoFrameStorageTypeSpec, nullable: false, minVersion: 1 },
+        { name: 'bitrate', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.BitrateSpec, nullable: true, minVersion: 5 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 40}, {version: 5, packedSize: 56}]
     }
   }
 };
@@ -134,6 +153,69 @@ arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  getSupportedProfiles() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec,
+      arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec,
+      []);
+  }
+
+  initialize(config, client) {
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec,
+      arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec,
+      [config, client]);
+  }
+
+  encode(format, frame_fd, planes, timestamp, force_keyframe) {
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec,
+      null,
+      [format, frame_fd, planes, timestamp, force_keyframe]);
+  }
+
+  useBitstreamBuffer(shmem_fd, offset, size) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec,
+      arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec,
+      [shmem_fd, offset, size]);
+  }
+
+  requestEncodingParametersChange(bitrate, framerate) {
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec,
+      null,
+      [bitrate, framerate]);
+  }
+
+  requestEncodingParametersChangeDeprecated(bitrate, framerate) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec,
+      null,
+      [bitrate, framerate]);
+  }
+
+  flush() {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec,
+      arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec,
+      []);
+  }
+
 };
 
 arc.mojom.VideoEncodeAccelerator.getRemote = function() {
@@ -144,6 +226,165 @@ arc.mojom.VideoEncodeAccelerator.getRemote = function() {
     'arc.mojom.VideoEncodeAccelerator',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GetSupportedProfiles
+arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeAccelerator.GetSupportedProfiles_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.VideoEncodeProfileSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Initialize
+arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeAccelerator.Initialize_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoEncodeAcceleratorConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Encode
+arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeAccelerator.Encode_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_fd', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'planes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'force_keyframe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 40}]
+    }
+  }
+};
+
+// ParamsSpec for UseBitstreamBuffer
+arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeAccelerator.UseBitstreamBuffer_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'shmem_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'payload_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'key_frame', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for RequestEncodingParametersChange
+arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeAccelerator.RequestEncodingParametersChange_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'bitrate', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BitrateSpec, nullable: false, minVersion: 0 },
+        { name: 'framerate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+// ParamsSpec for RequestEncodingParametersChangeDeprecated
+arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeAccelerator.RequestEncodingParametersChangeDeprecated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'bitrate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'framerate', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Flush
+arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeAccelerator.Flush_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'flush_done', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -186,6 +427,24 @@ arc.mojom.VideoEncodeClientRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  requireBitstreamBuffers(input_count, input_coded_size, output_buffer_size) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec,
+      null,
+      [input_count, input_coded_size, output_buffer_size]);
+  }
+
+  notifyError(error) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec,
+      null,
+      [error]);
+  }
+
 };
 
 arc.mojom.VideoEncodeClient.getRemote = function() {
@@ -196,6 +455,36 @@ arc.mojom.VideoEncodeClient.getRemote = function() {
     'arc.mojom.VideoEncodeClient',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for RequireBitstreamBuffers
+arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeClient.RequireBitstreamBuffers_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'input_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'input_coded_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'output_buffer_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for NotifyError
+arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoEncodeClient.NotifyError_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: VideoEncodeAccelerator.ErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

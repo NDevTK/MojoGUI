@@ -34,6 +34,7 @@ ash.personalization_app.mojom.SeaPenTemplateId = {
   kVcBackgroundCharacters: 19,
   kVcBackgroundGlowscapes: 20,
 };
+ash.personalization_app.mojom.SeaPenTemplateIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: SeaPenTemplateChip
 ash.personalization_app.mojom.SeaPenTemplateChip = {
@@ -83,6 +84,7 @@ ash.personalization_app.mojom.SeaPenTemplateChip = {
   kVcBackgroundGlowscapesLandscape: 43,
   kVcBackgroundGlowscapesFeature: 44,
 };
+ash.personalization_app.mojom.SeaPenTemplateChipSpec = { $: mojo.internal.Enum() };
 
 // Enum: SeaPenTemplateOption
 ash.personalization_app.mojom.SeaPenTemplateOption = {
@@ -696,3 +698,4 @@ ash.personalization_app.mojom.SeaPenTemplateOption = {
   kVcBackgroundGlowscapesFeatureWalkway: 607,
   kVcBackgroundGlowscapesFeaturePool: 608,
 };
+ash.personalization_app.mojom.SeaPenTemplateOptionSpec = { $: mojo.internal.Enum() };

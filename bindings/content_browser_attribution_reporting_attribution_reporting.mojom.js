@@ -15,12 +15,14 @@ attribution_reporting.mojom.ReportType = {
   kAggregatableAttribution: 1,
   kNullAggregatable: 2,
 };
+attribution_reporting.mojom.ReportTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RegistrationType
 attribution_reporting.mojom.RegistrationType = {
   kSource: 0,
   kTrigger: 1,
 };
+attribution_reporting.mojom.RegistrationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OsRegistrationResult
 attribution_reporting.mojom.OsRegistrationResult = {
@@ -29,3 +31,4 @@ attribution_reporting.mojom.OsRegistrationResult = {
   kProhibitedByBrowserPolicy: 2,
   kRejectedByOs: 3,
 };
+attribution_reporting.mojom.OsRegistrationResultSpec = { $: mojo.internal.Enum() };

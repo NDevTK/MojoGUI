@@ -29,25 +29,26 @@ viz.mojom.FilterType = {
   OFFSET: 15,
   FILTER_TYPE_LAST: 16,
 };
+viz.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FilterOperation
 viz.mojom.FilterOperationSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FilterOperation',
-      packedSize: 80,
+      packedSize: 64,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FilterTypeSpec, nullable: false },
-        { name: 'amount', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'drop_shadow_color', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
-        { name: 'image_filter', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.PaintFilterSpec, nullable: false },
-        { name: 'matrix', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'zoom_inset', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'blur_tile_mode', packedOffset: 64, packedBitOffset: 0, type: skia.mojom.TileModeSpec, nullable: false },
-        { name: 'shape', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FilterTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'amount', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'drop_shadow_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
+        { name: 'image_filter', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.PaintFilterSpec, nullable: false, minVersion: 0 },
+        { name: 'matrix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: true, minVersion: 0 },
+        { name: 'zoom_inset', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'blur_tile_mode', packedOffset: 44, packedBitOffset: 0, type: skia.mojom.TileModeSpec, nullable: false, minVersion: 0 },
+        { name: 'shape', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };

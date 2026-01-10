@@ -276,3 +276,4 @@ extensions.mojom.APIPermissionID = {
   kExperimentalActor: 262,
   kEnterpriseLogin: 263,
 };
+extensions.mojom.APIPermissionIDSpec = { $: mojo.internal.Enum() };

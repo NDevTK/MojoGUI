@@ -82,12 +82,12 @@ ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = {
       name: 'ui.ozone.mojom.DeviceCursor.SetCursor_Params',
       packedSize: 40,
       fields: [
-        { name: 'window', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
-        { name: 'bitmaps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'point', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: true },
-        { name: 'frame_delay', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'window', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
+        { name: 'bitmaps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.BitmapN32Spec, false), nullable: false, minVersion: 0 },
+        { name: 'point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: true, minVersion: 0 },
+        { name: 'frame_delay', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -99,10 +99,10 @@ ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = {
       name: 'ui.ozone.mojom.DeviceCursor.MoveCursor_Params',
       packedSize: 24,
       fields: [
-        { name: 'window', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false },
-        { name: 'point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'window', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.AcceleratedWidgetSpec, nullable: false, minVersion: 0 },
+        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

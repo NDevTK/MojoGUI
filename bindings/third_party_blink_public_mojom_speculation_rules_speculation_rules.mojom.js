@@ -15,6 +15,7 @@ blink.mojom.SpeculationAction = {
   kPrerenderUntilScript: 1,
   kPrerender: 2,
 };
+blink.mojom.SpeculationActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeculationTargetHint
 blink.mojom.SpeculationTargetHint = {
@@ -22,6 +23,7 @@ blink.mojom.SpeculationTargetHint = {
   kBlank: 1,
   kSelf: 2,
 };
+blink.mojom.SpeculationTargetHintSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeculationEagerness
 blink.mojom.SpeculationEagerness = {
@@ -30,6 +32,7 @@ blink.mojom.SpeculationEagerness = {
   kImmediate: 2,
   kEager: 3,
 };
+blink.mojom.SpeculationEagernessSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeculationInjectionType
 blink.mojom.SpeculationInjectionType = {
@@ -38,26 +41,27 @@ blink.mojom.SpeculationInjectionType = {
   kIsolatedWorldScript: 2,
   kAutoSpeculationRules: 3,
 };
+blink.mojom.SpeculationInjectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpeculationCandidate
 blink.mojom.SpeculationCandidateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SpeculationCandidate',
-      packedSize: 88,
+      packedSize: 80,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SpeculationActionSpec, nullable: false },
-        { name: 'referrer', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false },
-        { name: 'requires_anonymous_client_ip_when_cross_origin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'target_browsing_context_name_hint', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SpeculationTargetHintSpec, nullable: false },
-        { name: 'eagerness', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.SpeculationEagernessSpec, nullable: false },
-        { name: 'no_vary_search_hint', packedOffset: 56, packedBitOffset: 0, type: network.mojom.NoVarySearchSpec, nullable: true },
-        { name: 'injection_type', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.SpeculationInjectionTypeSpec, nullable: false },
-        { name: 'tags', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'form_submission', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SpeculationActionSpec, nullable: false, minVersion: 0 },
+        { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false, minVersion: 0 },
+        { name: 'requires_anonymous_client_ip_when_cross_origin', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'target_browsing_context_name_hint', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SpeculationTargetHintSpec, nullable: false, minVersion: 0 },
+        { name: 'eagerness', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SpeculationEagernessSpec, nullable: false, minVersion: 0 },
+        { name: 'no_vary_search_hint', packedOffset: 48, packedBitOffset: 0, type: network.mojom.NoVarySearchSpec, nullable: true, minVersion: 0 },
+        { name: 'injection_type', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.SpeculationInjectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'tags', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'form_submission', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };
@@ -143,10 +147,10 @@ blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
       name: 'blink.mojom.SpeculationHost.UpdateSpeculationCandidates_Params',
       packedSize: 24,
       fields: [
-        { name: 'candidates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'enable_cross_origin_prerender_iframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SpeculationCandidateSpec, false), nullable: false, minVersion: 0 },
+        { name: 'enable_cross_origin_prerender_iframes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -159,7 +163,7 @@ blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -171,9 +175,9 @@ blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
       name: 'blink.mojom.SpeculationHost.InitiatePreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

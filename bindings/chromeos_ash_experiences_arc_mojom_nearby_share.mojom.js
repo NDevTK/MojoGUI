@@ -16,12 +16,12 @@ arc.mojom.FileInfoSpec = {
       name: 'arc.mojom.FileInfo',
       packedSize: 40,
       fields: [
-        { name: 'content_uri', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'content_uri', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -33,12 +33,12 @@ arc.mojom.ShareIntentInfoSpec = {
       name: 'arc.mojom.ShareIntentInfo',
       packedSize: 40,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'extras', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'files', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'extras', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.FileInfoSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -130,6 +130,15 @@ arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onNearbyShareViewClosed() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 arc.mojom.NearbyShareSessionInstance.getRemote = function() {
@@ -140,6 +149,19 @@ arc.mojom.NearbyShareSessionInstance.getRemote = function() {
     'arc.mojom.NearbyShareSessionInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnNearbyShareViewClosed
+arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NearbyShareSessionInstance.OnNearbyShareViewClosed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -182,6 +204,15 @@ arc.mojom.NearbyShareHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  startNearbyShare(task_id, info, instance) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec,
+      arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec,
+      [task_id, info, instance]);
+  }
+
 };
 
 arc.mojom.NearbyShareHost.getRemote = function() {
@@ -192,6 +223,35 @@ arc.mojom.NearbyShareHost.getRemote = function() {
     'arc.mojom.NearbyShareHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for StartNearbyShare
+arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NearbyShareHost.StartNearbyShare_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ShareIntentInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'instance', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -234,6 +294,15 @@ arc.mojom.NearbyShareInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.NearbyShareInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.NearbyShareInstance.getRemote = function() {
@@ -244,6 +313,20 @@ arc.mojom.NearbyShareInstance.getRemote = function() {
     'arc.mojom.NearbyShareInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.NearbyShareInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.NearbyShareInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

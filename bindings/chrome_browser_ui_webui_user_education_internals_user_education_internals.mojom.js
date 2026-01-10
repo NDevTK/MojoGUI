@@ -16,10 +16,10 @@ mojom.user_education_internals.FeaturePromoDemoPageDataSpec = {
       name: 'mojom.user_education_internals.FeaturePromoDemoPageData',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -31,18 +31,18 @@ mojom.user_education_internals.FeaturePromoDemoPageInfoSpec = {
       name: 'mojom.user_education_internals.FeaturePromoDemoPageInfo',
       packedSize: 88,
       fields: [
-        { name: 'display_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'display_description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'internal_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'added_milestone', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'supported_platforms', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'required_features', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'instructions', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'followed_by_internal_name', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'data', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'display_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'display_description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'internal_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'added_milestone', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'supported_platforms', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'required_features', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'instructions', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'followed_by_internal_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };
@@ -52,15 +52,15 @@ mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.WhatsNewModuleDemoPageInfo',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'display_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'module_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'has_browser_command', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_feature_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'queue_position', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'display_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'has_browser_command', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_feature_enabled', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'queue_position', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -70,15 +70,15 @@ mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.WhatsNewEditionDemoPageInfo',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'display_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'edition_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_feature_enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_been_used', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'version_used', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'display_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'edition_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_feature_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_been_used', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'version_used', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -309,7 +309,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -317,12 +317,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_Pa
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetTutorials_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'tutorial_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'tutorial_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -334,9 +334,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_P
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.StartTutorial_Params',
       packedSize: 16,
       fields: [
-        { name: 'tutorial_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tutorial_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -344,12 +344,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_P
 mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.StartTutorial_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -362,7 +362,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -370,12 +370,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetSessionData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'session_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'session_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -388,7 +388,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -396,12 +396,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromo
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetFeaturePromos_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'feature_promos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'feature_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -413,9 +413,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeatureProm
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ShowFeaturePromo_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -423,12 +423,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeatureProm
 mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ShowFeaturePromo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -440,9 +440,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePro
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearFeaturePromoData_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -450,12 +450,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePro
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearFeaturePromoData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -468,7 +468,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionDat
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -476,12 +476,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionDat
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearSessionData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -494,7 +494,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -502,12 +502,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession
 mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ForceNewSession_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -520,7 +520,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeri
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -528,12 +528,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeri
 mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.RemoveGracePeriods_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -546,7 +546,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -554,12 +554,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_Pa
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNewBadges_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'new_badges', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'new_badges', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -572,7 +572,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModu
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -580,12 +580,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModu
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewModules_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'whats_new_modules', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'whats_new_modules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -598,7 +598,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEdit
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -606,12 +606,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEdit
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewEditions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'whats_new_editions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'whats_new_editions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -624,7 +624,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -632,12 +632,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_Pa
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromos_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ntp_promos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ntp_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -650,7 +650,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPref
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -658,12 +658,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPref
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromoPreferences_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'ntp_promo_preferences', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'ntp_promo_preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -675,9 +675,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeDa
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNewBadgeData_Params',
       packedSize: 16,
       fields: [
-        { name: 'feature_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -685,12 +685,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeDa
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNewBadgeData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -703,7 +703,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewDa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -711,12 +711,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewDa
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearWhatsNewData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -728,9 +728,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoDa
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoData_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -738,12 +738,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoDa
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -756,7 +756,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPr
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -764,12 +764,12 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPr
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoPreferences_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -782,7 +782,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

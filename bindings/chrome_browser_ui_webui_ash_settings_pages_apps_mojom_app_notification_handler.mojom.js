@@ -24,6 +24,7 @@ ash.settings.app_notification.mojom.Readiness = {
   kUninstalledByNonUser: 8,
   kDisabledByLocalSettings: 9,
 };
+ash.settings.app_notification.mojom.ReadinessSpec = { $: mojo.internal.Enum() };
 
 // Struct: App
 ash.settings.app_notification.mojom.AppSpec = {
@@ -32,12 +33,12 @@ ash.settings.app_notification.mojom.AppSpec = {
       name: 'ash.settings.app_notification.mojom.App',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'readiness', packedOffset: 24, packedBitOffset: 0, type: ash.settings.app_notification.mojom.ReadinessSpec, nullable: false },
-        { name: 'notification_permission', packedOffset: 32, packedBitOffset: 0, type: app_management.mojom.PermissionSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'readiness', packedOffset: 16, packedBitOffset: 0, type: ash.settings.app_notification.mojom.ReadinessSpec, nullable: false, minVersion: 0 },
+        { name: 'notification_permission', packedOffset: 24, packedBitOffset: 0, type: app_management.mojom.PermissionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -150,9 +151,9 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsS
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.SetQuietMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -164,9 +165,9 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSp
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,10 +179,10 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermi
       name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.SetNotificationPermission_Params',
       packedSize: 24,
       fields: [
-        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'permission', packedOffset: 16, packedBitOffset: 0, type: app_management.mojom.PermissionSpec, nullable: false },
+        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'permission', packedOffset: 8, packedBitOffset: 0, type: app_management.mojom.PermissionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -194,7 +195,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -202,12 +203,12 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec =
 ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetApps_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.app_notification.mojom.AppSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -220,7 +221,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -228,12 +229,12 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsS
 ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetQuietMode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -246,7 +247,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificat
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -328,9 +329,9 @@ ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppCh
       name: 'ash.settings.app_notification.mojom.AppNotificationsObserver.OnNotificationAppChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'app', packedOffset: 8, packedBitOffset: 0, type: ash.settings.app_notification.mojom.AppSpec, nullable: false },
+        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: ash.settings.app_notification.mojom.AppSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -342,9 +343,9 @@ ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_
       name: 'ash.settings.app_notification.mojom.AppNotificationsObserver.OnQuietModeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

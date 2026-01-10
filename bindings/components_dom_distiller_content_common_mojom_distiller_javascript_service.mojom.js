@@ -100,7 +100,7 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -112,9 +112,9 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec =
       name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreThemePref_Params',
       packedSize: 16,
       fields: [
-        { name: 'theme', packedOffset: 8, packedBitOffset: 0, type: dom_distiller.mojom.ThemeSpec, nullable: false },
+        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.ThemeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,9 +126,9 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsS
       name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreFontFamilyPref_Params',
       packedSize: 16,
       fields: [
-        { name: 'font_family', packedOffset: 8, packedBitOffset: 0, type: dom_distiller.mojom.FontFamilySpec, nullable: false },
+        { name: 'font_family', packedOffset: 0, packedBitOffset: 0, type: dom_distiller.mojom.FontFamilySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -140,9 +140,9 @@ dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_Params
       name: 'dom_distiller.mojom.DistillerJavaScriptService.HandleStoreFontScalingPref_Params',
       packedSize: 16,
       fields: [
-        { name: 'font_scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'font_scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

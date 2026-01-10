@@ -16,11 +16,11 @@ display.mojom.GammaRampRGBEntrySpec = {
       name: 'display.mojom.GammaRampRGBEntry',
       packedSize: 16,
       fields: [
-        { name: 'r', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'g', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'b', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'r', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'g', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'b', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

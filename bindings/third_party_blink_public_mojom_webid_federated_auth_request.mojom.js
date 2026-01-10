@@ -16,12 +16,14 @@ blink.mojom.RequestTokenStatus = {
   kErrorCanceled: 2,
   kError: 3,
 };
+blink.mojom.RequestTokenStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: RequestUserInfoStatus
 blink.mojom.RequestUserInfoStatus = {
   kSuccess: 0,
   kError: 1,
 };
+blink.mojom.RequestUserInfoStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisconnectStatus
 blink.mojom.DisconnectStatus = {
@@ -29,12 +31,14 @@ blink.mojom.DisconnectStatus = {
   kErrorTooManyRequests: 1,
   kError: 2,
 };
+blink.mojom.DisconnectStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: IdpSigninStatus
 blink.mojom.IdpSigninStatus = {
   kSignedIn: 0,
   kSignedOut: 1,
 };
+blink.mojom.IdpSigninStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: RpContext
 blink.mojom.RpContext = {
@@ -43,12 +47,14 @@ blink.mojom.RpContext = {
   kUse: 2,
   kContinue: 3,
 };
+blink.mojom.RpContextSpec = { $: mojo.internal.Enum() };
 
 // Enum: RpMode
 blink.mojom.RpMode = {
   kActive: 0,
   kPassive: 1,
 };
+blink.mojom.RpModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RegisterIdpStatus
 blink.mojom.RegisterIdpStatus = {
@@ -59,11 +65,13 @@ blink.mojom.RegisterIdpStatus = {
   kErrorDeclined: 4,
   kErrorInvalidConfig: 5,
 };
+blink.mojom.RegisterIdpStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Format
 blink.mojom.Format = {
   kSdJwt: 0,
 };
+blink.mojom.FormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: IdentityProviderConfig
 blink.mojom.IdentityProviderConfigSpec = {
@@ -72,12 +80,12 @@ blink.mojom.IdentityProviderConfigSpec = {
       name: 'blink.mojom.IdentityProviderConfig',
       packedSize: 40,
       fields: [
-        { name: 'config_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'from_idp_registration_api', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'client_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'config_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'from_idp_registration_api', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'client_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -89,15 +97,15 @@ blink.mojom.IdentityProviderRequestOptionsSpec = {
       name: 'blink.mojom.IdentityProviderRequestOptions',
       packedSize: 64,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdentityProviderConfigSpec, nullable: false },
-        { name: 'nonce', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'login_hint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'domain_hint', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'fields', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'params_json', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'format', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.FormatSpec, nullable: true },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdentityProviderConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'login_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'domain_hint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'fields', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'params_json', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'format', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.FormatSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -109,10 +117,10 @@ blink.mojom.IdentityCredentialDisconnectOptionsSpec = {
       name: 'blink.mojom.IdentityCredentialDisconnectOptions',
       packedSize: 24,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdentityProviderConfigSpec, nullable: false },
-        { name: 'account_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdentityProviderConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'account_hint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -124,12 +132,12 @@ blink.mojom.IdentityUserInfoSpec = {
       name: 'blink.mojom.IdentityUserInfo',
       packedSize: 40,
       fields: [
-        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'given_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'picture', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'given_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'picture', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -141,13 +149,13 @@ blink.mojom.LoginStatusAccountSpec = {
       name: 'blink.mojom.LoginStatusAccount',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'given_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'picture', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'given_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'picture', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -159,10 +167,10 @@ blink.mojom.LoginStatusOptionsSpec = {
       name: 'blink.mojom.LoginStatusOptions',
       packedSize: 24,
       fields: [
-        { name: 'accounts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'expiration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
+        { name: 'accounts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.LoginStatusAccountSpec, false), nullable: false, minVersion: 0 },
+        { name: 'expiration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -172,13 +180,13 @@ blink.mojom.IdentityProviderGetParametersSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.IdentityProviderGetParameters',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'providers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'context', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.RpContextSpec, nullable: false },
-        { name: 'mode', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.RpModeSpec, nullable: false },
+        { name: 'providers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.IdentityProviderRequestOptionsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RpContextSpec, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.RpModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -190,10 +198,10 @@ blink.mojom.TokenErrorSpec = {
       name: 'blink.mojom.TokenError',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -342,10 +350,10 @@ blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.RequestToken_Params',
       packedSize: 24,
       fields: [
-        { name: 'idp_get_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'requirement', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.CredentialMediationRequirementSpec, nullable: false },
+        { name: 'idp_get_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.IdentityProviderGetParametersSpec, false), nullable: false, minVersion: 0 },
+        { name: 'requirement', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CredentialMediationRequirementSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -353,16 +361,16 @@ blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FederatedAuthRequest.RequestToken_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RequestTokenStatusSpec, nullable: false },
-        { name: 'selected_identity_provider_config_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'token', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
-        { name: 'error', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.TokenErrorSpec, nullable: true },
-        { name: 'is_auto_selected', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestTokenStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'selected_identity_provider_config_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.TokenErrorSpec, nullable: true, minVersion: 0 },
+        { name: 'is_auto_selected', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -374,9 +382,9 @@ blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.RequestUserInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'provider', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdentityProviderConfigSpec, nullable: false },
+        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdentityProviderConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -384,13 +392,13 @@ blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FederatedAuthRequest.RequestUserInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RequestUserInfoStatusSpec, nullable: false },
-        { name: 'user_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestUserInfoStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'user_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.IdentityUserInfoSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -403,7 +411,7 @@ blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -413,12 +421,12 @@ blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FederatedAuthRequest.ResolveTokenRequest_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'account_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'account_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -426,12 +434,12 @@ blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FederatedAuthRequest.ResolveTokenRequest_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -443,11 +451,11 @@ blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.SetIdpSigninStatus_Params',
       packedSize: 32,
       fields: [
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.IdpSigninStatusSpec, nullable: false },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.LoginStatusOptionsSpec, nullable: true },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdpSigninStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LoginStatusOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -459,9 +467,9 @@ blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.RegisterIdP_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -469,12 +477,12 @@ blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FederatedAuthRequest.RegisterIdP_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RegisterIdpStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RegisterIdpStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -486,9 +494,9 @@ blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.UnregisterIdP_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -496,12 +504,12 @@ blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FederatedAuthRequest.UnregisterIdP_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -514,7 +522,7 @@ blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -527,7 +535,7 @@ blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -539,9 +547,9 @@ blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = {
       name: 'blink.mojom.FederatedAuthRequest.Disconnect_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdentityCredentialDisconnectOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdentityCredentialDisconnectOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -549,12 +557,12 @@ blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FederatedAuthRequest.Disconnect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DisconnectStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DisconnectStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

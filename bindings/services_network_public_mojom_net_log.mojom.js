@@ -9,6 +9,8 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
+network.mojom.kUnlimitedFileSize = 0xFFFFFFFFFFFFFFFF;
+
 // Enum: NetLogCaptureMode
 network.mojom.NetLogCaptureMode = {
   HEAVILY_REDACTED: 0,
@@ -16,6 +18,7 @@ network.mojom.NetLogCaptureMode = {
   INCLUDE_PRIVACY_INFO: 2,
   EVERYTHING: 3,
 };
+network.mojom.NetLogCaptureModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetLogEventPhase
 network.mojom.NetLogEventPhase = {
@@ -23,6 +26,7 @@ network.mojom.NetLogEventPhase = {
   END: 1,
   NONE: 2,
 };
+network.mojom.NetLogEventPhaseSpec = { $: mojo.internal.Enum() };
 
 // Interface: NetLogExporter
 network.mojom.NetLogExporter = {};
@@ -96,12 +100,12 @@ network.mojom.NetLogExporter_Start_ParamsSpec = {
       name: 'network.mojom.NetLogExporter.Start_Params',
       packedSize: 40,
       fields: [
-        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
-        { name: 'extra_constants', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
-        { name: 'capture_mode', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetLogCaptureModeSpec, nullable: false },
-        { name: 'max_file_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'destination', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
+        { name: 'extra_constants', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
+        { name: 'capture_mode', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetLogCaptureModeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_file_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -109,12 +113,12 @@ network.mojom.NetLogExporter_Start_ParamsSpec = {
 network.mojom.NetLogExporter_Start_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.NetLogExporter.Start_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,9 +130,9 @@ network.mojom.NetLogExporter_Stop_ParamsSpec = {
       name: 'network.mojom.NetLogExporter.Stop_Params',
       packedSize: 16,
       fields: [
-        { name: 'polled_values', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'polled_values', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -136,12 +140,12 @@ network.mojom.NetLogExporter_Stop_ParamsSpec = {
 network.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.NetLogExporter.Stop_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -214,9 +218,9 @@ network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = {
       name: 'network.mojom.NetLogProxySource.UpdateCaptureModes_Params',
       packedSize: 16,
       fields: [
-        { name: 'modes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
+        { name: 'modes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -287,15 +291,15 @@ network.mojom.NetLogProxySink_AddEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetLogProxySink.AddEntry_Params',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'net_log_source', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false },
-        { name: 'phase', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetLogEventPhaseSpec, nullable: false },
-        { name: 'time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'params', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'phase', packedOffset: 4, packedBitOffset: 0, type: network.mojom.NetLogEventPhaseSpec, nullable: false, minVersion: 0 },
+        { name: 'time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

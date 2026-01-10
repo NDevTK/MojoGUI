@@ -16,3 +16,4 @@ blink.mojom.WebRtcIpHandlingPolicy = {
   kDefaultPublicInterfaceOnly: 2,
   kDisableNonProxiedUdp: 3,
 };
+blink.mojom.WebRtcIpHandlingPolicySpec = { $: mojo.internal.Enum() };

@@ -91,9 +91,9 @@ components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_Param
       name: 'components.media_control.mojom.MediaPlaybackOptions.SetMediaLoadingBlocked_Params',
       packedSize: 16,
       fields: [
-        { name: 'blocked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'blocked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -105,9 +105,9 @@ components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEn
       name: 'components.media_control.mojom.MediaPlaybackOptions.SetBackgroundVideoPlaybackEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,9 +119,9 @@ components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec =
       name: 'components.media_control.mojom.MediaPlaybackOptions.SetRendererType_Params',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: content.mojom.RendererTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: content.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

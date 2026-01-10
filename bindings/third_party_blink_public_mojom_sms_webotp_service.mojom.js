@@ -18,6 +18,7 @@ blink.mojom.SmsStatus = {
   kTimeout: 4,
   kBackendNotAvailable: 5,
 };
+blink.mojom.SmsStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: WebOTPService
 blink.mojom.WebOTPService = {};
@@ -92,7 +93,7 @@ blink.mojom.WebOTPService_Receive_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -100,13 +101,13 @@ blink.mojom.WebOTPService_Receive_ParamsSpec = {
 blink.mojom.WebOTPService_Receive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WebOTPService.Receive_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SmsStatusSpec, nullable: false },
-        { name: 'otp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SmsStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'otp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -119,7 +120,7 @@ blink.mojom.WebOTPService_Abort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

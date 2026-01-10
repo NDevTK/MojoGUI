@@ -15,6 +15,7 @@ new_tab_footer.mojom.NewTabPageType = {
   kExtension: 1,
   kOther: 2,
 };
+new_tab_footer.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ManagementNotice
 new_tab_footer.mojom.ManagementNoticeSpec = {
@@ -23,10 +24,10 @@ new_tab_footer.mojom.ManagementNoticeSpec = {
       name: 'new_tab_footer.mojom.ManagementNotice',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'custom_bitmap_data_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'custom_bitmap_data_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -38,10 +39,10 @@ new_tab_footer.mojom.BackgroundAttributionSpec = {
       name: 'new_tab_footer.mojom.BackgroundAttribution',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -109,10 +110,10 @@ new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_Params
       name: 'new_tab_footer.mojom.NewTabFooterHandlerFactory.CreateNewTabFooterHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'document', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -258,7 +259,7 @@ new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -271,7 +272,7 @@ new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -284,7 +285,7 @@ new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -297,7 +298,7 @@ new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -310,7 +311,7 @@ new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_Pa
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -323,7 +324,7 @@ new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -335,9 +336,9 @@ new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec = {
       name: 'new_tab_footer.mojom.NewTabFooterHandler.OpenUrlInCurrentTab_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -349,9 +350,9 @@ new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec = {
       name: 'new_tab_footer.mojom.NewTabFooterHandler.ShowContextMenu_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -364,7 +365,7 @@ new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -464,9 +465,9 @@ new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec = {
       name: 'new_tab_footer.mojom.NewTabFooterDocument.SetNtpExtensionName_Params',
       packedSize: 16,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -478,9 +479,9 @@ new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec = {
       name: 'new_tab_footer.mojom.NewTabFooterDocument.SetManagementNotice_Params',
       packedSize: 16,
       fields: [
-        { name: 'notice', packedOffset: 8, packedBitOffset: 0, type: new_tab_footer.mojom.ManagementNoticeSpec, nullable: true },
+        { name: 'notice', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.ManagementNoticeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -490,12 +491,12 @@ new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'new_tab_footer.mojom.NewTabFooterDocument.AttachedTabStateUpdated_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'ntp_type', packedOffset: 8, packedBitOffset: 0, type: new_tab_footer.mojom.NewTabPageTypeSpec, nullable: false },
-        { name: 'can_customize_chrome', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'ntp_type', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.NewTabPageTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'can_customize_chrome', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -507,9 +508,9 @@ new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec = 
       name: 'new_tab_footer.mojom.NewTabFooterDocument.SetBackgroundAttribution_Params',
       packedSize: 16,
       fields: [
-        { name: 'background_image_attribution', packedOffset: 8, packedBitOffset: 0, type: new_tab_footer.mojom.BackgroundAttributionSpec, nullable: true },
+        { name: 'background_image_attribution', packedOffset: 0, packedBitOffset: 0, type: new_tab_footer.mojom.BackgroundAttributionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

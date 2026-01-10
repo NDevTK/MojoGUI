@@ -72,10 +72,10 @@ data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'data_sharing_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,7 +158,7 @@ data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -166,12 +166,12 @@ data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec = {
 data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandler.IsEmptyService_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_empty', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_empty', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -184,7 +184,7 @@ data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -192,13 +192,13 @@ data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec = {
 data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'data_sharing_internals.mojom.PageHandler.GetAllGroups_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'is_success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(data_sharing.mojom.GroupDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -269,15 +269,15 @@ data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing_internals.mojom.Page.OnLogMessageAdded_Params',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'event_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'log_source', packedOffset: 16, packedBitOffset: 0, type: logger_common.mojom.LogSourceSpec, nullable: false },
-        { name: 'source_file', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source_line', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'message', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'log_source', packedOffset: 8, packedBitOffset: 0, type: logger_common.mojom.LogSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'source_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source_line', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

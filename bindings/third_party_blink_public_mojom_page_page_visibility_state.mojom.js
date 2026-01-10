@@ -15,3 +15,4 @@ blink.mojom.PageVisibilityState = {
   kHidden: 1,
   kHiddenButPainting: 2,
 };
+blink.mojom.PageVisibilityStateSpec = { $: mojo.internal.Enum() };

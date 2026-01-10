@@ -19,25 +19,26 @@ paint_preview.mojom.PaintPreviewStatus = {
   kPartialSuccess: 5,
   kFailed: 6,
 };
+paint_preview.mojom.PaintPreviewStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PaintPreviewCaptureParams
 paint_preview.mojom.PaintPreviewCaptureParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCaptureParams',
-      packedSize: 72,
+      packedSize: 56,
       fields: [
-        { name: 'persistence', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.RecordingPersistenceSpec, nullable: false },
-        { name: 'guid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'geometry_metadata_params', packedOffset: 24, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false },
-        { name: 'is_main_frame', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'capture_links', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'file', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true },
-        { name: 'max_capture_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'max_decoded_image_size_bytes', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'skip_accelerated_content', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'persistence', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.RecordingPersistenceSpec, nullable: false, minVersion: 0 },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'geometry_metadata_params', packedOffset: 16, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'is_main_frame', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'capture_links', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
+        { name: 'max_capture_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'max_decoded_image_size_bytes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'skip_accelerated_content', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -49,10 +50,10 @@ paint_preview.mojom.LinkDataSpec = {
       name: 'paint_preview.mojom.LinkData',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -62,17 +63,17 @@ paint_preview.mojom.PaintPreviewCaptureResponseSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCaptureResponse',
-      packedSize: 64,
+      packedSize: 72,
       fields: [
-        { name: 'embedding_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'content_id_to_embedding_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'links', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'blink_recording_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'serialized_size', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'geometry_metadata', packedOffset: 48, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataResponseSpec, nullable: false },
-        { name: 'skp', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
+        { name: 'embedding_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'content_id_to_embedding_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo_base.mojom.UnguessableTokenSpec, false), nullable: false, minVersion: 0 },
+        { name: 'links', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(paint_preview.mojom.LinkDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'blink_recording_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'serialized_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'geometry_metadata', packedOffset: 40, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataResponseSpec, nullable: false, minVersion: 0 },
+        { name: 'skp', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -82,14 +83,14 @@ paint_preview.mojom.GeometryMetadataParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.GeometryMetadataParams',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'clip_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'clip_x_coord_override', packedOffset: 16, packedBitOffset: 0, type: paint_preview.mojom.ClipCoordOverrideSpec, nullable: false },
-        { name: 'clip_y_coord_override', packedOffset: 24, packedBitOffset: 0, type: paint_preview.mojom.ClipCoordOverrideSpec, nullable: false },
-        { name: 'clip_rect_is_hint', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'clip_x_coord_override', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.ClipCoordOverrideSpec, nullable: false, minVersion: 0 },
+        { name: 'clip_y_coord_override', packedOffset: 12, packedBitOffset: 0, type: paint_preview.mojom.ClipCoordOverrideSpec, nullable: false, minVersion: 0 },
+        { name: 'clip_rect_is_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -101,10 +102,10 @@ paint_preview.mojom.GeometryMetadataResponseSpec = {
       name: 'paint_preview.mojom.GeometryMetadataResponse',
       packedSize: 24,
       fields: [
-        { name: 'scroll_offsets', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
-        { name: 'frame_offsets', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'scroll_offsets', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_offsets', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -181,9 +182,9 @@ paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
       name: 'paint_preview.mojom.PaintPreviewRecorder.CapturePaintPreview_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewCaptureParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewCaptureParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,9 +196,9 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
       name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -205,12 +206,12 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
 paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataResponseSpec, nullable: true },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataResponseSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,10 +16,10 @@ blink.mojom.OriginTrialFeatureStateSpec = {
       name: 'blink.mojom.OriginTrialFeatureState',
       packedSize: 24,
       fields: [
-        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'tokens', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -96,9 +96,9 @@ blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
       name: 'blink.mojom.OriginTrialStateHost.ApplyFeatureDiffForOriginTrial_Params',
       packedSize: 16,
       fields: [
-        { name: 'origin_trial_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'origin_trial_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.RuntimeFeatureSpec, blink.mojom.OriginTrialFeatureStateSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,10 +110,10 @@ blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
       name: 'blink.mojom.OriginTrialStateHost.EnablePersistentTrial_Params',
       packedSize: 24,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'script_origins', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'script_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

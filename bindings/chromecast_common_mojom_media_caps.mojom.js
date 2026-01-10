@@ -17,11 +17,11 @@ chromecast.media.mojom.CodecProfileLevelSpec = {
       name: 'chromecast.media.mojom.CodecProfileLevel',
       packedSize: 24,
       fields: [
-        { name: 'codec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'profile', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'profile', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -89,9 +89,9 @@ chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = {
       name: 'chromecast.media.mojom.MediaCaps.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -164,9 +164,9 @@ chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpe
       name: 'chromecast.media.mojom.MediaCapsObserver.AddSupportedCodecProfileLevel_Params',
       packedSize: 16,
       fields: [
-        { name: 'codec_profile_level', packedOffset: 8, packedBitOffset: 0, type: chromecast.media.mojom.CodecProfileLevelSpec, nullable: false },
+        { name: 'codec_profile_level', packedOffset: 0, packedBitOffset: 0, type: chromecast.media.mojom.CodecProfileLevelSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

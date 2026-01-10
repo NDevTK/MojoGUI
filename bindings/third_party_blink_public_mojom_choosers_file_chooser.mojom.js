@@ -17,6 +17,21 @@ blink.mojom.Mode = {
   kOpenDirectory: 3,
   kSave: 4,
 };
+blink.mojom.ModeSpec = { $: mojo.internal.Enum() };
+
+// Union: FileChooserFileInfo
+blink.mojom.FileChooserFileInfoSpec = { $: mojo.internal.Union(
+    'blink.mojom.FileChooserFileInfo', {
+      'native_file': {
+        'ordinal': 0,
+        'type': blink.mojom.NativeFileInfoSpec,
+      }},
+      'file_system': {
+        'ordinal': 1,
+        'type': blink.mojom.FileSystemFileInfoSpec,
+      }},
+    })
+};
 
 // Struct: FileChooserParams
 blink.mojom.FileChooserParamsSpec = {
@@ -25,9 +40,9 @@ blink.mojom.FileChooserParamsSpec = {
       name: 'blink.mojom.FileChooserParams',
       packedSize: 16,
       fields: [
-        { name: 'kOpen', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kOpen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -39,11 +54,11 @@ blink.mojom.NativeFileInfoSpec = {
       name: 'blink.mojom.NativeFileInfo',
       packedSize: 32,
       fields: [
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'display_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'base_subdirs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'base_subdirs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -55,11 +70,11 @@ blink.mojom.FileSystemFileInfoSpec = {
       name: 'blink.mojom.FileSystemFileInfo',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'modification_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'modification_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -71,10 +86,10 @@ blink.mojom.FileChooserResultSpec = {
       name: 'blink.mojom.FileChooserResult',
       packedSize: 24,
       fields: [
-        { name: 'files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'base_directory', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FileChooserFileInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'base_directory', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -151,9 +166,9 @@ blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = {
       name: 'blink.mojom.FileChooser.OpenFileChooser_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileChooserParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileChooserParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,12 +176,12 @@ blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = {
 blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileChooser.OpenFileChooser_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileChooserResultSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileChooserResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,9 +193,9 @@ blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = {
       name: 'blink.mojom.FileChooser.EnumerateChosenDirectory_Params',
       packedSize: 16,
       fields: [
-        { name: 'directory_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'directory_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -188,12 +203,12 @@ blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = {
 blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileChooser.EnumerateChosenDirectory_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileChooserResultSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileChooserResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

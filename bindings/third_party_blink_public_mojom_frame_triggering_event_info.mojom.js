@@ -16,3 +16,4 @@ blink.mojom.TriggeringEventInfo = {
   kFromTrustedEvent: 2,
   kFromUntrustedEvent: 3,
 };
+blink.mojom.TriggeringEventInfoSpec = { $: mojo.internal.Enum() };

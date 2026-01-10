@@ -15,6 +15,7 @@ chrome.mojom.IconSize = {
   kNormal: 1,
   kLarge: 2,
 };
+chrome.mojom.IconSizeSpec = { $: mojo.internal.Enum() };
 
 // Interface: UtilReadIcon
 chrome.mojom.UtilReadIcon = {};
@@ -77,13 +78,13 @@ chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.UtilReadIcon.ReadIcon_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: chrome.mojom.IconSizeSpec, nullable: false },
-        { name: 'scale', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.IconSizeSpec, nullable: false, minVersion: 0 },
+        { name: 'scale', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -91,12 +92,12 @@ chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
 chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.UtilReadIcon.ReadIcon_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
+        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

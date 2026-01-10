@@ -26,6 +26,7 @@ shape_detection.mojom.BarcodeFormat = {
   UPC_A: 12,
   UPC_E: 13,
 };
+shape_detection.mojom.BarcodeFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: BarcodeDetectionResult
 shape_detection.mojom.BarcodeDetectionResultSpec = {
@@ -34,12 +35,12 @@ shape_detection.mojom.BarcodeDetectionResultSpec = {
       name: 'shape_detection.mojom.BarcodeDetectionResult',
       packedSize: 40,
       fields: [
-        { name: 'raw_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false },
-        { name: 'format', packedOffset: 24, packedBitOffset: 0, type: shape_detection.mojom.BarcodeFormatSpec, nullable: false },
-        { name: 'corner_points', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'raw_value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'bounding_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: shape_detection.mojom.BarcodeFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'corner_points', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -107,9 +108,9 @@ shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec = {
       name: 'shape_detection.mojom.BarcodeDetection.Detect_Params',
       packedSize: 16,
       fields: [
-        { name: 'bitmap_data', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false },
+        { name: 'bitmap_data', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,12 +118,12 @@ shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec = {
 shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'shape_detection.mojom.BarcodeDetection.Detect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.BarcodeDetectionResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

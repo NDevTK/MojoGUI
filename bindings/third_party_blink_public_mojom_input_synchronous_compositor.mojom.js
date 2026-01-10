@@ -16,12 +16,12 @@ blink.mojom.SyncCompositorDemandDrawHwParamsSpec = {
       name: 'blink.mojom.SyncCompositorDemandDrawHwParams',
       packedSize: 40,
       fields: [
-        { name: 'viewport_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'viewport_rect_for_tile_priority', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'transform_for_tile_priority', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
-        { name: 'need_new_local_surface_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'viewport_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'viewport_rect_for_tile_priority', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'transform_for_tile_priority', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
+        { name: 'need_new_local_surface_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -33,11 +33,11 @@ blink.mojom.SyncCompositorDemandDrawSwParamsSpec = {
       name: 'blink.mojom.SyncCompositorDemandDrawSwParams',
       packedSize: 32,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'clip', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'transform', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'clip', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -47,20 +47,20 @@ blink.mojom.SyncCompositorCommonRendererParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SyncCompositorCommonRendererParams',
-      packedSize: 72,
+      packedSize: 64,
       fields: [
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'total_scroll_offset', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'max_scroll_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'scrollable_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false },
-        { name: 'page_scale_factor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'min_page_scale_factor', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'max_page_scale_factor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'need_invalidate_count', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'invalidate_needs_draw', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'did_activate_pending_tree_count', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'total_scroll_offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'max_scroll_offset', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'scrollable_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
+        { name: 'page_scale_factor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'min_page_scale_factor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'max_page_scale_factor', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'need_invalidate_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'invalidate_needs_draw', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'did_activate_pending_tree_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -236,9 +236,9 @@ blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.DemandDrawHwAsync_Params',
       packedSize: 16,
       fields: [
-        { name: 'draw_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorDemandDrawHwParamsSpec, nullable: false },
+        { name: 'draw_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorDemandDrawHwParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,9 +250,9 @@ blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.DemandDrawHw_Params',
       packedSize: 16,
       fields: [
-        { name: 'draw_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorDemandDrawHwParamsSpec, nullable: false },
+        { name: 'draw_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorDemandDrawHwParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -260,17 +260,17 @@ blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = {
 blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SynchronousCompositor.DemandDrawHw_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false },
-        { name: 'layer_tree_frame_sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'metadata_version', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'local_surface_id', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true },
-        { name: 'frame', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: true },
-        { name: 'hit_test_region_list', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'layer_tree_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'metadata_version', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'local_surface_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
+        { name: 'frame', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: true, minVersion: 0 },
+        { name: 'hit_test_region_list', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -282,9 +282,9 @@ blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.SetSharedMemory_Params',
       packedSize: 16,
       fields: [
-        { name: 'shm_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.WritableSharedMemoryRegionSpec, nullable: false },
+        { name: 'shm_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.WritableSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -292,13 +292,13 @@ blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = {
 blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SynchronousCompositor.SetSharedMemory_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -310,9 +310,9 @@ blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.DemandDrawSw_Params',
       packedSize: 16,
       fields: [
-        { name: 'draw_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorDemandDrawSwParamsSpec, nullable: false },
+        { name: 'draw_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorDemandDrawSwParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -320,14 +320,14 @@ blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = {
 blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SynchronousCompositor.DemandDrawSw_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false },
-        { name: 'metadata_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'meta_data', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.CompositorFrameMetadataSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'metadata_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'meta_data', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CompositorFrameMetadataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -340,7 +340,7 @@ blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -353,7 +353,7 @@ blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -365,10 +365,10 @@ blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.ZoomBy_Params',
       packedSize: 24,
       fields: [
-        { name: 'delta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'anchor', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -376,12 +376,12 @@ blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = {
 blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SynchronousCompositor.ZoomBy_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -393,9 +393,9 @@ blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.SetMemoryPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'bytes_limit', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'bytes_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -407,10 +407,10 @@ blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.ReclaimResources_Params',
       packedSize: 24,
       fields: [
-        { name: 'layer_tree_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'layer_tree_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -422,10 +422,10 @@ blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_
       name: 'blink.mojom.SynchronousCompositor.OnCompositorFrameTransitionDirectiveProcessed_Params',
       packedSize: 16,
       fields: [
-        { name: 'layer_tree_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'sequence_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'layer_tree_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'sequence_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -437,9 +437,9 @@ blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.SetScroll_Params',
       packedSize: 16,
       fields: [
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -451,10 +451,10 @@ blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.BeginFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
-        { name: 'timing_details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
+        { name: 'timing_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, viz.mojom.FrameTimingDetailsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -466,9 +466,9 @@ blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositor.SetBeginFrameSourcePaused_Params',
       packedSize: 16,
       fields: [
-        { name: 'paused', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'paused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -569,7 +569,7 @@ blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -581,9 +581,9 @@ blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositorHost.UpdateState_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -595,9 +595,9 @@ blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositorHost.SetNeedsBeginFrames_Params',
       packedSize: 16,
       fields: [
-        { name: 'needs_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'needs_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -609,9 +609,9 @@ blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositorHost.SetThreads_Params',
       packedSize: 16,
       fields: [
-        { name: 'threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ThreadSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -693,13 +693,13 @@ blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositorControlHost.ReturnFrame_Params',
       packedSize: 40,
       fields: [
-        { name: 'layer_tree_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'metadata_version', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'local_surface_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true },
-        { name: 'frame', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: true },
-        { name: 'hit_test_region_list', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true },
+        { name: 'layer_tree_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'metadata_version', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'local_surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
+        { name: 'frame', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: true, minVersion: 0 },
+        { name: 'hit_test_region_list', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -711,9 +711,9 @@ blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = {
       name: 'blink.mojom.SynchronousCompositorControlHost.BeginFrameResponse_Params',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

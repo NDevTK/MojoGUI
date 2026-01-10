@@ -14,6 +14,7 @@ network.mojom.Type = {
   DELETE_MATCHES: 0,
   KEEP_MATCHES: 1,
 };
+network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClearDataFilter
 network.mojom.ClearDataFilterSpec = {
@@ -23,7 +24,7 @@ network.mojom.ClearDataFilterSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -14,6 +14,7 @@ viz.mojom.Type = {
   kCreate: 0,
   kDelete: 1,
 };
+viz.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TransferableUIResourceRequest
 viz.mojom.TransferableUIResourceRequestSpec = {
@@ -22,9 +23,9 @@ viz.mojom.TransferableUIResourceRequestSpec = {
       name: 'viz.mojom.TransferableUIResourceRequest',
       packedSize: 16,
       fields: [
-        { name: 'kCreate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kCreate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -34,67 +35,67 @@ viz.mojom.LayerTreeUpdateSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerTreeUpdate',
-      packedSize: 392,
+      packedSize: 336,
       fields: [
-        { name: 'begin_frame_args', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
-        { name: 'source_frame_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'trace_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'primary_main_frame_item_sequence_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'selection', packedOffset: 40, packedBitOffset: 0, type: cc.mojom.LayerSelectionSpec, nullable: false },
-        { name: 'page_scale_factor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'min_page_scale_factor', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'max_page_scale_factor', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'external_page_scale_factor', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'device_viewport', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'device_scale_factor', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'painted_device_scale_factor', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'display_color_spaces', packedOffset: 80, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false },
-        { name: 'local_surface_id_from_parent', packedOffset: 88, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true },
-        { name: 'current_local_surface_id', packedOffset: 96, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false },
-        { name: 'next_frame_token', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'send_frame_token_to_embedder', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'target_local_surface_id', packedOffset: 120, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true },
-        { name: 'background_color', packedOffset: 128, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false },
-        { name: 'overscroll_elasticity_transform', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'page_scale_transform', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'inner_scroll', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'outer_clip', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'outer_scroll', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'viewport_damage_rect', packedOffset: 160, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'full_tree_damaged', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'debug_state', packedOffset: 176, packedBitOffset: 0, type: cc.mojom.LayerTreeDebugStateSpec, nullable: false },
-        { name: 'display_transform_hint', packedOffset: 184, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false },
-        { name: 'max_safe_area_inset_bottom', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'browser_controls_params', packedOffset: 200, packedBitOffset: 0, type: cc.mojom.BrowserControlsParamsSpec, nullable: false },
-        { name: 'browser_controls_offset_tag_modifications', packedOffset: 208, packedBitOffset: 0, type: cc.mojom.BrowserControlsOffsetTagModificationsSpec, nullable: false },
-        { name: 'top_controls_shown_ratio', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'bottom_controls_shown_ratio', packedOffset: 220, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'ui_resource_requests', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'layers', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'layer_order', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'transform_tree_update', packedOffset: 248, packedBitOffset: 0, type: viz.mojom.TransformTreeUpdateSpec, nullable: true },
-        { name: 'scroll_tree_update', packedOffset: 256, packedBitOffset: 0, type: viz.mojom.ScrollTreeUpdateSpec, nullable: true },
-        { name: 'transform_nodes', packedOffset: 264, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'clip_nodes', packedOffset: 272, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'effect_nodes', packedOffset: 280, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'scroll_nodes', packedOffset: 288, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'num_transform_nodes', packedOffset: 296, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'num_clip_nodes', packedOffset: 300, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'num_effect_nodes', packedOffset: 304, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'num_scroll_nodes', packedOffset: 308, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'tilings', packedOffset: 312, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'surface_ranges', packedOffset: 320, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'view_transition_requests', packedOffset: 328, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'animation_timelines', packedOffset: 336, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'removed_animation_timelines', packedOffset: 344, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'frame_has_damage', packedOffset: 352, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'damage_reasons_bit_mask', packedOffset: 360, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'is_handling_interaction', packedOffset: 364, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'delegated_ink_metadata', packedOffset: 376, packedBitOffset: 0, type: gfx.mojom.DelegatedInkMetadataSpec, nullable: true },
-        { name: 'may_throttle_if_undrawn_frames', packedOffset: 384, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_viewport_mobile_optimized', packedOffset: 384, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'begin_frame_args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
+        { name: 'source_frame_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'primary_main_frame_item_sequence_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'selection', packedOffset: 32, packedBitOffset: 0, type: cc.mojom.LayerSelectionSpec, nullable: false, minVersion: 0 },
+        { name: 'page_scale_factor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'min_page_scale_factor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'max_page_scale_factor', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'external_page_scale_factor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'device_viewport', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'painted_device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'display_color_spaces', packedOffset: 72, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false, minVersion: 0 },
+        { name: 'local_surface_id_from_parent', packedOffset: 80, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
+        { name: 'current_local_surface_id', packedOffset: 88, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'next_frame_token', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'send_frame_token_to_embedder', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'target_local_surface_id', packedOffset: 104, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
+        { name: 'background_color', packedOffset: 112, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
+        { name: 'overscroll_elasticity_transform', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'page_scale_transform', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'inner_scroll', packedOffset: 124, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'outer_clip', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'outer_scroll', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'viewport_damage_rect', packedOffset: 136, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'full_tree_damaged', packedOffset: 96, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'debug_state', packedOffset: 144, packedBitOffset: 0, type: cc.mojom.LayerTreeDebugStateSpec, nullable: false, minVersion: 0 },
+        { name: 'display_transform_hint', packedOffset: 152, packedBitOffset: 0, type: gfx.mojom.OverlayTransformSpec, nullable: false, minVersion: 0 },
+        { name: 'max_safe_area_inset_bottom', packedOffset: 156, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'browser_controls_params', packedOffset: 160, packedBitOffset: 0, type: cc.mojom.BrowserControlsParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'browser_controls_offset_tag_modifications', packedOffset: 168, packedBitOffset: 0, type: cc.mojom.BrowserControlsOffsetTagModificationsSpec, nullable: false, minVersion: 0 },
+        { name: 'top_controls_shown_ratio', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'bottom_controls_shown_ratio', packedOffset: 180, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'ui_resource_requests', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.TransferableUIResourceRequestSpec, false), nullable: false, minVersion: 0 },
+        { name: 'layers', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.LayerSpec, false), nullable: false, minVersion: 0 },
+        { name: 'layer_order', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: true, minVersion: 0 },
+        { name: 'transform_tree_update', packedOffset: 208, packedBitOffset: 0, type: viz.mojom.TransformTreeUpdateSpec, nullable: true, minVersion: 0 },
+        { name: 'scroll_tree_update', packedOffset: 216, packedBitOffset: 0, type: viz.mojom.ScrollTreeUpdateSpec, nullable: true, minVersion: 0 },
+        { name: 'transform_nodes', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.TransformNodeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'clip_nodes', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ClipNodeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'effect_nodes', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.EffectNodeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'scroll_nodes', packedOffset: 248, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ScrollNodeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'num_transform_nodes', packedOffset: 256, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'num_clip_nodes', packedOffset: 260, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'num_effect_nodes', packedOffset: 264, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'num_scroll_nodes', packedOffset: 268, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'tilings', packedOffset: 272, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.TilingSpec, false), nullable: false, minVersion: 0 },
+        { name: 'surface_ranges', packedOffset: 280, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.SurfaceRangeSpec, false), nullable: true, minVersion: 0 },
+        { name: 'view_transition_requests', packedOffset: 288, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ViewTransitionRequestSpec, false), nullable: true, minVersion: 0 },
+        { name: 'animation_timelines', packedOffset: 296, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.AnimationTimelineSpec, false), nullable: true, minVersion: 0 },
+        { name: 'removed_animation_timelines', packedOffset: 304, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: true, minVersion: 0 },
+        { name: 'frame_has_damage', packedOffset: 96, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'damage_reasons_bit_mask', packedOffset: 312, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'is_handling_interaction', packedOffset: 96, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'delegated_ink_metadata', packedOffset: 320, packedBitOffset: 0, type: gfx.mojom.DelegatedInkMetadataSpec, nullable: true, minVersion: 0 },
+        { name: 'may_throttle_if_undrawn_frames', packedOffset: 96, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_viewport_mobile_optimized', packedOffset: 96, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 336}]
     }
   }
 };
@@ -106,10 +107,10 @@ viz.mojom.PendingLayerContextSpec = {
       name: 'viz.mojom.PendingLayerContext',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,9 +196,9 @@ viz.mojom.LayerContext_SetVisible_ParamsSpec = {
       name: 'viz.mojom.LayerContext.SetVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -209,9 +210,9 @@ viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = {
       name: 'viz.mojom.LayerContext.UpdateDisplayTree_Params',
       packedSize: 16,
       fields: [
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LayerTreeUpdateSpec, nullable: false },
+        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LayerTreeUpdateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -223,9 +224,9 @@ viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = {
       name: 'viz.mojom.LayerContext.UpdateDisplayTiling_Params',
       packedSize: 16,
       fields: [
-        { name: 'tiling', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.TilingSpec, nullable: false },
+        { name: 'tiling', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.TilingSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -307,9 +308,9 @@ viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = {
       name: 'viz.mojom.LayerContextClient.OnRequestCommitForFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'args', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false },
+        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -321,10 +322,10 @@ viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = {
       name: 'viz.mojom.LayerContextClient.OnTilingsReadyForCleanup_Params',
       packedSize: 24,
       fields: [
-        { name: 'layer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'tiling_scales_to_clean_up', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'tiling_scales_to_clean_up', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

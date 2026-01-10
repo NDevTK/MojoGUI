@@ -14,6 +14,7 @@ blink.mojom.LinkGenerationReadyStatus = {
   kRequestedBeforeReady: 0,
   kRequestedAfterReady: 1,
 };
+blink.mojom.LinkGenerationReadyStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkGenerationError
 blink.mojom.LinkGenerationError = {
@@ -34,6 +35,7 @@ blink.mojom.LinkGenerationError = {
   kNoRemoteConnection: 14,
   kNotGenerated: 15,
 };
+blink.mojom.LinkGenerationErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: TextFragmentReceiver
 blink.mojom.TextFragmentReceiver = {};
@@ -144,7 +146,7 @@ blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -157,7 +159,7 @@ blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -165,14 +167,14 @@ blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
 blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.RequestSelector_ResponseParams',
-      packedSize: 32,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'selector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LinkGenerationErrorSpec, nullable: false },
-        { name: 'ready_status', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.LinkGenerationReadyStatusSpec, nullable: false },
+        { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LinkGenerationErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'ready_status', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.LinkGenerationReadyStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -185,7 +187,7 @@ blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -198,7 +200,7 @@ blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -206,12 +208,12 @@ blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
 blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.ExtractTextFragmentsMatches_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -224,7 +226,7 @@ blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -232,12 +234,12 @@ blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
 blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.GetExistingSelectors_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'selectors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'selectors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,7 +252,7 @@ blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -258,12 +260,12 @@ blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
 blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.TextFragmentReceiver.ExtractFirstFragmentRect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

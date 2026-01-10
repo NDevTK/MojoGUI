@@ -92,7 +92,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -100,12 +100,12 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec = {
 ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ntp.calendar.mojom.GoogleCalendarPageHandler.GetEvents_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'events', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.calendar.mojom.CalendarEventSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,7 +118,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -131,7 +131,7 @@ ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

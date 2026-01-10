@@ -81,9 +81,9 @@ content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = 
       name: 'content.mojom.RendererVariationsConfiguration.SetVariationsHeaders_Params',
       packedSize: 16,
       fields: [
-        { name: 'variations_headers', packedOffset: 8, packedBitOffset: 0, type: variations.mojom.VariationsHeadersSpec, nullable: true },
+        { name: 'variations_headers', packedOffset: 0, packedBitOffset: 0, type: variations.mojom.VariationsHeadersSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,10 +95,10 @@ content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
       name: 'content.mojom.RendererVariationsConfiguration.SetFieldTrialGroup_Params',
       packedSize: 24,
       fields: [
-        { name: 'trial_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'group_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'trial_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -18,22 +18,23 @@ gfx.mojom.SelectionBoundType = {
   EMPTY: 4,
   LAST: 5,
 };
+gfx.mojom.SelectionBoundTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SelectionBound
 gfx.mojom.SelectionBoundSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.SelectionBound',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SelectionBoundTypeSpec, nullable: false },
-        { name: 'edge_start', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'edge_end', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'visible_edge_start', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'visible_edge_end', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'visible', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'edge_start', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'edge_end', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'visible_edge_start', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'visible_edge_end', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'visible', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

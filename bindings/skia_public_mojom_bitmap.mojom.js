@@ -14,12 +14,12 @@ skia.mojom.BitmapN32Spec = {
   $: {
     structSpec: {
       name: 'skia.mojom.BitmapN32',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'image_info', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32ImageInfoSpec, nullable: false },
-        { name: 'pixel_data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'image_info', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32ImageInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'pixel_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -29,13 +29,13 @@ skia.mojom.BitmapWithArbitraryBppSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.BitmapWithArbitraryBpp',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'image_info', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.ImageInfoSpec, nullable: false },
-        { name: 'UNUSED_row_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'pixel_data', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'image_info', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.ImageInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'UNUSED_row_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'pixel_data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -45,13 +45,13 @@ skia.mojom.BitmapMappedFromTrustedProcessSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.BitmapMappedFromTrustedProcess',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'image_info', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.ImageInfoSpec, nullable: false },
-        { name: 'UNUSED_row_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'pixel_data', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'image_info', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.ImageInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'UNUSED_row_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'pixel_data', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -63,10 +63,10 @@ skia.mojom.InlineBitmapSpec = {
       name: 'skia.mojom.InlineBitmap',
       packedSize: 24,
       fields: [
-        { name: 'image_info', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32ImageInfoSpec, nullable: false },
-        { name: 'pixel_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'image_info', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32ImageInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'pixel_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

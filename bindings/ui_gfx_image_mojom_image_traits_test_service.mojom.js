@@ -81,9 +81,9 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkiaRep_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,12 +91,12 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
 gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkiaRep_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -108,9 +108,9 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
       name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkia_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -118,12 +118,12 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
 gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkia_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

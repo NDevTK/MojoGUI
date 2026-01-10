@@ -19,6 +19,7 @@ page_image_service.mojom.ClientId = {
   NtpTabResumption: 5,
   HistoryEmbeddings: 6,
 };
+page_image_service.mojom.ClientIdSpec = { $: mojo.internal.Enum() };
 
 // Struct: Options
 page_image_service.mojom.OptionsSpec = {
@@ -27,10 +28,10 @@ page_image_service.mojom.OptionsSpec = {
       name: 'page_image_service.mojom.Options',
       packedSize: 16,
       fields: [
-        { name: 'suggest_images', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'optimization_guide_images', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'suggest_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'optimization_guide_images', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -42,9 +43,9 @@ page_image_service.mojom.ImageResultSpec = {
       name: 'page_image_service.mojom.ImageResult',
       packedSize: 16,
       fields: [
-        { name: 'image_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'image_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -112,11 +113,11 @@ page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
       name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_Params',
       packedSize: 32,
       fields: [
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: page_image_service.mojom.ClientIdSpec, nullable: false },
-        { name: 'page_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: page_image_service.mojom.OptionsSpec, nullable: false },
+        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: page_image_service.mojom.ClientIdSpec, nullable: false, minVersion: 0 },
+        { name: 'page_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: page_image_service.mojom.OptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -124,12 +125,12 @@ page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
 page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: page_image_service.mojom.ImageResultSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: page_image_service.mojom.ImageResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -15,6 +15,7 @@ discards.mojom.LifecycleUnitVisibility = {
   OCCLUDED: 1,
   VISIBLE: 2,
 };
+discards.mojom.LifecycleUnitVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: CanFreeze
 discards.mojom.CanFreeze = {
@@ -22,34 +23,35 @@ discards.mojom.CanFreeze = {
   VARIES: 1,
   NO: 2,
 };
+discards.mojom.CanFreezeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TabDiscardsInfo
 discards.mojom.TabDiscardsInfoSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.TabDiscardsInfo',
-      packedSize: 144,
+      packedSize: 96,
       fields: [
-        { name: 'tab_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'visibility', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.LifecycleUnitVisibilitySpec, nullable: false },
-        { name: 'loading_state', packedOffset: 32, packedBitOffset: 0, type: mojom.LifecycleUnitLoadingStateSpec, nullable: false },
-        { name: 'state', packedOffset: 40, packedBitOffset: 0, type: mojom.LifecycleUnitStateSpec, nullable: false },
-        { name: 'can_discard', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'cannot_discard_reasons', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'can_freeze', packedOffset: 64, packedBitOffset: 0, type: discards.mojom.CanFreezeSpec, nullable: false },
-        { name: 'cannot_freeze_reasons', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'discard_count', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'discard_reason', packedOffset: 88, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false },
-        { name: 'utility_rank', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'last_active_seconds', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'id', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_auto_discardable', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'site_engagement_score', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'has_focus', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'state_change_time', packedOffset: 136, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'tab_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'visibility', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.LifecycleUnitVisibilitySpec, nullable: false, minVersion: 0 },
+        { name: 'loading_state', packedOffset: 20, packedBitOffset: 0, type: mojom.LifecycleUnitLoadingStateSpec, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 24, packedBitOffset: 0, type: mojom.LifecycleUnitStateSpec, nullable: false, minVersion: 0 },
+        { name: 'can_discard', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'cannot_discard_reasons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'can_freeze', packedOffset: 40, packedBitOffset: 0, type: discards.mojom.CanFreezeSpec, nullable: false, minVersion: 0 },
+        { name: 'cannot_freeze_reasons', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'discard_count', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'discard_reason', packedOffset: 56, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'utility_rank', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'last_active_seconds', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_auto_discardable', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'site_engagement_score', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_focus', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'state_change_time', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 96}]
     }
   }
 };
@@ -61,13 +63,13 @@ discards.mojom.PageInfoSpec = {
       name: 'discards.mojom.PageInfo',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'main_frame_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'opener_frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'embedder_frame_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'description_json', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'main_frame_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'opener_frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'embedder_frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'description_json', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -79,14 +81,14 @@ discards.mojom.FrameInfoSpec = {
       name: 'discards.mojom.FrameInfo',
       packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'page_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'parent_frame_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'process_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'description_json', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'page_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'parent_frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'process_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'description_json', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -98,12 +100,12 @@ discards.mojom.ProcessInfoSpec = {
       name: 'discards.mojom.ProcessInfo',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'pid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false },
-        { name: 'private_footprint_kb', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'description_json', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
+        { name: 'private_footprint_kb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'description_json', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -115,15 +117,15 @@ discards.mojom.WorkerInfoSpec = {
       name: 'discards.mojom.WorkerInfo',
       packedSize: 64,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'process_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'client_frame_ids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'client_worker_ids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'child_worker_ids', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'description_json', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'process_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'client_frame_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
+        { name: 'client_worker_ids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
+        { name: 'child_worker_ids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
+        { name: 'description_json', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -135,10 +137,10 @@ discards.mojom.FavIconInfoSpec = {
       name: 'discards.mojom.FavIconInfo',
       packedSize: 24,
       fields: [
-        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'icon_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'icon_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -270,7 +272,7 @@ discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -278,12 +280,12 @@ discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
 discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'discards.mojom.DetailsProvider.GetTabDiscardsInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(discards.mojom.TabDiscardsInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -293,12 +295,12 @@ discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.SetAutoDiscardable_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'is_auto_discardable', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_auto_discardable', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -308,12 +310,12 @@ discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.DetailsProvider.DiscardById_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 4, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -325,9 +327,9 @@ discards.mojom.DetailsProvider_FreezeById_ParamsSpec = {
       name: 'discards.mojom.DetailsProvider.FreezeById_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -339,9 +341,9 @@ discards.mojom.DetailsProvider_LoadById_ParamsSpec = {
       name: 'discards.mojom.DetailsProvider.LoadById_Params',
       packedSize: 16,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -354,7 +356,7 @@ discards.mojom.DetailsProvider_Discard_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -367,7 +369,7 @@ discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -380,7 +382,7 @@ discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -534,9 +536,9 @@ discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.FrameCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -548,9 +550,9 @@ discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.PageCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'pages', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false },
+        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -562,9 +564,9 @@ discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.ProcessCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'process', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false },
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -576,9 +578,9 @@ discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.WorkerCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'worker', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false },
+        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -590,9 +592,9 @@ discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.FrameChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false },
+        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -604,9 +606,9 @@ discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.PageChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -618,9 +620,9 @@ discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.ProcessChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'process', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false },
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -632,9 +634,9 @@ discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.WorkerChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'worker', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false },
+        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -646,9 +648,9 @@ discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.FavIconDataAvailable_Params',
       packedSize: 16,
       fields: [
-        { name: 'favicon', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.FavIconInfoSpec, nullable: false },
+        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FavIconInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -660,9 +662,9 @@ discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
       name: 'discards.mojom.GraphChangeStream.NodeDeleted_Params',
       packedSize: 16,
       fields: [
-        { name: 'node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -744,9 +746,9 @@ discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
       name: 'discards.mojom.GraphDump.SubscribeToChanges_Params',
       packedSize: 16,
       fields: [
-        { name: 'change_subscriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'change_subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -758,9 +760,9 @@ discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
       name: 'discards.mojom.GraphDump.RequestNodeDescriptions_Params',
       packedSize: 16,
       fields: [
-        { name: 'node_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -768,12 +770,12 @@ discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
 discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'discards.mojom.GraphDump.RequestNodeDescriptions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'node_descriptions_json', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'node_descriptions_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int64, mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

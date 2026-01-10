@@ -15,6 +15,7 @@ viz.mojom.SynchronizationType = {
   kGpuCommandsCompleted: 1,
   kReleaseFence: 2,
 };
+viz.mojom.SynchronizationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResourceSource
 viz.mojom.ResourceSource = {
@@ -35,20 +36,22 @@ viz.mojom.ResourceSource = {
   kVideo: 14,
   kWebGPUSwapBuffer: 15,
 };
+viz.mojom.ResourceSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: MetadataOverride
 viz.mojom.MetadataOverrideSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.MetadataOverride',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'is_overlay_candidate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'color_space', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: true },
-        { name: 'origin', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SurfaceOriginSpec, nullable: true },
-        { name: 'alpha_type', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: true },
+        { name: 'is_overlay_candidate_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_overlay_candidate_$value', originalFieldName: 'is_overlay_candidate' } },
+        { name: 'is_overlay_candidate_$value', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_overlay_candidate_$flag', originalFieldName: 'is_overlay_candidate' } },
+        { name: 'color_space', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: true, minVersion: 0 },
+        { name: 'origin', packedOffset: 4, packedBitOffset: 0, type: skia.mojom.SurfaceOriginSpec, nullable: true, minVersion: 0 },
+        { name: 'alpha_type', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -58,22 +61,22 @@ viz.mojom.TransferableResourceSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.TransferableResource',
-      packedSize: 104,
+      packedSize: 72,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ResourceIdSpec, nullable: false },
-        { name: 'shared_image', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.ExportedSharedImageSpec, nullable: false },
-        { name: 'sync_token', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false },
-        { name: 'synchronization_type', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.SynchronizationTypeSpec, nullable: false },
-        { name: 'is_low_latency_rendering', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_backed_by_surface_view', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'wants_promotion_hint', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
-        { name: 'hdr_metadata', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false },
-        { name: 'needs_detiling', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'ycbcr_info', packedOffset: 80, packedBitOffset: 0, type: [EnableIf=is_android] gpu.mojom.VulkanYCbCrInfoSpec, nullable: true },
-        { name: 'resource_source', packedOffset: 88, packedBitOffset: 0, type: viz.mojom.ResourceSourceSpec, nullable: false },
-        { name: 'metadata_override', packedOffset: 96, packedBitOffset: 0, type: viz.mojom.MetadataOverrideSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ResourceIdSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_image', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.ExportedSharedImageSpec, nullable: false, minVersion: 0 },
+        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'synchronization_type', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.SynchronizationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_low_latency_rendering', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_backed_by_surface_view', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'wants_promotion_hint', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hdr_metadata', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'needs_detiling', packedOffset: 28, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ycbcr_info', packedOffset: 40, packedBitOffset: 0, type: gpu.mojom.VulkanYCbCrInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'resource_source', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.ResourceSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'metadata_override', packedOffset: 56, packedBitOffset: 0, type: viz.mojom.MetadataOverrideSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };

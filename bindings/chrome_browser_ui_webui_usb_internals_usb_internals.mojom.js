@@ -80,9 +80,9 @@ mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec = {
       name: 'mojom.UsbInternalsPageHandler.BindUsbDeviceManagerInterface_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -94,9 +94,9 @@ mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec = {
       name: 'mojom.UsbInternalsPageHandler.BindTestInterface_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

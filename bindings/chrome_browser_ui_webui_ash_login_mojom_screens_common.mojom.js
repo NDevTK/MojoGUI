@@ -15,6 +15,7 @@ ash.screens_common.mojom.UserCreationFlowType = {
   kManual: 0,
   kQuickstart: 1,
 };
+ash.screens_common.mojom.UserCreationFlowTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GesturePages
 ash.screens_common.mojom.GesturePages = {
@@ -23,6 +24,7 @@ ash.screens_common.mojom.GesturePages = {
   kOverview: 2,
   kBack: 3,
 };
+ash.screens_common.mojom.GesturePagesSpec = { $: mojo.internal.Enum() };
 
 // Interface: AiIntroPageHandler
 ash.screens_common.mojom.AiIntroPageHandler = {};
@@ -88,7 +90,7 @@ ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -161,9 +163,9 @@ ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = {
       name: 'ash.screens_common.mojom.AiIntroPage.SetAutoTransition_Params',
       packedSize: 16,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -237,7 +239,7 @@ ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -319,9 +321,9 @@ ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = {
       name: 'ash.screens_common.mojom.DrivePinningPageHandler.OnReturnClicked_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable_drive_pinning', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -333,9 +335,9 @@ ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = {
       name: 'ash.screens_common.mojom.DrivePinningPageHandler.OnNextClicked_Params',
       packedSize: 16,
       fields: [
-        { name: 'enable_drive_pinning', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_drive_pinning', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -408,10 +410,10 @@ ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = {
       name: 'ash.screens_common.mojom.DrivePinningPage.SetRequiredSpaceInfo_Params',
       packedSize: 24,
       fields: [
-        { name: 'required_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'free_space', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'required_space', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'free_space', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -485,7 +487,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -568,7 +570,7 @@ ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -580,9 +582,9 @@ ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = {
       name: 'ash.screens_common.mojom.GaiaInfoPageHandler.OnNextClicked_Params',
       packedSize: 16,
       fields: [
-        { name: 'user_flow', packedOffset: 8, packedBitOffset: 0, type: ash.screens_common.mojom.UserCreationFlowTypeSpec, nullable: false },
+        { name: 'user_flow', packedOffset: 0, packedBitOffset: 0, type: ash.screens_common.mojom.UserCreationFlowTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -656,7 +658,7 @@ ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -747,9 +749,9 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = 
       name: 'ash.screens_common.mojom.GestureNavigationPageHandler.OnPageChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: ash.screens_common.mojom.GesturePagesSpec, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: ash.screens_common.mojom.GesturePagesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -762,7 +764,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -775,7 +777,7 @@ ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -858,7 +860,7 @@ ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -871,7 +873,7 @@ ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

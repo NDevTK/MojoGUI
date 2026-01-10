@@ -62,3 +62,4 @@ blink.mojom.WebSchedulerTrackedFeature = {
   kWebAuthentication: 48,
   kSharedWorkerMessage: 49,
 };
+blink.mojom.WebSchedulerTrackedFeatureSpec = { $: mojo.internal.Enum() };

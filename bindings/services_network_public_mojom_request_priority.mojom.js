@@ -18,6 +18,7 @@ network.mojom.RequestPriority = {
   kMedium: 4,
   kHighest: 5,
 };
+network.mojom.RequestPrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: FetchPriorityAttribute
 network.mojom.FetchPriorityAttribute = {
@@ -25,3 +26,4 @@ network.mojom.FetchPriorityAttribute = {
   kAuto: 1,
   kHigh: 2,
 };
+network.mojom.FetchPriorityAttributeSpec = { $: mojo.internal.Enum() };

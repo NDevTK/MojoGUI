@@ -73,7 +73,7 @@ blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +81,12 @@ blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
 blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.SmartCardService.CreateContext_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SmartCardCreateContextResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardCreateContextResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

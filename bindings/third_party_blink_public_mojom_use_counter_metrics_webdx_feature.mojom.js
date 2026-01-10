@@ -431,3 +431,4 @@ blink.mojom.WebDXFeature = {
   kDRAFT_MetaTextScale: 417,
   kJpegxl: 418,
 };
+blink.mojom.WebDXFeatureSpec = { $: mojo.internal.Enum() };

@@ -16,6 +16,7 @@ blink.mojom.InputEventResultSource = {
   kMainThread: 2,
   kBrowser: 3,
 };
+blink.mojom.InputEventResultSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputEventResultState
 blink.mojom.InputEventResultState = {
@@ -27,3 +28,4 @@ blink.mojom.InputEventResultState = {
   kSetNonBlocking: 5,
   kSetNonBlockingDueToFling: 6,
 };
+blink.mojom.InputEventResultStateSpec = { $: mojo.internal.Enum() };

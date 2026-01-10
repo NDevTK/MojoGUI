@@ -15,6 +15,7 @@ file_suggestion.mojom.RecommendationType = {
   kShared: 1,
   kTrending: 2,
 };
+file_suggestion.mojom.RecommendationTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: File
 file_suggestion.mojom.FileSpec = {
@@ -23,14 +24,14 @@ file_suggestion.mojom.FileSpec = {
       name: 'file_suggestion.mojom.File',
       packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'justification_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'title', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'item_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'recommendation_type', packedOffset: 48, packedBitOffset: 0, type: file_suggestion.mojom.RecommendationTypeSpec, nullable: true },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'justification_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'icon_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'item_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'recommendation_type', packedOffset: 40, packedBitOffset: 0, type: file_suggestion.mojom.RecommendationTypeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

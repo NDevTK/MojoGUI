@@ -9,6 +9,20 @@ var ai = ai || {};
 ai.mojom = ai.mojom || {};
 
 
+// Union: SmartTabGroupingResponseResult
+ai.mojom.SmartTabGroupingResponseResultSpec = { $: mojo.internal.Union(
+    'ai.mojom.SmartTabGroupingResponseResult', {
+      'error': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+      }},
+      'response': {
+        'ordinal': 1,
+        'type': mojo_base.mojom.ProtoWrapperSpec,
+      }},
+    })
+};
+
 // Interface: SmartTabGroupingService
 ai.mojom.SmartTabGroupingService = {};
 
@@ -73,7 +87,7 @@ ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,12 +95,12 @@ ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = {
 ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ai.mojom.SmartTabGroupingService.ExecuteSmartTabGroupingRequest_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ai.mojom.SmartTabGroupingResponseResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ai.mojom.SmartTabGroupingResponseResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

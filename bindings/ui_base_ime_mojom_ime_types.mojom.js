@@ -21,6 +21,7 @@ ui.mojom.TextInputMode = {
   kDecimal: 7,
   kSearch: 8,
 };
+ui.mojom.TextInputModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextInputAction
 ui.mojom.TextInputAction = {
@@ -33,6 +34,7 @@ ui.mojom.TextInputAction = {
   kSearch: 6,
   kSend: 7,
 };
+ui.mojom.TextInputActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextInputType
 ui.mojom.TextInputType = {
@@ -56,6 +58,7 @@ ui.mojom.TextInputType = {
   TYPE_NULL: 17,
   MAX: 18,
 };
+ui.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeTextSpanType
 ui.mojom.ImeTextSpanType = {
@@ -65,6 +68,7 @@ ui.mojom.ImeTextSpanType = {
   kAutocorrect: 3,
   kGrammarSuggestion: 4,
 };
+ui.mojom.ImeTextSpanTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeTextSpanThickness
 ui.mojom.ImeTextSpanThickness = {
@@ -72,6 +76,7 @@ ui.mojom.ImeTextSpanThickness = {
   kThin: 1,
   kThick: 2,
 };
+ui.mojom.ImeTextSpanThicknessSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeTextSpanUnderlineStyle
 ui.mojom.ImeTextSpanUnderlineStyle = {
@@ -81,29 +86,30 @@ ui.mojom.ImeTextSpanUnderlineStyle = {
   kDash: 3,
   kSquiggle: 4,
 };
+ui.mojom.ImeTextSpanUnderlineStyleSpec = { $: mojo.internal.Enum() };
 
 // Struct: ImeTextSpan
 ui.mojom.ImeTextSpanSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.ImeTextSpan',
-      packedSize: 88,
+      packedSize: 56,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ImeTextSpanTypeSpec, nullable: false },
-        { name: 'start_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'end_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'underline_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'thickness', packedOffset: 32, packedBitOffset: 0, type: ui.mojom.ImeTextSpanThicknessSpec, nullable: false },
-        { name: 'underline_style', packedOffset: 40, packedBitOffset: 0, type: ui.mojom.ImeTextSpanUnderlineStyleSpec, nullable: false },
-        { name: 'text_color', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'background_color', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'suggestion_highlight_color', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'remove_on_finish_composing', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'interim_char_selection', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'suggestions', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'should_hide_suggestion_menu', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ImeTextSpanTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'start_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'end_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'underline_color', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'thickness', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.ImeTextSpanThicknessSpec, nullable: false, minVersion: 0 },
+        { name: 'underline_style', packedOffset: 20, packedBitOffset: 0, type: ui.mojom.ImeTextSpanUnderlineStyleSpec, nullable: false, minVersion: 0 },
+        { name: 'text_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'background_color', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'suggestion_highlight_color', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'remove_on_finish_composing', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'interim_char_selection', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'suggestions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'should_hide_suggestion_menu', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

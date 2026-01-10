@@ -29,6 +29,7 @@ gfx.mojom.BufferFormat = {
   YUVA_420_TRIPLANAR: 15,
   P010: 16,
 };
+gfx.mojom.BufferFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: BufferUsage
 gfx.mojom.BufferUsage = {
@@ -45,6 +46,7 @@ gfx.mojom.BufferUsage = {
   VEA_READ_CAMERA_AND_CPU_READ_WRITE: 10,
   SCANOUT_FRONT_RENDERING: 11,
 };
+gfx.mojom.BufferUsageSpec = { $: mojo.internal.Enum() };
 
 // Struct: GpuMemoryBufferId
 gfx.mojom.GpuMemoryBufferIdSpec = {
@@ -53,9 +55,9 @@ gfx.mojom.GpuMemoryBufferIdSpec = {
       name: 'gfx.mojom.GpuMemoryBufferId',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -65,13 +67,13 @@ gfx.mojom.GpuMemoryBufferHandleSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.GpuMemoryBufferHandle',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'stride', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'platform_handle', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferPlatformHandleSpec, nullable: true },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'platform_handle', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferPlatformHandleSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

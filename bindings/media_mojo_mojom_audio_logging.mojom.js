@@ -15,6 +15,7 @@ media.mojom.AudioLogComponent = {
   kOutputController: 1,
   kOutputStream: 2,
 };
+media.mojom.AudioLogComponentSpec = { $: mojo.internal.Enum() };
 
 // Interface: AudioLog
 media.mojom.AudioLog = {};
@@ -142,10 +143,10 @@ media.mojom.AudioLog_OnCreated_ParamsSpec = {
       name: 'media.mojom.AudioLog.OnCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
-        { name: 'device_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -158,7 +159,7 @@ media.mojom.AudioLog_OnStarted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -171,7 +172,7 @@ media.mojom.AudioLog_OnStopped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -184,7 +185,7 @@ media.mojom.AudioLog_OnClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -197,7 +198,7 @@ media.mojom.AudioLog_OnError_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -209,9 +210,9 @@ media.mojom.AudioLog_OnSetVolume_ParamsSpec = {
       name: 'media.mojom.AudioLog.OnSetVolume_Params',
       packedSize: 16,
       fields: [
-        { name: 'volume', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -223,9 +224,9 @@ media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec = {
       name: 'media.mojom.AudioLog.OnProcessingStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -237,9 +238,9 @@ media.mojom.AudioLog_OnLogMessage_ParamsSpec = {
       name: 'media.mojom.AudioLog.OnLogMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -312,11 +313,11 @@ media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = {
       name: 'media.mojom.AudioLogFactory.CreateAudioLog_Params',
       packedSize: 24,
       fields: [
-        { name: 'component', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioLogComponentSpec, nullable: false },
-        { name: 'component_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'audio_log_receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioLogComponentSpec, nullable: false, minVersion: 0 },
+        { name: 'component_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'audio_log_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

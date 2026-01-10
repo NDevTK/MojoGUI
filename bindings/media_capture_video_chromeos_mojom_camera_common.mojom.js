@@ -9,6 +9,20 @@ var cros = cros || {};
 cros.mojom = cros.mojom || {};
 
 
+cros.mojom.CAMERA_DEVICE_API_VERSION_3_0 = 0x300;
+
+cros.mojom.CAMERA_DEVICE_API_VERSION_3_1 = 0x301;
+
+cros.mojom.CAMERA_DEVICE_API_VERSION_3_2 = 0x302;
+
+cros.mojom.CAMERA_DEVICE_API_VERSION_3_3 = 0x303;
+
+cros.mojom.CAMERA_DEVICE_API_VERSION_3_4 = 0x304;
+
+cros.mojom.CAMERA_DEVICE_API_VERSION_3_5 = 0x305;
+
+cros.mojom.CAMERA_DEVICE_API_VERSION_3_6 = 0x306;
+
 // Enum: CameraFacing
 cros.mojom.CameraFacing = {
   CAMERA_FACING_BACK: 0,
@@ -18,6 +32,7 @@ cros.mojom.CameraFacing = {
   CAMERA_FACING_VIRTUAL_FRONT: 4,
   CAMERA_FACING_VIRTUAL_EXTERNAL: 5,
 };
+cros.mojom.CameraFacingSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraDeviceStatus
 cros.mojom.CameraDeviceStatus = {
@@ -25,6 +40,7 @@ cros.mojom.CameraDeviceStatus = {
   CAMERA_DEVICE_STATUS_PRESENT: 1,
   CAMERA_DEVICE_STATUS_ENUMERATING: 2,
 };
+cros.mojom.CameraDeviceStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: TorchModeStatus
 cros.mojom.TorchModeStatus = {
@@ -32,6 +48,7 @@ cros.mojom.TorchModeStatus = {
   TORCH_MODE_STATUS_AVAILABLE_OFF: 1,
   TORCH_MODE_STATUS_AVAILABLE_ON: 2,
 };
+cros.mojom.TorchModeStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: CameraResourceCost
 cros.mojom.CameraResourceCostSpec = {
@@ -40,9 +57,9 @@ cros.mojom.CameraResourceCostSpec = {
       name: 'cros.mojom.CameraResourceCost',
       packedSize: 16,
       fields: [
-        { name: 'resource_cost', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'resource_cost', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -52,14 +69,16 @@ cros.mojom.CameraInfoSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraInfo',
-      packedSize: 32,
+      packedSize: 48,
       fields: [
-        { name: 'facing', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CameraFacingSpec, nullable: false },
-        { name: 'orientation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'device_version', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'static_camera_characteristics', packedOffset: 24, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false },
+        { name: 'facing', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraFacingSpec, nullable: false, minVersion: 0 },
+        { name: 'orientation', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'device_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'static_camera_characteristics', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'resource_cost', packedOffset: 24, packedBitOffset: 0, type: cros.mojom.CameraResourceCostSpec, nullable: true, minVersion: 1 },
+        { name: 'conflicting_devices', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 48}]
     }
   }
 };
@@ -99,6 +118,24 @@ cros.mojom.CameraModuleCallbacksRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  cameraDeviceStatusChange(camera_id, new_status) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec,
+      null,
+      [camera_id, new_status]);
+  }
+
+  torchModeStatusChange(camera_id, new_status) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec,
+      null,
+      [camera_id, new_status]);
+  }
+
 };
 
 cros.mojom.CameraModuleCallbacks.getRemote = function() {
@@ -109,6 +146,36 @@ cros.mojom.CameraModuleCallbacks.getRemote = function() {
     'cros.mojom.CameraModuleCallbacks',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for CameraDeviceStatusChange
+cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModuleCallbacks.CameraDeviceStatusChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'new_status', packedOffset: 4, packedBitOffset: 0, type: cros.mojom.CameraDeviceStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for TorchModeStatusChange
+cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModuleCallbacks.TorchModeStatusChange_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'new_status', packedOffset: 4, packedBitOffset: 0, type: cros.mojom.TorchModeStatusSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -151,6 +218,51 @@ cros.mojom.VendorTagOpsRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  getTagCount() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cros.mojom.VendorTagOps_GetTagCount_ParamsSpec,
+      cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec,
+      []);
+  }
+
+  getAllTags() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      cros.mojom.VendorTagOps_GetAllTags_ParamsSpec,
+      cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec,
+      []);
+  }
+
+  getSectionName(tag) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      cros.mojom.VendorTagOps_GetSectionName_ParamsSpec,
+      cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec,
+      [tag]);
+  }
+
+  getTagName(tag) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      cros.mojom.VendorTagOps_GetTagName_ParamsSpec,
+      cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec,
+      [tag]);
+  }
+
+  getTagType(tag) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      cros.mojom.VendorTagOps_GetTagType_ParamsSpec,
+      cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec,
+      [tag]);
+  }
+
 };
 
 cros.mojom.VendorTagOps.getRemote = function() {
@@ -161,6 +273,139 @@ cros.mojom.VendorTagOps.getRemote = function() {
     'cros.mojom.VendorTagOps',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GetTagCount
+cros.mojom.VendorTagOps_GetTagCount_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.VendorTagOps.GetTagCount_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetAllTags
+cros.mojom.VendorTagOps_GetAllTags_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.VendorTagOps.GetAllTags_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'tag_array', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetSectionName
+cros.mojom.VendorTagOps_GetSectionName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.VendorTagOps.GetSectionName_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetTagName
+cros.mojom.VendorTagOps_GetTagName_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.VendorTagOps.GetTagName_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetTagType
+cros.mojom.VendorTagOps_GetTagType_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.VendorTagOps.GetTagType_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -203,6 +448,78 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  openDevice(camera_id, device_ops_receiver) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cros.mojom.CameraModule_OpenDevice_ParamsSpec,
+      cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec,
+      [camera_id, device_ops_receiver]);
+  }
+
+  getNumberOfCameras() {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec,
+      cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec,
+      []);
+  }
+
+  getCameraInfo(camera_id) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      cros.mojom.CameraModule_GetCameraInfo_ParamsSpec,
+      cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec,
+      [camera_id]);
+  }
+
+  setCallbacks(callbacks) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      cros.mojom.CameraModule_SetCallbacks_ParamsSpec,
+      cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec,
+      [callbacks]);
+  }
+
+  setTorchMode(camera_id, enabled) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      cros.mojom.CameraModule_SetTorchMode_ParamsSpec,
+      cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec,
+      [camera_id, enabled]);
+  }
+
+  init() {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      cros.mojom.CameraModule_Init_ParamsSpec,
+      cros.mojom.CameraModule_Init_ResponseParamsSpec,
+      []);
+  }
+
+  getVendorTagOps(vendor_tag_ops_receiver) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec,
+      null,
+      [vendor_tag_ops_receiver]);
+  }
+
+  setCallbacksAssociated(callbacks) {
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec,
+      cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec,
+      [callbacks]);
+  }
+
 };
 
 cros.mojom.CameraModule.getRemote = function() {
@@ -213,6 +530,210 @@ cros.mojom.CameraModule.getRemote = function() {
     'cros.mojom.CameraModule',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OpenDevice
+cros.mojom.CameraModule_OpenDevice_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModule.OpenDevice_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'device_ops_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetNumberOfCameras
+cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModule.GetNumberOfCameras_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetCameraInfo
+cros.mojom.CameraModule_GetCameraInfo_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModule.GetCameraInfo_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'camera_info', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CameraInfoSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for SetCallbacks
+cros.mojom.CameraModule_SetCallbacks_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModule.SetCallbacks_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'callbacks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for SetTorchMode
+cros.mojom.CameraModule_SetTorchMode_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModule.SetTorchMode_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Init
+cros.mojom.CameraModule_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModule.Init_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+cros.mojom.CameraModule_Init_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetVendorTagOps
+cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModule.GetVendorTagOps_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'vendor_tag_ops_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for SetCallbacksAssociated
+cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraModule.SetCallbacksAssociated_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'callbacks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

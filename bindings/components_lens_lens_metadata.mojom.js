@@ -16,6 +16,7 @@ lens.mojom.ImageFormat = {
   WEBP: 2,
   ORIGINAL: 3,
 };
+lens.mojom.ImageFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: Phase
 lens.mojom.Phase = {
@@ -25,22 +26,23 @@ lens.mojom.Phase = {
   ENCODE_START: 3,
   ENCODE_END: 4,
 };
+lens.mojom.PhaseSpec = { $: mojo.internal.Enum() };
 
 // Struct: LatencyLog
 lens.mojom.LatencyLogSpec = {
   $: {
     structSpec: {
       name: 'lens.mojom.LatencyLog',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'phase', packedOffset: 8, packedBitOffset: 0, type: lens.mojom.PhaseSpec, nullable: false },
-        { name: 'original_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'downscaled_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'image_format', packedOffset: 32, packedBitOffset: 0, type: lens.mojom.ImageFormatSpec, nullable: false },
-        { name: 'time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'encoded_bytes_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'phase', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.PhaseSpec, nullable: false, minVersion: 0 },
+        { name: 'original_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'downscaled_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'image_format', packedOffset: 4, packedBitOffset: 0, type: lens.mojom.ImageFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'encoded_bytes_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

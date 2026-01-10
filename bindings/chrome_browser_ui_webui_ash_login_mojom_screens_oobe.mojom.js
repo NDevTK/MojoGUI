@@ -18,6 +18,7 @@ ash.screens_oobe.mojom.ConsumerUpdateStep = {
   kManualReboot: 3,
   kCellularPermission: 4,
 };
+ash.screens_oobe.mojom.ConsumerUpdateStepSpec = { $: mojo.internal.Enum() };
 
 // Interface: ConsumerUpdatePageHandler
 ash.screens_oobe.mojom.ConsumerUpdatePageHandler = {};
@@ -110,7 +111,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -123,7 +124,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -136,7 +137,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -149,7 +150,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -259,7 +260,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -271,9 +272,9 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetLowBatteryWarningVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -285,9 +286,9 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetScreenStep_Params',
       packedSize: 16,
       fields: [
-        { name: 'step', packedOffset: 8, packedBitOffset: 0, type: ash.screens_oobe.mojom.ConsumerUpdateStepSpec, nullable: false },
+        { name: 'step', packedOffset: 0, packedBitOffset: 0, type: ash.screens_oobe.mojom.ConsumerUpdateStepSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -299,11 +300,11 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetUpdateStatusMessage_Params',
       packedSize: 32,
       fields: [
-        { name: 'percent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'percent_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'time_left_message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'percent_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'time_left_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -315,9 +316,9 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetAutoTransition_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -400,7 +401,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -413,7 +414,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

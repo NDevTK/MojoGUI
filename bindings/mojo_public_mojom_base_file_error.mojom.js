@@ -29,3 +29,4 @@ mojo_base.mojom.FileError = {
   INVALID_URL: 15,
   IO: 16,
 };
+mojo_base.mojom.FileErrorSpec = { $: mojo.internal.Enum() };

@@ -15,6 +15,7 @@ blink.mojom.TextDirection = {
   kLTR: 1,
   kRTL: 2,
 };
+blink.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Purpose
 blink.mojom.Purpose = {
@@ -22,6 +23,7 @@ blink.mojom.Purpose = {
   MONOCHROME: 1,
   MASKABLE: 2,
 };
+blink.mojom.PurposeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FormFactor
 blink.mojom.FormFactor = {
@@ -29,36 +31,42 @@ blink.mojom.FormFactor = {
   kWide: 1,
   kNarrow: 2,
 };
+blink.mojom.FormFactorSpec = { $: mojo.internal.Enum() };
 
 // Enum: Method
 blink.mojom.Method = {
   kGet: 0,
   kPost: 1,
 };
+blink.mojom.MethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: Enctype
 blink.mojom.Enctype = {
   kFormUrlEncoded: 0,
   kMultipartFormData: 1,
 };
+blink.mojom.EnctypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LaunchType
 blink.mojom.LaunchType = {
   kSingleClient: 0,
   kMultipleClients: 1,
 };
+blink.mojom.LaunchTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ManifestMigrationBehavior
 blink.mojom.ManifestMigrationBehavior = {
   kSuggest: 0,
   kForce: 1,
 };
+blink.mojom.ManifestMigrationBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: TabStripMemberVisibility
 blink.mojom.TabStripMemberVisibility = {
   kAuto: 0,
   kAbsent: 1,
 };
+blink.mojom.TabStripMemberVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: ManifestRequestResult
 blink.mojom.ManifestRequestResult = {
@@ -69,6 +77,21 @@ blink.mojom.ManifestRequestResult = {
   kManifestFailedToParse: 4,
   kSuccess: 5,
 };
+blink.mojom.ManifestRequestResultSpec = { $: mojo.internal.Enum() };
+
+// Union: HomeTabUnion
+blink.mojom.HomeTabUnionSpec = { $: mojo.internal.Union(
+    'blink.mojom.HomeTabUnion', {
+      'visibility': {
+        'ordinal': 0,
+        'type': blink.mojom.TabStripMemberVisibilitySpec,
+      }},
+      'params': {
+        'ordinal': 1,
+        'type': blink.mojom.HomeTabParamsSpec,
+      }},
+    })
+};
 
 // Struct: Manifest
 blink.mojom.ManifestSpec = {
@@ -77,9 +100,9 @@ blink.mojom.ManifestSpec = {
       name: 'blink.mojom.Manifest',
       packedSize: 16,
       fields: [
-        { name: 'kAuto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kAuto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,11 +114,11 @@ blink.mojom.ManifestLocalizedTextObjectSpec = {
       name: 'blink.mojom.ManifestLocalizedTextObject',
       packedSize: 32,
       fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'dir', packedOffset: 16, packedBitOffset: 0, type: Manifest.TextDirectionSpec, nullable: true },
-        { name: 'lang', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'dir', packedOffset: 8, packedBitOffset: 0, type: Manifest.TextDirectionSpec, nullable: true, minVersion: 0 },
+        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -107,9 +130,9 @@ blink.mojom.LocaleSpec = {
       name: 'blink.mojom.Locale',
       packedSize: 16,
       fields: [
-        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -121,17 +144,17 @@ blink.mojom.ManifestShortcutItemSpec = {
       name: 'blink.mojom.ManifestShortcutItem',
       packedSize: 80,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'short_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'icons', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'name_localized', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'short_name_localized', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'description_localized', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
-        { name: 'icons_localized', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Map, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'short_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'icons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'name_localized', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.LocaleSpec, blink.mojom.ManifestLocalizedTextObjectSpec, false), nullable: true, minVersion: 0 },
+        { name: 'short_name_localized', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.LocaleSpec, blink.mojom.ManifestLocalizedTextObjectSpec, false), nullable: true, minVersion: 0 },
+        { name: 'description_localized', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.LocaleSpec, blink.mojom.ManifestLocalizedTextObjectSpec, false), nullable: true, minVersion: 0 },
+        { name: 'icons_localized', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.LocaleSpec, mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };
@@ -143,9 +166,9 @@ blink.mojom.ManifestImageResourceSpec = {
       name: 'blink.mojom.ManifestImageResource',
       packedSize: 16,
       fields: [
-        { name: 'ANY', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'ANY', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -157,9 +180,9 @@ blink.mojom.ManifestScreenshotSpec = {
       name: 'blink.mojom.ManifestScreenshot',
       packedSize: 16,
       fields: [
-        { name: 'kUnknown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUnknown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -171,10 +194,10 @@ blink.mojom.ManifestFileFilterSpec = {
       name: 'blink.mojom.ManifestFileFilter',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'accept', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'accept', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -186,10 +209,10 @@ blink.mojom.ManifestProtocolHandlerSpec = {
       name: 'blink.mojom.ManifestProtocolHandler',
       packedSize: 24,
       fields: [
-        { name: 'protocol', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -201,10 +224,10 @@ blink.mojom.ManifestScopeExtensionSpec = {
       name: 'blink.mojom.ManifestScopeExtension',
       packedSize: 24,
       fields: [
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'has_origin_wildcard', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'has_origin_wildcard', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -216,9 +239,9 @@ blink.mojom.ManifestLockScreenSpec = {
       name: 'blink.mojom.ManifestLockScreen',
       packedSize: 16,
       fields: [
-        { name: 'start_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'start_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -230,9 +253,9 @@ blink.mojom.ManifestNoteTakingSpec = {
       name: 'blink.mojom.ManifestNoteTaking',
       packedSize: 16,
       fields: [
-        { name: 'new_note_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'new_note_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -244,11 +267,11 @@ blink.mojom.ManifestRelatedApplicationSpec = {
       name: 'blink.mojom.ManifestRelatedApplication',
       packedSize: 32,
       fields: [
-        { name: 'platform', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'platform', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -260,12 +283,12 @@ blink.mojom.ManifestShareTargetParamsSpec = {
       name: 'blink.mojom.ManifestShareTargetParams',
       packedSize: 40,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'files', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ManifestFileFilterSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -277,9 +300,9 @@ blink.mojom.ManifestShareTargetSpec = {
       name: 'blink.mojom.ManifestShareTarget',
       packedSize: 16,
       fields: [
-        { name: 'kGet', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kGet', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -291,13 +314,13 @@ blink.mojom.ManifestFileHandlerSpec = {
       name: 'blink.mojom.ManifestFileHandler',
       packedSize: 48,
       fields: [
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'icons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'accept', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'kSingleClient', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'icons', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'accept', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.String16Spec, mojo.internal.Array(mojo_base.mojom.String16Spec, false), false), nullable: false, minVersion: 0 },
+        { name: 'kSingleClient', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -309,11 +332,11 @@ blink.mojom.ManifestTranslationItemSpec = {
       name: 'blink.mojom.ManifestTranslationItem',
       packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'short_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
-        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'short_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -325,11 +348,11 @@ blink.mojom.ManifestMigrateFromSpec = {
       name: 'blink.mojom.ManifestMigrateFrom',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'install_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'behavior', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ManifestMigrationBehaviorSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'install_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'behavior', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ManifestMigrationBehaviorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -341,10 +364,10 @@ blink.mojom.ManifestMigrateToSpec = {
       name: 'blink.mojom.ManifestMigrateTo',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'install_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'install_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -354,12 +377,12 @@ blink.mojom.ManifestTabStripSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ManifestTabStrip',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'home_tab', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.HomeTabUnionSpec, nullable: false },
-        { name: 'new_tab_button', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NewTabButtonParamsSpec, nullable: false },
+        { name: 'home_tab', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.HomeTabUnionSpec, nullable: false, minVersion: 0 },
+        { name: 'new_tab_button', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NewTabButtonParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -371,10 +394,10 @@ blink.mojom.HomeTabParamsSpec = {
       name: 'blink.mojom.HomeTabParams',
       packedSize: 24,
       fields: [
-        { name: 'icons', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'scope_patterns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'icons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ManifestImageResourceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'scope_patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -386,9 +409,9 @@ blink.mojom.NewTabButtonParamsSpec = {
       name: 'blink.mojom.NewTabButtonParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -400,10 +423,10 @@ blink.mojom.ManifestDebugInfoSpec = {
       name: 'blink.mojom.ManifestDebugInfo',
       packedSize: 24,
       fields: [
-        { name: 'errors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'raw_manifest', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'errors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ManifestErrorSpec, false), nullable: false, minVersion: 0 },
+        { name: 'raw_manifest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -415,12 +438,12 @@ blink.mojom.ManifestErrorSpec = {
       name: 'blink.mojom.ManifestError',
       packedSize: 32,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'critical', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'line', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'column', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'critical', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'line', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'column', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -432,10 +455,10 @@ blink.mojom.DisplayOverrideItemSpec = {
       name: 'blink.mojom.DisplayOverrideItem',
       packedSize: 24,
       fields: [
-        { name: 'display', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DisplayModeSpec, nullable: false },
-        { name: 'url_patterns', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'display', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DisplayModeSpec, nullable: false, minVersion: 0 },
+        { name: 'url_patterns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SafeUrlPatternSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

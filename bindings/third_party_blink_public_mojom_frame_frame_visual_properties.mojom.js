@@ -14,27 +14,27 @@ blink.mojom.FrameVisualPropertiesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameVisualProperties',
-      packedSize: 128,
+      packedSize: 120,
       fields: [
-        { name: 'screen_infos', packedOffset: 8, packedBitOffset: 0, type: display.mojom.ScreenInfosSpec, nullable: false },
-        { name: 'auto_resize_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_pinch_gesture_active', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'capture_sequence_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'zoom_level', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'css_zoom_factor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'page_scale_factor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'compositing_scale_factor', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'cursor_accessibility_scale_factor', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'visible_viewport_size', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'min_size_for_auto_resize', packedOffset: 72, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'max_size_for_auto_resize', packedOffset: 80, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'root_widget_viewport_segments', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'compositor_viewport', packedOffset: 96, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'rect_in_local_root', packedOffset: 104, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'local_frame_size', packedOffset: 112, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'local_surface_id', packedOffset: 120, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false },
+        { name: 'screen_infos', packedOffset: 0, packedBitOffset: 0, type: display.mojom.ScreenInfosSpec, nullable: false, minVersion: 0 },
+        { name: 'auto_resize_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_pinch_gesture_active', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'capture_sequence_number', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'zoom_level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'css_zoom_factor', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'page_scale_factor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'compositing_scale_factor', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'cursor_accessibility_scale_factor', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'visible_viewport_size', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'min_size_for_auto_resize', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'max_size_for_auto_resize', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'root_widget_viewport_segments', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
+        { name: 'compositor_viewport', packedOffset: 80, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'rect_in_local_root', packedOffset: 88, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'local_frame_size', packedOffset: 96, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'local_surface_id', packedOffset: 104, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 120}]
     }
   }
 };

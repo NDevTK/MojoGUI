@@ -16,3 +16,4 @@ network.mojom.IPAddressSpace = {
   kPublic: 2,
   kUnknown: 3,
 };
+network.mojom.IPAddressSpaceSpec = { $: mojo.internal.Enum() };

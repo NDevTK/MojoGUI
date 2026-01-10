@@ -72,9 +72,9 @@ blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerRunningStatusCallback.OnStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

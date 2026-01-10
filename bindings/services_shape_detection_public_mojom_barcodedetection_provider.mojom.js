@@ -16,9 +16,9 @@ shape_detection.mojom.BarcodeDetectorOptionsSpec = {
       name: 'shape_detection.mojom.BarcodeDetectorOptions',
       packedSize: 16,
       fields: [
-        { name: 'formats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.BarcodeFormatSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,10 +95,10 @@ shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec
       name: 'shape_detection.mojom.BarcodeDetectionProvider.CreateBarcodeDetection_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: shape_detection.mojom.BarcodeDetectorOptionsSpec, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: shape_detection.mojom.BarcodeDetectorOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -111,7 +111,7 @@ shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -119,12 +119,12 @@ shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsS
 shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'shape_detection.mojom.BarcodeDetectionProvider.EnumerateSupportedFormats_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'supported_formats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'supported_formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.BarcodeFormatSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

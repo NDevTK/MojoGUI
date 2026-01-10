@@ -16,11 +16,11 @@ blink.mojom.CookieChangeSubscriptionSpec = {
       name: 'blink.mojom.CookieChangeSubscription',
       packedSize: 32,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'match_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieMatchTypeSpec, nullable: false },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'match_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieMatchTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -106,10 +106,10 @@ blink.mojom.CookieStore_AddSubscriptions_ParamsSpec = {
       name: 'blink.mojom.CookieStore.AddSubscriptions_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'subscription', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -117,12 +117,12 @@ blink.mojom.CookieStore_AddSubscriptions_ParamsSpec = {
 blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.CookieStore.AddSubscriptions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -134,10 +134,10 @@ blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec = {
       name: 'blink.mojom.CookieStore.RemoveSubscriptions_Params',
       packedSize: 24,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'subscription', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -145,12 +145,12 @@ blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec = {
 blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.CookieStore.RemoveSubscriptions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -162,9 +162,9 @@ blink.mojom.CookieStore_GetSubscriptions_ParamsSpec = {
       name: 'blink.mojom.CookieStore.GetSubscriptions_Params',
       packedSize: 16,
       fields: [
-        { name: 'service_worker_registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,13 +172,13 @@ blink.mojom.CookieStore_GetSubscriptions_ParamsSpec = {
 blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.CookieStore.GetSubscriptions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'subscriptions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'subscriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

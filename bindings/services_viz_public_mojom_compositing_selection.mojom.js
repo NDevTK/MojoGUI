@@ -16,10 +16,10 @@ viz.mojom.SelectionSpec = {
       name: 'viz.mojom.Selection',
       packedSize: 24,
       fields: [
-        { name: 'start', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false },
-        { name: 'end', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false },
+        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false, minVersion: 0 },
+        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SelectionBoundSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

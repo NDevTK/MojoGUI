@@ -81,9 +81,9 @@ network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = {
       name: 'network_hints.mojom.NetworkHintsHandler.PrefetchDNS_Params',
       packedSize: 16,
       fields: [
-        { name: 'url_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'url_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.SchemeHostPortSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,10 +95,10 @@ network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
       name: 'network_hints.mojom.NetworkHintsHandler.Preconnect_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false },
-        { name: 'allow_credentials', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
+        { name: 'allow_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

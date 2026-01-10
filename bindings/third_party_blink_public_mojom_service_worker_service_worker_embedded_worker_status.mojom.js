@@ -16,3 +16,4 @@ blink.mojom.ServiceWorkerEmbeddedWorkerStatus = {
   kRunning: 2,
   kStopping: 3,
 };
+blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec = { $: mojo.internal.Enum() };

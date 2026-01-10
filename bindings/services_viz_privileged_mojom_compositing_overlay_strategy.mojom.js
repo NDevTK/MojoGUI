@@ -15,3 +15,4 @@ viz.mojom.OverlayStrategy = {
   kSingleOnTop: 1,
   kUnderlay: 2,
 };
+viz.mojom.OverlayStrategySpec = { $: mojo.internal.Enum() };

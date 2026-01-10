@@ -19,6 +19,7 @@ blink.mojom.Behavior = {
   kRight: 5,
   kClosestEdge: 6,
 };
+blink.mojom.BehaviorSpec = { $: mojo.internal.Enum() };
 
 // Struct: ScrollAlignment
 blink.mojom.ScrollAlignmentSpec = {
@@ -27,9 +28,9 @@ blink.mojom.ScrollAlignmentSpec = {
       name: 'blink.mojom.ScrollAlignment',
       packedSize: 16,
       fields: [
-        { name: 'kNoScroll', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kNoScroll', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -41,11 +42,11 @@ blink.mojom.FocusedEditableParamsSpec = {
       name: 'blink.mojom.FocusedEditableParams',
       packedSize: 32,
       fields: [
-        { name: 'relative_location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false },
-        { name: 'can_zoom', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'relative_location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
+        { name: 'can_zoom', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -55,18 +56,18 @@ blink.mojom.ScrollIntoViewParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScrollIntoViewParams',
-      packedSize: 72,
+      packedSize: 48,
       fields: [
-        { name: 'align_x', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScrollAlignmentSpec, nullable: false },
-        { name: 'align_y', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ScrollAlignmentSpec, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ScrollTypeSpec, nullable: false },
-        { name: 'make_visible_in_visual_viewport', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'behavior', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.ScrollBehaviorSpec, nullable: false },
-        { name: 'is_for_scroll_sequence', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'for_focused_editable', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.FocusedEditableParamsSpec, nullable: true },
-        { name: 'cross_origin_boundaries', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'align_x', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ScrollAlignmentSpec, nullable: false, minVersion: 0 },
+        { name: 'align_y', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScrollAlignmentSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ScrollTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'make_visible_in_visual_viewport', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'behavior', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ScrollBehaviorSpec, nullable: false, minVersion: 0 },
+        { name: 'is_for_scroll_sequence', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'for_focused_editable', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FocusedEditableParamsSpec, nullable: true, minVersion: 0 },
+        { name: 'cross_origin_boundaries', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

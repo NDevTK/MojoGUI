@@ -99,12 +99,12 @@ extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = {
       name: 'extensions.mojom.RendererHost.AddAPIActionToActivityLog_Params',
       packedSize: 40,
       fields: [
-        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true },
-        { name: 'call_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'args', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
-        { name: 'extra', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true, minVersion: 0 },
+        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -116,12 +116,12 @@ extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = {
       name: 'extensions.mojom.RendererHost.AddEventToActivityLog_Params',
       packedSize: 40,
       fields: [
-        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true },
-        { name: 'call_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'args', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
-        { name: 'extra', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: true, minVersion: 0 },
+        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -133,14 +133,14 @@ extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = {
       name: 'extensions.mojom.RendererHost.AddDOMActionToActivityLog_Params',
       packedSize: 56,
       fields: [
-        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
-        { name: 'call_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'args', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false },
-        { name: 'url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'url_title', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'call_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
+        { name: 'call_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'args', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'url_title', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'call_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -152,9 +152,9 @@ extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
       name: 'extensions.mojom.RendererHost.GetMessageBundle_Params',
       packedSize: 16,
       fields: [
-        { name: 'extension_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false },
+        { name: 'extension_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.ExtensionIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -162,12 +162,12 @@ extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
 extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'extensions.mojom.RendererHost.GetMessageBundle_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'message_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'message_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,10 +16,10 @@ network.mojom.SharedDictionaryIsolationKeySpec = {
       name: 'network.mojom.SharedDictionaryIsolationKey',
       packedSize: 24,
       fields: [
-        { name: 'frame_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'top_frame_site', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false },
+        { name: 'frame_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'top_frame_site', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -21,3 +21,4 @@ blink.mojom.PointerLockResult = {
   kElementDestroyed: 7,
   kUnknownError: 8,
 };
+blink.mojom.PointerLockResultSpec = { $: mojo.internal.Enum() };

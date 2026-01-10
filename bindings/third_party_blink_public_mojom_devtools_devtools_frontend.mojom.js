@@ -81,10 +81,10 @@ blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec = {
       name: 'blink.mojom.DevToolsFrontend.SetupDevToolsFrontend_Params',
       packedSize: 24,
       fields: [
-        { name: 'api_script', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'api_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -96,9 +96,9 @@ blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec = {
       name: 'blink.mojom.DevToolsFrontend.SetupDevToolsExtensionAPI_Params',
       packedSize: 16,
       fields: [
-        { name: 'extension_api', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'extension_api', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -171,9 +171,9 @@ blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = {
       name: 'blink.mojom.DevToolsFrontendHost.DispatchEmbedderMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

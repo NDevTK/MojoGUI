@@ -96,6 +96,24 @@ arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onPrintPreviewClosed() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec,
+      null,
+      []);
+  }
+
+  createPreviewDocument(request) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec,
+      arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec,
+      [request]);
+  }
+
 };
 
 arc.mojom.PrintSessionInstance.getRemote = function() {
@@ -106,6 +124,47 @@ arc.mojom.PrintSessionInstance.getRemote = function() {
     'arc.mojom.PrintSessionInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnPrintPreviewClosed
+arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintSessionInstance.OnPrintPreviewClosed_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+// ParamsSpec for CreatePreviewDocument
+arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintSessionInstance.CreatePreviewDocument_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PrintDocumentRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'preview_document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
+        { name: 'data_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -148,6 +207,15 @@ arc.mojom.PrintSpoolerHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  startPrintInCustomTab(scoped_handle, task_id, instance) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec,
+      arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec,
+      [scoped_handle, task_id, instance]);
+  }
+
 };
 
 arc.mojom.PrintSpoolerHost.getRemote = function() {
@@ -158,6 +226,35 @@ arc.mojom.PrintSpoolerHost.getRemote = function() {
     'arc.mojom.PrintSpoolerHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for StartPrintInCustomTab
+arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintSpoolerHost.StartPrintInCustomTab_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'scoped_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'instance', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -200,6 +297,15 @@ arc.mojom.PrintSpoolerInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.PrintSpoolerInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.PrintSpoolerInstance.getRemote = function() {
@@ -210,6 +316,20 @@ arc.mojom.PrintSpoolerInstance.getRemote = function() {
     'arc.mojom.PrintSpoolerInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.PrintSpoolerInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.PrintSpoolerInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

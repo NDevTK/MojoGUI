@@ -14,6 +14,7 @@ webui_browser.mojom.FullscreenContext = {
   kBrowser: 0,
   kTab: 1,
 };
+webui_browser.mojom.FullscreenContextSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecurityIcon
 webui_browser.mojom.SecurityIcon = {
@@ -27,6 +28,7 @@ webui_browser.mojom.SecurityIcon = {
   ExtensionChromeRefresh: 7,
   OfflinePin: 8,
 };
+webui_browser.mojom.SecurityIconSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
 webui_browser.mojom.PageHandlerFactory = {};
@@ -100,10 +102,10 @@ webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'webui_browser.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -116,7 +118,7 @@ webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -124,12 +126,12 @@ webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
 webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webui_browser.mojom.PageHandlerFactory.GetTabStripInset_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -238,9 +240,9 @@ webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec = {
       name: 'webui_browser.mojom.Page.SetFocusToLocationBar_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_user_initiated', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_user_initiated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,9 +254,9 @@ webui_browser.mojom.Page_SetReloadStopState_ParamsSpec = {
       name: 'webui_browser.mojom.Page.SetReloadStopState_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_loading', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_loading', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -266,10 +268,10 @@ webui_browser.mojom.Page_ShowSidePanel_ParamsSpec = {
       name: 'webui_browser.mojom.Page.ShowSidePanel_Params',
       packedSize: 24,
       fields: [
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -282,7 +284,7 @@ webui_browser.mojom.Page_CloseSidePanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -292,12 +294,12 @@ webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'webui_browser.mojom.Page.OnFullscreenModeChanged_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'is_fullscreen', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'context', packedOffset: 16, packedBitOffset: 0, type: webui_browser.mojom.FullscreenContextSpec, nullable: true },
+        { name: 'is_fullscreen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 4, packedBitOffset: 0, type: webui_browser.mojom.FullscreenContextSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -460,10 +462,10 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
       name: 'webui_browser.mojom.PageHandler.GetGuestIdForTabId_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
-        { name: 'handler', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -471,12 +473,12 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
 webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webui_browser.mojom.PageHandler.GetGuestIdForTabId_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'guest_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -489,7 +491,7 @@ webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -497,12 +499,12 @@ webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
 webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webui_browser.mojom.PageHandler.LoadTabSearch_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'guest_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -514,9 +516,9 @@ webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec = {
       name: 'webui_browser.mojom.PageHandler.ShowTabSearchBubble_Params',
       packedSize: 16,
       fields: [
-        { name: 'anchor_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'anchor_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -529,7 +531,7 @@ webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -542,7 +544,7 @@ webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -555,7 +557,7 @@ webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -568,7 +570,7 @@ webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -581,7 +583,7 @@ webui_browser.mojom.PageHandler_Minimize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -594,7 +596,7 @@ webui_browser.mojom.PageHandler_Maximize_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -607,7 +609,7 @@ webui_browser.mojom.PageHandler_Restore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -620,7 +622,7 @@ webui_browser.mojom.PageHandler_Close_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -765,9 +767,9 @@ webui_browser.mojom.GuestHandler_Navigate_ParamsSpec = {
       name: 'webui_browser.mojom.GuestHandler.Navigate_Params',
       packedSize: 16,
       fields: [
-        { name: 'src', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -780,7 +782,7 @@ webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -788,12 +790,12 @@ webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec = {
 webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webui_browser.mojom.GuestHandler.CanGoBack_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_go_back', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_go_back', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -806,7 +808,7 @@ webui_browser.mojom.GuestHandler_GoBack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -819,7 +821,7 @@ webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -827,12 +829,12 @@ webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec = {
 webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webui_browser.mojom.GuestHandler.CanGoForward_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_go_forward', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_go_forward', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -845,7 +847,7 @@ webui_browser.mojom.GuestHandler_GoForward_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -858,7 +860,7 @@ webui_browser.mojom.GuestHandler_Reload_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -871,7 +873,7 @@ webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -884,7 +886,7 @@ webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -897,7 +899,7 @@ webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -905,12 +907,12 @@ webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
 webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'webui_browser.mojom.GuestHandler.GetSecurityIcon_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'security_icon', packedOffset: 8, packedBitOffset: 0, type: webui_browser.mojom.SecurityIconSpec, nullable: false },
+        { name: 'security_icon', packedOffset: 0, packedBitOffset: 0, type: webui_browser.mojom.SecurityIconSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

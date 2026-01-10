@@ -36,6 +36,7 @@ ash.shimless_rma.mojom.State = {
   kHardwareError: 21,
   kReboot: 22,
 };
+ash.shimless_rma.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: RmadErrorCode
 ash.shimless_rma.mojom.RmadErrorCode = {
@@ -86,6 +87,7 @@ ash.shimless_rma.mojom.RmadErrorCode = {
   kCannotRecordBrowserAction: 44,
   kUsbNotFound: 45,
 };
+ash.shimless_rma.mojom.RmadErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OsUpdateOperation
 ash.shimless_rma.mojom.OsUpdateOperation = {
@@ -103,6 +105,7 @@ ash.shimless_rma.mojom.OsUpdateOperation = {
   kCleanupPreviousUpdate: 11,
   kUpdatedButDeferred: 12,
 };
+ash.shimless_rma.mojom.OsUpdateOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: UpdateErrorCode
 ash.shimless_rma.mojom.UpdateErrorCode = {
@@ -110,6 +113,7 @@ ash.shimless_rma.mojom.UpdateErrorCode = {
   kDownloadError: 1,
   kOtherError: 2,
 };
+ash.shimless_rma.mojom.UpdateErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ComponentType
 ash.shimless_rma.mojom.ComponentType = {
@@ -136,6 +140,7 @@ ash.shimless_rma.mojom.ComponentType = {
   kKeyboard: 20,
   kPowerButton: 21,
 };
+ash.shimless_rma.mojom.ComponentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ComponentRepairStatus
 ash.shimless_rma.mojom.ComponentRepairStatus = {
@@ -144,6 +149,7 @@ ash.shimless_rma.mojom.ComponentRepairStatus = {
   kReplaced: 2,
   kMissing: 3,
 };
+ash.shimless_rma.mojom.ComponentRepairStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: WriteProtectDisableCompleteAction
 ash.shimless_rma.mojom.WriteProtectDisableCompleteAction = {
@@ -153,6 +159,7 @@ ash.shimless_rma.mojom.WriteProtectDisableCompleteAction = {
   kCompleteKeepDeviceOpen: 3,
   kCompleteNoOp: 4,
 };
+ash.shimless_rma.mojom.WriteProtectDisableCompleteActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: UpdateRoFirmwareStatus
 ash.shimless_rma.mojom.UpdateRoFirmwareStatus = {
@@ -164,6 +171,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareStatus = {
   kRebooting: 5,
   kComplete: 6,
 };
+ash.shimless_rma.mojom.UpdateRoFirmwareStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: CalibrationSetupInstruction
 ash.shimless_rma.mojom.CalibrationSetupInstruction = {
@@ -171,6 +179,7 @@ ash.shimless_rma.mojom.CalibrationSetupInstruction = {
   kCalibrationInstructionPlaceBaseOnFlatSurface: 1,
   kCalibrationInstructionPlaceLidOnFlatSurface: 2,
 };
+ash.shimless_rma.mojom.CalibrationSetupInstructionSpec = { $: mojo.internal.Enum() };
 
 // Enum: CalibrationOverallStatus
 ash.shimless_rma.mojom.CalibrationOverallStatus = {
@@ -179,6 +188,7 @@ ash.shimless_rma.mojom.CalibrationOverallStatus = {
   kCalibrationOverallCurrentRoundFailed: 2,
   kCalibrationOverallInitializationFailed: 3,
 };
+ash.shimless_rma.mojom.CalibrationOverallStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: CalibrationStatus
 ash.shimless_rma.mojom.CalibrationStatus = {
@@ -188,6 +198,7 @@ ash.shimless_rma.mojom.CalibrationStatus = {
   kCalibrationFailed: 3,
   kCalibrationSkip: 4,
 };
+ash.shimless_rma.mojom.CalibrationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProvisioningStatus
 ash.shimless_rma.mojom.ProvisioningStatus = {
@@ -196,6 +207,7 @@ ash.shimless_rma.mojom.ProvisioningStatus = {
   kFailedBlocking: 2,
   kFailedNonBlocking: 3,
 };
+ash.shimless_rma.mojom.ProvisioningStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProvisioningError
 ash.shimless_rma.mojom.ProvisioningError = {
@@ -212,6 +224,7 @@ ash.shimless_rma.mojom.ProvisioningError = {
   kCr50: 10,
   kGbb: 11,
 };
+ash.shimless_rma.mojom.ProvisioningErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: FinalizationStatus
 ash.shimless_rma.mojom.FinalizationStatus = {
@@ -220,6 +233,7 @@ ash.shimless_rma.mojom.FinalizationStatus = {
   kFailedBlocking: 2,
   kFailedNonBlocking: 3,
 };
+ash.shimless_rma.mojom.FinalizationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: FinalizationError
 ash.shimless_rma.mojom.FinalizationError = {
@@ -230,6 +244,7 @@ ash.shimless_rma.mojom.FinalizationError = {
   kCr50: 4,
   kGbb: 5,
 };
+ash.shimless_rma.mojom.FinalizationErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShutdownMethod
 ash.shimless_rma.mojom.ShutdownMethod = {
@@ -238,6 +253,7 @@ ash.shimless_rma.mojom.ShutdownMethod = {
   kShutdown: 2,
   kBatteryCutoff: 3,
 };
+ash.shimless_rma.mojom.ShutdownMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeatureLevel
 ash.shimless_rma.mojom.FeatureLevel = {
@@ -246,6 +262,7 @@ ash.shimless_rma.mojom.FeatureLevel = {
   kRmadFeatureLevel0: 2,
   kRmadFeatureLevel1: 3,
 };
+ash.shimless_rma.mojom.FeatureLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: Show3pDiagnosticsAppResult
 ash.shimless_rma.mojom.Show3pDiagnosticsAppResult = {
@@ -253,10 +270,54 @@ ash.shimless_rma.mojom.Show3pDiagnosticsAppResult = {
   kAppNotInstalled: 1,
   kFailedToLoad: 2,
 };
+ash.shimless_rma.mojom.Show3pDiagnosticsAppResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: StatePropertyError
 ash.shimless_rma.mojom.StatePropertyError = {
   kUnsupported: 0,
+};
+ash.shimless_rma.mojom.StatePropertyErrorSpec = { $: mojo.internal.Enum() };
+
+// Union: HardwareVerificationResult
+ash.shimless_rma.mojom.HardwareVerificationResultSpec = { $: mojo.internal.Union(
+    'ash.shimless_rma.mojom.HardwareVerificationResult', {
+      'pass_result': {
+        'ordinal': 0,
+        'type': ash.shimless_rma.mojom.PassHardwareVerificationResultSpec,
+      }},
+      'fail_result': {
+        'ordinal': 1,
+        'type': ash.shimless_rma.mojom.FailHardwareVerificationResultSpec,
+      }},
+      'skip_result': {
+        'ordinal': 2,
+        'type': ash.shimless_rma.mojom.SkipHardwareVerificationResultSpec,
+      }},
+    })
+};
+
+// Union: StateProperty
+ash.shimless_rma.mojom.StatePropertySpec = { $: mojo.internal.Union(
+    'ash.shimless_rma.mojom.StateProperty', {
+      'update_device_info_state_property': {
+        'ordinal': 0,
+        'type': ash.shimless_rma.mojom.UpdateDeviceInfoStatePropertySpec,
+      }},
+    })
+};
+
+// Union: StatePropertyResult
+ash.shimless_rma.mojom.StatePropertyResultSpec = { $: mojo.internal.Union(
+    'ash.shimless_rma.mojom.StatePropertyResult', {
+      'property': {
+        'ordinal': 0,
+        'type': ash.shimless_rma.mojom.StatePropertySpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': ash.shimless_rma.mojom.StatePropertyErrorSpec,
+      }},
+    })
 };
 
 // Struct: StateResult
@@ -264,14 +325,14 @@ ash.shimless_rma.mojom.StateResultSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.StateResult',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateSpec, nullable: false },
-        { name: 'can_exit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'can_go_back', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateSpec, nullable: false, minVersion: 0 },
+        { name: 'can_exit', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'can_go_back', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -283,10 +344,10 @@ ash.shimless_rma.mojom.QrCodeSpec = {
       name: 'ash.shimless_rma.mojom.QrCode',
       packedSize: 24,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -296,13 +357,13 @@ ash.shimless_rma.mojom.ComponentSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.Component',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'component', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.ComponentTypeSpec, nullable: false },
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: ash.shimless_rma.mojom.ComponentRepairStatusSpec, nullable: false },
-        { name: 'identifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.ComponentTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 4, packedBitOffset: 0, type: ash.shimless_rma.mojom.ComponentRepairStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -312,13 +373,13 @@ ash.shimless_rma.mojom.CalibrationComponentStatusSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.CalibrationComponentStatus',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'component', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.ComponentTypeSpec, nullable: false },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationStatusSpec, nullable: false },
-        { name: 'progress', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.ComponentTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 4, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -330,10 +391,10 @@ ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfoSpec = {
       name: 'ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfo',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'permission_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'permission_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -346,7 +407,7 @@ ash.shimless_rma.mojom.PassHardwareVerificationResultSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -358,9 +419,9 @@ ash.shimless_rma.mojom.FailHardwareVerificationResultSpec = {
       name: 'ash.shimless_rma.mojom.FailHardwareVerificationResult',
       packedSize: 16,
       fields: [
-        { name: 'component_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'component_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -373,7 +434,7 @@ ash.shimless_rma.mojom.SkipHardwareVerificationResultSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -383,18 +444,18 @@ ash.shimless_rma.mojom.UpdateDeviceInfoStatePropertySpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.UpdateDeviceInfoStateProperty',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'serial_number_modifiable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'region_modifiable', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'sku_modifiable', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'custom_label_modifiable', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'dram_part_number_modifiable', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'feature_level_modifiable', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'customized_serial_number_naming', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'hide_google_sku', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'serial_number_modifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'region_modifiable', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'sku_modifiable', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'custom_label_modifiable', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'dram_part_number_modifiable', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'feature_level_modifiable', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'customized_serial_number_naming', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'hide_google_sku', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -462,9 +523,9 @@ ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ErrorObserver.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -535,13 +596,13 @@ ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.OsUpdateObserver.OnOsUpdateProgressUpdated_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'operation', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.OsUpdateOperationSpec, nullable: false },
-        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'update_error_code', packedOffset: 24, packedBitOffset: 0, type: ash.shimless_rma.mojom.UpdateErrorCodeSpec, nullable: false },
+        { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.OsUpdateOperationSpec, nullable: false, minVersion: 0 },
+        { name: 'progress', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'update_error_code', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.UpdateErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -623,9 +684,9 @@ ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.CalibrationObserver.OnCalibrationUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'componentStatus', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationComponentStatusSpec, nullable: false },
+        { name: 'componentStatus', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationComponentStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -637,9 +698,9 @@ ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec 
       name: 'ash.shimless_rma.mojom.CalibrationObserver.OnCalibrationStepComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationOverallStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationOverallStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -710,13 +771,13 @@ ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ProvisioningObserver.OnProvisioningUpdated_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.ProvisioningStatusSpec, nullable: false },
-        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: ash.shimless_rma.mojom.ProvisioningErrorSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.ProvisioningStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'progress', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.ProvisioningErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -789,9 +850,9 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProte
       name: 'ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver.OnHardwareWriteProtectionStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -864,9 +925,9 @@ ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSp
       name: 'ash.shimless_rma.mojom.PowerCableStateObserver.OnPowerCableStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'plugged_in', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'plugged_in', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -939,9 +1000,9 @@ ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_Para
       name: 'ash.shimless_rma.mojom.ExternalDiskStateObserver.OnExternalDiskStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'detected', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'detected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1012,11 +1073,11 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerification
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.HardwareVerificationStatusObserver.OnHardwareVerificationResult_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.HardwareVerificationResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.HardwareVerificationResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1087,13 +1148,13 @@ ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.FinalizationObserver.OnFinalizationUpdated_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.FinalizationStatusSpec, nullable: false },
-        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'error', packedOffset: 24, packedBitOffset: 0, type: ash.shimless_rma.mojom.FinalizationErrorSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.FinalizationStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'progress', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.FinalizationErrorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1166,9 +1227,9 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_
       name: 'ash.shimless_rma.mojom.UpdateRoFirmwareObserver.OnUpdateRoFirmwareStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.UpdateRoFirmwareStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.UpdateRoFirmwareStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1899,7 +1960,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1907,12 +1968,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCurrentState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1925,7 +1986,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1933,12 +1994,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetStateProperties_ResponseParams',
-      packedSize: 16,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'state_property_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StatePropertyResultSpec, nullable: false },
+        { name: 'state_property_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StatePropertyResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1951,7 +2012,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1959,12 +2020,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.TransitionPreviousState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1977,7 +2038,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1985,12 +2046,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.AbortRma_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2003,7 +2064,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2011,12 +2072,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.BeginFinalization_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2029,7 +2090,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2042,7 +2103,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2050,12 +2111,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec = 
 ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.NetworkSelectionComplete_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2068,7 +2129,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2076,12 +2137,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCurrentOsVersion_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2094,7 +2155,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2102,13 +2163,13 @@ ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.CheckForOsUpdates_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'update_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'update_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2121,7 +2182,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2129,12 +2190,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.UpdateOs_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'update_started', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'update_started', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2147,7 +2208,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2155,12 +2216,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.UpdateOsSkipped_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2173,7 +2234,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2181,12 +2242,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetSameOwner_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2199,7 +2260,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2207,12 +2268,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDifferentOwner_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2224,9 +2285,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetWipeDevice_Params',
       packedSize: 16,
       fields: [
-        { name: 'should_wipe_device', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_wipe_device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2234,12 +2295,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetWipeDevice_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2252,7 +2313,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2260,12 +2321,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsS
 ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetManuallyDisableWriteProtect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2278,7 +2339,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2286,12 +2347,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec =
 ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2304,7 +2365,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2312,12 +2373,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_Par
 ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectChallenge_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2330,7 +2391,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2338,12 +2399,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSp
 ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectHwid_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'hwid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'hwid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2356,7 +2417,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCo
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2364,12 +2425,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCo
 ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRsuDisableWriteProtectChallengeQrCode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'qr_code_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'qr_code_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2381,9 +2442,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSp
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtectCode_Params',
       packedSize: 16,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2391,12 +2452,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSp
 ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetRsuDisableWriteProtectCode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2409,7 +2470,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2417,12 +2478,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpe
 ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.WriteProtectManuallyDisabled_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2435,7 +2496,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_P
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2443,12 +2504,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_P
 ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetWriteProtectDisableCompleteAction_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.WriteProtectDisableCompleteActionSpec, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.WriteProtectDisableCompleteActionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2461,7 +2522,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2469,12 +2530,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsS
 ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.ConfirmManualWpDisableComplete_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2487,7 +2548,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2495,12 +2556,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetComponentList_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'components', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shimless_rma.mojom.ComponentSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2512,9 +2573,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetComponentList_Params',
       packedSize: 16,
       fields: [
-        { name: 'components', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shimless_rma.mojom.ComponentSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2522,12 +2583,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetComponentList_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2540,7 +2601,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2548,12 +2609,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.ReworkMainboard_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2566,7 +2627,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2574,12 +2635,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec = 
 ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.RoFirmwareUpdateComplete_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2592,7 +2653,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2600,12 +2661,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.ShutdownForRestock_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2618,7 +2679,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2626,12 +2687,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_Param
 ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.ContinueFinalizationAfterRestock_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2644,7 +2705,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2652,12 +2713,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetRegionList_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'regions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2670,7 +2731,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2678,12 +2739,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetSkuList_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'skus', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'skus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2696,7 +2757,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2704,12 +2765,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCustomLabelList_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'custom_labels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'custom_labels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2722,7 +2783,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2730,12 +2791,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetSkuDescriptionList_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sku_descriptions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'sku_descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2748,7 +2809,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2756,12 +2817,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalSerialNumber_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2774,7 +2835,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2782,12 +2843,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalRegion_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'region_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'region_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2800,7 +2861,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2808,12 +2869,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalSku_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'sku_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'sku_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2826,7 +2887,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2834,12 +2895,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalCustomLabel_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'custom_label_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'custom_label_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2852,7 +2913,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2860,12 +2921,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec =
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalDramPartNumber_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dram_part_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'dram_part_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2878,7 +2939,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2886,12 +2947,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetOriginalFeatureLevel_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'original_feature_level', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.FeatureLevelSpec, nullable: false },
+        { name: 'original_feature_level', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.FeatureLevelSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2901,17 +2962,17 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDeviceInformation_Params',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'region_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'sku_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'custom_label_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'dram_part_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_chassis_branded', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'hw_compliance_version', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'serial_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'region_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sku_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'custom_label_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'dram_part_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_chassis_branded', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hw_compliance_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -2919,12 +2980,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.SetDeviceInformation_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2937,7 +2998,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2945,12 +3006,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec
 ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCalibrationComponentList_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'components', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shimless_rma.mojom.CalibrationComponentStatusSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2963,7 +3024,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_Params
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2971,12 +3032,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_Params
 ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetCalibrationSetupInstructions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'instructions', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationSetupInstructionSpec, nullable: false },
+        { name: 'instructions', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.CalibrationSetupInstructionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2988,9 +3049,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.StartCalibration_Params',
       packedSize: 16,
       fields: [
-        { name: 'components', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shimless_rma.mojom.CalibrationComponentStatusSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -2998,12 +3059,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.StartCalibration_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3016,7 +3077,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3024,12 +3085,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.RunCalibrationStep_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3042,7 +3103,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3050,12 +3111,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.ContinueCalibration_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3068,7 +3129,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3076,12 +3137,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.CalibrationComplete_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3094,7 +3155,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3102,12 +3163,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.RetryProvisioning_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3120,7 +3181,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3128,12 +3189,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.ProvisioningComplete_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3146,7 +3207,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3154,12 +3215,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.RetryFinalization_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3172,7 +3233,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3180,12 +3241,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.FinalizationComplete_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3198,7 +3259,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3206,12 +3267,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec
 ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.WriteProtectManuallyEnabled_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3224,7 +3285,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3232,13 +3293,13 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetLog_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'log', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false },
+        { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3251,7 +3312,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3259,13 +3320,13 @@ ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.SaveLog_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'save_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false },
+        { name: 'save_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -3278,7 +3339,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3286,12 +3347,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetPowerwashRequired_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'powerwash_required', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'powerwash_required', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3304,7 +3365,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3316,9 +3377,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.EndRma_Params',
       packedSize: 16,
       fields: [
-        { name: 'shutdown_method', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.ShutdownMethodSpec, nullable: false },
+        { name: 'shutdown_method', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.ShutdownMethodSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3326,12 +3387,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.EndRma_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'state_result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false },
+        { name: 'state_result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.StateResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3344,7 +3405,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3357,7 +3418,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3365,12 +3426,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec = 
 ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.CriticalErrorExitToLogin_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3383,7 +3444,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3391,12 +3452,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.CriticalErrorReboot_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.RmadErrorCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3409,7 +3470,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3417,12 +3478,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec = 
 ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.Get3pDiagnosticsProvider_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3435,7 +3496,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_Par
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3443,12 +3504,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_Par
 ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.GetInstallable3pDiagnosticsAppPath_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'app_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true },
+        { name: 'app_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3461,7 +3522,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3469,12 +3530,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_Param
 ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.InstallLastFound3pDiagnosticsApp_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'app_info', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfoSpec, nullable: true },
+        { name: 'app_info', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.Shimless3pDiagnosticsAppInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3486,9 +3547,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.CompleteLast3pDiagnosticsInstallation_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_approved', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_approved', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3501,7 +3562,7 @@ ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -3509,12 +3570,12 @@ ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec = {
 ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.shimless_rma.mojom.ShimlessRmaService.Show3pDiagnosticsApp_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.shimless_rma.mojom.Show3pDiagnosticsAppResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.shimless_rma.mojom.Show3pDiagnosticsAppResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3526,9 +3587,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveError_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3540,9 +3601,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveOsUpdateProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3554,9 +3615,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveCalibrationProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3568,9 +3629,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveProvisioningProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3582,9 +3643,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_Pa
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveHardwareWriteProtectionState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3596,9 +3657,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec = {
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObservePowerCableState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3610,9 +3671,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec = 
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveExternalDiskState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3624,9 +3685,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_Para
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveHardwareVerificationStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3638,9 +3699,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec =
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveFinalizationStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -3652,9 +3713,9 @@ ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_Params
       name: 'ash.shimless_rma.mojom.ShimlessRmaService.ObserveRoFirmwareUpdateProgress_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

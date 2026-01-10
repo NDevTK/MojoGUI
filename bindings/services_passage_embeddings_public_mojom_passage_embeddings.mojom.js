@@ -16,6 +16,7 @@ passage_embeddings.mojom.PassagePriority = {
   kUserInitiated: 2,
   kPassive: 3,
 };
+passage_embeddings.mojom.PassagePrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: PassageEmbeddingsResult
 passage_embeddings.mojom.PassageEmbeddingsResultSpec = {
@@ -24,9 +25,9 @@ passage_embeddings.mojom.PassageEmbeddingsResultSpec = {
       name: 'passage_embeddings.mojom.PassageEmbeddingsResult',
       packedSize: 16,
       fields: [
-        { name: 'embeddings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'embeddings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -38,11 +39,11 @@ passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec = {
       name: 'passage_embeddings.mojom.PassageEmbeddingsLoadModelsParams',
       packedSize: 32,
       fields: [
-        { name: 'embeddings_model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'sp_model', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false },
-        { name: 'input_window_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'embeddings_model', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'sp_model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'input_window_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -54,13 +55,13 @@ passage_embeddings.mojom.PassageEmbedderParamsSpec = {
       name: 'passage_embeddings.mojom.PassageEmbedderParams',
       packedSize: 32,
       fields: [
-        { name: 'user_initiated_priority_num_threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'urgent_priority_num_threads', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'passive_priority_num_threads', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'embedder_cache_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'allow_gpu_execution', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'user_initiated_priority_num_threads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'urgent_priority_num_threads', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'passive_priority_num_threads', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'embedder_cache_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'allow_gpu_execution', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -128,10 +129,10 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = {
       name: 'passage_embeddings.mojom.PassageEmbedder.GenerateEmbeddings_Params',
       packedSize: 24,
       fields: [
-        { name: 'passages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: passage_embeddings.mojom.PassagePrioritySpec, nullable: false },
+        { name: 'passages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: passage_embeddings.mojom.PassagePrioritySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -139,12 +140,12 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = {
 passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'passage_embeddings.mojom.PassageEmbedder.GenerateEmbeddings_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(passage_embeddings.mojom.PassageEmbeddingsResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -217,11 +218,11 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = {
       name: 'passage_embeddings.mojom.PassageEmbeddingsService.LoadModels_Params',
       packedSize: 32,
       fields: [
-        { name: 'model_params', packedOffset: 8, packedBitOffset: 0, type: passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec, nullable: false },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: passage_embeddings.mojom.PassageEmbedderParamsSpec, nullable: false },
-        { name: 'model', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'model_params', packedOffset: 0, packedBitOffset: 0, type: passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: passage_embeddings.mojom.PassageEmbedderParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -229,12 +230,12 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = {
 passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'passage_embeddings.mojom.PassageEmbeddingsService.LoadModels_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

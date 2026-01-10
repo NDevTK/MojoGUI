@@ -16,10 +16,10 @@ printing.mojom.FlattenPdfResultSpec = {
       name: 'printing.mojom.FlattenPdfResult',
       packedSize: 24,
       fields: [
-        { name: 'flattened_pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'flattened_pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -96,9 +96,9 @@ printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
       name: 'printing.mojom.PdfFlattener.FlattenPdf_Params',
       packedSize: 16,
       fields: [
-        { name: 'src_pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'src_pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -106,12 +106,12 @@ printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
 printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'printing.mojom.PdfFlattener.FlattenPdf_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.FlattenPdfResultSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.FlattenPdfResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -123,9 +123,9 @@ printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec = {
       name: 'printing.mojom.PdfFlattener.SetUseSkiaRendererPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_skia', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

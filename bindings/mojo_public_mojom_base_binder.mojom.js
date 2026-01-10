@@ -44,6 +44,15 @@ mojo_base.mojom.BinderRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  bind(receiver) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      mojo_base.mojom.Binder_Bind_ParamsSpec,
+      null,
+      [receiver]);
+  }
+
 };
 
 mojo_base.mojom.Binder.getRemote = function() {
@@ -54,6 +63,20 @@ mojo_base.mojom.Binder.getRemote = function() {
     'mojo_base.mojom.Binder',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Bind
+mojo_base.mojom.Binder_Bind_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'mojo_base.mojom.Binder.Bind_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

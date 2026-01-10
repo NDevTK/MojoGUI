@@ -15,6 +15,7 @@ network.mojom.Type = {
   kView: 1,
   kClick: 2,
 };
+network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AdAuctionEventRecord
 network.mojom.AdAuctionEventRecordSpec = {
@@ -23,9 +24,9 @@ network.mojom.AdAuctionEventRecordSpec = {
       name: 'network.mojom.AdAuctionEventRecord',
       packedSize: 16,
       fields: [
-        { name: 'kUninitialized', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUninitialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

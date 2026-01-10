@@ -14,14 +14,14 @@ network.mojom.TLSClientSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TLSClientSocketOptions',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'version_min', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false },
-        { name: 'version_max', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false },
-        { name: 'send_ssl_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'unsafely_skip_cert_verification', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'version_min', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false, minVersion: 0 },
+        { name: 'version_max', packedOffset: 4, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false, minVersion: 0 },
+        { name: 'send_ssl_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'unsafely_skip_cert_verification', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

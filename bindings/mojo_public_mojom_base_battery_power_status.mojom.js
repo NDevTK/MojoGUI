@@ -15,3 +15,4 @@ mojo_base.mojom.BatteryPowerStatus = {
   kBatteryPower: 1,
   kExternalPower: 2,
 };
+mojo_base.mojom.BatteryPowerStatusSpec = { $: mojo.internal.Enum() };

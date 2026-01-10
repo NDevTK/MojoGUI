@@ -9,11 +9,30 @@ var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
 
 
+data_decoder.mojom.kTypeKey = "type";
+
+data_decoder.mojom.kTagKey = "tag";
+
+data_decoder.mojom.kTextKey = "text";
+
+data_decoder.mojom.kAttributesKey = "attributes";
+
+data_decoder.mojom.kChildrenKey = "children";
+
+data_decoder.mojom.kNamespacesKey = "namespaces";
+
+data_decoder.mojom.kElementType = "element";
+
+data_decoder.mojom.kTextNodeType = "text";
+
+data_decoder.mojom.kCDataNodeType = "cdata";
+
 // Enum: WhitespaceBehavior
 data_decoder.mojom.WhitespaceBehavior = {
   kIgnore: 0,
   kPreserveSignificant: 1,
 };
+data_decoder.mojom.WhitespaceBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Interface: XmlParser
 data_decoder.mojom.XmlParser = {};
@@ -78,10 +97,10 @@ data_decoder.mojom.XmlParser_Parse_ParamsSpec = {
       name: 'data_decoder.mojom.XmlParser.Parse_Params',
       packedSize: 24,
       fields: [
-        { name: 'xml', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'whitespace_behavior', packedOffset: 16, packedBitOffset: 0, type: data_decoder.mojom.WhitespaceBehaviorSpec, nullable: false },
+        { name: 'xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'whitespace_behavior', packedOffset: 8, packedBitOffset: 0, type: data_decoder.mojom.WhitespaceBehaviorSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -89,13 +108,13 @@ data_decoder.mojom.XmlParser_Parse_ParamsSpec = {
 data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'data_decoder.mojom.XmlParser.Parse_ResponseParams',
-      packedSize: 24,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

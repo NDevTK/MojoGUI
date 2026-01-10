@@ -16,15 +16,15 @@ blink.mojom.NavigationDownloadTypesSpec = {
       name: 'blink.mojom.NavigationDownloadTypes',
       packedSize: 16,
       fields: [
-        { name: 'view_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'interstitial', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'opener_cross_origin', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'ad_frame_no_gesture', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'ad_frame', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
-        { name: 'sandbox', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false },
-        { name: 'no_gesture', packedOffset: 8, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false },
+        { name: 'view_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'interstitial', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'opener_cross_origin', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ad_frame_no_gesture', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ad_frame', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'sandbox', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'no_gesture', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -36,10 +36,10 @@ blink.mojom.NavigationDownloadPolicySpec = {
       name: 'blink.mojom.NavigationDownloadPolicy',
       packedSize: 24,
       fields: [
-        { name: 'observed_types', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NavigationDownloadTypesSpec, nullable: false },
-        { name: 'disallowed_types', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NavigationDownloadTypesSpec, nullable: false },
+        { name: 'observed_types', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.NavigationDownloadTypesSpec, nullable: false, minVersion: 0 },
+        { name: 'disallowed_types', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NavigationDownloadTypesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

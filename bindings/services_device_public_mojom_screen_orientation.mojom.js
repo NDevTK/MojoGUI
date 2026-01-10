@@ -81,9 +81,9 @@ device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = {
       name: 'device.mojom.ScreenOrientation.LockOrientation_Params',
       packedSize: 16,
       fields: [
-        { name: 'orientation', packedOffset: 8, packedBitOffset: 0, type: device.mojom.ScreenOrientationLockTypeSpec, nullable: false },
+        { name: 'orientation', packedOffset: 0, packedBitOffset: 0, type: device.mojom.ScreenOrientationLockTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -91,12 +91,12 @@ device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = {
 device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.ScreenOrientation.LockOrientation_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.ScreenOrientationLockResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.ScreenOrientationLockResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -109,7 +109,7 @@ device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -183,7 +183,7 @@ device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -191,12 +191,12 @@ device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = {
 device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.ScreenOrientationListener.IsAutoRotateEnabledByUser_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

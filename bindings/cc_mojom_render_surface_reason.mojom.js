@@ -37,3 +37,4 @@ cc.mojom.RenderSurfaceReason = {
   k2DScaleTransformWithCompositedDescendants: 23,
   kTest: 24,
 };
+cc.mojom.RenderSurfaceReasonSpec = { $: mojo.internal.Enum() };

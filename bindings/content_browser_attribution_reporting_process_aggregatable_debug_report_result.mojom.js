@@ -20,3 +20,4 @@ attribution_reporting.mojom.ProcessAggregatableDebugReportResult = {
   kBothRateLimitsReached: 6,
   kInternalError: 7,
 };
+attribution_reporting.mojom.ProcessAggregatableDebugReportResultSpec = { $: mojo.internal.Enum() };

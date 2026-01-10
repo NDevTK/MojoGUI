@@ -16,9 +16,9 @@ bluetooth.mojom.UUIDSpec = {
       name: 'bluetooth.mojom.UUID',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

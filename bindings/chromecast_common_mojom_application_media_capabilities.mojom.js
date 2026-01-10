@@ -17,10 +17,10 @@ chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec = {
       name: 'chromecast.shell.mojom.BitstreamAudioCodecsInfo',
       packedSize: 16,
       fields: [
-        { name: 'codecs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'spatial_rendering', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'codecs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'spatial_rendering', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -88,9 +88,9 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstream
       name: 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver.OnSupportedBitstreamAudioCodecsChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, nullable: false },
+        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -163,9 +163,9 @@ chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec = {
       name: 'chromecast.shell.mojom.ApplicationMediaCapabilities.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

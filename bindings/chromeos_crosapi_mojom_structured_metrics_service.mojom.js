@@ -44,6 +44,15 @@ crosapi.mojom.StructuredMetricsServiceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  record(events) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      crosapi.mojom.StructuredMetricsService_Record_ParamsSpec,
+      null,
+      [events]);
+  }
+
 };
 
 crosapi.mojom.StructuredMetricsService.getRemote = function() {
@@ -54,6 +63,20 @@ crosapi.mojom.StructuredMetricsService.getRemote = function() {
     'crosapi.mojom.StructuredMetricsService',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Record
+crosapi.mojom.StructuredMetricsService_Record_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'crosapi.mojom.StructuredMetricsService.Record_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(metrics.structured.mojom.EventSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

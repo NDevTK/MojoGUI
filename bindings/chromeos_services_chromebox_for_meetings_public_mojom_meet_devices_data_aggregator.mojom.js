@@ -14,6 +14,7 @@ ash.cfm.mojom = ash.cfm.mojom || {};
 ash.cfm.mojom.FilterType = {
   CHANGE: 0,
 };
+ash.cfm.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DataFilter
 ash.cfm.mojom.DataFilterSpec = {
@@ -22,9 +23,9 @@ ash.cfm.mojom.DataFilterSpec = {
       name: 'ash.cfm.mojom.DataFilter',
       packedSize: 16,
       fields: [
-        { name: 'REGEX', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'REGEX', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -64,6 +65,15 @@ ash.cfm.mojom.DataWatchDogRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  onNotify(data) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec,
+      null,
+      [data]);
+  }
+
 };
 
 ash.cfm.mojom.DataWatchDog.getRemote = function() {
@@ -74,6 +84,20 @@ ash.cfm.mojom.DataWatchDog.getRemote = function() {
     'ash.cfm.mojom.DataWatchDog',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for OnNotify
+ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.DataWatchDog.OnNotify_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -116,6 +140,33 @@ ash.cfm.mojom.DataSourceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  fetch() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cfm.mojom.DataSource_Fetch_ParamsSpec,
+      ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec,
+      []);
+  }
+
+  addWatchDog(filter, watch_dog) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec,
+      ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec,
+      [filter, watch_dog]);
+  }
+
+  flush() {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.cfm.mojom.DataSource_Flush_ParamsSpec,
+      null,
+      []);
+  }
+
 };
 
 ash.cfm.mojom.DataSource.getRemote = function() {
@@ -126,6 +177,73 @@ ash.cfm.mojom.DataSource.getRemote = function() {
     'ash.cfm.mojom.DataSource',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Fetch
+ash.cfm.mojom.DataSource_Fetch_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.DataSource.Fetch_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'serialized_payloads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for AddWatchDog
+ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.DataSource.AddWatchDog_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.DataFilterSpec, nullable: false, minVersion: 0 },
+        { name: 'watch_dog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Flush
+ash.cfm.mojom.DataSource_Flush_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.DataSource.Flush_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -168,6 +286,33 @@ ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  getDataSourceNames() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec,
+      ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec,
+      []);
+  }
+
+  addDataSource(source_name, data_source) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec,
+      ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec,
+      [source_name, data_source]);
+  }
+
+  addWatchDog(source_name, filter, watch_dog) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec,
+      ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec,
+      [source_name, filter, watch_dog]);
+  }
+
 };
 
 ash.cfm.mojom.DataAggregator.getRemote = function() {
@@ -178,6 +323,89 @@ ash.cfm.mojom.DataAggregator.getRemote = function() {
     'ash.cfm.mojom.DataAggregator',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GetDataSourceNames
+ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.DataAggregator.GetDataSourceNames_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'data_source_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for AddDataSource
+ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.DataAggregator.AddDataSource_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'source_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for AddWatchDog
+ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.cfm.mojom.DataAggregator.AddWatchDog_Params',
+      packedSize: 32,
+      fields: [
+        { name: 'source_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.DataFilterSpec, nullable: false, minVersion: 0 },
+        { name: 'watch_dog', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 32}]
+    }
+  }
+};
+
+ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

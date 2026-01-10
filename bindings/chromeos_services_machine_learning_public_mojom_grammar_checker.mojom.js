@@ -15,6 +15,7 @@ chromeos.machine_learning.mojom.Status = {
   OK: 0,
   ERROR: 1,
 };
+chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: GrammarCheckerQuery
 chromeos.machine_learning.mojom.GrammarCheckerQuerySpec = {
@@ -23,10 +24,10 @@ chromeos.machine_learning.mojom.GrammarCheckerQuerySpec = {
       name: 'chromeos.machine_learning.mojom.GrammarCheckerQuery',
       packedSize: 24,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -38,11 +39,11 @@ chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec = {
       name: 'chromeos.machine_learning.mojom.GrammarCorrectionFragment',
       packedSize: 24,
       fields: [
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'length', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'replacement', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'replacement', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -54,11 +55,11 @@ chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec = {
       name: 'chromeos.machine_learning.mojom.GrammarCheckerCandidate',
       packedSize: 32,
       fields: [
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'fragments', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'fragments', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -70,9 +71,9 @@ chromeos.machine_learning.mojom.GrammarCheckerResultSpec = {
       name: 'chromeos.machine_learning.mojom.GrammarCheckerResult',
       packedSize: 16,
       fields: [
-        { name: 'OK', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'OK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -112,6 +113,15 @@ chromeos.machine_learning.mojom.GrammarCheckerRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  check(query) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec,
+      chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec,
+      [query]);
+  }
+
 };
 
 chromeos.machine_learning.mojom.GrammarChecker.getRemote = function() {
@@ -122,6 +132,33 @@ chromeos.machine_learning.mojom.GrammarChecker.getRemote = function() {
     'chromeos.machine_learning.mojom.GrammarChecker',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Check
+chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.machine_learning.mojom.GrammarChecker.Check_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.GrammarCheckerQuerySpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.GrammarCheckerResultSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

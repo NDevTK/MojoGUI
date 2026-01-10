@@ -15,3 +15,4 @@ network.mojom.NetworkIsolationPartition = {
   kProtectedAudienceSellerWorklet: 1,
   kFedCmUncredentialedRequests: 2,
 };
+network.mojom.NetworkIsolationPartitionSpec = { $: mojo.internal.Enum() };

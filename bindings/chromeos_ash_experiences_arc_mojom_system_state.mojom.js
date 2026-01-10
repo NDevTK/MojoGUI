@@ -16,13 +16,13 @@ arc.mojom.SystemAppRunningStateSpec = {
       name: 'arc.mojom.SystemAppRunningState',
       packedSize: 16,
       fields: [
-        { name: 'top_layer_app', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'foreground_app', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'background_app', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'performance_sensitive_app', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'background_service', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'top_layer_app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'foreground_app', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'background_app', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'performance_sensitive_app', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'background_service', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -62,6 +62,15 @@ arc.mojom.SystemStateHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  updateAppRunningState(state) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec,
+      null,
+      [state]);
+  }
+
 };
 
 arc.mojom.SystemStateHost.getRemote = function() {
@@ -72,6 +81,20 @@ arc.mojom.SystemStateHost.getRemote = function() {
     'arc.mojom.SystemStateHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for UpdateAppRunningState
+arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SystemStateHost.UpdateAppRunningState_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SystemAppRunningStateSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -114,6 +137,15 @@ arc.mojom.SystemStateInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.SystemStateInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.SystemStateInstance.getRemote = function() {
@@ -124,6 +156,20 @@ arc.mojom.SystemStateInstance.getRemote = function() {
     'arc.mojom.SystemStateInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.SystemStateInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.SystemStateInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

@@ -17,3 +17,4 @@ display.mojom.ScreenOrientation = {
   kLandscapePrimary: 3,
   kLandscapeSecondary: 4,
 };
+display.mojom.ScreenOrientationSpec = { $: mojo.internal.Enum() };

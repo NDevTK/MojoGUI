@@ -100,7 +100,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -108,12 +108,12 @@ blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = {
 blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WorkerContentSettingsProxy.AllowIndexedDB_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -126,7 +126,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -134,12 +134,12 @@ blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = {
 blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WorkerContentSettingsProxy.AllowCacheStorage_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -152,7 +152,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -160,12 +160,12 @@ blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = {
 blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WorkerContentSettingsProxy.AllowWebLocks_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -178,7 +178,7 @@ blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -186,12 +186,12 @@ blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = 
 blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WorkerContentSettingsProxy.RequestFileSystemAccessSync_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -14,6 +14,7 @@ storage.mojom.ServiceWorkerStorageStorageKeyState = {
   kKeep: 0,
   kDelete: 1,
 };
+storage.mojom.ServiceWorkerStorageStorageKeyStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerLiveVersionInfo
 storage.mojom.ServiceWorkerLiveVersionInfoSpec = {
@@ -22,11 +23,11 @@ storage.mojom.ServiceWorkerLiveVersionInfoSpec = {
       name: 'storage.mojom.ServiceWorkerLiveVersionInfo',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'purgeable_resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'reference', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'purgeable_resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
+        { name: 'reference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -38,11 +39,11 @@ storage.mojom.ServiceWorkerFindRegistrationResultSpec = {
       name: 'storage.mojom.ServiceWorkerFindRegistrationResult',
       packedSize: 32,
       fields: [
-        { name: 'version_reference', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'registration', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false },
-        { name: 'resources', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'version_reference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerResourceRecordSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -54,11 +55,11 @@ storage.mojom.ServiceWorkerUserDataSpec = {
       name: 'storage.mojom.ServiceWorkerUserData',
       packedSize: 32,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -197,7 +198,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -205,14 +206,14 @@ storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec = {
 storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerResourceReader.ReadResponseHead_ResponseParams',
-      packedSize: 32,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 40,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'response_head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: true },
-        { name: 'metadata', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'response_head', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: true, minVersion: 0 },
+        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -224,9 +225,9 @@ storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerResourceReader.PrepareReadData_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -234,12 +235,12 @@ storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec = {
 storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerResourceReader.PrepareReadData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -252,7 +253,7 @@ storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -260,12 +261,12 @@ storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec = {
 storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerResourceReader.ReadData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -347,9 +348,9 @@ storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerResourceWriter.WriteResponseHead_Params',
       packedSize: 16,
       fields: [
-        { name: 'response_head', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false },
+        { name: 'response_head', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -357,12 +358,12 @@ storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec = {
 storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerResourceWriter.WriteResponseHead_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -372,11 +373,11 @@ storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceWriter.WriteData_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -384,12 +385,12 @@ storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec = {
 storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerResourceWriter.WriteData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -460,11 +461,11 @@ storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.ServiceWorkerResourceMetadataWriter.WriteMetadata_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -472,12 +473,12 @@ storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec = {
 storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerResourceMetadataWriter.WriteMetadata_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -929,7 +930,7 @@ storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -942,7 +943,7 @@ storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -950,12 +951,12 @@ storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.Delete_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -967,9 +968,9 @@ storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.Recover_Params',
       packedSize: 16,
       fields: [
-        { name: 'versions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'versions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerLiveVersionInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -982,7 +983,7 @@ storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec = 
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -990,12 +991,12 @@ storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec = 
 storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetRegisteredStorageKeys_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.StorageKeySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1007,10 +1008,10 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpe
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForClientUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'client_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1018,14 +1019,14 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpe
 storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForClientUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
-        { name: 'scopes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true, minVersion: 0 },
+        { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1037,10 +1038,10 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec = 
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForScope_Params',
       packedSize: 24,
       fields: [
-        { name: 'scope', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'scope', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1048,13 +1049,13 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec = 
 storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForScope_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1066,10 +1067,10 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForId_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: true },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1077,13 +1078,13 @@ storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.FindRegistrationForId_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1095,9 +1096,9 @@ storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSp
       name: 'storage.mojom.ServiceWorkerStorageControl.GetRegistrationsForStorageKey_Params',
       packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1105,13 +1106,13 @@ storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSp
 storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetRegistrationsForStorageKey_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'registrations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerFindRegistrationResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1123,9 +1124,9 @@ storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUsageForStorageKey_Params',
       packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1133,13 +1134,13 @@ storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetUsageForStorageKey_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'usage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1152,7 +1153,7 @@ storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1160,13 +1161,13 @@ storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSp
 storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetAllRegistrationsDeprecated_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'registrations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerRegistrationDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1178,10 +1179,10 @@ storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Params
       name: 'storage.mojom.ServiceWorkerStorageControl.GetFakeRegistrationForClientUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'client_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'client_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1189,14 +1190,14 @@ storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Params
 storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetFakeRegistrationForClientUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true },
-        { name: 'scopes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerFindRegistrationResultSpec, nullable: true, minVersion: 0 },
+        { name: 'scopes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1208,10 +1209,10 @@ storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreRegistration_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false },
-        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerResourceRecordSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1219,13 +1220,13 @@ storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.StoreRegistration_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'deleted_resources_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'deleted_resources_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1237,10 +1238,10 @@ storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.DeleteRegistration_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1248,14 +1249,14 @@ storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.DeleteRegistration_ResponseParams',
-      packedSize: 32,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'deleted_resources_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'storage_key_state', packedOffset: 24, packedBitOffset: 0, type: storage.mojom.ServiceWorkerStorageStorageKeyStateSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'deleted_resources_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'storage_key_state', packedOffset: 4, packedBitOffset: 0, type: storage.mojom.ServiceWorkerStorageStorageKeyStateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1267,10 +1268,10 @@ storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateToActiveState_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1278,12 +1279,12 @@ storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.UpdateToActiveState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1295,11 +1296,11 @@ storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec =
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateLastUpdateCheckTime_Params',
       packedSize: 32,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
-        { name: 'last_update_check_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'last_update_check_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1307,12 +1308,12 @@ storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec =
 storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.UpdateLastUpdateCheckTime_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1324,11 +1325,11 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsS
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadEnabled_Params',
       packedSize: 32,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
-        { name: 'enable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'enable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1336,12 +1337,12 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsS
 storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadEnabled_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1353,11 +1354,11 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSp
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadHeader_Params',
       packedSize: 32,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
-        { name: 'value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1365,12 +1366,12 @@ storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSp
 storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.UpdateNavigationPreloadHeader_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1382,11 +1383,11 @@ storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateFetchHandlerType_Params',
       packedSize: 32,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerTypeSpec, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1394,12 +1395,12 @@ storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.UpdateFetchHandlerType_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1411,11 +1412,11 @@ storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSp
       name: 'storage.mojom.ServiceWorkerStorageControl.UpdateResourceSha256Checksums_Params',
       packedSize: 32,
       fields: [
-        { name: 'registratation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
-        { name: 'updated_sha256_checksums', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'registratation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'updated_sha256_checksums', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int64, mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1423,12 +1424,12 @@ storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSp
 storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.UpdateResourceSha256Checksums_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1441,7 +1442,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1449,12 +1450,12 @@ storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetNewRegistrationId_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1467,7 +1468,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1475,13 +1476,13 @@ storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetNewVersionId_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'version_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'version_reference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'version_reference', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1494,7 +1495,7 @@ storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1502,12 +1503,12 @@ storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetNewResourceId_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1519,10 +1520,10 @@ storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.CreateResourceReader_Params',
       packedSize: 24,
       fields: [
-        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'reader', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'reader', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1534,10 +1535,10 @@ storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.CreateResourceWriter_Params',
       packedSize: 24,
       fields: [
-        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'writer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1549,10 +1550,10 @@ storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpe
       name: 'storage.mojom.ServiceWorkerStorageControl.CreateResourceMetadataWriter_Params',
       packedSize: 24,
       fields: [
-        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'writer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1564,9 +1565,9 @@ storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec 
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreUncommittedResourceId_Params',
       packedSize: 16,
       fields: [
-        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1574,12 +1575,12 @@ storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec 
 storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.StoreUncommittedResourceId_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1591,9 +1592,9 @@ storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec = 
       name: 'storage.mojom.ServiceWorkerStorageControl.DoomUncommittedResources_Params',
       packedSize: 16,
       fields: [
-        { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'resource_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1601,12 +1602,12 @@ storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec = 
 storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.DoomUncommittedResources_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1618,10 +1619,10 @@ storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserData_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1629,13 +1630,13 @@ storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetUserData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'values', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1647,11 +1648,11 @@ storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.StoreUserData_Params',
       packedSize: 32,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false },
-        { name: 'user_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'user_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerUserDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1659,12 +1660,12 @@ storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.StoreUserData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1676,10 +1677,10 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserData_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1687,12 +1688,12 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserData_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1704,10 +1705,10 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataByKeyPrefix_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key_prefix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1715,13 +1716,13 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataByKeyPrefix_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'values', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1733,10 +1734,10 @@ storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSp
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserKeysAndDataByKeyPrefix_Params',
       packedSize: 24,
       fields: [
-        { name: 'registration_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key_prefix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1744,13 +1745,13 @@ storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSp
 storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetUserKeysAndDataByKeyPrefix_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'user_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'user_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1762,10 +1763,10 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec 
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataByKeyPrefixes_Params',
       packedSize: 24,
       fields: [
-        { name: 'registratation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'key_prefixes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'registratation_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'key_prefixes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1773,12 +1774,12 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec 
 storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataByKeyPrefixes_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1790,9 +1791,9 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsS
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrations_Params',
       packedSize: 16,
       fields: [
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1800,13 +1801,13 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsS
 storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrations_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'values', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerUserDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1818,9 +1819,9 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPre
       name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrationsByKeyPrefix_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1828,13 +1829,13 @@ storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPre
 storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetUserDataForAllRegistrationsByKeyPrefix_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'values', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerUserDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1846,9 +1847,9 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyP
       name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataForAllRegistrationsByKeyPrefix_Params',
       packedSize: 16,
       fields: [
-        { name: 'key_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'key_prefix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1856,12 +1857,12 @@ storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyP
 storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1874,7 +1875,7 @@ storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1886,9 +1887,9 @@ storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec = {
       name: 'storage.mojom.ServiceWorkerStorageControl.ApplyPolicyUpdates_Params',
       packedSize: 16,
       fields: [
-        { name: 'policy_updates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1896,12 +1897,12 @@ storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec = {
 storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.ApplyPolicyUpdates_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1914,7 +1915,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1922,13 +1923,13 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpe
 storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgingResourceIdsForTest_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'resource_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1940,9 +1941,9 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionFor
       name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgingResourceIdsForLiveVersionForTest_Params',
       packedSize: 16,
       fields: [
-        { name: 'version_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -1950,13 +1951,13 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionFor
 storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgingResourceIdsForLiveVersionForTest_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'resource_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1969,7 +1970,7 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -1977,13 +1978,13 @@ storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsS
 storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetPurgeableResourceIdsForTest_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'resource_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1996,7 +1997,7 @@ storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -2004,13 +2005,13 @@ storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_Param
 storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'storage.mojom.ServiceWorkerStorageControl.GetUncommittedResourceIdsForTest_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false },
-        { name: 'resource_ids', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerDatabaseStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'resource_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -2023,7 +2024,7 @@ storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_Para
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

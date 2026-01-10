@@ -45,6 +45,15 @@ chromeos.sensors.mojom.SensorHalServerRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  createChannel(sensor_service_request) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec,
+      null,
+      [sensor_service_request]);
+  }
+
 };
 
 chromeos.sensors.mojom.SensorHalServer.getRemote = function() {
@@ -55,6 +64,20 @@ chromeos.sensors.mojom.SensorHalServer.getRemote = function() {
     'chromeos.sensors.mojom.SensorHalServer',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for CreateChannel
+chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.sensors.mojom.SensorHalServer.CreateChannel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'sensor_service_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -97,6 +120,15 @@ chromeos.sensors.mojom.SensorHalClientRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  setUpChannel(sensor_service_ptr) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec,
+      null,
+      [sensor_service_ptr]);
+  }
+
 };
 
 chromeos.sensors.mojom.SensorHalClient.getRemote = function() {
@@ -107,6 +139,20 @@ chromeos.sensors.mojom.SensorHalClient.getRemote = function() {
     'chromeos.sensors.mojom.SensorHalClient',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SetUpChannel
+chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'chromeos.sensors.mojom.SensorHalClient.SetUpChannel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'sensor_service_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

@@ -14,3 +14,4 @@ blink.mojom.AncestorChainBit = {
   kSameSite: 0,
   kCrossSite: 1,
 };
+blink.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };

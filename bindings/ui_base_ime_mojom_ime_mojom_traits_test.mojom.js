@@ -72,9 +72,9 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
       name: 'ui.mojom.IMEStructTraitsTest.EchoTextInputType_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
 ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ui.mojom.IMEStructTraitsTest.EchoTextInputType_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

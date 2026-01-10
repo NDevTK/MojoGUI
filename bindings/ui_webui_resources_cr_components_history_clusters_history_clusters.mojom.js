@@ -16,11 +16,13 @@ history_clusters.mojom.ClusterAction = {
   kRelatedSearchClicked: 2,
   kVisitClicked: 3,
 };
+history_clusters.mojom.ClusterActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: RelatedSearchAction
 history_clusters.mojom.RelatedSearchAction = {
   kClicked: 0,
 };
+history_clusters.mojom.RelatedSearchActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: VisitAction
 history_clusters.mojom.VisitAction = {
@@ -28,12 +30,14 @@ history_clusters.mojom.VisitAction = {
   kHidden: 1,
   kDeleted: 2,
 };
+history_clusters.mojom.VisitActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: VisitType
 history_clusters.mojom.VisitType = {
   kSRP: 0,
   kNonSRP: 1,
 };
+history_clusters.mojom.VisitTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: QueryResult
 history_clusters.mojom.QueryResultSpec = {
@@ -42,12 +46,12 @@ history_clusters.mojom.QueryResultSpec = {
       name: 'history_clusters.mojom.QueryResult',
       packedSize: 32,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'clusters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'can_load_more', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_continuation', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'clusters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.ClusterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'can_load_more', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_continuation', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -250,10 +254,10 @@ history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.OpenHistoryUrl_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'click_modifiers', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'click_modifiers', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ClickModifiersSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -265,9 +269,9 @@ history_clusters.mojom.PageHandler_SetPage_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.SetPage_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -279,10 +283,10 @@ history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.ShowContextMenuForSearchbox_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -294,10 +298,10 @@ history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.ShowContextMenuForURL_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -310,7 +314,7 @@ history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -322,9 +326,9 @@ history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.ToggleVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -332,12 +336,12 @@ history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec = {
 history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'history_clusters.mojom.PageHandler.ToggleVisibility_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -349,11 +353,11 @@ history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.StartQueryClusters_Params',
       packedSize: 32,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'begin_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
-        { name: 'recluster', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'begin_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+        { name: 'recluster', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -365,9 +369,9 @@ history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.LoadMoreClusters_Params',
       packedSize: 16,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -379,9 +383,9 @@ history_clusters.mojom.PageHandler_HideVisits_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.HideVisits_Params',
       packedSize: 16,
       fields: [
-        { name: 'visits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -389,12 +393,12 @@ history_clusters.mojom.PageHandler_HideVisits_ParamsSpec = {
 history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'history_clusters.mojom.PageHandler.HideVisits_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -406,9 +410,9 @@ history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.RemoveVisits_Params',
       packedSize: 16,
       fields: [
-        { name: 'visits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -416,12 +420,12 @@ history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec = {
 history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'history_clusters.mojom.PageHandler.RemoveVisits_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -433,10 +437,10 @@ history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.RemoveVisitByUrlAndTime_Params',
       packedSize: 24,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -444,12 +448,12 @@ history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec = {
 history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'history_clusters.mojom.PageHandler.RemoveVisitByUrlAndTime_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -461,10 +465,10 @@ history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.OpenVisitUrlsInTabGroup_Params',
       packedSize: 24,
       fields: [
-        { name: 'visits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'tab_group_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
+        { name: 'tab_group_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -474,13 +478,13 @@ history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.PageHandler.RecordVisitAction_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'visit_action', packedOffset: 8, packedBitOffset: 0, type: history_clusters.mojom.VisitActionSpec, nullable: false },
-        { name: 'visit_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'visit_type', packedOffset: 24, packedBitOffset: 0, type: history_clusters.mojom.VisitTypeSpec, nullable: false },
+        { name: 'visit_action', packedOffset: 0, packedBitOffset: 0, type: history_clusters.mojom.VisitActionSpec, nullable: false, minVersion: 0 },
+        { name: 'visit_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'visit_type', packedOffset: 8, packedBitOffset: 0, type: history_clusters.mojom.VisitTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -490,12 +494,12 @@ history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.PageHandler.RecordRelatedSearchAction_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: history_clusters.mojom.RelatedSearchActionSpec, nullable: false },
-        { name: 'visit_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: history_clusters.mojom.RelatedSearchActionSpec, nullable: false, minVersion: 0 },
+        { name: 'visit_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -505,12 +509,12 @@ history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_clusters.mojom.PageHandler.RecordClusterAction_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'cluster_action', packedOffset: 8, packedBitOffset: 0, type: history_clusters.mojom.ClusterActionSpec, nullable: false },
-        { name: 'cluster_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'cluster_action', packedOffset: 0, packedBitOffset: 0, type: history_clusters.mojom.ClusterActionSpec, nullable: false, minVersion: 0 },
+        { name: 'cluster_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -522,9 +526,9 @@ history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec = {
       name: 'history_clusters.mojom.PageHandler.RecordToggledVisibility_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -642,9 +646,9 @@ history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec = {
       name: 'history_clusters.mojom.Page.OnClustersQueryResult_Params',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: history_clusters.mojom.QueryResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: history_clusters.mojom.QueryResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -656,10 +660,10 @@ history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec = {
       name: 'history_clusters.mojom.Page.OnClusterImageUpdated_Params',
       packedSize: 24,
       fields: [
-        { name: 'cluster_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'image_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'cluster_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'image_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -671,9 +675,9 @@ history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec = {
       name: 'history_clusters.mojom.Page.OnVisitsHidden_Params',
       packedSize: 16,
       fields: [
-        { name: 'hidden_visits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'hidden_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -685,9 +689,9 @@ history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec = {
       name: 'history_clusters.mojom.Page.OnVisitsRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'removed_visits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'removed_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(history_clusters.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -700,7 +704,7 @@ history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -712,9 +716,9 @@ history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec = {
       name: 'history_clusters.mojom.Page.OnQueryChangedByUser_Params',
       packedSize: 16,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

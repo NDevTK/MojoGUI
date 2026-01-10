@@ -81,9 +81,9 @@ device.mojom.VibrationManager_Vibrate_ParamsSpec = {
       name: 'device.mojom.VibrationManager.Vibrate_Params',
       packedSize: 16,
       fields: [
-        { name: 'milliseconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'milliseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +96,7 @@ device.mojom.VibrationManager_Cancel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -170,7 +170,7 @@ device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

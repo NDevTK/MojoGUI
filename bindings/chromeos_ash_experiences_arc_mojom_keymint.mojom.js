@@ -10,12 +10,19 @@ arc.mojom = arc.mojom || {};
 arc.mojom.keymint = arc.mojom.keymint || {};
 
 
+arc.mojom.keymint.shared_secret_key_agreement_label = "KeymasterSharedMac";
+
+arc.mojom.keymint.shared_secret_key_check_label = "Keymaster HMAC Verification";
+
+arc.mojom.keymint.secure_clock_time_stamp_mac_label = "Auth Verification";
+
 // Enum: KeyFormat
 arc.mojom.keymint.KeyFormat = {
   X509: 0,
   PKCS8: 1,
   RAW: 2,
 };
+arc.mojom.keymint.KeyFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: Algorithm
 arc.mojom.keymint.Algorithm = {
@@ -25,6 +32,7 @@ arc.mojom.keymint.Algorithm = {
   TRIPLE_DES: 3,
   HMAC: 4,
 };
+arc.mojom.keymint.AlgorithmSpec = { $: mojo.internal.Enum() };
 
 // Enum: BlockMode
 arc.mojom.keymint.BlockMode = {
@@ -33,6 +41,7 @@ arc.mojom.keymint.BlockMode = {
   CTR: 2,
   GCM: 3,
 };
+arc.mojom.keymint.BlockModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PaddingMode
 arc.mojom.keymint.PaddingMode = {
@@ -43,6 +52,7 @@ arc.mojom.keymint.PaddingMode = {
   RSA_PKCS1_1_5_SIGN: 4,
   PKCS7: 5,
 };
+arc.mojom.keymint.PaddingModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Digest
 arc.mojom.keymint.Digest = {
@@ -54,6 +64,7 @@ arc.mojom.keymint.Digest = {
   SHA_2_384: 5,
   SHA_2_512: 6,
 };
+arc.mojom.keymint.DigestSpec = { $: mojo.internal.Enum() };
 
 // Enum: EcCurve
 arc.mojom.keymint.EcCurve = {
@@ -63,6 +74,7 @@ arc.mojom.keymint.EcCurve = {
   P_521: 3,
   CURVE_25519: 4,
 };
+arc.mojom.keymint.EcCurveSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeyOrigin
 arc.mojom.keymint.KeyOrigin = {
@@ -72,6 +84,7 @@ arc.mojom.keymint.KeyOrigin = {
   RESERVED: 3,
   SECURELY_IMPORTED: 4,
 };
+arc.mojom.keymint.KeyOriginSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeyPurpose
 arc.mojom.keymint.KeyPurpose = {
@@ -83,6 +96,7 @@ arc.mojom.keymint.KeyPurpose = {
   AGREE_KEY: 5,
   ATTEST_KEY: 6,
 };
+arc.mojom.keymint.KeyPurposeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HardwareAuthenticatorType
 arc.mojom.keymint.HardwareAuthenticatorType = {
@@ -91,6 +105,7 @@ arc.mojom.keymint.HardwareAuthenticatorType = {
   FINGERPRINT: 2,
   ANY: 3,
 };
+arc.mojom.keymint.HardwareAuthenticatorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecurityLevel
 arc.mojom.keymint.SecurityLevel = {
@@ -99,6 +114,7 @@ arc.mojom.keymint.SecurityLevel = {
   STRONGBOX: 2,
   KEYSTORE: 3,
 };
+arc.mojom.keymint.SecurityLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: Tag
 arc.mojom.keymint.Tag = {
@@ -167,6 +183,185 @@ arc.mojom.keymint.Tag = {
   CERTIFICATE_NOT_AFTER: 62,
   MAX_BOOT_LEVEL: 63,
 };
+arc.mojom.keymint.TagSpec = { $: mojo.internal.Enum() };
+
+// Union: KeyParameterValue
+arc.mojom.keymint.KeyParameterValueSpec = { $: mojo.internal.Union(
+    'arc.mojom.keymint.KeyParameterValue', {
+      'invalid': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint32,
+      }},
+      'algorithm': {
+        'ordinal': 1,
+        'type': arc.mojom.keymint.AlgorithmSpec,
+      }},
+      'block_mode': {
+        'ordinal': 2,
+        'type': arc.mojom.keymint.BlockModeSpec,
+      }},
+      'padding_mode': {
+        'ordinal': 3,
+        'type': arc.mojom.keymint.PaddingModeSpec,
+      }},
+      'digest': {
+        'ordinal': 4,
+        'type': arc.mojom.keymint.DigestSpec,
+      }},
+      'ec_curve': {
+        'ordinal': 5,
+        'type': arc.mojom.keymint.EcCurveSpec,
+      }},
+      'origin': {
+        'ordinal': 6,
+        'type': arc.mojom.keymint.KeyOriginSpec,
+      }},
+      'key_purpose': {
+        'ordinal': 7,
+        'type': arc.mojom.keymint.KeyPurposeSpec,
+      }},
+      'hardware_authenticator_type': {
+        'ordinal': 8,
+        'type': arc.mojom.keymint.HardwareAuthenticatorTypeSpec,
+      }},
+      'security_level': {
+        'ordinal': 9,
+        'type': arc.mojom.keymint.SecurityLevelSpec,
+      }},
+      'bool_value': {
+        'ordinal': 10,
+        'type': mojo.internal.Bool,
+      }},
+      'integer': {
+        'ordinal': 11,
+        'type': mojo.internal.Uint32,
+      }},
+      'long_integer': {
+        'ordinal': 12,
+        'type': mojo.internal.Uint64,
+      }},
+      'date_time': {
+        'ordinal': 13,
+        'type': mojo.internal.Uint64,
+      }},
+      'blob': {
+        'ordinal': 14,
+        'type': mojo.internal.Array(mojo.internal.Uint8, false),
+      }},
+    })
+};
+
+// Union: GenerateEcdsaP256KeyPairResultOrError
+arc.mojom.keymint.GenerateEcdsaP256KeyPairResultOrErrorSpec = { $: mojo.internal.Union(
+    'arc.mojom.keymint.GenerateEcdsaP256KeyPairResultOrError', {
+      'key_pair_result': {
+        'ordinal': 0,
+        'type': arc.mojom.keymint.GenerateEcdsaP256KeyPairResultSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+      }},
+    })
+};
+
+// Union: GenerateCertificateRequestResultOrError
+arc.mojom.keymint.GenerateCertificateRequestResultOrErrorSpec = { $: mojo.internal.Union(
+    'arc.mojom.keymint.GenerateCertificateRequestResultOrError', {
+      'certificate_request_result': {
+        'ordinal': 0,
+        'type': arc.mojom.keymint.GenerateCertificateRequestResultSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+      }},
+    })
+};
+
+// Union: KeyCharacteristicsArrayOrError
+arc.mojom.keymint.KeyCharacteristicsArrayOrErrorSpec = { $: mojo.internal.Union(
+    'arc.mojom.keymint.KeyCharacteristicsArrayOrError', {
+      'key_characteristics': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(arc.mojom.keymint.KeyCharacteristicsSpec, false),
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+      }},
+    })
+};
+
+// Union: BeginResultOrError
+arc.mojom.keymint.BeginResultOrErrorSpec = { $: mojo.internal.Union(
+    'arc.mojom.keymint.BeginResultOrError', {
+      'begin_result': {
+        'ordinal': 0,
+        'type': arc.mojom.keymint.BeginResultSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+      }},
+    })
+};
+
+// Union: KeyCreationResultOrError
+arc.mojom.keymint.KeyCreationResultOrErrorSpec = { $: mojo.internal.Union(
+    'arc.mojom.keymint.KeyCreationResultOrError', {
+      'key_creation_result': {
+        'ordinal': 0,
+        'type': arc.mojom.keymint.KeyCreationResultSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+      }},
+    })
+};
+
+// Union: ByteArrayOrError
+arc.mojom.keymint.ByteArrayOrErrorSpec = { $: mojo.internal.Union(
+    'arc.mojom.keymint.ByteArrayOrError', {
+      'output': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(mojo.internal.Uint8, false),
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+      }},
+    })
+};
+
+// Union: SharedSecretParametersOrError
+arc.mojom.keymint.SharedSecretParametersOrErrorSpec = { $: mojo.internal.Union(
+    'arc.mojom.keymint.SharedSecretParametersOrError', {
+      'secret_parameters': {
+        'ordinal': 0,
+        'type': arc.mojom.keymint.SharedSecretParametersSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+      }},
+    })
+};
+
+// Union: TimeStampTokenOrError
+arc.mojom.keymint.TimeStampTokenOrErrorSpec = { $: mojo.internal.Union(
+    'arc.mojom.keymint.TimeStampTokenOrError', {
+      'timestamp_token': {
+        'ordinal': 0,
+        'type': arc.mojom.keymint.TimeStampTokenSpec,
+      }},
+      'error': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+      }},
+    })
+};
 
 // Struct: AttestationKey
 arc.mojom.keymint.AttestationKeySpec = {
@@ -175,11 +370,11 @@ arc.mojom.keymint.AttestationKeySpec = {
       name: 'arc.mojom.keymint.AttestationKey',
       packedSize: 32,
       fields: [
-        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'attest_key_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'issuer_subject_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'attest_key_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'issuer_subject_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -189,12 +384,12 @@ arc.mojom.keymint.KeyParameterSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.keymint.KeyParameter',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'tag', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.TagSpec, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.KeyParameterValueSpec, nullable: false },
+        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.TagSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.KeyParameterValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -206,10 +401,10 @@ arc.mojom.keymint.SharedSecretParametersSpec = {
       name: 'arc.mojom.keymint.SharedSecretParameters',
       packedSize: 24,
       fields: [
-        { name: 'seed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'nonce', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'seed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -221,11 +416,11 @@ arc.mojom.keymint.KeyCreationResultSpec = {
       name: 'arc.mojom.keymint.KeyCreationResult',
       packedSize: 32,
       fields: [
-        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_characteristics', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'certificate_chain', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'key_characteristics', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyCharacteristicsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'certificate_chain', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.CertificateSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -237,9 +432,9 @@ arc.mojom.keymint.CertificateSpec = {
       name: 'arc.mojom.keymint.Certificate',
       packedSize: 16,
       fields: [
-        { name: 'encoded_certificate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'encoded_certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -251,10 +446,10 @@ arc.mojom.keymint.KeyCharacteristicsSpec = {
       name: 'arc.mojom.keymint.KeyCharacteristics',
       packedSize: 24,
       fields: [
-        { name: 'security_level', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.SecurityLevelSpec, nullable: false },
-        { name: 'authorizations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'security_level', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.SecurityLevelSpec, nullable: false, minVersion: 0 },
+        { name: 'authorizations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -266,10 +461,10 @@ arc.mojom.keymint.GenerateKeyRequestSpec = {
       name: 'arc.mojom.keymint.GenerateKeyRequest',
       packedSize: 24,
       fields: [
-        { name: 'key_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'attestation_key', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.AttestationKeySpec, nullable: true },
+        { name: 'key_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'attestation_key', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.AttestationKeySpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -281,12 +476,12 @@ arc.mojom.keymint.ImportKeyRequestSpec = {
       name: 'arc.mojom.keymint.ImportKeyRequest',
       packedSize: 40,
       fields: [
-        { name: 'key_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'key_format', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.KeyFormatSpec, nullable: false },
-        { name: 'key_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'attestation_key', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.keymint.AttestationKeySpec, nullable: true },
+        { name: 'key_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'key_format', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.KeyFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'attestation_key', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.AttestationKeySpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -298,14 +493,14 @@ arc.mojom.keymint.ImportWrappedKeyRequestSpec = {
       name: 'arc.mojom.keymint.ImportWrappedKeyRequest',
       packedSize: 56,
       fields: [
-        { name: 'wrapped_key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'wrapping_key_blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'masking_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'unwrapping_params', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'password_sid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'biometric_sid', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'wrapped_key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'wrapping_key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'masking_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'unwrapping_params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'password_sid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'biometric_sid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -317,10 +512,10 @@ arc.mojom.keymint.UpgradeKeyRequestSpec = {
       name: 'arc.mojom.keymint.UpgradeKeyRequest',
       packedSize: 24,
       fields: [
-        { name: 'key_blob_to_upgrade', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'upgrade_params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob_to_upgrade', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'upgrade_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -332,12 +527,12 @@ arc.mojom.keymint.BeginRequestSpec = {
       name: 'arc.mojom.keymint.BeginRequest',
       packedSize: 40,
       fields: [
-        { name: 'key_purpose', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.KeyPurposeSpec, nullable: false },
-        { name: 'key_blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'auth_token', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.keymint.HardwareAuthTokenSpec, nullable: true },
+        { name: 'key_purpose', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyPurposeSpec, nullable: false, minVersion: 0 },
+        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'auth_token', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.HardwareAuthTokenSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -349,11 +544,11 @@ arc.mojom.keymint.BeginResultSpec = {
       name: 'arc.mojom.keymint.BeginResult',
       packedSize: 32,
       fields: [
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'op_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'op_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -365,14 +560,14 @@ arc.mojom.keymint.HardwareAuthTokenSpec = {
       name: 'arc.mojom.keymint.HardwareAuthToken',
       packedSize: 56,
       fields: [
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'user_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'authenticator_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'authenticator_type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.keymint.HardwareAuthenticatorTypeSpec, nullable: false },
-        { name: 'timestamp', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.keymint.TimestampSpec, nullable: false },
-        { name: 'mac', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'user_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'authenticator_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'authenticator_type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.HardwareAuthenticatorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.keymint.TimestampSpec, nullable: false, minVersion: 0 },
+        { name: 'mac', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -384,9 +579,9 @@ arc.mojom.keymint.TimestampSpec = {
       name: 'arc.mojom.keymint.Timestamp',
       packedSize: 16,
       fields: [
-        { name: 'milli_seconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'milli_seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -398,11 +593,11 @@ arc.mojom.keymint.TimeStampTokenSpec = {
       name: 'arc.mojom.keymint.TimeStampToken',
       packedSize: 32,
       fields: [
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.TimestampSpec, nullable: false },
-        { name: 'mac', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.TimestampSpec, nullable: false, minVersion: 0 },
+        { name: 'mac', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -414,11 +609,11 @@ arc.mojom.keymint.GetKeyCharacteristicsRequestSpec = {
       name: 'arc.mojom.keymint.GetKeyCharacteristicsRequest',
       packedSize: 32,
       fields: [
-        { name: 'key_blob', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'app_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'app_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'app_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -430,12 +625,12 @@ arc.mojom.keymint.UpdateRequestSpec = {
       name: 'arc.mojom.keymint.UpdateRequest',
       packedSize: 40,
       fields: [
-        { name: 'op_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'input', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'auth_token', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.HardwareAuthTokenSpec, nullable: true },
-        { name: 'timestamp_token', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.keymint.TimeStampTokenSpec, nullable: true },
+        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'auth_token', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.HardwareAuthTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'timestamp_token', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.TimeStampTokenSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -447,14 +642,14 @@ arc.mojom.keymint.FinishRequestSpec = {
       name: 'arc.mojom.keymint.FinishRequest',
       packedSize: 56,
       fields: [
-        { name: 'op_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'input', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
-        { name: 'auth_token', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.keymint.HardwareAuthTokenSpec, nullable: true },
-        { name: 'timestamp_token', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.keymint.TimeStampTokenSpec, nullable: true },
-        { name: 'confirmation_token', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'input', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'auth_token', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.HardwareAuthTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'timestamp_token', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.keymint.TimeStampTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'confirmation_token', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -466,9 +661,9 @@ arc.mojom.keymint.KeyMintKeyBlobSpec = {
       name: 'arc.mojom.keymint.KeyMintKeyBlob',
       packedSize: 16,
       fields: [
-        { name: 'key_material', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'key_material', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -480,9 +675,9 @@ arc.mojom.keymint.KeyMintBlobSpec = {
       name: 'arc.mojom.keymint.KeyMintBlob',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -494,10 +689,10 @@ arc.mojom.keymint.GenerateEcdsaP256KeyPairResultSpec = {
       name: 'arc.mojom.keymint.GenerateEcdsaP256KeyPairResult',
       packedSize: 24,
       fields: [
-        { name: 'maced_public_key', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
-        { name: 'handle_to_private_key', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintKeyBlobSpec, nullable: false },
+        { name: 'maced_public_key', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false, minVersion: 0 },
+        { name: 'handle_to_private_key', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintKeyBlobSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -509,12 +704,12 @@ arc.mojom.keymint.CertificateRequestSpec = {
       name: 'arc.mojom.keymint.CertificateRequest',
       packedSize: 40,
       fields: [
-        { name: 'test_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'keys_to_sign', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'encryption_cert_chain', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
-        { name: 'challenge', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
+        { name: 'test_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'keys_to_sign', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.KeyMintBlobSpec, false), nullable: false, minVersion: 0 },
+        { name: 'encryption_cert_chain', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false, minVersion: 0 },
+        { name: 'challenge', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -526,11 +721,11 @@ arc.mojom.keymint.GenerateCertificateRequestResultSpec = {
       name: 'arc.mojom.keymint.GenerateCertificateRequestResult',
       packedSize: 32,
       fields: [
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
-        { name: 'protected_data', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
-        { name: 'mac_of_keys_to_sign', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false, minVersion: 0 },
+        { name: 'protected_data', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false, minVersion: 0 },
+        { name: 'mac_of_keys_to_sign', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.keymint.KeyMintBlobSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -570,6 +765,15 @@ arc.mojom.keymint.KeyMintHostRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  getServer() {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec,
+      arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec,
+      []);
+  }
+
 };
 
 arc.mojom.keymint.KeyMintHost.getRemote = function() {
@@ -580,6 +784,32 @@ arc.mojom.keymint.KeyMintHost.getRemote = function() {
     'arc.mojom.keymint.KeyMintHost',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for GetServer
+arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintHost.GetServer_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'server_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -622,6 +852,15 @@ arc.mojom.keymint.KeyMintInstanceRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  init(host_remote) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec,
+      null,
+      [host_remote]);
+  }
+
 };
 
 arc.mojom.keymint.KeyMintInstance.getRemote = function() {
@@ -632,6 +871,20 @@ arc.mojom.keymint.KeyMintInstance.getRemote = function() {
     'arc.mojom.keymint.KeyMintInstance',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for Init
+arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintInstance.Init_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility
@@ -674,6 +927,249 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  setSystemVersion(android_version, android_patchlevel) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec,
+      null,
+      [android_version, android_patchlevel]);
+  }
+
+  addRngEntropy(data) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec,
+      [data]);
+  }
+
+  generateKey(request) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec,
+      [request]);
+  }
+
+  importKey(request) {
+    // Ordinal: 3
+    return this.proxy.sendMessage(
+      3,  // ordinal
+      arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec,
+      [request]);
+  }
+
+  importWrappedKey(request) {
+    // Ordinal: 4
+    return this.proxy.sendMessage(
+      4,  // ordinal
+      arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec,
+      [request]);
+  }
+
+  upgradeKey(request) {
+    // Ordinal: 5
+    return this.proxy.sendMessage(
+      5,  // ordinal
+      arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec,
+      [request]);
+  }
+
+  deleteKey(key_blob) {
+    // Ordinal: 6
+    return this.proxy.sendMessage(
+      6,  // ordinal
+      arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec,
+      [key_blob]);
+  }
+
+  deleteAllKeys() {
+    // Ordinal: 7
+    return this.proxy.sendMessage(
+      7,  // ordinal
+      arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec,
+      []);
+  }
+
+  destroyAttestationIds() {
+    // Ordinal: 8
+    return this.proxy.sendMessage(
+      8,  // ordinal
+      arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec,
+      []);
+  }
+
+  begin(request) {
+    // Ordinal: 9
+    return this.proxy.sendMessage(
+      9,  // ordinal
+      arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec,
+      [request]);
+  }
+
+  deviceLocked(password_only, timestamp_token) {
+    // Ordinal: 10
+    return this.proxy.sendMessage(
+      10,  // ordinal
+      arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec,
+      [password_only, timestamp_token]);
+  }
+
+  earlyBootEnded() {
+    // Ordinal: 11
+    return this.proxy.sendMessage(
+      11,  // ordinal
+      arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec,
+      []);
+  }
+
+  convertStorageKeyToEphemeral(storage_key_blob) {
+    // Ordinal: 12
+    return this.proxy.sendMessage(
+      12,  // ordinal
+      arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec,
+      [storage_key_blob]);
+  }
+
+  getKeyCharacteristics(request) {
+    // Ordinal: 13
+    return this.proxy.sendMessage(
+      13,  // ordinal
+      arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec,
+      [request]);
+  }
+
+  getRootOfTrustChallenge() {
+    // Ordinal: 14
+    return this.proxy.sendMessage(
+      14,  // ordinal
+      arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec,
+      []);
+  }
+
+  getRootOfTrust(challenge) {
+    // Ordinal: 15
+    return this.proxy.sendMessage(
+      15,  // ordinal
+      arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec,
+      [challenge]);
+  }
+
+  sendRootOfTrust(root_of_trust) {
+    // Ordinal: 16
+    return this.proxy.sendMessage(
+      16,  // ordinal
+      arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec,
+      [root_of_trust]);
+  }
+
+  updateAad(request) {
+    // Ordinal: 17
+    return this.proxy.sendMessage(
+      17,  // ordinal
+      arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec,
+      [request]);
+  }
+
+  update(request) {
+    // Ordinal: 18
+    return this.proxy.sendMessage(
+      18,  // ordinal
+      arc.mojom.keymint.KeyMintServer_Update_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec,
+      [request]);
+  }
+
+  finish(request) {
+    // Ordinal: 19
+    return this.proxy.sendMessage(
+      19,  // ordinal
+      arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec,
+      [request]);
+  }
+
+  abort(op_handle) {
+    // Ordinal: 20
+    return this.proxy.sendMessage(
+      20,  // ordinal
+      arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec,
+      [op_handle]);
+  }
+
+  getSharedSecretParameters() {
+    // Ordinal: 21
+    return this.proxy.sendMessage(
+      21,  // ordinal
+      arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec,
+      []);
+  }
+
+  computeSharedSecret(secret_params) {
+    // Ordinal: 22
+    return this.proxy.sendMessage(
+      22,  // ordinal
+      arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec,
+      [secret_params]);
+  }
+
+  generateTimeStamp(challenge) {
+    // Ordinal: 23
+    return this.proxy.sendMessage(
+      23,  // ordinal
+      arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec,
+      [challenge]);
+  }
+
+  generateEcdsaP256KeyPair(test_mode) {
+    // Ordinal: 24
+    return this.proxy.sendMessage(
+      24,  // ordinal
+      arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec,
+      [test_mode]);
+  }
+
+  generateCertificateRequest(request) {
+    // Ordinal: 25
+    return this.proxy.sendMessage(
+      25,  // ordinal
+      arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec,
+      arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec,
+      [request]);
+  }
+
+  setVendorPatchLevel(android_vendor_patchlevel) {
+    // Ordinal: 26
+    return this.proxy.sendMessage(
+      26,  // ordinal
+      arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec,
+      null,
+      [android_vendor_patchlevel]);
+  }
+
 };
 
 arc.mojom.keymint.KeyMintServer.getRemote = function() {
@@ -684,6 +1180,706 @@ arc.mojom.keymint.KeyMintServer.getRemote = function() {
     'arc.mojom.keymint.KeyMintServer',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SetSystemVersion
+arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.SetSystemVersion_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'android_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'android_patchlevel', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for AddRngEntropy
+arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.AddRngEntropy_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GenerateKey
+arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.GenerateKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.GenerateKeyRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyCreationResultOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for ImportKey
+arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.ImportKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ImportKeyRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyCreationResultOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for ImportWrappedKey
+arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.ImportWrappedKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ImportWrappedKeyRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyCreationResultOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for UpgradeKey
+arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.UpgradeKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.UpgradeKeyRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for DeleteKey
+arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.DeleteKey_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for DeleteAllKeys
+arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.DeleteAllKeys_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for DestroyAttestationIds
+arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.DestroyAttestationIds_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Begin
+arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.Begin_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.BeginRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.BeginResultOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for DeviceLocked
+arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.DeviceLocked_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'password_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'timestamp_token', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.keymint.TimeStampTokenSpec, nullable: true, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for EarlyBootEnded
+arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.EarlyBootEnded_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for ConvertStorageKeyToEphemeral
+arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.ConvertStorageKeyToEphemeral_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'storage_key_blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for GetKeyCharacteristics
+arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.GetKeyCharacteristics_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.GetKeyCharacteristicsRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyCharacteristicsArrayOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for GetRootOfTrustChallenge
+arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.GetRootOfTrustChallenge_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for GetRootOfTrust
+arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.GetRootOfTrust_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for SendRootOfTrust
+arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.SendRootOfTrust_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'root_of_trust', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for UpdateAad
+arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.UpdateAad_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.UpdateRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Update
+arc.mojom.keymint.KeyMintServer_Update_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.Update_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.UpdateRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for Finish
+arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.Finish_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.FinishRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for Abort
+arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.Abort_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'op_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for GetSharedSecretParameters
+arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.GetSharedSecretParameters_Params',
+      packedSize: 8,
+      fields: [
+      ],
+      versions: [{version: 0, packedSize: 8}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.SharedSecretParametersOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for ComputeSharedSecret
+arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.ComputeSharedSecret_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'secret_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.keymint.SharedSecretParametersSpec, false), nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for GenerateTimeStamp
+arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.GenerateTimeStamp_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.TimeStampTokenOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for GenerateEcdsaP256KeyPair
+arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.GenerateEcdsaP256KeyPair_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'test_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.GenerateEcdsaP256KeyPairResultOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for GenerateCertificateRequest
+arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.GenerateCertificateRequest_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.CertificateRequestSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 24,
+      fields: [
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.GenerateCertificateRequestResultOrErrorSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+// ParamsSpec for SetVendorPatchLevel
+arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.keymint.KeyMintServer.SetVendorPatchLevel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'android_vendor_patchlevel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

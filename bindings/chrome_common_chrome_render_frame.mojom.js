@@ -9,6 +9,8 @@ var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
 
+chrome.mojom.kDefaultQuality = 90;
+
 // Enum: ImageFormat
 chrome.mojom.ImageFormat = {
   JPEG: 0,
@@ -16,6 +18,7 @@ chrome.mojom.ImageFormat = {
   WEBP: 2,
   ORIGINAL: 3,
 };
+chrome.mojom.ImageFormatSpec = { $: mojo.internal.Enum() };
 
 // Interface: ChromeRenderFrame
 chrome.mojom.ChromeRenderFrame = {};
@@ -206,9 +209,9 @@ chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.SetWindowFeatures_Params',
       packedSize: 16,
       fields: [
-        { name: 'window_features', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WindowFeaturesSpec, nullable: false },
+        { name: 'window_features', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WindowFeaturesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -221,7 +224,7 @@ chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -234,7 +237,7 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -242,12 +245,12 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -260,7 +263,7 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -268,13 +271,13 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsS
 chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNodeWithBoundsHint_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true },
-        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -287,7 +290,7 @@ chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -295,12 +298,12 @@ chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestBoundsHintForAllImages_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'all_bounds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'all_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -310,14 +313,14 @@ chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ChromeRenderFrame.RequestImageForContextNode_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'image_min_area_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'image_max_size_pixels', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'image_format', packedOffset: 24, packedBitOffset: 0, type: chrome.mojom.ImageFormatSpec, nullable: false },
-        { name: 'quality', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'image_min_area_pixels', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'image_max_size_pixels', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'image_format', packedOffset: 4, packedBitOffset: 0, type: chrome.mojom.ImageFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'quality', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -325,16 +328,16 @@ chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.RequestImageForContextNode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'image_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'original_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'downscaled_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'mime_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'log_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'image_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'original_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'downscaled_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'mime_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'log_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.LatencyLogSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -346,9 +349,9 @@ chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.ExecuteWebUIJavaScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'javascript', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'javascript', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -360,9 +363,9 @@ chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.SetCCTClientHeader_Params',
       packedSize: 16,
       fields: [
-        { name: 'header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -375,7 +378,7 @@ chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -383,12 +386,12 @@ chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.GetMediaFeedURL_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -400,9 +403,9 @@ chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.LoadBlockedPlugins_Params',
       packedSize: 16,
       fields: [
-        { name: 'identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -414,9 +417,9 @@ chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.SetShouldDeferMediaLoad_Params',
       packedSize: 16,
       fields: [
-        { name: 'should_defer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'should_defer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -428,9 +431,9 @@ chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.InvokeTool_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.ToolInvocationSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ToolInvocationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -438,12 +441,12 @@ chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chrome.mojom.ChromeRenderFrame.InvokeTool_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.ActionResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ActionResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -455,9 +458,9 @@ chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.CancelTool_Params',
       packedSize: 16,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false },
+        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -469,9 +472,9 @@ chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.StartActorJournal_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -481,13 +484,13 @@ chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ChromeRenderFrame.CreatePageStabilityMonitor_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false },
-        { name: 'supports_paint_stability', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
+        { name: 'supports_paint_stability', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

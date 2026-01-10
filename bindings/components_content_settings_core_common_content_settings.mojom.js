@@ -17,24 +17,25 @@ content_settings.mojom.ContentSetting = {
   ASK: 3,
   SESSION_ONLY: 4,
 };
+content_settings.mojom.ContentSettingSpec = { $: mojo.internal.Enum() };
 
 // Struct: PatternParts
 content_settings.mojom.PatternPartsSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.PatternParts',
-      packedSize: 72,
+      packedSize: 48,
       fields: [
-        { name: 'scheme', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_scheme_wildcard', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'has_domain_wildcard', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'port', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_port_wildcard', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'path', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_path_wildcard', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_scheme_wildcard', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'has_domain_wildcard', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_port_wildcard', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_path_wildcard', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -46,10 +47,10 @@ content_settings.mojom.ContentSettingsPatternSpec = {
       name: 'content_settings.mojom.ContentSettingsPattern',
       packedSize: 24,
       fields: [
-        { name: 'parts', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.PatternPartsSpec, nullable: false },
-        { name: 'is_valid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'parts', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.PatternPartsSpec, nullable: false, minVersion: 0 },
+        { name: 'is_valid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -59,20 +60,20 @@ content_settings.mojom.RuleMetaDataSpec = {
   $: {
     structSpec: {
       name: 'content_settings.mojom.RuleMetaData',
-      packedSize: 88,
+      packedSize: 80,
       fields: [
-        { name: 'last_modified', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'last_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'last_visited', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'expiration', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'session_model', packedOffset: 40, packedBitOffset: 0, type: content_settings.mojom.SessionModelSpec, nullable: false },
-        { name: 'lifetime', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'tpcd_metadata_rule_source', packedOffset: 56, packedBitOffset: 0, type: content_settings.mojom.TpcdMetadataRuleSourceSpec, nullable: false },
-        { name: 'tpcd_metadata_cohort', packedOffset: 64, packedBitOffset: 0, type: content_settings.mojom.TpcdMetadataCohortSpec, nullable: false },
-        { name: 'decided_by_related_website_sets', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'rule_options', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
+        { name: 'last_modified', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'last_used', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'last_visited', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'expiration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'session_model', packedOffset: 32, packedBitOffset: 0, type: content_settings.mojom.SessionModelSpec, nullable: false, minVersion: 0 },
+        { name: 'lifetime', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'tpcd_metadata_rule_source', packedOffset: 36, packedBitOffset: 0, type: content_settings.mojom.TpcdMetadataRuleSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'tpcd_metadata_cohort', packedOffset: 48, packedBitOffset: 0, type: content_settings.mojom.TpcdMetadataCohortSpec, nullable: false, minVersion: 0 },
+        { name: 'decided_by_related_website_sets', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'rule_options', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };
@@ -84,14 +85,14 @@ content_settings.mojom.ContentSettingPatternSourceSpec = {
       name: 'content_settings.mojom.ContentSettingPatternSource',
       packedSize: 56,
       fields: [
-        { name: 'primary_pattern', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false },
-        { name: 'secondary_pattern', packedOffset: 16, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false },
-        { name: 'setting_value', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false },
-        { name: 'metadata', packedOffset: 32, packedBitOffset: 0, type: content_settings.mojom.RuleMetaDataSpec, nullable: false },
-        { name: 'source', packedOffset: 40, packedBitOffset: 0, type: content_settings.mojom.ProviderTypeSpec, nullable: false },
-        { name: 'incognito', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'primary_pattern', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false, minVersion: 0 },
+        { name: 'secondary_pattern', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsPatternSpec, nullable: false, minVersion: 0 },
+        { name: 'setting_value', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 32, packedBitOffset: 0, type: content_settings.mojom.RuleMetaDataSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 40, packedBitOffset: 0, type: content_settings.mojom.ProviderTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'incognito', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -103,9 +104,9 @@ content_settings.mojom.RendererContentSettingRulesSpec = {
       name: 'content_settings.mojom.RendererContentSettingRules',
       packedSize: 16,
       fields: [
-        { name: 'mixed_content_rules', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'mixed_content_rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content_settings.mojom.ContentSettingPatternSourceSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

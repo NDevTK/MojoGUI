@@ -24,6 +24,7 @@ ui.mojom.LatencyComponentType = {
   INPUT_EVENT_GPU_SWAP_BUFFER_COMPONENT: 10,
   INPUT_EVENT_LATENCY_FRAME_SWAP_COMPONENT: 11,
 };
+ui.mojom.LatencyComponentTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LatencyInfo
 ui.mojom.LatencyInfoSpec = {
@@ -32,15 +33,15 @@ ui.mojom.LatencyInfoSpec = {
       name: 'ui.mojom.LatencyInfo',
       packedSize: 48,
       fields: [
-        { name: 'latency_components', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'coalesced', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'began', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'terminated', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'gesture_scroll_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'touch_trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'latency_components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ui.mojom.LatencyComponentTypeSpec, mojo_base.mojom.TimeTicksSpec, false), nullable: false, minVersion: 0 },
+        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'coalesced', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'began', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'terminated', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'gesture_scroll_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'touch_trace_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

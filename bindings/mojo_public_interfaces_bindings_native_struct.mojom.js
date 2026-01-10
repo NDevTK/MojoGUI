@@ -17,18 +17,19 @@ mojo.native.SerializedHandleType = {
   MACH_PORT: 3,
   FUCHSIA_HANDLE: 4,
 };
+mojo.native.SerializedHandleTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SerializedHandle
 mojo.native.SerializedHandleSpec = {
   $: {
     structSpec: {
       name: 'mojo.native.SerializedHandle',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'the_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.native.SerializedHandleTypeSpec, nullable: false },
+        { name: 'the_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: mojo.native.SerializedHandleTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -40,10 +41,10 @@ mojo.native.NativeStructSpec = {
       name: 'mojo.native.NativeStruct',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'handles', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'handles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.native.SerializedHandleSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

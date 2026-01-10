@@ -15,3 +15,4 @@ color.mojom.SchemeVariant = {
   kVibrant: 1,
   kExpressive: 2,
 };
+color.mojom.SchemeVariantSpec = { $: mojo.internal.Enum() };

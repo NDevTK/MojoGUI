@@ -17,12 +17,12 @@ metrics.dwa.mojom.DwaEntrySpec = {
       name: 'metrics.dwa.mojom.DwaEntry',
       packedSize: 40,
       fields: [
-        { name: 'event_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'content_hash', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
-        { name: 'studies_of_interest', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'metrics', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'event_hash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'content_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'studies_of_interest', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), nullable: false, minVersion: 0 },
+        { name: 'metrics', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -142,9 +142,9 @@ metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
       name: 'metrics.dwa.mojom.DwaRecorderInterface.AddEntry_Params',
       packedSize: 16,
       fields: [
-        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: metrics.dwa.mojom.DwaEntrySpec, nullable: false },
+        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: metrics.dwa.mojom.DwaEntrySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -217,10 +217,10 @@ metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
       name: 'metrics.dwa.mojom.DwaRecorderFactory.CreateDwaRecorder_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -15,6 +15,7 @@ remote_cocoa.mojom.SelectionDirection = {
   kForward: 1,
   kReverse: 2,
 };
+remote_cocoa.mojom.SelectionDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Visibility
 remote_cocoa.mojom.Visibility = {
@@ -22,6 +23,7 @@ remote_cocoa.mojom.Visibility = {
   kOccluded: 1,
   kHidden: 2,
 };
+remote_cocoa.mojom.VisibilitySpec = { $: mojo.internal.Enum() };
 
 // Struct: DraggingInfo
 remote_cocoa.mojom.DraggingInfoSpec = {
@@ -30,12 +32,12 @@ remote_cocoa.mojom.DraggingInfoSpec = {
       name: 'remote_cocoa.mojom.DraggingInfo',
       packedSize: 40,
       fields: [
-        { name: 'location_in_view', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'location_in_screen', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
-        { name: 'operation_mask', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'location_in_view', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'location_in_screen', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'operation_mask', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -166,9 +168,9 @@ remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSView.SetParentNSView_Params',
       packedSize: 16,
       fields: [
-        { name: 'parent_ns_view_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'parent_ns_view_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -181,7 +183,7 @@ remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -193,9 +195,9 @@ remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSView.SetBounds_Params',
       packedSize: 16,
       fields: [
-        { name: 'bounds_in_superview', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'bounds_in_superview', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -207,9 +209,9 @@ remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSView.SetVisible_Params',
       packedSize: 16,
       fields: [
-        { name: 'visible', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -222,7 +224,7 @@ remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -234,9 +236,9 @@ remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSView.TakeFocus_Params',
       packedSize: 16,
       fields: [
-        { name: 'reverse', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'reverse', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -246,16 +248,16 @@ remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.WebContentsNSView.StartDrag_Params',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'drop_data', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false },
-        { name: 'source_origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
-        { name: 'operation_mask', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'image', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true },
-        { name: 'image_offset', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false },
-        { name: 'is_privileged', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
+        { name: 'source_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
+        { name: 'operation_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'image', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
+        { name: 'image_offset', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
+        { name: 'is_privileged', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -268,7 +270,7 @@ remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -422,9 +424,9 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnMouseEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -436,9 +438,9 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnBecameFirstResponder_Params',
       packedSize: 16,
       fields: [
-        { name: 'direction', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.SelectionDirectionSpec, nullable: false },
+        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.SelectionDirectionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -450,9 +452,9 @@ remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = 
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.OnWindowVisibilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'visibility', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.VisibilitySpec, nullable: false },
+        { name: 'visibility', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.VisibilitySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -464,9 +466,9 @@ remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.SetDropData_Params',
       packedSize: 16,
       fields: [
-        { name: 'drop_data', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false },
+        { name: 'drop_data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -478,9 +480,9 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingEntered_Params',
       packedSize: 16,
       fields: [
-        { name: 'dragging_info', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false },
+        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -488,12 +490,12 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = {
 remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingEntered_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -506,7 +508,7 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -518,9 +520,9 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'dragging_info', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false },
+        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -528,12 +530,12 @@ remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = {
 remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DraggingUpdated_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -545,9 +547,9 @@ remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.PerformDragOperation_Params',
       packedSize: 16,
       fields: [
-        { name: 'dragging_info', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false },
+        { name: 'dragging_info', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.DraggingInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -555,12 +557,12 @@ remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = {
 remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.PerformDragOperation_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -572,12 +574,12 @@ remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.DragPromisedFileTo_Params',
       packedSize: 40,
       fields: [
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
-        { name: 'drop_data', packedOffset: 16, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false },
-        { name: 'download_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'source_origin', packedOffset: 32, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'drop_data', packedOffset: 8, packedBitOffset: 0, type: content.mojom.DropDataSpec, nullable: false, minVersion: 0 },
+        { name: 'download_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'source_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -585,12 +587,12 @@ remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = {
 remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'remote_cocoa.mojom.WebContentsNSViewHost.DragPromisedFileTo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false },
+        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -602,11 +604,11 @@ remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = {
       name: 'remote_cocoa.mojom.WebContentsNSViewHost.EndDrag_Params',
       packedSize: 32,
       fields: [
-        { name: 'drag_operation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'local_point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
-        { name: 'screen_point', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false },
+        { name: 'drag_operation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'local_point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'screen_point', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

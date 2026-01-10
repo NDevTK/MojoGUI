@@ -82,6 +82,7 @@ arc.mojom.VideoCodecProfile = {
   VVCPROFILE_MAX: 68,
   VIDEO_CODEC_PROFILE_MAX: 69,
 };
+arc.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
 
 // Enum: HalPixelFormat
 arc.mojom.HalPixelFormat = {
@@ -90,12 +91,14 @@ arc.mojom.HalPixelFormat = {
   HAL_PIXEL_FORMAT_YV12: 2,
   HAL_PIXEL_FORMAT_NV12: 3,
 };
+arc.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoPixelFormat
 arc.mojom.VideoPixelFormat = {
   PIXEL_FORMAT_UNKNOWN: 0,
   PIXEL_FORMAT_I420: 1,
 };
+arc.mojom.VideoPixelFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: VideoFramePlane
 arc.mojom.VideoFramePlaneSpec = {
@@ -104,10 +107,10 @@ arc.mojom.VideoFramePlaneSpec = {
       name: 'arc.mojom.VideoFramePlane',
       packedSize: 16,
       fields: [
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'stride', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -119,11 +122,11 @@ arc.mojom.ColorPlaneLayoutSpec = {
       name: 'arc.mojom.ColorPlaneLayout',
       packedSize: 24,
       fields: [
-        { name: 'stride', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'stride', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -133,16 +136,16 @@ arc.mojom.VideoFrameLayoutSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoFrameLayout',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false },
-        { name: 'coded_size', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false },
-        { name: 'planes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'is_multi_planar', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'buffer_addr_align', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'modifier', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'planes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ColorPlaneLayoutSpec, false), nullable: false, minVersion: 0 },
+        { name: 'is_multi_planar', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'buffer_addr_align', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'modifier', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

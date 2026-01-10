@@ -30,6 +30,7 @@ tabs_api.mojom.AlertState = {
   kVideoRecording: 16,
   kVrPresentingInHeadset: 17,
 };
+tabs_api.mojom.AlertStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetworkState
 tabs_api.mojom.NetworkState = {
@@ -38,11 +39,43 @@ tabs_api.mojom.NetworkState = {
   kLoading: 2,
   kError: 3,
 };
+tabs_api.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Layout
 tabs_api.mojom.Layout = {
   kVertical: 0,
   kHorizontal: 1,
+};
+tabs_api.mojom.LayoutSpec = { $: mojo.internal.Enum() };
+
+// Union: Data
+tabs_api.mojom.DataSpec = { $: mojo.internal.Union(
+    'tabs_api.mojom.Data', {
+      'tab': {
+        'ordinal': 0,
+        'type': tabs_api.mojom.TabSpec,
+      }},
+      'tab_strip': {
+        'ordinal': 1,
+        'type': tabs_api.mojom.TabStripSpec,
+      }},
+      'pinned_tabs': {
+        'ordinal': 2,
+        'type': tabs_api.mojom.PinnedTabsSpec,
+      }},
+      'unpinned_tabs': {
+        'ordinal': 3,
+        'type': tabs_api.mojom.UnpinnedTabsSpec,
+      }},
+      'tab_group': {
+        'ordinal': 4,
+        'type': tabs_api.mojom.TabGroupSpec,
+      }},
+      'split_tab': {
+        'ordinal': 5,
+        'type': tabs_api.mojom.SplitTabSpec,
+      }},
+    })
 };
 
 // Struct: Image
@@ -52,9 +85,9 @@ tabs_api.mojom.ImageSpec = {
       name: 'tabs_api.mojom.Image',
       packedSize: 16,
       fields: [
-        { name: 'data_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -64,19 +97,19 @@ tabs_api.mojom.TabSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.Tab',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'favicon', packedOffset: 32, packedBitOffset: 0, type: tabs_api.mojom.ImageSpec, nullable: false },
-        { name: 'alert_states', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'network_state', packedOffset: 48, packedBitOffset: 0, type: tabs_api.mojom.NetworkStateSpec, nullable: false },
-        { name: 'is_active', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_selected', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_blocked', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'favicon', packedOffset: 24, packedBitOffset: 0, type: tabs_api.mojom.ImageSpec, nullable: false, minVersion: 0 },
+        { name: 'alert_states', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.AlertStateSpec, false), nullable: false, minVersion: 0 },
+        { name: 'network_state', packedOffset: 40, packedBitOffset: 0, type: tabs_api.mojom.NetworkStateSpec, nullable: false, minVersion: 0 },
+        { name: 'is_active', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_selected', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_blocked', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -88,9 +121,9 @@ tabs_api.mojom.TabStripSpec = {
       name: 'tabs_api.mojom.TabStrip',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -102,9 +135,9 @@ tabs_api.mojom.PinnedTabsSpec = {
       name: 'tabs_api.mojom.PinnedTabs',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -116,9 +149,9 @@ tabs_api.mojom.UnpinnedTabsSpec = {
       name: 'tabs_api.mojom.UnpinnedTabs',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -130,10 +163,10 @@ tabs_api.mojom.TabGroupSpec = {
       name: 'tabs_api.mojom.TabGroup',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: tabs_api.mojom.TabGroupVisualDataSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.TabGroupVisualDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -143,13 +176,13 @@ tabs_api.mojom.TabGroupVisualDataSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.TabGroupVisualData',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false },
-        { name: 'is_collapsed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false, minVersion: 0 },
+        { name: 'is_collapsed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -161,10 +194,10 @@ tabs_api.mojom.SplitTabSpec = {
       name: 'tabs_api.mojom.SplitTab',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: tabs_api.mojom.SplitTabVisualDataSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.SplitTabVisualDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -176,9 +209,9 @@ tabs_api.mojom.SplitTabVisualDataSpec = {
       name: 'tabs_api.mojom.SplitTabVisualData',
       packedSize: 16,
       fields: [
-        { name: 'kVertical', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kVertical', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -188,12 +221,12 @@ tabs_api.mojom.ContainerSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.Container',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.DataSpec, nullable: false },
-        { name: 'children', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.DataSpec, nullable: false, minVersion: 0 },
+        { name: 'children', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(tabs_api.mojom.ContainerSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -205,10 +238,10 @@ tabs_api.mojom.TabCreatedContainerSpec = {
       name: 'tabs_api.mojom.TabCreatedContainer',
       packedSize: 24,
       fields: [
-        { name: 'tab', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.TabSpec, nullable: false },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false },
+        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.TabSpec, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.PositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

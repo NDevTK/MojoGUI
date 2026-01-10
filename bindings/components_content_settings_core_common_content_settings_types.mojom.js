@@ -136,3 +136,4 @@ content_settings.mojom.ContentSettingsType = {
   PERMISSION_ACTIONS_HISTORY: 122,
   SUSPICIOUS_NOTIFICATION_SHOW_ORIGINAL: 123,
 };
+content_settings.mojom.ContentSettingsTypeSpec = { $: mojo.internal.Enum() };

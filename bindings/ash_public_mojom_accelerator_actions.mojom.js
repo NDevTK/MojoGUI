@@ -184,3 +184,4 @@ ash.mojom.AcceleratorAction = {
   kDebugStartSunfishSession: 170,
   kDebugShowTestWindow: 171,
 };
+ash.mojom.AcceleratorActionSpec = { $: mojo.internal.Enum() };

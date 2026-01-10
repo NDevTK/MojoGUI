@@ -18,12 +18,14 @@ ash.local_search_service.mojom.IndexId = {
   kPersonalization: 3,
   kShortcutsApp: 4,
 };
+ash.local_search_service.mojom.IndexIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: Backend
 ash.local_search_service.mojom.Backend = {
   kLinearMap: 0,
   kInvertedIndex: 1,
 };
+ash.local_search_service.mojom.BackendSpec = { $: mojo.internal.Enum() };
 
 // Interface: SearchMetricsReporter
 ash.local_search_service.mojom.SearchMetricsReporter = {};
@@ -88,9 +90,9 @@ ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpe
       name: 'ash.local_search_service.mojom.SearchMetricsReporter.OnSearchPerformed_Params',
       packedSize: 16,
       fields: [
-        { name: 'index_id', packedOffset: 8, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false },
+        { name: 'index_id', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -161,14 +163,14 @@ ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.LocalSearchService.BindIndex_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'index_id', packedOffset: 8, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false },
-        { name: 'backend', packedOffset: 16, packedBitOffset: 0, type: ash.local_search_service.mojom.BackendSpec, nullable: false },
-        { name: 'index_receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'reporter_remote', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'index_id', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false, minVersion: 0 },
+        { name: 'backend', packedOffset: 4, packedBitOffset: 0, type: ash.local_search_service.mojom.BackendSpec, nullable: false, minVersion: 0 },
+        { name: 'index_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'reporter_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -176,12 +178,12 @@ ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = {
 ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.local_search_service.mojom.LocalSearchService.BindIndex_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

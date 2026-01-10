@@ -20,3 +20,4 @@ network.mojom.AlternateProtocolUsage = {
   kDnsAlpnH3JobWonRace: 6,
   kUnspecifiedReason: 7,
 };
+network.mojom.AlternateProtocolUsageSpec = { $: mojo.internal.Enum() };

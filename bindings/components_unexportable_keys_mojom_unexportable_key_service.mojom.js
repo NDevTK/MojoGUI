@@ -16,6 +16,7 @@ unexportable_keys.mojom.SignatureAlgorithm = {
   ECDSA_SHA256: 2,
   RSA_PSS_SHA256: 3,
 };
+unexportable_keys.mojom.SignatureAlgorithmSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceError
 unexportable_keys.mojom.ServiceError = {
@@ -28,6 +29,7 @@ unexportable_keys.mojom.ServiceError = {
   kVerifySignatureFailed: 6,
   kOperationNotSupported: 7,
 };
+unexportable_keys.mojom.ServiceErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundTaskPriority
 unexportable_keys.mojom.BackgroundTaskPriority = {
@@ -35,6 +37,7 @@ unexportable_keys.mojom.BackgroundTaskPriority = {
   kUserVisible: 1,
   kUserBlocking: 2,
 };
+unexportable_keys.mojom.BackgroundTaskPrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: UnexportableKeyId
 unexportable_keys.mojom.UnexportableKeyIdSpec = {
@@ -43,9 +46,9 @@ unexportable_keys.mojom.UnexportableKeyIdSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyId',
       packedSize: 16,
       fields: [
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -57,14 +60,14 @@ unexportable_keys.mojom.NewKeyDataSpec = {
       name: 'unexportable_keys.mojom.NewKeyData',
       packedSize: 56,
       fields: [
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys.mojom.UnexportableKeyIdSpec, nullable: false },
-        { name: 'subject_public_key_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'wrapped_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'algorithm', packedOffset: 32, packedBitOffset: 0, type: unexportable_keys.mojom.SignatureAlgorithmSpec, nullable: false },
-        { name: 'key_tag', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'creation_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys.mojom.UnexportableKeyIdSpec, nullable: false, minVersion: 0 },
+        { name: 'subject_public_key_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'wrapped_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 24, packedBitOffset: 0, type: unexportable_keys.mojom.SignatureAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'key_tag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'creation_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -177,10 +180,10 @@ unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyService.GenerateSigningKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'acceptable_algorithms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false },
+        { name: 'acceptable_algorithms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(unexportable_keys.mojom.SignatureAlgorithmSpec, false), nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -192,10 +195,10 @@ unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec 
       name: 'unexportable_keys.mojom.UnexportableKeyService.FromWrappedSigningKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'wrapped_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false },
+        { name: 'wrapped_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -207,11 +210,11 @@ unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyService.Sign_Params',
       packedSize: 32,
       fields: [
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys.mojom.UnexportableKeyIdSpec, nullable: false },
-        { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys.mojom.UnexportableKeyIdSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -223,9 +226,9 @@ unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollec
       name: 'unexportable_keys.mojom.UnexportableKeyService.GetAllSigningKeysForGarbageCollection_Params',
       packedSize: 16,
       fields: [
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false },
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -237,10 +240,10 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys.mojom.UnexportableKeyIdSpec, nullable: false },
-        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys.mojom.UnexportableKeyIdSpec, nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -248,12 +251,12 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec = {
 unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteKey_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys.mojom.ServiceErrorSpec, nullable: true },
+        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys.mojom.ServiceErrorSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -265,9 +268,9 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec = {
       name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteAllKeys_Params',
       packedSize: 16,
       fields: [
-        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false },
+        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys.mojom.BackgroundTaskPrioritySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

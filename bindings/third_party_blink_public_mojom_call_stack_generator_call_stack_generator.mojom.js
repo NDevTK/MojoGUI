@@ -73,7 +73,7 @@ blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -81,13 +81,13 @@ blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
 blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.CallStackGenerator.CollectJavaScriptCallStack_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'javascript_call_stack', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'frame_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: true },
+        { name: 'javascript_call_stack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

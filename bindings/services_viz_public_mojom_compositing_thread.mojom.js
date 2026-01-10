@@ -17,17 +17,20 @@ viz.mojom.ThreadType = {
   kVideo: 3,
   kOther: 4,
 };
+viz.mojom.ThreadTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Thread
 viz.mojom.ThreadSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Thread',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ThreadTypeSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 12, packedBitOffset: 0, type: viz.mojom.ThreadTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

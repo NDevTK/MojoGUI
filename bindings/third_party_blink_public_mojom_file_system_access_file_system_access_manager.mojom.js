@@ -18,6 +18,39 @@ blink.mojom.WellKnownDirectory = {
   kDirPictures: 4,
   kDirVideos: 5,
 };
+blink.mojom.WellKnownDirectorySpec = { $: mojo.internal.Enum() };
+
+// Union: TypeSpecificFilePickerOptionsUnion
+blink.mojom.TypeSpecificFilePickerOptionsUnionSpec = { $: mojo.internal.Union(
+    'blink.mojom.TypeSpecificFilePickerOptionsUnion', {
+      'open_file_picker_options': {
+        'ordinal': 0,
+        'type': blink.mojom.OpenFilePickerOptionsSpec,
+      }},
+      'save_file_picker_options': {
+        'ordinal': 1,
+        'type': blink.mojom.SaveFilePickerOptionsSpec,
+      }},
+      'directory_picker_options': {
+        'ordinal': 2,
+        'type': blink.mojom.DirectoryPickerOptionsSpec,
+      }},
+    })
+};
+
+// Union: FilePickerStartInOptionsUnion
+blink.mojom.FilePickerStartInOptionsUnionSpec = { $: mojo.internal.Union(
+    'blink.mojom.FilePickerStartInOptionsUnion', {
+      'well_known_directory': {
+        'ordinal': 0,
+        'type': blink.mojom.WellKnownDirectorySpec,
+      }},
+      'directory_token': {
+        'ordinal': 1,
+        'type': mojo.internal.InterfaceProxy,
+      }},
+    })
+};
 
 // Struct: ChooseFileSystemEntryAcceptsOption
 blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec = {
@@ -26,11 +59,11 @@ blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec = {
       name: 'blink.mojom.ChooseFileSystemEntryAcceptsOption',
       packedSize: 32,
       fields: [
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'mime_types', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'extensions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'mime_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'extensions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -42,10 +75,10 @@ blink.mojom.AcceptsTypesInfoSpec = {
       name: 'blink.mojom.AcceptsTypesInfo',
       packedSize: 24,
       fields: [
-        { name: 'accepts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'include_accepts_all', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'accepts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'include_accepts_all', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -57,10 +90,10 @@ blink.mojom.OpenFilePickerOptionsSpec = {
       name: 'blink.mojom.OpenFilePickerOptions',
       packedSize: 24,
       fields: [
-        { name: 'accepts_types_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AcceptsTypesInfoSpec, nullable: false },
-        { name: 'can_select_multiple_files', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'accepts_types_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AcceptsTypesInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'can_select_multiple_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -72,10 +105,10 @@ blink.mojom.SaveFilePickerOptionsSpec = {
       name: 'blink.mojom.SaveFilePickerOptions',
       packedSize: 24,
       fields: [
-        { name: 'accepts_types_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AcceptsTypesInfoSpec, nullable: false },
-        { name: 'suggested_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'accepts_types_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AcceptsTypesInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'suggested_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -87,9 +120,9 @@ blink.mojom.DirectoryPickerOptionsSpec = {
       name: 'blink.mojom.DirectoryPickerOptions',
       packedSize: 16,
       fields: [
-        { name: 'permission_mode', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessPermissionModeSpec, nullable: false },
+        { name: 'permission_mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessPermissionModeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -99,13 +132,13 @@ blink.mojom.FilePickerOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FilePickerOptions',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'type_specific_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, nullable: false },
-        { name: 'starting_directory_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'start_in_options', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FilePickerStartInOptionsUnionSpec, nullable: true },
+        { name: 'type_specific_options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, nullable: false, minVersion: 0 },
+        { name: 'starting_directory_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'start_in_options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FilePickerStartInOptionsUnionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -228,7 +261,7 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -236,13 +269,13 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec = {
 blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessManager.GetSandboxedFileSystem_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
-        { name: 'directory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -254,9 +287,9 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec
       name: 'blink.mojom.FileSystemAccessManager.GetSandboxedFileSystemForDevtools_Params',
       packedSize: 16,
       fields: [
-        { name: 'directory_path_components', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'directory_path_components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -264,13 +297,13 @@ blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec
 blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessManager.GetSandboxedFileSystemForDevtools_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
-        { name: 'directory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -282,9 +315,9 @@ blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessManager.ChooseEntries_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FilePickerOptionsSpec, nullable: false },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FilePickerOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -292,13 +325,13 @@ blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec = {
 blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessManager.ChooseEntries_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
-        { name: 'entries', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FileSystemAccessEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -310,10 +343,10 @@ blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessManager.GetFileHandleFromToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'file_handle', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'file_handle', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -325,10 +358,10 @@ blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessManager.GetDirectoryHandleFromToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'directory_handle', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'directory_handle', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -340,9 +373,9 @@ blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessManager.GetEntryFromDataTransferToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -350,13 +383,13 @@ blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec = {
 blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.FileSystemAccessManager.GetEntryFromDataTransferToken_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false },
-        { name: 'entry', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FileSystemAccessEntrySpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessEntrySpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -368,9 +401,9 @@ blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessManager.BindObserverHost_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'observer_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

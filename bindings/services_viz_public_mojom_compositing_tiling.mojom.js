@@ -9,6 +9,24 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
 
+// Union: TileContents
+viz.mojom.TileContentsSpec = { $: mojo.internal.Union(
+    'viz.mojom.TileContents', {
+      'missing_reason': {
+        'ordinal': 0,
+        'type': cc.mojom.MissingTileReasonSpec,
+      }},
+      'resource': {
+        'ordinal': 1,
+        'type': viz.mojom.TileResourceSpec,
+      }},
+      'solid_color': {
+        'ordinal': 2,
+        'type': skia.mojom.SkColor4fSpec,
+      }},
+    })
+};
+
 // Struct: TileResource
 viz.mojom.TileResourceSpec = {
   $: {
@@ -16,10 +34,10 @@ viz.mojom.TileResourceSpec = {
       name: 'viz.mojom.TileResource',
       packedSize: 24,
       fields: [
-        { name: 'resource', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.TransferableResourceSpec, nullable: false },
-        { name: 'is_checkered', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'resource', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.TransferableResourceSpec, nullable: false, minVersion: 0 },
+        { name: 'is_checkered', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -29,14 +47,14 @@ viz.mojom.TileSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Tile',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'column_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'row_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'update_damage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'contents', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.TileContentsSpec, nullable: false },
+        { name: 'column_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'row_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'update_damage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'contents', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.TileContentsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -46,18 +64,18 @@ viz.mojom.TilingSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.Tiling',
-      packedSize: 72,
+      packedSize: 64,
       fields: [
-        { name: 'layer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'raster_translation', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
-        { name: 'raster_scale', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false },
-        { name: 'tile_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
-        { name: 'tiling_rect', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'tiles', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'scale_key', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'is_deleted', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'raster_translation', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
+        { name: 'raster_scale', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
+        { name: 'tile_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'tiling_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'tiles', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.TileSpec, false), nullable: false, minVersion: 0 },
+        { name: 'scale_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'is_deleted', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };

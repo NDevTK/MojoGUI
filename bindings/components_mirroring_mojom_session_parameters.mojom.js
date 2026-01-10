@@ -15,25 +15,26 @@ mirroring.mojom.SessionType = {
   VIDEO_ONLY: 1,
   AUDIO_AND_VIDEO: 2,
 };
+mirroring.mojom.SessionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SessionParameters
 mirroring.mojom.SessionParametersSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionParameters',
-      packedSize: 64,
+      packedSize: 56,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: mirroring.mojom.SessionTypeSpec, nullable: false },
-        { name: 'receiver_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
-        { name: 'receiver_friendly_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'destination_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'target_playout_delay', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true },
-        { name: 'is_remote_playback', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'force_letterboxing', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_rtcp_reporting', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver_friendly_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'destination_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'target_playout_delay', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
+        { name: 'is_remote_playback', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'force_letterboxing', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_rtcp_reporting', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

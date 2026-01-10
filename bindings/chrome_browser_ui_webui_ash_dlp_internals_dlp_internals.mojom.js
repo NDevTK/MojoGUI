@@ -20,6 +20,7 @@ dlp_internals.mojom.EndpointType = {
   kCrostini: 6,
   kPluginVm: 7,
 };
+dlp_internals.mojom.EndpointTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContentRestriction
 dlp_internals.mojom.ContentRestriction = {
@@ -28,6 +29,7 @@ dlp_internals.mojom.ContentRestriction = {
   kPrint: 2,
   kScreenShare: 3,
 };
+dlp_internals.mojom.ContentRestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Level
 dlp_internals.mojom.Level = {
@@ -37,6 +39,7 @@ dlp_internals.mojom.Level = {
   kBlock: 3,
   kAllow: 4,
 };
+dlp_internals.mojom.LevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: Component
 dlp_internals.mojom.Component = {
@@ -48,6 +51,7 @@ dlp_internals.mojom.Component = {
   kDrive: 5,
   kOnedrive: 6,
 };
+dlp_internals.mojom.ComponentSpec = { $: mojo.internal.Enum() };
 
 // Enum: Restriction
 dlp_internals.mojom.Restriction = {
@@ -59,6 +63,7 @@ dlp_internals.mojom.Restriction = {
   kEprivacy: 5,
   kFiles: 6,
 };
+dlp_internals.mojom.RestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mode
 dlp_internals.mojom.Mode = {
@@ -68,6 +73,7 @@ dlp_internals.mojom.Mode = {
   kWarn: 3,
   kWarnProceed: 4,
 };
+dlp_internals.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserType
 dlp_internals.mojom.UserType = {
@@ -76,6 +82,7 @@ dlp_internals.mojom.UserType = {
   kManagedGuest: 2,
   kKiosk: 3,
 };
+dlp_internals.mojom.UserTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DataTransferEndpoint
 dlp_internals.mojom.DataTransferEndpointSpec = {
@@ -84,10 +91,10 @@ dlp_internals.mojom.DataTransferEndpointSpec = {
       name: 'dlp_internals.mojom.DataTransferEndpoint',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: dlp_internals.mojom.EndpointTypeSpec, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.EndpointTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,13 +104,13 @@ dlp_internals.mojom.ContentRestrictionInfoSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.ContentRestrictionInfo',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'restriction', packedOffset: 8, packedBitOffset: 0, type: dlp_internals.mojom.ContentRestrictionSpec, nullable: false },
-        { name: 'level', packedOffset: 16, packedBitOffset: 0, type: dlp_internals.mojom.LevelSpec, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'restriction', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.ContentRestrictionSpec, nullable: false, minVersion: 0 },
+        { name: 'level', packedOffset: 4, packedBitOffset: 0, type: dlp_internals.mojom.LevelSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -115,10 +122,10 @@ dlp_internals.mojom.RenderFrameHostInfoSpec = {
       name: 'dlp_internals.mojom.RenderFrameHostInfo',
       packedSize: 24,
       fields: [
-        { name: 'last_committed_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'restrictions_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'last_committed_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'restrictions_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(dlp_internals.mojom.ContentRestrictionInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -130,11 +137,11 @@ dlp_internals.mojom.WebContentsInfoSpec = {
       name: 'dlp_internals.mojom.WebContentsInfo',
       packedSize: 32,
       fields: [
-        { name: 'last_committed_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'restrictions_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'frames_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'last_committed_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'restrictions_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(dlp_internals.mojom.ContentRestrictionInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'frames_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(dlp_internals.mojom.RenderFrameHostInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -146,9 +153,9 @@ dlp_internals.mojom.EventDestinationSpec = {
       name: 'dlp_internals.mojom.EventDestination',
       packedSize: 16,
       fields: [
-        { name: 'kUndefinedComponent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUndefinedComponent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -160,9 +167,9 @@ dlp_internals.mojom.DlpEventSpec = {
       name: 'dlp_internals.mojom.DlpEvent',
       packedSize: 16,
       fields: [
-        { name: 'kUndefinedRestriction', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kUndefinedRestriction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -172,14 +179,16 @@ dlp_internals.mojom.FileDatabaseEntrySpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.FileDatabaseEntry',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'inode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'crtime', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: true },
-        { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'referrer_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'inode_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'inode_$value', originalFieldName: 'inode' } },
+        { name: 'inode_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'inode_$flag', originalFieldName: 'inode' } },
+        { name: 'crtime_$flag', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'crtime_$value', originalFieldName: 'crtime' } },
+        { name: 'crtime_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'crtime_$flag', originalFieldName: 'crtime' } },
+        { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'referrer_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -247,9 +256,9 @@ dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = {
       name: 'dlp_internals.mojom.ReportingObserver.OnReportEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: dlp_internals.mojom.DlpEventSpec, nullable: false },
+        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.DlpEventSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -359,7 +368,7 @@ dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -367,12 +376,12 @@ dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = {
 dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'dlp_internals.mojom.PageHandler.GetClipboardDataSource_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: dlp_internals.mojom.DataTransferEndpointSpec, nullable: true },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.DataTransferEndpointSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -385,7 +394,7 @@ dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -393,12 +402,12 @@ dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = {
 dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'dlp_internals.mojom.PageHandler.GetContentRestrictionsInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'web_contents_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'web_contents_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(dlp_internals.mojom.WebContentsInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -410,9 +419,9 @@ dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec = {
       name: 'dlp_internals.mojom.PageHandler.ObserveReporting_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -425,7 +434,7 @@ dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -433,12 +442,12 @@ dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = {
 dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'dlp_internals.mojom.PageHandler.GetFilesDatabaseEntries_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'db_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'db_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(dlp_internals.mojom.FileDatabaseEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -450,9 +459,9 @@ dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = {
       name: 'dlp_internals.mojom.PageHandler.GetFileInode_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -460,12 +469,12 @@ dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = {
 dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'dlp_internals.mojom.PageHandler.GetFileInode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'inode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'inode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

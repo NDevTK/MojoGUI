@@ -199,7 +199,7 @@ media.mojom.MediaPlayer_RequestPlay_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -211,9 +211,9 @@ media.mojom.MediaPlayer_RequestPause_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RequestPause_Params',
       packedSize: 16,
       fields: [
-        { name: 'triggered_by_user', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'triggered_by_user', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,9 +225,9 @@ media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RequestSeekForward_Params',
       packedSize: 16,
       fields: [
-        { name: 'seek_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -239,9 +239,9 @@ media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RequestSeekBackward_Params',
       packedSize: 16,
       fields: [
-        { name: 'seek_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -253,9 +253,9 @@ media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RequestSeekTo_Params',
       packedSize: 16,
       fields: [
-        { name: 'seek_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -268,7 +268,7 @@ media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -280,9 +280,9 @@ media.mojom.MediaPlayer_RequestMute_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RequestMute_Params',
       packedSize: 16,
       fields: [
-        { name: 'mute', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -294,9 +294,9 @@ media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.SetVolumeMultiplier_Params',
       packedSize: 16,
       fields: [
-        { name: 'multiplier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'multiplier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -308,9 +308,9 @@ media.mojom.MediaPlayer_SetPersistentState_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.SetPersistentState_Params',
       packedSize: 16,
       fields: [
-        { name: 'persistent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'persistent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -322,9 +322,9 @@ media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.SetPowerExperimentState_Params',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -336,9 +336,9 @@ media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.SetAudioSinkId_Params',
       packedSize: 16,
       fields: [
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -351,7 +351,7 @@ media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -364,7 +364,7 @@ media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -377,7 +377,7 @@ media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -385,12 +385,12 @@ media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
 media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.MediaPlayer.RequestVisibility_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_sufficiently_visible_video', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_sufficiently_visible_video', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -402,9 +402,9 @@ media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = {
       name: 'media.mojom.MediaPlayer.RecordAutoPictureInPictureInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'auto_picture_in_picture_info', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AutoPipInfoSpec, nullable: false },
+        { name: 'auto_picture_in_picture_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AutoPipInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -478,7 +478,7 @@ media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -486,12 +486,12 @@ media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
 media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.MediaPlayerObserverClient.GetHasPlayedBefore_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'has_played_before', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'has_played_before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -673,7 +673,7 @@ media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -685,9 +685,9 @@ media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnMediaPaused_Params',
       packedSize: 16,
       fields: [
-        { name: 'stream_ended', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'stream_ended', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -699,9 +699,9 @@ media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnMutedStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'muted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -713,11 +713,11 @@ media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnMediaMetadataChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'has_audio', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'has_video', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: media.mojom.MediaContentTypeSpec, nullable: false },
+        { name: 'has_audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_video', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.MediaContentTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -729,9 +729,9 @@ media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnMediaPositionStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'media_position', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false },
+        { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -743,9 +743,9 @@ media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec =
       name: 'media.mojom.MediaPlayerObserver.OnMediaEffectivelyFullscreenChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.FullscreenVideoStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.FullscreenVideoStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -757,9 +757,9 @@ media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnMediaSizeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -771,9 +771,9 @@ media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec
       name: 'media.mojom.MediaPlayerObserver.OnPictureInPictureAvailabilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -785,9 +785,9 @@ media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnAudioOutputSinkChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'hashed_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'hashed_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -799,9 +799,9 @@ media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnUseAudioServiceChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'uses_audio_service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'uses_audio_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -814,7 +814,7 @@ media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -826,9 +826,9 @@ media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnRemotePlaybackMetadataChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote_playback_metadata', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.RemotePlaybackMetadataSpec, nullable: false },
+        { name: 'remote_playback_metadata', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.RemotePlaybackMetadataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -840,9 +840,9 @@ media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = {
       name: 'media.mojom.MediaPlayerObserver.OnVideoVisibilityChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'meets_visibility_threshold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'meets_visibility_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -915,11 +915,11 @@ media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
       name: 'media.mojom.MediaPlayerHost.OnMediaPlayerAdded_Params',
       packedSize: 24,
       fields: [
-        { name: 'player_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'observer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'player_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'player_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'player_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

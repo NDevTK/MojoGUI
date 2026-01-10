@@ -45,6 +45,24 @@ ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  connectToInputMethod(ime_spec, input_method, input_method_host, settings) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec,
+      ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec,
+      [ime_spec, input_method, input_method_host, settings]);
+  }
+
+  unused(unused) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec,
+      ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec,
+      [unused]);
+  }
+
 };
 
 ash.ime.mojom.ConnectionFactory.getRemote = function() {
@@ -55,6 +73,63 @@ ash.ime.mojom.ConnectionFactory.getRemote = function() {
     'ash.ime.mojom.ConnectionFactory',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for ConnectToInputMethod
+ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.ConnectionFactory.ConnectToInputMethod_Params',
+      packedSize: 40,
+      fields: [
+        { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'input_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'input_method_host', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.InputMethodSettingsSpec, nullable: true, minVersion: 2 },
+      ],
+      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 40}]
+    }
+  }
+};
+
+ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for Unused
+ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'ash.ime.mojom.ConnectionFactory.Unused_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'unused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

@@ -14,13 +14,13 @@ contextual_tasks_internals.mojom.GetRelevantContextRequestSpec = {
   $: {
     structSpec: {
       name: 'contextual_tasks_internals.mojom.GetRelevantContextRequest',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'tab_selection_mode', packedOffset: 16, packedBitOffset: 0, type: contextual_tasks.mojom.TabSelectionModeSpec, nullable: false },
-        { name: 'min_model_score', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tab_selection_mode', packedOffset: 8, packedBitOffset: 0, type: contextual_tasks.mojom.TabSelectionModeSpec, nullable: false, minVersion: 0 },
+        { name: 'min_model_score', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -32,10 +32,10 @@ contextual_tasks_internals.mojom.TabSpec = {
       name: 'contextual_tasks_internals.mojom.Tab',
       packedSize: 24,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -47,9 +47,9 @@ contextual_tasks_internals.mojom.GetRelevantContextResponseSpec = {
       name: 'contextual_tasks_internals.mojom.GetRelevantContextResponse',
       packedSize: 16,
       fields: [
-        { name: 'relevant_tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'relevant_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(contextual_tasks_internals.mojom.TabSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,10 +117,10 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_Crea
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -193,9 +193,9 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.GetRelevantContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -203,12 +203,12 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.GetRelevantContext_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, nullable: false },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -281,12 +281,12 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_
       name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPage.OnLogMessageAdded_Params',
       packedSize: 40,
       fields: [
-        { name: 'event_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false },
-        { name: 'source_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'source_line', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

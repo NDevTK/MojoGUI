@@ -72,10 +72,10 @@ batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_Params
       name: 'batch_upload_promo.mojom.PageHandlerFactory.CreateBatchUploadPromoHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -158,7 +158,7 @@ batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpe
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -166,12 +166,12 @@ batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpe
 batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'batch_upload_promo.mojom.PageHandler.GetBatchUploadPromoLocalDataCount_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'local_data_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'local_data_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -184,7 +184,7 @@ batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -257,9 +257,9 @@ batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = {
       name: 'batch_upload_promo.mojom.Page.OnLocalDataCountChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'local_data_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'local_data_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

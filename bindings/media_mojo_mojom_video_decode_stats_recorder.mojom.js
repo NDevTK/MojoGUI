@@ -81,9 +81,9 @@ media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = {
       name: 'media.mojom.VideoDecodeStatsRecorder.StartNewRecord_Params',
       packedSize: 16,
       fields: [
-        { name: 'features', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PredictionFeaturesSpec, nullable: false },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionFeaturesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,9 +95,9 @@ media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = {
       name: 'media.mojom.VideoDecodeStatsRecorder.UpdateRecord_Params',
       packedSize: 16,
       fields: [
-        { name: 'targets', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PredictionTargetsSpec, nullable: false },
+        { name: 'targets', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PredictionTargetsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

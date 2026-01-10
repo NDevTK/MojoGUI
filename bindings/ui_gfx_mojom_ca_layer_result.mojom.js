@@ -32,3 +32,4 @@ gfx.mojom.CALayerResult = {
   kCALayerFailedOverlayDisabled: 18,
   kCALayerFailedVideoCaptureEnabled: 19,
 };
+gfx.mojom.CALayerResultSpec = { $: mojo.internal.Enum() };

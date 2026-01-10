@@ -21,3 +21,4 @@ chromecast.mojom.ZOrder = {
   SETTINGS: 7,
   BOOT_ANIMATION_OVERLAY: 8,
 };
+chromecast.mojom.ZOrderSpec = { $: mojo.internal.Enum() };

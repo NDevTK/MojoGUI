@@ -16,11 +16,11 @@ contextual_tasks.mojom.TabSpec = {
       name: 'contextual_tasks.mojom.Tab',
       packedSize: 32,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -224,7 +224,7 @@ contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -232,12 +232,12 @@ contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'contextual_tasks.mojom.PageHandler.GetThreadUrl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -249,9 +249,9 @@ contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.GetUrlForTask_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -259,12 +259,12 @@ contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'contextual_tasks.mojom.PageHandler.GetUrlForTask_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -276,9 +276,9 @@ contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.SetTaskId_Params',
       packedSize: 16,
       fields: [
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -290,9 +290,9 @@ contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.IsZeroState_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -300,12 +300,12 @@ contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'contextual_tasks.mojom.PageHandler.IsZeroState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_zero_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_zero_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -317,9 +317,9 @@ contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.SetThreadTitle_Params',
       packedSize: 16,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -332,7 +332,7 @@ contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -345,7 +345,7 @@ contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -358,7 +358,7 @@ contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -366,12 +366,12 @@ contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'contextual_tasks.mojom.PageHandler.IsShownInTab_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'is_in_tab', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_in_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -384,7 +384,7 @@ contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -397,7 +397,7 @@ contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -410,7 +410,7 @@ contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -423,7 +423,7 @@ contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -435,10 +435,10 @@ contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.OnTabClickedFromSourcesMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -450,9 +450,9 @@ contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.OnWebviewMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -464,10 +464,10 @@ contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandler.GetCommonSearchParams_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_dark_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'is_side_panel', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_side_panel', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -475,12 +475,12 @@ contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'contextual_tasks.mojom.PageHandler.GetCommonSearchParams_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -493,7 +493,7 @@ contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -683,9 +683,9 @@ contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec = {
       name: 'contextual_tasks.mojom.Page.SetThreadTitle_Params',
       packedSize: 16,
       fields: [
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -697,11 +697,11 @@ contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec = {
       name: 'contextual_tasks.mojom.Page.SetTaskDetails_Params',
       packedSize: 32,
       fields: [
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false },
-        { name: 'thread_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'turn_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
+        { name: 'thread_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'turn_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -714,7 +714,7 @@ contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -726,9 +726,9 @@ contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec = {
       name: 'contextual_tasks.mojom.Page.PostMessageToWebview_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -741,7 +741,7 @@ contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -753,9 +753,9 @@ contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec = {
       name: 'contextual_tasks.mojom.Page.SetOAuthToken_Params',
       packedSize: 16,
       fields: [
-        { name: 'oauth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'oauth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -767,9 +767,9 @@ contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec = {
       name: 'contextual_tasks.mojom.Page.OnContextUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'context_tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'context_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(contextual_tasks.mojom.TabSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -782,7 +782,7 @@ contextual_tasks.mojom.Page_HideInput_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -795,7 +795,7 @@ contextual_tasks.mojom.Page_RestoreInput_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -807,9 +807,9 @@ contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec = {
       name: 'contextual_tasks.mojom.Page.OnZeroStateChange_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_zero_state', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_zero_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -821,9 +821,9 @@ contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec = {
       name: 'contextual_tasks.mojom.Page.OnAiPageStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_ai_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_ai_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -835,9 +835,9 @@ contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec = {
       name: 'contextual_tasks.mojom.Page.OnLensOverlayStateChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_showing', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_showing', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -850,7 +850,7 @@ contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -863,7 +863,7 @@ contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -936,10 +936,10 @@ contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'contextual_tasks.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'page_handler', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'page_handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -17,3 +17,4 @@ gpu.mojom.GpuPeakMemoryAllocationSource = {
   SHARED_IMAGE_STUB: 3,
   SKIA: 4,
 };
+gpu.mojom.GpuPeakMemoryAllocationSourceSpec = { $: mojo.internal.Enum() };

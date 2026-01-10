@@ -32,6 +32,7 @@ browser_command.mojom.Command = {
   kOpenSplitView: 18,
   kOpenAutofillSettings: 19,
 };
+browser_command.mojom.CommandSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClickInfo
 browser_command.mojom.ClickInfoSpec = {
@@ -40,13 +41,13 @@ browser_command.mojom.ClickInfoSpec = {
       name: 'browser_command.mojom.ClickInfo',
       packedSize: 16,
       fields: [
-        { name: 'middle_button', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'alt_key', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'ctrl_key', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
-        { name: 'meta_key', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false },
-        { name: 'shift_key', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false },
+        { name: 'middle_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'alt_key', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ctrl_key', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'meta_key', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'shift_key', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -114,9 +115,9 @@ browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSp
       name: 'browser_command.mojom.CommandHandlerFactory.CreateBrowserCommandHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -198,9 +199,9 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
       name: 'browser_command.mojom.CommandHandler.CanExecuteCommand_Params',
       packedSize: 16,
       fields: [
-        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false },
+        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,12 +209,12 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
 browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'browser_command.mojom.CommandHandler.CanExecuteCommand_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'can_execute', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'can_execute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,10 +226,10 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
       name: 'browser_command.mojom.CommandHandler.ExecuteCommand_Params',
       packedSize: 24,
       fields: [
-        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false },
-        { name: 'click_info', packedOffset: 16, packedBitOffset: 0, type: browser_command.mojom.ClickInfoSpec, nullable: false },
+        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false, minVersion: 0 },
+        { name: 'click_info', packedOffset: 8, packedBitOffset: 0, type: browser_command.mojom.ClickInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -236,12 +237,12 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
 browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'browser_command.mojom.CommandHandler.ExecuteCommand_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'command_executed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'command_executed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

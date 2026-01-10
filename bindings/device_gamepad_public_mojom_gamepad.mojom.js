@@ -15,6 +15,7 @@ device.mojom.GamepadMapping = {
   GamepadMappingStandard: 1,
   GamepadMappingXRStandard: 2,
 };
+device.mojom.GamepadMappingSpec = { $: mojo.internal.Enum() };
 
 // Enum: GamepadHand
 device.mojom.GamepadHand = {
@@ -22,6 +23,7 @@ device.mojom.GamepadHand = {
   GamepadHandLeft: 1,
   GamepadHandRight: 2,
 };
+device.mojom.GamepadHandSpec = { $: mojo.internal.Enum() };
 
 // Enum: GamepadHapticActuatorType
 device.mojom.GamepadHapticActuatorType = {
@@ -29,12 +31,14 @@ device.mojom.GamepadHapticActuatorType = {
   GamepadHapticActuatorTypeDualRumble: 1,
   GamepadHapticActuatorTypeTriggerRumble: 2,
 };
+device.mojom.GamepadHapticActuatorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GamepadHapticEffectType
 device.mojom.GamepadHapticEffectType = {
   GamepadHapticEffectTypeDualRumble: 0,
   GamepadHapticEffectTypeTriggerRumble: 1,
 };
+device.mojom.GamepadHapticEffectTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GamepadHapticsResult
 device.mojom.GamepadHapticsResult = {
@@ -44,6 +48,7 @@ device.mojom.GamepadHapticsResult = {
   GamepadHapticsResultInvalidParameter: 3,
   GamepadHapticsResultNotSupported: 4,
 };
+device.mojom.GamepadHapticsResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: GamepadQuaternion
 device.mojom.GamepadQuaternionSpec = {
@@ -52,12 +57,12 @@ device.mojom.GamepadQuaternionSpec = {
       name: 'device.mojom.GamepadQuaternion',
       packedSize: 24,
       fields: [
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'z', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'w', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'z', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'w', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -69,11 +74,11 @@ device.mojom.GamepadVectorSpec = {
       name: 'device.mojom.GamepadVector',
       packedSize: 24,
       fields: [
-        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'z', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'z', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -85,11 +90,11 @@ device.mojom.GamepadButtonSpec = {
       name: 'device.mojom.GamepadButton',
       packedSize: 24,
       fields: [
-        { name: 'pressed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'touched', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'pressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'touched', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -99,17 +104,17 @@ device.mojom.GamepadTouchSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadTouch',
-      packedSize: 48,
+      packedSize: 40,
       fields: [
-        { name: 'touch_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'surface_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'y', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'surface_height', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'surface_width', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'has_surface_dimensions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'touch_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'surface_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'y', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'surface_height', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'surface_width', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'has_surface_dimensions', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -121,14 +126,14 @@ device.mojom.GamepadPoseSpec = {
       name: 'device.mojom.GamepadPose',
       packedSize: 56,
       fields: [
-        { name: 'orientation', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadQuaternionSpec, nullable: true },
-        { name: 'position', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true },
-        { name: 'angular_velocity', packedOffset: 24, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true },
-        { name: 'linear_velocity', packedOffset: 32, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true },
-        { name: 'angular_acceleration', packedOffset: 40, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true },
-        { name: 'linear_acceleration', packedOffset: 48, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true },
+        { name: 'orientation', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadQuaternionSpec, nullable: true, minVersion: 0 },
+        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true, minVersion: 0 },
+        { name: 'angular_velocity', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true, minVersion: 0 },
+        { name: 'linear_velocity', packedOffset: 24, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true, minVersion: 0 },
+        { name: 'angular_acceleration', packedOffset: 32, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true, minVersion: 0 },
+        { name: 'linear_acceleration', packedOffset: 40, packedBitOffset: 0, type: device.mojom.GamepadVectorSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -140,9 +145,9 @@ device.mojom.GamepadHapticActuatorSpec = {
       name: 'device.mojom.GamepadHapticActuator',
       packedSize: 16,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadHapticActuatorTypeSpec, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadHapticActuatorTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -152,21 +157,21 @@ device.mojom.GamepadSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Gamepad',
-      packedSize: 96,
+      packedSize: 80,
       fields: [
-        { name: 'connected', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
-        { name: 'axes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'buttons', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'vibration_actuator', packedOffset: 48, packedBitOffset: 0, type: device.mojom.GamepadHapticActuatorSpec, nullable: true },
-        { name: 'mapping', packedOffset: 56, packedBitOffset: 0, type: device.mojom.GamepadMappingSpec, nullable: false },
-        { name: 'pose', packedOffset: 64, packedBitOffset: 0, type: device.mojom.GamepadPoseSpec, nullable: true },
-        { name: 'hand', packedOffset: 72, packedBitOffset: 0, type: device.mojom.GamepadHandSpec, nullable: false },
-        { name: 'touch_events', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'display_id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'connected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'axes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: false, minVersion: 0 },
+        { name: 'buttons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.GamepadButtonSpec, false), nullable: false, minVersion: 0 },
+        { name: 'vibration_actuator', packedOffset: 40, packedBitOffset: 0, type: device.mojom.GamepadHapticActuatorSpec, nullable: true, minVersion: 0 },
+        { name: 'mapping', packedOffset: 4, packedBitOffset: 0, type: device.mojom.GamepadMappingSpec, nullable: false, minVersion: 0 },
+        { name: 'pose', packedOffset: 48, packedBitOffset: 0, type: device.mojom.GamepadPoseSpec, nullable: true, minVersion: 0 },
+        { name: 'hand', packedOffset: 56, packedBitOffset: 0, type: device.mojom.GamepadHandSpec, nullable: false, minVersion: 0 },
+        { name: 'touch_events', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.GamepadTouchSpec, false), nullable: false, minVersion: 0 },
+        { name: 'display_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };
@@ -178,14 +183,14 @@ device.mojom.GamepadEffectParametersSpec = {
       name: 'device.mojom.GamepadEffectParameters',
       packedSize: 56,
       fields: [
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'start_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'strong_magnitude', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'weak_magnitude', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'left_trigger', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'right_trigger', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'start_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'strong_magnitude', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'weak_magnitude', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'left_trigger', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'right_trigger', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -271,10 +276,10 @@ device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = {
       name: 'device.mojom.GamepadObserver.GamepadConnected_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'gamepad', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -286,10 +291,10 @@ device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = {
       name: 'device.mojom.GamepadObserver.GamepadDisconnected_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'gamepad', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -301,10 +306,10 @@ device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = {
       name: 'device.mojom.GamepadObserver.GamepadRawInputChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'gamepad', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false },
+        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'gamepad', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -396,7 +401,7 @@ device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -404,12 +409,12 @@ device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
 device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.GamepadMonitor.GamepadStartPolling_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'memory_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
+        { name: 'memory_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -422,7 +427,7 @@ device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -434,9 +439,9 @@ device.mojom.GamepadMonitor_SetObserver_ParamsSpec = {
       name: 'device.mojom.GamepadMonitor.SetObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'gamepad_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'gamepad_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -516,13 +521,13 @@ device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GamepadHapticsManager.PlayVibrationEffectOnce_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'pad_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GamepadHapticEffectTypeSpec, nullable: false },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: device.mojom.GamepadEffectParametersSpec, nullable: false },
+        { name: 'pad_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: device.mojom.GamepadHapticEffectTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadEffectParametersSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -530,12 +535,12 @@ device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = {
 device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.GamepadHapticsManager.PlayVibrationEffectOnce_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadHapticsResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadHapticsResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -547,9 +552,9 @@ device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
       name: 'device.mojom.GamepadHapticsManager.ResetVibrationActuator_Params',
       packedSize: 16,
       fields: [
-        { name: 'pad_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pad_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -557,12 +562,12 @@ device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
 device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'device.mojom.GamepadHapticsManager.ResetVibrationActuator_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.GamepadHapticsResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadHapticsResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

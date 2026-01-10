@@ -44,6 +44,33 @@ arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  allocateProtectedSharedMemory(handle_fd, size) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec,
+      arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec,
+      [handle_fd, size]);
+  }
+
+  allocateProtectedNativePixmap(handle_fd, pixel_format, picture_size) {
+    // Ordinal: 1
+    return this.proxy.sendMessage(
+      1,  // ordinal
+      arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec,
+      arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec,
+      [handle_fd, pixel_format, picture_size]);
+  }
+
+  releaseProtectedBuffer(handle_fd) {
+    // Ordinal: 2
+    return this.proxy.sendMessage(
+      2,  // ordinal
+      arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec,
+      null,
+      [handle_fd]);
+  }
+
 };
 
 arc.mojom.VideoProtectedBufferAllocator.getRemote = function() {
@@ -54,6 +81,77 @@ arc.mojom.VideoProtectedBufferAllocator.getRemote = function() {
     'arc.mojom.VideoProtectedBufferAllocator',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for AllocateProtectedSharedMemory
+arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoProtectedBufferAllocator.AllocateProtectedSharedMemory_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'handle_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for AllocateProtectedNativePixmap
+arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoProtectedBufferAllocator.AllocateProtectedNativePixmap_Params',
+      packedSize: 24,
+      fields: [
+        { name: 'handle_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'pixel_format', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'picture_size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 24}]
+    }
+  }
+};
+
+arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec = {
+  $: {
+    structSpec: {
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 16,
+      fields: [
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
+};
+
+// ParamsSpec for ReleaseProtectedBuffer
+arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'arc.mojom.VideoProtectedBufferAllocator.ReleaseProtectedBuffer_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'handle_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

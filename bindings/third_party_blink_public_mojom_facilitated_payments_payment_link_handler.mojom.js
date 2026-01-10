@@ -73,9 +73,9 @@ payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = {
       name: 'payments.facilitated.mojom.PaymentLinkHandler.HandlePaymentLink_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

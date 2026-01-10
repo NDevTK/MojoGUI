@@ -20,3 +20,4 @@ network.mojom.BlockedByResponseReason = {
   kCorpNotSameSite: 6,
   kSRIMessageSignatureMismatch: 7,
 };
+network.mojom.BlockedByResponseReasonSpec = { $: mojo.internal.Enum() };

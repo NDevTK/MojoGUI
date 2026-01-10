@@ -16,6 +16,7 @@ printing.mojom.TransformType = {
   TRANSFORM_FLIP_HORIZONTAL: 2,
   TRANSFORM_FLIP_VERTICAL: 3,
 };
+printing.mojom.TransformTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DuplexMode
 printing.mojom.DuplexMode = {
@@ -23,6 +24,7 @@ printing.mojom.DuplexMode = {
   LONG_EDGE: 1,
   SHORT_EDGE: 2,
 };
+printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PwgRasterSettings
 printing.mojom.PwgRasterSettingsSpec = {
@@ -31,9 +33,9 @@ printing.mojom.PwgRasterSettingsSpec = {
       name: 'printing.mojom.PwgRasterSettings',
       packedSize: 16,
       fields: [
-        { name: 'TRANSFORM_NORMAL', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'TRANSFORM_NORMAL', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,11 +112,11 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
       name: 'printing.mojom.PdfToPwgRasterConverter.Convert_Params',
       packedSize: 32,
       fields: [
-        { name: 'pdf_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false },
-        { name: 'pdf_settings', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false },
-        { name: 'pwg_raster_settings', packedOffset: 24, packedBitOffset: 0, type: printing.mojom.PwgRasterSettingsSpec, nullable: false },
+        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'pdf_settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false, minVersion: 0 },
+        { name: 'pwg_raster_settings', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.PwgRasterSettingsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -122,13 +124,13 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
 printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'printing.mojom.PdfToPwgRasterConverter.Convert_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'pwg_raster_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true },
-        { name: 'page_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'pwg_raster_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
+        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -140,9 +142,9 @@ printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
       name: 'printing.mojom.PdfToPwgRasterConverter.SetUseSkiaRendererPolicy_Params',
       packedSize: 16,
       fields: [
-        { name: 'use_skia', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

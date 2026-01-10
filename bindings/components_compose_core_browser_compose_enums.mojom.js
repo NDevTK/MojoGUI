@@ -28,3 +28,4 @@ compose.mojom.ComposeStatus = {
   kOffline: 14,
   kRequestTimeout: 15,
 };
+compose.mojom.ComposeStatusSpec = { $: mojo.internal.Enum() };

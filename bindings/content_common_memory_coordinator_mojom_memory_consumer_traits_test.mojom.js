@@ -72,9 +72,9 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = {
       name: 'content.mojom.MemoryConsumerTraitsTest.EchoMemoryConsumerTraits_Params',
       packedSize: 16,
       fields: [
-        { name: 'in', packedOffset: 8, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false },
+        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -82,12 +82,12 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = {
 content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.MemoryConsumerTraitsTest.EchoMemoryConsumerTraits_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'out', packedOffset: 8, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false },
+        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

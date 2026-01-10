@@ -16,6 +16,7 @@ blink.mojom.ClientMode = {
   kNavigateExisting: 2,
   kFocusExisting: 3,
 };
+blink.mojom.ClientModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ManifestLaunchHandler
 blink.mojom.ManifestLaunchHandlerSpec = {
@@ -24,9 +25,9 @@ blink.mojom.ManifestLaunchHandlerSpec = {
       name: 'blink.mojom.ManifestLaunchHandler',
       packedSize: 16,
       fields: [
-        { name: 'kAuto', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kAuto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

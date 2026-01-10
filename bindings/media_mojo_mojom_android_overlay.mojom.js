@@ -16,12 +16,12 @@ media.mojom.AndroidOverlayConfigSpec = {
       name: 'media.mojom.AndroidOverlayConfig',
       packedSize: 32,
       fields: [
-        { name: 'routing_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false },
-        { name: 'rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
-        { name: 'secure', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'power_efficient', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
+        { name: 'routing_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'secure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'power_efficient', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -89,11 +89,11 @@ media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = {
       name: 'media.mojom.AndroidOverlayProvider.CreateOverlay_Params',
       packedSize: 24,
       fields: [
-        { name: 'overlay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AndroidOverlayConfigSpec, nullable: false },
+        { name: 'overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AndroidOverlayConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -166,9 +166,9 @@ media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = {
       name: 'media.mojom.AndroidOverlay.ScheduleLayout_Params',
       packedSize: 16,
       fields: [
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false },
+        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -268,9 +268,9 @@ media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = {
       name: 'media.mojom.AndroidOverlayClient.OnSurfaceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'surface_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false },
+        { name: 'surface_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -283,7 +283,7 @@ media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -296,7 +296,7 @@ media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -308,9 +308,9 @@ media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = {
       name: 'media.mojom.AndroidOverlayClient.OnPowerEfficientState_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_power_efficient', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_power_efficient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

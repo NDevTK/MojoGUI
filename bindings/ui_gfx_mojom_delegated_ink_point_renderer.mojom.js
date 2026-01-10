@@ -81,9 +81,9 @@ gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
       name: 'gfx.mojom.DelegatedInkPointRenderer.StoreDelegatedInkPoint_Params',
       packedSize: 16,
       fields: [
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.DelegatedInkPointSpec, nullable: false },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DelegatedInkPointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +96,7 @@ gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -16,13 +16,13 @@ cert_verifier.mojom.RequestParamsSpec = {
       name: 'cert_verifier.mojom.RequestParams',
       packedSize: 48,
       fields: [
-        { name: 'certificate', packedOffset: 8, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false },
-        { name: 'hostname', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'flags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'ocsp_response', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
-        { name: 'sct_list', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false },
+        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
+        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'ocsp_response', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
+        { name: 'sct_list', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -34,11 +34,11 @@ cert_verifier.mojom.CertVerifierConfigSpec = {
       name: 'cert_verifier.mojom.CertVerifierConfig',
       packedSize: 16,
       fields: [
-        { name: 'enable_rev_checking', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'require_rev_checking_local_anchors', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false },
-        { name: 'enable_sha1_local_anchors', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false },
+        { name: 'enable_rev_checking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'require_rev_checking_local_anchors', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_sha1_local_anchors', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -106,9 +106,9 @@ cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec 
       name: 'cert_verifier.mojom.URLLoaderFactoryConnector.CreateURLLoaderFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'url_loader_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -208,10 +208,10 @@ cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.EnableNetworkAccess_Params',
       packedSize: 16,
       fields: [
-        { name: 'url_loader_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'reconnector', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'url_loader_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'reconnector', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -223,11 +223,11 @@ cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.Verify_Params',
       packedSize: 32,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: cert_verifier.mojom.RequestParamsSpec, nullable: false },
-        { name: 'net_log_source', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false },
-        { name: 'cert_verifier_request', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.RequestParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'net_log_source', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'cert_verifier_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -239,12 +239,12 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_Params',
       packedSize: 40,
       fields: [
-        { name: 'binding', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'hostname', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'tls_certificate', packedOffset: 24, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false },
-        { name: 'net_log_source', packedOffset: 32, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false },
+        { name: 'binding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'hostname', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tls_certificate', packedOffset: 16, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
+        { name: 'net_log_source', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -252,12 +252,12 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
 cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'verified_cert', packedOffset: 8, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false },
+        { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -269,9 +269,9 @@ cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierService.SetConfig_Params',
       packedSize: 16,
       fields: [
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierConfigSpec, nullable: false },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -345,7 +345,7 @@ cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -418,10 +418,10 @@ cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec = {
       name: 'cert_verifier.mojom.CertVerifierRequest.Complete_Params',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CertVerifyResultSpec, nullable: false },
-        { name: 'net_error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CertVerifyResultSpec, nullable: false, minVersion: 0 },
+        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

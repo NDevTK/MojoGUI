@@ -28,3 +28,4 @@ crosapi.mojom.KeystoreError = {
   kNetCertificateInvalid: 14,
   kUnsupportedKeystoreType: 15,
 };
+crosapi.mojom.KeystoreErrorSpec = { $: mojo.internal.Enum() };

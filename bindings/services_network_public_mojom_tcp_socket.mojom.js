@@ -14,12 +14,12 @@ network.mojom.TCPKeepAliveOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TCPKeepAliveOptions',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'delay', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -31,12 +31,12 @@ network.mojom.TCPConnectedSocketOptionsSpec = {
       name: 'network.mojom.TCPConnectedSocketOptions',
       packedSize: 32,
       fields: [
-        { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'receive_buffer_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'no_delay', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'keep_alive_options', packedOffset: 24, packedBitOffset: 0, type: network.mojom.TCPKeepAliveOptionsSpec, nullable: true },
+        { name: 'send_buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receive_buffer_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'no_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'keep_alive_options', packedOffset: 16, packedBitOffset: 0, type: network.mojom.TCPKeepAliveOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -46,13 +46,14 @@ network.mojom.TCPServerSocketOptionsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TCPServerSocketOptions',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'backlog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'ipv6_only', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: true },
-        { name: 'connection_tracker', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'backlog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'ipv6_only_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'ipv6_only_$value', originalFieldName: 'ipv6_only' } },
+        { name: 'ipv6_only_$value', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'ipv6_only_$flag', originalFieldName: 'ipv6_only' } },
+        { name: 'connection_tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -129,10 +130,10 @@ network.mojom.TCPBoundSocket_Listen_ParamsSpec = {
       name: 'network.mojom.TCPBoundSocket.Listen_Params',
       packedSize: 16,
       fields: [
-        { name: 'backlog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'socket', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'backlog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'socket', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -140,12 +141,12 @@ network.mojom.TCPBoundSocket_Listen_ParamsSpec = {
 network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.TCPBoundSocket.Listen_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -157,12 +158,12 @@ network.mojom.TCPBoundSocket_Connect_ParamsSpec = {
       name: 'network.mojom.TCPBoundSocket.Connect_Params',
       packedSize: 32,
       fields: [
-        { name: 'remote_addr_list', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false },
-        { name: 'tcp_connected_socket_options', packedOffset: 16, packedBitOffset: 0, type: network.mojom.TCPConnectedSocketOptionsSpec, nullable: true },
-        { name: 'socket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'observer', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'remote_addr_list', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
+        { name: 'tcp_connected_socket_options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TCPConnectedSocketOptionsSpec, nullable: true, minVersion: 0 },
+        { name: 'socket', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -170,16 +171,16 @@ network.mojom.TCPBoundSocket_Connect_ParamsSpec = {
 network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.TCPBoundSocket.Connect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 48,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'local_addr', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'peer_addr', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'receive_stream', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'send_stream', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'local_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
+        { name: 'peer_addr', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
+        { name: 'receive_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'send_stream', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -288,13 +289,13 @@ network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec = {
       name: 'network.mojom.TCPConnectedSocket.UpgradeToTLS_Params',
       packedSize: 40,
       fields: [
-        { name: 'host_port_pair', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: network.mojom.TLSClientSocketOptionsSpec, nullable: true },
-        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
-        { name: 'receiver', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'observer', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'host_port_pair', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: network.mojom.TLSClientSocketOptionsSpec, nullable: true, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 16, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -302,15 +303,15 @@ network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec = {
 network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.TCPConnectedSocket.UpgradeToTLS_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 40,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'receive_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'send_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'ssl_info', packedOffset: 32, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receive_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'send_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'ssl_info', packedOffset: 24, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -322,9 +323,9 @@ network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec = {
       name: 'network.mojom.TCPConnectedSocket.SetSendBufferSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'send_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'send_buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -332,12 +333,12 @@ network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec = {
 network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.TCPConnectedSocket.SetSendBufferSize_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -349,9 +350,9 @@ network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec = {
       name: 'network.mojom.TCPConnectedSocket.SetReceiveBufferSize_Params',
       packedSize: 16,
       fields: [
-        { name: 'receive_buffer_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'receive_buffer_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -359,12 +360,12 @@ network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec = {
 network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.TCPConnectedSocket.SetReceiveBufferSize_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -376,9 +377,9 @@ network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec = {
       name: 'network.mojom.TCPConnectedSocket.SetNoDelay_Params',
       packedSize: 16,
       fields: [
-        { name: 'no_delay', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'no_delay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -386,12 +387,12 @@ network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec = {
 network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.TCPConnectedSocket.SetNoDelay_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -401,12 +402,12 @@ network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.TCPConnectedSocket.SetKeepAlive_Params',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'enable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'delay_secs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'delay_secs', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -414,12 +415,12 @@ network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec = {
 network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.TCPConnectedSocket.SetKeepAlive_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -501,9 +502,9 @@ network.mojom.SocketObserver_OnReadError_ParamsSpec = {
       name: 'network.mojom.SocketObserver.OnReadError_Params',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -515,9 +516,9 @@ network.mojom.SocketObserver_OnWriteError_ParamsSpec = {
       name: 'network.mojom.SocketObserver.OnWriteError_Params',
       packedSize: 16,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -590,9 +591,9 @@ network.mojom.TCPServerSocket_Accept_ParamsSpec = {
       name: 'network.mojom.TCPServerSocket.Accept_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -600,16 +601,16 @@ network.mojom.TCPServerSocket_Accept_ParamsSpec = {
 network.mojom.TCPServerSocket_Accept_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.TCPServerSocket.Accept_ResponseParams',
-      packedSize: 48,
+      name: '{interface_string}.{method['name']}_ResponseParams',
+      packedSize: 40,
       fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'remote_addr', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true },
-        { name: 'connected_socket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true },
-        { name: 'send_stream', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
-        { name: 'receive_stream', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true },
+        { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'remote_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
+        { name: 'connected_socket', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'send_stream', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
+        { name: 'receive_stream', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

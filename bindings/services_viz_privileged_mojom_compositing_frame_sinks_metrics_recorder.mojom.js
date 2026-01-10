@@ -14,14 +14,14 @@ viz.mojom.FrameCountingPerSinkDataSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameCountingPerSinkData',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'is_root', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'debug_label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'start_bucket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'presented_frames', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'is_root', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'debug_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'start_bucket', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'presented_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint16, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -33,9 +33,9 @@ viz.mojom.FrameCountingDataSpec = {
       name: 'viz.mojom.FrameCountingData',
       packedSize: 16,
       fields: [
-        { name: 'per_sink_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'per_sink_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.FrameCountingPerSinkDataSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -47,9 +47,9 @@ viz.mojom.OverdrawDataSpec = {
       name: 'viz.mojom.OverdrawData',
       packedSize: 16,
       fields: [
-        { name: 'average_overdraws', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'average_overdraws', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -144,10 +144,10 @@ viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StartFrameCounting_Params',
       packedSize: 24,
       fields: [
-        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'bucket_size', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -160,7 +160,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -168,12 +168,12 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
 viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder.StopFrameCounting_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameCountingDataSpec, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameCountingDataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -185,10 +185,10 @@ viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StartOverdrawTracking_Params',
       packedSize: 24,
       fields: [
-        { name: 'root_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
-        { name: 'bucket_size', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
+        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'bucket_size', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -200,9 +200,9 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
       name: 'viz.mojom.FrameSinksMetricsRecorder.StopOverdrawTracking_Params',
       packedSize: 16,
       fields: [
-        { name: 'root_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false },
+        { name: 'root_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -210,12 +210,12 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
 viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'viz.mojom.FrameSinksMetricsRecorder.StopOverdrawTracking_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.OverdrawDataSpec, nullable: true },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OverdrawDataSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

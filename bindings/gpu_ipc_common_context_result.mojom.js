@@ -16,3 +16,4 @@ gpu.mojom.ContextResult = {
   FatalFailure: 2,
   SurfaceFailure: 3,
 };
+gpu.mojom.ContextResultSpec = { $: mojo.internal.Enum() };

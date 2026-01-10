@@ -15,3 +15,4 @@ mojo_base.mojom.ProcessPriority = {
   kUserVisible: 1,
   kUserBlocking: 2,
 };
+mojo_base.mojom.ProcessPrioritySpec = { $: mojo.internal.Enum() };

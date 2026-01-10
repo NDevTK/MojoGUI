@@ -70,6 +70,7 @@ ax.mojom.Event = {
   kWindowDeactivated: 56,
   kWindowVisibilityChanged: 57,
 };
+ax.mojom.EventSpec = { $: mojo.internal.Enum() };
 
 // Enum: Role
 ax.mojom.Role = {
@@ -258,6 +259,7 @@ ax.mojom.Role = {
   kWebView: 182,
   kWindow: 183,
 };
+ax.mojom.RoleSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
 ax.mojom.State = {
@@ -280,6 +282,7 @@ ax.mojom.State = {
   kVertical: 16,
   kVisited: 17,
 };
+ax.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Action
 ax.mojom.Action = {
@@ -317,6 +320,7 @@ ax.mojom.Action = {
   kSignalEndOfTest: 31,
   kShowTooltip: 32,
 };
+ax.mojom.ActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionFlags
 ax.mojom.ActionFlags = {
@@ -324,6 +328,7 @@ ax.mojom.ActionFlags = {
   kRequestImages: 1,
   kRequestInlineTextBoxes: 2,
 };
+ax.mojom.ActionFlagsSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollAlignment
 ax.mojom.ScrollAlignment = {
@@ -334,12 +339,14 @@ ax.mojom.ScrollAlignment = {
   kScrollAlignmentRight: 4,
   kScrollAlignmentClosestEdge: 5,
 };
+ax.mojom.ScrollAlignmentSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollBehavior
 ax.mojom.ScrollBehavior = {
   kDoNotScrollIfVisible: 0,
   kScrollIfVisible: 1,
 };
+ax.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: DefaultActionVerb
 ax.mojom.DefaultActionVerb = {
@@ -356,6 +363,7 @@ ax.mojom.DefaultActionVerb = {
   kSelect: 10,
   kUncheck: 11,
 };
+ax.mojom.DefaultActionVerbSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mutation
 ax.mojom.Mutation = {
@@ -367,6 +375,7 @@ ax.mojom.Mutation = {
   kTextChanged: 5,
   kSubtreeUpdateEnd: 6,
 };
+ax.mojom.MutationSpec = { $: mojo.internal.Enum() };
 
 // Enum: StringAttribute
 ax.mojom.StringAttribute = {
@@ -401,6 +410,7 @@ ax.mojom.StringAttribute = {
   kValue: 28,
   kVirtualContent: 29,
 };
+ax.mojom.StringAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IntAttribute
 ax.mojom.IntAttribute = {
@@ -465,6 +475,7 @@ ax.mojom.IntAttribute = {
   kDropeffectDeprecated: 58,
   kDOMNodeIdDeprecated: 59,
 };
+ax.mojom.IntAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FloatAttribute
 ax.mojom.FloatAttribute = {
@@ -476,6 +487,7 @@ ax.mojom.FloatAttribute = {
   kFontWeight: 5,
   kTextIndent: 6,
 };
+ax.mojom.FloatAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BoolAttribute
 ax.mojom.BoolAttribute = {
@@ -500,6 +512,7 @@ ax.mojom.BoolAttribute = {
   kHasAriaAttribute: 18,
   kTouchPassthroughDeprecated: 19,
 };
+ax.mojom.BoolAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IntListAttribute
 ax.mojom.IntListAttribute = {
@@ -519,11 +532,13 @@ ax.mojom.IntListAttribute = {
   kWordEnds: 13,
   kCustomActionIds: 14,
 };
+ax.mojom.IntListAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: StringListAttribute
 ax.mojom.StringListAttribute = {
   kCustomActionDescriptions: 0,
 };
+ax.mojom.StringListAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ListStyle
 ax.mojom.ListStyle = {
@@ -535,6 +550,7 @@ ax.mojom.ListStyle = {
   kSquare: 5,
   kOther: 6,
 };
+ax.mojom.ListStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: MarkerType
 ax.mojom.MarkerType = {
@@ -546,6 +562,7 @@ ax.mojom.MarkerType = {
   kSuggestion: 5,
   kHighlight: 6,
 };
+ax.mojom.MarkerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HighlightType
 ax.mojom.HighlightType = {
@@ -554,12 +571,14 @@ ax.mojom.HighlightType = {
   kSpellingError: 2,
   kGrammarError: 3,
 };
+ax.mojom.HighlightTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MoveDirection
 ax.mojom.MoveDirection = {
   kBackward: 0,
   kForward: 1,
 };
+ax.mojom.MoveDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Command
 ax.mojom.Command = {
@@ -574,6 +593,7 @@ ax.mojom.Command = {
   kMoveSelection: 8,
   kSetSelection: 9,
 };
+ax.mojom.CommandSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputEventType
 ax.mojom.InputEventType = {
@@ -616,6 +636,7 @@ ax.mojom.InputEventType = {
   kFormatRemove: 36,
   kFormatSetBlockTextDirection: 37,
 };
+ax.mojom.InputEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextBoundary
 ax.mojom.TextBoundary = {
@@ -639,6 +660,7 @@ ax.mojom.TextBoundary = {
   kWordStart: 17,
   kWordStartOrEnd: 18,
 };
+ax.mojom.TextBoundarySpec = { $: mojo.internal.Enum() };
 
 // Enum: TextAlign
 ax.mojom.TextAlign = {
@@ -648,6 +670,7 @@ ax.mojom.TextAlign = {
   kCenter: 3,
   kJustify: 4,
 };
+ax.mojom.TextAlignSpec = { $: mojo.internal.Enum() };
 
 // Enum: WritingDirection
 ax.mojom.WritingDirection = {
@@ -657,6 +680,7 @@ ax.mojom.WritingDirection = {
   kTtb: 3,
   kBtt: 4,
 };
+ax.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextPosition
 ax.mojom.TextPosition = {
@@ -664,6 +688,7 @@ ax.mojom.TextPosition = {
   kSubscript: 1,
   kSuperscript: 2,
 };
+ax.mojom.TextPositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextStyle
 ax.mojom.TextStyle = {
@@ -674,6 +699,7 @@ ax.mojom.TextStyle = {
   kLineThrough: 4,
   kOverline: 5,
 };
+ax.mojom.TextStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextDecorationStyle
 ax.mojom.TextDecorationStyle = {
@@ -684,6 +710,7 @@ ax.mojom.TextDecorationStyle = {
   kDouble: 4,
   kWavy: 5,
 };
+ax.mojom.TextDecorationStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: AriaCurrentState
 ax.mojom.AriaCurrentState = {
@@ -696,6 +723,7 @@ ax.mojom.AriaCurrentState = {
   kDate: 6,
   kTime: 7,
 };
+ax.mojom.AriaCurrentStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: HasPopup
 ax.mojom.HasPopup = {
@@ -708,6 +736,7 @@ ax.mojom.HasPopup = {
   kDialog: 6,
   kNone: 7,
 };
+ax.mojom.HasPopupSpec = { $: mojo.internal.Enum() };
 
 // Enum: IsPopup
 ax.mojom.IsPopup = {
@@ -716,6 +745,7 @@ ax.mojom.IsPopup = {
   kAuto: 2,
   kHint: 3,
 };
+ax.mojom.IsPopupSpec = { $: mojo.internal.Enum() };
 
 // Enum: InvalidState
 ax.mojom.InvalidState = {
@@ -723,6 +753,7 @@ ax.mojom.InvalidState = {
   kFalse: 1,
   kTrue: 2,
 };
+ax.mojom.InvalidStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Restriction
 ax.mojom.Restriction = {
@@ -730,6 +761,7 @@ ax.mojom.Restriction = {
   kReadOnly: 1,
   kDisabled: 2,
 };
+ax.mojom.RestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: CheckedState
 ax.mojom.CheckedState = {
@@ -738,6 +770,7 @@ ax.mojom.CheckedState = {
   kTrue: 2,
   kMixed: 3,
 };
+ax.mojom.CheckedStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: SortDirection
 ax.mojom.SortDirection = {
@@ -747,6 +780,7 @@ ax.mojom.SortDirection = {
   kDescending: 3,
   kOther: 4,
 };
+ax.mojom.SortDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: NameFrom
 ax.mojom.NameFrom = {
@@ -765,6 +799,7 @@ ax.mojom.NameFrom = {
   kPopoverTarget: 12,
   kInterestFor: 13,
 };
+ax.mojom.NameFromSpec = { $: mojo.internal.Enum() };
 
 // Enum: DescriptionFrom
 ax.mojom.DescriptionFrom = {
@@ -782,6 +817,7 @@ ax.mojom.DescriptionFrom = {
   kPopoverTarget: 11,
   kInterestFor: 12,
 };
+ax.mojom.DescriptionFromSpec = { $: mojo.internal.Enum() };
 
 // Enum: DetailsFrom
 ax.mojom.DetailsFrom = {
@@ -792,6 +828,7 @@ ax.mojom.DetailsFrom = {
   kCommandfor: 4,
   kCssScrollMarkerPseudoElement: 5,
 };
+ax.mojom.DetailsFromSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventFrom
 ax.mojom.EventFrom = {
@@ -799,6 +836,7 @@ ax.mojom.EventFrom = {
   kPage: 1,
   kAction: 2,
 };
+ax.mojom.EventFromSpec = { $: mojo.internal.Enum() };
 
 // Enum: Gesture
 ax.mojom.Gesture = {
@@ -825,12 +863,14 @@ ax.mojom.Gesture = {
   kTap4: 20,
   kTouchExplore: 21,
 };
+ax.mojom.GestureSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextAffinity
 ax.mojom.TextAffinity = {
   kDownstream: 0,
   kUpstream: 1,
 };
+ax.mojom.TextAffinitySpec = { $: mojo.internal.Enum() };
 
 // Enum: TreeOrder
 ax.mojom.TreeOrder = {
@@ -840,12 +880,14 @@ ax.mojom.TreeOrder = {
   kEqual: 3,
   kAfter: 4,
 };
+ax.mojom.TreeOrderSpec = { $: mojo.internal.Enum() };
 
 // Enum: AXTreeIDType
 ax.mojom.AXTreeIDType = {
   kUnknown: 0,
   kToken: 1,
 };
+ax.mojom.AXTreeIDTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImageAnnotationStatus
 ax.mojom.ImageAnnotationStatus = {
@@ -860,6 +902,7 @@ ax.mojom.ImageAnnotationStatus = {
   kAnnotationAdult: 8,
   kAnnotationProcessFailed: 9,
 };
+ax.mojom.ImageAnnotationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: AriaNotificationInterrupt
 ax.mojom.AriaNotificationInterrupt = {
@@ -867,9 +910,11 @@ ax.mojom.AriaNotificationInterrupt = {
   kAll: 1,
   kPending: 2,
 };
+ax.mojom.AriaNotificationInterruptSpec = { $: mojo.internal.Enum() };
 
 // Enum: AriaNotificationPriority
 ax.mojom.AriaNotificationPriority = {
   kNormal: 0,
   kHigh: 1,
 };
+ax.mojom.AriaNotificationPrioritySpec = { $: mojo.internal.Enum() };

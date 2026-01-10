@@ -84,7 +84,7 @@ ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec =
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -96,9 +96,9 @@ ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = {
       name: 'ash.settings.graduation.mojom.GraduationHandler.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -171,9 +171,9 @@ ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSp
       name: 'ash.settings.graduation.mojom.GraduationObserver.OnGraduationAppUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_app_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'is_app_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -17,14 +17,14 @@ chromeos.connectivity.mojom.PasspointSubscriptionSpec = {
       name: 'chromeos.connectivity.mojom.PasspointSubscription',
       packedSize: 56,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'domains', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'friendly_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'provisioning_source', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'trusted_ca', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'expiration_epoch_ms', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'domains', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'friendly_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'provisioning_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'trusted_ca', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'expiration_epoch_ms', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -101,9 +101,9 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded
       name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionAdded_Params',
       packedSize: 16,
       fields: [
-        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false },
+        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -115,9 +115,9 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemov
       name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionRemoved_Params',
       packedSize: 16,
       fields: [
-        { name: 'subscription', packedOffset: 8, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false },
+        { name: 'subscription', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -217,9 +217,9 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec
       name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -227,12 +227,12 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec
 chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: true },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -245,7 +245,7 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSp
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -253,12 +253,12 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSp
 chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.ListPasspointSubscriptions_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.connectivity.mojom.PasspointSubscriptionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -270,9 +270,9 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsS
       name: 'chromeos.connectivity.mojom.PasspointService.DeletePasspointSubscription_Params',
       packedSize: 16,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -280,12 +280,12 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsS
 chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'chromeos.connectivity.mojom.PasspointService.DeletePasspointSubscription_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -297,9 +297,9 @@ chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpe
       name: 'chromeos.connectivity.mojom.PasspointService.RegisterPasspointListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

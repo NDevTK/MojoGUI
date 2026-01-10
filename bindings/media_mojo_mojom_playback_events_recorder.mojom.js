@@ -145,7 +145,7 @@ media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -158,7 +158,7 @@ media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -171,7 +171,7 @@ media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -184,7 +184,7 @@ media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -196,9 +196,9 @@ media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
       name: 'media.mojom.PlaybackEventsRecorder.OnError_Params',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PipelineStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -211,7 +211,7 @@ media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -224,7 +224,7 @@ media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -236,9 +236,9 @@ media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
       name: 'media.mojom.PlaybackEventsRecorder.OnNaturalSizeChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,9 +250,9 @@ media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
       name: 'media.mojom.PlaybackEventsRecorder.OnPipelineStatistics_Params',
       packedSize: 16,
       fields: [
-        { name: 'stats', packedOffset: 8, packedBitOffset: 0, type: media.mojom.PipelineStatisticsSpec, nullable: false },
+        { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatisticsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -14,18 +14,19 @@ optimization_guide.mojom.TextDumpEvent = {
   kFirstLayout: 0,
   kFinishedLoad: 1,
 };
+optimization_guide.mojom.TextDumpEventSpec = { $: mojo.internal.Enum() };
 
 // Struct: PageTextDumpRequest
 optimization_guide.mojom.PageTextDumpRequestSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide.mojom.PageTextDumpRequest',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'event', packedOffset: 16, packedBitOffset: 0, type: optimization_guide.mojom.TextDumpEventSpec, nullable: false },
+        { name: 'max_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'event', packedOffset: 4, packedBitOffset: 0, type: optimization_guide.mojom.TextDumpEventSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -102,9 +103,9 @@ optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
       name: 'optimization_guide.mojom.PageTextConsumer.OnTextDumpChunk_Params',
       packedSize: 16,
       fields: [
-        { name: 'chunk', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
+        { name: 'chunk', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -117,7 +118,7 @@ optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -190,10 +191,10 @@ optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
       name: 'optimization_guide.mojom.PageTextService.RequestPageTextDump_Params',
       packedSize: 24,
       fields: [
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: optimization_guide.mojom.PageTextDumpRequestSpec, nullable: false },
-        { name: 'consumer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.PageTextDumpRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

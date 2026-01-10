@@ -9,6 +9,12 @@ var media = media || {};
 media.mojom = media.mojom || {};
 
 
+media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+
+media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kGpu;
+
+media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kService;
+
 // Interface: MediaService
 media.mojom.MediaService = {};
 
@@ -72,10 +78,10 @@ media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = {
       name: 'media.mojom.MediaService.CreateInterfaceFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
-        { name: 'frame_interfaces', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'frame_interfaces', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

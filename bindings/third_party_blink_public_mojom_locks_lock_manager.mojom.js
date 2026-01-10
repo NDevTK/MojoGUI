@@ -14,6 +14,7 @@ blink.mojom.LockMode = {
   SHARED: 0,
   EXCLUSIVE: 1,
 };
+blink.mojom.LockModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WaitMode
 blink.mojom.WaitMode = {
@@ -21,6 +22,7 @@ blink.mojom.WaitMode = {
   NO_WAIT: 1,
   PREEMPT: 2,
 };
+blink.mojom.WaitModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LockInfo
 blink.mojom.LockInfoSpec = {
@@ -29,11 +31,11 @@ blink.mojom.LockInfoSpec = {
       name: 'blink.mojom.LockInfo',
       packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false },
-        { name: 'client_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false, minVersion: 0 },
+        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -162,9 +164,9 @@ blink.mojom.LockRequest_Granted_ParamsSpec = {
       name: 'blink.mojom.LockRequest.Granted_Params',
       packedSize: 16,
       fields: [
-        { name: 'lock_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'lock_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -177,7 +179,7 @@ blink.mojom.LockRequest_Failed_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -257,14 +259,14 @@ blink.mojom.LockManager_RequestLock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.LockManager.RequestLock_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false },
-        { name: 'wait', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.WaitModeSpec, nullable: false },
-        { name: 'request', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false, minVersion: 0 },
+        { name: 'wait', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.WaitModeSpec, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -277,7 +279,7 @@ blink.mojom.LockManager_QueryState_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -285,13 +287,13 @@ blink.mojom.LockManager_QueryState_ParamsSpec = {
 blink.mojom.LockManager_QueryState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.LockManager.QueryState_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'requested', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'held', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.LockInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'held', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.LockInfoSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

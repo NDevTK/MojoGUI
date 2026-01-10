@@ -81,10 +81,10 @@ extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec = {
       name: 'extensions.mojom.ServiceWorker.UpdatePermissions_Params',
       packedSize: 24,
       fields: [
-        { name: 'active_permissions', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false },
-        { name: 'withheld_permissions', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false },
+        { name: 'active_permissions', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
+        { name: 'withheld_permissions', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -96,15 +96,15 @@ extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
       name: 'extensions.mojom.ServiceWorker.DispatchOnConnect_Params',
       packedSize: 56,
       fields: [
-        { name: 'port_id', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false },
-        { name: 'channel_type', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false },
-        { name: 'channel_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'tab_info', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.TabConnectionInfoSpec, nullable: false },
-        { name: 'external_connection_info', packedOffset: 40, packedBitOffset: 0, type: extensions.mojom.ExternalConnectionInfoSpec, nullable: false },
-        { name: 'port', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false },
-        { name: 'port_host', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
+        { name: 'port_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_type', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tab_info', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.TabConnectionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'external_connection_info', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.ExternalConnectionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'port_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -112,12 +112,12 @@ extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
 extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'extensions.mojom.ServiceWorker.DispatchOnConnect_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

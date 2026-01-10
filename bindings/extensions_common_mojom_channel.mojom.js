@@ -17,3 +17,4 @@ extensions.mojom.Channel = {
   kBeta: 3,
   kStable: 4,
 };
+extensions.mojom.ChannelSpec = { $: mojo.internal.Enum() };

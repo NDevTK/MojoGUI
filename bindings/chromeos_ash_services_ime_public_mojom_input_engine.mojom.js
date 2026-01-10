@@ -73,9 +73,9 @@ ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
       name: 'ash.ime.mojom.InputChannel.ProcessMessage_Params',
       packedSize: 16,
       fields: [
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -83,12 +83,12 @@ ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
 ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.ime.mojom.InputChannel.ProcessMessage_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -232,3 +232,4 @@ ash.mojom.VKey = {
   kButtonY: 218,
   kButtonZ: 219,
 };
+ash.mojom.VKeySpec = { $: mojo.internal.Enum() };

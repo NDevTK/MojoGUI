@@ -14,3 +14,4 @@ blink.mojom.ConfidenceLevel = {
   kHigh: 0,
   kLow: 1,
 };
+blink.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum() };

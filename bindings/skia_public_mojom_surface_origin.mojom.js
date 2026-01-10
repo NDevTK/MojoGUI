@@ -14,3 +14,4 @@ skia.mojom.SurfaceOrigin = {
   kTopLeft: 0,
   kBottomLeft: 1,
 };
+skia.mojom.SurfaceOriginSpec = { $: mojo.internal.Enum() };

@@ -72,9 +72,9 @@ chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec = {
       name: 'chromecast.mojom.FeatureUpdateObserver.OnFeaturesUpdated_Params',
       packedSize: 16,
       fields: [
-        { name: 'features', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false },
+        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -147,9 +147,9 @@ chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec =
       name: 'chromecast.mojom.FeatureUpdateService.RegisterFeatureUpdateObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,6 +16,7 @@ network.mojom.EcnMarking = {
   kEct0: 2,
   kCe: 3,
 };
+network.mojom.EcnMarkingSpec = { $: mojo.internal.Enum() };
 
 // Struct: P2PReceivedPacket
 network.mojom.P2PReceivedPacketSpec = {
@@ -24,12 +25,12 @@ network.mojom.P2PReceivedPacketSpec = {
       name: 'network.mojom.P2PReceivedPacket',
       packedSize: 40,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
-        { name: 'socket_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false },
-        { name: 'ecn', packedOffset: 32, packedBitOffset: 0, type: network.mojom.EcnMarkingSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'socket_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'ecn', packedOffset: 24, packedBitOffset: 0, type: network.mojom.EcnMarkingSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -41,10 +42,10 @@ network.mojom.P2PSendPacketSpec = {
       name: 'network.mojom.P2PSendPacket',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
-        { name: 'packet_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.P2PPacketInfoSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'packet_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.P2PPacketInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -112,11 +113,11 @@ network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = {
       name: 'network.mojom.P2PNetworkNotificationClient.NetworkListChanged_Params',
       packedSize: 32,
       fields: [
-        { name: 'networks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'default_ipv4_local_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
-        { name: 'default_ipv6_local_address', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false },
+        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.NetworkInterfaceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'default_ipv4_local_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
+        { name: 'default_ipv6_local_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -207,9 +208,9 @@ network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = {
       name: 'network.mojom.P2PSocketManager.StartNetworkNotifications_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -219,13 +220,13 @@ network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PSocketManager.GetHostAddress_Params',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'host_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'address_family', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: true },
-        { name: 'enable_mdns', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'host_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'address_family', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: true, minVersion: 0 },
+        { name: 'enable_mdns', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -233,12 +234,12 @@ network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = {
 network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'network.mojom.P2PSocketManager.GetHostAddress_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'addresses', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IPAddressSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,16 +251,16 @@ network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
       name: 'network.mojom.P2PSocketManager.CreateSocket_Params',
       packedSize: 64,
       fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.P2PSocketTypeSpec, nullable: false },
-        { name: 'local_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'port_range', packedOffset: 24, packedBitOffset: 0, type: network.mojom.P2PPortRangeSpec, nullable: false },
-        { name: 'remote_address', packedOffset: 32, packedBitOffset: 0, type: network.mojom.P2PHostAndIPEndPointSpec, nullable: false },
-        { name: 'traffic_annotation', packedOffset: 40, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false },
-        { name: 'devtools_token', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true },
-        { name: 'client', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
-        { name: 'socket', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSocketTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'local_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'port_range', packedOffset: 16, packedBitOffset: 0, type: network.mojom.P2PPortRangeSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_address', packedOffset: 24, packedBitOffset: 0, type: network.mojom.P2PHostAndIPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'devtools_token', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'socket', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -350,10 +351,10 @@ network.mojom.P2PSocket_Send_ParamsSpec = {
       name: 'network.mojom.P2PSocket.Send_Params',
       packedSize: 24,
       fields: [
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false },
-        { name: 'packet_info', packedOffset: 16, packedBitOffset: 0, type: network.mojom.P2PPacketInfoSpec, nullable: false },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'packet_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.P2PPacketInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -365,9 +366,9 @@ network.mojom.P2PSocket_SendBatch_ParamsSpec = {
       name: 'network.mojom.P2PSocket.SendBatch_Params',
       packedSize: 16,
       fields: [
-        { name: 'packet_batch', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'packet_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.P2PSendPacketSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -379,10 +380,10 @@ network.mojom.P2PSocket_SetOption_ParamsSpec = {
       name: 'network.mojom.P2PSocket.SetOption_Params',
       packedSize: 24,
       fields: [
-        { name: 'option', packedOffset: 8, packedBitOffset: 0, type: network.mojom.P2PSocketOptionSpec, nullable: false },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'option', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSocketOptionSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -482,10 +483,10 @@ network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = {
       name: 'network.mojom.P2PSocketClient.SocketCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'local_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
-        { name: 'remote_address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false },
+        { name: 'local_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -497,9 +498,9 @@ network.mojom.P2PSocketClient_SendComplete_ParamsSpec = {
       name: 'network.mojom.P2PSocketClient.SendComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'send_metrics', packedOffset: 8, packedBitOffset: 0, type: network.mojom.P2PSendPacketMetricsSpec, nullable: false },
+        { name: 'send_metrics', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSendPacketMetricsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -511,9 +512,9 @@ network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = {
       name: 'network.mojom.P2PSocketClient.SendBatchComplete_Params',
       packedSize: 16,
       fields: [
-        { name: 'send_metrics_batch', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'send_metrics_batch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.P2PSendPacketMetricsSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -525,9 +526,9 @@ network.mojom.P2PSocketClient_DataReceived_ParamsSpec = {
       name: 'network.mojom.P2PSocketClient.DataReceived_Params',
       packedSize: 16,
       fields: [
-        { name: 'packets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'packets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.P2PReceivedPacketSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

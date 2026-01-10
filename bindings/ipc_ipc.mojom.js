@@ -16,10 +16,10 @@ IPC.mojom.MessageSpec = {
       name: 'IPC.mojom.Message',
       packedSize: 24,
       fields: [
-        { name: 'bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'handles', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: true },
+        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'handles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.native.SerializedHandleSpec, false), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -96,9 +96,9 @@ IPC.mojom.Channel_SetPeerPid_ParamsSpec = {
       name: 'IPC.mojom.Channel.SetPeerPid_Params',
       packedSize: 16,
       fields: [
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -110,9 +110,9 @@ IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
       name: 'IPC.mojom.Channel.GetAssociatedInterface_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingAssociatedReceiverSpec, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingAssociatedReceiverSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -16,10 +16,10 @@ content.mojom.LoggingSettingsSpec = {
       name: 'content.mojom.LoggingSettings',
       packedSize: 24,
       fields: [
-        { name: 'logging_dest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'log_file_descriptor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'logging_dest', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'log_file_descriptor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -97,7 +97,7 @@ content.mojom.ChildProcessHost_Ping_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -109,9 +109,9 @@ content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = {
       name: 'content.mojom.ChildProcessHost.BindHostReceiver_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -302,7 +302,7 @@ content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -315,7 +315,7 @@ content.mojom.ChildProcess_GetTaskPort_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -323,12 +323,12 @@ content.mojom.ChildProcess_GetTaskPort_ParamsSpec = {
 content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'content.mojom.ChildProcess.GetTaskPort_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'task_port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'task_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -340,9 +340,9 @@ content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = {
       name: 'content.mojom.ChildProcess.SetIPCLoggingEnabled_Params',
       packedSize: 16,
       fields: [
-        { name: 'on', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -354,9 +354,9 @@ content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = {
       name: 'content.mojom.ChildProcess.GetBackgroundTracingAgentProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -368,9 +368,9 @@ content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = {
       name: 'content.mojom.ChildProcess.EnableSystemTracingService_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -383,7 +383,7 @@ content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -395,9 +395,9 @@ content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = {
       name: 'content.mojom.ChildProcess.BindServiceInterface_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -409,9 +409,9 @@ content.mojom.ChildProcess_BindReceiver_ParamsSpec = {
       name: 'content.mojom.ChildProcess.BindReceiver_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -423,9 +423,9 @@ content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = {
       name: 'content.mojom.ChildProcess.SetProfilingFile_Params',
       packedSize: 16,
       fields: [
-        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false },
+        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -438,7 +438,7 @@ content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -450,9 +450,9 @@ content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = {
       name: 'content.mojom.ChildProcess.SetPseudonymizationSalt_Params',
       packedSize: 16,
       fields: [
-        { name: 'salt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -464,9 +464,9 @@ content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec = {
       name: 'content.mojom.ChildProcess.ReinitializeLogging_Params',
       packedSize: 16,
       fields: [
-        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: content.mojom.LoggingSettingsSpec, nullable: false },
+        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: content.mojom.LoggingSettingsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -478,9 +478,9 @@ content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = {
       name: 'content.mojom.ChildProcess.OnMemoryPressure_Params',
       packedSize: 16,
       fields: [
-        { name: 'memory_pressure_level', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.MemoryPressureLevelSpec, nullable: false },
+        { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.MemoryPressureLevelSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -492,9 +492,9 @@ content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = {
       name: 'content.mojom.ChildProcess.SetBatterySaverMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'battery_saver_mode_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'battery_saver_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

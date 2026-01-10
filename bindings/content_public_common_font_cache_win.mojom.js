@@ -81,9 +81,9 @@ content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
       name: 'content.mojom.FontCacheWin.PreCacheFont_Params',
       packedSize: 16,
       fields: [
-        { name: 'log_font', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.LOGFONTSpec, nullable: false },
+        { name: 'log_font', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.LOGFONTSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -96,7 +96,7 @@ content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

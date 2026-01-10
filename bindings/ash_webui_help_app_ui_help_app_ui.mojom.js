@@ -24,6 +24,7 @@ ash.help_app.mojom.ActionTypeId = {
   OPEN_YOUTUBE: 9,
   OPEN_FILE_MANAGER: 10,
 };
+ash.help_app.mojom.ActionTypeIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: SettingsComponent
 ash.help_app.mojom.SettingsComponent = {
@@ -42,6 +43,7 @@ ash.help_app.mojom.SettingsComponent = {
   TOUCHPAD_REVERSE_SCROLLING: 12,
   TOUCHPAD_SIMULATE_RIGHT_CLICK: 13,
 };
+ash.help_app.mojom.SettingsComponentSpec = { $: mojo.internal.Enum() };
 
 // Struct: DeviceInfo
 ash.help_app.mojom.DeviceInfoSpec = {
@@ -50,12 +52,12 @@ ash.help_app.mojom.DeviceInfoSpec = {
       name: 'ash.help_app.mojom.DeviceInfo',
       packedSize: 40,
       fields: [
-        { name: 'board', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'model', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'user_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'is_steam_allowed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'board', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'user_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'is_steam_allowed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -123,9 +125,9 @@ ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'ash.help_app.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -298,7 +300,7 @@ ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -306,12 +308,12 @@ ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
 ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.OpenFeedbackDialog_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -324,7 +326,7 @@ ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -337,7 +339,7 @@ ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -349,9 +351,9 @@ ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.TriggerWelcomeTipCallToAction_Params',
       packedSize: 16,
       fields: [
-        { name: 'action_type_id', packedOffset: 8, packedBitOffset: 0, type: ash.help_app.mojom.ActionTypeIdSpec, nullable: false },
+        { name: 'action_type_id', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.ActionTypeIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -364,7 +366,7 @@ ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -372,12 +374,12 @@ ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = {
 ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.IsLauncherSearchEnabled_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -390,7 +392,7 @@ ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -403,7 +405,7 @@ ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -416,7 +418,7 @@ ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -424,12 +426,12 @@ ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = {
 ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.GetDeviceInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: ash.help_app.mojom.DeviceInfoSpec, nullable: false },
+        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.DeviceInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -441,9 +443,9 @@ ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpe
       name: 'ash.help_app.mojom.PageHandler.OpenUrlInBrowserAndTriggerInstallDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -455,9 +457,9 @@ ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = {
       name: 'ash.help_app.mojom.PageHandler.OpenSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'component', packedOffset: 8, packedBitOffset: 0, type: ash.help_app.mojom.SettingsComponentSpec, nullable: false },
+        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.SettingsComponentSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -470,7 +472,7 @@ ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -483,7 +485,7 @@ ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

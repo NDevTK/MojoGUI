@@ -15,6 +15,7 @@ blink.mojom.WebInstallServiceResult = {
   kAbortError: 1,
   kDataError: 2,
 };
+blink.mojom.WebInstallServiceResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: InstallOptions
 blink.mojom.InstallOptionsSpec = {
@@ -23,10 +24,10 @@ blink.mojom.InstallOptionsSpec = {
       name: 'blink.mojom.InstallOptions',
       packedSize: 24,
       fields: [
-        { name: 'install_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
-        { name: 'manifest_id', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true },
+        { name: 'install_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'manifest_id', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -103,9 +104,9 @@ blink.mojom.WebInstallService_Install_ParamsSpec = {
       name: 'blink.mojom.WebInstallService.Install_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InstallOptionsSpec, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InstallOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -113,13 +114,13 @@ blink.mojom.WebInstallService_Install_ParamsSpec = {
 blink.mojom.WebInstallService_Install_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WebInstallService.Install_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false },
-        { name: 'manifest_id', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false, minVersion: 0 },
+        { name: 'manifest_id', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -131,9 +132,9 @@ blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = {
       name: 'blink.mojom.WebInstallService.InstallFromElement_Params',
       packedSize: 16,
       fields: [
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.InstallOptionsSpec, nullable: true },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InstallOptionsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,13 +142,13 @@ blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = {
 blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'blink.mojom.WebInstallService.InstallFromElement_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false },
-        { name: 'manifest_id', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false, minVersion: 0 },
+        { name: 'manifest_id', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

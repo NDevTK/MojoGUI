@@ -14,6 +14,7 @@ media.mojom.AacOutputFormat = {
   kAAC: 0,
   kADTS: 1,
 };
+media.mojom.AacOutputFormatSpec = { $: mojo.internal.Enum() };
 
 // Struct: AacAudioEncoderConfig
 media.mojom.AacAudioEncoderConfigSpec = {
@@ -22,9 +23,9 @@ media.mojom.AacAudioEncoderConfigSpec = {
       name: 'media.mojom.AacAudioEncoderConfig',
       packedSize: 16,
       fields: [
-        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AacOutputFormatSpec, nullable: false },
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AacOutputFormatSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -36,13 +37,13 @@ media.mojom.AudioEncoderConfigSpec = {
       name: 'media.mojom.AudioEncoderConfig',
       packedSize: 40,
       fields: [
-        { name: 'codec', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioCodecSpec, nullable: false },
-        { name: 'channel_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false },
-        { name: 'sample_rate', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'bitrate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'aac', packedOffset: 32, packedBitOffset: 0, type: media.mojom.AacAudioEncoderConfigSpec, nullable: false },
+        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioCodecSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'sample_rate', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bitrate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'aac', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AacAudioEncoderConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -54,12 +55,12 @@ media.mojom.EncodedAudioBufferSpec = {
       name: 'media.mojom.EncodedAudioBuffer',
       packedSize: 40,
       fields: [
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false },
-        { name: 'data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -145,10 +146,10 @@ media.mojom.AudioEncoder_Initialize_ParamsSpec = {
       name: 'media.mojom.AudioEncoder.Initialize_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false },
-        { name: 'config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioEncoderConfigSpec, nullable: false },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioEncoderConfigSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -156,12 +157,12 @@ media.mojom.AudioEncoder_Initialize_ParamsSpec = {
 media.mojom.AudioEncoder_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.AudioEncoder.Initialize_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -173,9 +174,9 @@ media.mojom.AudioEncoder_Encode_ParamsSpec = {
       name: 'media.mojom.AudioEncoder.Encode_Params',
       packedSize: 16,
       fields: [
-        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioBufferSpec, nullable: false },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioBufferSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -183,12 +184,12 @@ media.mojom.AudioEncoder_Encode_ParamsSpec = {
 media.mojom.AudioEncoder_Encode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.AudioEncoder.Encode_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -201,7 +202,7 @@ media.mojom.AudioEncoder_Flush_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -209,12 +210,12 @@ media.mojom.AudioEncoder_Flush_ParamsSpec = {
 media.mojom.AudioEncoder_Flush_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'media.mojom.AudioEncoder.Flush_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false },
+        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -287,10 +288,10 @@ media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec = {
       name: 'media.mojom.AudioEncoderClient.OnEncodedBufferReady_Params',
       packedSize: 24,
       fields: [
-        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EncodedAudioBufferSpec, nullable: false },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncodedAudioBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

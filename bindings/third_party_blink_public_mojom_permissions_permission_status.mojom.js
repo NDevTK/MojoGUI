@@ -16,3 +16,4 @@ blink.mojom.PermissionStatus = {
   ASK: 2,
   LAST: 3,
 };
+blink.mojom.PermissionStatusSpec = { $: mojo.internal.Enum() };

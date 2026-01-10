@@ -81,10 +81,10 @@ tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = {
       name: 'tabs_api.mojom.TabStripExperimentService.UpdateTabGroupVisual_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
-        { name: 'visual_data', packedOffset: 16, packedBitOffset: 0, type: tabs_api.mojom.TabGroupVisualDataSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
+        { name: 'visual_data', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.TabGroupVisualDataSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -96,10 +96,10 @@ tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = {
       name: 'tabs_api.mojom.TabStripExperimentService.ShowTabContextMenu_Params',
       packedSize: 24,
       fields: [
-        { name: 'tab_id', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false },
-        { name: 'location', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false },
+        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
+        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -43,3 +43,4 @@ blink.mojom.FormControlType = {
   kSelectMultiple: 29,
   kTextArea: 30,
 };
+blink.mojom.FormControlTypeSpec = { $: mojo.internal.Enum() };

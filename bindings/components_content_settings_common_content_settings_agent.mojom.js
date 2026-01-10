@@ -82,7 +82,7 @@ content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -94,9 +94,9 @@ content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Para
       name: 'content_settings.mojom.ContentSettingsAgent.SendRendererContentSettingRules_Params',
       packedSize: 16,
       fields: [
-        { name: 'renderer_settings', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.RendererContentSettingRulesSpec, nullable: false },
+        { name: 'renderer_settings', packedOffset: 0, packedBitOffset: 0, type: content_settings.mojom.RendererContentSettingRulesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

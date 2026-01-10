@@ -18,3 +18,4 @@ blink.mojom.EngagementLevel = {
   HIGH: 4,
   MAX: 5,
 };
+blink.mojom.EngagementLevelSpec = { $: mojo.internal.Enum() };

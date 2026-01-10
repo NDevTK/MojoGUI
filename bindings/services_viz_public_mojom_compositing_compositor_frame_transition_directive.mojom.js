@@ -15,6 +15,7 @@ viz.mojom.CompositorFrameTransitionDirectiveType = {
   kAnimateRenderer: 1,
   kRelease: 2,
 };
+viz.mojom.CompositorFrameTransitionDirectiveTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CompositorFrameTransitionDirectiveSharedElement
 viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = {
@@ -23,10 +24,10 @@ viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec = {
       name: 'viz.mojom.CompositorFrameTransitionDirectiveSharedElement',
       packedSize: 24,
       fields: [
-        { name: 'render_pass_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorRenderPassIdSpec, nullable: false },
-        { name: 'view_transition_element_resource_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false },
+        { name: 'render_pass_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CompositorRenderPassIdSpec, nullable: false, minVersion: 0 },
+        { name: 'view_transition_element_resource_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -36,17 +37,17 @@ viz.mojom.CompositorFrameTransitionDirectiveSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameTransitionDirective',
-      packedSize: 64,
+      packedSize: 48,
       fields: [
-        { name: 'transition_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false },
-        { name: 'maybe_cross_frame_sink', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'sequence_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, nullable: false },
-        { name: 'shared_elements', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'display_color_spaces', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false },
-        { name: 'delay_layer_tree_view_deletion', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'transition_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'maybe_cross_frame_sink', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'sequence_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CompositorFrameTransitionDirectiveTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_elements', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec, false), nullable: false, minVersion: 0 },
+        { name: 'display_color_spaces', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false, minVersion: 0 },
+        { name: 'delay_layer_tree_view_deletion', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

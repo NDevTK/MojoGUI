@@ -38,3 +38,4 @@ network.mojom.SharedDictionaryError = {
   kWriteErrorTooLongIdField: 24,
   kWriteErrorUnsupportedType: 25,
 };
+network.mojom.SharedDictionaryErrorSpec = { $: mojo.internal.Enum() };

@@ -27,6 +27,7 @@ chromecast.media.mojom.AudioCodec = {
   kCodecFLAC: 12,
   kCodecMpegHAudio: 13,
 };
+chromecast.media.mojom.AudioCodecSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChannelLayout
 chromecast.media.mojom.ChannelLayout = {
@@ -37,6 +38,7 @@ chromecast.media.mojom.ChannelLayout = {
   kBitstream: 4,
   kDiscrete: 5,
 };
+chromecast.media.mojom.ChannelLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: SampleFormat
 chromecast.media.mojom.SampleFormat = {
@@ -51,12 +53,14 @@ chromecast.media.mojom.SampleFormat = {
   kSampleFormatS24: 8,
   kSampleFormatPlanarU8: 9,
 };
+chromecast.media.mojom.SampleFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: StreamId
 chromecast.media.mojom.StreamId = {
   kPrimary: 0,
   kSecondary: 1,
 };
+chromecast.media.mojom.StreamIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: EncryptionScheme
 chromecast.media.mojom.EncryptionScheme = {
@@ -64,25 +68,26 @@ chromecast.media.mojom.EncryptionScheme = {
   kAesCtr: 1,
   kAesCbc: 2,
 };
+chromecast.media.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AudioConfig
 chromecast.media.mojom.AudioConfigSpec = {
   $: {
     structSpec: {
       name: 'chromecast.media.mojom.AudioConfig',
-      packedSize: 72,
+      packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: chromecast.media.mojom.StreamIdSpec, nullable: false },
-        { name: 'codec', packedOffset: 16, packedBitOffset: 0, type: chromecast.media.mojom.AudioCodecSpec, nullable: false },
-        { name: 'channel_layout', packedOffset: 24, packedBitOffset: 0, type: chromecast.media.mojom.ChannelLayoutSpec, nullable: false },
-        { name: 'sample_format', packedOffset: 32, packedBitOffset: 0, type: chromecast.media.mojom.SampleFormatSpec, nullable: false },
-        { name: 'bytes_per_channel', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'channel_number', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'samples_per_second', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'extra_data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'encryption_scheme', packedOffset: 64, packedBitOffset: 0, type: chromecast.media.mojom.EncryptionSchemeSpec, nullable: false },
+        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: chromecast.media.mojom.StreamIdSpec, nullable: false, minVersion: 0 },
+        { name: 'codec', packedOffset: 4, packedBitOffset: 0, type: chromecast.media.mojom.AudioCodecSpec, nullable: false, minVersion: 0 },
+        { name: 'channel_layout', packedOffset: 8, packedBitOffset: 0, type: chromecast.media.mojom.ChannelLayoutSpec, nullable: false, minVersion: 0 },
+        { name: 'sample_format', packedOffset: 12, packedBitOffset: 0, type: chromecast.media.mojom.SampleFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'bytes_per_channel', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'channel_number', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'samples_per_second', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'extra_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'encryption_scheme', packedOffset: 28, packedBitOffset: 0, type: chromecast.media.mojom.EncryptionSchemeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

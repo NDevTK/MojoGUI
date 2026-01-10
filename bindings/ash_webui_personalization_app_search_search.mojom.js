@@ -30,6 +30,7 @@ ash.personalization_app.mojom.SearchConceptId = {
   kDynamicColor: 15,
   kKeyboardBacklight: 16,
 };
+ash.personalization_app.mojom.SearchConceptIdSpec = { $: mojo.internal.Enum() };
 
 // Struct: SearchResult
 ash.personalization_app.mojom.SearchResultSpec = {
@@ -38,12 +39,12 @@ ash.personalization_app.mojom.SearchResultSpec = {
       name: 'ash.personalization_app.mojom.SearchResult',
       packedSize: 40,
       fields: [
-        { name: 'search_concept_id', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.SearchConceptIdSpec, nullable: false },
-        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'relative_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'relevance_score', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
+        { name: 'search_concept_id', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SearchConceptIdSpec, nullable: false, minVersion: 0 },
+        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'relative_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'relevance_score', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -112,7 +113,7 @@ ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -194,10 +195,10 @@ ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec = {
       name: 'ash.personalization_app.mojom.SearchHandler.Search_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'max_num_results', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -205,12 +206,12 @@ ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec = {
 ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.personalization_app.mojom.SearchHandler.Search_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -222,9 +223,9 @@ ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec = {
       name: 'ash.personalization_app.mojom.SearchHandler.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

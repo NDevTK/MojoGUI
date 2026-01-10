@@ -14,6 +14,21 @@ extensions.mojom.Operation = {
   kAdd: 0,
   kRemove: 1,
 };
+extensions.mojom.OperationSpec = { $: mojo.internal.Enum() };
+
+// Union: CodeInjection
+extensions.mojom.CodeInjectionSpec = { $: mojo.internal.Union(
+    'extensions.mojom.CodeInjection', {
+      'css': {
+        'ordinal': 0,
+        'type': extensions.mojom.CSSInjectionSpec,
+      }},
+      'js': {
+        'ordinal': 1,
+        'type': extensions.mojom.JSInjectionSpec,
+      }},
+    })
+};
 
 // Struct: JSSource
 extensions.mojom.JSSourceSpec = {
@@ -22,10 +37,10 @@ extensions.mojom.JSSourceSpec = {
       name: 'extensions.mojom.JSSource',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'script_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -37,10 +52,10 @@ extensions.mojom.CSSSourceSpec = {
       name: 'extensions.mojom.CSSSource',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
+        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -50,16 +65,16 @@ extensions.mojom.JSInjectionSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.JSInjection',
-      packedSize: 56,
+      packedSize: 40,
       fields: [
-        { name: 'sources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'world', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ExecutionWorldSpec, nullable: false },
-        { name: 'world_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true },
-        { name: 'wants_result', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.WantResultOptionSpec, nullable: false },
-        { name: 'user_gesture', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.UserActivationOptionSpec, nullable: false },
-        { name: 'wait_for_promise', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.PromiseResultOptionSpec, nullable: false },
+        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(extensions.mojom.JSSourceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'world', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ExecutionWorldSpec, nullable: false, minVersion: 0 },
+        { name: 'world_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'wants_result', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.WantResultOptionSpec, nullable: false, minVersion: 0 },
+        { name: 'user_gesture', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.UserActivationOptionSpec, nullable: false, minVersion: 0 },
+        { name: 'wait_for_promise', packedOffset: 28, packedBitOffset: 0, type: blink.mojom.PromiseResultOptionSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -71,9 +86,9 @@ extensions.mojom.CSSInjectionSpec = {
       name: 'extensions.mojom.CSSInjection',
       packedSize: 16,
       fields: [
-        { name: 'kAdd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kAdd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

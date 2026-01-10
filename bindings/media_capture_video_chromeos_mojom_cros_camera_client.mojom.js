@@ -44,6 +44,15 @@ cros.mojom.CameraHalClientRemoteCallHandler = class {
     this.proxy = proxy;
   }
 
+  setUpChannel(camera_module) {
+    // Ordinal: 0
+    return this.proxy.sendMessage(
+      0,  // ordinal
+      cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec,
+      null,
+      [camera_module]);
+  }
+
 };
 
 cros.mojom.CameraHalClient.getRemote = function() {
@@ -54,6 +63,20 @@ cros.mojom.CameraHalClient.getRemote = function() {
     'cros.mojom.CameraHalClient',
     'context');
   return remote.$;
+};
+
+// ParamsSpec for SetUpChannel
+cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
+  $: {
+    structSpec: {
+      name: 'cros.mojom.CameraHalClient.SetUpChannel_Params',
+      packedSize: 16,
+      fields: [
+        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+      ],
+      versions: [{version: 0, packedSize: 16}]
+    }
+  }
 };
 
 // Legacy compatibility

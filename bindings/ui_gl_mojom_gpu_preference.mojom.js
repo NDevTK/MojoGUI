@@ -16,3 +16,4 @@ gl.mojom.GpuPreference = {
   kLowPower: 2,
   kHighPerformance: 3,
 };
+gl.mojom.GpuPreferenceSpec = { $: mojo.internal.Enum() };

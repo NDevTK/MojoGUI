@@ -16,11 +16,11 @@ ui.mojom.FontAttributeSpec = {
       name: 'ui.mojom.FontAttribute',
       packedSize: 32,
       fields: [
-        { name: 'font_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'font_point_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'effective_range', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false },
+        { name: 'font_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'font_point_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'effective_range', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -32,10 +32,10 @@ ui.mojom.AttributedStringSpec = {
       name: 'ui.mojom.AttributedString',
       packedSize: 24,
       fields: [
-        { name: 'string', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'attributes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'string', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.FontAttributeSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

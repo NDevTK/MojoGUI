@@ -14,6 +14,7 @@ chrome.mojom.Scheme = {
   kHtml: 0,
   kBasic: 1,
 };
+chrome.mojom.SchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ImportedPasswordForm
 chrome.mojom.ImportedPasswordFormSpec = {
@@ -22,9 +23,9 @@ chrome.mojom.ImportedPasswordFormSpec = {
       name: 'chrome.mojom.ImportedPasswordForm',
       packedSize: 16,
       fields: [
-        { name: 'kHtml', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false },
+        { name: 'kHtml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -219,7 +220,7 @@ chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -231,10 +232,10 @@ chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnImportFinished_Params',
       packedSize: 24,
       fields: [
-        { name: 'succeeded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
-        { name: 'error_msg', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'error_msg', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -246,9 +247,9 @@ chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnImportItemStart_Params',
       packedSize: 16,
       fields: [
-        { name: 'item', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -260,9 +261,9 @@ chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnImportItemFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'item', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -274,9 +275,9 @@ chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnHistoryImportStart_Params',
       packedSize: 16,
       fields: [
-        { name: 'total_history_rows_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'total_history_rows_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -288,10 +289,10 @@ chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnHistoryImportGroup_Params',
       packedSize: 24,
       fields: [
-        { name: 'history_rows_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'visit_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'history_rows_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.ImporterURLRowSpec, false), nullable: false, minVersion: 0 },
+        { name: 'visit_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -303,9 +304,9 @@ chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnHomePageImportReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'home_page', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'home_page', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -317,10 +318,10 @@ chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnBookmarksImportStart_Params',
       packedSize: 24,
       fields: [
-        { name: 'first_folder_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false },
-        { name: 'total_bookmarks_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'first_folder_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'total_bookmarks_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -332,9 +333,9 @@ chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnBookmarksImportGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'bookmarks_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'bookmarks_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.ImportedBookmarkEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -346,9 +347,9 @@ chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnFaviconsImportStart_Params',
       packedSize: 16,
       fields: [
-        { name: 'total_favicons_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'total_favicons_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -360,9 +361,9 @@ chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnFaviconsImportGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'favicons_group', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.FaviconUsageDataListSpec, nullable: false },
+        { name: 'favicons_group', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.FaviconUsageDataListSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -374,9 +375,9 @@ chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnPasswordFormImportReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'form', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.ImportedPasswordFormSpec, nullable: false },
+        { name: 'form', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportedPasswordFormSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -388,10 +389,10 @@ chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnKeywordsImportReady_Params',
       packedSize: 24,
       fields: [
-        { name: 'search_engines', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
-        { name: 'unique_on_host_and_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'search_engines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.SearchEngineInfoSpec, false), nullable: false, minVersion: 0 },
+        { name: 'unique_on_host_and_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -403,9 +404,9 @@ chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnAutofillFormDataImportStart_Params',
       packedSize: 16,
       fields: [
-        { name: 'total_autofill_form_data_entry_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false },
+        { name: 'total_autofill_form_data_entry_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -417,9 +418,9 @@ chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = {
       name: 'chrome.mojom.ProfileImportObserver.OnAutofillFormDataImportGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'autofill_form_data_entry_group', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array, nullable: false },
+        { name: 'autofill_form_data_entry_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.ImporterAutofillFormDataEntrySpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -508,14 +509,14 @@ chrome.mojom.ProfileImport_StartImport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ProfileImport.StartImport_Params',
-      packedSize: 40,
+      packedSize: 32,
       fields: [
-        { name: 'source_profile', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.SourceProfileSpec, nullable: false },
-        { name: 'items', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false },
-        { name: 'localized_strings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'observer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'source_profile', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SourceProfileSpec, nullable: false, minVersion: 0 },
+        { name: 'items', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'localized_strings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -528,7 +529,7 @@ chrome.mojom.ProfileImport_CancelImport_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -540,9 +541,9 @@ chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = {
       name: 'chrome.mojom.ProfileImport.ReportImportItemFinished_Params',
       packedSize: 16,
       fields: [
-        { name: 'item', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ImportItemSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

@@ -18,20 +18,35 @@ sensor.mojom.SensorType = {
   kGyroscopeLid: 4,
   kSensorTypeCount: 5,
 };
+sensor.mojom.SensorTypeSpec = { $: mojo.internal.Enum() };
+
+// Union: SensorUpdateInfo
+sensor.mojom.SensorUpdateInfoSpec = { $: mojo.internal.Union(
+    'sensor.mojom.SensorUpdateInfo', {
+      'lid_angle_update_info': {
+        'ordinal': 0,
+        'type': sensor.mojom.LidAngleUpdateInfoSpec,
+      }},
+      'update_info': {
+        'ordinal': 1,
+        'type': sensor.mojom.NonLidAngleUpdateInfoSpec,
+      }},
+    })
+};
 
 // Struct: NonLidAngleUpdateInfo
 sensor.mojom.NonLidAngleUpdateInfoSpec = {
   $: {
     structSpec: {
       name: 'sensor.mojom.NonLidAngleUpdateInfo',
-      packedSize: 32,
+      packedSize: 24,
       fields: [
-        { name: 'sensor_type', packedOffset: 8, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false },
-        { name: 'x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'y', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
-        { name: 'z', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'sensor_type', packedOffset: 0, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'x', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'z', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -41,12 +56,12 @@ sensor.mojom.LidAngleUpdateInfoSpec = {
   $: {
     structSpec: {
       name: 'sensor.mojom.LidAngleUpdateInfo',
-      packedSize: 24,
+      packedSize: 16,
       fields: [
-        { name: 'sensor_type', packedOffset: 8, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false },
-        { name: 'x', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false },
+        { name: 'sensor_type', packedOffset: 0, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'x', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -114,9 +129,9 @@ sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
       name: 'sensor.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -199,7 +214,7 @@ sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -212,7 +227,7 @@ sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

@@ -81,9 +81,9 @@ extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = {
       name: 'extensions.mojom.GuestView.ReadyToCreateMimeHandlerView_Params',
       packedSize: 16,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -95,9 +95,9 @@ extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
       name: 'extensions.mojom.GuestView.CanExecuteContentScript_Params',
       packedSize: 16,
       fields: [
-        { name: 'script_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'script_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -105,12 +105,12 @@ extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
 extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'extensions.mojom.GuestView.CanExecuteContentScript_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -210,9 +210,9 @@ extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.SetInternalId_Params',
       packedSize: 16,
       fields: [
-        { name: 'token_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'token_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -225,7 +225,7 @@ extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -233,12 +233,12 @@ extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Param
 extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'extensions.mojom.MimeHandlerViewContainerManager.CreateBeforeUnloadControl_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'before_unload_control', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false },
+        { name: 'before_unload_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -250,9 +250,9 @@ extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpe
       name: 'extensions.mojom.MimeHandlerViewContainerManager.DestroyFrameContainer_Params',
       packedSize: 16,
       fields: [
-        { name: 'element_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
+        { name: 'element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -264,10 +264,10 @@ extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = {
       name: 'extensions.mojom.MimeHandlerViewContainerManager.DidLoad_Params',
       packedSize: 24,
       fields: [
-        { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'resource_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false },
+        { name: 'mime_handler_view_guest_element_instance_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'resource_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

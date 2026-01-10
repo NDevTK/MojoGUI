@@ -16,12 +16,14 @@ ash.graduation_ui.mojom.GraduationScreen = {
   kTakeoutUi: 1,
   kError: 2,
 };
+ash.graduation_ui.mojom.GraduationScreenSpec = { $: mojo.internal.Enum() };
 
 // Enum: AuthResult
 ash.graduation_ui.mojom.AuthResult = {
   kSuccess: 0,
   kError: 1,
 };
+ash.graduation_ui.mojom.AuthResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProfileInfo
 ash.graduation_ui.mojom.ProfileInfoSpec = {
@@ -30,10 +32,10 @@ ash.graduation_ui.mojom.ProfileInfoSpec = {
       name: 'ash.graduation_ui.mojom.ProfileInfo',
       packedSize: 24,
       fields: [
-        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'photo_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
+        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'photo_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -129,7 +131,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -137,12 +139,12 @@ ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = {
 ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler.AuthenticateWebview_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.graduation_ui.mojom.AuthResultSpec, nullable: false },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.AuthResultSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -155,7 +157,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -163,12 +165,12 @@ ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = {
 ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'ash.graduation_ui.mojom.GraduationUiHandler.GetProfileInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'profile_info', packedOffset: 8, packedBitOffset: 0, type: ash.graduation_ui.mojom.ProfileInfoSpec, nullable: false },
+        { name: 'profile_info', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.ProfileInfoSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -180,9 +182,9 @@ ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = {
       name: 'ash.graduation_ui.mojom.GraduationUiHandler.OnScreenSwitched_Params',
       packedSize: 16,
       fields: [
-        { name: 'screen', packedOffset: 8, packedBitOffset: 0, type: ash.graduation_ui.mojom.GraduationScreenSpec, nullable: false },
+        { name: 'screen', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.GraduationScreenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -195,7 +197,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };

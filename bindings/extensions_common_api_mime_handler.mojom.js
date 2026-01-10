@@ -14,16 +14,16 @@ extensions.mime_handler.StreamInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mime_handler.StreamInfo',
-      packedSize: 56,
+      packedSize: 48,
       fields: [
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'original_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'stream_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false },
-        { name: 'tab_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false },
-        { name: 'response_headers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map, nullable: false },
-        { name: 'embedded', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'original_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'stream_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tab_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'response_headers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'embedded', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -35,10 +35,10 @@ extensions.mime_handler.PdfPluginAttributesSpec = {
       name: 'extensions.mime_handler.PdfPluginAttributes',
       packedSize: 24,
       fields: [
-        { name: 'background_color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false },
-        { name: 'allow_javascript', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'background_color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'allow_javascript', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -116,7 +116,7 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -124,12 +124,12 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
 extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: 'extensions.mime_handler.MimeHandlerService.GetStreamInfo_ResponseParams',
+      name: '{interface_string}.{method['name']}_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'stream_info', packedOffset: 8, packedBitOffset: 0, type: extensions.mime_handler.StreamInfoSpec, nullable: true },
+        { name: 'stream_info', packedOffset: 0, packedBitOffset: 0, type: extensions.mime_handler.StreamInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -141,9 +141,9 @@ extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
       name: 'extensions.mime_handler.MimeHandlerService.SetPdfPluginAttributes_Params',
       packedSize: 16,
       fields: [
-        { name: 'pdf_plugin_attributes', packedOffset: 8, packedBitOffset: 0, type: extensions.mime_handler.PdfPluginAttributesSpec, nullable: false },
+        { name: 'pdf_plugin_attributes', packedOffset: 0, packedBitOffset: 0, type: extensions.mime_handler.PdfPluginAttributesSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -216,9 +216,9 @@ extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec
       name: 'extensions.mime_handler.BeforeUnloadControl.SetShowBeforeUnloadDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'show_dialog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false },
+        { name: 'show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

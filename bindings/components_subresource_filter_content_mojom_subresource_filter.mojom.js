@@ -72,10 +72,10 @@ subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_Par
       name: 'subresource_filter.mojom.SubresourceFilterAgent.ActivateForNextCommittedLoad_Params',
       packedSize: 24,
       fields: [
-        { name: 'activation_state', packedOffset: 8, packedBitOffset: 0, type: subresource_filter.mojom.ActivationStateSpec, nullable: false },
-        { name: 'ad_evidence', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FrameAdEvidenceSpec, nullable: true },
+        { name: 'activation_state', packedOffset: 0, packedBitOffset: 0, type: subresource_filter.mojom.ActivationStateSpec, nullable: false, minVersion: 0 },
+        { name: 'ad_evidence', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FrameAdEvidenceSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -194,7 +194,7 @@ subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_Param
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -207,7 +207,7 @@ subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec = {
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -220,7 +220,7 @@ subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsS
       packedSize: 8,
       fields: [
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 8}]
     }
   }
 };
@@ -232,9 +232,9 @@ subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_Para
       name: 'subresource_filter.mojom.SubresourceFilterHost.AdScriptDidCreateFencedFrame_Params',
       packedSize: 16,
       fields: [
-        { name: 'fenced_frame_root_placeholder_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false },
+        { name: 'fenced_frame_root_placeholder_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -246,9 +246,9 @@ subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsS
       name: 'subresource_filter.mojom.SubresourceFilterHost.SetDocumentLoadStatistics_Params',
       packedSize: 16,
       fields: [
-        { name: 'statistics', packedOffset: 8, packedBitOffset: 0, type: subresource_filter.mojom.DocumentLoadStatisticsSpec, nullable: false },
+        { name: 'statistics', packedOffset: 0, packedBitOffset: 0, type: subresource_filter.mojom.DocumentLoadStatisticsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };
@@ -260,9 +260,9 @@ subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpe
       name: 'subresource_filter.mojom.SubresourceFilterHost.OnAdsViolationTriggered_Params',
       packedSize: 16,
       fields: [
-        { name: 'violation', packedOffset: 8, packedBitOffset: 0, type: subresource_filter.mojom.AdsViolationSpec, nullable: false },
+        { name: 'violation', packedOffset: 0, packedBitOffset: 0, type: subresource_filter.mojom.AdsViolationSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0}]
+      versions: [{version: 0, packedSize: 16}]
     }
   }
 };

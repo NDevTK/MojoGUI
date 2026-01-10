@@ -18,3 +18,4 @@ blink.mojom.HandwritingGestureResult = {
   kCancelled: 4,
   kFallback: 5,
 };
+blink.mojom.HandwritingGestureResultSpec = { $: mojo.internal.Enum() };
