@@ -703,7 +703,7 @@ discards.mojom.GraphChangeStreamRequest = discards.mojom.GraphChangeStreamPendin
 // Interface: GraphDump
 mojo.internal.Struct(
     discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec, 'discards.mojom.GraphDump_SubscribeToChanges_Params', [
-      mojo.internal.StructField('change_subscriber', 0, 0, mojo.internal.InterfaceProxy(discards.mojom.GraphChangeStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('change_subscriber', 0, 0, mojo.internal.InterfaceProxy(discards.mojom.GraphChangeStreamSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -219,7 +219,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverRequest = chromeos.pri
 // Interface: PrintingMetadataProvider
 mojo.internal.Struct(
     chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec, 'chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.printing.printing_manager.mojom.PrintJobsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

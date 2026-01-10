@@ -18,7 +18,7 @@ blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerStreamHandleSpec, 'blink.mojom.ServiceWorkerStreamHandle', [
       mojo.internal.StructField('stream', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('callback_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerStreamCallbackRemote), null, false, 0, undefined),
+      mojo.internal.StructField('callback_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerStreamCallbackSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

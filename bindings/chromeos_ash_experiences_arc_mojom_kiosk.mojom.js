@@ -129,7 +129,7 @@ arc.mojom.KioskHostRequest = arc.mojom.KioskHostPendingReceiver;
 // Interface: KioskInstance
 mojo.internal.Struct(
     arc.mojom.KioskInstance_Init_ParamsSpec, 'arc.mojom.KioskInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.KioskHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.KioskHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -381,14 +381,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParams', [
-      mojo.internal.StructField('scan_session', 0, 0, mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanSessionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('scan_session', 0, 0, mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanSessionSpec), null, true, 0, undefined),
       mojo.internal.StructField('status', 8, 0, mojo_base.mojom.AbslStatusCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_Params', [
-      mojo.internal.StructField('scan_observer', 0, 0, mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('scan_observer', 0, 0, mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

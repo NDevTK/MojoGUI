@@ -482,7 +482,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec, 'network.mojom.NetworkService_SetGssapiLibraryLoadObserver_Params', [
-      mojo.internal.StructField('gssapi_library_load_observer', 0, 0, mojo.internal.InterfaceProxy(network.mojom.GssapiLibraryLoadObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('gssapi_library_load_observer', 0, 0, mojo.internal.InterfaceProxy(network.mojom.GssapiLibraryLoadObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -532,7 +532,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec, 'network.mojom.NetworkService_AddDurableMessageCollector_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.DurableMessageCollectorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.DurableMessageCollectorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

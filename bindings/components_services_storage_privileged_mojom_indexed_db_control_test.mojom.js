@@ -228,7 +228,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.MockFailureInjectorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.MockFailureInjectorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

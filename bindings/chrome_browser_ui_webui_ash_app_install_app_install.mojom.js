@@ -48,7 +48,7 @@ mojo.internal.Union(
       },
       'connection_error_actions': {
         'ordinal': 2,
-        'type': mojo.internal.InterfaceProxy(ash.app_install.mojom.ConnectionErrorActionsRemote),
+        'type': mojo.internal.InterfaceProxy(ash.app_install.mojom.ConnectionErrorActionsSpec),
         'nullable': false,
       },
     });
@@ -57,7 +57,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     ash.app_install.mojom.AppInfoArgsSpec, 'ash.app_install.mojom.AppInfoArgs', [
       mojo.internal.StructField('data', 0, 0, ash.app_install.mojom.AppInfoDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('actions', 8, 0, mojo.internal.InterfaceProxy(ash.app_install.mojom.AppInfoActionsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('actions', 8, 0, mojo.internal.InterfaceProxy(ash.app_install.mojom.AppInfoActionsSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -295,7 +295,7 @@ ash.app_install.mojom.ConnectionErrorActionsRequest = ash.app_install.mojom.Conn
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.app_install.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.app_install.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

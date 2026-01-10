@@ -144,7 +144,7 @@ sharing.mojom.MdnsObserverRequest = sharing.mojom.MdnsObserverPendingReceiver;
 // Interface: MdnsManager
 mojo.internal.Struct(
     sharing.mojom.MdnsManager_AddObserver_ParamsSpec, 'sharing.mojom.MdnsManager_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(sharing.mojom.MdnsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(sharing.mojom.MdnsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

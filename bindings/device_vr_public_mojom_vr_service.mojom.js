@@ -384,9 +384,9 @@ mojo.internal.Struct(
 // Struct: XRSession
 mojo.internal.Struct(
     device.mojom.XRSessionSpec, 'device.mojom.XRSession', [
-      mojo.internal.StructField('data_provider', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRFrameDataProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('layer_manager', 8, 0, mojo.internal.InterfaceProxy(device.mojom.XRLayerManagerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('client_receiver', 16, 0, mojo.internal.InterfaceRequest(device.mojom.XRSessionClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('data_provider', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRFrameDataProviderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('layer_manager', 8, 0, mojo.internal.InterfaceProxy(device.mojom.XRLayerManagerSpec), null, true, 0, undefined),
+      mojo.internal.StructField('client_receiver', 16, 0, mojo.internal.InterfaceRequest(device.mojom.XRSessionClientSpec), null, true, 0, undefined),
       mojo.internal.StructField('submit_frame_sink', 24, 0, device.mojom.XRPresentationConnectionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('enabled_features', 32, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('device_config', 40, 0, device.mojom.XRSessionDeviceConfigSpec.$, null, false, 0, undefined),
@@ -399,8 +399,8 @@ mojo.internal.Struct(
 // Struct: XRPresentationConnection
 mojo.internal.Struct(
     device.mojom.XRPresentationConnectionSpec, 'device.mojom.XRPresentationConnection', [
-      mojo.internal.StructField('provider', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRPresentationProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(device.mojom.XRPresentationClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('provider', 0, 0, mojo.internal.InterfaceProxy(device.mojom.XRPresentationProviderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(device.mojom.XRPresentationClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('transport_options', 16, 0, device.mojom.XRPresentationTransportOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -850,8 +850,8 @@ mojo.internal.Struct(
     device.mojom.RequestSessionSuccessSpec, 'device.mojom.RequestSessionSuccess', [
       mojo.internal.StructField('session', 0, 0, device.mojom.XRSessionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('trace_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('metrics_recorder', 16, 0, mojo.internal.InterfaceProxy(device.mojom.XRSessionMetricsRecorderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('xr_internals_listener', 24, 0, mojo.internal.InterfaceProxy(device.mojom.WebXrInternalsRendererListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('metrics_recorder', 16, 0, mojo.internal.InterfaceProxy(device.mojom.XRSessionMetricsRecorderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('xr_internals_listener', 24, 0, mojo.internal.InterfaceProxy(device.mojom.WebXrInternalsRendererListenerSpec), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -867,7 +867,7 @@ mojo.internal.Struct(
 // Interface: VRService
 mojo.internal.Struct(
     device.mojom.VRService_SetClient_ParamsSpec, 'device.mojom.VRService_SetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.VRServiceClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.VRServiceClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

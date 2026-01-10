@@ -252,7 +252,7 @@ ash.boca_receiver.mojom.UntrustedPageRequest = ash.boca_receiver.mojom.Untrusted
 // Interface: UntrustedPageHandlerFactory
 mojo.internal.Struct(
     ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec, 'ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.boca_receiver.mojom.UntrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.boca_receiver.mojom.UntrustedPageSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

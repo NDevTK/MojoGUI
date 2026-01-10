@@ -213,8 +213,8 @@ media.mojom.SeatbeltExtensionTokenProviderRequest = media.mojom.SeatbeltExtensio
 mojo.internal.Struct(
     media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
       mojo.internal.StructField('cdm_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('token_provider', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SeatbeltExtensionTokenProviderRemote), null, true, 0, undefined),
-      mojo.internal.StructField('receiver', 16, 0, mojo.internal.InterfaceRequest(media.mojom.CdmServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('token_provider', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SeatbeltExtensionTokenProviderSpec), null, true, 0, undefined),
+      mojo.internal.StructField('receiver', 16, 0, mojo.internal.InterfaceRequest(media.mojom.CdmServiceSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

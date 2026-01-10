@@ -47,7 +47,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('registry_seed', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('registry_path', 48, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('validation_delegate', 56, 0, mojo.internal.InterfaceProxy(prefs.mojom.TrackedPreferenceValidationDelegateRemote), null, true, 0, undefined),
-      mojo.internal.StructField('reset_on_load_observer', 64, 0, mojo.internal.InterfaceProxy(prefs.mojom.ResetOnLoadObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('reset_on_load_observer', 64, 0, mojo.internal.InterfaceProxy(prefs.mojom.ResetOnLoadObserverSpec), null, true, 0, undefined),
     ],
     [[0, 80]]);
 

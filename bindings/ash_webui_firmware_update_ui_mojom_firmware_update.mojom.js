@@ -373,7 +373,7 @@ ash.firmware_update.mojom.UpdateProgressObserverRequest = ash.firmware_update.mo
 // Interface: UpdateProvider
 mojo.internal.Struct(
     ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -385,7 +385,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParams', [
-      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.InstallControllerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.InstallControllerSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -534,13 +534,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec, 'ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.DeviceRequestObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.DeviceRequestObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec, 'ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateProgressObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateProgressObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -163,7 +163,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec, 'chromecast.mojom.CastContentWindow_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.CastContentWindowObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.CastContentWindowObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

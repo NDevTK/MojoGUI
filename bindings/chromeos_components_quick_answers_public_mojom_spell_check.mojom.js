@@ -28,7 +28,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParams', [
-      mojo.internal.StructField('dictionary', 0, 0, mojo.internal.InterfaceProxy(quick_answers.mojom.SpellCheckDictionaryRemote), null, true, 0, undefined),
+      mojo.internal.StructField('dictionary', 0, 0, mojo.internal.InterfaceProxy(quick_answers.mojom.SpellCheckDictionarySpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

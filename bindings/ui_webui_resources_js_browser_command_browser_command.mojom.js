@@ -58,7 +58,7 @@ mojo.internal.Struct(
 // Interface: CommandHandlerFactory
 mojo.internal.Struct(
     browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec, 'browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(browser_command.mojom.CommandHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(browser_command.mojom.CommandHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -731,7 +731,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.WallpaperObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.WallpaperObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1695,7 +1695,7 @@ ash.personalization_app.mojom.ThemeObserverRequest = ash.personalization_app.moj
 // Interface: ThemeProvider
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec, 'ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.ThemeObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.ThemeObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2267,7 +2267,7 @@ ash.personalization_app.mojom.UserImageObserverRequest = ash.personalization_app
 // Interface: UserProvider
 mojo.internal.Struct(
     ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec, 'ash.personalization_app.mojom.UserProvider_SetUserImageObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.UserImageObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.UserImageObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2816,7 +2816,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec, 'ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.AmbientObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.AmbientObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3354,7 +3354,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRequest = ash.personaliza
 // Interface: KeyboardBacklightProvider
 mojo.internal.Struct(
     ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.KeyboardBacklightObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.KeyboardBacklightObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

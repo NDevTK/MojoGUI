@@ -90,7 +90,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec, 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParams', [
-      mojo.internal.StructField('firewall_hole', 0, 0, mojo.internal.InterfaceProxy(sharing.mojom.FirewallHoleRemote), null, true, 0, undefined),
+      mojo.internal.StructField('firewall_hole', 0, 0, mojo.internal.InterfaceProxy(sharing.mojom.FirewallHoleSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

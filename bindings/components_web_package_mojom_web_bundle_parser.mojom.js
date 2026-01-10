@@ -216,15 +216,15 @@ mojo.internal.Struct(
 // Interface: WebBundleParserFactory
 mojo.internal.Struct(
     web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec, 'web_package.mojom.WebBundleParserFactory_GetParserForDataSource_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(web_package.mojom.WebBundleParserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(web_package.mojom.WebBundleParserSpec), null, false, 0, undefined),
       mojo.internal.StructField('base_url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('data_source', 16, 0, mojo.internal.InterfaceProxy(web_package.mojom.BundleDataSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('data_source', 16, 0, mojo.internal.InterfaceProxy(web_package.mojom.BundleDataSourceSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec, 'web_package.mojom.WebBundleParserFactory_BindFileDataSource_Params', [
-      mojo.internal.StructField('data_source', 0, 0, mojo.internal.InterfaceRequest(web_package.mojom.BundleDataSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('data_source', 0, 0, mojo.internal.InterfaceRequest(web_package.mojom.BundleDataSourceSpec), null, false, 0, undefined),
       mojo.internal.StructField('file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

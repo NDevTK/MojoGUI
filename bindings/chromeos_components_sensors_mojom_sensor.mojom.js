@@ -147,7 +147,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDevice_Params', [
-      mojo.internal.StructField('device_request', 0, 0, mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorDeviceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('device_request', 0, 0, mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorDeviceSpec), null, false, 0, undefined),
       mojo.internal.StructField('iio_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -309,7 +309,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_StartReadingSamples_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorDeviceSamplesObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

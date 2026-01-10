@@ -34,8 +34,8 @@ mojo.internal.Struct(
 // Interface: ColorChooserFactory
 mojo.internal.Struct(
     blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec, 'blink.mojom.ColorChooserFactory_OpenColorChooser_Params', [
-      mojo.internal.StructField('chooser', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ColorChooserRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ColorChooserClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('chooser', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ColorChooserSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ColorChooserClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('suggestions', 16, 0, mojo.internal.Array(blink.mojom.ColorSuggestionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('color', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

@@ -151,7 +151,7 @@ network.mojom.P2PNetworkNotificationClientRequest = network.mojom.P2PNetworkNoti
 // Interface: P2PSocketManager
 mojo.internal.Struct(
     network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec, 'network.mojom.P2PSocketManager_StartNetworkNotifications_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(network.mojom.P2PNetworkNotificationClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(network.mojom.P2PNetworkNotificationClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -177,8 +177,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('remote_address', 24, 0, network.mojom.P2PHostAndIPEndPointSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('traffic_annotation', 32, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('devtools_token', 40, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('client', 48, 0, mojo.internal.InterfaceProxy(network.mojom.P2PSocketClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('socket', 56, 0, mojo.internal.InterfaceRequest(network.mojom.P2PSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 48, 0, mojo.internal.InterfaceProxy(network.mojom.P2PSocketClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('socket', 56, 0, mojo.internal.InterfaceRequest(network.mojom.P2PSocketSpec), null, false, 0, undefined),
     ],
     [[0, 72]]);
 

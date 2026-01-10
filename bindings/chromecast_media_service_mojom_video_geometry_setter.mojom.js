@@ -114,7 +114,7 @@ chromecast.media.mojom.VideoGeometryChangeClientRequest = chromecast.media.mojom
 mojo.internal.Struct(
     chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_Params', [
       mojo.internal.StructField('overlay_plane_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client_pending_remote', 8, 0, mojo.internal.InterfaceProxy(chromecast.media.mojom.VideoGeometryChangeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client_pending_remote', 8, 0, mojo.internal.InterfaceProxy(chromecast.media.mojom.VideoGeometryChangeClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

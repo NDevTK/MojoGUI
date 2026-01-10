@@ -104,7 +104,7 @@ mojo.internal.Struct(
     media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParams', [
       mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('video_frame', 8, 0, media.mojom.VideoFrameSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('releaser', 16, 0, mojo.internal.InterfaceProxy(media.mojom.FrameResourceReleaserRemote), null, true, 0, undefined),
+      mojo.internal.StructField('releaser', 16, 0, mojo.internal.InterfaceProxy(media.mojom.FrameResourceReleaserSpec), null, true, 0, undefined),
     ],
     [[0, 32]]);
 

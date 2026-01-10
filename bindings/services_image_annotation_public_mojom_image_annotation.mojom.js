@@ -169,7 +169,7 @@ mojo.internal.Struct(
     image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec, 'image_annotation.mojom.Annotator_AnnotateImage_Params', [
       mojo.internal.StructField('source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('description_language_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('image_processor', 16, 0, mojo.internal.InterfaceProxy(image_annotation.mojom.ImageProcessorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('image_processor', 16, 0, mojo.internal.InterfaceProxy(image_annotation.mojom.ImageProcessorSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -269,7 +269,7 @@ image_annotation.mojom.AnnotatorRequest = image_annotation.mojom.AnnotatorPendin
 // Interface: ImageAnnotationService
 mojo.internal.Struct(
     image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec, 'image_annotation.mojom.ImageAnnotationService_BindAnnotator_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(image_annotation.mojom.AnnotatorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(image_annotation.mojom.AnnotatorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

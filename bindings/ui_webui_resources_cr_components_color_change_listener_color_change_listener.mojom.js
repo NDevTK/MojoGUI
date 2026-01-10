@@ -18,7 +18,7 @@ color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = { $: {} };
 // Interface: PageHandler
 mojo.internal.Struct(
     color_change_listener.mojom.PageHandler_SetPage_ParamsSpec, 'color_change_listener.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(color_change_listener.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(color_change_listener.mojom.PageSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

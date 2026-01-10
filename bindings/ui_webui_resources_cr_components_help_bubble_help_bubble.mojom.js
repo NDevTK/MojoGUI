@@ -93,8 +93,8 @@ mojo.internal.Struct(
 // Interface: HelpBubbleHandlerFactory
 mojo.internal.Struct(
     help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(help_bubble.mojom.HelpBubbleClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(help_bubble.mojom.HelpBubbleHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(help_bubble.mojom.HelpBubbleClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(help_bubble.mojom.HelpBubbleHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

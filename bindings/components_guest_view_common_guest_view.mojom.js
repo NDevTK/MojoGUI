@@ -100,7 +100,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec, 'guest_view.mojom.GuestViewHost_ViewCreated_Params', [
       mojo.internal.StructField('view_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('keep_alive_handle_receiver', 8, 0, mojo.internal.InterfaceRequest(guest_view.mojom.ViewHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('keep_alive_handle_receiver', 8, 0, mojo.internal.InterfaceRequest(guest_view.mojom.ViewHandleSpec), null, false, 0, undefined),
       mojo.internal.StructField('view_instance_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

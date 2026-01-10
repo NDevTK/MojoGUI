@@ -199,7 +199,7 @@ codelabs.mojom.ObjectBRequest = codelabs.mojom.ObjectBPendingReceiver;
 // Interface: AssociatedProcess
 mojo.internal.Struct(
     codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec, 'codelabs.mojom.AssociatedProcess_SetProcess_Params', [
-      mojo.internal.StructField('process', 0, 0, mojo.internal.InterfaceRequest(codelabs.mojom.ProcessRemote), null, false, 0, undefined),
+      mojo.internal.StructField('process', 0, 0, mojo.internal.InterfaceRequest(codelabs.mojom.ProcessSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

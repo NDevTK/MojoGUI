@@ -90,7 +90,7 @@ blink.mojom.ObservedFeatureRequest = blink.mojom.ObservedFeaturePendingReceiver;
 // Interface: FeatureObserver
 mojo.internal.Struct(
     blink.mojom.FeatureObserver_Register_ParamsSpec, 'blink.mojom.FeatureObserver_Register_Params', [
-      mojo.internal.StructField('feature', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ObservedFeatureRemote), null, false, 0, undefined),
+      mojo.internal.StructField('feature', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ObservedFeatureSpec), null, false, 0, undefined),
       mojo.internal.StructField('type', 8, 0, blink.mojom.ObservedFeatureTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

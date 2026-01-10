@@ -39,7 +39,7 @@ zero_state_promo.mojom.WebStoreLinkClicked = {
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(zero_state_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(zero_state_promo.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

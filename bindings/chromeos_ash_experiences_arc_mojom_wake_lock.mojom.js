@@ -154,7 +154,7 @@ arc.mojom.WakeLockHostRequest = arc.mojom.WakeLockHostPendingReceiver;
 // Interface: WakeLockInstance
 mojo.internal.Struct(
     arc.mojom.WakeLockInstance_Init_ParamsSpec, 'arc.mojom.WakeLockInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.WakeLockHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.WakeLockHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

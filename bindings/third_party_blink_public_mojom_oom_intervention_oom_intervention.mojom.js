@@ -112,7 +112,7 @@ blink.mojom.OomInterventionHostRequest = blink.mojom.OomInterventionHostPendingR
 // Interface: OomIntervention
 mojo.internal.Struct(
     blink.mojom.OomIntervention_StartDetection_ParamsSpec, 'blink.mojom.OomIntervention_StartDetection_Params', [
-      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.OomInterventionHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.OomInterventionHostSpec), null, false, 0, undefined),
       mojo.internal.StructField('detection_args', 8, 0, blink.mojom.DetectionArgsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('renderer_pause_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('navigate_ads_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),

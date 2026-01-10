@@ -19,7 +19,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_Par
 // Interface: BluetoothDeviceAccessProvider
 mojo.internal.Struct(
     chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.BluetoothDeviceAccessProviderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.BluetoothDeviceAccessProviderClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

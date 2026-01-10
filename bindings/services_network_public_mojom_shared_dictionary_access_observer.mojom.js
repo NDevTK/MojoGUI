@@ -38,7 +38,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec, 'network.mojom.SharedDictionaryAccessObserver_Clone_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(network.mojom.SharedDictionaryAccessObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(network.mojom.SharedDictionaryAccessObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

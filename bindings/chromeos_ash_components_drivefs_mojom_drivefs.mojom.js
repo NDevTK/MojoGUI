@@ -645,8 +645,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec, 'drivefs.mojom.DriveFsBootstrap_Init_Params', [
       mojo.internal.StructField('config', 0, 0, drivefs.mojom.DriveFsConfigurationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('drive_fs', 8, 0, mojo.internal.InterfaceRequest(drivefs.mojom.DriveFsRemote), null, false, 0, undefined),
-      mojo.internal.StructField('delegate', 16, 0, mojo.internal.InterfaceProxy(drivefs.mojom.DriveFsDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('drive_fs', 8, 0, mojo.internal.InterfaceRequest(drivefs.mojom.DriveFsSpec), null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 16, 0, mojo.internal.InterfaceProxy(drivefs.mojom.DriveFsDelegateSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -803,7 +803,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec, 'drivefs.mojom.DriveFs_StartSearchQuery_Params', [
-      mojo.internal.StructField('query', 0, 0, mojo.internal.InterfaceRequest(drivefs.mojom.SearchQueryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('query', 0, 0, mojo.internal.InterfaceRequest(drivefs.mojom.SearchQuerySpec), null, false, 0, undefined),
       mojo.internal.StructField('query_params', 8, 0, drivefs.mojom.QueryParametersSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -2003,7 +2003,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_Params', [
       mojo.internal.StructField('request', 0, 0, drivefs.mojom.HttpRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('delegate', 8, 0, mojo.internal.InterfaceProxy(drivefs.mojom.HttpDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('delegate', 8, 0, mojo.internal.InterfaceProxy(drivefs.mojom.HttpDelegateSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

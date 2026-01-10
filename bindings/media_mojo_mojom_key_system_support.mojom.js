@@ -156,7 +156,7 @@ media.mojom.KeySystemSupportObserverRequest = media.mojom.KeySystemSupportObserv
 // Interface: KeySystemSupport
 mojo.internal.Struct(
     media.mojom.KeySystemSupport_SetObserver_ParamsSpec, 'media.mojom.KeySystemSupport_SetObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.KeySystemSupportObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.KeySystemSupportObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -39,7 +39,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.FileSystemAccessContext_Clone_ParamsSpec, 'storage.mojom.FileSystemAccessContext_Clone_Params', [
-      mojo.internal.StructField('receiever', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.FileSystemAccessContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiever', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.FileSystemAccessContextSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

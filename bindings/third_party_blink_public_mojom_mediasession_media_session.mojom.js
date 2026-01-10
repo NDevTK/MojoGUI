@@ -176,7 +176,7 @@ blink.mojom.MediaSessionClientRequest = blink.mojom.MediaSessionClientPendingRec
 // Interface: MediaSessionService
 mojo.internal.Struct(
     blink.mojom.MediaSessionService_SetClient_ParamsSpec, 'blink.mojom.MediaSessionService_SetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.MediaSessionClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.MediaSessionClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

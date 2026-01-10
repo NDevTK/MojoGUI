@@ -284,7 +284,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('player_remote', 0, 0, pending_associated_remote<media.mojom.MediaPlayer>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('surface_id', 8, 0, viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('natural_size', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionObserverSpec), null, false, 0, undefined),
       mojo.internal.StructField('source_bounds', 32, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('player_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('show_play_pause_button', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -293,7 +293,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_ResponseParams', [
-      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionSpec), null, true, 0, undefined),
       mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

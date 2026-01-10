@@ -541,7 +541,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CreateSummarizer_ParamsSpec, 'blink.mojom.AIManager_CreateSummarizer_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateSummarizerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateSummarizerClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('options', 8, 0, blink.mojom.AISummarizerCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -571,7 +571,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CreateWriter_ParamsSpec, 'blink.mojom.AIManager_CreateWriter_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateWriterClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateWriterClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('options', 8, 0, blink.mojom.AIWriterCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -590,7 +590,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CreateRewriter_ParamsSpec, 'blink.mojom.AIManager_CreateRewriter_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateRewriterClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateRewriterClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('options', 8, 0, blink.mojom.AIRewriterCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -609,7 +609,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.AIManager_CreateProofreader_ParamsSpec, 'blink.mojom.AIManager_CreateProofreader_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateProofreaderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateProofreaderClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('options', 8, 0, blink.mojom.AIProofreaderCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

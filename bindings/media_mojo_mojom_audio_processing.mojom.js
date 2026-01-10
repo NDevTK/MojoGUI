@@ -41,7 +41,7 @@ mojo.internal.Struct(
 // Struct: AudioProcessingConfig
 mojo.internal.Struct(
     media.mojom.AudioProcessingConfigSpec, 'media.mojom.AudioProcessingConfig', [
-      mojo.internal.StructField('controls_receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioProcessorControlsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('controls_receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioProcessorControlsSpec), null, false, 0, undefined),
       mojo.internal.StructField('settings', 8, 0, media.mojom.AudioProcessingSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

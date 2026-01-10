@@ -151,7 +151,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.CacheStorageControl_AddObserver_ParamsSpec, 'storage.mojom.CacheStorageControl_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(storage.mojom.CacheStorageObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(storage.mojom.CacheStorageObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

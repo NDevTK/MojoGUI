@@ -21,8 +21,8 @@ blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsS
 // Struct: ServiceWorkerInstalledScriptsInfo
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, 'blink.mojom.ServiceWorkerInstalledScriptsInfo', [
-      mojo.internal.StructField('manager_receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('manager_host_remote', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('manager_receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerInstalledScriptsManagerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('manager_host_remote', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerInstalledScriptsManagerHostSpec), null, false, 0, undefined),
       mojo.internal.StructField('installed_urls', 16, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

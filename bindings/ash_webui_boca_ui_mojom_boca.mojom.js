@@ -1836,8 +1836,8 @@ ash.boca.mojom.PageRequest = ash.boca.mojom.PagePendingReceiver;
 // Interface: BocaPageHandlerFactory
 mojo.internal.Struct(
     ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec, 'ash.boca.mojom.BocaPageHandlerFactory_Create_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.boca.mojom.PageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(ash.boca.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.boca.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(ash.boca.mojom.PageSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

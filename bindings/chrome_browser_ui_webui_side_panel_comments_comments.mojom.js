@@ -20,8 +20,8 @@ comments.mojom.Page.$interfaceName = 'comments.mojom.Page';
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'comments.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(comments.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(comments.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(comments.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(comments.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

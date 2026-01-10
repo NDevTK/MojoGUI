@@ -293,7 +293,7 @@ chromecast.mojom.GestureHandlerRequest = chromecast.mojom.GestureHandlerPendingR
 // Interface: GestureSource
 mojo.internal.Struct(
     chromecast.mojom.GestureSource_Subscribe_ParamsSpec, 'chromecast.mojom.GestureSource_Subscribe_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.GestureHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.GestureHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

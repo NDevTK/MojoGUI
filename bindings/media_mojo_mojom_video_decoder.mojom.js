@@ -175,7 +175,7 @@ mojo.internal.Struct(
     media.mojom.VideoDecoder_Construct_ParamsSpec, 'media.mojom.VideoDecoder_Construct_Params', [
       mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('media_log', 8, 0, mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), null, false, 0, undefined),
-      mojo.internal.StructField('video_frame_handle_releaser', 16, 0, mojo.internal.InterfaceRequest(media.mojom.VideoFrameHandleReleaserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('video_frame_handle_releaser', 16, 0, mojo.internal.InterfaceRequest(media.mojom.VideoFrameHandleReleaserSpec), null, false, 0, undefined),
       mojo.internal.StructField('decoder_buffer_pipe', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('command_buffer_id', 32, 0, media.mojom.CommandBufferIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('target_color_space', 40, 0, gfx.mojom.ColorSpaceSpec.$, null, false, 0, undefined),

@@ -249,7 +249,7 @@ ash.device_sync.mojom.DeviceSyncObserverRequest = ash.device_sync.mojom.DeviceSy
 // Interface: DeviceSync
 mojo.internal.Struct(
     ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec, 'ash.device_sync.mojom.DeviceSync_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.device_sync.mojom.DeviceSyncObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.device_sync.mojom.DeviceSyncObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

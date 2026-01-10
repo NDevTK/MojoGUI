@@ -438,7 +438,7 @@ mojo.internal.Struct(
     chrome.mojom.ProfileImport_StartImport_ParamsSpec, 'chrome.mojom.ProfileImport_StartImport_Params', [
       mojo.internal.StructField('source_profile', 0, 0, chrome.mojom.SourceProfileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('localized_strings', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.ProfileImportObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.ProfileImportObserverSpec), null, false, 0, undefined),
       mojo.internal.StructField('items', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 40]]);

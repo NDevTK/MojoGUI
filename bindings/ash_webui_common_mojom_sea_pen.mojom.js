@@ -255,7 +255,7 @@ ash.personalization_app.mojom.SeaPenObserverRequest = ash.personalization_app.mo
 // Interface: SeaPenProvider
 mojo.internal.Struct(
     ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.SeaPenObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.SeaPenObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

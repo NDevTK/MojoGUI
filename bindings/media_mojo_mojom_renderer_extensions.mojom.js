@@ -355,7 +355,7 @@ media.mojom.MediaFoundationRendererObserverRequest = media.mojom.MediaFoundation
 // Interface: MediaFoundationRendererNotifier
 mojo.internal.Struct(
     media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec, 'media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(media.mojom.MediaFoundationRendererObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(media.mojom.MediaFoundationRendererObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

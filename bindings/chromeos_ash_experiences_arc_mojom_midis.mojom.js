@@ -315,8 +315,8 @@ arc.mojom.MidisServerRequest = arc.mojom.MidisServerPendingReceiver;
 // Interface: MidisHost
 mojo.internal.Struct(
     arc.mojom.MidisHost_Connect_ParamsSpec, 'arc.mojom.MidisHost_Connect_Params', [
-      mojo.internal.StructField('server', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.MidisServerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.MidisClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('server', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.MidisServerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.MidisClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -403,7 +403,7 @@ arc.mojom.MidisHostRequest = arc.mojom.MidisHostPendingReceiver;
 // Interface: MidisInstance
 mojo.internal.Struct(
     arc.mojom.MidisInstance_Init_ParamsSpec, 'arc.mojom.MidisInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.MidisHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.MidisHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

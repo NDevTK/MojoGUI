@@ -140,7 +140,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParams', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceProxy(mojom.DebugLogsChangeHandlerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceProxy(mojom.DebugLogsChangeHandlerSpec), null, true, 0, undefined),
       mojo.internal.StructField('initial_toggle_value', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -196,7 +196,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParams', [
-      mojo.internal.StructField('btsnoop', 0, 0, mojo.internal.InterfaceProxy(mojom.BluetoothBtsnoopRemote), null, true, 0, undefined),
+      mojo.internal.StructField('btsnoop', 0, 0, mojo.internal.InterfaceProxy(mojom.BluetoothBtsnoopSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

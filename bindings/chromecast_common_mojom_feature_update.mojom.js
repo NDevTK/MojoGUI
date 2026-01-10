@@ -106,7 +106,7 @@ chromecast.mojom.FeatureUpdateObserverRequest = chromecast.mojom.FeatureUpdateOb
 // Interface: FeatureUpdateService
 mojo.internal.Struct(
     chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec, 'chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.FeatureUpdateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.FeatureUpdateObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

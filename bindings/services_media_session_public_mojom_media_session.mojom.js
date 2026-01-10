@@ -454,7 +454,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.MediaSession_AddObserver_ParamsSpec, 'media_session.mojom.MediaSession_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

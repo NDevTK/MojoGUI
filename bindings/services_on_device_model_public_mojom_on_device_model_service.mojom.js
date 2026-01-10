@@ -459,7 +459,7 @@ mojo.internal.Struct(
     on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_Params', [
       mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('progress_observer', 16, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('progress_observer', 16, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.PlatformModelProgressObserverSpec), null, true, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -191,7 +191,7 @@ mojo.internal.Struct(
     service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec, 'service_manager.mojom.Connector_RegisterServiceInstance_Params', [
       mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('service', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('metadata_receiver', 16, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ProcessMetadataRemote), null, true, 0, undefined),
+      mojo.internal.StructField('metadata_receiver', 16, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ProcessMetadataSpec), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -203,7 +203,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     service_manager.mojom.Connector_Clone_ParamsSpec, 'service_manager.mojom.Connector_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ConnectorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ConnectorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

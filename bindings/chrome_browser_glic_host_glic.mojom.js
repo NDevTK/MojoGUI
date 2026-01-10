@@ -1414,8 +1414,8 @@ glic.mojom.GlicPreloadHandlerRequest = glic.mojom.GlicPreloadHandlerPendingRecei
 // Interface: GlicPreloadHandlerFactory
 mojo.internal.Struct(
     glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec, 'glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(glic.mojom.GlicPreloadHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(glic.mojom.PreloadPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(glic.mojom.GlicPreloadHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(glic.mojom.PreloadPageSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1502,8 +1502,8 @@ glic.mojom.GlicPreloadHandlerFactoryRequest = glic.mojom.GlicPreloadHandlerFacto
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'glic.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(glic.mojom.PageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(glic.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(glic.mojom.PageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(glic.mojom.PageSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1590,7 +1590,7 @@ glic.mojom.PageHandlerFactoryRequest = glic.mojom.PageHandlerFactoryPendingRecei
 // Interface: PageHandler
 mojo.internal.Struct(
     glic.mojom.PageHandler_CreateWebClient_ParamsSpec, 'glic.mojom.PageHandler_CreateWebClient_Params', [
-      mojo.internal.StructField('web_client_receiver', 0, 0, mojo.internal.InterfaceRequest(glic.mojom.WebClientHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('web_client_receiver', 0, 0, mojo.internal.InterfaceRequest(glic.mojom.WebClientHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2019,7 +2019,7 @@ glic.mojom.PinCandidatesObserverRequest = glic.mojom.PinCandidatesObserverPendin
 // Interface: WebClientHandler
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec, 'glic.mojom.WebClientHandler_WebClientCreated_Params', [
-      mojo.internal.StructField('web_client', 0, 0, mojo.internal.InterfaceProxy(glic.mojom.WebClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('web_client', 0, 0, mojo.internal.InterfaceProxy(glic.mojom.WebClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2236,7 +2236,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec, 'glic.mojom.WebClientHandler_SubscribeToPinCandidates_Params', [
       mojo.internal.StructField('options', 0, 0, glic.mojom.GetPinCandidatesOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(glic.mojom.PinCandidatesObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(glic.mojom.PinCandidatesObserverSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2353,7 +2353,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec, 'glic.mojom.WebClientHandler_CaptureRegion_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(glic.mojom.CaptureRegionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(glic.mojom.CaptureRegionObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2752,7 +2752,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec, 'glic.mojom.WebClientHandler_SubscribeToTabData_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceProxy(glic.mojom.TabDataHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceProxy(glic.mojom.TabDataHandlerSpec), null, false, 0, undefined),
       mojo.internal.StructField('tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

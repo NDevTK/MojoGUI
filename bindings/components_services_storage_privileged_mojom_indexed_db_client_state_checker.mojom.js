@@ -29,7 +29,7 @@ storage.mojom.DisallowInactiveClientReason = {
 mojo.internal.Struct(
     storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_Params', [
       mojo.internal.StructField('reason', 0, 0, storage.mojom.DisallowInactiveClientReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('keep_active', 8, 0, mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientKeepActiveRemote), null, true, 0, undefined),
+      mojo.internal.StructField('keep_active', 8, 0, mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientKeepActiveSpec), null, true, 0, undefined),
       mojo.internal.StructField('connection_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -42,7 +42,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_MakeClone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientStateCheckerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientStateCheckerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

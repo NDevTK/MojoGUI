@@ -38,7 +38,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.CookieAccessObserver_Clone_ParamsSpec, 'network.mojom.CookieAccessObserver_Clone_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceRequest(network.mojom.CookieAccessObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceRequest(network.mojom.CookieAccessObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

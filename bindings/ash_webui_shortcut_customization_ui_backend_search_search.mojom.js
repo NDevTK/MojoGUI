@@ -131,7 +131,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

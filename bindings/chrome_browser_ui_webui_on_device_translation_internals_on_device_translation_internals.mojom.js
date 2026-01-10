@@ -39,8 +39,8 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(on_device_translation_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(on_device_translation_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(on_device_translation_internals.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(on_device_translation_internals.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -207,7 +207,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec, 'bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParams', [
-      mojo.internal.StructField('fake_central', 0, 0, mojo.internal.InterfaceProxy(bluetooth.mojom.FakeCentralRemote), null, false, 0, undefined),
+      mojo.internal.StructField('fake_central', 0, 0, mojo.internal.InterfaceProxy(bluetooth.mojom.FakeCentralSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -215,7 +215,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('group_by_origin_id', 136, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('trace_id', 144, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('bidder_joining_origin', 152, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('score_ad_client', 160, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.ScoreAdClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('score_ad_client', 160, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.ScoreAdClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('browser_signal_bidding_duration_msecs', 168, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('browser_signal_for_debugging_only_in_cooldown_or_lockout', 172, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('browser_signal_for_debugging_only_sampling', 172, 1, mojo.internal.Bool, false, false, 0, undefined),

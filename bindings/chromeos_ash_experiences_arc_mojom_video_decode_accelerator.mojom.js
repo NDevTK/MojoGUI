@@ -91,7 +91,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Initialize_Params', [
       mojo.internal.StructField('config', 0, 0, arc.mojom.VideoDecodeAcceleratorConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoDecodeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoDecodeClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

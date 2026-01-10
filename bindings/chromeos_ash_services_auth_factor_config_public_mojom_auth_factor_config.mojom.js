@@ -205,7 +205,7 @@ ash.auth.mojom.FactorObserverRequest = ash.auth.mojom.FactorObserverPendingRecei
 // Interface: AuthFactorConfig
 mojo.internal.Struct(
     ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.auth.mojom.FactorObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.auth.mojom.FactorObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

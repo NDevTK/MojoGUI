@@ -119,7 +119,7 @@ video_capture.mojom.AcceleratorFactoryRequest = video_capture.mojom.AcceleratorF
 // Interface: VideoCaptureService
 mojo.internal.Struct(
     video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec, 'video_capture.mojom.VideoCaptureService_InjectGpuDependencies_Params', [
-      mojo.internal.StructField('accelerator_factory', 0, 0, mojo.internal.InterfaceProxy(video_capture.mojom.AcceleratorFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('accelerator_factory', 0, 0, mojo.internal.InterfaceProxy(video_capture.mojom.AcceleratorFactorySpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

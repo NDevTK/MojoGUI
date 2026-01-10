@@ -371,14 +371,14 @@ blink.mojom.SpeechSynthesisClientRequest = blink.mojom.SpeechSynthesisClientPend
 // Interface: SpeechSynthesis
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec, 'blink.mojom.SpeechSynthesis_AddVoiceListObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisVoiceListObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisVoiceListObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     blink.mojom.SpeechSynthesis_Speak_ParamsSpec, 'blink.mojom.SpeechSynthesis_Speak_Params', [
       mojo.internal.StructField('utterance', 0, 0, blink.mojom.SpeechSynthesisUtteranceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.SpeechSynthesisClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

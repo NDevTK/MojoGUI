@@ -455,7 +455,7 @@ crosapi.mojom.TelemetryEventObserverRequest = crosapi.mojom.TelemetryEventObserv
 mojo.internal.Struct(
     crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec, 'crosapi.mojom.TelemetryEventService_AddEventObserver_Params', [
       mojo.internal.StructField('category', 0, 0, crosapi.mojom.TelemetryEventCategoryEnumSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryEventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryEventObserverSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

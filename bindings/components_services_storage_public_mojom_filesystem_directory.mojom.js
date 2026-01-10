@@ -186,7 +186,7 @@ storage.mojom.FileLockRequest = storage.mojom.FileLockPendingReceiver;
 // Interface: Directory
 mojo.internal.Struct(
     storage.mojom.Directory_Clone_ParamsSpec, 'storage.mojom.Directory_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.DirectoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.DirectorySpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -302,7 +302,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     storage.mojom.Directory_LockFile_ResponseParamsSpec, 'storage.mojom.Directory_LockFile_ResponseParams', [
       mojo.internal.StructField('error', 0, 0, mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('lock', 8, 0, mojo.internal.InterfaceProxy(storage.mojom.FileLockRemote), null, true, 0, undefined),
+      mojo.internal.StructField('lock', 8, 0, mojo.internal.InterfaceProxy(storage.mojom.FileLockSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

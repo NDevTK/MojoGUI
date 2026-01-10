@@ -402,7 +402,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec, 'blink.mojom.ClipboardHost_RegisterClipboardListener_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.ClipboardListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.ClipboardListenerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

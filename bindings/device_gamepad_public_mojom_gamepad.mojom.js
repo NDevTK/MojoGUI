@@ -322,7 +322,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.GamepadMonitor_SetObserver_ParamsSpec, 'device.mojom.GamepadMonitor_SetObserver_Params', [
-      mojo.internal.StructField('gamepad_observer', 0, 0, mojo.internal.InterfaceProxy(device.mojom.GamepadObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('gamepad_observer', 0, 0, mojo.internal.InterfaceProxy(device.mojom.GamepadObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

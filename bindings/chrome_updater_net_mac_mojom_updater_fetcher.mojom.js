@@ -318,7 +318,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.FetchService_PostRequest_ResponseParamsSpec, 'updater.mojom.FetchService_PostRequest_ResponseParams', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(updater.mojom.PostRequestObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(updater.mojom.PostRequestObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -331,7 +331,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec, 'updater.mojom.FetchService_DownloadToFile_ResponseParams', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(updater.mojom.FileDownloadObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(updater.mojom.FileDownloadObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

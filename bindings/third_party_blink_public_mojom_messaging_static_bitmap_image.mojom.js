@@ -38,7 +38,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('shared_image', 0, 0, gpu.mojom.ExportedSharedImageSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('sync_token', 8, 0, gpu.mojom.SyncTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('alpha_type', 16, 0, skia.mojom.AlphaTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('release_callback', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.ImageReleaseCallbackRemote), null, false, 0, undefined),
+      mojo.internal.StructField('release_callback', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.ImageReleaseCallbackSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

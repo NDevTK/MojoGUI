@@ -141,7 +141,7 @@ blink.mojom.BlobReaderClientRequest = blink.mojom.BlobReaderClientPendingReceive
 // Interface: Blob
 mojo.internal.Struct(
     blink.mojom.Blob_Clone_ParamsSpec, 'blink.mojom.Blob_Clone_Params', [
-      mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('blob', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -154,7 +154,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.Blob_ReadAll_ParamsSpec, 'blink.mojom.Blob_ReadAll_Params', [
       mojo.internal.StructField('pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobReaderClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobReaderClientSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -163,7 +163,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('pipe', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobReaderClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobReaderClientSpec), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

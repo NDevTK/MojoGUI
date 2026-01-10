@@ -25,7 +25,7 @@ metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = { $: {} };
 // Interface: PageMetricsHost
 mojo.internal.Struct(
     metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(metrics_reporter.mojom.PageMetricsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(metrics_reporter.mojom.PageMetricsSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

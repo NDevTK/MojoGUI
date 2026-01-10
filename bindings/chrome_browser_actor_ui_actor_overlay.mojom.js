@@ -44,8 +44,8 @@ mojo.internal.Struct(
 // Interface: ActorOverlayPageHandlerFactory
 mojo.internal.Struct(
     actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(actor.ui.mojom.ActorOverlayPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(actor.ui.mojom.ActorOverlayPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(actor.ui.mojom.ActorOverlayPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(actor.ui.mojom.ActorOverlayPageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

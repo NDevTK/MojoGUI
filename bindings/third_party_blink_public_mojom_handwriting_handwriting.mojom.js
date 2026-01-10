@@ -241,7 +241,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec, 'handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParams', [
       mojo.internal.StructField('result', 0, 0, handwriting.mojom.CreateHandwritingRecognizerResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('handwriting_recognizer', 8, 0, mojo.internal.InterfaceProxy(handwriting.mojom.HandwritingRecognizerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('handwriting_recognizer', 8, 0, mojo.internal.InterfaceProxy(handwriting.mojom.HandwritingRecognizerSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

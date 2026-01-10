@@ -125,14 +125,14 @@ pdf.mojom.OcrRequest = pdf.mojom.OcrPendingReceiver;
 mojo.internal.Struct(
     pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec, 'pdf.mojom.PdfService_BindPdfProgressiveSearchifier_Params', [
       mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(pdf.mojom.PdfProgressiveSearchifierRemote), null, false, 0, undefined),
-      mojo.internal.StructField('ocr', 8, 0, mojo.internal.InterfaceProxy(pdf.mojom.OcrRemote), null, false, 0, undefined),
+      mojo.internal.StructField('ocr', 8, 0, mojo.internal.InterfaceProxy(pdf.mojom.OcrSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec, 'pdf.mojom.PdfService_BindPdfSearchifier_Params', [
       mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(pdf.mojom.PdfSearchifierRemote), null, false, 0, undefined),
-      mojo.internal.StructField('ocr', 8, 0, mojo.internal.InterfaceProxy(pdf.mojom.OcrRemote), null, false, 0, undefined),
+      mojo.internal.StructField('ocr', 8, 0, mojo.internal.InterfaceProxy(pdf.mojom.OcrSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

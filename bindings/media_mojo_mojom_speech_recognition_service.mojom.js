@@ -29,7 +29,7 @@ media.mojom.AudioSourceFetcher_Stop_ParamsSpec = { $: {} };
 // Interface: AudioSourceSpeechRecognitionContext
 mojo.internal.Struct(
     media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec, 'media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_Params', [
-      mojo.internal.StructField('fetcher_receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioSourceFetcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('fetcher_receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioSourceFetcherSpec), null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionRecognizerClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('options', 16, 0, media.mojom.SpeechRecognitionOptionsSpec.$, null, false, 0, undefined),
     ],
@@ -137,7 +137,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec, 'media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_Params', [
-      mojo.internal.StructField('context', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioSourceSpeechRecognitionContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('context', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioSourceSpeechRecognitionContextSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

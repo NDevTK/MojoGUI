@@ -289,7 +289,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec, 'arc.mojom.KeymasterHost_GetServer_ResponseParams', [
-      mojo.internal.StructField('server_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.KeymasterServerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('server_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.KeymasterServerSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -383,7 +383,7 @@ arc.mojom.KeymasterHostRequest = arc.mojom.KeymasterHostPendingReceiver;
 // Interface: KeymasterInstance
 mojo.internal.Struct(
     arc.mojom.KeymasterInstance_Init_ParamsSpec, 'arc.mojom.KeymasterInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.KeymasterHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.KeymasterHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

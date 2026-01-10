@@ -147,7 +147,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec, 'media.mojom.CdmContextForOOPVD_RegisterEventCallback_Params', [
-      mojo.internal.StructField('callback', 0, 0, mojo.internal.InterfaceProxy(media.mojom.CdmContextEventCallbackRemote), null, false, 0, undefined),
+      mojo.internal.StructField('callback', 0, 0, mojo.internal.InterfaceProxy(media.mojom.CdmContextEventCallbackSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

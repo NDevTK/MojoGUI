@@ -109,7 +109,7 @@ network.mojom.NetworkQualityEstimatorManagerClientRequest = network.mojom.Networ
 // Interface: NetworkQualityEstimatorManager
 mojo.internal.Struct(
     network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManager_RequestNotifications_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(network.mojom.NetworkQualityEstimatorManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(network.mojom.NetworkQualityEstimatorManagerClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

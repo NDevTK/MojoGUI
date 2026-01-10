@@ -130,7 +130,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec, 'arc.mojom.VideoEncodeAccelerator_Initialize_Params', [
       mojo.internal.StructField('config', 0, 0, arc.mojom.VideoEncodeAcceleratorConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoEncodeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoEncodeClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

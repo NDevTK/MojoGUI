@@ -278,7 +278,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec, 'dlp_internals.mojom.PageHandler_ObserveReporting_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(dlp_internals.mojom.ReportingObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(dlp_internals.mojom.ReportingObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -48,7 +48,7 @@ mojo.internal.Union(
 // Interface: WebViewMediaIntegrityService
 mojo.internal.Struct(
     blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_Params', [
-      mojo.internal.StructField('provider_receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.WebViewMediaIntegrityProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('provider_receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.WebViewMediaIntegrityProviderSpec), null, false, 0, undefined),
       mojo.internal.StructField('cloud_project_number', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);

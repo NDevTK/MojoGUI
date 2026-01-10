@@ -244,7 +244,7 @@ device.mojom.GeolocationInternalsObserverRequest = device.mojom.GeolocationInter
 // Interface: GeolocationInternals
 mojo.internal.Struct(
     device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec, 'device.mojom.GeolocationInternals_AddInternalsObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(device.mojom.GeolocationInternalsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(device.mojom.GeolocationInternalsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -291,8 +291,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('initial_proxy_config', 72, 0, network.mojom.ProxyConfigWithAnnotationSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('proxy_config_client_receiver', 80, 0, mojo.internal.InterfaceRequest(network.mojom.ProxyConfigClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('initial_custom_proxy_config', 88, 0, network.mojom.CustomProxyConfigSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('custom_proxy_config_client_receiver', 96, 0, mojo.internal.InterfaceRequest(network.mojom.CustomProxyConfigClientRemote), null, true, 0, undefined),
-      mojo.internal.StructField('custom_proxy_connection_observer_remote', 104, 0, mojo.internal.InterfaceProxy(network.mojom.CustomProxyConnectionObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('custom_proxy_config_client_receiver', 96, 0, mojo.internal.InterfaceRequest(network.mojom.CustomProxyConfigClientSpec), null, true, 0, undefined),
+      mojo.internal.StructField('custom_proxy_connection_observer_remote', 104, 0, mojo.internal.InterfaceProxy(network.mojom.CustomProxyConnectionObserverSpec), null, true, 0, undefined),
       mojo.internal.StructField('proxy_config_poller_client', 112, 0, mojo.internal.InterfaceProxy(network.mojom.ProxyConfigPollerClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('proxy_error_client', 120, 0, mojo.internal.InterfaceProxy(network.mojom.ProxyErrorClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('socket_brokers', 128, 0, network.mojom.SocketBrokerRemotesSpec.$, null, true, 0, undefined),
@@ -414,7 +414,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.URLLoaderFactoryParamsSpec, 'network.mojom.URLLoaderFactoryParams', [
       mojo.internal.StructField('request_initiator_origin_lock', 0, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('header_client', 8, 0, mojo.internal.InterfaceProxy(network.mojom.TrustedURLLoaderHeaderClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('header_client', 8, 0, mojo.internal.InterfaceProxy(network.mojom.TrustedURLLoaderHeaderClientSpec), null, true, 0, undefined),
       mojo.internal.StructField('isolation_info', 16, 0, network.mojom.IsolationInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('top_frame_id', 24, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('factory_override', 32, 0, network.mojom.URLLoaderFactoryOverrideSpec.$, null, true, 0, undefined),
@@ -807,7 +807,7 @@ network.mojom.TrustedHeaderClientRequest = network.mojom.TrustedHeaderClientPend
 // Interface: TrustedURLLoaderHeaderClient
 mojo.internal.Struct(
     network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec, 'network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_Params', [
-      mojo.internal.StructField('header_client', 0, 0, mojo.internal.InterfaceRequest(network.mojom.TrustedHeaderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('header_client', 0, 0, mojo.internal.InterfaceRequest(network.mojom.TrustedHeaderClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -815,7 +815,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec, 'network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_Params', [
       mojo.internal.StructField('request', 0, 0, network.mojom.URLRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('header_client', 8, 0, mojo.internal.InterfaceRequest(network.mojom.TrustedHeaderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('header_client', 8, 0, mojo.internal.InterfaceRequest(network.mojom.TrustedHeaderClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1469,7 +1469,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('handshake_client', 72, 0, mojo.internal.InterfaceProxy(network.mojom.WebSocketHandshakeClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('url_loader_network_observer', 80, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderNetworkServiceObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('auth_handler', 88, 0, mojo.internal.InterfaceProxy(network.mojom.WebSocketAuthenticationHandlerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('header_client', 96, 0, mojo.internal.InterfaceProxy(network.mojom.TrustedHeaderClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('header_client', 96, 0, mojo.internal.InterfaceProxy(network.mojom.TrustedHeaderClientSpec), null, true, 0, undefined),
       mojo.internal.StructField('throttling_profile_id', 104, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('process_id', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('options', 116, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -1825,7 +1825,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec, 'network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_Params', [
       mojo.internal.StructField('urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('preload_handle', 8, 0, mojo.internal.InterfaceRequest(network.mojom.PreloadedSharedDictionaryInfoHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('preload_handle', 8, 0, mojo.internal.InterfaceRequest(network.mojom.PreloadedSharedDictionaryInfoHandleSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

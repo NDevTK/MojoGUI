@@ -147,7 +147,7 @@ remoting.mojom.AgentProcessRequest = remoting.mojom.AgentProcessPendingReceiver;
 // Interface: AgentProcessBroker
 mojo.internal.Struct(
     remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec, 'remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_Params', [
-      mojo.internal.StructField('agent_process', 0, 0, mojo.internal.InterfaceProxy(remoting.mojom.AgentProcessRemote), null, false, 0, undefined),
+      mojo.internal.StructField('agent_process', 0, 0, mojo.internal.InterfaceProxy(remoting.mojom.AgentProcessSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

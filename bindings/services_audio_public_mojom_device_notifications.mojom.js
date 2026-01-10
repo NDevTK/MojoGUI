@@ -104,7 +104,7 @@ audio.mojom.DeviceListenerRequest = audio.mojom.DeviceListenerPendingReceiver;
 // Interface: DeviceNotifier
 mojo.internal.Struct(
     audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec, 'audio.mojom.DeviceNotifier_RegisterListener_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(audio.mojom.DeviceListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(audio.mojom.DeviceListenerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

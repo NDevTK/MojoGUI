@@ -605,7 +605,7 @@ media_router.mojom.MediaRouteProviderRequest = media_router.mojom.MediaRouteProv
 mojo.internal.Struct(
     media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec, 'media_router.mojom.MediaRouter_RegisterMediaRouteProvider_Params', [
       mojo.internal.StructField('provider_id', 0, 0, media_router.mojom.MediaRouteProviderIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('media_router_provider', 8, 0, mojo.internal.InterfaceProxy(media_router.mojom.MediaRouteProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('media_router_provider', 8, 0, mojo.internal.InterfaceProxy(media_router.mojom.MediaRouteProviderSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

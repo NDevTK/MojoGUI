@@ -190,7 +190,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params', [
       mojo.internal.StructField('type', 0, 0, ash.diagnostics.mojom.RoutineTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('runner', 8, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.RoutineRunnerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('runner', 8, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.RoutineRunnerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

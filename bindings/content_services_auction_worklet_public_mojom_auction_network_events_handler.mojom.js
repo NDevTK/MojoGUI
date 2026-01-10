@@ -44,7 +44,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec, 'auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(auction_worklet.mojom.AuctionNetworkEventsHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(auction_worklet.mojom.AuctionNetworkEventsHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

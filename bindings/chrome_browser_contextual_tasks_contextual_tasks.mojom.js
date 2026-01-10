@@ -882,8 +882,8 @@ contextual_tasks.mojom.PageRequest = contextual_tasks.mojom.PagePendingReceiver;
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(contextual_tasks.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page_handler', 8, 0, mojo.internal.InterfaceRequest(contextual_tasks.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(contextual_tasks.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('page_handler', 8, 0, mojo.internal.InterfaceRequest(contextual_tasks.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

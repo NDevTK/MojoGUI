@@ -53,7 +53,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec, 'blink.mojom.BlobURLStore_ResolveAsBlobURLToken_Params', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('token', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('token', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenSpec), null, false, 0, undefined),
       mojo.internal.StructField('is_top_level_navigation', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -193,7 +193,7 @@ blink.mojom.BlobURLStoreRequest = blink.mojom.BlobURLStorePendingReceiver;
 // Interface: BlobURLToken
 mojo.internal.Struct(
     blink.mojom.BlobURLToken_Clone_ParamsSpec, 'blink.mojom.BlobURLToken_Clone_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobURLTokenSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -454,15 +454,15 @@ mojo.internal.Struct(
     ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_Params', [
       mojo.internal.StructField('bluetooth_public_address', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('eid', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('message_receiver', 16, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageReceiverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('nearby_connection_state_listener', 24, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('message_receiver', 16, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageReceiverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('nearby_connection_state_listener', 24, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyConnectionStateListenerSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParams', [
-      mojo.internal.StructField('message_sender', 0, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageSenderRemote), null, true, 0, undefined),
-      mojo.internal.StructField('file_payload_handler', 8, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('message_sender', 0, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyMessageSenderSpec), null, true, 0, undefined),
+      mojo.internal.StructField('file_payload_handler', 8, 0, mojo.internal.InterfaceProxy(ash.secure_channel.mojom.NearbyFilePayloadHandlerSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

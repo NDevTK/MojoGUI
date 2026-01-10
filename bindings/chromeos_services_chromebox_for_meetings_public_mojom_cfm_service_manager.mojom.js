@@ -103,7 +103,7 @@ chromeos.cfm.mojom.DisconnectReasonRequest = chromeos.cfm.mojom.DisconnectReason
 mojo.internal.Struct(
     chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_Params', [
       mojo.internal.StructField('interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('adaptor_remote', 8, 0, mojo.internal.InterfaceProxy(chromeos.cfm.mojom.CfmServiceAdaptorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('adaptor_remote', 8, 0, mojo.internal.InterfaceProxy(chromeos.cfm.mojom.CfmServiceAdaptorSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -197,8 +197,8 @@ chromecast.mojom.AssistantMessageClientRequest = chromecast.mojom.AssistantMessa
 mojo.internal.Struct(
     chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec, 'chromecast.mojom.AssistantMessageService_CreateMessagePipe_Params', [
       mojo.internal.StructField('client_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.AssistantMessageClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('pipe', 16, 0, mojo.internal.InterfaceRequest(chromecast.mojom.AssistantMessagePipeRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.AssistantMessageClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('pipe', 16, 0, mojo.internal.InterfaceRequest(chromecast.mojom.AssistantMessagePipeSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -136,7 +136,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('description_type', 152, 0, crosapi.mojom.TextTypeSpec.$, null, false, 2, undefined),
       mojo.internal.StructField('description_a11y_label', 160, 0, mojo_base.mojom.String16Spec.$, null, true, 3, undefined),
       mojo.internal.StructField('metrics_type', 168, 0, crosapi.mojom.MetricsTypeSpec.$, null, false, 5, undefined),
-      mojo.internal.StructField('receiver', 176, 0, mojo.internal.InterfaceRequest(crosapi.mojom.SearchResultConsumerRemote), null, true, 5, undefined),
+      mojo.internal.StructField('receiver', 176, 0, mojo.internal.InterfaceRequest(crosapi.mojom.SearchResultConsumerSpec), null, true, 5, undefined),
     ],
     [[0, 128], [2, 168], [3, 176], [5, 192]]);
 

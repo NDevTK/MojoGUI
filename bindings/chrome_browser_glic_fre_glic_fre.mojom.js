@@ -42,7 +42,7 @@ glic.mojom.FreWebUiState = {
 // Interface: FrePageHandlerFactory
 mojo.internal.Struct(
     glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec, 'glic.mojom.FrePageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(glic.mojom.FrePageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(glic.mojom.FrePageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

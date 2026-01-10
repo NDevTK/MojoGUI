@@ -192,7 +192,7 @@ network.mojom.NetworkChangeManagerClientRequest = network.mojom.NetworkChangeMan
 // Interface: NetworkChangeManager
 mojo.internal.Struct(
     network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkChangeManager_RequestNotifications_Params', [
-      mojo.internal.StructField('client_remote', 0, 0, mojo.internal.InterfaceProxy(network.mojom.NetworkChangeManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client_remote', 0, 0, mojo.internal.InterfaceProxy(network.mojom.NetworkChangeManagerClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

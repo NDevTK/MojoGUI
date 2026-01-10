@@ -377,7 +377,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec, 'blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.ManagedConfigurationObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.ManagedConfigurationObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

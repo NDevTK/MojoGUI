@@ -227,8 +227,8 @@ action_chips.mojom.PageRequest = action_chips.mojom.PagePendingReceiver;
 // Interface: ActionChipsHandlerFactory
 mojo.internal.Struct(
     action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec, 'action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(action_chips.mojom.ActionChipsHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(action_chips.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(action_chips.mojom.ActionChipsHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(action_chips.mojom.PageSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

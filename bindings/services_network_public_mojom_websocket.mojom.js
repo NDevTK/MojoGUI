@@ -192,8 +192,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec, 'network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_Params', [
-      mojo.internal.StructField('socket', 0, 0, mojo.internal.InterfaceProxy(network.mojom.WebSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(network.mojom.WebSocketClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('socket', 0, 0, mojo.internal.InterfaceProxy(network.mojom.WebSocketSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(network.mojom.WebSocketClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('response', 16, 0, network.mojom.WebSocketHandshakeResponseSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('readable', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('writable', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),

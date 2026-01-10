@@ -172,7 +172,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('top_window_origin', 48, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('permissions_policy_state', 56, 0, auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('public_key', 64, 0, auction_worklet.mojom.TrustedSignalsPublicKeySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('load_seller_worklet_client', 72, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.LoadSellerWorkletClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('load_seller_worklet_client', 72, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.LoadSellerWorkletClientSpec), null, true, 0, undefined),
       mojo.internal.StructField('experiment_group_id_$value', 80, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'experiment_group_id_$flag', originalFieldName: 'experiment_group_id' }),
       mojo.internal.StructField('pause_for_debugger_on_start', 82, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('experiment_group_id_$flag', 82, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'experiment_group_id_$value', originalFieldName: 'experiment_group_id' }),

@@ -36,7 +36,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_router.mojom.Debugger_BindReceiver_ParamsSpec, 'media_router.mojom.Debugger_BindReceiver_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_router.mojom.DebuggerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_router.mojom.DebuggerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

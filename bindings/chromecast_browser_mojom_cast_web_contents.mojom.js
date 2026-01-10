@@ -115,7 +115,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec, 'chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_Params', [
-      mojo.internal.StructField('web_contents', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('web_contents', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -424,7 +424,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chromecast.mojom.CastWebContents_AddObserver_ParamsSpec, 'chromecast.mojom.CastWebContents_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

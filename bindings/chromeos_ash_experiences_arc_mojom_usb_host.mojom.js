@@ -199,7 +199,7 @@ arc.mojom.UsbHostHostRequest = arc.mojom.UsbHostHostPendingReceiver;
 // Interface: UsbHostInstance
 mojo.internal.Struct(
     arc.mojom.UsbHostInstance_Init_ParamsSpec, 'arc.mojom.UsbHostInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.UsbHostHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.UsbHostHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

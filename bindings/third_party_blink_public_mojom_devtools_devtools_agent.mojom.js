@@ -60,7 +60,7 @@ mojo.internal.Struct(
     blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec, 'blink.mojom.DevToolsAgent_AttachDevToolsSession_Params', [
       mojo.internal.StructField('host', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('session', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('io_session', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('io_session', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsSessionSpec), null, false, 0, undefined),
       mojo.internal.StructField('reattach_session_state', 24, 0, blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('script_to_evaluate_on_load', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
@@ -208,8 +208,8 @@ blink.mojom.DevToolsAgentRequest = blink.mojom.DevToolsAgentPendingReceiver;
 // Interface: DevToolsAgentHost
 mojo.internal.Struct(
     blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec, 'blink.mojom.DevToolsAgentHost_ChildTargetCreated_Params', [
-      mojo.internal.StructField('worker_devtools_agent', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('worker_devtools_agent_host', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('worker_devtools_agent', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.DevToolsAgentSpec), null, false, 0, undefined),
+      mojo.internal.StructField('worker_devtools_agent_host', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsAgentHostSpec), null, false, 0, undefined),
       mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('devtools_worker_token', 32, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),

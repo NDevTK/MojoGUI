@@ -141,7 +141,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec, 'ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.SignalingMessageObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.SignalingMessageObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -361,7 +361,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec, 'ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.SystemInfoObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.SystemInfoObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -606,7 +606,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec, 'ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.AccessibilityObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.AccessibilityObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1137,7 +1137,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec, 'ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.StreamActionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.StreamActionObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1520,7 +1520,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec, 'ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.KeyboardLayoutObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.KeyboardLayoutObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

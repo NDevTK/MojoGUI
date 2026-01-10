@@ -110,7 +110,7 @@ chromecast.mojom.JsChannelRequest = chromecast.mojom.JsChannelPendingReceiver;
 mojo.internal.Struct(
     chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec, 'chromecast.mojom.JsChannelClient_CreateChannel_Params', [
       mojo.internal.StructField('channel', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('pipe', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.JsChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('pipe', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.JsChannelSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -218,7 +218,7 @@ chromecast.mojom.JsChannelClientRequest = chromecast.mojom.JsChannelClientPendin
 // Interface: JsChannelBindingProvider
 mojo.internal.Struct(
     chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec, 'chromecast.mojom.JsChannelBindingProvider_Register_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.JsChannelClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.JsChannelClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('routing_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

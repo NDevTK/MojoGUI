@@ -155,8 +155,8 @@ mojo.internal.Struct(
 // Interface: SpeechRecognitionContext
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec, 'media.mojom.SpeechRecognitionContext_BindRecognizer_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionRecognizerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionRecognizerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionRecognizerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionRecognizerClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('options', 16, 0, media.mojom.SpeechRecognitionOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -970,7 +970,7 @@ media.mojom.SpeechRecognitionSurfaceClientRequest = media.mojom.SpeechRecognitio
 // Interface: SpeechRecognitionClientBrowserInterface
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec, 'media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionBrowserObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionBrowserObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -981,7 +981,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec, 'media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionBrowserObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionBrowserObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

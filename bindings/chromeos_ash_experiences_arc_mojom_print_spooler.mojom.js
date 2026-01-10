@@ -214,7 +214,7 @@ arc.mojom.PrintSessionInstanceRequest = arc.mojom.PrintSessionInstancePendingRec
 // Interface: PrintSpoolerHost
 mojo.internal.Struct(
     arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec, 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_Params', [
-      mojo.internal.StructField('instance', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrintSessionInstanceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('instance', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrintSessionInstanceSpec), null, false, 0, undefined),
       mojo.internal.StructField('scoped_handle', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('task_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -222,7 +222,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec, 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParams', [
-      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrintSessionHostRemote), null, true, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrintSessionHostSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -316,7 +316,7 @@ arc.mojom.PrintSpoolerHostRequest = arc.mojom.PrintSpoolerHostPendingReceiver;
 // Interface: PrintSpoolerInstance
 mojo.internal.Struct(
     arc.mojom.PrintSpoolerInstance_Init_ParamsSpec, 'arc.mojom.PrintSpoolerInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrintSpoolerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrintSpoolerHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

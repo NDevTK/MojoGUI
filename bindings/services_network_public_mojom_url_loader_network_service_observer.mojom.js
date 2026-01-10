@@ -78,7 +78,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('x509_certificate', 0, 0, network.mojom.X509CertificateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('provider_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('algorithm_preferences', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('ssl_private_key', 24, 0, mojo.internal.InterfaceProxy(network.mojom.SSLPrivateKeyRemote), null, false, 0, undefined),
+      mojo.internal.StructField('ssl_private_key', 24, 0, mojo.internal.InterfaceProxy(network.mojom.SSLPrivateKeySpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -411,7 +411,7 @@ mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_Params', [
       mojo.internal.StructField('window_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('cert_info', 8, 0, network.mojom.SSLCertRequestInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('cert_responder', 16, 0, mojo.internal.InterfaceProxy(network.mojom.ClientCertificateResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('cert_responder', 16, 0, mojo.internal.InterfaceProxy(network.mojom.ClientCertificateResponderSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -421,7 +421,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('auth_info', 16, 0, network.mojom.AuthChallengeInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('head_headers', 24, 0, network.mojom.HttpResponseHeadersSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('auth_challenge_responder', 32, 0, mojo.internal.InterfaceProxy(network.mojom.AuthChallengeResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('auth_challenge_responder', 32, 0, mojo.internal.InterfaceProxy(network.mojom.AuthChallengeResponderSpec), null, false, 0, undefined),
       mojo.internal.StructField('request_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('first_auth_attempt', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -496,7 +496,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_Clone_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderNetworkServiceObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderNetworkServiceObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

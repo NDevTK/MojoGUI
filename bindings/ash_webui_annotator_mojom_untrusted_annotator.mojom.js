@@ -282,8 +282,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRequest = ash.annotator.mojom.U
 // Interface: UntrustedAnnotatorPageHandlerFactory
 mojo.internal.Struct(
     ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('annotator', 8, 0, mojo.internal.InterfaceProxy(ash.annotator.mojom.UntrustedAnnotatorPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.annotator.mojom.UntrustedAnnotatorPageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('annotator', 8, 0, mojo.internal.InterfaceProxy(ash.annotator.mojom.UntrustedAnnotatorPageSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

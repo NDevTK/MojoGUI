@@ -511,8 +511,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.HidManager_Connect_ParamsSpec, 'device.mojom.HidManager_Connect_Params', [
       mojo.internal.StructField('device_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('connection_client', 8, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), null, true, 0, undefined),
-      mojo.internal.StructField('watcher', 16, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionWatcherRemote), null, true, 0, undefined),
+      mojo.internal.StructField('connection_client', 8, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientSpec), null, true, 0, undefined),
+      mojo.internal.StructField('watcher', 16, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionWatcherSpec), null, true, 0, undefined),
       mojo.internal.StructField('allow_protected_reports', 24, 0, mojo.internal.Bool, false, false, 1, undefined),
       mojo.internal.StructField('allow_fido_reports', 24, 1, mojo.internal.Bool, false, false, 2, undefined),
     ],
@@ -520,13 +520,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.HidManager_Connect_ResponseParamsSpec, 'device.mojom.HidManager_Connect_ResponseParams', [
-      mojo.internal.StructField('connection', 0, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('connection', 0, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     device.mojom.HidManager_AddReceiver_ParamsSpec, 'device.mojom.HidManager_AddReceiver_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.HidManagerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

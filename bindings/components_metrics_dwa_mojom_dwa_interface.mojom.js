@@ -185,8 +185,8 @@ metrics.dwa.mojom.DwaRecorderInterfaceRequest = metrics.dwa.mojom.DwaRecorderInt
 // Interface: DwaRecorderFactory
 mojo.internal.Struct(
     metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(metrics.dwa.mojom.DwaRecorderInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client_remote', 8, 0, mojo.internal.InterfaceProxy(metrics.dwa.mojom.DwaRecorderClientInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(metrics.dwa.mojom.DwaRecorderInterfaceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('client_remote', 8, 0, mojo.internal.InterfaceProxy(metrics.dwa.mojom.DwaRecorderClientInterfaceSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

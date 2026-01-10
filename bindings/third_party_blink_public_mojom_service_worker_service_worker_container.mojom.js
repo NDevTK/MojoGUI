@@ -111,7 +111,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_Params', [
-      mojo.internal.StructField('container_host', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerContainerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('container_host', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerContainerHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

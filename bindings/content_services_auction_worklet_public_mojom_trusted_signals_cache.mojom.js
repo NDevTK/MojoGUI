@@ -147,7 +147,7 @@ auction_worklet.mojom.TrustedSignalsCacheClientRequest = auction_worklet.mojom.T
 mojo.internal.Struct(
     auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_Params', [
       mojo.internal.StructField('compression_group_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.TrustedSignalsCacheClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(auction_worklet.mojom.TrustedSignalsCacheClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

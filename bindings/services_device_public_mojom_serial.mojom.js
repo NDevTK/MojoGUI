@@ -182,7 +182,7 @@ mojo.internal.Struct(
 // Interface: SerialPortManager
 mojo.internal.Struct(
     device.mojom.SerialPortManager_SetClient_ParamsSpec, 'device.mojom.SerialPortManager_SetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortManagerClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -201,15 +201,15 @@ mojo.internal.Struct(
     device.mojom.SerialPortManager_OpenPort_ParamsSpec, 'device.mojom.SerialPortManager_OpenPort_Params', [
       mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('options', 8, 0, device.mojom.SerialConnectionOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('watcher', 24, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortConnectionWatcherRemote), null, true, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('watcher', 24, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortConnectionWatcherSpec), null, true, 0, undefined),
       mojo.internal.StructField('use_alternate_path', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec, 'device.mojom.SerialPortManager_OpenPort_ResponseParams', [
-      mojo.internal.StructField('port', 0, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortRemote), null, true, 0, undefined),
+      mojo.internal.StructField('port', 0, 0, mojo.internal.InterfaceProxy(device.mojom.SerialPortSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

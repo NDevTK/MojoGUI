@@ -150,7 +150,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(safe_browsing.mojom.SafeBrowsingRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(safe_browsing.mojom.SafeBrowsingSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -486,7 +486,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetTestObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(safe_browsing.mojom.PhishingModelSetterTestObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(safe_browsing.mojom.PhishingModelSetterTestObserverSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -841,7 +841,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(safe_browsing.mojom.ExtensionWebRequestReporterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(safe_browsing.mojom.ExtensionWebRequestReporterSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

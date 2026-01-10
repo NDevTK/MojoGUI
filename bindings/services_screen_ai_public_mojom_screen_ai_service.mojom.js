@@ -541,7 +541,7 @@ screen_ai.mojom.Screen2xMainContentExtractorRequest = screen_ai.mojom.Screen2xMa
 // Interface: OCRService
 mojo.internal.Struct(
     screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec, 'screen_ai.mojom.OCRService_BindAnnotator_Params', [
-      mojo.internal.StructField('annotator', 0, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.ScreenAIAnnotatorRemote), null, true, 0, undefined),
+      mojo.internal.StructField('annotator', 0, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.ScreenAIAnnotatorSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -628,7 +628,7 @@ screen_ai.mojom.OCRServiceRequest = screen_ai.mojom.OCRServicePendingReceiver;
 // Interface: MainContentExtractionService
 mojo.internal.Struct(
     screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec, 'screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_Params', [
-      mojo.internal.StructField('main_content_extractor', 0, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.Screen2xMainContentExtractorRemote), null, true, 0, undefined),
+      mojo.internal.StructField('main_content_extractor', 0, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.Screen2xMainContentExtractorSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

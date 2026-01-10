@@ -160,7 +160,7 @@ arc.mojom.AudioHostRequest = arc.mojom.AudioHostPendingReceiver;
 // Interface: AudioInstance
 mojo.internal.Struct(
     arc.mojom.AudioInstance_Init_ParamsSpec, 'arc.mojom.AudioInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AudioHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AudioHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

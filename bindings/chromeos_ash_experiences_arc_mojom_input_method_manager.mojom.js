@@ -447,7 +447,7 @@ arc.mojom.InputMethodManagerHostRequest = arc.mojom.InputMethodManagerHostPendin
 // Interface: InputMethodManagerInstance
 mojo.internal.Struct(
     arc.mojom.InputMethodManagerInstance_Init_ParamsSpec, 'arc.mojom.InputMethodManagerInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.InputMethodManagerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.InputMethodManagerHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -483,7 +483,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec, 'arc.mojom.InputMethodManagerInstance_Focus_Params', [
-      mojo.internal.StructField('connection', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.InputConnectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('connection', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.InputConnectionSpec), null, false, 0, undefined),
       mojo.internal.StructField('initial_state', 8, 0, arc.mojom.TextInputStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

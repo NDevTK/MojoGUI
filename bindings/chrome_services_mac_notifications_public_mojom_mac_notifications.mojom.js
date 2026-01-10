@@ -427,8 +427,8 @@ mac_notifications.mojom.MacNotificationActionHandlerRequest = mac_notifications.
 // Interface: MacNotificationProvider
 mojo.internal.Struct(
     mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec, 'mac_notifications.mojom.MacNotificationProvider_BindNotificationService_Params', [
-      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceRequest(mac_notifications.mojom.MacNotificationServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceProxy(mac_notifications.mojom.MacNotificationActionHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceRequest(mac_notifications.mojom.MacNotificationServiceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceProxy(mac_notifications.mojom.MacNotificationActionHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

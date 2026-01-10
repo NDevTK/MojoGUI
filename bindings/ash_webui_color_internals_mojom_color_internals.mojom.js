@@ -116,7 +116,7 @@ ash.color_internals.mojom.WallpaperColorsObserverRequest = ash.color_internals.m
 // Interface: WallpaperColorsHandler
 mojo.internal.Struct(
     ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.color_internals.mojom.WallpaperColorsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.color_internals.mojom.WallpaperColorsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

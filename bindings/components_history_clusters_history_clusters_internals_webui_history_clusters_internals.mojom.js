@@ -23,8 +23,8 @@ history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(history_clusters_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page_handler', 8, 0, mojo.internal.InterfaceRequest(history_clusters_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(history_clusters_internals.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('page_handler', 8, 0, mojo.internal.InterfaceRequest(history_clusters_internals.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

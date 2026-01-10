@@ -3251,7 +3251,7 @@ arc.mojom.OemCryptoServiceRequest = arc.mojom.OemCryptoServicePendingReceiver;
 // Interface: OemCryptoHost
 mojo.internal.Struct(
     arc.mojom.OemCryptoHost_Connect_ParamsSpec, 'arc.mojom.OemCryptoHost_Connect_Params', [
-      mojo.internal.StructField('oemcryptor', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.OemCryptoServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('oemcryptor', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.OemCryptoServiceSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3338,7 +3338,7 @@ arc.mojom.OemCryptoHostRequest = arc.mojom.OemCryptoHostPendingReceiver;
 // Interface: OemCryptoInstance
 mojo.internal.Struct(
     arc.mojom.OemCryptoInstance_Init_ParamsSpec, 'arc.mojom.OemCryptoInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.OemCryptoHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.OemCryptoHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

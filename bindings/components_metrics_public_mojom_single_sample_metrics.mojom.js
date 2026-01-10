@@ -19,7 +19,7 @@ metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec, 'metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_Params', [
       mojo.internal.StructField('histogram_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(metrics.mojom.SingleSampleMetricRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(metrics.mojom.SingleSampleMetricSpec), null, false, 0, undefined),
       mojo.internal.StructField('min', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('max', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('bucket_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),

@@ -116,7 +116,7 @@ chromecast.mojom.MessageCallbackRequest = chromecast.mojom.MessageCallbackPendin
 mojo.internal.Struct(
     chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec, 'chromecast.mojom.WebUi_RegisterMessageCallback_Params', [
       mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('cb', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.MessageCallbackRemote), null, false, 0, undefined),
+      mojo.internal.StructField('cb', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.MessageCallbackSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -326,15 +326,15 @@ chromecast.mojom.ResourcesRequest = chromecast.mojom.ResourcesPendingReceiver;
 mojo.internal.Struct(
     chromecast.mojom.WebUiClient_CreateController_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateController_Params', [
       mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('web_ui', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.WebUiRemote), null, false, 0, undefined),
-      mojo.internal.StructField('resources', 16, 0, mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
+      mojo.internal.StructField('web_ui', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.WebUiSpec), null, false, 0, undefined),
+      mojo.internal.StructField('resources', 16, 0, mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     chromecast.mojom.WebUiClient_CreateResources_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateResources_Params', [
       mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('resources', 8, 0, mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
+      mojo.internal.StructField('resources', 8, 0, mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

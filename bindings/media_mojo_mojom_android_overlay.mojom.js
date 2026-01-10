@@ -38,8 +38,8 @@ mojo.internal.Struct(
 // Interface: AndroidOverlayProvider
 mojo.internal.Struct(
     media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec, 'media.mojom.AndroidOverlayProvider_CreateOverlay_Params', [
-      mojo.internal.StructField('overlay', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AndroidOverlayRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(media.mojom.AndroidOverlayClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('overlay', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AndroidOverlaySpec), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(media.mojom.AndroidOverlayClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('config', 16, 0, media.mojom.AndroidOverlayConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

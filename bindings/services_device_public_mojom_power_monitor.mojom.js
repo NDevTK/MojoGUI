@@ -21,7 +21,7 @@ device.mojom.PowerMonitorClient_Resume_ParamsSpec = { $: {} };
 // Interface: PowerMonitor
 mojo.internal.Struct(
     device.mojom.PowerMonitor_AddClient_ParamsSpec, 'device.mojom.PowerMonitor_AddClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.PowerMonitorClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.PowerMonitorClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

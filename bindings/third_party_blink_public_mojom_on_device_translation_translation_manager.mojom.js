@@ -173,7 +173,7 @@ blink.mojom.TranslationManagerCreateTranslatorClientRequest = blink.mojom.Transl
 // Interface: TranslationManager
 mojo.internal.Struct(
     blink.mojom.TranslationManager_CreateTranslator_ParamsSpec, 'blink.mojom.TranslationManager_CreateTranslator_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.TranslationManagerCreateTranslatorClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.TranslationManagerCreateTranslatorClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('options', 8, 0, blink.mojom.TranslatorCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

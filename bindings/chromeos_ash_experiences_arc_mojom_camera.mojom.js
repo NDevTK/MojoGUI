@@ -418,7 +418,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec, 'arc.mojom.CameraHost_StartCameraService_ResponseParams', [
-      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CameraServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CameraServiceSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -567,7 +567,7 @@ arc.mojom.CameraHostRequest = arc.mojom.CameraHostPendingReceiver;
 // Interface: CameraInstance
 mojo.internal.Struct(
     arc.mojom.CameraInstance_Init_ParamsSpec, 'arc.mojom.CameraInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CameraHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CameraHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

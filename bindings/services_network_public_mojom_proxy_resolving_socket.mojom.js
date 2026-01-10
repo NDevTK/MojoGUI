@@ -138,7 +138,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('network_anonymization_key', 8, 0, network.mojom.NetworkAnonymizationKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('options', 16, 0, network.mojom.ProxyResolvingSocketOptionsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('traffic_annotation', 24, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('socket', 32, 0, mojo.internal.InterfaceRequest(network.mojom.ProxyResolvingSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('socket', 32, 0, mojo.internal.InterfaceRequest(network.mojom.ProxyResolvingSocketSpec), null, false, 0, undefined),
       mojo.internal.StructField('observer', 40, 0, mojo.internal.InterfaceProxy(network.mojom.SocketObserverRemote), null, true, 0, undefined),
     ],
     [[0, 56]]);

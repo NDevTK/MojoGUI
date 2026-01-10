@@ -49,7 +49,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('kMaximumEmbeddedDataSize', 0, 0, mojo.internal.Pointer, 256000, false, 0, undefined),
       mojo.internal.StructField('length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('embedded_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('data', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BytesProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('data', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BytesProviderSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

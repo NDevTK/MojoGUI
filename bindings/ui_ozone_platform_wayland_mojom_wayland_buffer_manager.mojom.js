@@ -239,7 +239,7 @@ ui.ozone.mojom.WaylandBufferManagerHostRequest = ui.ozone.mojom.WaylandBufferMan
 // Interface: WaylandBufferManagerGpu
 mojo.internal.Struct(
     ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_Params', [
-      mojo.internal.StructField('remote_host', 0, 0, mojo.internal.InterfaceProxy(ui.ozone.mojom.WaylandBufferManagerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('remote_host', 0, 0, mojo.internal.InterfaceProxy(ui.ozone.mojom.WaylandBufferManagerHostSpec), null, false, 0, undefined),
       mojo.internal.StructField('shared_image_formats_with_modifiers', 8, 0, mojo.internal.Map(viz.mojom.SharedImageFormatSpec.$, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
       mojo.internal.StructField('supports_dma_buf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('supports_viewporter', 16, 1, mojo.internal.Bool, false, false, 0, undefined),

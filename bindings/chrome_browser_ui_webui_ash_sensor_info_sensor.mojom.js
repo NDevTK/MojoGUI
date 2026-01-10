@@ -66,7 +66,7 @@ mojo.internal.Struct(
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'sensor.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(sensor.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(sensor.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -33,8 +33,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     sharing.mojom.WebRtcDependenciesSpec, 'sharing.mojom.WebRtcDependencies', [
       mojo.internal.StructField('socket_manager', 0, 0, mojo.internal.InterfaceProxy(network.mojom.P2PSocketManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('mdns_responder_factory', 8, 0, mojo.internal.InterfaceProxy(sharing.mojom.MdnsResponderFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('ice_config_fetcher', 16, 0, mojo.internal.InterfaceProxy(sharing.mojom.IceConfigFetcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('mdns_responder_factory', 8, 0, mojo.internal.InterfaceProxy(sharing.mojom.MdnsResponderFactorySpec), null, false, 0, undefined),
+      mojo.internal.StructField('ice_config_fetcher', 16, 0, mojo.internal.InterfaceProxy(sharing.mojom.IceConfigFetcherSpec), null, false, 0, undefined),
       mojo.internal.StructField('messenger', 24, 0, mojo.internal.InterfaceProxy(sharing.mojom.WebRtcSignalingMessengerRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);

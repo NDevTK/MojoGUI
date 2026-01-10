@@ -131,7 +131,7 @@ ash.common.mojom.ShortcutInputObserverRequest = ash.common.mojom.ShortcutInputOb
 // Interface: ShortcutInputProvider
 mojo.internal.Struct(
     ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec, 'ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.common.mojom.ShortcutInputObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.common.mojom.ShortcutInputObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

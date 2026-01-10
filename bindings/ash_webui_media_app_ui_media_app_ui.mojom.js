@@ -34,7 +34,7 @@ ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec = { $: {} };
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -107,7 +107,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_Params', [
       mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.VideoDecoderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('tracker', 8, 0, mojo.internal.InterfaceProxy(media.mojom.VideoDecoderTrackerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('tracker', 8, 0, mojo.internal.InterfaceProxy(media.mojom.VideoDecoderTrackerSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

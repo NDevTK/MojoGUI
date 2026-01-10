@@ -20,7 +20,7 @@ ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = { $: {} };
 // Interface: UntrustedPageHandlerFactory
 mojo.internal.Struct(
     ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.mojom.demo_mode.UntrustedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.mojom.demo_mode.UntrustedPageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -305,8 +305,8 @@ chromeos.remote_apps.mojom.RemoteAppsRequest = chromeos.remote_apps.mojom.Remote
 mojo.internal.Struct(
     chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_Params', [
       mojo.internal.StructField('source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('remote_apps', 8, 0, mojo.internal.InterfaceRequest(chromeos.remote_apps.mojom.RemoteAppsRemote), null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('remote_apps', 8, 0, mojo.internal.InterfaceRequest(chromeos.remote_apps.mojom.RemoteAppsSpec), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(chromeos.remote_apps.mojom.RemoteAppLaunchObserverSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -154,7 +154,7 @@ mojo.internal.Struct(
 // Interface: RemoteObjectHost
 mojo.internal.Struct(
     blink.mojom.RemoteObjectHost_GetObject_ParamsSpec, 'blink.mojom.RemoteObjectHost_GetObject_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.RemoteObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.RemoteObjectSpec), null, false, 0, undefined),
       mojo.internal.StructField('object_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -472,8 +472,8 @@ blink.mojom.RemoteObjectRequest = blink.mojom.RemoteObjectPendingReceiver;
 // Interface: RemoteObjectGatewayFactory
 mojo.internal.Struct(
     blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec, 'blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_Params', [
-      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.RemoteObjectHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('gateway', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.RemoteObjectGatewayRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.RemoteObjectHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('gateway', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.RemoteObjectGatewaySpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

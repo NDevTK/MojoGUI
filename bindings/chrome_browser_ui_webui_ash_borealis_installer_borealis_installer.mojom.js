@@ -30,8 +30,8 @@ ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec = { $: {} };
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
     ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.borealis_installer.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.borealis_installer.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.borealis_installer.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.borealis_installer.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -126,7 +126,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerRequest = commerce.price_insig
 // Interface: PriceInsightsHandlerFactory
 mojo.internal.Struct(
     commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(commerce.price_insights.mojom.PriceInsightsHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(commerce.price_insights.mojom.PriceInsightsHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

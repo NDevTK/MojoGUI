@@ -100,7 +100,7 @@ mojo.internal.Struct(
     chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec, 'chrome.mojom.MediaParser_ParseMediaMetadata_Params', [
       mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('total_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('media_data_source', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('media_data_source', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceSpec), null, false, 0, undefined),
       mojo.internal.StructField('get_attached_images', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -116,7 +116,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec, 'chrome.mojom.MediaParser_ExtractVideoFrame_Params', [
       mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('media_data_source', 8, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('media_data_source', 8, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceSpec), null, false, 0, undefined),
       mojo.internal.StructField('total_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -315,7 +315,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec, 'chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParams', [
-      mojo.internal.StructField('media_parser', 0, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaParserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('media_parser', 0, 0, mojo.internal.InterfaceProxy(chrome.mojom.MediaParserSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

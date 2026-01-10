@@ -347,7 +347,7 @@ media_session.mojom.AudioFocusRequestClientRequest = media_session.mojom.AudioFo
 // Interface: AudioFocusManager
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec, 'media_session.mojom.AudioFocusManager_RequestAudioFocus_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('session', 8, 0, mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('session_info', 16, 0, media_session.mojom.MediaSessionInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('type', 24, 0, media_session.mojom.AudioFocusTypeSpec.$, null, false, 0, undefined),
@@ -363,7 +363,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec, 'media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_Params', [
       mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('session', 16, 0, mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('session_info', 24, 0, media_session.mojom.MediaSessionInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('type', 32, 0, media_session.mojom.AudioFocusTypeSpec.$, null, false, 0, undefined),
@@ -390,7 +390,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec, 'media_session.mojom.AudioFocusManager_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -410,7 +410,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec, 'media_session.mojom.AudioFocusManager_AddSourceObserver_Params', [
       mojo.internal.StructField('source_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusObserverSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

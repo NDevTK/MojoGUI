@@ -19,7 +19,7 @@ crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec = { $: {} };
 // Interface: GuestOsSkForwarderFactory
 mojo.internal.Struct(
     crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec, 'crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_Params', [
-      mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.GuestOsSkForwarderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(crosapi.mojom.GuestOsSkForwarderSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -80,8 +80,8 @@ mojo.internal.Struct(
 // Interface: MostVisitedPageHandlerFactory
 mojo.internal.Struct(
     most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(most_visited.mojom.MostVisitedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(most_visited.mojom.MostVisitedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(most_visited.mojom.MostVisitedPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(most_visited.mojom.MostVisitedPageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

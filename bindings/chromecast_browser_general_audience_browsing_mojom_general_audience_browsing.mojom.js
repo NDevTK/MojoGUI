@@ -105,7 +105,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRequest = chromecast.mojom
 // Interface: GeneralAudienceBrowsingAPIKeySubject
 mojo.internal.Struct(
     chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec, 'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

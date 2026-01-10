@@ -47,7 +47,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParams', [
-      mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoAcceleratorFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoAcceleratorFactorySpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -163,7 +163,7 @@ arc.mojom.VideoHostRequest = arc.mojom.VideoHostPendingReceiver;
 // Interface: VideoInstance
 mojo.internal.Struct(
     arc.mojom.VideoInstance_Init_ParamsSpec, 'arc.mojom.VideoInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

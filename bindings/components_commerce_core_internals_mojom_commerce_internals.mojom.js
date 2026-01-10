@@ -75,8 +75,8 @@ mojo.internal.Struct(
 // Interface: CommerceInternalsHandlerFactory
 mojo.internal.Struct(
     commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec, 'commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(commerce.mojom.CommerceInternalsPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(commerce.mojom.CommerceInternalsHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(commerce.mojom.CommerceInternalsPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(commerce.mojom.CommerceInternalsHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

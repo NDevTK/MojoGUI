@@ -174,7 +174,7 @@ mojo.internal.Struct(
 // Interface: OmniboxPageHandler
 mojo.internal.Struct(
     mojom.OmniboxPageHandler_SetClientPage_ParamsSpec, 'mojom.OmniboxPageHandler_SetClientPage_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(mojom.OmniboxPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(mojom.OmniboxPageSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
