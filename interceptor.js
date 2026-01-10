@@ -66,6 +66,72 @@
             };
         }
 
+        // Monkey-patch ControlMessageHandler to avoid crash if handle is missing
+        if (mojo.internal.interfaceSupport.ControlMessageHandler) {
+            console.log('[Interceptor] Monkey-patching ControlMessageHandler.maybeHandleControlMessage');
+            const originalMaybeHandle = mojo.internal.interfaceSupport.ControlMessageHandler.prototype.maybeHandleControlMessage;
+            mojo.internal.interfaceSupport.ControlMessageHandler.prototype.maybeHandleControlMessage = function (message) {
+                if (!this.router_ || !this.router_.connector_) {
+                    // console.warn('[Interceptor] Skipping control message for disconnected router');
+                    return false;
+                }
+                return originalMaybeHandle.call(this, message);
+            };
+        }
+
+        // Inspect interfaceSupport
+        if (mojo.internal.interfaceSupport) {
+            console.log('[Interceptor] mojo.internal.interfaceSupport keys:', Object.keys(mojo.internal.interfaceSupport));
+
+            // Polyfill createResponder if missing
+            if (typeof mojo.internal.interfaceSupport.createResponder !== 'function') {
+                console.log('[Interceptor] Polyfilling createResponder');
+                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec) {
+                    return function (response) {
+                        // Construct response message
+                        // We need to encode the response struct 
+                        // We assume responseParamsSpec is the Spec object { $: { ... } }
+
+                        const isResponse = true;
+                        // Flag 2 is 'IsResponse' usually? 
+                        // Header v0: [bytes, version, interfaceId, ordinal, flags, padding, requestId]
+                        // We rely on higher level Message if possible.
+
+                        try {
+                            // Attempt to use internal Encoder if available
+                            // This is a "Best Guess" implementation based on Lite bindings
+                            var structSpec = responseParamsSpec.$.structSpec;
+                            var encoder = new mojo.internal.Encoder(structSpec.packedSize, 0);
+
+                            // Encode the struct (method parameters are a struct)
+                            // encodeStructInline(spec, value)
+                            encoder.encodeStructInline(structSpec, response);
+
+                            var message = encoder.message_;
+                            // Fix up the header
+                            // We need to set Ordinal? 
+                            // Wait, generated code uses createResponder(endpoint, requestId, spec). 
+                            // It does NOT pass ordinal.
+                            // But the response needs the ordinal?
+                            // Usually response shares ordinal.
+                            // How does createResponder know the ordinal?
+                            // A: It doesn't? Or it matches by RequestID.
+                            // Flag 2 (IsResponse).
+
+                            // We need to set the RequestID on the message header
+                            message.header.requestId = requestId;
+                            message.header.flags = 2; // kMessageIsResponse
+
+                            // Send
+                            endpoint.router_.accept(message);
+
+                        } catch (e) {
+                            console.error('[Interceptor] createResponder polyfill failed:', e);
+                        }
+                    };
+                };
+            }
+        }
         // MONKEY PATCH: Fix ControlMessageHandler crash (RUN_MESSAGE_ID)
         if (mojo.internal.interfaceSupport.ControlMessageHandler) {
             const OriginalHandler = mojo.internal.interfaceSupport.ControlMessageHandler;
