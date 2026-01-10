@@ -669,7 +669,15 @@
             code += `// after being loaded via <script> tag\n\n`;
             code += `// Step 2: Create a remote and bind it\n`;
             code += `// Namespace depends on binding version (mojo vs global)\n`;
-            code += `const ${iface.name.toLowerCase()}Remote = ${namespace}.${iface.name}.getRemote();\n\n`;
+            code += `let ${iface.name.toLowerCase()}Remote;\n`;
+            code += `if (typeof ${namespace}.${iface.name}.getRemote === 'function') {\n`;
+            code += `    ${iface.name.toLowerCase()}Remote = ${namespace}.${iface.name}.getRemote();\n`;
+            code += `} else {\n`;
+            code += `    ${iface.name.toLowerCase()}Remote = new ${namespace}.${iface.name}Remote();\n`;
+            code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
+            code += `    const handle = receiver.handle || receiver;\n`;
+            code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
+            code += `}\n`;
             code += `// Select a method to see the full call...`;
             return code;
         }
@@ -678,7 +686,17 @@
         const methodName = method.charAt(0).toLowerCase() + method.slice(1);
 
         code += `// Get remote for the interface\n`;
-        code += `const ${remoteName} = ${namespace}.${iface.name}.getRemote();\n\n`;
+        code += `let ${remoteName};\n`;
+        code += `if (typeof ${namespace}.${iface.name}.getRemote === 'function') {\n`;
+        code += `    ${remoteName} = ${namespace}.${iface.name}.getRemote();\n`;
+        code += `} else {\n`;
+        code += `    // Manual binding for Lite bindings without getRemote()\n`;
+        code += `    ${remoteName} = new ${namespace}.${iface.name}Remote();\n`;
+        code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
+        code += `    const handle = receiver.handle || receiver;\n`;
+        code += `    // Default to 'context' scope for safety, can be 'process'\n`;
+        code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
+        code += `}\n\n`;
 
         // Generate method call with params
         const params = Object.entries(state.paramValues);

@@ -31,40 +31,92 @@
         }
 
 
-        static create(interfaceName, handle) {
-            // 1. Get the interface definition
-            // We utilize the global MojoBindings map populated by app.js/bindings loader
-            // or we try to find it in the global scope if loaded.
-            const ifaceClass = MojoProxy.findInterfaceClass(interfaceName);
+        static getInterfaceComponents(name) {
+            const result = {
+                Interface: null, // The namespace/spec object or class
+                Remote: null,
+                Receiver: null,
+                isLite: false
+            };
 
-            if (!ifaceClass) {
+            result.Interface = MojoProxy.resolveInterface(name);
+
+            // Attempt to resolve Remote
+            if (result.Interface && result.Interface.Remote) {
+                result.Remote = result.Interface.Remote;
+            } else {
+                result.Remote = MojoProxy.resolveInterface(name + "Remote");
+                if (result.Remote) result.isLite = true;
+            }
+
+            // Attempt to resolve Receiver
+            // Standard: Interface.Receiver
+            // Lite: usually doesn't have a specific Receiver class, uses mojo.Binding?
+            // Or maybe InterfaceReceiver?
+            if (result.Interface && result.Interface.Receiver) {
+                result.Receiver = result.Interface.Receiver;
+            } else {
+                result.Receiver = MojoProxy.resolveInterface(name + "Receiver");
+                if (!result.Receiver) {
+                    result.Receiver = MojoProxy.resolveInterface(name + "Binding");
+                }
+            }
+
+            return result;
+        }
+
+        static create(interfaceName, handle) {
+            const comps = MojoProxy.getInterfaceComponents(interfaceName);
+
+            if (!comps.Interface && !comps.Remote) {
                 console.error(`[MojoProxy] Interface ${interfaceName} definition not found.`);
                 return null;
             }
 
             // 2. Create a pipe for the *real* implementation
-            // We will forward intercepted messages to this pipe
             const pipe = Mojo.createMessagePipe();
 
             // 3. Create the Proxy object that implements the interface
-            const proxyImpl = new MojoProxyImpl(interfaceName, pipe.handle0);
+            const proxyImpl = new MojoProxyImpl(interfaceName, pipe.handle0, comps);
 
-            // 4. Bind the *intercepted* handle (from the client) to our Proxy implementation
-            // So when client calls remote.foo(), it hits our receiver
-            const receiver = new ifaceClass(proxyImpl);
-            receiver.bind(handle);
+            // 4. Bind the *intercepted* handle `handle` to our Proxy implementation
+            try {
+                if (comps.Receiver) {
+                    const receiver = new comps.Receiver(proxyImpl);
+                    receiver.bind(handle);
+                } else if (typeof mojo !== 'undefined' && mojo.Binding) {
+                    // Fallback to generic mojo.Binding for standard/old bindings
+                    const binding = new mojo.Binding(comps.Interface, proxyImpl, handle);
+                } else {
+                    // Last resort: If we have Lite bindings, we might just be implementing the methods.
+                    // But we need to hook it up to the handle.
+                    // Lite bindings often use `mojo.internal.interfaceSupport.bind(endpoint, ifaceName, ...)`
+                    // OR `new iface.PendingReceiver(handle).handle`?
 
-            // 5. Return the handle to the *real* implementation 
-            // The Interceptor callback expects us to return a handle that it will 
-            // pass on to the real implementation (or we use it to connect manually)
-            // Correction: MojoInterfaceInterceptor scope: "process"
-            // The callback receives the handle *from* the client.
-            // We usually return nothing, but we need to ensure the connection continues.
-            // BUT: MojoInterfaceInterceptor usage is:
-            // interceptor.oninterfacerequest = (e) => { e.handle ... }
-            // The 'e.handle' is the receiver endpoint from the client.
-            // We must bind 'e.handle' to our proxy.
-            // Then we must connect our proxy's output to the real implementation.
+                    // If we are strictly "Lite", maybe we can't easily creaate a Binding without the helper?
+                    // Let's try to assume there's a way.
+                    console.warn(`[MojoProxy] No Receiver class found for ${interfaceName}. Trying generic bind.`);
+                    if (comps.Interface) {
+                        // Some systems allow:
+                        // mojo.bindInterface(interfaceName, handle, proxyImpl)? No that's for outgoing.
+                        // For incoming: 
+                        // We might need to construct a Receiver helper.
+                        // For now, let's allow it to fail if we can't find a receiver, 
+                        // but "VibrationManager" likely needs a specific handling if it's pure Lite.
+                    }
+
+                    // If we can't bind, we can't intercept.
+                    // But wait! If we can't bind, we shouldn't have created the proxyImpl either?
+                    // Let's return null to fallback to direct connection.
+                    throw new Error("No Receiver class found");
+                }
+            } catch (e) {
+                console.error("[MojoProxy] Failed to bind receiver:", e);
+                // Cleanup
+                pipe.handle0.close();
+                pipe.handle1.close();
+                return null;
+            }
 
             return {
                 proxy: proxyImpl,
@@ -73,26 +125,12 @@
         }
 
         static findInterfaceClass(name) {
-            // Search in global scope or loaded modules
-            // This is a simplification; in a real scenario we'd track loaded modules better
-            // We assume the binding is already loaded by app.js
-
-            // Try to find it in the namespace
-            // Implementation specific: depends on how bindings are generated (lite vs full)
-            // For bindings_lite: global.blink.mojom.BlobRegistry
-
-            // We can iterate over known namespaces
-            const namespaces = [window, window.blink?.mojom, window.content?.mojom, window.mojo];
-
-            // Helper to recursively search? Or just use the flat list from app.js if available
-            // Let's rely on app.state.interfaces for module info if possible, 
-            // but we need the actual CLASS constructor.
-
-            // For now, let's assume it's available globally via recursive search or known path
+            // Legacy support if needed, but we used getInterfaceComponents
             return MojoProxy.resolveInterface(name);
         }
 
         static resolveInterface(name) {
+            // ... existing resolveInterface logic ...
             // This is a hacky way to find the class. 
             // In a better version, we would map interface name to class reference explicitly.
             const parts = name.split('.');
@@ -108,12 +146,15 @@
                 const isFQN = name.includes('.');
                 const shortName = isFQN ? name.split('.').pop() : name;
 
-                const iface = global.MojoBindings._indexData.interfaces.find(i => {
-                    if (isFQN) {
-                        return i.name === shortName && (i.module + '.' + i.name === name);
-                    }
-                    return i.name === name;
+                // Try exact match first
+                let iface = global.MojoBindings._indexData.interfaces.find(i => {
+                    return (isFQN && i.module + '.' + i.name === name) || (!isFQN && i.name === name);
                 });
+
+                // If not found, try relaxed match (if name is short)
+                if (!iface && !isFQN) {
+                    iface = global.MojoBindings._indexData.interfaces.find(i => i.name === name);
+                }
 
                 if (iface) {
                     const moduleParts = iface.module.split('.');
@@ -122,25 +163,33 @@
                         current = current[part];
                         if (!current) break;
                     }
-                    if (current && current[iface.name]) return current[iface.name]; // Use iface.name which is short
+                    if (current && current[iface.name]) return current[iface.name];
                 }
             }
 
-            return null;
+            // Fallback: Try global[name] or simple namespaces
+            return global[name];
         }
     }
 
     class MojoProxyImpl {
-        constructor(interfaceName, realHandle) {
+        constructor(interfaceName, realHandle, comps) {
             this.interfaceName = interfaceName;
             this.realHandle = realHandle;
-            this.realRemote = null; // Will be initialized lazily or immediately
+            this.realRemote = null;
             this.eventTarget = new EventTarget();
 
-            // Initialize the real remote
-            const ifaceClass = MojoProxy.findInterfaceClass(interfaceName);
-            if (ifaceClass) {
-                this.realRemote = new ifaceClass.Remote(realHandle);
+            // Initialize the real remote using provided components
+            if (comps && comps.Remote) {
+                this.realRemote = new comps.Remote(realHandle);
+            } else {
+                // Fallback: try finding it again
+                const resolved = MojoProxy.getInterfaceComponents(interfaceName);
+                if (resolved.Remote) {
+                    this.realRemote = new resolved.Remote(realHandle);
+                } else {
+                    console.error(`[MojoProxy] Could not find Remote class for ${interfaceName}`);
+                }
             }
 
             // We need to return a proxy that traps all method calls
@@ -149,12 +198,15 @@
                     // unexpected props
                     if (prop in target) return target[prop];
 
-                    // If it's a known method in the interface, we intercept it
-                    // The bindings_lite classes usually put methods on the prototype
-                    // We can check if `ifaceClass.prototype` has it, or just assume calls are methods
-
-                    if (typeof prop === 'string' && target.realRemote && typeof target.realRemote[prop] === 'function') {
-                        return (...args) => target.interceptCall(prop, args);
+                    // If it's a known method or generally a function call
+                    if (typeof prop === 'string' && target.realRemote) {
+                        // Check if it's a function on the remote
+                        if (typeof target.realRemote[prop] === 'function') {
+                            return (...args) => target.interceptCall(prop, args);
+                        }
+                        // Or if legacy bindings, it might be heavily prototyped. 
+                        // Assume any string prop that isn't on target is a method?
+                        // Safer to check remote.
                     }
 
                     return Reflect.get(target, prop, receiver);
