@@ -7,10 +7,11 @@
 // Module namespace
 var data_sharing = data_sharing || {};
 data_sharing.mojom = data_sharing.mojom || {};
+var url = url || {};
 
 
 // Enum: GroupAction
-data_sharing.mojom.GroupAction = {
+data_sharing.mojom.mojom.GroupAction = {
   kUnknown: 0,
   kJoinGroup: 1,
   kDeleteGroup: 2,
@@ -18,19 +19,19 @@ data_sharing.mojom.GroupAction = {
   kKeepGroup: 4,
   kStopSharing: 5,
 };
-data_sharing.mojom.GroupActionSpec = { $: mojo.internal.Enum() };
+data_sharing.mojom.mojom.GroupActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: GroupActionProgress
-data_sharing.mojom.GroupActionProgress = {
+data_sharing.mojom.mojom.GroupActionProgress = {
   kUnknown: 0,
   kStarted: 1,
   kFailed: 2,
   kSuccess: 3,
 };
-data_sharing.mojom.GroupActionProgressSpec = { $: mojo.internal.Enum() };
+data_sharing.mojom.mojom.GroupActionProgressSpec = { $: mojo.internal.Enum() };
 
 // Struct: ReadGroupsParams
-data_sharing.mojom.ReadGroupsParamsSpec = {
+data_sharing.mojom.mojom.ReadGroupsParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.ReadGroupsParams',
@@ -44,7 +45,7 @@ data_sharing.mojom.ReadGroupsParamsSpec = {
 };
 
 // Struct: ReadGroupParams
-data_sharing.mojom.ReadGroupParamsSpec = {
+data_sharing.mojom.mojom.ReadGroupParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.ReadGroupParams',
@@ -59,7 +60,7 @@ data_sharing.mojom.ReadGroupParamsSpec = {
 };
 
 // Struct: ReadGroupsResult
-data_sharing.mojom.ReadGroupsResultSpec = {
+data_sharing.mojom.mojom.ReadGroupsResultSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.ReadGroupsResult',
@@ -74,7 +75,7 @@ data_sharing.mojom.ReadGroupsResultSpec = {
 };
 
 // Struct: ReadGroupWithTokenParam
-data_sharing.mojom.ReadGroupWithTokenParamSpec = {
+data_sharing.mojom.mojom.ReadGroupWithTokenParamSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.ReadGroupWithTokenParam',
@@ -89,7 +90,7 @@ data_sharing.mojom.ReadGroupWithTokenParamSpec = {
 };
 
 // Struct: ReadGroupWithTokenResult
-data_sharing.mojom.ReadGroupWithTokenResultSpec = {
+data_sharing.mojom.mojom.ReadGroupWithTokenResultSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.ReadGroupWithTokenResult',
@@ -104,7 +105,7 @@ data_sharing.mojom.ReadGroupWithTokenResultSpec = {
 };
 
 // Struct: SharedTab
-data_sharing.mojom.SharedTabSpec = {
+data_sharing.mojom.mojom.SharedTabSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.SharedTab',
@@ -119,7 +120,7 @@ data_sharing.mojom.SharedTabSpec = {
 };
 
 // Struct: GroupPreview
-data_sharing.mojom.GroupPreviewSpec = {
+data_sharing.mojom.mojom.GroupPreviewSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.GroupPreview',
@@ -135,24 +136,24 @@ data_sharing.mojom.GroupPreviewSpec = {
 };
 
 // Interface: PageHandlerFactory
-data_sharing.mojom.PageHandlerFactory = {};
+data_sharing.mojom.mojom.PageHandlerFactory = {};
 
-data_sharing.mojom.PageHandlerFactoryPendingReceiver = class {
+data_sharing.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-data_sharing.mojom.PageHandlerFactoryRemote = class {
+data_sharing.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'data_sharing.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      data_sharing.mojom.PageHandlerFactoryPendingReceiver,
+      data_sharing.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new data_sharing.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new data_sharing.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -164,7 +165,7 @@ data_sharing.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-data_sharing.mojom.PageHandlerFactoryRemoteCallHandler = class {
+data_sharing.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -173,15 +174,15 @@ data_sharing.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-data_sharing.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new data_sharing.mojom.PageHandlerFactoryRemote();
+data_sharing.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new data_sharing.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -191,7 +192,7 @@ data_sharing.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -206,29 +207,29 @@ data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-data_sharing.mojom.PageHandlerFactoryPtr = data_sharing.mojom.PageHandlerFactoryRemote;
-data_sharing.mojom.PageHandlerFactoryRequest = data_sharing.mojom.PageHandlerFactoryPendingReceiver;
+data_sharing.mojom.mojom.PageHandlerFactoryPtr = data_sharing.mojom.mojom.PageHandlerFactoryRemote;
+data_sharing.mojom.mojom.PageHandlerFactoryRequest = data_sharing.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-data_sharing.mojom.PageHandler = {};
+data_sharing.mojom.mojom.PageHandler = {};
 
-data_sharing.mojom.PageHandlerPendingReceiver = class {
+data_sharing.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-data_sharing.mojom.PageHandlerRemote = class {
+data_sharing.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'data_sharing.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      data_sharing.mojom.PageHandlerPendingReceiver,
+      data_sharing.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new data_sharing.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new data_sharing.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -240,7 +241,7 @@ data_sharing.mojom.PageHandlerRemote = class {
   }
 };
 
-data_sharing.mojom.PageHandlerRemoteCallHandler = class {
+data_sharing.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -249,7 +250,7 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_sharing.mojom.PageHandler_ShowUI_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
       []);
   }
@@ -258,7 +259,7 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      data_sharing.mojom.PageHandler_CloseUI_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_CloseUI_ParamsSpec,
       null,
       [status_code]);
   }
@@ -267,7 +268,7 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_ApiInitComplete_ParamsSpec,
       null,
       []);
   }
@@ -276,8 +277,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec,
-      data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_MakeTabGroupShared_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec,
       [tab_group_id, group_id, access_token]);
   }
 
@@ -285,8 +286,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec,
-      data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_GetShareLink_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_GetShareLink_ResponseParamsSpec,
       [group_id, access_token]);
   }
 
@@ -294,8 +295,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec,
-      data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_GetTabGroupPreview_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec,
       [group_id, access_token]);
   }
 
@@ -303,7 +304,7 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
       [group_id]);
   }
@@ -312,7 +313,7 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec,
       null,
       [tab_group_id]);
   }
@@ -321,7 +322,7 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec,
       null,
       [tab_group_id]);
   }
@@ -330,15 +331,15 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec,
+      data_sharing.mojom.mojom.PageHandler_OnGroupAction_ParamsSpec,
       null,
       [action, progress]);
   }
 
 };
 
-data_sharing.mojom.PageHandler.getRemote = function() {
-  let remote = new data_sharing.mojom.PageHandlerRemote();
+data_sharing.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new data_sharing.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -348,7 +349,7 @@ data_sharing.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for ShowUI
-data_sharing.mojom.PageHandler_ShowUI_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_ShowUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.ShowUI_Params',
@@ -361,7 +362,7 @@ data_sharing.mojom.PageHandler_ShowUI_ParamsSpec = {
 };
 
 // ParamsSpec for CloseUI
-data_sharing.mojom.PageHandler_CloseUI_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_CloseUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.CloseUI_Params',
@@ -375,7 +376,7 @@ data_sharing.mojom.PageHandler_CloseUI_ParamsSpec = {
 };
 
 // ParamsSpec for ApiInitComplete
-data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_ApiInitComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.ApiInitComplete_Params',
@@ -388,7 +389,7 @@ data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec = {
 };
 
 // ParamsSpec for MakeTabGroupShared
-data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_MakeTabGroupShared_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.MakeTabGroupShared_Params',
@@ -403,7 +404,7 @@ data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec = {
   }
 };
 
-data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.MakeTabGroupShared_ResponseParams',
@@ -417,7 +418,7 @@ data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetShareLink
-data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_GetShareLink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.GetShareLink_Params',
@@ -431,7 +432,7 @@ data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec = {
   }
 };
 
-data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_GetShareLink_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.GetShareLink_ResponseParams',
@@ -445,7 +446,7 @@ data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetTabGroupPreview
-data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_GetTabGroupPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.GetTabGroupPreview_Params',
@@ -459,7 +460,7 @@ data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec = {
   }
 };
 
-data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.GetTabGroupPreview_ResponseParams',
@@ -473,7 +474,7 @@ data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenTabGroup
-data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.OpenTabGroup_Params',
@@ -487,7 +488,7 @@ data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
 };
 
 // ParamsSpec for AboutToUnShareTabGroup
-data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.AboutToUnShareTabGroup_Params',
@@ -501,7 +502,7 @@ data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec = {
 };
 
 // ParamsSpec for OnTabGroupUnShareComplete
-data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.OnTabGroupUnShareComplete_Params',
@@ -515,7 +516,7 @@ data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec = {
 };
 
 // ParamsSpec for OnGroupAction
-data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec = {
+data_sharing.mojom.mojom.PageHandler_OnGroupAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.PageHandler.OnGroupAction_Params',
@@ -530,29 +531,29 @@ data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec = {
 };
 
 // Legacy compatibility
-data_sharing.mojom.PageHandlerPtr = data_sharing.mojom.PageHandlerRemote;
-data_sharing.mojom.PageHandlerRequest = data_sharing.mojom.PageHandlerPendingReceiver;
+data_sharing.mojom.mojom.PageHandlerPtr = data_sharing.mojom.mojom.PageHandlerRemote;
+data_sharing.mojom.mojom.PageHandlerRequest = data_sharing.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-data_sharing.mojom.Page = {};
+data_sharing.mojom.mojom.Page = {};
 
-data_sharing.mojom.PagePendingReceiver = class {
+data_sharing.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-data_sharing.mojom.PageRemote = class {
+data_sharing.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'data_sharing.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      data_sharing.mojom.PagePendingReceiver,
+      data_sharing.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new data_sharing.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new data_sharing.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -564,7 +565,7 @@ data_sharing.mojom.PageRemote = class {
   }
 };
 
-data_sharing.mojom.PageRemoteCallHandler = class {
+data_sharing.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -573,7 +574,7 @@ data_sharing.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec,
+      data_sharing.mojom.mojom.Page_OnAccessTokenFetched_ParamsSpec,
       null,
       [access_token]);
   }
@@ -582,8 +583,8 @@ data_sharing.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      data_sharing.mojom.Page_ReadGroups_ParamsSpec,
-      data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec,
+      data_sharing.mojom.mojom.Page_ReadGroups_ParamsSpec,
+      data_sharing.mojom.mojom.Page_ReadGroups_ResponseParamsSpec,
       [read_groups_params]);
   }
 
@@ -591,8 +592,8 @@ data_sharing.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec,
-      data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec,
+      data_sharing.mojom.mojom.Page_ReadGroupWithToken_ParamsSpec,
+      data_sharing.mojom.mojom.Page_ReadGroupWithToken_ResponseParamsSpec,
       [param]);
   }
 
@@ -600,8 +601,8 @@ data_sharing.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      data_sharing.mojom.Page_DeleteGroup_ParamsSpec,
-      data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec,
+      data_sharing.mojom.mojom.Page_DeleteGroup_ParamsSpec,
+      data_sharing.mojom.mojom.Page_DeleteGroup_ResponseParamsSpec,
       [group_id]);
   }
 
@@ -609,15 +610,15 @@ data_sharing.mojom.PageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      data_sharing.mojom.Page_LeaveGroup_ParamsSpec,
-      data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec,
+      data_sharing.mojom.mojom.Page_LeaveGroup_ParamsSpec,
+      data_sharing.mojom.mojom.Page_LeaveGroup_ResponseParamsSpec,
       [group_id]);
   }
 
 };
 
-data_sharing.mojom.Page.getRemote = function() {
-  let remote = new data_sharing.mojom.PageRemote();
+data_sharing.mojom.mojom.Page.getRemote = function() {
+  let remote = new data_sharing.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -627,7 +628,7 @@ data_sharing.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnAccessTokenFetched
-data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec = {
+data_sharing.mojom.mojom.Page_OnAccessTokenFetched_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.Page.OnAccessTokenFetched_Params',
@@ -641,7 +642,7 @@ data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec = {
 };
 
 // ParamsSpec for ReadGroups
-data_sharing.mojom.Page_ReadGroups_ParamsSpec = {
+data_sharing.mojom.mojom.Page_ReadGroups_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.Page.ReadGroups_Params',
@@ -654,7 +655,7 @@ data_sharing.mojom.Page_ReadGroups_ParamsSpec = {
   }
 };
 
-data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec = {
+data_sharing.mojom.mojom.Page_ReadGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.Page.ReadGroups_ResponseParams',
@@ -668,7 +669,7 @@ data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReadGroupWithToken
-data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec = {
+data_sharing.mojom.mojom.Page_ReadGroupWithToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.Page.ReadGroupWithToken_Params',
@@ -681,7 +682,7 @@ data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec = {
   }
 };
 
-data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec = {
+data_sharing.mojom.mojom.Page_ReadGroupWithToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.Page.ReadGroupWithToken_ResponseParams',
@@ -695,7 +696,7 @@ data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteGroup
-data_sharing.mojom.Page_DeleteGroup_ParamsSpec = {
+data_sharing.mojom.mojom.Page_DeleteGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.Page.DeleteGroup_Params',
@@ -708,7 +709,7 @@ data_sharing.mojom.Page_DeleteGroup_ParamsSpec = {
   }
 };
 
-data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec = {
+data_sharing.mojom.mojom.Page_DeleteGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.Page.DeleteGroup_ResponseParams',
@@ -722,7 +723,7 @@ data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LeaveGroup
-data_sharing.mojom.Page_LeaveGroup_ParamsSpec = {
+data_sharing.mojom.mojom.Page_LeaveGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.Page.LeaveGroup_Params',
@@ -735,7 +736,7 @@ data_sharing.mojom.Page_LeaveGroup_ParamsSpec = {
   }
 };
 
-data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec = {
+data_sharing.mojom.mojom.Page_LeaveGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_sharing.mojom.Page.LeaveGroup_ResponseParams',
@@ -749,6 +750,6 @@ data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-data_sharing.mojom.PagePtr = data_sharing.mojom.PageRemote;
-data_sharing.mojom.PageRequest = data_sharing.mojom.PagePendingReceiver;
+data_sharing.mojom.mojom.PagePtr = data_sharing.mojom.mojom.PageRemote;
+data_sharing.mojom.mojom.PageRequest = data_sharing.mojom.mojom.PagePendingReceiver;
 

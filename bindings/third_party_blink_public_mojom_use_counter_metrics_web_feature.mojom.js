@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: WebFeature
-blink.mojom.WebFeature = {
+blink.mojom.mojom.WebFeature = {
   kOBSOLETE_PageDestruction: 0,
   kWorkerStart: 1,
   kSharedWorkerStart: 2,
@@ -4962,4 +4962,4 @@ blink.mojom.WebFeature = {
   kSetCookieWithEmptyNameAndAmbiguousValue: 4948,
   kStorageAccessAPI_requestStorageAccessFor_Method_AsyncSuccess: 4949,
 };
-blink.mojom.WebFeatureSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.WebFeatureSpec = { $: mojo.internal.Enum() };

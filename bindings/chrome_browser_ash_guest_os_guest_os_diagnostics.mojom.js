@@ -7,18 +7,19 @@
 // Module namespace
 var guest_os = guest_os || {};
 guest_os.mojom = guest_os.mojom || {};
+var url = url || {};
 
 
 // Enum: Status
-guest_os.mojom.Status = {
+guest_os.mojom.mojom.Status = {
   kPass: 0,
   kFail: 1,
   kNotApplicable: 2,
 };
-guest_os.mojom.StatusSpec = { $: mojo.internal.Enum() };
+guest_os.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DiagnosticMessage
-guest_os.mojom.DiagnosticMessageSpec = {
+guest_os.mojom.mojom.DiagnosticMessageSpec = {
   $: {
     structSpec: {
       name: 'guest_os.mojom.DiagnosticMessage',
@@ -33,7 +34,7 @@ guest_os.mojom.DiagnosticMessageSpec = {
 };
 
 // Struct: DiagnosticEntry
-guest_os.mojom.DiagnosticEntrySpec = {
+guest_os.mojom.mojom.DiagnosticEntrySpec = {
   $: {
     structSpec: {
       name: 'guest_os.mojom.DiagnosticEntry',
@@ -47,7 +48,7 @@ guest_os.mojom.DiagnosticEntrySpec = {
 };
 
 // Struct: Diagnostics
-guest_os.mojom.DiagnosticsSpec = {
+guest_os.mojom.mojom.DiagnosticsSpec = {
   $: {
     structSpec: {
       name: 'guest_os.mojom.Diagnostics',

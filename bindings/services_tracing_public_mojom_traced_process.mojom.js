@@ -10,7 +10,7 @@ tracing.mojom = tracing.mojom || {};
 
 
 // Struct: ConnectToTracingRequest
-tracing.mojom.ConnectToTracingRequestSpec = {
+tracing.mojom.mojom.ConnectToTracingRequestSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ConnectToTracingRequest',
@@ -24,24 +24,24 @@ tracing.mojom.ConnectToTracingRequestSpec = {
 };
 
 // Interface: TracedProcess
-tracing.mojom.TracedProcess = {};
+tracing.mojom.mojom.TracedProcess = {};
 
-tracing.mojom.TracedProcessPendingReceiver = class {
+tracing.mojom.mojom.TracedProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.TracedProcessRemote = class {
+tracing.mojom.mojom.TracedProcessRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.TracedProcess';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.TracedProcessPendingReceiver,
+      tracing.mojom.mojom.TracedProcessPendingReceiver,
       handle);
-    this.$ = new tracing.mojom.TracedProcessRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.mojom.TracedProcessRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +53,7 @@ tracing.mojom.TracedProcessRemote = class {
   }
 };
 
-tracing.mojom.TracedProcessRemoteCallHandler = class {
+tracing.mojom.mojom.TracedProcessRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,15 +62,15 @@ tracing.mojom.TracedProcessRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec,
+      tracing.mojom.mojom.TracedProcess_ConnectToTracingService_ParamsSpec,
       null,
       [request]);
   }
 
 };
 
-tracing.mojom.TracedProcess.getRemote = function() {
-  let remote = new tracing.mojom.TracedProcessRemote();
+tracing.mojom.mojom.TracedProcess.getRemote = function() {
+  let remote = new tracing.mojom.mojom.TracedProcessRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -80,7 +80,7 @@ tracing.mojom.TracedProcess.getRemote = function() {
 };
 
 // ParamsSpec for ConnectToTracingService
-tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
+tracing.mojom.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracedProcess.ConnectToTracingService_Params',
@@ -94,6 +94,6 @@ tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.TracedProcessPtr = tracing.mojom.TracedProcessRemote;
-tracing.mojom.TracedProcessRequest = tracing.mojom.TracedProcessPendingReceiver;
+tracing.mojom.mojom.TracedProcessPtr = tracing.mojom.mojom.TracedProcessRemote;
+tracing.mojom.mojom.TracedProcessRequest = tracing.mojom.mojom.TracedProcessPendingReceiver;
 

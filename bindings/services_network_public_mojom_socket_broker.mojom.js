@@ -10,24 +10,24 @@ network.mojom = network.mojom || {};
 
 
 // Interface: SocketBroker
-network.mojom.SocketBroker = {};
+network.mojom.mojom.SocketBroker = {};
 
-network.mojom.SocketBrokerPendingReceiver = class {
+network.mojom.mojom.SocketBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.SocketBrokerRemote = class {
+network.mojom.mojom.SocketBrokerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.SocketBroker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.SocketBrokerPendingReceiver,
+      network.mojom.mojom.SocketBrokerPendingReceiver,
       handle);
-    this.$ = new network.mojom.SocketBrokerRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.SocketBrokerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ network.mojom.SocketBrokerRemote = class {
   }
 };
 
-network.mojom.SocketBrokerRemoteCallHandler = class {
+network.mojom.mojom.SocketBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ network.mojom.SocketBrokerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec,
-      network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec,
+      network.mojom.mojom.SocketBroker_CreateTcpSocket_ParamsSpec,
+      network.mojom.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec,
       [address_family]);
   }
 
@@ -57,15 +57,15 @@ network.mojom.SocketBrokerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec,
-      network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec,
+      network.mojom.mojom.SocketBroker_CreateUdpSocket_ParamsSpec,
+      network.mojom.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec,
       [address_family]);
   }
 
 };
 
-network.mojom.SocketBroker.getRemote = function() {
-  let remote = new network.mojom.SocketBrokerRemote();
+network.mojom.mojom.SocketBroker.getRemote = function() {
+  let remote = new network.mojom.mojom.SocketBrokerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ network.mojom.SocketBroker.getRemote = function() {
 };
 
 // ParamsSpec for CreateTcpSocket
-network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
+network.mojom.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SocketBroker.CreateTcpSocket_Params',
@@ -88,7 +88,7 @@ network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
   }
 };
 
-network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
+network.mojom.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SocketBroker.CreateTcpSocket_ResponseParams',
@@ -103,7 +103,7 @@ network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateUdpSocket
-network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
+network.mojom.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SocketBroker.CreateUdpSocket_Params',
@@ -116,7 +116,7 @@ network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
   }
 };
 
-network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
+network.mojom.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SocketBroker.CreateUdpSocket_ResponseParams',
@@ -131,6 +131,6 @@ network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.SocketBrokerPtr = network.mojom.SocketBrokerRemote;
-network.mojom.SocketBrokerRequest = network.mojom.SocketBrokerPendingReceiver;
+network.mojom.mojom.SocketBrokerPtr = network.mojom.mojom.SocketBrokerRemote;
+network.mojom.mojom.SocketBrokerRequest = network.mojom.mojom.SocketBrokerPendingReceiver;
 

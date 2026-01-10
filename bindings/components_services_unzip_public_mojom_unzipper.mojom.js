@@ -10,7 +10,7 @@ unzip.mojom = unzip.mojom || {};
 
 
 // Struct: UnzipOptions
-unzip.mojom.UnzipOptionsSpec = {
+unzip.mojom.mojom.UnzipOptionsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.UnzipOptions',
@@ -25,16 +25,16 @@ unzip.mojom.UnzipOptionsSpec = {
 };
 
 // Struct: Info
-unzip.mojom.InfoSpec = {
+unzip.mojom.mojom.InfoSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Info',
       packedSize: 24,
       fields: [
-        { name: 'size_is_valid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'is_encrypted', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'uses_aes_encryption', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'size_is_valid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'is_encrypted', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'uses_aes_encryption', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -42,24 +42,24 @@ unzip.mojom.InfoSpec = {
 };
 
 // Interface: UnzipFilter
-unzip.mojom.UnzipFilter = {};
+unzip.mojom.mojom.UnzipFilter = {};
 
-unzip.mojom.UnzipFilterPendingReceiver = class {
+unzip.mojom.mojom.UnzipFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-unzip.mojom.UnzipFilterRemote = class {
+unzip.mojom.mojom.UnzipFilterRemote = class {
   static get $interfaceName() {
     return 'unzip.mojom.UnzipFilter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      unzip.mojom.UnzipFilterPendingReceiver,
+      unzip.mojom.mojom.UnzipFilterPendingReceiver,
       handle);
-    this.$ = new unzip.mojom.UnzipFilterRemoteCallHandler(this.proxy);
+    this.$ = new unzip.mojom.mojom.UnzipFilterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -71,7 +71,7 @@ unzip.mojom.UnzipFilterRemote = class {
   }
 };
 
-unzip.mojom.UnzipFilterRemoteCallHandler = class {
+unzip.mojom.mojom.UnzipFilterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -80,15 +80,15 @@ unzip.mojom.UnzipFilterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec,
-      unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec,
+      unzip.mojom.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec,
+      unzip.mojom.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-unzip.mojom.UnzipFilter.getRemote = function() {
-  let remote = new unzip.mojom.UnzipFilterRemote();
+unzip.mojom.mojom.UnzipFilter.getRemote = function() {
+  let remote = new unzip.mojom.mojom.UnzipFilterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -98,7 +98,7 @@ unzip.mojom.UnzipFilter.getRemote = function() {
 };
 
 // ParamsSpec for ShouldUnzipFile
-unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = {
+unzip.mojom.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.UnzipFilter.ShouldUnzipFile_Params',
@@ -111,7 +111,7 @@ unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = {
   }
 };
 
-unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = {
+unzip.mojom.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.UnzipFilter.ShouldUnzipFile_ResponseParams',
@@ -125,29 +125,29 @@ unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-unzip.mojom.UnzipFilterPtr = unzip.mojom.UnzipFilterRemote;
-unzip.mojom.UnzipFilterRequest = unzip.mojom.UnzipFilterPendingReceiver;
+unzip.mojom.mojom.UnzipFilterPtr = unzip.mojom.mojom.UnzipFilterRemote;
+unzip.mojom.mojom.UnzipFilterRequest = unzip.mojom.mojom.UnzipFilterPendingReceiver;
 
 
 // Interface: UnzipListener
-unzip.mojom.UnzipListener = {};
+unzip.mojom.mojom.UnzipListener = {};
 
-unzip.mojom.UnzipListenerPendingReceiver = class {
+unzip.mojom.mojom.UnzipListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-unzip.mojom.UnzipListenerRemote = class {
+unzip.mojom.mojom.UnzipListenerRemote = class {
   static get $interfaceName() {
     return 'unzip.mojom.UnzipListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      unzip.mojom.UnzipListenerPendingReceiver,
+      unzip.mojom.mojom.UnzipListenerPendingReceiver,
       handle);
-    this.$ = new unzip.mojom.UnzipListenerRemoteCallHandler(this.proxy);
+    this.$ = new unzip.mojom.mojom.UnzipListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -159,7 +159,7 @@ unzip.mojom.UnzipListenerRemote = class {
   }
 };
 
-unzip.mojom.UnzipListenerRemoteCallHandler = class {
+unzip.mojom.mojom.UnzipListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -168,15 +168,15 @@ unzip.mojom.UnzipListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unzip.mojom.UnzipListener_OnProgress_ParamsSpec,
+      unzip.mojom.mojom.UnzipListener_OnProgress_ParamsSpec,
       null,
       [bytes]);
   }
 
 };
 
-unzip.mojom.UnzipListener.getRemote = function() {
-  let remote = new unzip.mojom.UnzipListenerRemote();
+unzip.mojom.mojom.UnzipListener.getRemote = function() {
+  let remote = new unzip.mojom.mojom.UnzipListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -186,7 +186,7 @@ unzip.mojom.UnzipListener.getRemote = function() {
 };
 
 // ParamsSpec for OnProgress
-unzip.mojom.UnzipListener_OnProgress_ParamsSpec = {
+unzip.mojom.mojom.UnzipListener_OnProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.UnzipListener.OnProgress_Params',
@@ -200,29 +200,29 @@ unzip.mojom.UnzipListener_OnProgress_ParamsSpec = {
 };
 
 // Legacy compatibility
-unzip.mojom.UnzipListenerPtr = unzip.mojom.UnzipListenerRemote;
-unzip.mojom.UnzipListenerRequest = unzip.mojom.UnzipListenerPendingReceiver;
+unzip.mojom.mojom.UnzipListenerPtr = unzip.mojom.mojom.UnzipListenerRemote;
+unzip.mojom.mojom.UnzipListenerRequest = unzip.mojom.mojom.UnzipListenerPendingReceiver;
 
 
 // Interface: Unzipper
-unzip.mojom.Unzipper = {};
+unzip.mojom.mojom.Unzipper = {};
 
-unzip.mojom.UnzipperPendingReceiver = class {
+unzip.mojom.mojom.UnzipperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-unzip.mojom.UnzipperRemote = class {
+unzip.mojom.mojom.UnzipperRemote = class {
   static get $interfaceName() {
     return 'unzip.mojom.Unzipper';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      unzip.mojom.UnzipperPendingReceiver,
+      unzip.mojom.mojom.UnzipperPendingReceiver,
       handle);
-    this.$ = new unzip.mojom.UnzipperRemoteCallHandler(this.proxy);
+    this.$ = new unzip.mojom.mojom.UnzipperRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -234,7 +234,7 @@ unzip.mojom.UnzipperRemote = class {
   }
 };
 
-unzip.mojom.UnzipperRemoteCallHandler = class {
+unzip.mojom.mojom.UnzipperRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -243,8 +243,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      unzip.mojom.Unzipper_Unzip_ParamsSpec,
-      unzip.mojom.Unzipper_Unzip_ResponseParamsSpec,
+      unzip.mojom.mojom.Unzipper_Unzip_ParamsSpec,
+      unzip.mojom.mojom.Unzipper_Unzip_ResponseParamsSpec,
       [zip_file, output_dir, options, filter, listener]);
   }
 
@@ -252,8 +252,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      unzip.mojom.Unzipper_DetectEncoding_ParamsSpec,
-      unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec,
+      unzip.mojom.mojom.Unzipper_DetectEncoding_ParamsSpec,
+      unzip.mojom.mojom.Unzipper_DetectEncoding_ResponseParamsSpec,
       [zip_file]);
   }
 
@@ -261,8 +261,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec,
-      unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec,
+      unzip.mojom.mojom.Unzipper_GetExtractedInfo_ParamsSpec,
+      unzip.mojom.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec,
       [zip_file]);
   }
 
@@ -270,15 +270,15 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      unzip.mojom.Unzipper_DecodeXz_ParamsSpec,
-      unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec,
+      unzip.mojom.mojom.Unzipper_DecodeXz_ParamsSpec,
+      unzip.mojom.mojom.Unzipper_DecodeXz_ResponseParamsSpec,
       [in_file, out_file]);
   }
 
 };
 
-unzip.mojom.Unzipper.getRemote = function() {
-  let remote = new unzip.mojom.UnzipperRemote();
+unzip.mojom.mojom.Unzipper.getRemote = function() {
+  let remote = new unzip.mojom.mojom.UnzipperRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -288,16 +288,16 @@ unzip.mojom.Unzipper.getRemote = function() {
 };
 
 // ParamsSpec for Unzip
-unzip.mojom.Unzipper_Unzip_ParamsSpec = {
+unzip.mojom.mojom.Unzipper_Unzip_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Unzipper.Unzip_Params',
       packedSize: 40,
       fields: [
         { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'output_dir', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: unzip.mojom.UnzipOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'filter', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'output_dir', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: unzip.mojom.UnzipOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
         { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
@@ -305,7 +305,7 @@ unzip.mojom.Unzipper_Unzip_ParamsSpec = {
   }
 };
 
-unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = {
+unzip.mojom.mojom.Unzipper_Unzip_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Unzipper.Unzip_ResponseParams',
@@ -319,7 +319,7 @@ unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DetectEncoding
-unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = {
+unzip.mojom.mojom.Unzipper_DetectEncoding_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Unzipper.DetectEncoding_Params',
@@ -332,7 +332,7 @@ unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = {
   }
 };
 
-unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = {
+unzip.mojom.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Unzipper.DetectEncoding_ResponseParams',
@@ -346,7 +346,7 @@ unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetExtractedInfo
-unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = {
+unzip.mojom.mojom.Unzipper_GetExtractedInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Unzipper.GetExtractedInfo_Params',
@@ -359,7 +359,7 @@ unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = {
   }
 };
 
-unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = {
+unzip.mojom.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Unzipper.GetExtractedInfo_ResponseParams',
@@ -373,7 +373,7 @@ unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DecodeXz
-unzip.mojom.Unzipper_DecodeXz_ParamsSpec = {
+unzip.mojom.mojom.Unzipper_DecodeXz_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Unzipper.DecodeXz_Params',
@@ -387,7 +387,7 @@ unzip.mojom.Unzipper_DecodeXz_ParamsSpec = {
   }
 };
 
-unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec = {
+unzip.mojom.mojom.Unzipper_DecodeXz_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Unzipper.DecodeXz_ResponseParams',
@@ -401,6 +401,6 @@ unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-unzip.mojom.UnzipperPtr = unzip.mojom.UnzipperRemote;
-unzip.mojom.UnzipperRequest = unzip.mojom.UnzipperPendingReceiver;
+unzip.mojom.mojom.UnzipperPtr = unzip.mojom.mojom.UnzipperRemote;
+unzip.mojom.mojom.UnzipperRequest = unzip.mojom.mojom.UnzipperPendingReceiver;
 

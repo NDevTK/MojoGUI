@@ -9,33 +9,33 @@ var device = device || {};
 device.mojom = device.mojom || {};
 
 
-device.mojom.kDefaultOwnContributionEstimate = -1.0;
+device.mojom.mojom.kDefaultOwnContributionEstimate = -1.0;
 
 // Enum: PressureSource
-device.mojom.PressureSource = {
+device.mojom.mojom.PressureSource = {
   kCpu: 0,
 };
-device.mojom.PressureSourceSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.PressureSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: PressureState
-device.mojom.PressureState = {
+device.mojom.mojom.PressureState = {
   kNominal: 0,
   kFair: 1,
   kSerious: 2,
   kCritical: 3,
 };
-device.mojom.PressureStateSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.PressureStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: PressureUpdate
-device.mojom.PressureUpdateSpec = {
+device.mojom.mojom.PressureUpdateSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureUpdate',
       packedSize: 32,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureDataSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureDataSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -43,7 +43,7 @@ device.mojom.PressureUpdateSpec = {
 };
 
 // Struct: PressureData
-device.mojom.PressureDataSpec = {
+device.mojom.mojom.PressureDataSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PressureData',

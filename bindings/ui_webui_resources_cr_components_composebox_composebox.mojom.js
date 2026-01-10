@@ -7,27 +7,28 @@
 // Module namespace
 var composebox = composebox || {};
 composebox.mojom = composebox.mojom || {};
+var url = url || {};
 
 
 // Interface: PageHandlerFactory
-composebox.mojom.PageHandlerFactory = {};
+composebox.mojom.mojom.PageHandlerFactory = {};
 
-composebox.mojom.PageHandlerFactoryPendingReceiver = class {
+composebox.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-composebox.mojom.PageHandlerFactoryRemote = class {
+composebox.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'composebox.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      composebox.mojom.PageHandlerFactoryPendingReceiver,
+      composebox.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new composebox.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new composebox.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ composebox.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-composebox.mojom.PageHandlerFactoryRemoteCallHandler = class {
+composebox.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ composebox.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      composebox.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler, searchbox_page, searchbox_handler]);
   }
 
 };
 
-composebox.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new composebox.mojom.PageHandlerFactoryRemote();
+composebox.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new composebox.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ composebox.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+composebox.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'composebox.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -83,29 +84,29 @@ composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-composebox.mojom.PageHandlerFactoryPtr = composebox.mojom.PageHandlerFactoryRemote;
-composebox.mojom.PageHandlerFactoryRequest = composebox.mojom.PageHandlerFactoryPendingReceiver;
+composebox.mojom.mojom.PageHandlerFactoryPtr = composebox.mojom.mojom.PageHandlerFactoryRemote;
+composebox.mojom.mojom.PageHandlerFactoryRequest = composebox.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-composebox.mojom.PageHandler = {};
+composebox.mojom.mojom.PageHandler = {};
 
-composebox.mojom.PageHandlerPendingReceiver = class {
+composebox.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-composebox.mojom.PageHandlerRemote = class {
+composebox.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'composebox.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      composebox.mojom.PageHandlerPendingReceiver,
+      composebox.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new composebox.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new composebox.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -117,7 +118,7 @@ composebox.mojom.PageHandlerRemote = class {
   }
 };
 
-composebox.mojom.PageHandlerRemoteCallHandler = class {
+composebox.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -126,7 +127,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      composebox.mojom.PageHandler_FocusChanged_ParamsSpec,
+      composebox.mojom.mojom.PageHandler_FocusChanged_ParamsSpec,
       null,
       [focused]);
   }
@@ -135,7 +136,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec,
+      composebox.mojom.mojom.PageHandler_SetDeepSearchMode_ParamsSpec,
       null,
       [enabled]);
   }
@@ -144,7 +145,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec,
+      composebox.mojom.mojom.PageHandler_SetCreateImageMode_ParamsSpec,
       null,
       [enabled, image_present]);
   }
@@ -153,7 +154,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec,
+      composebox.mojom.mojom.PageHandler_HandleLensButtonClick_ParamsSpec,
       null,
       []);
   }
@@ -162,7 +163,7 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec,
+      composebox.mojom.mojom.PageHandler_HandleFileUpload_ParamsSpec,
       null,
       [is_image]);
   }
@@ -171,15 +172,15 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      composebox.mojom.PageHandler_NavigateUrl_ParamsSpec,
+      composebox.mojom.mojom.PageHandler_NavigateUrl_ParamsSpec,
       null,
       [url]);
   }
 
 };
 
-composebox.mojom.PageHandler.getRemote = function() {
-  let remote = new composebox.mojom.PageHandlerRemote();
+composebox.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new composebox.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -189,7 +190,7 @@ composebox.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for FocusChanged
-composebox.mojom.PageHandler_FocusChanged_ParamsSpec = {
+composebox.mojom.mojom.PageHandler_FocusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'composebox.mojom.PageHandler.FocusChanged_Params',
@@ -203,7 +204,7 @@ composebox.mojom.PageHandler_FocusChanged_ParamsSpec = {
 };
 
 // ParamsSpec for SetDeepSearchMode
-composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = {
+composebox.mojom.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'composebox.mojom.PageHandler.SetDeepSearchMode_Params',
@@ -217,7 +218,7 @@ composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = {
 };
 
 // ParamsSpec for SetCreateImageMode
-composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = {
+composebox.mojom.mojom.PageHandler_SetCreateImageMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'composebox.mojom.PageHandler.SetCreateImageMode_Params',
@@ -232,7 +233,7 @@ composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = {
 };
 
 // ParamsSpec for HandleLensButtonClick
-composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = {
+composebox.mojom.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = {
   $: {
     structSpec: {
       name: 'composebox.mojom.PageHandler.HandleLensButtonClick_Params',
@@ -245,7 +246,7 @@ composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = {
 };
 
 // ParamsSpec for HandleFileUpload
-composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = {
+composebox.mojom.mojom.PageHandler_HandleFileUpload_ParamsSpec = {
   $: {
     structSpec: {
       name: 'composebox.mojom.PageHandler.HandleFileUpload_Params',
@@ -259,7 +260,7 @@ composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = {
 };
 
 // ParamsSpec for NavigateUrl
-composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = {
+composebox.mojom.mojom.PageHandler_NavigateUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'composebox.mojom.PageHandler.NavigateUrl_Params',
@@ -273,29 +274,29 @@ composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = {
 };
 
 // Legacy compatibility
-composebox.mojom.PageHandlerPtr = composebox.mojom.PageHandlerRemote;
-composebox.mojom.PageHandlerRequest = composebox.mojom.PageHandlerPendingReceiver;
+composebox.mojom.mojom.PageHandlerPtr = composebox.mojom.mojom.PageHandlerRemote;
+composebox.mojom.mojom.PageHandlerRequest = composebox.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-composebox.mojom.Page = {};
+composebox.mojom.mojom.Page = {};
 
-composebox.mojom.PagePendingReceiver = class {
+composebox.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-composebox.mojom.PageRemote = class {
+composebox.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'composebox.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      composebox.mojom.PagePendingReceiver,
+      composebox.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new composebox.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new composebox.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -307,15 +308,15 @@ composebox.mojom.PageRemote = class {
   }
 };
 
-composebox.mojom.PageRemoteCallHandler = class {
+composebox.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-composebox.mojom.Page.getRemote = function() {
-  let remote = new composebox.mojom.PageRemote();
+composebox.mojom.mojom.Page.getRemote = function() {
+  let remote = new composebox.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -325,6 +326,6 @@ composebox.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-composebox.mojom.PagePtr = composebox.mojom.PageRemote;
-composebox.mojom.PageRequest = composebox.mojom.PagePendingReceiver;
+composebox.mojom.mojom.PagePtr = composebox.mojom.mojom.PageRemote;
+composebox.mojom.mojom.PageRequest = composebox.mojom.mojom.PagePendingReceiver;
 

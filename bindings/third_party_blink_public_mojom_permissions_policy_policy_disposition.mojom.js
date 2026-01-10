@@ -10,8 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: PolicyDisposition
-blink.mojom.PolicyDisposition = {
+blink.mojom.mojom.PolicyDisposition = {
   kEnforce: 0,
   kReport: 1,
 };
-blink.mojom.PolicyDispositionSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.PolicyDispositionSpec = { $: mojo.internal.Enum() };

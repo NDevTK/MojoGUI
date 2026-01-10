@@ -10,9 +10,9 @@ cc.mojom = cc.mojom || {};
 
 
 // Enum: ScrollbarAnimator
-cc.mojom.ScrollbarAnimator = {
+cc.mojom.mojom.ScrollbarAnimator = {
   kNoAnimator: 0,
   kAndroidOverlay: 1,
   kAuraOverlay: 2,
 };
-cc.mojom.ScrollbarAnimatorSpec = { $: mojo.internal.Enum() };
+cc.mojom.mojom.ScrollbarAnimatorSpec = { $: mojo.internal.Enum() };

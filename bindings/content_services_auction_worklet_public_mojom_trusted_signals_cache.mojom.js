@@ -10,15 +10,15 @@ auction_worklet.mojom = auction_worklet.mojom || {};
 
 
 // Enum: TrustedSignalsCompressionScheme
-auction_worklet.mojom.TrustedSignalsCompressionScheme = {
+auction_worklet.mojom.mojom.TrustedSignalsCompressionScheme = {
   kNone: 0,
   kGzip: 1,
   kBrotli: 2,
 };
-auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.mojom.TrustedSignalsCompressionSchemeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TrustedSignalsCacheKey
-auction_worklet.mojom.TrustedSignalsCacheKeySpec = {
+auction_worklet.mojom.mojom.TrustedSignalsCacheKeySpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.TrustedSignalsCacheKey',
@@ -33,24 +33,24 @@ auction_worklet.mojom.TrustedSignalsCacheKeySpec = {
 };
 
 // Interface: TrustedSignalsCacheClient
-auction_worklet.mojom.TrustedSignalsCacheClient = {};
+auction_worklet.mojom.mojom.TrustedSignalsCacheClient = {};
 
-auction_worklet.mojom.TrustedSignalsCacheClientPendingReceiver = class {
+auction_worklet.mojom.mojom.TrustedSignalsCacheClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-auction_worklet.mojom.TrustedSignalsCacheClientRemote = class {
+auction_worklet.mojom.mojom.TrustedSignalsCacheClientRemote = class {
   static get $interfaceName() {
     return 'auction_worklet.mojom.TrustedSignalsCacheClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      auction_worklet.mojom.TrustedSignalsCacheClientPendingReceiver,
+      auction_worklet.mojom.mojom.TrustedSignalsCacheClientPendingReceiver,
       handle);
-    this.$ = new auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler(this.proxy);
+    this.$ = new auction_worklet.mojom.mojom.TrustedSignalsCacheClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -62,7 +62,7 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemote = class {
   }
 };
 
-auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
+auction_worklet.mojom.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -71,7 +71,7 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec,
+      auction_worklet.mojom.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec,
       null,
       [compression_scheme, compression_group_data]);
   }
@@ -80,15 +80,15 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec,
+      auction_worklet.mojom.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec,
       null,
       [error_message]);
   }
 
 };
 
-auction_worklet.mojom.TrustedSignalsCacheClient.getRemote = function() {
-  let remote = new auction_worklet.mojom.TrustedSignalsCacheClientRemote();
+auction_worklet.mojom.mojom.TrustedSignalsCacheClient.getRemote = function() {
+  let remote = new auction_worklet.mojom.mojom.TrustedSignalsCacheClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -98,14 +98,14 @@ auction_worklet.mojom.TrustedSignalsCacheClient.getRemote = function() {
 };
 
 // ParamsSpec for OnSuccess
-auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = {
+auction_worklet.mojom.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.TrustedSignalsCacheClient.OnSuccess_Params',
       packedSize: 32,
       fields: [
-        { name: 'compression_scheme', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'compression_group_data', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'compression_scheme', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, nullable: false, minVersion: 0 },
+        { name: 'compression_group_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -113,7 +113,7 @@ auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = {
+auction_worklet.mojom.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.TrustedSignalsCacheClient.OnError_Params',
@@ -127,29 +127,29 @@ auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = {
 };
 
 // Legacy compatibility
-auction_worklet.mojom.TrustedSignalsCacheClientPtr = auction_worklet.mojom.TrustedSignalsCacheClientRemote;
-auction_worklet.mojom.TrustedSignalsCacheClientRequest = auction_worklet.mojom.TrustedSignalsCacheClientPendingReceiver;
+auction_worklet.mojom.mojom.TrustedSignalsCacheClientPtr = auction_worklet.mojom.mojom.TrustedSignalsCacheClientRemote;
+auction_worklet.mojom.mojom.TrustedSignalsCacheClientRequest = auction_worklet.mojom.mojom.TrustedSignalsCacheClientPendingReceiver;
 
 
 // Interface: TrustedSignalsCache
-auction_worklet.mojom.TrustedSignalsCache = {};
+auction_worklet.mojom.mojom.TrustedSignalsCache = {};
 
-auction_worklet.mojom.TrustedSignalsCachePendingReceiver = class {
+auction_worklet.mojom.mojom.TrustedSignalsCachePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-auction_worklet.mojom.TrustedSignalsCacheRemote = class {
+auction_worklet.mojom.mojom.TrustedSignalsCacheRemote = class {
   static get $interfaceName() {
     return 'auction_worklet.mojom.TrustedSignalsCache';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      auction_worklet.mojom.TrustedSignalsCachePendingReceiver,
+      auction_worklet.mojom.mojom.TrustedSignalsCachePendingReceiver,
       handle);
-    this.$ = new auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandler(this.proxy);
+    this.$ = new auction_worklet.mojom.mojom.TrustedSignalsCacheRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -161,7 +161,7 @@ auction_worklet.mojom.TrustedSignalsCacheRemote = class {
   }
 };
 
-auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandler = class {
+auction_worklet.mojom.mojom.TrustedSignalsCacheRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -170,15 +170,15 @@ auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec,
+      auction_worklet.mojom.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec,
       null,
       [compression_group_token, client]);
   }
 
 };
 
-auction_worklet.mojom.TrustedSignalsCache.getRemote = function() {
-  let remote = new auction_worklet.mojom.TrustedSignalsCacheRemote();
+auction_worklet.mojom.mojom.TrustedSignalsCache.getRemote = function() {
+  let remote = new auction_worklet.mojom.mojom.TrustedSignalsCacheRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -188,7 +188,7 @@ auction_worklet.mojom.TrustedSignalsCache.getRemote = function() {
 };
 
 // ParamsSpec for GetTrustedSignals
-auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
+auction_worklet.mojom.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.TrustedSignalsCache.GetTrustedSignals_Params',
@@ -203,6 +203,6 @@ auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
 };
 
 // Legacy compatibility
-auction_worklet.mojom.TrustedSignalsCachePtr = auction_worklet.mojom.TrustedSignalsCacheRemote;
-auction_worklet.mojom.TrustedSignalsCacheRequest = auction_worklet.mojom.TrustedSignalsCachePendingReceiver;
+auction_worklet.mojom.mojom.TrustedSignalsCachePtr = auction_worklet.mojom.mojom.TrustedSignalsCacheRemote;
+auction_worklet.mojom.mojom.TrustedSignalsCacheRequest = auction_worklet.mojom.mojom.TrustedSignalsCachePendingReceiver;
 

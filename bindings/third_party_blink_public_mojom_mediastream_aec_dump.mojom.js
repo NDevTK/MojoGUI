@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: AecDumpAgent
-blink.mojom.AecDumpAgent = {};
+blink.mojom.mojom.AecDumpAgent = {};
 
-blink.mojom.AecDumpAgentPendingReceiver = class {
+blink.mojom.mojom.AecDumpAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AecDumpAgentRemote = class {
+blink.mojom.mojom.AecDumpAgentRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AecDumpAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AecDumpAgentPendingReceiver,
+      blink.mojom.mojom.AecDumpAgentPendingReceiver,
       handle);
-    this.$ = new blink.mojom.AecDumpAgentRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.AecDumpAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.AecDumpAgentRemote = class {
   }
 };
 
-blink.mojom.AecDumpAgentRemoteCallHandler = class {
+blink.mojom.mojom.AecDumpAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AecDumpAgent_Start_ParamsSpec,
+      blink.mojom.mojom.AecDumpAgent_Start_ParamsSpec,
       null,
       [file]);
   }
@@ -57,15 +57,15 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AecDumpAgent_Stop_ParamsSpec,
+      blink.mojom.mojom.AecDumpAgent_Stop_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.AecDumpAgent.getRemote = function() {
-  let remote = new blink.mojom.AecDumpAgentRemote();
+blink.mojom.mojom.AecDumpAgent.getRemote = function() {
+  let remote = new blink.mojom.mojom.AecDumpAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ blink.mojom.AecDumpAgent.getRemote = function() {
 };
 
 // ParamsSpec for Start
-blink.mojom.AecDumpAgent_Start_ParamsSpec = {
+blink.mojom.mojom.AecDumpAgent_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AecDumpAgent.Start_Params',
@@ -89,7 +89,7 @@ blink.mojom.AecDumpAgent_Start_ParamsSpec = {
 };
 
 // ParamsSpec for Stop
-blink.mojom.AecDumpAgent_Stop_ParamsSpec = {
+blink.mojom.mojom.AecDumpAgent_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AecDumpAgent.Stop_Params',
@@ -102,29 +102,29 @@ blink.mojom.AecDumpAgent_Stop_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.AecDumpAgentPtr = blink.mojom.AecDumpAgentRemote;
-blink.mojom.AecDumpAgentRequest = blink.mojom.AecDumpAgentPendingReceiver;
+blink.mojom.mojom.AecDumpAgentPtr = blink.mojom.mojom.AecDumpAgentRemote;
+blink.mojom.mojom.AecDumpAgentRequest = blink.mojom.mojom.AecDumpAgentPendingReceiver;
 
 
 // Interface: AecDumpManager
-blink.mojom.AecDumpManager = {};
+blink.mojom.mojom.AecDumpManager = {};
 
-blink.mojom.AecDumpManagerPendingReceiver = class {
+blink.mojom.mojom.AecDumpManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AecDumpManagerRemote = class {
+blink.mojom.mojom.AecDumpManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AecDumpManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AecDumpManagerPendingReceiver,
+      blink.mojom.mojom.AecDumpManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.AecDumpManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.AecDumpManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -136,7 +136,7 @@ blink.mojom.AecDumpManagerRemote = class {
   }
 };
 
-blink.mojom.AecDumpManagerRemoteCallHandler = class {
+blink.mojom.mojom.AecDumpManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -145,15 +145,15 @@ blink.mojom.AecDumpManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AecDumpManager_Add_ParamsSpec,
+      blink.mojom.mojom.AecDumpManager_Add_ParamsSpec,
       null,
       [agent]);
   }
 
 };
 
-blink.mojom.AecDumpManager.getRemote = function() {
-  let remote = new blink.mojom.AecDumpManagerRemote();
+blink.mojom.mojom.AecDumpManager.getRemote = function() {
+  let remote = new blink.mojom.mojom.AecDumpManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -163,7 +163,7 @@ blink.mojom.AecDumpManager.getRemote = function() {
 };
 
 // ParamsSpec for Add
-blink.mojom.AecDumpManager_Add_ParamsSpec = {
+blink.mojom.mojom.AecDumpManager_Add_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AecDumpManager.Add_Params',
@@ -177,6 +177,6 @@ blink.mojom.AecDumpManager_Add_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.AecDumpManagerPtr = blink.mojom.AecDumpManagerRemote;
-blink.mojom.AecDumpManagerRequest = blink.mojom.AecDumpManagerPendingReceiver;
+blink.mojom.mojom.AecDumpManagerPtr = blink.mojom.mojom.AecDumpManagerRemote;
+blink.mojom.mojom.AecDumpManagerRequest = blink.mojom.mojom.AecDumpManagerPendingReceiver;
 

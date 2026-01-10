@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: ContactIconBlob
-blink.mojom.ContactIconBlobSpec = {
+blink.mojom.mojom.ContactIconBlobSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactIconBlob',
@@ -25,7 +25,7 @@ blink.mojom.ContactIconBlobSpec = {
 };
 
 // Struct: ContactInfo
-blink.mojom.ContactInfoSpec = {
+blink.mojom.mojom.ContactInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactInfo',
@@ -43,24 +43,24 @@ blink.mojom.ContactInfoSpec = {
 };
 
 // Interface: ContactsManager
-blink.mojom.ContactsManager = {};
+blink.mojom.mojom.ContactsManager = {};
 
-blink.mojom.ContactsManagerPendingReceiver = class {
+blink.mojom.mojom.ContactsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ContactsManagerRemote = class {
+blink.mojom.mojom.ContactsManagerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ContactsManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ContactsManagerPendingReceiver,
+      blink.mojom.mojom.ContactsManagerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ContactsManagerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ContactsManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -72,7 +72,7 @@ blink.mojom.ContactsManagerRemote = class {
   }
 };
 
-blink.mojom.ContactsManagerRemoteCallHandler = class {
+blink.mojom.mojom.ContactsManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -81,15 +81,15 @@ blink.mojom.ContactsManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ContactsManager_Select_ParamsSpec,
-      blink.mojom.ContactsManager_Select_ResponseParamsSpec,
+      blink.mojom.mojom.ContactsManager_Select_ParamsSpec,
+      blink.mojom.mojom.ContactsManager_Select_ResponseParamsSpec,
       [multiple, include_names, include_emails, include_tel, include_addresses, include_icons]);
   }
 
 };
 
-blink.mojom.ContactsManager.getRemote = function() {
-  let remote = new blink.mojom.ContactsManagerRemote();
+blink.mojom.mojom.ContactsManager.getRemote = function() {
+  let remote = new blink.mojom.mojom.ContactsManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +99,7 @@ blink.mojom.ContactsManager.getRemote = function() {
 };
 
 // ParamsSpec for Select
-blink.mojom.ContactsManager_Select_ParamsSpec = {
+blink.mojom.mojom.ContactsManager_Select_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactsManager.Select_Params',
@@ -117,7 +117,7 @@ blink.mojom.ContactsManager_Select_ParamsSpec = {
   }
 };
 
-blink.mojom.ContactsManager_Select_ResponseParamsSpec = {
+blink.mojom.mojom.ContactsManager_Select_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContactsManager.Select_ResponseParams',
@@ -131,6 +131,6 @@ blink.mojom.ContactsManager_Select_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ContactsManagerPtr = blink.mojom.ContactsManagerRemote;
-blink.mojom.ContactsManagerRequest = blink.mojom.ContactsManagerPendingReceiver;
+blink.mojom.mojom.ContactsManagerPtr = blink.mojom.mojom.ContactsManagerRemote;
+blink.mojom.mojom.ContactsManagerRequest = blink.mojom.mojom.ContactsManagerPendingReceiver;
 

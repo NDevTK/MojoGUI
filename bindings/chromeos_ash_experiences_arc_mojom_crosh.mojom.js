@@ -10,15 +10,15 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ArcShellCommand
-arc.mojom.ArcShellCommand = {
+arc.mojom.mojom.ArcShellCommand = {
   kTop: 0,
   kCpuinfo: 1,
   kMeminfo: 2,
 };
-arc.mojom.ArcShellCommandSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ArcShellCommandSpec = { $: mojo.internal.Enum() };
 
 // Union: ArcShellExecutionResult
-arc.mojom.ArcShellExecutionResultSpec = { $: mojo.internal.Union(
+arc.mojom.mojom.ArcShellExecutionResultSpec = { $: mojo.internal.Union(
     'arc.mojom.ArcShellExecutionResult', {
       'stdout': {
         'ordinal': 0,
@@ -32,7 +32,7 @@ arc.mojom.ArcShellExecutionResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ArcShellExecutionRequest
-arc.mojom.ArcShellExecutionRequestSpec = {
+arc.mojom.mojom.ArcShellExecutionRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcShellExecutionRequest',
@@ -46,24 +46,24 @@ arc.mojom.ArcShellExecutionRequestSpec = {
 };
 
 // Interface: ArcShellExecutionInstance
-arc.mojom.ArcShellExecutionInstance = {};
+arc.mojom.mojom.ArcShellExecutionInstance = {};
 
-arc.mojom.ArcShellExecutionInstancePendingReceiver = class {
+arc.mojom.mojom.ArcShellExecutionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ArcShellExecutionInstanceRemote = class {
+arc.mojom.mojom.ArcShellExecutionInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ArcShellExecutionInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ArcShellExecutionInstancePendingReceiver,
+      arc.mojom.mojom.ArcShellExecutionInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.ArcShellExecutionInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ArcShellExecutionInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -75,7 +75,7 @@ arc.mojom.ArcShellExecutionInstanceRemote = class {
   }
 };
 
-arc.mojom.ArcShellExecutionInstanceRemoteCallHandler = class {
+arc.mojom.mojom.ArcShellExecutionInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -84,15 +84,15 @@ arc.mojom.ArcShellExecutionInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec,
-      arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec,
+      arc.mojom.mojom.ArcShellExecutionInstance_Exec_ParamsSpec,
+      arc.mojom.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec,
       [request]);
   }
 
 };
 
-arc.mojom.ArcShellExecutionInstance.getRemote = function() {
-  let remote = new arc.mojom.ArcShellExecutionInstanceRemote();
+arc.mojom.mojom.ArcShellExecutionInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.ArcShellExecutionInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -102,7 +102,7 @@ arc.mojom.ArcShellExecutionInstance.getRemote = function() {
 };
 
 // ParamsSpec for Exec
-arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec = {
+arc.mojom.mojom.ArcShellExecutionInstance_Exec_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcShellExecutionInstance.Exec_Params',
@@ -115,7 +115,7 @@ arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec = {
   }
 };
 
-arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec = {
+arc.mojom.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcShellExecutionInstance.Exec_ResponseParams',
@@ -129,6 +129,6 @@ arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ArcShellExecutionInstancePtr = arc.mojom.ArcShellExecutionInstanceRemote;
-arc.mojom.ArcShellExecutionInstanceRequest = arc.mojom.ArcShellExecutionInstancePendingReceiver;
+arc.mojom.mojom.ArcShellExecutionInstancePtr = arc.mojom.mojom.ArcShellExecutionInstanceRemote;
+arc.mojom.mojom.ArcShellExecutionInstanceRequest = arc.mojom.mojom.ArcShellExecutionInstancePendingReceiver;
 

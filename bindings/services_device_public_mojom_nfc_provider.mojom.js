@@ -10,24 +10,24 @@ device.mojom = device.mojom || {};
 
 
 // Interface: NFCProvider
-device.mojom.NFCProvider = {};
+device.mojom.mojom.NFCProvider = {};
 
-device.mojom.NFCProviderPendingReceiver = class {
+device.mojom.mojom.NFCProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.NFCProviderRemote = class {
+device.mojom.mojom.NFCProviderRemote = class {
   static get $interfaceName() {
     return 'device.mojom.NFCProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.NFCProviderPendingReceiver,
+      device.mojom.mojom.NFCProviderPendingReceiver,
       handle);
-    this.$ = new device.mojom.NFCProviderRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.NFCProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ device.mojom.NFCProviderRemote = class {
   }
 };
 
-device.mojom.NFCProviderRemoteCallHandler = class {
+device.mojom.mojom.NFCProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ device.mojom.NFCProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.NFCProvider_GetNFCForHost_ParamsSpec,
+      device.mojom.mojom.NFCProvider_GetNFCForHost_ParamsSpec,
       null,
       [host_id, receiver]);
   }
@@ -57,7 +57,7 @@ device.mojom.NFCProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec,
+      device.mojom.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec,
       null,
       []);
   }
@@ -66,15 +66,15 @@ device.mojom.NFCProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec,
+      device.mojom.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.NFCProvider.getRemote = function() {
-  let remote = new device.mojom.NFCProviderRemote();
+device.mojom.mojom.NFCProvider.getRemote = function() {
+  let remote = new device.mojom.mojom.NFCProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ device.mojom.NFCProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetNFCForHost
-device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
+device.mojom.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFCProvider.GetNFCForHost_Params',
@@ -99,7 +99,7 @@ device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
 };
 
 // ParamsSpec for SuspendNFCOperations
-device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = {
+device.mojom.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFCProvider.SuspendNFCOperations_Params',
@@ -112,7 +112,7 @@ device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = {
 };
 
 // ParamsSpec for ResumeNFCOperations
-device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = {
+device.mojom.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFCProvider.ResumeNFCOperations_Params',
@@ -125,6 +125,6 @@ device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.NFCProviderPtr = device.mojom.NFCProviderRemote;
-device.mojom.NFCProviderRequest = device.mojom.NFCProviderPendingReceiver;
+device.mojom.mojom.NFCProviderPtr = device.mojom.mojom.NFCProviderRemote;
+device.mojom.mojom.NFCProviderRequest = device.mojom.mojom.NFCProviderPendingReceiver;
 

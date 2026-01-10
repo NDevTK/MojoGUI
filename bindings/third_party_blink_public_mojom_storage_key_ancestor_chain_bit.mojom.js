@@ -10,8 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: AncestorChainBit
-blink.mojom.AncestorChainBit = {
+blink.mojom.mojom.AncestorChainBit = {
   kSameSite: 0,
   kCrossSite: 1,
 };
-blink.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.AncestorChainBitSpec = { $: mojo.internal.Enum() };

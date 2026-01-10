@@ -10,24 +10,24 @@ network.mojom = network.mojom || {};
 
 
 // Interface: ChunkedDataPipeGetter
-network.mojom.ChunkedDataPipeGetter = {};
+network.mojom.mojom.ChunkedDataPipeGetter = {};
 
-network.mojom.ChunkedDataPipeGetterPendingReceiver = class {
+network.mojom.mojom.ChunkedDataPipeGetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.ChunkedDataPipeGetterRemote = class {
+network.mojom.mojom.ChunkedDataPipeGetterRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ChunkedDataPipeGetter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.ChunkedDataPipeGetterPendingReceiver,
+      network.mojom.mojom.ChunkedDataPipeGetterPendingReceiver,
       handle);
-    this.$ = new network.mojom.ChunkedDataPipeGetterRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.ChunkedDataPipeGetterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ network.mojom.ChunkedDataPipeGetterRemote = class {
   }
 };
 
-network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
+network.mojom.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec,
-      network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec,
+      network.mojom.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec,
+      network.mojom.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec,
       []);
   }
 
@@ -57,15 +57,15 @@ network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec,
+      network.mojom.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec,
       null,
       [pipe]);
   }
 
 };
 
-network.mojom.ChunkedDataPipeGetter.getRemote = function() {
-  let remote = new network.mojom.ChunkedDataPipeGetterRemote();
+network.mojom.mojom.ChunkedDataPipeGetter.getRemote = function() {
+  let remote = new network.mojom.mojom.ChunkedDataPipeGetterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ network.mojom.ChunkedDataPipeGetter.getRemote = function() {
 };
 
 // ParamsSpec for GetSize
-network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
+network.mojom.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ChunkedDataPipeGetter.GetSize_Params',
@@ -87,14 +87,14 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
   }
 };
 
-network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
+network.mojom.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ChunkedDataPipeGetter.GetSize_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -102,7 +102,7 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartReading
-network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
+network.mojom.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ChunkedDataPipeGetter.StartReading_Params',
@@ -116,6 +116,6 @@ network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.ChunkedDataPipeGetterPtr = network.mojom.ChunkedDataPipeGetterRemote;
-network.mojom.ChunkedDataPipeGetterRequest = network.mojom.ChunkedDataPipeGetterPendingReceiver;
+network.mojom.mojom.ChunkedDataPipeGetterPtr = network.mojom.mojom.ChunkedDataPipeGetterRemote;
+network.mojom.mojom.ChunkedDataPipeGetterRequest = network.mojom.mojom.ChunkedDataPipeGetterPendingReceiver;
 

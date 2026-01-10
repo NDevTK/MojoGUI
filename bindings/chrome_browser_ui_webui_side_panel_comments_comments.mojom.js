@@ -10,24 +10,24 @@ comments.mojom = comments.mojom || {};
 
 
 // Interface: PageHandlerFactory
-comments.mojom.PageHandlerFactory = {};
+comments.mojom.mojom.PageHandlerFactory = {};
 
-comments.mojom.PageHandlerFactoryPendingReceiver = class {
+comments.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-comments.mojom.PageHandlerFactoryRemote = class {
+comments.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'comments.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      comments.mojom.PageHandlerFactoryPendingReceiver,
+      comments.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new comments.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new comments.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ comments.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-comments.mojom.PageHandlerFactoryRemoteCallHandler = class {
+comments.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ comments.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      comments.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-comments.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new comments.mojom.PageHandlerFactoryRemote();
+comments.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new comments.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ comments.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+comments.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'comments.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -81,29 +81,29 @@ comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-comments.mojom.PageHandlerFactoryPtr = comments.mojom.PageHandlerFactoryRemote;
-comments.mojom.PageHandlerFactoryRequest = comments.mojom.PageHandlerFactoryPendingReceiver;
+comments.mojom.mojom.PageHandlerFactoryPtr = comments.mojom.mojom.PageHandlerFactoryRemote;
+comments.mojom.mojom.PageHandlerFactoryRequest = comments.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-comments.mojom.PageHandler = {};
+comments.mojom.mojom.PageHandler = {};
 
-comments.mojom.PageHandlerPendingReceiver = class {
+comments.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-comments.mojom.PageHandlerRemote = class {
+comments.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'comments.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      comments.mojom.PageHandlerPendingReceiver,
+      comments.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new comments.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new comments.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +115,7 @@ comments.mojom.PageHandlerRemote = class {
   }
 };
 
-comments.mojom.PageHandlerRemoteCallHandler = class {
+comments.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,15 +124,15 @@ comments.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      comments.mojom.PageHandler_ShowUI_ParamsSpec,
+      comments.mojom.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
       []);
   }
 
 };
 
-comments.mojom.PageHandler.getRemote = function() {
-  let remote = new comments.mojom.PageHandlerRemote();
+comments.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new comments.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -142,7 +142,7 @@ comments.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for ShowUI
-comments.mojom.PageHandler_ShowUI_ParamsSpec = {
+comments.mojom.mojom.PageHandler_ShowUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'comments.mojom.PageHandler.ShowUI_Params',
@@ -155,29 +155,29 @@ comments.mojom.PageHandler_ShowUI_ParamsSpec = {
 };
 
 // Legacy compatibility
-comments.mojom.PageHandlerPtr = comments.mojom.PageHandlerRemote;
-comments.mojom.PageHandlerRequest = comments.mojom.PageHandlerPendingReceiver;
+comments.mojom.mojom.PageHandlerPtr = comments.mojom.mojom.PageHandlerRemote;
+comments.mojom.mojom.PageHandlerRequest = comments.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-comments.mojom.Page = {};
+comments.mojom.mojom.Page = {};
 
-comments.mojom.PagePendingReceiver = class {
+comments.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-comments.mojom.PageRemote = class {
+comments.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'comments.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      comments.mojom.PagePendingReceiver,
+      comments.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new comments.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new comments.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -189,15 +189,15 @@ comments.mojom.PageRemote = class {
   }
 };
 
-comments.mojom.PageRemoteCallHandler = class {
+comments.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-comments.mojom.Page.getRemote = function() {
-  let remote = new comments.mojom.PageRemote();
+comments.mojom.mojom.Page.getRemote = function() {
+  let remote = new comments.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -207,6 +207,6 @@ comments.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-comments.mojom.PagePtr = comments.mojom.PageRemote;
-comments.mojom.PageRequest = comments.mojom.PagePendingReceiver;
+comments.mojom.mojom.PagePtr = comments.mojom.mojom.PageRemote;
+comments.mojom.mojom.PageRequest = comments.mojom.mojom.PagePendingReceiver;
 

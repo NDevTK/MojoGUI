@@ -7,37 +7,40 @@
 // Module namespace
 var ash = ash || {};
 ash.orca = ash.orca || {};
-ash.orca.mojom = ash.orca.mojom || {};
+ash.orca.orca.mojom = ash.orca.orca.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
 
 
 // Enum: PresetTextQueryType
-ash.orca.mojom.PresetTextQueryType = {
+ash.orca.orca.mojom.mojom.PresetTextQueryType = {
   kShorten: 0,
   kElaborate: 1,
   kRephrase: 2,
   kFormalize: 3,
   kEmojify: 4,
 };
-ash.orca.mojom.PresetTextQueryTypeSpec = { $: mojo.internal.Enum() };
+ash.orca.orca.mojom.mojom.PresetTextQueryTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetricEvent
-ash.orca.mojom.MetricEvent = {
+ash.orca.orca.mojom.mojom.MetricEvent = {
   kRefineRequest: 0,
   kFeedbackThumbsUp: 1,
   kFeedbackThumbsDown: 2,
   kReturnToPreviousSuggestions: 3,
   kWebUIRequest: 4,
 };
-ash.orca.mojom.MetricEventSpec = { $: mojo.internal.Enum() };
+ash.orca.orca.mojom.mojom.MetricEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextQueryErrorCode
-ash.orca.mojom.TextQueryErrorCode = {
+ash.orca.orca.mojom.mojom.TextQueryErrorCode = {
   kInvalidArgument: 0,
 };
-ash.orca.mojom.TextQueryErrorCodeSpec = { $: mojo.internal.Enum() };
+ash.orca.orca.mojom.mojom.TextQueryErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: TextQueryResponse
-ash.orca.mojom.TextQueryResponseSpec = { $: mojo.internal.Union(
+ash.orca.orca.mojom.mojom.TextQueryResponseSpec = { $: mojo.internal.Union(
     'ash.orca.mojom.TextQueryResponse', {
       'results': {
         'ordinal': 0,
@@ -51,7 +54,7 @@ ash.orca.mojom.TextQueryResponseSpec = { $: mojo.internal.Union(
 };
 
 // Struct: PresetTextQuery
-ash.orca.mojom.PresetTextQuerySpec = {
+ash.orca.orca.mojom.mojom.PresetTextQuerySpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.PresetTextQuery',
@@ -68,7 +71,7 @@ ash.orca.mojom.PresetTextQuerySpec = {
 };
 
 // Struct: TextQueryRequest
-ash.orca.mojom.TextQueryRequestSpec = {
+ash.orca.orca.mojom.mojom.TextQueryRequestSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.TextQueryRequest',
@@ -84,7 +87,7 @@ ash.orca.mojom.TextQueryRequestSpec = {
 };
 
 // Struct: TextQueryResult
-ash.orca.mojom.TextQueryResultSpec = {
+ash.orca.orca.mojom.mojom.TextQueryResultSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.TextQueryResult',
@@ -99,14 +102,14 @@ ash.orca.mojom.TextQueryResultSpec = {
 };
 
 // Struct: TextQueryError
-ash.orca.mojom.TextQueryErrorSpec = {
+ash.orca.orca.mojom.mojom.TextQueryErrorSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.TextQueryError',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: ash.orca.mojom.TextQueryErrorCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -114,7 +117,7 @@ ash.orca.mojom.TextQueryErrorSpec = {
 };
 
 // Struct: SurroundingText
-ash.orca.mojom.SurroundingTextSpec = {
+ash.orca.orca.mojom.mojom.SurroundingTextSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SurroundingText',
@@ -129,7 +132,7 @@ ash.orca.mojom.SurroundingTextSpec = {
 };
 
 // Struct: Context
-ash.orca.mojom.ContextSpec = {
+ash.orca.orca.mojom.mojom.ContextSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.Context',
@@ -143,7 +146,7 @@ ash.orca.mojom.ContextSpec = {
 };
 
 // Struct: EditorConfig
-ash.orca.mojom.EditorConfigSpec = {
+ash.orca.orca.mojom.mojom.EditorConfigSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorConfig',
@@ -158,14 +161,14 @@ ash.orca.mojom.EditorConfigSpec = {
 };
 
 // Struct: TriggerContext
-ash.orca.mojom.TriggerContextSpec = {
+ash.orca.orca.mojom.mojom.TriggerContextSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.TriggerContext',
       packedSize: 16,
       fields: [
-        { name: 'freeform_selected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'preset_type_selected', packedOffset: 4, packedBitOffset: 0, type: ash.orca.mojom.PresetTextQueryTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'freeform_selected', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'preset_type_selected', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.PresetTextQueryTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -173,24 +176,24 @@ ash.orca.mojom.TriggerContextSpec = {
 };
 
 // Interface: EditorClient
-ash.orca.mojom.EditorClient = {};
+ash.orca.orca.mojom.mojom.EditorClient = {};
 
-ash.orca.mojom.EditorClientPendingReceiver = class {
+ash.orca.orca.mojom.mojom.EditorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.orca.mojom.EditorClientRemote = class {
+ash.orca.orca.mojom.mojom.EditorClientRemote = class {
   static get $interfaceName() {
     return 'ash.orca.mojom.EditorClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.orca.mojom.EditorClientPendingReceiver,
+      ash.orca.orca.mojom.mojom.EditorClientPendingReceiver,
       handle);
-    this.$ = new ash.orca.mojom.EditorClientRemoteCallHandler(this.proxy);
+    this.$ = new ash.orca.orca.mojom.mojom.EditorClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -202,7 +205,7 @@ ash.orca.mojom.EditorClientRemote = class {
   }
 };
 
-ash.orca.mojom.EditorClientRemoteCallHandler = class {
+ash.orca.orca.mojom.mojom.EditorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -211,8 +214,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec,
-      ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_GetPresetTextQueries_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec,
       []);
   }
 
@@ -220,8 +223,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec,
-      ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_RequestPresetRewrite_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec,
       [text_query_id, text_override]);
   }
 
@@ -229,8 +232,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec,
-      ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec,
       [input, text_override]);
   }
 
@@ -238,8 +241,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec,
-      ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_RequestFreeformWrite_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec,
       [input]);
   }
 
@@ -247,7 +250,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.orca.mojom.EditorClient_InsertText_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_InsertText_ParamsSpec,
       null,
       [text]);
   }
@@ -256,7 +259,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_ApproveConsent_ParamsSpec,
       null,
       []);
   }
@@ -265,7 +268,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_DeclineConsent_ParamsSpec,
       null,
       []);
   }
@@ -274,7 +277,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_DismissConsent_ParamsSpec,
       null,
       []);
   }
@@ -283,7 +286,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec,
       null,
       [url]);
   }
@@ -292,7 +295,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.orca.mojom.EditorClient_ShowUI_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_ShowUI_ParamsSpec,
       null,
       []);
   }
@@ -301,7 +304,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.orca.mojom.EditorClient_CloseUI_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_CloseUI_ParamsSpec,
       null,
       []);
   }
@@ -310,7 +313,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.orca.mojom.EditorClient_AppendText_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_AppendText_ParamsSpec,
       null,
       [text]);
   }
@@ -319,8 +322,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec,
-      ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_PreviewFeedback_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec,
       [result_id]);
   }
 
@@ -328,7 +331,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_SubmitFeedback_ParamsSpec,
       null,
       [result_id, user_description]);
   }
@@ -337,7 +340,7 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_OnTrigger_ParamsSpec,
       null,
       [trigger_context]);
   }
@@ -346,15 +349,15 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClient_EmitMetricEvent_ParamsSpec,
       null,
       [metric_event]);
   }
 
 };
 
-ash.orca.mojom.EditorClient.getRemote = function() {
-  let remote = new ash.orca.mojom.EditorClientRemote();
+ash.orca.orca.mojom.mojom.EditorClient.getRemote = function() {
+  let remote = new ash.orca.orca.mojom.mojom.EditorClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -364,7 +367,7 @@ ash.orca.mojom.EditorClient.getRemote = function() {
 };
 
 // ParamsSpec for GetPresetTextQueries
-ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_GetPresetTextQueries_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.GetPresetTextQueries_Params',
@@ -376,7 +379,7 @@ ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec = {
   }
 };
 
-ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.GetPresetTextQueries_ResponseParams',
@@ -390,7 +393,7 @@ ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestPresetRewrite
-ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_RequestPresetRewrite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.RequestPresetRewrite_Params',
@@ -404,7 +407,7 @@ ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec = {
   }
 };
 
-ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.RequestPresetRewrite_ResponseParams',
@@ -418,7 +421,7 @@ ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestFreeformRewrite
-ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.RequestFreeformRewrite_Params',
@@ -432,7 +435,7 @@ ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec = {
   }
 };
 
-ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.RequestFreeformRewrite_ResponseParams',
@@ -446,7 +449,7 @@ ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestFreeformWrite
-ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_RequestFreeformWrite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.RequestFreeformWrite_Params',
@@ -459,7 +462,7 @@ ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec = {
   }
 };
 
-ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.RequestFreeformWrite_ResponseParams',
@@ -473,7 +476,7 @@ ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InsertText
-ash.orca.mojom.EditorClient_InsertText_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_InsertText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.InsertText_Params',
@@ -487,7 +490,7 @@ ash.orca.mojom.EditorClient_InsertText_ParamsSpec = {
 };
 
 // ParamsSpec for ApproveConsent
-ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_ApproveConsent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.ApproveConsent_Params',
@@ -500,7 +503,7 @@ ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec = {
 };
 
 // ParamsSpec for DeclineConsent
-ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_DeclineConsent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.DeclineConsent_Params',
@@ -513,7 +516,7 @@ ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec = {
 };
 
 // ParamsSpec for DismissConsent
-ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_DismissConsent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.DismissConsent_Params',
@@ -526,7 +529,7 @@ ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec = {
 };
 
 // ParamsSpec for OpenUrlInNewWindow
-ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.OpenUrlInNewWindow_Params',
@@ -540,7 +543,7 @@ ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec = {
 };
 
 // ParamsSpec for ShowUI
-ash.orca.mojom.EditorClient_ShowUI_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_ShowUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.ShowUI_Params',
@@ -553,7 +556,7 @@ ash.orca.mojom.EditorClient_ShowUI_ParamsSpec = {
 };
 
 // ParamsSpec for CloseUI
-ash.orca.mojom.EditorClient_CloseUI_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_CloseUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.CloseUI_Params',
@@ -566,7 +569,7 @@ ash.orca.mojom.EditorClient_CloseUI_ParamsSpec = {
 };
 
 // ParamsSpec for AppendText
-ash.orca.mojom.EditorClient_AppendText_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_AppendText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.AppendText_Params',
@@ -580,7 +583,7 @@ ash.orca.mojom.EditorClient_AppendText_ParamsSpec = {
 };
 
 // ParamsSpec for PreviewFeedback
-ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_PreviewFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.PreviewFeedback_Params',
@@ -593,7 +596,7 @@ ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec = {
   }
 };
 
-ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.PreviewFeedback_ResponseParams',
@@ -607,7 +610,7 @@ ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SubmitFeedback
-ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_SubmitFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.SubmitFeedback_Params',
@@ -622,7 +625,7 @@ ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec = {
 };
 
 // ParamsSpec for OnTrigger
-ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_OnTrigger_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.OnTrigger_Params',
@@ -636,7 +639,7 @@ ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec = {
 };
 
 // ParamsSpec for EmitMetricEvent
-ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClient_EmitMetricEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClient.EmitMetricEvent_Params',
@@ -650,29 +653,29 @@ ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.orca.mojom.EditorClientPtr = ash.orca.mojom.EditorClientRemote;
-ash.orca.mojom.EditorClientRequest = ash.orca.mojom.EditorClientPendingReceiver;
+ash.orca.orca.mojom.mojom.EditorClientPtr = ash.orca.orca.mojom.mojom.EditorClientRemote;
+ash.orca.orca.mojom.mojom.EditorClientRequest = ash.orca.orca.mojom.mojom.EditorClientPendingReceiver;
 
 
 // Interface: EditorClientConnector
-ash.orca.mojom.EditorClientConnector = {};
+ash.orca.orca.mojom.mojom.EditorClientConnector = {};
 
-ash.orca.mojom.EditorClientConnectorPendingReceiver = class {
+ash.orca.orca.mojom.mojom.EditorClientConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.orca.mojom.EditorClientConnectorRemote = class {
+ash.orca.orca.mojom.mojom.EditorClientConnectorRemote = class {
   static get $interfaceName() {
     return 'ash.orca.mojom.EditorClientConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.orca.mojom.EditorClientConnectorPendingReceiver,
+      ash.orca.orca.mojom.mojom.EditorClientConnectorPendingReceiver,
       handle);
-    this.$ = new ash.orca.mojom.EditorClientConnectorRemoteCallHandler(this.proxy);
+    this.$ = new ash.orca.orca.mojom.mojom.EditorClientConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -684,7 +687,7 @@ ash.orca.mojom.EditorClientConnectorRemote = class {
   }
 };
 
-ash.orca.mojom.EditorClientConnectorRemoteCallHandler = class {
+ash.orca.orca.mojom.mojom.EditorClientConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -693,15 +696,15 @@ ash.orca.mojom.EditorClientConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorClientConnector_BindEditorClient_ParamsSpec,
       null,
       [editor_client]);
   }
 
 };
 
-ash.orca.mojom.EditorClientConnector.getRemote = function() {
-  let remote = new ash.orca.mojom.EditorClientConnectorRemote();
+ash.orca.orca.mojom.mojom.EditorClientConnector.getRemote = function() {
+  let remote = new ash.orca.orca.mojom.mojom.EditorClientConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -711,7 +714,7 @@ ash.orca.mojom.EditorClientConnector.getRemote = function() {
 };
 
 // ParamsSpec for BindEditorClient
-ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorClientConnector_BindEditorClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorClientConnector.BindEditorClient_Params',
@@ -725,29 +728,29 @@ ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.orca.mojom.EditorClientConnectorPtr = ash.orca.mojom.EditorClientConnectorRemote;
-ash.orca.mojom.EditorClientConnectorRequest = ash.orca.mojom.EditorClientConnectorPendingReceiver;
+ash.orca.orca.mojom.mojom.EditorClientConnectorPtr = ash.orca.orca.mojom.mojom.EditorClientConnectorRemote;
+ash.orca.orca.mojom.mojom.EditorClientConnectorRequest = ash.orca.orca.mojom.mojom.EditorClientConnectorPendingReceiver;
 
 
 // Interface: EditorEventSink
-ash.orca.mojom.EditorEventSink = {};
+ash.orca.orca.mojom.mojom.EditorEventSink = {};
 
-ash.orca.mojom.EditorEventSinkPendingReceiver = class {
+ash.orca.orca.mojom.mojom.EditorEventSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.orca.mojom.EditorEventSinkRemote = class {
+ash.orca.orca.mojom.mojom.EditorEventSinkRemote = class {
   static get $interfaceName() {
     return 'ash.orca.mojom.EditorEventSink';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.orca.mojom.EditorEventSinkPendingReceiver,
+      ash.orca.orca.mojom.mojom.EditorEventSinkPendingReceiver,
       handle);
-    this.$ = new ash.orca.mojom.EditorEventSinkRemoteCallHandler(this.proxy);
+    this.$ = new ash.orca.orca.mojom.mojom.EditorEventSinkRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -759,7 +762,7 @@ ash.orca.mojom.EditorEventSinkRemote = class {
   }
 };
 
-ash.orca.mojom.EditorEventSinkRemoteCallHandler = class {
+ash.orca.orca.mojom.mojom.EditorEventSinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -768,15 +771,15 @@ ash.orca.mojom.EditorEventSinkRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec,
+      ash.orca.orca.mojom.mojom.EditorEventSink_OnContextUpdated_ParamsSpec,
       null,
       [context]);
   }
 
 };
 
-ash.orca.mojom.EditorEventSink.getRemote = function() {
-  let remote = new ash.orca.mojom.EditorEventSinkRemote();
+ash.orca.orca.mojom.mojom.EditorEventSink.getRemote = function() {
+  let remote = new ash.orca.orca.mojom.mojom.EditorEventSinkRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -786,7 +789,7 @@ ash.orca.mojom.EditorEventSink.getRemote = function() {
 };
 
 // ParamsSpec for OnContextUpdated
-ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec = {
+ash.orca.orca.mojom.mojom.EditorEventSink_OnContextUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.EditorEventSink.OnContextUpdated_Params',
@@ -800,29 +803,29 @@ ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.orca.mojom.EditorEventSinkPtr = ash.orca.mojom.EditorEventSinkRemote;
-ash.orca.mojom.EditorEventSinkRequest = ash.orca.mojom.EditorEventSinkPendingReceiver;
+ash.orca.orca.mojom.mojom.EditorEventSinkPtr = ash.orca.orca.mojom.mojom.EditorEventSinkRemote;
+ash.orca.orca.mojom.mojom.EditorEventSinkRequest = ash.orca.orca.mojom.mojom.EditorEventSinkPendingReceiver;
 
 
 // Interface: SystemActuator
-ash.orca.mojom.SystemActuator = {};
+ash.orca.orca.mojom.mojom.SystemActuator = {};
 
-ash.orca.mojom.SystemActuatorPendingReceiver = class {
+ash.orca.orca.mojom.mojom.SystemActuatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.orca.mojom.SystemActuatorRemote = class {
+ash.orca.orca.mojom.mojom.SystemActuatorRemote = class {
   static get $interfaceName() {
     return 'ash.orca.mojom.SystemActuator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.orca.mojom.SystemActuatorPendingReceiver,
+      ash.orca.orca.mojom.mojom.SystemActuatorPendingReceiver,
       handle);
-    this.$ = new ash.orca.mojom.SystemActuatorRemoteCallHandler(this.proxy);
+    this.$ = new ash.orca.orca.mojom.mojom.SystemActuatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -834,7 +837,7 @@ ash.orca.mojom.SystemActuatorRemote = class {
   }
 };
 
-ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
+ash.orca.orca.mojom.mojom.SystemActuatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -843,7 +846,7 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.orca.mojom.SystemActuator_InsertText_ParamsSpec,
+      ash.orca.orca.mojom.mojom.SystemActuator_InsertText_ParamsSpec,
       null,
       [text]);
   }
@@ -852,7 +855,7 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec,
+      ash.orca.orca.mojom.mojom.SystemActuator_ApproveConsent_ParamsSpec,
       null,
       []);
   }
@@ -861,7 +864,7 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec,
+      ash.orca.orca.mojom.mojom.SystemActuator_DeclineConsent_ParamsSpec,
       null,
       []);
   }
@@ -870,7 +873,7 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec,
+      ash.orca.orca.mojom.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec,
       null,
       [url]);
   }
@@ -879,7 +882,7 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec,
+      ash.orca.orca.mojom.mojom.SystemActuator_ShowUI_ParamsSpec,
       null,
       []);
   }
@@ -888,7 +891,7 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec,
+      ash.orca.orca.mojom.mojom.SystemActuator_CloseUI_ParamsSpec,
       null,
       []);
   }
@@ -897,7 +900,7 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec,
+      ash.orca.orca.mojom.mojom.SystemActuator_SubmitFeedback_ParamsSpec,
       null,
       [description]);
   }
@@ -906,7 +909,7 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec,
+      ash.orca.orca.mojom.mojom.SystemActuator_OnTrigger_ParamsSpec,
       null,
       [trigger_context]);
   }
@@ -915,15 +918,15 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec,
+      ash.orca.orca.mojom.mojom.SystemActuator_EmitMetricEvent_ParamsSpec,
       null,
       [metric_event]);
   }
 
 };
 
-ash.orca.mojom.SystemActuator.getRemote = function() {
-  let remote = new ash.orca.mojom.SystemActuatorRemote();
+ash.orca.orca.mojom.mojom.SystemActuator.getRemote = function() {
+  let remote = new ash.orca.orca.mojom.mojom.SystemActuatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -933,7 +936,7 @@ ash.orca.mojom.SystemActuator.getRemote = function() {
 };
 
 // ParamsSpec for InsertText
-ash.orca.mojom.SystemActuator_InsertText_ParamsSpec = {
+ash.orca.orca.mojom.mojom.SystemActuator_InsertText_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SystemActuator.InsertText_Params',
@@ -947,7 +950,7 @@ ash.orca.mojom.SystemActuator_InsertText_ParamsSpec = {
 };
 
 // ParamsSpec for ApproveConsent
-ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec = {
+ash.orca.orca.mojom.mojom.SystemActuator_ApproveConsent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SystemActuator.ApproveConsent_Params',
@@ -960,7 +963,7 @@ ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec = {
 };
 
 // ParamsSpec for DeclineConsent
-ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec = {
+ash.orca.orca.mojom.mojom.SystemActuator_DeclineConsent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SystemActuator.DeclineConsent_Params',
@@ -973,7 +976,7 @@ ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec = {
 };
 
 // ParamsSpec for OpenUrlInNewWindow
-ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec = {
+ash.orca.orca.mojom.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SystemActuator.OpenUrlInNewWindow_Params',
@@ -987,7 +990,7 @@ ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec = {
 };
 
 // ParamsSpec for ShowUI
-ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec = {
+ash.orca.orca.mojom.mojom.SystemActuator_ShowUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SystemActuator.ShowUI_Params',
@@ -1000,7 +1003,7 @@ ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec = {
 };
 
 // ParamsSpec for CloseUI
-ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec = {
+ash.orca.orca.mojom.mojom.SystemActuator_CloseUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SystemActuator.CloseUI_Params',
@@ -1013,7 +1016,7 @@ ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec = {
 };
 
 // ParamsSpec for SubmitFeedback
-ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec = {
+ash.orca.orca.mojom.mojom.SystemActuator_SubmitFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SystemActuator.SubmitFeedback_Params',
@@ -1027,7 +1030,7 @@ ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec = {
 };
 
 // ParamsSpec for OnTrigger
-ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec = {
+ash.orca.orca.mojom.mojom.SystemActuator_OnTrigger_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SystemActuator.OnTrigger_Params',
@@ -1041,7 +1044,7 @@ ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec = {
 };
 
 // ParamsSpec for EmitMetricEvent
-ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec = {
+ash.orca.orca.mojom.mojom.SystemActuator_EmitMetricEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.SystemActuator.EmitMetricEvent_Params',
@@ -1055,29 +1058,29 @@ ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.orca.mojom.SystemActuatorPtr = ash.orca.mojom.SystemActuatorRemote;
-ash.orca.mojom.SystemActuatorRequest = ash.orca.mojom.SystemActuatorPendingReceiver;
+ash.orca.orca.mojom.mojom.SystemActuatorPtr = ash.orca.orca.mojom.mojom.SystemActuatorRemote;
+ash.orca.orca.mojom.mojom.SystemActuatorRequest = ash.orca.orca.mojom.mojom.SystemActuatorPendingReceiver;
 
 
 // Interface: TextQueryProvider
-ash.orca.mojom.TextQueryProvider = {};
+ash.orca.orca.mojom.mojom.TextQueryProvider = {};
 
-ash.orca.mojom.TextQueryProviderPendingReceiver = class {
+ash.orca.orca.mojom.mojom.TextQueryProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.orca.mojom.TextQueryProviderRemote = class {
+ash.orca.orca.mojom.mojom.TextQueryProviderRemote = class {
   static get $interfaceName() {
     return 'ash.orca.mojom.TextQueryProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.orca.mojom.TextQueryProviderPendingReceiver,
+      ash.orca.orca.mojom.mojom.TextQueryProviderPendingReceiver,
       handle);
-    this.$ = new ash.orca.mojom.TextQueryProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.orca.orca.mojom.mojom.TextQueryProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1089,7 +1092,7 @@ ash.orca.mojom.TextQueryProviderRemote = class {
   }
 };
 
-ash.orca.mojom.TextQueryProviderRemoteCallHandler = class {
+ash.orca.orca.mojom.mojom.TextQueryProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1098,15 +1101,15 @@ ash.orca.mojom.TextQueryProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.orca.mojom.TextQueryProvider_Process_ParamsSpec,
-      ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec,
+      ash.orca.orca.mojom.mojom.TextQueryProvider_Process_ParamsSpec,
+      ash.orca.orca.mojom.mojom.TextQueryProvider_Process_ResponseParamsSpec,
       [request]);
   }
 
 };
 
-ash.orca.mojom.TextQueryProvider.getRemote = function() {
-  let remote = new ash.orca.mojom.TextQueryProviderRemote();
+ash.orca.orca.mojom.mojom.TextQueryProvider.getRemote = function() {
+  let remote = new ash.orca.orca.mojom.mojom.TextQueryProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1116,7 +1119,7 @@ ash.orca.mojom.TextQueryProvider.getRemote = function() {
 };
 
 // ParamsSpec for Process
-ash.orca.mojom.TextQueryProvider_Process_ParamsSpec = {
+ash.orca.orca.mojom.mojom.TextQueryProvider_Process_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.TextQueryProvider.Process_Params',
@@ -1129,7 +1132,7 @@ ash.orca.mojom.TextQueryProvider_Process_ParamsSpec = {
   }
 };
 
-ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec = {
+ash.orca.orca.mojom.mojom.TextQueryProvider_Process_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.TextQueryProvider.Process_ResponseParams',
@@ -1143,29 +1146,29 @@ ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.orca.mojom.TextQueryProviderPtr = ash.orca.mojom.TextQueryProviderRemote;
-ash.orca.mojom.TextQueryProviderRequest = ash.orca.mojom.TextQueryProviderPendingReceiver;
+ash.orca.orca.mojom.mojom.TextQueryProviderPtr = ash.orca.orca.mojom.mojom.TextQueryProviderRemote;
+ash.orca.orca.mojom.mojom.TextQueryProviderRequest = ash.orca.orca.mojom.mojom.TextQueryProviderPendingReceiver;
 
 
 // Interface: OrcaService
-ash.orca.mojom.OrcaService = {};
+ash.orca.orca.mojom.mojom.OrcaService = {};
 
-ash.orca.mojom.OrcaServicePendingReceiver = class {
+ash.orca.orca.mojom.mojom.OrcaServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.orca.mojom.OrcaServiceRemote = class {
+ash.orca.orca.mojom.mojom.OrcaServiceRemote = class {
   static get $interfaceName() {
     return 'ash.orca.mojom.OrcaService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.orca.mojom.OrcaServicePendingReceiver,
+      ash.orca.orca.mojom.mojom.OrcaServicePendingReceiver,
       handle);
-    this.$ = new ash.orca.mojom.OrcaServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.orca.orca.mojom.mojom.OrcaServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1177,7 +1180,7 @@ ash.orca.mojom.OrcaServiceRemote = class {
   }
 };
 
-ash.orca.mojom.OrcaServiceRemoteCallHandler = class {
+ash.orca.orca.mojom.mojom.OrcaServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1186,15 +1189,15 @@ ash.orca.mojom.OrcaServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.orca.mojom.OrcaService_BindEditor_ParamsSpec,
+      ash.orca.orca.mojom.mojom.OrcaService_BindEditor_ParamsSpec,
       null,
       [system_actuator, text_query_provider, client_connector, event_sink, editor_config]);
   }
 
 };
 
-ash.orca.mojom.OrcaService.getRemote = function() {
-  let remote = new ash.orca.mojom.OrcaServiceRemote();
+ash.orca.orca.mojom.mojom.OrcaService.getRemote = function() {
+  let remote = new ash.orca.orca.mojom.mojom.OrcaServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1204,24 +1207,24 @@ ash.orca.mojom.OrcaService.getRemote = function() {
 };
 
 // ParamsSpec for BindEditor
-ash.orca.mojom.OrcaService_BindEditor_ParamsSpec = {
+ash.orca.orca.mojom.mojom.OrcaService_BindEditor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.OrcaService.BindEditor_Params',
       packedSize: 32,
       fields: [
-        { name: 'system_actuator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'text_query_provider', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'client_connector', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'event_sink', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'editor_config', packedOffset: 16, packedBitOffset: 0, type: ash.orca.mojom.EditorConfigSpec, nullable: true, minVersion: 9 },
+        { name: 'system_actuator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'text_query_provider', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client_connector', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'event_sink', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'editor_config', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.EditorConfigSpec, nullable: true, minVersion: 9 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 9, packedSize: 32}]
+      versions: [{version: 0, packedSize: 32}, {version: 9, packedSize: 32}]
     }
   }
 };
 
 // Legacy compatibility
-ash.orca.mojom.OrcaServicePtr = ash.orca.mojom.OrcaServiceRemote;
-ash.orca.mojom.OrcaServiceRequest = ash.orca.mojom.OrcaServicePendingReceiver;
+ash.orca.orca.mojom.mojom.OrcaServicePtr = ash.orca.orca.mojom.mojom.OrcaServiceRemote;
+ash.orca.orca.mojom.mojom.OrcaServiceRequest = ash.orca.orca.mojom.mojom.OrcaServicePendingReceiver;
 

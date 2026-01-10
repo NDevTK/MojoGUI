@@ -10,7 +10,7 @@ legion_internals.mojom = legion_internals.mojom || {};
 
 
 // Struct: LegionResponse
-legion_internals.mojom.LegionResponseSpec = {
+legion_internals.mojom.mojom.LegionResponseSpec = {
   $: {
     structSpec: {
       name: 'legion_internals.mojom.LegionResponse',
@@ -25,24 +25,24 @@ legion_internals.mojom.LegionResponseSpec = {
 };
 
 // Interface: LegionInternalsPageHandler
-legion_internals.mojom.LegionInternalsPageHandler = {};
+legion_internals.mojom.mojom.LegionInternalsPageHandler = {};
 
-legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver = class {
+legion_internals.mojom.mojom.LegionInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-legion_internals.mojom.LegionInternalsPageHandlerRemote = class {
+legion_internals.mojom.mojom.LegionInternalsPageHandlerRemote = class {
   static get $interfaceName() {
     return 'legion_internals.mojom.LegionInternalsPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver,
+      legion_internals.mojom.mojom.LegionInternalsPageHandlerPendingReceiver,
       handle);
-    this.$ = new legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new legion_internals.mojom.mojom.LegionInternalsPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemote = class {
   }
 };
 
-legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
+legion_internals.mojom.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +63,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec,
+      legion_internals.mojom.mojom.LegionInternalsPageHandler_Connect_ParamsSpec,
       null,
       [url, api_key]);
   }
@@ -72,7 +72,7 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec,
+      legion_internals.mojom.mojom.LegionInternalsPageHandler_Close_ParamsSpec,
       null,
       []);
   }
@@ -81,15 +81,15 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec,
-      legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec,
+      legion_internals.mojom.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec,
+      legion_internals.mojom.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec,
       [feature_name, request]);
   }
 
 };
 
-legion_internals.mojom.LegionInternalsPageHandler.getRemote = function() {
-  let remote = new legion_internals.mojom.LegionInternalsPageHandlerRemote();
+legion_internals.mojom.mojom.LegionInternalsPageHandler.getRemote = function() {
+  let remote = new legion_internals.mojom.mojom.LegionInternalsPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +99,7 @@ legion_internals.mojom.LegionInternalsPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
+legion_internals.mojom.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion_internals.mojom.LegionInternalsPageHandler.Connect_Params',
@@ -114,7 +114,7 @@ legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = {
 };
 
 // ParamsSpec for Close
-legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = {
+legion_internals.mojom.mojom.LegionInternalsPageHandler_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion_internals.mojom.LegionInternalsPageHandler.Close_Params',
@@ -127,7 +127,7 @@ legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = {
 };
 
 // ParamsSpec for SendRequest
-legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
+legion_internals.mojom.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion_internals.mojom.LegionInternalsPageHandler.SendRequest_Params',
@@ -141,7 +141,7 @@ legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
   }
 };
 
-legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec = {
+legion_internals.mojom.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'legion_internals.mojom.LegionInternalsPageHandler.SendRequest_ResponseParams',
@@ -155,6 +155,6 @@ legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec
 };
 
 // Legacy compatibility
-legion_internals.mojom.LegionInternalsPageHandlerPtr = legion_internals.mojom.LegionInternalsPageHandlerRemote;
-legion_internals.mojom.LegionInternalsPageHandlerRequest = legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver;
+legion_internals.mojom.mojom.LegionInternalsPageHandlerPtr = legion_internals.mojom.mojom.LegionInternalsPageHandlerRemote;
+legion_internals.mojom.mojom.LegionInternalsPageHandlerRequest = legion_internals.mojom.mojom.LegionInternalsPageHandlerPendingReceiver;
 

@@ -7,10 +7,12 @@
 // Module namespace
 var content_capture = content_capture || {};
 content_capture.mojom = content_capture.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: ContentCaptureData
-content_capture.mojom.ContentCaptureDataSpec = {
+content_capture.mojom.mojom.ContentCaptureDataSpec = {
   $: {
     structSpec: {
       name: 'content_capture.mojom.ContentCaptureData',

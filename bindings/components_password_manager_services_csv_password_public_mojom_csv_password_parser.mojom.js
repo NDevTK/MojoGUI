@@ -7,18 +7,19 @@
 // Module namespace
 var password_manager = password_manager || {};
 password_manager.mojom = password_manager.mojom || {};
+var url = url || {};
 
 
 // Enum: Status
-password_manager.mojom.Status = {
+password_manager.mojom.mojom.Status = {
   kOK: 0,
   kSyntaxError: 1,
   kSemanticError: 2,
 };
-password_manager.mojom.StatusSpec = { $: mojo.internal.Enum() };
+password_manager.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: CSVPasswordSequence
-password_manager.mojom.CSVPasswordSequenceSpec = {
+password_manager.mojom.mojom.CSVPasswordSequenceSpec = {
   $: {
     structSpec: {
       name: 'password_manager.mojom.CSVPasswordSequence',
@@ -32,7 +33,7 @@ password_manager.mojom.CSVPasswordSequenceSpec = {
 };
 
 // Struct: CSVPassword
-password_manager.mojom.CSVPasswordSpec = {
+password_manager.mojom.mojom.CSVPasswordSpec = {
   $: {
     structSpec: {
       name: 'password_manager.mojom.CSVPassword',
@@ -46,24 +47,24 @@ password_manager.mojom.CSVPasswordSpec = {
 };
 
 // Interface: CSVPasswordParser
-password_manager.mojom.CSVPasswordParser = {};
+password_manager.mojom.mojom.CSVPasswordParser = {};
 
-password_manager.mojom.CSVPasswordParserPendingReceiver = class {
+password_manager.mojom.mojom.CSVPasswordParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-password_manager.mojom.CSVPasswordParserRemote = class {
+password_manager.mojom.mojom.CSVPasswordParserRemote = class {
   static get $interfaceName() {
     return 'password_manager.mojom.CSVPasswordParser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      password_manager.mojom.CSVPasswordParserPendingReceiver,
+      password_manager.mojom.mojom.CSVPasswordParserPendingReceiver,
       handle);
-    this.$ = new password_manager.mojom.CSVPasswordParserRemoteCallHandler(this.proxy);
+    this.$ = new password_manager.mojom.mojom.CSVPasswordParserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -75,7 +76,7 @@ password_manager.mojom.CSVPasswordParserRemote = class {
   }
 };
 
-password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {
+password_manager.mojom.mojom.CSVPasswordParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -84,15 +85,15 @@ password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec,
-      password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec,
+      password_manager.mojom.mojom.CSVPasswordParser_ParseCSV_ParamsSpec,
+      password_manager.mojom.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec,
       [raw_csv]);
   }
 
 };
 
-password_manager.mojom.CSVPasswordParser.getRemote = function() {
-  let remote = new password_manager.mojom.CSVPasswordParserRemote();
+password_manager.mojom.mojom.CSVPasswordParser.getRemote = function() {
+  let remote = new password_manager.mojom.mojom.CSVPasswordParserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -102,7 +103,7 @@ password_manager.mojom.CSVPasswordParser.getRemote = function() {
 };
 
 // ParamsSpec for ParseCSV
-password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
+password_manager.mojom.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
   $: {
     structSpec: {
       name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_Params',
@@ -115,7 +116,7 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
   }
 };
 
-password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
+password_manager.mojom.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_ResponseParams',
@@ -129,6 +130,6 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-password_manager.mojom.CSVPasswordParserPtr = password_manager.mojom.CSVPasswordParserRemote;
-password_manager.mojom.CSVPasswordParserRequest = password_manager.mojom.CSVPasswordParserPendingReceiver;
+password_manager.mojom.mojom.CSVPasswordParserPtr = password_manager.mojom.mojom.CSVPasswordParserRemote;
+password_manager.mojom.mojom.CSVPasswordParserRequest = password_manager.mojom.mojom.CSVPasswordParserPendingReceiver;
 

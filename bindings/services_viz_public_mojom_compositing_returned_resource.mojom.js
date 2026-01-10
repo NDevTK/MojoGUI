@@ -7,10 +7,12 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: ReturnedResource
-viz.mojom.ReturnedResourceSpec = {
+viz.mojom.mojom.ReturnedResourceSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ReturnedResource',

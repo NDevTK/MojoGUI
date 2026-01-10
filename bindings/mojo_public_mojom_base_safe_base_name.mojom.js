@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: SafeBaseName
-mojo_base.mojom.SafeBaseNameSpec = {
+mojo_base.mojom.mojom.SafeBaseNameSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.SafeBaseName',

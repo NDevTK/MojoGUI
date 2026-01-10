@@ -10,7 +10,7 @@ optimization_guide_internals.mojom = optimization_guide_internals.mojom || {};
 
 
 // Struct: DownloadedModelInfo
-optimization_guide_internals.mojom.DownloadedModelInfoSpec = {
+optimization_guide_internals.mojom.mojom.DownloadedModelInfoSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.DownloadedModelInfo',
@@ -26,7 +26,7 @@ optimization_guide_internals.mojom.DownloadedModelInfoSpec = {
 };
 
 // Struct: LoggedClientIds
-optimization_guide_internals.mojom.LoggedClientIdsSpec = {
+optimization_guide_internals.mojom.mojom.LoggedClientIdsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.LoggedClientIds',
@@ -40,7 +40,7 @@ optimization_guide_internals.mojom.LoggedClientIdsSpec = {
 };
 
 // Struct: MqlsLog
-optimization_guide_internals.mojom.MqlsLogSpec = {
+optimization_guide_internals.mojom.mojom.MqlsLogSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.MqlsLog',
@@ -56,24 +56,24 @@ optimization_guide_internals.mojom.MqlsLogSpec = {
 };
 
 // Interface: PageHandlerFactory
-optimization_guide_internals.mojom.PageHandlerFactory = {};
+optimization_guide_internals.mojom.mojom.PageHandlerFactory = {};
 
-optimization_guide_internals.mojom.PageHandlerFactoryPendingReceiver = class {
+optimization_guide_internals.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-optimization_guide_internals.mojom.PageHandlerFactoryRemote = class {
+optimization_guide_internals.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'optimization_guide_internals.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      optimization_guide_internals.mojom.PageHandlerFactoryPendingReceiver,
+      optimization_guide_internals.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new optimization_guide_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -85,7 +85,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
+optimization_guide_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -94,7 +94,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      optimization_guide_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page]);
   }
@@ -103,8 +103,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec,
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec,
+      optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec,
+      optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec,
       []);
   }
 
@@ -112,8 +112,8 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec,
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec,
+      optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec,
+      optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec,
       []);
   }
 
@@ -121,15 +121,15 @@ optimization_guide_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec,
-      optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec,
+      optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec,
+      optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec,
       []);
   }
 
 };
 
-optimization_guide_internals.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new optimization_guide_internals.mojom.PageHandlerFactoryRemote();
+optimization_guide_internals.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new optimization_guide_internals.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -139,7 +139,7 @@ optimization_guide_internals.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+optimization_guide_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -153,7 +153,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSp
 };
 
 // ParamsSpec for RequestDownloadedModelsInfo
-optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec = {
+optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestDownloadedModelsInfo_Params',
@@ -165,7 +165,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInf
   }
 };
 
-optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec = {
+optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestDownloadedModelsInfo_ResponseParams',
@@ -179,7 +179,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInf
 };
 
 // ParamsSpec for RequestLoggedModelQualityClientIds
-optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec = {
+optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestLoggedModelQualityClientIds_Params',
@@ -191,7 +191,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityC
   }
 };
 
-optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec = {
+optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestLoggedModelQualityClientIds_ResponseParams',
@@ -205,7 +205,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityC
 };
 
 // ParamsSpec for RequestMqlsLogs
-optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec = {
+optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestMqlsLogs_Params',
@@ -217,7 +217,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec
   }
 };
 
-optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec = {
+optimization_guide_internals.mojom.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestMqlsLogs_ResponseParams',
@@ -231,29 +231,29 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponsePa
 };
 
 // Legacy compatibility
-optimization_guide_internals.mojom.PageHandlerFactoryPtr = optimization_guide_internals.mojom.PageHandlerFactoryRemote;
-optimization_guide_internals.mojom.PageHandlerFactoryRequest = optimization_guide_internals.mojom.PageHandlerFactoryPendingReceiver;
+optimization_guide_internals.mojom.mojom.PageHandlerFactoryPtr = optimization_guide_internals.mojom.mojom.PageHandlerFactoryRemote;
+optimization_guide_internals.mojom.mojom.PageHandlerFactoryRequest = optimization_guide_internals.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: Page
-optimization_guide_internals.mojom.Page = {};
+optimization_guide_internals.mojom.mojom.Page = {};
 
-optimization_guide_internals.mojom.PagePendingReceiver = class {
+optimization_guide_internals.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-optimization_guide_internals.mojom.PageRemote = class {
+optimization_guide_internals.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'optimization_guide_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      optimization_guide_internals.mojom.PagePendingReceiver,
+      optimization_guide_internals.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new optimization_guide_internals.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new optimization_guide_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -265,7 +265,7 @@ optimization_guide_internals.mojom.PageRemote = class {
   }
 };
 
-optimization_guide_internals.mojom.PageRemoteCallHandler = class {
+optimization_guide_internals.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -274,15 +274,15 @@ optimization_guide_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
+      optimization_guide_internals.mojom.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
       [event_time, log_source, source_file, source_line, message]);
   }
 
 };
 
-optimization_guide_internals.mojom.Page.getRemote = function() {
-  let remote = new optimization_guide_internals.mojom.PageRemote();
+optimization_guide_internals.mojom.mojom.Page.getRemote = function() {
+  let remote = new optimization_guide_internals.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -292,17 +292,17 @@ optimization_guide_internals.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnLogMessageAdded
-optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
+optimization_guide_internals.mojom.mojom.Page_OnLogMessageAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide_internals.mojom.Page.OnLogMessageAdded_Params',
       packedSize: 48,
       fields: [
         { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'log_source', packedOffset: 8, packedBitOffset: 0, type: optimization_guide_common.mojom.LogSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'source_file', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_line', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'log_source', packedOffset: 32, packedBitOffset: 0, type: optimization_guide_common.mojom.LogSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -310,6 +310,6 @@ optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
 };
 
 // Legacy compatibility
-optimization_guide_internals.mojom.PagePtr = optimization_guide_internals.mojom.PageRemote;
-optimization_guide_internals.mojom.PageRequest = optimization_guide_internals.mojom.PagePendingReceiver;
+optimization_guide_internals.mojom.mojom.PagePtr = optimization_guide_internals.mojom.mojom.PageRemote;
+optimization_guide_internals.mojom.mojom.PageRequest = optimization_guide_internals.mojom.mojom.PagePendingReceiver;
 

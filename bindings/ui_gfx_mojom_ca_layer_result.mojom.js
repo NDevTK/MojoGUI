@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Enum: CALayerResult
-gfx.mojom.CALayerResult = {
+gfx.mojom.mojom.CALayerResult = {
   kCALayerSuccess: 0,
   kCALayerFailedUnknown: 1,
   kCALayerFailedTextureNotCandidate: 2,
@@ -32,4 +32,4 @@ gfx.mojom.CALayerResult = {
   kCALayerFailedOverlayDisabled: 18,
   kCALayerFailedVideoCaptureEnabled: 19,
 };
-gfx.mojom.CALayerResultSpec = { $: mojo.internal.Enum() };
+gfx.mojom.mojom.CALayerResultSpec = { $: mojo.internal.Enum() };

@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: ByteCount
-mojo_base.mojom.ByteCountSpec = {
+mojo_base.mojom.mojom.ByteCountSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.ByteCount',

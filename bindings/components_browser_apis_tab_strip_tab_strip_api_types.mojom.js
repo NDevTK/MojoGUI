@@ -10,15 +10,15 @@ tabs_api.mojom = tabs_api.mojom || {};
 
 
 // Enum: Type
-tabs_api.mojom.Type = {
+tabs_api.mojom.mojom.Type = {
   kUnknown: 0,
   kContent: 1,
   kCollection: 2,
 };
-tabs_api.mojom.TypeSpec = { $: mojo.internal.Enum() };
+tabs_api.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: NodeId
-tabs_api.mojom.NodeIdSpec = {
+tabs_api.mojom.mojom.NodeIdSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.NodeId',
@@ -32,7 +32,7 @@ tabs_api.mojom.NodeIdSpec = {
 };
 
 // Struct: Position
-tabs_api.mojom.PositionSpec = {
+tabs_api.mojom.mojom.PositionSpec = {
   $: {
     structSpec: {
       name: 'tabs_api.mojom.Position',

@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: PictureInPictureWindowOptions
-blink.mojom.PictureInPictureWindowOptionsSpec = {
+blink.mojom.mojom.PictureInPictureWindowOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PictureInPictureWindowOptions',

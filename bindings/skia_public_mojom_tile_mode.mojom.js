@@ -10,10 +10,10 @@ skia.mojom = skia.mojom || {};
 
 
 // Enum: TileMode
-skia.mojom.TileMode = {
+skia.mojom.mojom.TileMode = {
   CLAMP: 0,
   REPEAT: 1,
   MIRROR: 2,
   DECAL: 3,
 };
-skia.mojom.TileModeSpec = { $: mojo.internal.Enum() };
+skia.mojom.mojom.TileModeSpec = { $: mojo.internal.Enum() };

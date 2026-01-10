@@ -10,24 +10,24 @@ file_suggestion.mojom = file_suggestion.mojom || {};
 
 
 // Interface: DriveSuggestionHandler
-file_suggestion.mojom.DriveSuggestionHandler = {};
+file_suggestion.mojom.mojom.DriveSuggestionHandler = {};
 
-file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver = class {
+file_suggestion.mojom.mojom.DriveSuggestionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-file_suggestion.mojom.DriveSuggestionHandlerRemote = class {
+file_suggestion.mojom.mojom.DriveSuggestionHandlerRemote = class {
   static get $interfaceName() {
     return 'file_suggestion.mojom.DriveSuggestionHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver,
+      file_suggestion.mojom.mojom.DriveSuggestionHandlerPendingReceiver,
       handle);
-    this.$ = new file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler(this.proxy);
+    this.$ = new file_suggestion.mojom.mojom.DriveSuggestionHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ file_suggestion.mojom.DriveSuggestionHandlerRemote = class {
   }
 };
 
-file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
+file_suggestion.mojom.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec,
-      file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec,
+      file_suggestion.mojom.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec,
+      file_suggestion.mojom.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec,
+      file_suggestion.mojom.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec,
       null,
       []);
   }
@@ -66,15 +66,15 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec,
+      file_suggestion.mojom.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec,
       null,
       []);
   }
 
 };
 
-file_suggestion.mojom.DriveSuggestionHandler.getRemote = function() {
-  let remote = new file_suggestion.mojom.DriveSuggestionHandlerRemote();
+file_suggestion.mojom.mojom.DriveSuggestionHandler.getRemote = function() {
+  let remote = new file_suggestion.mojom.mojom.DriveSuggestionHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ file_suggestion.mojom.DriveSuggestionHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetFiles
-file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
+file_suggestion.mojom.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.DriveSuggestionHandler.GetFiles_Params',
@@ -96,7 +96,7 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
   }
 };
 
-file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
+file_suggestion.mojom.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.DriveSuggestionHandler.GetFiles_ResponseParams',
@@ -110,7 +110,7 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DismissModule
-file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
+file_suggestion.mojom.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.DriveSuggestionHandler.DismissModule_Params',
@@ -123,7 +123,7 @@ file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = {
 };
 
 // ParamsSpec for RestoreModule
-file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
+file_suggestion.mojom.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.DriveSuggestionHandler.RestoreModule_Params',
@@ -136,6 +136,6 @@ file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = {
 };
 
 // Legacy compatibility
-file_suggestion.mojom.DriveSuggestionHandlerPtr = file_suggestion.mojom.DriveSuggestionHandlerRemote;
-file_suggestion.mojom.DriveSuggestionHandlerRequest = file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver;
+file_suggestion.mojom.mojom.DriveSuggestionHandlerPtr = file_suggestion.mojom.mojom.DriveSuggestionHandlerRemote;
+file_suggestion.mojom.mojom.DriveSuggestionHandlerRequest = file_suggestion.mojom.mojom.DriveSuggestionHandlerPendingReceiver;
 

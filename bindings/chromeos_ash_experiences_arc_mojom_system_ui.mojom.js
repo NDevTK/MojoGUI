@@ -10,34 +10,34 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ThemeStyleType
-arc.mojom.ThemeStyleType = {
+arc.mojom.mojom.ThemeStyleType = {
   VIBRANT: 0,
   EXPRESSIVE: 1,
   SPRITZ: 2,
   RAINBOW: 3,
   FRUIT_SALAD: 4,
 };
-arc.mojom.ThemeStyleTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ThemeStyleTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: SystemUiInstance
-arc.mojom.SystemUiInstance = {};
+arc.mojom.mojom.SystemUiInstance = {};
 
-arc.mojom.SystemUiInstancePendingReceiver = class {
+arc.mojom.mojom.SystemUiInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.SystemUiInstanceRemote = class {
+arc.mojom.mojom.SystemUiInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.SystemUiInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.SystemUiInstancePendingReceiver,
+      arc.mojom.mojom.SystemUiInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.SystemUiInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.SystemUiInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -49,7 +49,7 @@ arc.mojom.SystemUiInstanceRemote = class {
   }
 };
 
-arc.mojom.SystemUiInstanceRemoteCallHandler = class {
+arc.mojom.mojom.SystemUiInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -58,7 +58,7 @@ arc.mojom.SystemUiInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec,
+      arc.mojom.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec,
       null,
       [active]);
   }
@@ -67,15 +67,15 @@ arc.mojom.SystemUiInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec,
+      arc.mojom.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec,
       null,
       [source_color, theme_style]);
   }
 
 };
 
-arc.mojom.SystemUiInstance.getRemote = function() {
-  let remote = new arc.mojom.SystemUiInstanceRemote();
+arc.mojom.mojom.SystemUiInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.SystemUiInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -85,7 +85,7 @@ arc.mojom.SystemUiInstance.getRemote = function() {
 };
 
 // ParamsSpec for SetDarkThemeStatus
-arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec = {
+arc.mojom.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SystemUiInstance.SetDarkThemeStatus_Params',
@@ -99,7 +99,7 @@ arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec = {
 };
 
 // ParamsSpec for SetOverlayColor
-arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec = {
+arc.mojom.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SystemUiInstance.SetOverlayColor_Params',
@@ -114,6 +114,6 @@ arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.SystemUiInstancePtr = arc.mojom.SystemUiInstanceRemote;
-arc.mojom.SystemUiInstanceRequest = arc.mojom.SystemUiInstancePendingReceiver;
+arc.mojom.mojom.SystemUiInstancePtr = arc.mojom.mojom.SystemUiInstanceRemote;
+arc.mojom.mojom.SystemUiInstanceRequest = arc.mojom.mojom.SystemUiInstancePendingReceiver;
 

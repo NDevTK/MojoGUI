@@ -10,24 +10,24 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Interface: SharedImagePoolClientInterface
-gpu.mojom.SharedImagePoolClientInterface = {};
+gpu.mojom.mojom.SharedImagePoolClientInterface = {};
 
-gpu.mojom.SharedImagePoolClientInterfacePendingReceiver = class {
+gpu.mojom.mojom.SharedImagePoolClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gpu.mojom.SharedImagePoolClientInterfaceRemote = class {
+gpu.mojom.mojom.SharedImagePoolClientInterfaceRemote = class {
   static get $interfaceName() {
     return 'gpu.mojom.SharedImagePoolClientInterface';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gpu.mojom.SharedImagePoolClientInterfacePendingReceiver,
+      gpu.mojom.mojom.SharedImagePoolClientInterfacePendingReceiver,
       handle);
-    this.$ = new gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler(this.proxy);
+    this.$ = new gpu.mojom.mojom.SharedImagePoolClientInterfaceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ gpu.mojom.SharedImagePoolClientInterfaceRemote = class {
   }
 };
 
-gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler = class {
+gpu.mojom.mojom.SharedImagePoolClientInterfaceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec,
+      gpu.mojom.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec,
       null,
       []);
   }
 
 };
 
-gpu.mojom.SharedImagePoolClientInterface.getRemote = function() {
-  let remote = new gpu.mojom.SharedImagePoolClientInterfaceRemote();
+gpu.mojom.mojom.SharedImagePoolClientInterface.getRemote = function() {
+  let remote = new gpu.mojom.mojom.SharedImagePoolClientInterfaceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ gpu.mojom.SharedImagePoolClientInterface.getRemote = function() {
 };
 
 // ParamsSpec for OnClearPool
-gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = {
+gpu.mojom.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SharedImagePoolClientInterface.OnClearPool_Params',
@@ -79,6 +79,6 @@ gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = {
 };
 
 // Legacy compatibility
-gpu.mojom.SharedImagePoolClientInterfacePtr = gpu.mojom.SharedImagePoolClientInterfaceRemote;
-gpu.mojom.SharedImagePoolClientInterfaceRequest = gpu.mojom.SharedImagePoolClientInterfacePendingReceiver;
+gpu.mojom.mojom.SharedImagePoolClientInterfacePtr = gpu.mojom.mojom.SharedImagePoolClientInterfaceRemote;
+gpu.mojom.mojom.SharedImagePoolClientInterfaceRequest = gpu.mojom.mojom.SharedImagePoolClientInterfacePendingReceiver;
 

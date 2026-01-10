@@ -10,17 +10,17 @@ network.mojom = network.mojom || {};
 
 
 // Enum: RequestMode
-network.mojom.RequestMode = {
+network.mojom.mojom.RequestMode = {
   kSameOrigin: 0,
   kNoCors: 1,
   kCors: 2,
   kCorsWithForcedPreflight: 3,
   kNavigate: 4,
 };
-network.mojom.RequestModeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.RequestModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RequestDestination
-network.mojom.RequestDestination = {
+network.mojom.mojom.RequestDestination = {
   kEmpty: 0,
   kAudio: 1,
   kAudioWorklet: 2,
@@ -51,27 +51,27 @@ network.mojom.RequestDestination = {
   kSharedStorageWorklet: 27,
   kEmailVerification: 28,
 };
-network.mojom.RequestDestinationSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.RequestDestinationSpec = { $: mojo.internal.Enum() };
 
 // Enum: RedirectMode
-network.mojom.RedirectMode = {
+network.mojom.mojom.RedirectMode = {
   kFollow: 0,
   kError: 1,
   kManual: 2,
 };
-network.mojom.RedirectModeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.RedirectModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CredentialsMode
-network.mojom.CredentialsMode = {
+network.mojom.mojom.CredentialsMode = {
   kOmit: 0,
   kSameOrigin: 1,
   kInclude: 2,
   kOmitBug_775438_Workaround: 3,
 };
-network.mojom.CredentialsModeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.CredentialsModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FetchResponseType
-network.mojom.FetchResponseType = {
+network.mojom.mojom.FetchResponseType = {
   kBasic: 0,
   kCors: 1,
   kDefault: 2,
@@ -79,13 +79,13 @@ network.mojom.FetchResponseType = {
   kOpaque: 4,
   kOpaqueRedirect: 5,
 };
-network.mojom.FetchResponseTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.FetchResponseTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FetchResponseSource
-network.mojom.FetchResponseSource = {
+network.mojom.mojom.FetchResponseSource = {
   kUnspecified: 0,
   kNetwork: 1,
   kHttpCache: 2,
   kCacheStorage: 3,
 };
-network.mojom.FetchResponseSourceSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.FetchResponseSourceSpec = { $: mojo.internal.Enum() };

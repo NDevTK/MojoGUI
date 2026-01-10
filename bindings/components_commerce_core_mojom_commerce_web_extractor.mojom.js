@@ -10,24 +10,24 @@ commerce_web_extractor.mojom = commerce_web_extractor.mojom || {};
 
 
 // Interface: CommerceWebExtractor
-commerce_web_extractor.mojom.CommerceWebExtractor = {};
+commerce_web_extractor.mojom.mojom.CommerceWebExtractor = {};
 
-commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver = class {
+commerce_web_extractor.mojom.mojom.CommerceWebExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce_web_extractor.mojom.CommerceWebExtractorRemote = class {
+commerce_web_extractor.mojom.mojom.CommerceWebExtractorRemote = class {
   static get $interfaceName() {
     return 'commerce_web_extractor.mojom.CommerceWebExtractor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver,
+      commerce_web_extractor.mojom.mojom.CommerceWebExtractorPendingReceiver,
       handle);
-    this.$ = new commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler(this.proxy);
+    this.$ = new commerce_web_extractor.mojom.mojom.CommerceWebExtractorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ commerce_web_extractor.mojom.CommerceWebExtractorRemote = class {
   }
 };
 
-commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler = class {
+commerce_web_extractor.mojom.mojom.CommerceWebExtractorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec,
-      commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec,
+      commerce_web_extractor.mojom.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec,
+      commerce_web_extractor.mojom.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec,
       []);
   }
 
 };
 
-commerce_web_extractor.mojom.CommerceWebExtractor.getRemote = function() {
-  let remote = new commerce_web_extractor.mojom.CommerceWebExtractorRemote();
+commerce_web_extractor.mojom.mojom.CommerceWebExtractor.getRemote = function() {
+  let remote = new commerce_web_extractor.mojom.mojom.CommerceWebExtractorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ commerce_web_extractor.mojom.CommerceWebExtractor.getRemote = function() {
 };
 
 // ParamsSpec for ExtractMetaInfo
-commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = {
+commerce_web_extractor.mojom.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce_web_extractor.mojom.CommerceWebExtractor.ExtractMetaInfo_Params',
@@ -78,7 +78,7 @@ commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = {
   }
 };
 
-commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec = {
+commerce_web_extractor.mojom.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce_web_extractor.mojom.CommerceWebExtractor.ExtractMetaInfo_ResponseParams',
@@ -92,6 +92,6 @@ commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParams
 };
 
 // Legacy compatibility
-commerce_web_extractor.mojom.CommerceWebExtractorPtr = commerce_web_extractor.mojom.CommerceWebExtractorRemote;
-commerce_web_extractor.mojom.CommerceWebExtractorRequest = commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver;
+commerce_web_extractor.mojom.mojom.CommerceWebExtractorPtr = commerce_web_extractor.mojom.mojom.CommerceWebExtractorRemote;
+commerce_web_extractor.mojom.mojom.CommerceWebExtractorRequest = commerce_web_extractor.mojom.mojom.CommerceWebExtractorPendingReceiver;
 

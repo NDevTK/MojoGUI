@@ -7,27 +7,29 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Interface: ResourceLoadInfoNotifier
-blink.mojom.ResourceLoadInfoNotifier = {};
+blink.mojom.mojom.ResourceLoadInfoNotifier = {};
 
-blink.mojom.ResourceLoadInfoNotifierPendingReceiver = class {
+blink.mojom.mojom.ResourceLoadInfoNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ResourceLoadInfoNotifierRemote = class {
+blink.mojom.mojom.ResourceLoadInfoNotifierRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ResourceLoadInfoNotifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ResourceLoadInfoNotifierPendingReceiver,
+      blink.mojom.mojom.ResourceLoadInfoNotifierPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ResourceLoadInfoNotifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ blink.mojom.ResourceLoadInfoNotifierRemote = class {
   }
 };
 
-blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
+blink.mojom.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +50,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec,
+      blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +59,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec,
+      blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec,
       null,
       [redirect_info, redirect_response]);
   }
@@ -66,7 +68,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec,
+      blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec,
       null,
       [request_id, final_response_url, head, request_destination, is_ad_resource]);
   }
@@ -75,7 +77,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec,
+      blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec,
       null,
       [request_id, transfer_size_diff]);
   }
@@ -84,7 +86,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec,
+      blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec,
       null,
       [resource_load_info, status]);
   }
@@ -93,7 +95,7 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec,
+      blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec,
       null,
       [request_id]);
   }
@@ -102,15 +104,15 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec,
+      blink.mojom.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec,
       null,
       [pending_resource_load_info_notifier]);
   }
 
 };
 
-blink.mojom.ResourceLoadInfoNotifier.getRemote = function() {
-  let remote = new blink.mojom.ResourceLoadInfoNotifierRemote();
+blink.mojom.mojom.ResourceLoadInfoNotifier.getRemote = function() {
+  let remote = new blink.mojom.mojom.ResourceLoadInfoNotifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -120,7 +122,7 @@ blink.mojom.ResourceLoadInfoNotifier.getRemote = function() {
 };
 
 // ParamsSpec for NotifyUpdateUserGestureCarryoverInfo
-blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec = {
+blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyUpdateUserGestureCarryoverInfo_Params',
@@ -133,7 +135,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_Params
 };
 
 // ParamsSpec for NotifyResourceRedirectReceived
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec = {
+blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceRedirectReceived_Params',
@@ -148,7 +150,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec =
 };
 
 // ParamsSpec for NotifyResourceResponseReceived
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec = {
+blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceResponseReceived_Params',
@@ -166,7 +168,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec =
 };
 
 // ParamsSpec for NotifyResourceTransferSizeUpdated
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec = {
+blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceTransferSizeUpdated_Params',
@@ -181,7 +183,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpe
 };
 
 // ParamsSpec for NotifyResourceLoadCompleted
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec = {
+blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceLoadCompleted_Params',
@@ -196,7 +198,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyResourceLoadCanceled
-blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec = {
+blink.mojom.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfoNotifier.NotifyResourceLoadCanceled_Params',
@@ -210,7 +212,7 @@ blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec = {
 };
 
 // ParamsSpec for Clone
-blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = {
+blink.mojom.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ResourceLoadInfoNotifier.Clone_Params',
@@ -224,6 +226,6 @@ blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ResourceLoadInfoNotifierPtr = blink.mojom.ResourceLoadInfoNotifierRemote;
-blink.mojom.ResourceLoadInfoNotifierRequest = blink.mojom.ResourceLoadInfoNotifierPendingReceiver;
+blink.mojom.mojom.ResourceLoadInfoNotifierPtr = blink.mojom.mojom.ResourceLoadInfoNotifierRemote;
+blink.mojom.mojom.ResourceLoadInfoNotifierRequest = blink.mojom.mojom.ResourceLoadInfoNotifierPendingReceiver;
 

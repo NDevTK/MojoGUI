@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: ProtectedBufferManager
-arc.mojom.ProtectedBufferManager = {};
+arc.mojom.mojom.ProtectedBufferManager = {};
 
-arc.mojom.ProtectedBufferManagerPendingReceiver = class {
+arc.mojom.mojom.ProtectedBufferManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ProtectedBufferManagerRemote = class {
+arc.mojom.mojom.ProtectedBufferManagerRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ProtectedBufferManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ProtectedBufferManagerPendingReceiver,
+      arc.mojom.mojom.ProtectedBufferManagerPendingReceiver,
       handle);
-    this.$ = new arc.mojom.ProtectedBufferManagerRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ProtectedBufferManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.ProtectedBufferManagerRemote = class {
   }
 };
 
-arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
+arc.mojom.mojom.ProtectedBufferManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec,
-      arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
+      arc.mojom.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec,
+      arc.mojom.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
       [dummy_handle]);
   }
 
@@ -57,8 +57,8 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec,
-      arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
+      arc.mojom.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec,
+      arc.mojom.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
       [dummy_handle]);
   }
 
@@ -66,8 +66,8 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec,
-      arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec,
+      arc.mojom.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec,
+      arc.mojom.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec,
       [dummy_handle]);
   }
 
@@ -75,15 +75,15 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec,
-      arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec,
+      arc.mojom.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec,
+      arc.mojom.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec,
       [dummy_handle]);
   }
 
 };
 
-arc.mojom.ProtectedBufferManager.getRemote = function() {
-  let remote = new arc.mojom.ProtectedBufferManagerRemote();
+arc.mojom.mojom.ProtectedBufferManager.getRemote = function() {
+  let remote = new arc.mojom.mojom.ProtectedBufferManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +93,7 @@ arc.mojom.ProtectedBufferManager.getRemote = function() {
 };
 
 // ParamsSpec for DeprecatedGetProtectedSharedMemoryFromHandle
-arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec = {
+arc.mojom.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProtectedBufferManager.DeprecatedGetProtectedSharedMemoryFromHandle_Params',
@@ -106,7 +106,7 @@ arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_Pa
   }
 };
 
-arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec = {
+arc.mojom.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProtectedBufferManager.DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParams',
@@ -120,7 +120,7 @@ arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_Re
 };
 
 // ParamsSpec for GetProtectedSharedMemoryFromHandle
-arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec = {
+arc.mojom.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProtectedBufferManager.GetProtectedSharedMemoryFromHandle_Params',
@@ -133,7 +133,7 @@ arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec =
   }
 };
 
-arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec = {
+arc.mojom.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProtectedBufferManager.GetProtectedSharedMemoryFromHandle_ResponseParams',
@@ -147,7 +147,7 @@ arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponsePara
 };
 
 // ParamsSpec for GetProtectedNativePixmapHandleFromHandle
-arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec = {
+arc.mojom.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProtectedBufferManager.GetProtectedNativePixmapHandleFromHandle_Params',
@@ -160,7 +160,7 @@ arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_Params
   }
 };
 
-arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec = {
+arc.mojom.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProtectedBufferManager.GetProtectedNativePixmapHandleFromHandle_ResponseParams',
@@ -174,7 +174,7 @@ arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_Respon
 };
 
 // ParamsSpec for IsProtectedNativePixmapHandle
-arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec = {
+arc.mojom.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProtectedBufferManager.IsProtectedNativePixmapHandle_Params',
@@ -187,7 +187,7 @@ arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec = {
   }
 };
 
-arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec = {
+arc.mojom.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProtectedBufferManager.IsProtectedNativePixmapHandle_ResponseParams',
@@ -201,6 +201,6 @@ arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpe
 };
 
 // Legacy compatibility
-arc.mojom.ProtectedBufferManagerPtr = arc.mojom.ProtectedBufferManagerRemote;
-arc.mojom.ProtectedBufferManagerRequest = arc.mojom.ProtectedBufferManagerPendingReceiver;
+arc.mojom.mojom.ProtectedBufferManagerPtr = arc.mojom.mojom.ProtectedBufferManagerRemote;
+arc.mojom.mojom.ProtectedBufferManagerRequest = arc.mojom.mojom.ProtectedBufferManagerPendingReceiver;
 

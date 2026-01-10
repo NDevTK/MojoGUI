@@ -7,17 +7,19 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Struct: OriginTrialFeatureState
-blink.mojom.OriginTrialFeatureStateSpec = {
+blink.mojom.mojom.OriginTrialFeatureStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OriginTrialFeatureState',
       packedSize: 24,
       fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'tokens', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -25,24 +27,24 @@ blink.mojom.OriginTrialFeatureStateSpec = {
 };
 
 // Interface: OriginTrialStateHost
-blink.mojom.OriginTrialStateHost = {};
+blink.mojom.mojom.OriginTrialStateHost = {};
 
-blink.mojom.OriginTrialStateHostPendingReceiver = class {
+blink.mojom.mojom.OriginTrialStateHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.OriginTrialStateHostRemote = class {
+blink.mojom.mojom.OriginTrialStateHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.OriginTrialStateHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.OriginTrialStateHostPendingReceiver,
+      blink.mojom.mojom.OriginTrialStateHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.OriginTrialStateHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.OriginTrialStateHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +56,7 @@ blink.mojom.OriginTrialStateHostRemote = class {
   }
 };
 
-blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
+blink.mojom.mojom.OriginTrialStateHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +65,7 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec,
+      blink.mojom.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec,
       null,
       [origin_trial_features]);
   }
@@ -72,15 +74,15 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec,
+      blink.mojom.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec,
       null,
       [token, script_origins]);
   }
 
 };
 
-blink.mojom.OriginTrialStateHost.getRemote = function() {
-  let remote = new blink.mojom.OriginTrialStateHostRemote();
+blink.mojom.mojom.OriginTrialStateHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.OriginTrialStateHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +92,7 @@ blink.mojom.OriginTrialStateHost.getRemote = function() {
 };
 
 // ParamsSpec for ApplyFeatureDiffForOriginTrial
-blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
+blink.mojom.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OriginTrialStateHost.ApplyFeatureDiffForOriginTrial_Params',
@@ -104,7 +106,7 @@ blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
 };
 
 // ParamsSpec for EnablePersistentTrial
-blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
+blink.mojom.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OriginTrialStateHost.EnablePersistentTrial_Params',
@@ -119,6 +121,6 @@ blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.OriginTrialStateHostPtr = blink.mojom.OriginTrialStateHostRemote;
-blink.mojom.OriginTrialStateHostRequest = blink.mojom.OriginTrialStateHostPendingReceiver;
+blink.mojom.mojom.OriginTrialStateHostPtr = blink.mojom.mojom.OriginTrialStateHostRemote;
+blink.mojom.mojom.OriginTrialStateHostRequest = blink.mojom.mojom.OriginTrialStateHostPendingReceiver;
 

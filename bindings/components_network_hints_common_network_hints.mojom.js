@@ -7,27 +7,28 @@
 // Module namespace
 var network_hints = network_hints || {};
 network_hints.mojom = network_hints.mojom || {};
+var url = url || {};
 
 
 // Interface: NetworkHintsHandler
-network_hints.mojom.NetworkHintsHandler = {};
+network_hints.mojom.mojom.NetworkHintsHandler = {};
 
-network_hints.mojom.NetworkHintsHandlerPendingReceiver = class {
+network_hints.mojom.mojom.NetworkHintsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network_hints.mojom.NetworkHintsHandlerRemote = class {
+network_hints.mojom.mojom.NetworkHintsHandlerRemote = class {
   static get $interfaceName() {
     return 'network_hints.mojom.NetworkHintsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network_hints.mojom.NetworkHintsHandlerPendingReceiver,
+      network_hints.mojom.mojom.NetworkHintsHandlerPendingReceiver,
       handle);
-    this.$ = new network_hints.mojom.NetworkHintsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new network_hints.mojom.mojom.NetworkHintsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ network_hints.mojom.NetworkHintsHandlerRemote = class {
   }
 };
 
-network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
+network_hints.mojom.mojom.NetworkHintsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +49,7 @@ network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec,
+      network_hints.mojom.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec,
       null,
       [url_list]);
   }
@@ -57,15 +58,15 @@ network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec,
+      network_hints.mojom.mojom.NetworkHintsHandler_Preconnect_ParamsSpec,
       null,
       [url, allow_credentials]);
   }
 
 };
 
-network_hints.mojom.NetworkHintsHandler.getRemote = function() {
-  let remote = new network_hints.mojom.NetworkHintsHandlerRemote();
+network_hints.mojom.mojom.NetworkHintsHandler.getRemote = function() {
+  let remote = new network_hints.mojom.mojom.NetworkHintsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +76,7 @@ network_hints.mojom.NetworkHintsHandler.getRemote = function() {
 };
 
 // ParamsSpec for PrefetchDNS
-network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = {
+network_hints.mojom.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network_hints.mojom.NetworkHintsHandler.PrefetchDNS_Params',
@@ -89,7 +90,7 @@ network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = {
 };
 
 // ParamsSpec for Preconnect
-network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
+network_hints.mojom.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network_hints.mojom.NetworkHintsHandler.Preconnect_Params',
@@ -104,6 +105,6 @@ network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = {
 };
 
 // Legacy compatibility
-network_hints.mojom.NetworkHintsHandlerPtr = network_hints.mojom.NetworkHintsHandlerRemote;
-network_hints.mojom.NetworkHintsHandlerRequest = network_hints.mojom.NetworkHintsHandlerPendingReceiver;
+network_hints.mojom.mojom.NetworkHintsHandlerPtr = network_hints.mojom.mojom.NetworkHintsHandlerRemote;
+network_hints.mojom.mojom.NetworkHintsHandlerRequest = network_hints.mojom.mojom.NetworkHintsHandlerPendingReceiver;
 

@@ -7,28 +7,28 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
-chromeos.cdm.mojom = chromeos.cdm.mojom || {};
+chromeos.cdm.cdm.mojom = chromeos.cdm.cdm.mojom || {};
 
 
 // Interface: CdmStorage
-chromeos.cdm.mojom.CdmStorage = {};
+chromeos.cdm.cdm.mojom.mojom.CdmStorage = {};
 
-chromeos.cdm.mojom.CdmStoragePendingReceiver = class {
+chromeos.cdm.cdm.mojom.mojom.CdmStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cdm.mojom.CdmStorageRemote = class {
+chromeos.cdm.cdm.mojom.mojom.CdmStorageRemote = class {
   static get $interfaceName() {
     return 'chromeos.cdm.mojom.CdmStorage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cdm.mojom.CdmStoragePendingReceiver,
+      chromeos.cdm.cdm.mojom.mojom.CdmStoragePendingReceiver,
       handle);
-    this.$ = new chromeos.cdm.mojom.CdmStorageRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cdm.cdm.mojom.mojom.CdmStorageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ chromeos.cdm.mojom.CdmStorageRemote = class {
   }
 };
 
-chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
+chromeos.cdm.cdm.mojom.mojom.CdmStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +49,8 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec,
-      chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_Read_ParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_Read_ResponseParamsSpec,
       [file_name]);
   }
 
@@ -58,8 +58,8 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec,
-      chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_Write_ParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_Write_ResponseParamsSpec,
       [file_name, data]);
   }
 
@@ -67,8 +67,8 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec,
-      chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_Exists_ParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_Exists_ResponseParamsSpec,
       [file_name]);
   }
 
@@ -76,8 +76,8 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec,
-      chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_GetSize_ParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_GetSize_ResponseParamsSpec,
       [file_name]);
   }
 
@@ -85,15 +85,15 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec,
-      chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_Remove_ParamsSpec,
+      chromeos.cdm.cdm.mojom.mojom.CdmStorage_Remove_ResponseParamsSpec,
       [file_name]);
   }
 
 };
 
-chromeos.cdm.mojom.CdmStorage.getRemote = function() {
-  let remote = new chromeos.cdm.mojom.CdmStorageRemote();
+chromeos.cdm.cdm.mojom.mojom.CdmStorage.getRemote = function() {
+  let remote = new chromeos.cdm.cdm.mojom.mojom.CdmStorageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -103,7 +103,7 @@ chromeos.cdm.mojom.CdmStorage.getRemote = function() {
 };
 
 // ParamsSpec for Read
-chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_Read_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.Read_Params',
@@ -116,14 +116,14 @@ chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec = {
   }
 };
 
-chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.Read_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -131,7 +131,7 @@ chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Write
-chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_Write_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.Write_Params',
@@ -145,7 +145,7 @@ chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec = {
   }
 };
 
-chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.Write_ResponseParams',
@@ -159,7 +159,7 @@ chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Exists
-chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_Exists_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.Exists_Params',
@@ -172,7 +172,7 @@ chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec = {
   }
 };
 
-chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_Exists_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.Exists_ResponseParams',
@@ -186,7 +186,7 @@ chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSize
-chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_GetSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.GetSize_Params',
@@ -199,14 +199,14 @@ chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec = {
   }
 };
 
-chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_GetSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.GetSize_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -214,7 +214,7 @@ chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Remove
-chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_Remove_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.Remove_Params',
@@ -227,7 +227,7 @@ chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec = {
   }
 };
 
-chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec = {
+chromeos.cdm.cdm.mojom.mojom.CdmStorage_Remove_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmStorage.Remove_ResponseParams',
@@ -241,6 +241,6 @@ chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.cdm.mojom.CdmStoragePtr = chromeos.cdm.mojom.CdmStorageRemote;
-chromeos.cdm.mojom.CdmStorageRequest = chromeos.cdm.mojom.CdmStoragePendingReceiver;
+chromeos.cdm.cdm.mojom.mojom.CdmStoragePtr = chromeos.cdm.cdm.mojom.mojom.CdmStorageRemote;
+chromeos.cdm.cdm.mojom.mojom.CdmStorageRequest = chromeos.cdm.cdm.mojom.mojom.CdmStoragePendingReceiver;
 

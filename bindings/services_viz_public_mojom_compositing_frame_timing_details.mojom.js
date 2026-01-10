@@ -7,10 +7,14 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: FrameTimingDetails
-viz.mojom.FrameTimingDetailsSpec = {
+viz.mojom.mojom.FrameTimingDetailsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameTimingDetails',

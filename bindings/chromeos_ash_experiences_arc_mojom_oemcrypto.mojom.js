@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: OemCryptoResult
-arc.mojom.OemCryptoResult = {
+arc.mojom.mojom.OemCryptoResult = {
   SUCCESS: 0,
   ERROR_INIT_FAILED: 1,
   ERROR_TERMINATE_FAILED: 2,
@@ -52,48 +52,48 @@ arc.mojom.OemCryptoResult = {
   ERROR_INSUFFICIENT_HDCP: 38,
   ERROR_BUFFER_TOO_LARGE: 39,
 };
-arc.mojom.OemCryptoResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.OemCryptoResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: OemCryptoCipherMode
-arc.mojom.OemCryptoCipherMode = {
+arc.mojom.mojom.OemCryptoCipherMode = {
   CIPHER_MODE_CTR: 0,
   CIPHER_MODE_CBC: 1,
 };
-arc.mojom.OemCryptoCipherModeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.OemCryptoCipherModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OemCryptoLicenseType
-arc.mojom.OemCryptoLicenseType = {
+arc.mojom.mojom.OemCryptoLicenseType = {
   CONTENT_LICENSE: 0,
   ENTITLEMENT_LICENSE: 1,
 };
-arc.mojom.OemCryptoLicenseTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.OemCryptoLicenseTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OemCryptoAlgorithm
-arc.mojom.OemCryptoAlgorithm = {
+arc.mojom.mojom.OemCryptoAlgorithm = {
   AES_CBC_128_NO_PADDING: 0,
   HMAC_SHA265: 1,
 };
-arc.mojom.OemCryptoAlgorithmSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.OemCryptoAlgorithmSpec = { $: mojo.internal.Enum() };
 
 // Enum: OemCryptoUsageEntryStatus
-arc.mojom.OemCryptoUsageEntryStatus = {
+arc.mojom.mojom.OemCryptoUsageEntryStatus = {
   UNUSED: 0,
   ACTIVE: 1,
   INACTIVE: 2,
   INACTIVE_USED: 3,
   INACTIVE_UNUSED: 4,
 };
-arc.mojom.OemCryptoUsageEntryStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.OemCryptoUsageEntryStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: OemCryptoRsaPaddingScheme
-arc.mojom.OemCryptoRsaPaddingScheme = {
+arc.mojom.mojom.OemCryptoRsaPaddingScheme = {
   SIGN_RSASSA_PSS: 0,
   SIGN_PKCS1_BLOCK1: 1,
 };
-arc.mojom.OemCryptoRsaPaddingSchemeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.OemCryptoRsaPaddingSchemeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OemCryptoHdcpCapability
-arc.mojom.OemCryptoHdcpCapability = {
+arc.mojom.mojom.OemCryptoHdcpCapability = {
   HDCP_NONE: 0,
   HDCP_V1: 1,
   HDCP_V2: 2,
@@ -102,26 +102,26 @@ arc.mojom.OemCryptoHdcpCapability = {
   HDCP_V2_3: 5,
   HDCP_NO_DIGITAL_OUTPUT: 6,
 };
-arc.mojom.OemCryptoHdcpCapabilitySpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.OemCryptoHdcpCapabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: OemCryptoProvisioningMethod
-arc.mojom.OemCryptoProvisioningMethod = {
+arc.mojom.mojom.OemCryptoProvisioningMethod = {
   PROVISIONING_ERROR: 0,
   DRM_CERTIFICATE: 1,
   KEYBOX: 2,
   OEM_CERTIFICATE: 3,
 };
-arc.mojom.OemCryptoProvisioningMethodSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.OemCryptoProvisioningMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: OemCryptoPrivateKey
-arc.mojom.OemCryptoPrivateKey = {
+arc.mojom.mojom.OemCryptoPrivateKey = {
   RSA_PRIVATE_KEY: 0,
   ECC_PRIVATE_KEY: 1,
 };
-arc.mojom.OemCryptoPrivateKeySpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.OemCryptoPrivateKeySpec = { $: mojo.internal.Enum() };
 
 // Struct: OemCryptoSecureBuffer
-arc.mojom.OemCryptoSecureBufferSpec = {
+arc.mojom.mojom.OemCryptoSecureBufferSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoSecureBuffer',
@@ -137,7 +137,7 @@ arc.mojom.OemCryptoSecureBufferSpec = {
 };
 
 // Struct: OemCryptoSubstring
-arc.mojom.OemCryptoSubstringSpec = {
+arc.mojom.mojom.OemCryptoSubstringSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoSubstring',
@@ -152,7 +152,7 @@ arc.mojom.OemCryptoSubstringSpec = {
 };
 
 // Struct: OemCryptoKeyObjectV14
-arc.mojom.OemCryptoKeyObjectV14Spec = {
+arc.mojom.mojom.OemCryptoKeyObjectV14Spec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoKeyObjectV14',
@@ -173,7 +173,7 @@ arc.mojom.OemCryptoKeyObjectV14Spec = {
 };
 
 // Struct: OemCryptoKeyObject
-arc.mojom.OemCryptoKeyObjectSpec = {
+arc.mojom.mojom.OemCryptoKeyObjectSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoKeyObject',
@@ -191,7 +191,7 @@ arc.mojom.OemCryptoKeyObjectSpec = {
 };
 
 // Struct: OemCryptoEntitledContentKeyObjectV14
-arc.mojom.OemCryptoEntitledContentKeyObjectV14Spec = {
+arc.mojom.mojom.OemCryptoEntitledContentKeyObjectV14Spec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoEntitledContentKeyObjectV14',
@@ -208,7 +208,7 @@ arc.mojom.OemCryptoEntitledContentKeyObjectV14Spec = {
 };
 
 // Struct: OemCryptoEntitledContentKeyObject
-arc.mojom.OemCryptoEntitledContentKeyObjectSpec = {
+arc.mojom.mojom.OemCryptoEntitledContentKeyObjectSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoEntitledContentKeyObject',
@@ -225,7 +225,7 @@ arc.mojom.OemCryptoEntitledContentKeyObjectSpec = {
 };
 
 // Struct: OemCryptoKeyRefreshObjectV14
-arc.mojom.OemCryptoKeyRefreshObjectV14Spec = {
+arc.mojom.mojom.OemCryptoKeyRefreshObjectV14Spec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoKeyRefreshObjectV14',
@@ -233,9 +233,9 @@ arc.mojom.OemCryptoKeyRefreshObjectV14Spec = {
       fields: [
         { name: 'key_id_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'key_id_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'has_key_control_iv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'key_control_iv_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'key_control_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'has_key_control_iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'key_control_iv_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'key_control_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -243,7 +243,7 @@ arc.mojom.OemCryptoKeyRefreshObjectV14Spec = {
 };
 
 // Struct: OemCryptoKeyRefreshObject
-arc.mojom.OemCryptoKeyRefreshObjectSpec = {
+arc.mojom.mojom.OemCryptoKeyRefreshObjectSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoKeyRefreshObject',
@@ -259,7 +259,7 @@ arc.mojom.OemCryptoKeyRefreshObjectSpec = {
 };
 
 // Struct: OemCryptoCencEncryptPatternDesc
-arc.mojom.OemCryptoCencEncryptPatternDescSpec = {
+arc.mojom.mojom.OemCryptoCencEncryptPatternDescSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoCencEncryptPatternDesc',
@@ -275,18 +275,18 @@ arc.mojom.OemCryptoCencEncryptPatternDescSpec = {
 };
 
 // Struct: OemCryptoPstReport
-arc.mojom.OemCryptoPstReportSpec = {
+arc.mojom.mojom.OemCryptoPstReportSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoPstReport',
       packedSize: 48,
       fields: [
         { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'clock_security_level', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'seconds_since_license_received', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'seconds_since_first_decrypt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'seconds_since_last_decrypt', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'clock_security_level', packedOffset: 33, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'seconds_since_license_received', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'seconds_since_first_decrypt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'seconds_since_last_decrypt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -294,7 +294,7 @@ arc.mojom.OemCryptoPstReportSpec = {
 };
 
 // Struct: SubSampleDescription
-arc.mojom.SubSampleDescriptionSpec = {
+arc.mojom.mojom.SubSampleDescriptionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SubSampleDescription',
@@ -302,8 +302,8 @@ arc.mojom.SubSampleDescriptionSpec = {
       fields: [
         { name: 'num_bytes_clear', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'num_bytes_encrypted', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'subsample_flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'block_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'subsample_flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'block_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -311,24 +311,24 @@ arc.mojom.SubSampleDescriptionSpec = {
 };
 
 // Interface: OemCryptoService
-arc.mojom.OemCryptoService = {};
+arc.mojom.mojom.OemCryptoService = {};
 
-arc.mojom.OemCryptoServicePendingReceiver = class {
+arc.mojom.mojom.OemCryptoServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.OemCryptoServiceRemote = class {
+arc.mojom.mojom.OemCryptoServiceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.OemCryptoService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.OemCryptoServicePendingReceiver,
+      arc.mojom.mojom.OemCryptoServicePendingReceiver,
       handle);
-    this.$ = new arc.mojom.OemCryptoServiceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.OemCryptoServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -340,7 +340,7 @@ arc.mojom.OemCryptoServiceRemote = class {
   }
 };
 
-arc.mojom.OemCryptoServiceRemoteCallHandler = class {
+arc.mojom.mojom.OemCryptoServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -349,8 +349,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec,
-      arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec,
       []);
   }
 
@@ -358,8 +358,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 36
     return this.proxy.sendMessage(
       36,  // ordinal
-      arc.mojom.OemCryptoService_Initialize_ParamsSpec,
-      arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_Initialize_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_Initialize_ResponseParamsSpec,
       [oemcrypto_version]);
   }
 
@@ -367,8 +367,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.OemCryptoService_Terminate_ParamsSpec,
-      arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_Terminate_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_Terminate_ResponseParamsSpec,
       []);
   }
 
@@ -376,8 +376,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.OemCryptoService_OpenSession_ParamsSpec,
-      arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_OpenSession_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_OpenSession_ResponseParamsSpec,
       []);
   }
 
@@ -385,8 +385,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.OemCryptoService_CloseSession_ParamsSpec,
-      arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CloseSession_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CloseSession_ResponseParamsSpec,
       [session]);
   }
 
@@ -394,8 +394,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec,
-      arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec,
       [session, mac_key_context, enc_key_context]);
   }
 
@@ -403,8 +403,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec,
-      arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenerateNonce_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec,
       [session]);
   }
 
@@ -412,8 +412,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec,
-      arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenerateSignature_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec,
       [session, message]);
   }
 
@@ -421,8 +421,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec,
       [session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length]);
   }
 
@@ -430,8 +430,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec,
-      arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec,
       [session, message, signature, key_array]);
   }
 
@@ -439,8 +439,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec,
-      arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_QueryKeyControl_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec,
       [session, key_id]);
   }
 
@@ -448,8 +448,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec,
-      arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_SelectKeyV13_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec,
       [session, key_id]);
   }
 
@@ -457,8 +457,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec,
-      arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DecryptCencV15_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec,
       [session, data, is_encrypted, iv, block_offset, secure_buffer, pattern]);
   }
 
@@ -466,8 +466,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec,
-      arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenericEncrypt_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec,
       [session, data, iv, algorithm]);
   }
 
@@ -475,8 +475,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec,
-      arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenericDecrypt_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec,
       [session, data, iv, algorithm]);
   }
 
@@ -484,8 +484,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      arc.mojom.OemCryptoService_GenericSign_ParamsSpec,
-      arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenericSign_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenericSign_ResponseParamsSpec,
       [session, data, algorithm]);
   }
 
@@ -493,8 +493,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      arc.mojom.OemCryptoService_GenericVerify_ParamsSpec,
-      arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenericVerify_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec,
       [session, data, algorithm, signature]);
   }
 
@@ -502,8 +502,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec,
-      arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CopyBufferV14_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec,
       [data, out_buffer]);
   }
 
@@ -511,8 +511,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec,
       []);
   }
 
@@ -520,8 +520,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec,
-      arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec,
       []);
   }
 
@@ -529,8 +529,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec,
-      arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetDeviceId_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec,
       []);
   }
 
@@ -538,8 +538,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      arc.mojom.OemCryptoService_GetKeyData_ParamsSpec,
-      arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetKeyData_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec,
       []);
   }
 
@@ -547,8 +547,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      arc.mojom.OemCryptoService_GetRandom_ParamsSpec,
-      arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetRandom_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetRandom_ResponseParamsSpec,
       [length]);
   }
 
@@ -556,8 +556,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec,
-      arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec,
       []);
   }
 
@@ -565,8 +565,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec,
-      arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec,
       []);
   }
 
@@ -574,8 +574,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec,
-      arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec,
       [session, message, signature, nonce_offset, enc_rsa_key_offset, enc_rsa_key_length, enc_rsa_key_iv_offset]);
   }
 
@@ -583,8 +583,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec,
       [session, wrapped_rsa_key]);
   }
 
@@ -592,8 +592,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec,
-      arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec,
       [session, message, padding_scheme]);
   }
 
@@ -601,8 +601,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec,
-      arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec,
       [session, enc_session_key, mac_key_context, enc_key_context]);
   }
 
@@ -610,8 +610,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec,
-      arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec,
       []);
   }
 
@@ -619,8 +619,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec,
-      arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec,
       []);
   }
 
@@ -628,8 +628,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec,
-      arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec,
       []);
   }
 
@@ -637,8 +637,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec,
-      arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec,
       [pst]);
   }
 
@@ -646,8 +646,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      arc.mojom.OemCryptoService_ReportUsage_ParamsSpec,
-      arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_ReportUsage_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec,
       [session, pst]);
   }
 
@@ -655,8 +655,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec,
-      arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec,
       [session, pst_offset, pst_length, message, signature]);
   }
 
@@ -664,8 +664,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 34
     return this.proxy.sendMessage(
       34,  // ordinal
-      arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec,
-      arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec,
       [pst]);
   }
 
@@ -673,8 +673,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 35
     return this.proxy.sendMessage(
       35,  // ordinal
-      arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec,
-      arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec,
       []);
   }
 
@@ -682,8 +682,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 37
     return this.proxy.sendMessage(
       37,  // ordinal
-      arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec,
-      arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec,
       []);
   }
 
@@ -691,8 +691,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 38
     return this.proxy.sendMessage(
       38,  // ordinal
-      arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec,
-      arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_SupportedCertificates_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec,
       []);
   }
 
@@ -700,8 +700,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 39
     return this.proxy.sendMessage(
       39,  // ordinal
-      arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec,
-      arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec,
       []);
   }
 
@@ -709,8 +709,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 40
     return this.proxy.sendMessage(
       40,  // ordinal
-      arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec,
-      arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec,
       []);
   }
 
@@ -718,8 +718,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 41
     return this.proxy.sendMessage(
       41,  // ordinal
-      arc.mojom.OemCryptoService_LoadSrm_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadSrm_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -727,8 +727,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 42
     return this.proxy.sendMessage(
       42,  // ordinal
-      arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec,
-      arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_RemoveSrm_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec,
       []);
   }
 
@@ -736,8 +736,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 43
     return this.proxy.sendMessage(
       43,  // ordinal
-      arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec,
-      arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec,
       [avail_header_length]);
   }
 
@@ -745,8 +745,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 44
     return this.proxy.sendMessage(
       44,  // ordinal
-      arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -754,8 +754,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 45
     return this.proxy.sendMessage(
       45,  // ordinal
-      arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec,
-      arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec,
       [session]);
   }
 
@@ -763,8 +763,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 46
     return this.proxy.sendMessage(
       46,  // ordinal
-      arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec,
       [session, index, buffer]);
   }
 
@@ -772,8 +772,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 47
     return this.proxy.sendMessage(
       47,  // ordinal
-      arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec,
-      arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec,
       [session, avail_header_length, avail_entry_length]);
   }
 
@@ -781,8 +781,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 48
     return this.proxy.sendMessage(
       48,  // ordinal
-      arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec,
-      arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec,
       [session, pst]);
   }
 
@@ -790,8 +790,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 49
     return this.proxy.sendMessage(
       49,  // ordinal
-      arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec,
-      arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec,
       [new_entry_count, avail_header_length]);
   }
 
@@ -799,8 +799,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 50
     return this.proxy.sendMessage(
       50,  // ordinal
-      arc.mojom.OemCryptoService_MoveEntry_ParamsSpec,
-      arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_MoveEntry_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec,
       [session, new_index]);
   }
 
@@ -808,8 +808,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 51
     return this.proxy.sendMessage(
       51,  // ordinal
-      arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec,
-      arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec,
       [session, pst]);
   }
 
@@ -817,8 +817,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 52
     return this.proxy.sendMessage(
       52,  // ordinal
-      arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec,
-      arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec,
       [time_since_license_received, time_since_first_decrypt, time_since_last_decrypt, status, server_mac_key, client_mac_key, pst]);
   }
 
@@ -826,8 +826,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 53
     return this.proxy.sendMessage(
       53,  // ordinal
-      arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec,
-      arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec,
       []);
   }
 
@@ -835,8 +835,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 54
     return this.proxy.sendMessage(
       54,  // ordinal
-      arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec,
       [buffer]);
   }
 
@@ -844,8 +844,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 55
     return this.proxy.sendMessage(
       55,  // ordinal
-      arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec,
       [session, key_array]);
   }
 
@@ -853,8 +853,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 56
     return this.proxy.sendMessage(
       56,  // ordinal
-      arc.mojom.OemCryptoService_SelectKey_ParamsSpec,
-      arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_SelectKey_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_SelectKey_ResponseParamsSpec,
       [session, content_key_id, cipher_mode]);
   }
 
@@ -862,8 +862,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 57
     return this.proxy.sendMessage(
       57,  // ordinal
-      arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadKeysV14_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec,
       [session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length, srm_requirement, license_type]);
   }
 
@@ -871,8 +871,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 58
     return this.proxy.sendMessage(
       58,  // ordinal
-      arc.mojom.OemCryptoService_LoadKeys_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadKeys_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec,
       [session, message, signature, enc_mac_keys_iv, enc_mac_keys, key_array, pst, srm_restriction_data, license_type]);
   }
 
@@ -880,8 +880,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 59
     return this.proxy.sendMessage(
       59,  // ordinal
-      arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec,
-      arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec,
       []);
   }
 
@@ -889,8 +889,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 60
     return this.proxy.sendMessage(
       60,  // ordinal
-      arc.mojom.OemCryptoService_BuildInformation_ParamsSpec,
-      arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_BuildInformation_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec,
       []);
   }
 
@@ -898,8 +898,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 61
     return this.proxy.sendMessage(
       61,  // ordinal
-      arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec,
-      arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_RefreshKeys_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec,
       [session, message, signature, key_array]);
   }
 
@@ -907,8 +907,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 62
     return this.proxy.sendMessage(
       62,  // ordinal
-      arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec,
       [session, message, key_array]);
   }
 
@@ -916,8 +916,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 63
     return this.proxy.sendMessage(
       63,  // ordinal
-      arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec,
-      arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec,
       []);
   }
 
@@ -925,8 +925,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 64
     return this.proxy.sendMessage(
       64,  // ordinal
-      arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec,
-      arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec,
       []);
   }
 
@@ -934,8 +934,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 65
     return this.proxy.sendMessage(
       65,  // ordinal
-      arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec,
-      arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec,
       []);
   }
 
@@ -943,8 +943,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 66
     return this.proxy.sendMessage(
       66,  // ordinal
-      arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec,
-      arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_MinorApiVersion_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec,
       []);
   }
 
@@ -952,8 +952,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 67
     return this.proxy.sendMessage(
       67,  // ordinal
-      arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec,
-      arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec,
       [session, message, core_message_size, avail_signature_size]);
   }
 
@@ -961,8 +961,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 68
     return this.proxy.sendMessage(
       68,  // ordinal
-      arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec,
-      arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec,
       [session, message, core_message_size, avail_signature_size]);
   }
 
@@ -970,8 +970,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 69
     return this.proxy.sendMessage(
       69,  // ordinal
-      arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec,
-      arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec,
       [session, message, core_message_size, avail_signature_size]);
   }
 
@@ -979,8 +979,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 70
     return this.proxy.sendMessage(
       70,  // ordinal
-      arc.mojom.OemCryptoService_LoadLicense_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadLicense_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec,
       [session, message, core_message_length, signature]);
   }
 
@@ -988,8 +988,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 71
     return this.proxy.sendMessage(
       71,  // ordinal
-      arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadRenewal_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec,
       [session, message, core_message_length, signature]);
   }
 
@@ -997,8 +997,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 72
     return this.proxy.sendMessage(
       72,  // ordinal
-      arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadProvisioning_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec,
       [session, message, core_message_length, signature, avail_wrapped_private_key_size]);
   }
 
@@ -1006,8 +1006,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 73
     return this.proxy.sendMessage(
       73,  // ordinal
-      arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec,
       [session]);
   }
 
@@ -1015,8 +1015,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 74
     return this.proxy.sendMessage(
       74,  // ordinal
-      arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec,
-      arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec,
       [session, key_type, wrapped_private_key]);
   }
 
@@ -1024,8 +1024,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 75
     return this.proxy.sendMessage(
       75,  // ordinal
-      arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec,
-      arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DecryptCenc_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec,
       [session, data, iv, sub_samples, pattern, secure_buffer]);
   }
 
@@ -1033,15 +1033,15 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
     // Ordinal: 76
     return this.proxy.sendMessage(
       76,  // ordinal
-      arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec,
-      arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CopyBuffer_ParamsSpec,
+      arc.mojom.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec,
       [session, data, out_buffer, subsample_flags]);
   }
 
 };
 
-arc.mojom.OemCryptoService.getRemote = function() {
-  let remote = new arc.mojom.OemCryptoServiceRemote();
+arc.mojom.mojom.OemCryptoService.getRemote = function() {
+  let remote = new arc.mojom.mojom.OemCryptoServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1051,7 +1051,7 @@ arc.mojom.OemCryptoService.getRemote = function() {
 };
 
 // ParamsSpec for InitializeDeprecated
-arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.InitializeDeprecated_Params',
@@ -1063,7 +1063,7 @@ arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.InitializeDeprecated_ResponseParams',
@@ -1077,7 +1077,7 @@ arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Initialize
-arc.mojom.OemCryptoService_Initialize_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.Initialize_Params',
@@ -1090,7 +1090,7 @@ arc.mojom.OemCryptoService_Initialize_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.Initialize_ResponseParams',
@@ -1104,7 +1104,7 @@ arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Terminate
-arc.mojom.OemCryptoService_Terminate_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_Terminate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.Terminate_Params',
@@ -1116,7 +1116,7 @@ arc.mojom.OemCryptoService_Terminate_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_Terminate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.Terminate_ResponseParams',
@@ -1130,7 +1130,7 @@ arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenSession
-arc.mojom.OemCryptoService_OpenSession_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_OpenSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.OpenSession_Params',
@@ -1142,7 +1142,7 @@ arc.mojom.OemCryptoService_OpenSession_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_OpenSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.OpenSession_ResponseParams',
@@ -1157,7 +1157,7 @@ arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CloseSession
-arc.mojom.OemCryptoService_CloseSession_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CloseSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CloseSession_Params',
@@ -1170,7 +1170,7 @@ arc.mojom.OemCryptoService_CloseSession_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CloseSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CloseSession_ResponseParams',
@@ -1184,22 +1184,22 @@ arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenerateDerivedKeys
-arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenerateDerivedKeys_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mac_key_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'enc_key_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'mac_key_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'enc_key_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenerateDerivedKeys_ResponseParams',
@@ -1213,7 +1213,7 @@ arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenerateNonce
-arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenerateNonce_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenerateNonce_Params',
@@ -1226,7 +1226,7 @@ arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenerateNonce_ResponseParams',
@@ -1241,28 +1241,28 @@ arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenerateSignature
-arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenerateSignature_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenerateSignature_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenerateSignature_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1270,28 +1270,28 @@ arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadKeysV11OrV12
-arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadKeysV11OrV12_Params',
       packedSize: 56,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'has_enc_mac_keys', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enc_mac_keys_iv_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'enc_mac_keys_offset', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'key_array', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyObjectV14Spec, false), nullable: false, minVersion: 0 },
-        { name: 'pst_offset', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pst_length', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'has_enc_mac_keys', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enc_mac_keys_iv_offset', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'enc_mac_keys_offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'key_array', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyObjectV14Spec, false), nullable: false, minVersion: 0 },
+        { name: 'pst_offset', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pst_length', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadKeysV11OrV12_ResponseParams',
@@ -1305,23 +1305,23 @@ arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RefreshKeysV14
-arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.RefreshKeysV14_Params',
       packedSize: 40,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'key_array', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyRefreshObjectV14Spec, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'key_array', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyRefreshObjectV14Spec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.RefreshKeysV14_ResponseParams',
@@ -1335,28 +1335,28 @@ arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec = {
 };
 
 // ParamsSpec for QueryKeyControl
-arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_QueryKeyControl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.QueryKeyControl_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.QueryKeyControl_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'key_control_block', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'key_control_block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1364,21 +1364,21 @@ arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SelectKeyV13
-arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_SelectKeyV13_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.SelectKeyV13_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'key_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.SelectKeyV13_ResponseParams',
@@ -1392,33 +1392,33 @@ arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DecryptCencV15
-arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DecryptCencV15_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DecryptCencV15_Params',
       packedSize: 56,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'is_encrypted', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'block_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'secure_buffer', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.OemCryptoSecureBufferSpec, nullable: true, minVersion: 0 },
-        { name: 'pattern', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.OemCryptoCencEncryptPatternDescSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'is_encrypted', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'iv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'block_offset', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'secure_buffer', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSecureBufferSpec, nullable: true, minVersion: 0 },
+        { name: 'pattern', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoCencEncryptPatternDescSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DecryptCencV15_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'decrypted_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'decrypted_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1426,30 +1426,30 @@ arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenericEncrypt
-arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenericEncrypt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenericEncrypt_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'algorithm', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.OemCryptoAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'iv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.OemCryptoAlgorithmSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenericEncrypt_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'encrypted_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'encrypted_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1457,30 +1457,30 @@ arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenericDecrypt
-arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenericDecrypt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenericDecrypt_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'algorithm', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.OemCryptoAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'iv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.OemCryptoAlgorithmSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenericDecrypt_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'decrypted_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'decrypted_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1488,29 +1488,29 @@ arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenericSign
-arc.mojom.OemCryptoService_GenericSign_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenericSign_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenericSign_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'algorithm', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.OemCryptoAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.OemCryptoAlgorithmSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenericSign_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenericSign_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1518,23 +1518,23 @@ arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenericVerify
-arc.mojom.OemCryptoService_GenericVerify_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenericVerify_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenericVerify_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'algorithm', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.OemCryptoAlgorithmSpec, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.OemCryptoAlgorithmSpec, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenericVerify_ResponseParams',
@@ -1548,7 +1548,7 @@ arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CopyBufferV14
-arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CopyBufferV14_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CopyBufferV14_Params',
@@ -1562,7 +1562,7 @@ arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CopyBufferV14_ResponseParams',
@@ -1576,7 +1576,7 @@ arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadTestKeyboxV13
-arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadTestKeyboxV13_Params',
@@ -1588,7 +1588,7 @@ arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadTestKeyboxV13_ResponseParams',
@@ -1602,7 +1602,7 @@ arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsRootKeyCertificateValid
-arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.IsRootKeyCertificateValid_Params',
@@ -1614,7 +1614,7 @@ arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.IsRootKeyCertificateValid_ResponseParams',
@@ -1628,7 +1628,7 @@ arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDeviceId
-arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetDeviceId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetDeviceId_Params',
@@ -1640,14 +1640,14 @@ arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetDeviceId_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1655,7 +1655,7 @@ arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetKeyData
-arc.mojom.OemCryptoService_GetKeyData_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetKeyData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetKeyData_Params',
@@ -1667,14 +1667,14 @@ arc.mojom.OemCryptoService_GetKeyData_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetKeyData_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1682,7 +1682,7 @@ arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetRandom
-arc.mojom.OemCryptoService_GetRandom_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetRandom_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetRandom_Params',
@@ -1695,14 +1695,14 @@ arc.mojom.OemCryptoService_GetRandom_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetRandom_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetRandom_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1710,7 +1710,7 @@ arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetNumberOfOpenSessions
-arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetNumberOfOpenSessions_Params',
@@ -1722,7 +1722,7 @@ arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetNumberOfOpenSessions_ResponseParams',
@@ -1737,7 +1737,7 @@ arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetMaxNumberOfSessions
-arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetMaxNumberOfSessions_Params',
@@ -1749,7 +1749,7 @@ arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetMaxNumberOfSessions_ResponseParams',
@@ -1764,16 +1764,16 @@ arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RewrapDeviceRsaKey
-arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.RewrapDeviceRsaKey_Params',
       packedSize: 48,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'nonce_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'nonce_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'enc_rsa_key_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'enc_rsa_key_length', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'enc_rsa_key_iv_offset', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -1783,14 +1783,14 @@ arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.RewrapDeviceRsaKey_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'wrapped_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'wrapped_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1798,21 +1798,21 @@ arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadDeviceRsaKey
-arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadDeviceRsaKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'wrapped_rsa_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'wrapped_rsa_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadDeviceRsaKey_ResponseParams',
@@ -1826,29 +1826,29 @@ arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenerateRsaSignature
-arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenerateRsaSignature_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'padding_scheme', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.OemCryptoRsaPaddingSchemeSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'padding_scheme', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.OemCryptoRsaPaddingSchemeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GenerateRsaSignature_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1856,23 +1856,23 @@ arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeriveKeysFromSessionKey
-arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeriveKeysFromSessionKey_Params',
       packedSize: 40,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'enc_session_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'mac_key_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'enc_key_context', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'enc_session_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'mac_key_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'enc_key_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeriveKeysFromSessionKey_ResponseParams',
@@ -1886,7 +1886,7 @@ arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SecurityPatchLevel
-arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.SecurityPatchLevel_Params',
@@ -1898,7 +1898,7 @@ arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.SecurityPatchLevel_ResponseParams',
@@ -1912,7 +1912,7 @@ arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetHdcpCapability
-arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetHdcpCapability_Params',
@@ -1924,7 +1924,7 @@ arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetHdcpCapability_ResponseParams',
@@ -1940,7 +1940,7 @@ arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UpdateUsageTable
-arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.UpdateUsageTable_Params',
@@ -1952,7 +1952,7 @@ arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.UpdateUsageTable_ResponseParams',
@@ -1966,7 +1966,7 @@ arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeactivateUsageEntryV12
-arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeactivateUsageEntryV12_Params',
@@ -1979,7 +1979,7 @@ arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeactivateUsageEntryV12_ResponseParams',
@@ -1993,28 +1993,28 @@ arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ReportUsage
-arc.mojom.OemCryptoService_ReportUsage_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_ReportUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.ReportUsage_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pst', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pst', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.ReportUsage_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'report', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoPstReportSpec, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoPstReportSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -2022,24 +2022,24 @@ arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteUsageEntry
-arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeleteUsageEntry_Params',
       packedSize: 40,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pst_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pst_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pst_offset', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pst_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeleteUsageEntry_ResponseParams',
@@ -2053,7 +2053,7 @@ arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ForceDeleteUsageEntry
-arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.ForceDeleteUsageEntry_Params',
@@ -2066,7 +2066,7 @@ arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.ForceDeleteUsageEntry_ResponseParams',
@@ -2080,7 +2080,7 @@ arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteOldUsageTable
-arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeleteOldUsageTable_Params',
@@ -2092,7 +2092,7 @@ arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeleteOldUsageTable_ResponseParams',
@@ -2106,7 +2106,7 @@ arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetProvisioningMethod
-arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetProvisioningMethod_Params',
@@ -2118,7 +2118,7 @@ arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetProvisioningMethod_ResponseParams',
@@ -2132,7 +2132,7 @@ arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SupportedCertificates
-arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_SupportedCertificates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.SupportedCertificates_Params',
@@ -2144,7 +2144,7 @@ arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.SupportedCertificates_ResponseParams',
@@ -2158,7 +2158,7 @@ arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsSrmUpdateSupported
-arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.IsSrmUpdateSupported_Params',
@@ -2170,7 +2170,7 @@ arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.IsSrmUpdateSupported_ResponseParams',
@@ -2184,7 +2184,7 @@ arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetCurrentSrmVersion
-arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetCurrentSrmVersion_Params',
@@ -2196,7 +2196,7 @@ arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetCurrentSrmVersion_ResponseParams',
@@ -2211,7 +2211,7 @@ arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadSrm
-arc.mojom.OemCryptoService_LoadSrm_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadSrm_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadSrm_Params',
@@ -2224,7 +2224,7 @@ arc.mojom.OemCryptoService_LoadSrm_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadSrm_ResponseParams',
@@ -2238,7 +2238,7 @@ arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveSrm
-arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_RemoveSrm_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.RemoveSrm_Params',
@@ -2250,7 +2250,7 @@ arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.RemoveSrm_ResponseParams',
@@ -2264,7 +2264,7 @@ arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateUsageTableHeader
-arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CreateUsageTableHeader_Params',
@@ -2277,14 +2277,14 @@ arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CreateUsageTableHeader_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -2292,7 +2292,7 @@ arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadUsageTableHeader
-arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadUsageTableHeader_Params',
@@ -2305,7 +2305,7 @@ arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadUsageTableHeader_ResponseParams',
@@ -2319,7 +2319,7 @@ arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateNewUsageEntry
-arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CreateNewUsageEntry_Params',
@@ -2332,7 +2332,7 @@ arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CreateNewUsageEntry_ResponseParams',
@@ -2347,22 +2347,22 @@ arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadUsageEntry
-arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadUsageEntry_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadUsageEntry_ResponseParams',
@@ -2376,7 +2376,7 @@ arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UpdateUsageEntry
-arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.UpdateUsageEntry_Params',
@@ -2391,15 +2391,15 @@ arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.UpdateUsageEntry_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'entry', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'entry', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -2407,21 +2407,21 @@ arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeactivateUsageEntry
-arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeactivateUsageEntry_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pst', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pst', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DeactivateUsageEntry_ResponseParams',
@@ -2435,7 +2435,7 @@ arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ShrinkUsageTableHeader
-arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.ShrinkUsageTableHeader_Params',
@@ -2449,14 +2449,14 @@ arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.ShrinkUsageTableHeader_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'header', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -2464,7 +2464,7 @@ arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec = {
 };
 
 // ParamsSpec for MoveEntry
-arc.mojom.OemCryptoService_MoveEntry_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_MoveEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.MoveEntry_Params',
@@ -2478,7 +2478,7 @@ arc.mojom.OemCryptoService_MoveEntry_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.MoveEntry_ResponseParams',
@@ -2492,21 +2492,21 @@ arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CopyOldUsageEntry
-arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CopyOldUsageEntry_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pst', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pst', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CopyOldUsageEntry_ResponseParams',
@@ -2520,7 +2520,7 @@ arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateOldUsageEntry
-arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CreateOldUsageEntry_Params',
@@ -2529,17 +2529,17 @@ arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec = {
         { name: 'time_since_license_received', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'time_since_first_decrypt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'time_since_last_decrypt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoUsageEntryStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'server_mac_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'client_mac_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'pst', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.OemCryptoUsageEntryStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'server_mac_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'client_mac_key', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'pst', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CreateOldUsageEntry_ResponseParams',
@@ -2553,7 +2553,7 @@ arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetAnalogOutputFlags
-arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetAnalogOutputFlags_Params',
@@ -2565,7 +2565,7 @@ arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetAnalogOutputFlags_ResponseParams',
@@ -2579,7 +2579,7 @@ arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadTestKeybox
-arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadTestKeybox_Params',
@@ -2592,7 +2592,7 @@ arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadTestKeybox_ResponseParams',
@@ -2606,21 +2606,21 @@ arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadEntitledContentKeysV14
-arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadEntitledContentKeysV14_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'key_array', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoEntitledContentKeyObjectV14Spec, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'key_array', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoEntitledContentKeyObjectV14Spec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadEntitledContentKeysV14_ResponseParams',
@@ -2634,22 +2634,22 @@ arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SelectKey
-arc.mojom.OemCryptoService_SelectKey_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_SelectKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.SelectKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'content_key_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'cipher_mode', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.OemCryptoCipherModeSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'content_key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'cipher_mode', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.OemCryptoCipherModeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_SelectKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.SelectKey_ResponseParams',
@@ -2663,30 +2663,30 @@ arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadKeysV14
-arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadKeysV14_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadKeysV14_Params',
       packedSize: 72,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'has_enc_mac_keys', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enc_mac_keys_iv_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'enc_mac_keys_offset', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'key_array', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyObjectV14Spec, false), nullable: false, minVersion: 0 },
-        { name: 'pst_offset', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pst_length', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'srm_requirement', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'license_type', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.OemCryptoLicenseTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'has_enc_mac_keys', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enc_mac_keys_iv_offset', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'enc_mac_keys_offset', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'key_array', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyObjectV14Spec, false), nullable: false, minVersion: 0 },
+        { name: 'pst_offset', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pst_length', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'srm_requirement', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'license_type', packedOffset: 52, packedBitOffset: 0, type: arc.mojom.OemCryptoLicenseTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadKeysV14_ResponseParams',
@@ -2700,28 +2700,28 @@ arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadKeys
-arc.mojom.OemCryptoService_LoadKeys_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadKeys_Params',
       packedSize: 72,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'enc_mac_keys_iv', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false, minVersion: 0 },
-        { name: 'enc_mac_keys', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false, minVersion: 0 },
-        { name: 'key_array', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyObjectSpec, false), nullable: false, minVersion: 0 },
-        { name: 'pst', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false, minVersion: 0 },
-        { name: 'srm_restriction_data', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false, minVersion: 0 },
-        { name: 'license_type', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.OemCryptoLicenseTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'enc_mac_keys_iv', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false, minVersion: 0 },
+        { name: 'enc_mac_keys', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false, minVersion: 0 },
+        { name: 'key_array', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyObjectSpec, false), nullable: false, minVersion: 0 },
+        { name: 'pst', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false, minVersion: 0 },
+        { name: 'srm_restriction_data', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.OemCryptoSubstringSpec, nullable: false, minVersion: 0 },
+        { name: 'license_type', packedOffset: 60, packedBitOffset: 0, type: arc.mojom.OemCryptoLicenseTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadKeys_ResponseParams',
@@ -2735,7 +2735,7 @@ arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ResourceRatingTier
-arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.ResourceRatingTier_Params',
@@ -2747,7 +2747,7 @@ arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.ResourceRatingTier_ResponseParams',
@@ -2761,7 +2761,7 @@ arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BuildInformation
-arc.mojom.OemCryptoService_BuildInformation_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_BuildInformation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.BuildInformation_Params',
@@ -2773,7 +2773,7 @@ arc.mojom.OemCryptoService_BuildInformation_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.BuildInformation_ResponseParams',
@@ -2787,23 +2787,23 @@ arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RefreshKeys
-arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_RefreshKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.RefreshKeys_Params',
       packedSize: 40,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'key_array', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyRefreshObjectSpec, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'key_array', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoKeyRefreshObjectSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.RefreshKeys_ResponseParams',
@@ -2817,22 +2817,22 @@ arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadEntitledContentKeys
-arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadEntitledContentKeys_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'key_array', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoEntitledContentKeyObjectSpec, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'key_array', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.OemCryptoEntitledContentKeyObjectSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadEntitledContentKeys_ResponseParams',
@@ -2846,7 +2846,7 @@ arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetOemPublicCertificate
-arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetOemPublicCertificate_Params',
@@ -2858,14 +2858,14 @@ arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.GetOemPublicCertificate_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'public_cert', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'public_cert', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -2873,7 +2873,7 @@ arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for MaximumUsageTableHeaderSize
-arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.MaximumUsageTableHeaderSize_Params',
@@ -2885,7 +2885,7 @@ arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.MaximumUsageTableHeaderSize_ResponseParams',
@@ -2899,7 +2899,7 @@ arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec = {
 };
 
 // ParamsSpec for IsAntiRollbackHwPresent
-arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.IsAntiRollbackHwPresent_Params',
@@ -2911,7 +2911,7 @@ arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.IsAntiRollbackHwPresent_ResponseParams',
@@ -2925,7 +2925,7 @@ arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for MinorApiVersion
-arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_MinorApiVersion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.MinorApiVersion_Params',
@@ -2937,7 +2937,7 @@ arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.MinorApiVersion_ResponseParams',
@@ -2951,15 +2951,15 @@ arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PrepAndSignLicenseRequest
-arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.PrepAndSignLicenseRequest_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'core_message_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'core_message_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'avail_signature_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
@@ -2967,16 +2967,16 @@ arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.PrepAndSignLicenseRequest_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'core_message_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'core_message_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -2984,15 +2984,15 @@ arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PrepAndSignRenewalRequest
-arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.PrepAndSignRenewalRequest_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'core_message_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'core_message_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'avail_signature_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
@@ -3000,16 +3000,16 @@ arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.PrepAndSignRenewalRequest_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'core_message_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'core_message_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -3017,15 +3017,15 @@ arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PrepAndSignProvisioningRequest
-arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.PrepAndSignProvisioningRequest_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'core_message_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'core_message_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'avail_signature_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
@@ -3033,16 +3033,16 @@ arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.PrepAndSignProvisioningRequest_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'core_message_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'core_message_size', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -3050,23 +3050,23 @@ arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadLicense
-arc.mojom.OemCryptoService_LoadLicense_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadLicense_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadLicense_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'core_message_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'core_message_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadLicense_ResponseParams',
@@ -3080,23 +3080,23 @@ arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadRenewal
-arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadRenewal_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadRenewal_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'core_message_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'core_message_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadRenewal_ResponseParams',
@@ -3110,16 +3110,16 @@ arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadProvisioning
-arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadProvisioning_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadProvisioning_Params',
       packedSize: 40,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'core_message_length', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'core_message_length', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
         { name: 'avail_wrapped_private_key_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
@@ -3127,14 +3127,14 @@ arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadProvisioning_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'wrapped_private_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'wrapped_private_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -3142,7 +3142,7 @@ arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadOemPrivateKey
-arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadOemPrivateKey_Params',
@@ -3155,7 +3155,7 @@ arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec = {
   }
 };
 
-arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadOemPrivateKey_ResponseParams',
@@ -3169,22 +3169,22 @@ arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LoadDrmPrivateKey
-arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadDrmPrivateKey_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'key_type', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.OemCryptoPrivateKeySpec, nullable: false, minVersion: 0 },
-        { name: 'wrapped_private_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'key_type', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.OemCryptoPrivateKeySpec, nullable: false, minVersion: 0 },
+        { name: 'wrapped_private_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.LoadDrmPrivateKey_ResponseParams',
@@ -3198,32 +3198,32 @@ arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DecryptCenc
-arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DecryptCenc_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DecryptCenc_Params',
       packedSize: 56,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'iv', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'sub_samples', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.SubSampleDescriptionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'pattern', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.OemCryptoCencEncryptPatternDescSpec, nullable: false, minVersion: 0 },
-        { name: 'secure_buffer', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.OemCryptoSecureBufferSpec, nullable: true, minVersion: 0 },
+        { name: 'session', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'iv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'sub_samples', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.SubSampleDescriptionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'pattern', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.OemCryptoCencEncryptPatternDescSpec, nullable: false, minVersion: 0 },
+        { name: 'secure_buffer', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.OemCryptoSecureBufferSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.DecryptCenc_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
-        { name: 'decrypted_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoResultSpec, nullable: false, minVersion: 0 },
+        { name: 'decrypted_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -3231,23 +3231,23 @@ arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CopyBuffer
-arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CopyBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CopyBuffer_Params',
       packedSize: 32,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'out_buffer', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.OemCryptoSecureBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'subsample_flags', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'out_buffer', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.OemCryptoSecureBufferSpec, nullable: false, minVersion: 0 },
+        { name: 'subsample_flags', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec = {
+arc.mojom.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoService.CopyBuffer_ResponseParams',
@@ -3261,29 +3261,29 @@ arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.OemCryptoServicePtr = arc.mojom.OemCryptoServiceRemote;
-arc.mojom.OemCryptoServiceRequest = arc.mojom.OemCryptoServicePendingReceiver;
+arc.mojom.mojom.OemCryptoServicePtr = arc.mojom.mojom.OemCryptoServiceRemote;
+arc.mojom.mojom.OemCryptoServiceRequest = arc.mojom.mojom.OemCryptoServicePendingReceiver;
 
 
 // Interface: OemCryptoHost
-arc.mojom.OemCryptoHost = {};
+arc.mojom.mojom.OemCryptoHost = {};
 
-arc.mojom.OemCryptoHostPendingReceiver = class {
+arc.mojom.mojom.OemCryptoHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.OemCryptoHostRemote = class {
+arc.mojom.mojom.OemCryptoHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.OemCryptoHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.OemCryptoHostPendingReceiver,
+      arc.mojom.mojom.OemCryptoHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.OemCryptoHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.OemCryptoHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -3295,7 +3295,7 @@ arc.mojom.OemCryptoHostRemote = class {
   }
 };
 
-arc.mojom.OemCryptoHostRemoteCallHandler = class {
+arc.mojom.mojom.OemCryptoHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -3304,15 +3304,15 @@ arc.mojom.OemCryptoHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.OemCryptoHost_Connect_ParamsSpec,
+      arc.mojom.mojom.OemCryptoHost_Connect_ParamsSpec,
       null,
       [oemcryptor]);
   }
 
 };
 
-arc.mojom.OemCryptoHost.getRemote = function() {
-  let remote = new arc.mojom.OemCryptoHostRemote();
+arc.mojom.mojom.OemCryptoHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.OemCryptoHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -3322,7 +3322,7 @@ arc.mojom.OemCryptoHost.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-arc.mojom.OemCryptoHost_Connect_ParamsSpec = {
+arc.mojom.mojom.OemCryptoHost_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoHost.Connect_Params',
@@ -3336,29 +3336,29 @@ arc.mojom.OemCryptoHost_Connect_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.OemCryptoHostPtr = arc.mojom.OemCryptoHostRemote;
-arc.mojom.OemCryptoHostRequest = arc.mojom.OemCryptoHostPendingReceiver;
+arc.mojom.mojom.OemCryptoHostPtr = arc.mojom.mojom.OemCryptoHostRemote;
+arc.mojom.mojom.OemCryptoHostRequest = arc.mojom.mojom.OemCryptoHostPendingReceiver;
 
 
 // Interface: OemCryptoInstance
-arc.mojom.OemCryptoInstance = {};
+arc.mojom.mojom.OemCryptoInstance = {};
 
-arc.mojom.OemCryptoInstancePendingReceiver = class {
+arc.mojom.mojom.OemCryptoInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.OemCryptoInstanceRemote = class {
+arc.mojom.mojom.OemCryptoInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.OemCryptoInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.OemCryptoInstancePendingReceiver,
+      arc.mojom.mojom.OemCryptoInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.OemCryptoInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.OemCryptoInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -3370,7 +3370,7 @@ arc.mojom.OemCryptoInstanceRemote = class {
   }
 };
 
-arc.mojom.OemCryptoInstanceRemoteCallHandler = class {
+arc.mojom.mojom.OemCryptoInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -3379,15 +3379,15 @@ arc.mojom.OemCryptoInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.OemCryptoInstance_Init_ParamsSpec,
+      arc.mojom.mojom.OemCryptoInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.OemCryptoInstance.getRemote = function() {
-  let remote = new arc.mojom.OemCryptoInstanceRemote();
+arc.mojom.mojom.OemCryptoInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.OemCryptoInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -3397,7 +3397,7 @@ arc.mojom.OemCryptoInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.OemCryptoInstance_Init_ParamsSpec = {
+arc.mojom.mojom.OemCryptoInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.OemCryptoInstance.Init_Params',
@@ -3411,6 +3411,6 @@ arc.mojom.OemCryptoInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.OemCryptoInstancePtr = arc.mojom.OemCryptoInstanceRemote;
-arc.mojom.OemCryptoInstanceRequest = arc.mojom.OemCryptoInstancePendingReceiver;
+arc.mojom.mojom.OemCryptoInstancePtr = arc.mojom.mojom.OemCryptoInstanceRemote;
+arc.mojom.mojom.OemCryptoInstanceRequest = arc.mojom.mojom.OemCryptoInstancePendingReceiver;
 

@@ -7,27 +7,29 @@
 // Module namespace
 var subresource_filter = subresource_filter || {};
 subresource_filter.mojom = subresource_filter.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Interface: SubresourceFilterAgent
-subresource_filter.mojom.SubresourceFilterAgent = {};
+subresource_filter.mojom.mojom.SubresourceFilterAgent = {};
 
-subresource_filter.mojom.SubresourceFilterAgentPendingReceiver = class {
+subresource_filter.mojom.mojom.SubresourceFilterAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-subresource_filter.mojom.SubresourceFilterAgentRemote = class {
+subresource_filter.mojom.mojom.SubresourceFilterAgentRemote = class {
   static get $interfaceName() {
     return 'subresource_filter.mojom.SubresourceFilterAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      subresource_filter.mojom.SubresourceFilterAgentPendingReceiver,
+      subresource_filter.mojom.mojom.SubresourceFilterAgentPendingReceiver,
       handle);
-    this.$ = new subresource_filter.mojom.SubresourceFilterAgentRemoteCallHandler(this.proxy);
+    this.$ = new subresource_filter.mojom.mojom.SubresourceFilterAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ subresource_filter.mojom.SubresourceFilterAgentRemote = class {
   }
 };
 
-subresource_filter.mojom.SubresourceFilterAgentRemoteCallHandler = class {
+subresource_filter.mojom.mojom.SubresourceFilterAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +50,15 @@ subresource_filter.mojom.SubresourceFilterAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec,
+      subresource_filter.mojom.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec,
       null,
       [activation_state, ad_evidence]);
   }
 
 };
 
-subresource_filter.mojom.SubresourceFilterAgent.getRemote = function() {
-  let remote = new subresource_filter.mojom.SubresourceFilterAgentRemote();
+subresource_filter.mojom.mojom.SubresourceFilterAgent.getRemote = function() {
+  let remote = new subresource_filter.mojom.mojom.SubresourceFilterAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +68,7 @@ subresource_filter.mojom.SubresourceFilterAgent.getRemote = function() {
 };
 
 // ParamsSpec for ActivateForNextCommittedLoad
-subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec = {
+subresource_filter.mojom.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.SubresourceFilterAgent.ActivateForNextCommittedLoad_Params',
@@ -81,29 +83,29 @@ subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_Par
 };
 
 // Legacy compatibility
-subresource_filter.mojom.SubresourceFilterAgentPtr = subresource_filter.mojom.SubresourceFilterAgentRemote;
-subresource_filter.mojom.SubresourceFilterAgentRequest = subresource_filter.mojom.SubresourceFilterAgentPendingReceiver;
+subresource_filter.mojom.mojom.SubresourceFilterAgentPtr = subresource_filter.mojom.mojom.SubresourceFilterAgentRemote;
+subresource_filter.mojom.mojom.SubresourceFilterAgentRequest = subresource_filter.mojom.mojom.SubresourceFilterAgentPendingReceiver;
 
 
 // Interface: SubresourceFilterHost
-subresource_filter.mojom.SubresourceFilterHost = {};
+subresource_filter.mojom.mojom.SubresourceFilterHost = {};
 
-subresource_filter.mojom.SubresourceFilterHostPendingReceiver = class {
+subresource_filter.mojom.mojom.SubresourceFilterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-subresource_filter.mojom.SubresourceFilterHostRemote = class {
+subresource_filter.mojom.mojom.SubresourceFilterHostRemote = class {
   static get $interfaceName() {
     return 'subresource_filter.mojom.SubresourceFilterHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      subresource_filter.mojom.SubresourceFilterHostPendingReceiver,
+      subresource_filter.mojom.mojom.SubresourceFilterHostPendingReceiver,
       handle);
-    this.$ = new subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler(this.proxy);
+    this.$ = new subresource_filter.mojom.mojom.SubresourceFilterHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +117,7 @@ subresource_filter.mojom.SubresourceFilterHostRemote = class {
   }
 };
 
-subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
+subresource_filter.mojom.mojom.SubresourceFilterHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,7 +126,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec,
+      subresource_filter.mojom.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec,
       null,
       []);
   }
@@ -133,7 +135,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec,
+      subresource_filter.mojom.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec,
       null,
       []);
   }
@@ -142,7 +144,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec,
+      subresource_filter.mojom.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec,
       null,
       []);
   }
@@ -151,7 +153,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec,
+      subresource_filter.mojom.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec,
       null,
       [fenced_frame_root_placeholder_token]);
   }
@@ -160,7 +162,7 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec,
+      subresource_filter.mojom.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec,
       null,
       [statistics]);
   }
@@ -169,15 +171,15 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec,
+      subresource_filter.mojom.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec,
       null,
       [violation]);
   }
 
 };
 
-subresource_filter.mojom.SubresourceFilterHost.getRemote = function() {
-  let remote = new subresource_filter.mojom.SubresourceFilterHostRemote();
+subresource_filter.mojom.mojom.SubresourceFilterHost.getRemote = function() {
+  let remote = new subresource_filter.mojom.mojom.SubresourceFilterHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -187,7 +189,7 @@ subresource_filter.mojom.SubresourceFilterHost.getRemote = function() {
 };
 
 // ParamsSpec for DidDisallowFirstSubresource
-subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec = {
+subresource_filter.mojom.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.SubresourceFilterHost.DidDisallowFirstSubresource_Params',
@@ -200,7 +202,7 @@ subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_Param
 };
 
 // ParamsSpec for FrameIsAd
-subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec = {
+subresource_filter.mojom.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.SubresourceFilterHost.FrameIsAd_Params',
@@ -213,7 +215,7 @@ subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec = {
 };
 
 // ParamsSpec for FrameWasCreatedByAdScript
-subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec = {
+subresource_filter.mojom.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.SubresourceFilterHost.FrameWasCreatedByAdScript_Params',
@@ -226,7 +228,7 @@ subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsS
 };
 
 // ParamsSpec for AdScriptDidCreateFencedFrame
-subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec = {
+subresource_filter.mojom.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.SubresourceFilterHost.AdScriptDidCreateFencedFrame_Params',
@@ -240,7 +242,7 @@ subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_Para
 };
 
 // ParamsSpec for SetDocumentLoadStatistics
-subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec = {
+subresource_filter.mojom.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.SubresourceFilterHost.SetDocumentLoadStatistics_Params',
@@ -254,7 +256,7 @@ subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsS
 };
 
 // ParamsSpec for OnAdsViolationTriggered
-subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec = {
+subresource_filter.mojom.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec = {
   $: {
     structSpec: {
       name: 'subresource_filter.mojom.SubresourceFilterHost.OnAdsViolationTriggered_Params',
@@ -268,6 +270,6 @@ subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpe
 };
 
 // Legacy compatibility
-subresource_filter.mojom.SubresourceFilterHostPtr = subresource_filter.mojom.SubresourceFilterHostRemote;
-subresource_filter.mojom.SubresourceFilterHostRequest = subresource_filter.mojom.SubresourceFilterHostPendingReceiver;
+subresource_filter.mojom.mojom.SubresourceFilterHostPtr = subresource_filter.mojom.mojom.SubresourceFilterHostRemote;
+subresource_filter.mojom.mojom.SubresourceFilterHostRequest = subresource_filter.mojom.mojom.SubresourceFilterHostPendingReceiver;
 

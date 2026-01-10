@@ -10,24 +10,24 @@ metrics.mojom = metrics.mojom || {};
 
 
 // Interface: SingleSampleMetricsProvider
-metrics.mojom.SingleSampleMetricsProvider = {};
+metrics.mojom.mojom.SingleSampleMetricsProvider = {};
 
-metrics.mojom.SingleSampleMetricsProviderPendingReceiver = class {
+metrics.mojom.mojom.SingleSampleMetricsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-metrics.mojom.SingleSampleMetricsProviderRemote = class {
+metrics.mojom.mojom.SingleSampleMetricsProviderRemote = class {
   static get $interfaceName() {
     return 'metrics.mojom.SingleSampleMetricsProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      metrics.mojom.SingleSampleMetricsProviderPendingReceiver,
+      metrics.mojom.mojom.SingleSampleMetricsProviderPendingReceiver,
       handle);
-    this.$ = new metrics.mojom.SingleSampleMetricsProviderRemoteCallHandler(this.proxy);
+    this.$ = new metrics.mojom.mojom.SingleSampleMetricsProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ metrics.mojom.SingleSampleMetricsProviderRemote = class {
   }
 };
 
-metrics.mojom.SingleSampleMetricsProviderRemoteCallHandler = class {
+metrics.mojom.mojom.SingleSampleMetricsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ metrics.mojom.SingleSampleMetricsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec,
+      metrics.mojom.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec,
       null,
       [histogram_name, min, max, bucket_count, flags, receiver]);
   }
 
 };
 
-metrics.mojom.SingleSampleMetricsProvider.getRemote = function() {
-  let remote = new metrics.mojom.SingleSampleMetricsProviderRemote();
+metrics.mojom.mojom.SingleSampleMetricsProvider.getRemote = function() {
+  let remote = new metrics.mojom.mojom.SingleSampleMetricsProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ metrics.mojom.SingleSampleMetricsProvider.getRemote = function() {
 };
 
 // ParamsSpec for AcquireSingleSampleMetric
-metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec = {
+metrics.mojom.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics.mojom.SingleSampleMetricsProvider.AcquireSingleSampleMetric_Params',
@@ -85,29 +85,29 @@ metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec =
 };
 
 // Legacy compatibility
-metrics.mojom.SingleSampleMetricsProviderPtr = metrics.mojom.SingleSampleMetricsProviderRemote;
-metrics.mojom.SingleSampleMetricsProviderRequest = metrics.mojom.SingleSampleMetricsProviderPendingReceiver;
+metrics.mojom.mojom.SingleSampleMetricsProviderPtr = metrics.mojom.mojom.SingleSampleMetricsProviderRemote;
+metrics.mojom.mojom.SingleSampleMetricsProviderRequest = metrics.mojom.mojom.SingleSampleMetricsProviderPendingReceiver;
 
 
 // Interface: SingleSampleMetric
-metrics.mojom.SingleSampleMetric = {};
+metrics.mojom.mojom.SingleSampleMetric = {};
 
-metrics.mojom.SingleSampleMetricPendingReceiver = class {
+metrics.mojom.mojom.SingleSampleMetricPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-metrics.mojom.SingleSampleMetricRemote = class {
+metrics.mojom.mojom.SingleSampleMetricRemote = class {
   static get $interfaceName() {
     return 'metrics.mojom.SingleSampleMetric';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      metrics.mojom.SingleSampleMetricPendingReceiver,
+      metrics.mojom.mojom.SingleSampleMetricPendingReceiver,
       handle);
-    this.$ = new metrics.mojom.SingleSampleMetricRemoteCallHandler(this.proxy);
+    this.$ = new metrics.mojom.mojom.SingleSampleMetricRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -119,7 +119,7 @@ metrics.mojom.SingleSampleMetricRemote = class {
   }
 };
 
-metrics.mojom.SingleSampleMetricRemoteCallHandler = class {
+metrics.mojom.mojom.SingleSampleMetricRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -128,15 +128,15 @@ metrics.mojom.SingleSampleMetricRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec,
+      metrics.mojom.mojom.SingleSampleMetric_SetSample_ParamsSpec,
       null,
       [sample]);
   }
 
 };
 
-metrics.mojom.SingleSampleMetric.getRemote = function() {
-  let remote = new metrics.mojom.SingleSampleMetricRemote();
+metrics.mojom.mojom.SingleSampleMetric.getRemote = function() {
+  let remote = new metrics.mojom.mojom.SingleSampleMetricRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -146,7 +146,7 @@ metrics.mojom.SingleSampleMetric.getRemote = function() {
 };
 
 // ParamsSpec for SetSample
-metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
+metrics.mojom.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics.mojom.SingleSampleMetric.SetSample_Params',
@@ -160,6 +160,6 @@ metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = {
 };
 
 // Legacy compatibility
-metrics.mojom.SingleSampleMetricPtr = metrics.mojom.SingleSampleMetricRemote;
-metrics.mojom.SingleSampleMetricRequest = metrics.mojom.SingleSampleMetricPendingReceiver;
+metrics.mojom.mojom.SingleSampleMetricPtr = metrics.mojom.mojom.SingleSampleMetricRemote;
+metrics.mojom.mojom.SingleSampleMetricRequest = metrics.mojom.mojom.SingleSampleMetricPendingReceiver;
 

@@ -10,31 +10,31 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: UserVerificationRequirement
-crosapi.mojom.UserVerificationRequirement = {
+crosapi.mojom.mojom.UserVerificationRequirement = {
   kDiscouraged: 0,
   kRequired: 1,
 };
-crosapi.mojom.UserVerificationRequirementSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.UserVerificationRequirementSpec = { $: mojo.internal.Enum() };
 
 // Enum: PasskeyCreationError
-crosapi.mojom.PasskeyCreationError = {
+crosapi.mojom.mojom.PasskeyCreationError = {
   kNonPrimaryAccount: 0,
   kPendingRequest: 1,
   kSecurityDomainSecretUnavailable: 2,
 };
-crosapi.mojom.PasskeyCreationErrorSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.PasskeyCreationErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: PasskeyAssertionError
-crosapi.mojom.PasskeyAssertionError = {
+crosapi.mojom.mojom.PasskeyAssertionError = {
   kNonPrimaryAccount: 0,
   kPendingRequest: 1,
   kCredentialNotFound: 2,
   kSecurityDomainSecretUnavailable: 3,
 };
-crosapi.mojom.PasskeyAssertionErrorSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.PasskeyAssertionErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: PasskeyCreationResult
-crosapi.mojom.PasskeyCreationResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.PasskeyCreationResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.PasskeyCreationResult', {
       'response': {
         'ordinal': 0,
@@ -48,7 +48,7 @@ crosapi.mojom.PasskeyCreationResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: PasskeyAssertionResult
-crosapi.mojom.PasskeyAssertionResultSpec = { $: mojo.internal.Union(
+crosapi.mojom.mojom.PasskeyAssertionResultSpec = { $: mojo.internal.Union(
     'crosapi.mojom.PasskeyAssertionResult', {
       'response': {
         'ordinal': 0,
@@ -62,7 +62,7 @@ crosapi.mojom.PasskeyAssertionResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: PasskeyCreationRequest
-crosapi.mojom.PasskeyCreationRequestSpec = {
+crosapi.mojom.mojom.PasskeyCreationRequestSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyCreationRequest',
@@ -80,7 +80,7 @@ crosapi.mojom.PasskeyCreationRequestSpec = {
 };
 
 // Struct: PasskeyCreationResponse
-crosapi.mojom.PasskeyCreationResponseSpec = {
+crosapi.mojom.mojom.PasskeyCreationResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyCreationResponse',
@@ -94,7 +94,7 @@ crosapi.mojom.PasskeyCreationResponseSpec = {
 };
 
 // Struct: PasskeyAssertionRequest
-crosapi.mojom.PasskeyAssertionRequestSpec = {
+crosapi.mojom.mojom.PasskeyAssertionRequestSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyAssertionRequest',
@@ -112,7 +112,7 @@ crosapi.mojom.PasskeyAssertionRequestSpec = {
 };
 
 // Struct: PasskeyAssertionResponse
-crosapi.mojom.PasskeyAssertionResponseSpec = {
+crosapi.mojom.mojom.PasskeyAssertionResponseSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyAssertionResponse',
@@ -127,24 +127,24 @@ crosapi.mojom.PasskeyAssertionResponseSpec = {
 };
 
 // Interface: PasskeyAuthenticator
-crosapi.mojom.PasskeyAuthenticator = {};
+crosapi.mojom.mojom.PasskeyAuthenticator = {};
 
-crosapi.mojom.PasskeyAuthenticatorPendingReceiver = class {
+crosapi.mojom.mojom.PasskeyAuthenticatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.PasskeyAuthenticatorRemote = class {
+crosapi.mojom.mojom.PasskeyAuthenticatorRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.PasskeyAuthenticator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.PasskeyAuthenticatorPendingReceiver,
+      crosapi.mojom.mojom.PasskeyAuthenticatorPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.PasskeyAuthenticatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -156,7 +156,7 @@ crosapi.mojom.PasskeyAuthenticatorRemote = class {
   }
 };
 
-crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = class {
+crosapi.mojom.mojom.PasskeyAuthenticatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -165,8 +165,8 @@ crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec,
-      crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec,
+      crosapi.mojom.mojom.PasskeyAuthenticator_Create_ParamsSpec,
+      crosapi.mojom.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec,
       [account, request]);
   }
 
@@ -174,15 +174,15 @@ crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec,
-      crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec,
+      crosapi.mojom.mojom.PasskeyAuthenticator_Assert_ParamsSpec,
+      crosapi.mojom.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec,
       [account, request]);
   }
 
 };
 
-crosapi.mojom.PasskeyAuthenticator.getRemote = function() {
-  let remote = new crosapi.mojom.PasskeyAuthenticatorRemote();
+crosapi.mojom.mojom.PasskeyAuthenticator.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.PasskeyAuthenticatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -192,7 +192,7 @@ crosapi.mojom.PasskeyAuthenticator.getRemote = function() {
 };
 
 // ParamsSpec for Create
-crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec = {
+crosapi.mojom.mojom.PasskeyAuthenticator_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyAuthenticator.Create_Params',
@@ -206,7 +206,7 @@ crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec = {
   }
 };
 
-crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec = {
+crosapi.mojom.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyAuthenticator.Create_ResponseParams',
@@ -220,7 +220,7 @@ crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Assert
-crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec = {
+crosapi.mojom.mojom.PasskeyAuthenticator_Assert_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyAuthenticator.Assert_Params',
@@ -234,7 +234,7 @@ crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec = {
   }
 };
 
-crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec = {
+crosapi.mojom.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.PasskeyAuthenticator.Assert_ResponseParams',
@@ -248,6 +248,6 @@ crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.PasskeyAuthenticatorPtr = crosapi.mojom.PasskeyAuthenticatorRemote;
-crosapi.mojom.PasskeyAuthenticatorRequest = crosapi.mojom.PasskeyAuthenticatorPendingReceiver;
+crosapi.mojom.mojom.PasskeyAuthenticatorPtr = crosapi.mojom.mojom.PasskeyAuthenticatorRemote;
+crosapi.mojom.mojom.PasskeyAuthenticatorRequest = crosapi.mojom.mojom.PasskeyAuthenticatorPendingReceiver;
 

@@ -7,10 +7,11 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
+var url = url || {};
 
 
 // Struct: IceServer
-sharing.mojom.IceServerSpec = {
+sharing.mojom.mojom.IceServerSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.IceServer',
@@ -26,7 +27,7 @@ sharing.mojom.IceServerSpec = {
 };
 
 // Struct: WebRtcDependencies
-sharing.mojom.WebRtcDependenciesSpec = {
+sharing.mojom.mojom.WebRtcDependenciesSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WebRtcDependencies',
@@ -43,24 +44,24 @@ sharing.mojom.WebRtcDependenciesSpec = {
 };
 
 // Interface: IceConfigFetcher
-sharing.mojom.IceConfigFetcher = {};
+sharing.mojom.mojom.IceConfigFetcher = {};
 
-sharing.mojom.IceConfigFetcherPendingReceiver = class {
+sharing.mojom.mojom.IceConfigFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.IceConfigFetcherRemote = class {
+sharing.mojom.mojom.IceConfigFetcherRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.IceConfigFetcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.IceConfigFetcherPendingReceiver,
+      sharing.mojom.mojom.IceConfigFetcherPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.IceConfigFetcherRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.mojom.IceConfigFetcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -72,7 +73,7 @@ sharing.mojom.IceConfigFetcherRemote = class {
   }
 };
 
-sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
+sharing.mojom.mojom.IceConfigFetcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -81,15 +82,15 @@ sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec,
-      sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec,
+      sharing.mojom.mojom.IceConfigFetcher_GetIceServers_ParamsSpec,
+      sharing.mojom.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec,
       []);
   }
 
 };
 
-sharing.mojom.IceConfigFetcher.getRemote = function() {
-  let remote = new sharing.mojom.IceConfigFetcherRemote();
+sharing.mojom.mojom.IceConfigFetcher.getRemote = function() {
+  let remote = new sharing.mojom.mojom.IceConfigFetcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +100,7 @@ sharing.mojom.IceConfigFetcher.getRemote = function() {
 };
 
 // ParamsSpec for GetIceServers
-sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
+sharing.mojom.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.IceConfigFetcher.GetIceServers_Params',
@@ -111,7 +112,7 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
   }
 };
 
-sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
+sharing.mojom.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.IceConfigFetcher.GetIceServers_ResponseParams',
@@ -125,29 +126,29 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-sharing.mojom.IceConfigFetcherPtr = sharing.mojom.IceConfigFetcherRemote;
-sharing.mojom.IceConfigFetcherRequest = sharing.mojom.IceConfigFetcherPendingReceiver;
+sharing.mojom.mojom.IceConfigFetcherPtr = sharing.mojom.mojom.IceConfigFetcherRemote;
+sharing.mojom.mojom.IceConfigFetcherRequest = sharing.mojom.mojom.IceConfigFetcherPendingReceiver;
 
 
 // Interface: MdnsResponderFactory
-sharing.mojom.MdnsResponderFactory = {};
+sharing.mojom.mojom.MdnsResponderFactory = {};
 
-sharing.mojom.MdnsResponderFactoryPendingReceiver = class {
+sharing.mojom.mojom.MdnsResponderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.MdnsResponderFactoryRemote = class {
+sharing.mojom.mojom.MdnsResponderFactoryRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.MdnsResponderFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.MdnsResponderFactoryPendingReceiver,
+      sharing.mojom.mojom.MdnsResponderFactoryPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.MdnsResponderFactoryRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.mojom.MdnsResponderFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -159,7 +160,7 @@ sharing.mojom.MdnsResponderFactoryRemote = class {
   }
 };
 
-sharing.mojom.MdnsResponderFactoryRemoteCallHandler = class {
+sharing.mojom.mojom.MdnsResponderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -168,15 +169,15 @@ sharing.mojom.MdnsResponderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec,
+      sharing.mojom.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec,
       null,
       [responder_receiver]);
   }
 
 };
 
-sharing.mojom.MdnsResponderFactory.getRemote = function() {
-  let remote = new sharing.mojom.MdnsResponderFactoryRemote();
+sharing.mojom.mojom.MdnsResponderFactory.getRemote = function() {
+  let remote = new sharing.mojom.mojom.MdnsResponderFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -186,7 +187,7 @@ sharing.mojom.MdnsResponderFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateMdnsResponder
-sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
+sharing.mojom.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.MdnsResponderFactory.CreateMdnsResponder_Params',
@@ -200,6 +201,6 @@ sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
 };
 
 // Legacy compatibility
-sharing.mojom.MdnsResponderFactoryPtr = sharing.mojom.MdnsResponderFactoryRemote;
-sharing.mojom.MdnsResponderFactoryRequest = sharing.mojom.MdnsResponderFactoryPendingReceiver;
+sharing.mojom.mojom.MdnsResponderFactoryPtr = sharing.mojom.mojom.MdnsResponderFactoryRemote;
+sharing.mojom.mojom.MdnsResponderFactoryRequest = sharing.mojom.mojom.MdnsResponderFactoryPendingReceiver;
 

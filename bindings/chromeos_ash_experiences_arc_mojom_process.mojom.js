@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ProcessState
-arc.mojom.ProcessState = {
+arc.mojom.mojom.ProcessState = {
   UNKNOWN: 0,
   R_UNKNOWN: 1,
   PERSISTENT: 2,
@@ -55,29 +55,29 @@ arc.mojom.ProcessState = {
   NONEXISTENT: 41,
   R_NONEXISTENT: 42,
 };
-arc.mojom.ProcessStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ProcessStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: PressureLevel
-arc.mojom.PressureLevel = {
+arc.mojom.mojom.PressureLevel = {
   kForeground: 0,
   kPerceptible: 1,
   kCached: 2,
 };
-arc.mojom.PressureLevelSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.PressureLevelSpec = { $: mojo.internal.Enum() };
 
 // Struct: RunningAppProcessInfo
-arc.mojom.RunningAppProcessInfoSpec = {
+arc.mojom.mojom.RunningAppProcessInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.RunningAppProcessInfo',
       packedSize: 48,
       fields: [
         { name: 'process_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'process_state', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.ProcessStateSpec, nullable: false, minVersion: 0 },
-        { name: 'packages', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'is_focused', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'last_activity_time', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'pid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'process_state', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.ProcessStateSpec, nullable: false, minVersion: 0 },
+        { name: 'packages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'is_focused', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'last_activity_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -85,7 +85,7 @@ arc.mojom.RunningAppProcessInfoSpec = {
 };
 
 // Struct: ArcMemoryDump
-arc.mojom.ArcMemoryDumpSpec = {
+arc.mojom.mojom.ArcMemoryDumpSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcMemoryDump',
@@ -101,7 +101,7 @@ arc.mojom.ArcMemoryDumpSpec = {
 };
 
 // Struct: LowMemoryKillCounts
-arc.mojom.LowMemoryKillCountsSpec = {
+arc.mojom.mojom.LowMemoryKillCountsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.LowMemoryKillCounts',
@@ -121,24 +121,24 @@ arc.mojom.LowMemoryKillCountsSpec = {
 };
 
 // Interface: ProcessInstance
-arc.mojom.ProcessInstance = {};
+arc.mojom.mojom.ProcessInstance = {};
 
-arc.mojom.ProcessInstancePendingReceiver = class {
+arc.mojom.mojom.ProcessInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ProcessInstanceRemote = class {
+arc.mojom.mojom.ProcessInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ProcessInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ProcessInstancePendingReceiver,
+      arc.mojom.mojom.ProcessInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.ProcessInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ProcessInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -150,7 +150,7 @@ arc.mojom.ProcessInstanceRemote = class {
   }
 };
 
-arc.mojom.ProcessInstanceRemoteCallHandler = class {
+arc.mojom.mojom.ProcessInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -159,7 +159,7 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.ProcessInstance_KillProcess_ParamsSpec,
+      arc.mojom.mojom.ProcessInstance_KillProcess_ParamsSpec,
       null,
       [pid, reason]);
   }
@@ -168,8 +168,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec,
-      arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec,
+      arc.mojom.mojom.ProcessInstance_RequestProcessList_ParamsSpec,
+      arc.mojom.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec,
       []);
   }
 
@@ -177,8 +177,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec,
-      arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec,
+      arc.mojom.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec,
+      arc.mojom.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec,
       []);
   }
 
@@ -186,8 +186,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec,
-      arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec,
+      arc.mojom.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec,
+      arc.mojom.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec,
       [nspids]);
   }
 
@@ -195,8 +195,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec,
-      arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec,
+      arc.mojom.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec,
+      arc.mojom.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec,
       [level, reclaim_target]);
   }
 
@@ -204,8 +204,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec,
-      arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec,
+      arc.mojom.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec,
+      arc.mojom.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec,
       [level, reclaim_target]);
   }
 
@@ -213,15 +213,15 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec,
-      arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec,
+      arc.mojom.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec,
+      arc.mojom.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.ProcessInstance.getRemote = function() {
-  let remote = new arc.mojom.ProcessInstanceRemote();
+arc.mojom.mojom.ProcessInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.ProcessInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -231,14 +231,14 @@ arc.mojom.ProcessInstance.getRemote = function() {
 };
 
 // ParamsSpec for KillProcess
-arc.mojom.ProcessInstance_KillProcess_ParamsSpec = {
+arc.mojom.mojom.ProcessInstance_KillProcess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.KillProcess_Params',
       packedSize: 24,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -246,7 +246,7 @@ arc.mojom.ProcessInstance_KillProcess_ParamsSpec = {
 };
 
 // ParamsSpec for RequestProcessList
-arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec = {
+arc.mojom.mojom.ProcessInstance_RequestProcessList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.RequestProcessList_Params',
@@ -258,7 +258,7 @@ arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec = {
   }
 };
 
-arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec = {
+arc.mojom.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.RequestProcessList_ResponseParams',
@@ -272,7 +272,7 @@ arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestApplicationProcessMemoryInfo
-arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec = {
+arc.mojom.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.RequestApplicationProcessMemoryInfo_Params',
@@ -284,7 +284,7 @@ arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec = {
   }
 };
 
-arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec = {
+arc.mojom.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.RequestApplicationProcessMemoryInfo_ResponseParams',
@@ -298,7 +298,7 @@ arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec
 };
 
 // ParamsSpec for RequestSystemProcessMemoryInfo
-arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec = {
+arc.mojom.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.RequestSystemProcessMemoryInfo_Params',
@@ -311,7 +311,7 @@ arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec = {
   }
 };
 
-arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec = {
+arc.mojom.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.RequestSystemProcessMemoryInfo_ResponseParams',
@@ -325,28 +325,28 @@ arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ApplyHostMemoryPressureDeprecated
-arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec = {
+arc.mojom.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.ApplyHostMemoryPressureDeprecated_Params',
       packedSize: 24,
       fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ProcessStateSpec, nullable: false, minVersion: 0 },
-        { name: 'reclaim_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ProcessStateSpec, nullable: false, minVersion: 0 },
+        { name: 'reclaim_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec = {
+arc.mojom.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.ApplyHostMemoryPressureDeprecated_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'killed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'reclaimed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'killed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'reclaimed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -354,28 +354,28 @@ arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec =
 };
 
 // ParamsSpec for ApplyHostMemoryPressure
-arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec = {
+arc.mojom.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.ApplyHostMemoryPressure_Params',
       packedSize: 24,
       fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PressureLevelSpec, nullable: false, minVersion: 0 },
-        { name: 'reclaim_target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.PressureLevelSpec, nullable: false, minVersion: 0 },
+        { name: 'reclaim_target', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec = {
+arc.mojom.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.ApplyHostMemoryPressure_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'killed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'reclaimed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'killed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'reclaimed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -383,7 +383,7 @@ arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestLowMemoryKillCounts
-arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec = {
+arc.mojom.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.RequestLowMemoryKillCounts_Params',
@@ -395,7 +395,7 @@ arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec = {
   }
 };
 
-arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec = {
+arc.mojom.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ProcessInstance.RequestLowMemoryKillCounts_ResponseParams',
@@ -409,6 +409,6 @@ arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ProcessInstancePtr = arc.mojom.ProcessInstanceRemote;
-arc.mojom.ProcessInstanceRequest = arc.mojom.ProcessInstancePendingReceiver;
+arc.mojom.mojom.ProcessInstancePtr = arc.mojom.mojom.ProcessInstanceRemote;
+arc.mojom.mojom.ProcessInstanceRequest = arc.mojom.mojom.ProcessInstancePendingReceiver;
 

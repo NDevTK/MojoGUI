@@ -10,40 +10,40 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: TelemetryKeyboardConnectionType
-crosapi.mojom.TelemetryKeyboardConnectionType = {
+crosapi.mojom.mojom.TelemetryKeyboardConnectionType = {
   kInternal: 0,
   kUsb: 1,
   kBluetooth: 2,
   kUnknown: 3,
 };
-crosapi.mojom.TelemetryKeyboardConnectionTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.TelemetryKeyboardConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardPhysicalLayout
-crosapi.mojom.TelemetryKeyboardPhysicalLayout = {
+crosapi.mojom.mojom.TelemetryKeyboardPhysicalLayout = {
   kUnknown: 0,
   kChromeOS: 1,
 };
-crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.TelemetryKeyboardPhysicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardMechanicalLayout
-crosapi.mojom.TelemetryKeyboardMechanicalLayout = {
+crosapi.mojom.mojom.TelemetryKeyboardMechanicalLayout = {
   kUnknown: 0,
   kAnsi: 1,
   kIso: 2,
   kJis: 3,
 };
-crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.TelemetryKeyboardMechanicalLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardNumberPadPresence
-crosapi.mojom.TelemetryKeyboardNumberPadPresence = {
+crosapi.mojom.mojom.TelemetryKeyboardNumberPadPresence = {
   kUnknown: 0,
   kPresent: 1,
   kNotPresent: 2,
 };
-crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.TelemetryKeyboardNumberPadPresenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardTopRowKey
-crosapi.mojom.TelemetryKeyboardTopRowKey = {
+crosapi.mojom.mojom.TelemetryKeyboardTopRowKey = {
   kNone: 0,
   kUnknown: 1,
   kBack: 2,
@@ -68,34 +68,34 @@ crosapi.mojom.TelemetryKeyboardTopRowKey = {
   kScreenMirror: 21,
   kDelete: 22,
 };
-crosapi.mojom.TelemetryKeyboardTopRowKeySpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.TelemetryKeyboardTopRowKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: TelemetryKeyboardTopRightKey
-crosapi.mojom.TelemetryKeyboardTopRightKey = {
+crosapi.mojom.mojom.TelemetryKeyboardTopRightKey = {
   kUnknown: 0,
   kPower: 1,
   kLock: 2,
   kControlPanel: 3,
 };
-crosapi.mojom.TelemetryKeyboardTopRightKeySpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.TelemetryKeyboardTopRightKeySpec = { $: mojo.internal.Enum() };
 
 // Struct: TelemetryKeyboardInfo
-crosapi.mojom.TelemetryKeyboardInfoSpec = {
+crosapi.mojom.mojom.TelemetryKeyboardInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryKeyboardInfo',
       packedSize: 72,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.UInt32ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'connection_type', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'physical_layout', packedOffset: 12, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'mechanical_layout', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'region_code', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'number_pad_present', packedOffset: 28, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec, nullable: false, minVersion: 0 },
-        { name: 'top_row_keys', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.TelemetryKeyboardTopRowKeySpec, false), nullable: true, minVersion: 0 },
-        { name: 'top_right_key', packedOffset: 48, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardTopRightKeySpec, nullable: false, minVersion: 0 },
-        { name: 'has_assistant_key', packedOffset: 56, packedBitOffset: 0, type: crosapi.mojom.BoolValueSpec, nullable: true, minVersion: 0 },
+        { name: 'connection_type', packedOffset: 40, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardConnectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'physical_layout', packedOffset: 44, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec, nullable: false, minVersion: 0 },
+        { name: 'mechanical_layout', packedOffset: 48, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec, nullable: false, minVersion: 0 },
+        { name: 'region_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'number_pad_present', packedOffset: 52, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec, nullable: false, minVersion: 0 },
+        { name: 'top_row_keys', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.TelemetryKeyboardTopRowKeySpec, false), nullable: true, minVersion: 0 },
+        { name: 'top_right_key', packedOffset: 56, packedBitOffset: 0, type: crosapi.mojom.TelemetryKeyboardTopRightKeySpec, nullable: false, minVersion: 0 },
+        { name: 'has_assistant_key', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.BoolValueSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -103,7 +103,7 @@ crosapi.mojom.TelemetryKeyboardInfoSpec = {
 };
 
 // Struct: TelemetryKeyboardDiagnosticEventInfo
-crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = {
+crosapi.mojom.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryKeyboardDiagnosticEventInfo',

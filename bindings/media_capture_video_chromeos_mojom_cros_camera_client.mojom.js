@@ -10,24 +10,24 @@ cros.mojom = cros.mojom || {};
 
 
 // Interface: CameraHalClient
-cros.mojom.CameraHalClient = {};
+cros.mojom.mojom.CameraHalClient = {};
 
-cros.mojom.CameraHalClientPendingReceiver = class {
+cros.mojom.mojom.CameraHalClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.CameraHalClientRemote = class {
+cros.mojom.mojom.CameraHalClientRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CameraHalClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.CameraHalClientPendingReceiver,
+      cros.mojom.mojom.CameraHalClientPendingReceiver,
       handle);
-    this.$ = new cros.mojom.CameraHalClientRemoteCallHandler(this.proxy);
+    this.$ = new cros.mojom.mojom.CameraHalClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ cros.mojom.CameraHalClientRemote = class {
   }
 };
 
-cros.mojom.CameraHalClientRemoteCallHandler = class {
+cros.mojom.mojom.CameraHalClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ cros.mojom.CameraHalClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec,
+      cros.mojom.mojom.CameraHalClient_SetUpChannel_ParamsSpec,
       null,
       [camera_module]);
   }
 
 };
 
-cros.mojom.CameraHalClient.getRemote = function() {
-  let remote = new cros.mojom.CameraHalClientRemote();
+cros.mojom.mojom.CameraHalClient.getRemote = function() {
+  let remote = new cros.mojom.mojom.CameraHalClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ cros.mojom.CameraHalClient.getRemote = function() {
 };
 
 // ParamsSpec for SetUpChannel
-cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
+cros.mojom.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraHalClient.SetUpChannel_Params',
@@ -80,6 +80,6 @@ cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
 };
 
 // Legacy compatibility
-cros.mojom.CameraHalClientPtr = cros.mojom.CameraHalClientRemote;
-cros.mojom.CameraHalClientRequest = cros.mojom.CameraHalClientPendingReceiver;
+cros.mojom.mojom.CameraHalClientPtr = cros.mojom.mojom.CameraHalClientRemote;
+cros.mojom.mojom.CameraHalClientRequest = cros.mojom.mojom.CameraHalClientPendingReceiver;
 

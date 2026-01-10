@@ -7,27 +7,28 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var blink = blink || {};
 
 
 // Interface: AssistiveTechnologyController
-ax.mojom.AssistiveTechnologyController = {};
+ax.mojom.mojom.AssistiveTechnologyController = {};
 
-ax.mojom.AssistiveTechnologyControllerPendingReceiver = class {
+ax.mojom.mojom.AssistiveTechnologyControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.AssistiveTechnologyControllerRemote = class {
+ax.mojom.mojom.AssistiveTechnologyControllerRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.AssistiveTechnologyController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.AssistiveTechnologyControllerPendingReceiver,
+      ax.mojom.mojom.AssistiveTechnologyControllerPendingReceiver,
       handle);
-    this.$ = new ax.mojom.AssistiveTechnologyControllerRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.mojom.AssistiveTechnologyControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ ax.mojom.AssistiveTechnologyControllerRemote = class {
   }
 };
 
-ax.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
+ax.mojom.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ ax.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec,
+      ax.mojom.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec,
       null,
       [enabled_features]);
   }
 
 };
 
-ax.mojom.AssistiveTechnologyController.getRemote = function() {
-  let remote = new ax.mojom.AssistiveTechnologyControllerRemote();
+ax.mojom.mojom.AssistiveTechnologyController.getRemote = function() {
+  let remote = new ax.mojom.mojom.AssistiveTechnologyControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ ax.mojom.AssistiveTechnologyController.getRemote = function() {
 };
 
 // ParamsSpec for EnableAssistiveTechnology
-ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = {
+ax.mojom.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistiveTechnologyController.EnableAssistiveTechnology_Params',
@@ -80,29 +81,29 @@ ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.AssistiveTechnologyControllerPtr = ax.mojom.AssistiveTechnologyControllerRemote;
-ax.mojom.AssistiveTechnologyControllerRequest = ax.mojom.AssistiveTechnologyControllerPendingReceiver;
+ax.mojom.mojom.AssistiveTechnologyControllerPtr = ax.mojom.mojom.AssistiveTechnologyControllerRemote;
+ax.mojom.mojom.AssistiveTechnologyControllerRequest = ax.mojom.mojom.AssistiveTechnologyControllerPendingReceiver;
 
 
 // Interface: AccessibilityService
-ax.mojom.AccessibilityService = {};
+ax.mojom.mojom.AccessibilityService = {};
 
-ax.mojom.AccessibilityServicePendingReceiver = class {
+ax.mojom.mojom.AccessibilityServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.AccessibilityServiceRemote = class {
+ax.mojom.mojom.AccessibilityServiceRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.AccessibilityService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.AccessibilityServicePendingReceiver,
+      ax.mojom.mojom.AccessibilityServicePendingReceiver,
       handle);
-    this.$ = new ax.mojom.AccessibilityServiceRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.mojom.AccessibilityServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +115,7 @@ ax.mojom.AccessibilityServiceRemote = class {
   }
 };
 
-ax.mojom.AccessibilityServiceRemoteCallHandler = class {
+ax.mojom.mojom.AccessibilityServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,7 +124,7 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec,
+      ax.mojom.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec,
       null,
       [accessibility_service_client]);
   }
@@ -132,7 +133,7 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec,
+      ax.mojom.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec,
       null,
       [at_controller, enabled_features]);
   }
@@ -141,15 +142,15 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec,
+      ax.mojom.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec,
       null,
       [agent, type]);
   }
 
 };
 
-ax.mojom.AccessibilityService.getRemote = function() {
-  let remote = new ax.mojom.AccessibilityServiceRemote();
+ax.mojom.mojom.AccessibilityService.getRemote = function() {
+  let remote = new ax.mojom.mojom.AccessibilityServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +160,7 @@ ax.mojom.AccessibilityService.getRemote = function() {
 };
 
 // ParamsSpec for BindAccessibilityServiceClient
-ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = {
+ax.mojom.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityService.BindAccessibilityServiceClient_Params',
@@ -173,14 +174,14 @@ ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = {
 };
 
 // ParamsSpec for BindAssistiveTechnologyController
-ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = {
+ax.mojom.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityService.BindAssistiveTechnologyController_Params',
       packedSize: 24,
       fields: [
-        { name: 'at_controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'enabled_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'at_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'enabled_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AssistiveTechnologyTypeSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -188,7 +189,7 @@ ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = {
 };
 
 // ParamsSpec for ConnectDevToolsAgent
-ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = {
+ax.mojom.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityService.ConnectDevToolsAgent_Params',
@@ -203,29 +204,29 @@ ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.AccessibilityServicePtr = ax.mojom.AccessibilityServiceRemote;
-ax.mojom.AccessibilityServiceRequest = ax.mojom.AccessibilityServicePendingReceiver;
+ax.mojom.mojom.AccessibilityServicePtr = ax.mojom.mojom.AccessibilityServiceRemote;
+ax.mojom.mojom.AccessibilityServiceRequest = ax.mojom.mojom.AccessibilityServicePendingReceiver;
 
 
 // Interface: AccessibilityServiceClient
-ax.mojom.AccessibilityServiceClient = {};
+ax.mojom.mojom.AccessibilityServiceClient = {};
 
-ax.mojom.AccessibilityServiceClientPendingReceiver = class {
+ax.mojom.mojom.AccessibilityServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.AccessibilityServiceClientRemote = class {
+ax.mojom.mojom.AccessibilityServiceClientRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.AccessibilityServiceClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.AccessibilityServiceClientPendingReceiver,
+      ax.mojom.mojom.AccessibilityServiceClientPendingReceiver,
       handle);
-    this.$ = new ax.mojom.AccessibilityServiceClientRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.mojom.AccessibilityServiceClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -237,7 +238,7 @@ ax.mojom.AccessibilityServiceClientRemote = class {
   }
 };
 
-ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
+ax.mojom.mojom.AccessibilityServiceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -246,7 +247,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec,
+      ax.mojom.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec,
       null,
       [automation]);
   }
@@ -255,7 +256,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec,
+      ax.mojom.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec,
       null,
       [automation_client]);
   }
@@ -264,7 +265,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec,
+      ax.mojom.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec,
       null,
       [autoclick_client]);
   }
@@ -273,7 +274,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec,
+      ax.mojom.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec,
       null,
       [sr_receiver]);
   }
@@ -282,7 +283,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec,
+      ax.mojom.mojom.AccessibilityServiceClient_BindTts_ParamsSpec,
       null,
       [tts_receiver]);
   }
@@ -291,7 +292,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec,
+      ax.mojom.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec,
       null,
       [user_input_receiver]);
   }
@@ -300,7 +301,7 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec,
+      ax.mojom.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec,
       null,
       [user_interface_receiver]);
   }
@@ -309,15 +310,15 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec,
+      ax.mojom.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec,
       null,
       [file_loader_receiver]);
   }
 
 };
 
-ax.mojom.AccessibilityServiceClient.getRemote = function() {
-  let remote = new ax.mojom.AccessibilityServiceClientRemote();
+ax.mojom.mojom.AccessibilityServiceClient.getRemote = function() {
+  let remote = new ax.mojom.mojom.AccessibilityServiceClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -327,7 +328,7 @@ ax.mojom.AccessibilityServiceClient.getRemote = function() {
 };
 
 // ParamsSpec for BindAutomation
-ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = {
+ax.mojom.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityServiceClient.BindAutomation_Params',
@@ -341,7 +342,7 @@ ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = {
 };
 
 // ParamsSpec for BindAutomationClient
-ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = {
+ax.mojom.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityServiceClient.BindAutomationClient_Params',
@@ -355,7 +356,7 @@ ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = {
 };
 
 // ParamsSpec for BindAutoclickClient
-ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = {
+ax.mojom.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityServiceClient.BindAutoclickClient_Params',
@@ -369,7 +370,7 @@ ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = {
 };
 
 // ParamsSpec for BindSpeechRecognition
-ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = {
+ax.mojom.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityServiceClient.BindSpeechRecognition_Params',
@@ -383,7 +384,7 @@ ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = {
 };
 
 // ParamsSpec for BindTts
-ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = {
+ax.mojom.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityServiceClient.BindTts_Params',
@@ -397,7 +398,7 @@ ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = {
 };
 
 // ParamsSpec for BindUserInput
-ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = {
+ax.mojom.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityServiceClient.BindUserInput_Params',
@@ -411,7 +412,7 @@ ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = {
 };
 
 // ParamsSpec for BindUserInterface
-ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = {
+ax.mojom.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityServiceClient.BindUserInterface_Params',
@@ -425,7 +426,7 @@ ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = {
 };
 
 // ParamsSpec for BindAccessibilityFileLoader
-ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = {
+ax.mojom.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AccessibilityServiceClient.BindAccessibilityFileLoader_Params',
@@ -439,6 +440,6 @@ ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.AccessibilityServiceClientPtr = ax.mojom.AccessibilityServiceClientRemote;
-ax.mojom.AccessibilityServiceClientRequest = ax.mojom.AccessibilityServiceClientPendingReceiver;
+ax.mojom.mojom.AccessibilityServiceClientPtr = ax.mojom.mojom.AccessibilityServiceClientRemote;
+ax.mojom.mojom.AccessibilityServiceClientRequest = ax.mojom.mojom.AccessibilityServiceClientPendingReceiver;
 

@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Union: NetworkAnonymizationKey
-network.mojom.NetworkAnonymizationKeySpec = { $: mojo.internal.Union(
+network.mojom.mojom.NetworkAnonymizationKeySpec = { $: mojo.internal.Union(
     'network.mojom.NetworkAnonymizationKey', {
       'empty': {
         'ordinal': 0,
@@ -24,7 +24,7 @@ network.mojom.NetworkAnonymizationKeySpec = { $: mojo.internal.Union(
 };
 
 // Struct: EmptyNetworkAnonymizationKey
-network.mojom.EmptyNetworkAnonymizationKeySpec = {
+network.mojom.mojom.EmptyNetworkAnonymizationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.EmptyNetworkAnonymizationKey',
@@ -37,16 +37,16 @@ network.mojom.EmptyNetworkAnonymizationKeySpec = {
 };
 
 // Struct: NonEmptyNetworkAnonymizationKey
-network.mojom.NonEmptyNetworkAnonymizationKeySpec = {
+network.mojom.mojom.NonEmptyNetworkAnonymizationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NonEmptyNetworkAnonymizationKey',
       packedSize: 32,
       fields: [
         { name: 'top_frame_site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
-        { name: 'is_cross_site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'nonce', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'network_isolation_partition', packedOffset: 12, packedBitOffset: 0, type: network.mojom.NetworkIsolationPartitionSpec, nullable: false, minVersion: 0 },
+        { name: 'is_cross_site', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'nonce', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'network_isolation_partition', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetworkIsolationPartitionSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

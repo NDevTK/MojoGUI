@@ -10,24 +10,24 @@ content.mojom = content.mojom || {};
 
 
 // Interface: RendererVariationsConfiguration
-content.mojom.RendererVariationsConfiguration = {};
+content.mojom.mojom.RendererVariationsConfiguration = {};
 
-content.mojom.RendererVariationsConfigurationPendingReceiver = class {
+content.mojom.mojom.RendererVariationsConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.RendererVariationsConfigurationRemote = class {
+content.mojom.mojom.RendererVariationsConfigurationRemote = class {
   static get $interfaceName() {
     return 'content.mojom.RendererVariationsConfiguration';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.RendererVariationsConfigurationPendingReceiver,
+      content.mojom.mojom.RendererVariationsConfigurationPendingReceiver,
       handle);
-    this.$ = new content.mojom.RendererVariationsConfigurationRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.RendererVariationsConfigurationRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ content.mojom.RendererVariationsConfigurationRemote = class {
   }
 };
 
-content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
+content.mojom.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec,
+      content.mojom.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec,
       null,
       [variations_headers]);
   }
@@ -57,15 +57,15 @@ content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec,
+      content.mojom.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec,
       null,
       [trial_name, group_name]);
   }
 
 };
 
-content.mojom.RendererVariationsConfiguration.getRemote = function() {
-  let remote = new content.mojom.RendererVariationsConfigurationRemote();
+content.mojom.mojom.RendererVariationsConfiguration.getRemote = function() {
+  let remote = new content.mojom.mojom.RendererVariationsConfigurationRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ content.mojom.RendererVariationsConfiguration.getRemote = function() {
 };
 
 // ParamsSpec for SetVariationsHeaders
-content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = {
+content.mojom.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererVariationsConfiguration.SetVariationsHeaders_Params',
@@ -89,7 +89,7 @@ content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec = 
 };
 
 // ParamsSpec for SetFieldTrialGroup
-content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
+content.mojom.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererVariationsConfiguration.SetFieldTrialGroup_Params',
@@ -104,6 +104,6 @@ content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.RendererVariationsConfigurationPtr = content.mojom.RendererVariationsConfigurationRemote;
-content.mojom.RendererVariationsConfigurationRequest = content.mojom.RendererVariationsConfigurationPendingReceiver;
+content.mojom.mojom.RendererVariationsConfigurationPtr = content.mojom.mojom.RendererVariationsConfigurationRemote;
+content.mojom.mojom.RendererVariationsConfigurationRequest = content.mojom.mojom.RendererVariationsConfigurationPendingReceiver;
 

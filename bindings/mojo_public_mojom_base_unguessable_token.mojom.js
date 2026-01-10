@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: UnguessableToken
-mojo_base.mojom.UnguessableTokenSpec = {
+mojo_base.mojom.mojom.UnguessableTokenSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.UnguessableToken',

@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: MutablePartialNetworkTrafficAnnotationTag
-network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec = {
+network.mojom.mojom.MutablePartialNetworkTrafficAnnotationTagSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MutablePartialNetworkTrafficAnnotationTag',

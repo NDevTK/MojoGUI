@@ -7,10 +7,13 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var content = content || {};
+var url = url || {};
+var url = url || {};
 
 
 // Enum: PluginStatus
-chrome.mojom.PluginStatus = {
+chrome.mojom.mojom.PluginStatus = {
   kAllowed: 0,
   kBlocked: 1,
   kBlockedByPolicy: 2,
@@ -18,20 +21,20 @@ chrome.mojom.PluginStatus = {
   kNotFound: 4,
   kUnauthorized: 5,
 };
-chrome.mojom.PluginStatusSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.PluginStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PluginInfo
-chrome.mojom.PluginInfoSpec = {
+chrome.mojom.mojom.PluginInfoSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.PluginInfo',
       packedSize: 48,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.PluginStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'plugin', packedOffset: 8, packedBitOffset: 0, type: content.mojom.WebPluginInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'actual_mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_identifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 32, packedBitOffset: 0, type: chrome.mojom.PluginStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'plugin', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WebPluginInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'actual_mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'group_identifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'group_name', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -39,7 +42,7 @@ chrome.mojom.PluginInfoSpec = {
 };
 
 // Struct: PluginParam
-chrome.mojom.PluginParamSpec = {
+chrome.mojom.mojom.PluginParamSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.PluginParam',
@@ -54,24 +57,24 @@ chrome.mojom.PluginParamSpec = {
 };
 
 // Interface: PluginHost
-chrome.mojom.PluginHost = {};
+chrome.mojom.mojom.PluginHost = {};
 
-chrome.mojom.PluginHostPendingReceiver = class {
+chrome.mojom.mojom.PluginHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.PluginHostRemote = class {
+chrome.mojom.mojom.PluginHostRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.PluginHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.PluginHostPendingReceiver,
+      chrome.mojom.mojom.PluginHostPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.PluginHostRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.PluginHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -83,7 +86,7 @@ chrome.mojom.PluginHostRemote = class {
   }
 };
 
-chrome.mojom.PluginHostRemoteCallHandler = class {
+chrome.mojom.mojom.PluginHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -92,15 +95,15 @@ chrome.mojom.PluginHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.PluginHost_OpenPDF_ParamsSpec,
+      chrome.mojom.mojom.PluginHost_OpenPDF_ParamsSpec,
       null,
       [url]);
   }
 
 };
 
-chrome.mojom.PluginHost.getRemote = function() {
-  let remote = new chrome.mojom.PluginHostRemote();
+chrome.mojom.mojom.PluginHost.getRemote = function() {
+  let remote = new chrome.mojom.mojom.PluginHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -110,7 +113,7 @@ chrome.mojom.PluginHost.getRemote = function() {
 };
 
 // ParamsSpec for OpenPDF
-chrome.mojom.PluginHost_OpenPDF_ParamsSpec = {
+chrome.mojom.mojom.PluginHost_OpenPDF_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.PluginHost.OpenPDF_Params',
@@ -124,29 +127,29 @@ chrome.mojom.PluginHost_OpenPDF_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.PluginHostPtr = chrome.mojom.PluginHostRemote;
-chrome.mojom.PluginHostRequest = chrome.mojom.PluginHostPendingReceiver;
+chrome.mojom.mojom.PluginHostPtr = chrome.mojom.mojom.PluginHostRemote;
+chrome.mojom.mojom.PluginHostRequest = chrome.mojom.mojom.PluginHostPendingReceiver;
 
 
 // Interface: PluginAuthHost
-chrome.mojom.PluginAuthHost = {};
+chrome.mojom.mojom.PluginAuthHost = {};
 
-chrome.mojom.PluginAuthHostPendingReceiver = class {
+chrome.mojom.mojom.PluginAuthHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.PluginAuthHostRemote = class {
+chrome.mojom.mojom.PluginAuthHostRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.PluginAuthHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.PluginAuthHostPendingReceiver,
+      chrome.mojom.mojom.PluginAuthHostPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.PluginAuthHostRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.PluginAuthHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -158,7 +161,7 @@ chrome.mojom.PluginAuthHostRemote = class {
   }
 };
 
-chrome.mojom.PluginAuthHostRemoteCallHandler = class {
+chrome.mojom.mojom.PluginAuthHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -167,15 +170,15 @@ chrome.mojom.PluginAuthHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec,
+      chrome.mojom.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec,
       null,
       [name, group_id]);
   }
 
 };
 
-chrome.mojom.PluginAuthHost.getRemote = function() {
-  let remote = new chrome.mojom.PluginAuthHostRemote();
+chrome.mojom.mojom.PluginAuthHost.getRemote = function() {
+  let remote = new chrome.mojom.mojom.PluginAuthHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -185,7 +188,7 @@ chrome.mojom.PluginAuthHost.getRemote = function() {
 };
 
 // ParamsSpec for BlockedUnauthorizedPlugin
-chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = {
+chrome.mojom.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.PluginAuthHost.BlockedUnauthorizedPlugin_Params',
@@ -200,29 +203,29 @@ chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.PluginAuthHostPtr = chrome.mojom.PluginAuthHostRemote;
-chrome.mojom.PluginAuthHostRequest = chrome.mojom.PluginAuthHostPendingReceiver;
+chrome.mojom.mojom.PluginAuthHostPtr = chrome.mojom.mojom.PluginAuthHostRemote;
+chrome.mojom.mojom.PluginAuthHostRequest = chrome.mojom.mojom.PluginAuthHostPendingReceiver;
 
 
 // Interface: PluginInfoHost
-chrome.mojom.PluginInfoHost = {};
+chrome.mojom.mojom.PluginInfoHost = {};
 
-chrome.mojom.PluginInfoHostPendingReceiver = class {
+chrome.mojom.mojom.PluginInfoHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.PluginInfoHostRemote = class {
+chrome.mojom.mojom.PluginInfoHostRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.PluginInfoHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.PluginInfoHostPendingReceiver,
+      chrome.mojom.mojom.PluginInfoHostPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.PluginInfoHostRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.PluginInfoHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -234,7 +237,7 @@ chrome.mojom.PluginInfoHostRemote = class {
   }
 };
 
-chrome.mojom.PluginInfoHostRemoteCallHandler = class {
+chrome.mojom.mojom.PluginInfoHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -243,15 +246,15 @@ chrome.mojom.PluginInfoHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec,
-      chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec,
+      chrome.mojom.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec,
+      chrome.mojom.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec,
       [url, origin, mime_type]);
   }
 
 };
 
-chrome.mojom.PluginInfoHost.getRemote = function() {
-  let remote = new chrome.mojom.PluginInfoHostRemote();
+chrome.mojom.mojom.PluginInfoHost.getRemote = function() {
+  let remote = new chrome.mojom.mojom.PluginInfoHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -261,7 +264,7 @@ chrome.mojom.PluginInfoHost.getRemote = function() {
 };
 
 // ParamsSpec for GetPluginInfo
-chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
+chrome.mojom.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.PluginInfoHost.GetPluginInfo_Params',
@@ -276,7 +279,7 @@ chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
   }
 };
 
-chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = {
+chrome.mojom.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.PluginInfoHost.GetPluginInfo_ResponseParams',
@@ -290,6 +293,6 @@ chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.PluginInfoHostPtr = chrome.mojom.PluginInfoHostRemote;
-chrome.mojom.PluginInfoHostRequest = chrome.mojom.PluginInfoHostPendingReceiver;
+chrome.mojom.mojom.PluginInfoHostPtr = chrome.mojom.mojom.PluginInfoHostRemote;
+chrome.mojom.mojom.PluginInfoHostRequest = chrome.mojom.mojom.PluginInfoHostPendingReceiver;
 

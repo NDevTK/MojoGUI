@@ -7,10 +7,12 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Struct: DispatchFetchEventParams
-blink.mojom.DispatchFetchEventParamsSpec = {
+blink.mojom.mojom.DispatchFetchEventParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DispatchFetchEventParams',

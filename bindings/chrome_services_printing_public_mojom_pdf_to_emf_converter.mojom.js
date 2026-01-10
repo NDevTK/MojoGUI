@@ -7,27 +7,28 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
+var url = url || {};
 
 
 // Interface: PdfToEmfConverter
-printing.mojom.PdfToEmfConverter = {};
+printing.mojom.mojom.PdfToEmfConverter = {};
 
-printing.mojom.PdfToEmfConverterPendingReceiver = class {
+printing.mojom.mojom.PdfToEmfConverterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PdfToEmfConverterRemote = class {
+printing.mojom.mojom.PdfToEmfConverterRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PdfToEmfConverter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PdfToEmfConverterPendingReceiver,
+      printing.mojom.mojom.PdfToEmfConverterPendingReceiver,
       handle);
-    this.$ = new printing.mojom.PdfToEmfConverterRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.mojom.PdfToEmfConverterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ printing.mojom.PdfToEmfConverterRemote = class {
   }
 };
 
-printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
+printing.mojom.mojom.PdfToEmfConverterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +49,8 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec,
-      printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
+      printing.mojom.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec,
+      printing.mojom.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
       [page_index]);
   }
 
@@ -57,7 +58,7 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec,
+      printing.mojom.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec,
       null,
       [url]);
   }
@@ -66,15 +67,15 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec,
+      printing.mojom.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }
 
 };
 
-printing.mojom.PdfToEmfConverter.getRemote = function() {
-  let remote = new printing.mojom.PdfToEmfConverterRemote();
+printing.mojom.mojom.PdfToEmfConverter.getRemote = function() {
+  let remote = new printing.mojom.mojom.PdfToEmfConverterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +85,7 @@ printing.mojom.PdfToEmfConverter.getRemote = function() {
 };
 
 // ParamsSpec for ConvertPage
-printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
+printing.mojom.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToEmfConverter.ConvertPage_Params',
@@ -97,7 +98,7 @@ printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
   }
 };
 
-printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = {
+printing.mojom.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToEmfConverter.ConvertPage_ResponseParams',
@@ -112,7 +113,7 @@ printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetWebContentsURL
-printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = {
+printing.mojom.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToEmfConverter.SetWebContentsURL_Params',
@@ -126,7 +127,7 @@ printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = {
 };
 
 // ParamsSpec for SetUseSkiaRendererPolicy
-printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
+printing.mojom.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToEmfConverter.SetUseSkiaRendererPolicy_Params',
@@ -140,29 +141,29 @@ printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.PdfToEmfConverterPtr = printing.mojom.PdfToEmfConverterRemote;
-printing.mojom.PdfToEmfConverterRequest = printing.mojom.PdfToEmfConverterPendingReceiver;
+printing.mojom.mojom.PdfToEmfConverterPtr = printing.mojom.mojom.PdfToEmfConverterRemote;
+printing.mojom.mojom.PdfToEmfConverterRequest = printing.mojom.mojom.PdfToEmfConverterPendingReceiver;
 
 
 // Interface: PdfToEmfConverterFactory
-printing.mojom.PdfToEmfConverterFactory = {};
+printing.mojom.mojom.PdfToEmfConverterFactory = {};
 
-printing.mojom.PdfToEmfConverterFactoryPendingReceiver = class {
+printing.mojom.mojom.PdfToEmfConverterFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PdfToEmfConverterFactoryRemote = class {
+printing.mojom.mojom.PdfToEmfConverterFactoryRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PdfToEmfConverterFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PdfToEmfConverterFactoryPendingReceiver,
+      printing.mojom.mojom.PdfToEmfConverterFactoryPendingReceiver,
       handle);
-    this.$ = new printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.mojom.PdfToEmfConverterFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -174,7 +175,7 @@ printing.mojom.PdfToEmfConverterFactoryRemote = class {
   }
 };
 
-printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
+printing.mojom.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -183,15 +184,15 @@ printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec,
-      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
+      printing.mojom.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec,
+      printing.mojom.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
       [pdf_region, render_settings]);
   }
 
 };
 
-printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
-  let remote = new printing.mojom.PdfToEmfConverterFactoryRemote();
+printing.mojom.mojom.PdfToEmfConverterFactory.getRemote = function() {
+  let remote = new printing.mojom.mojom.PdfToEmfConverterFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -201,7 +202,7 @@ printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateConverter
-printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
+printing.mojom.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_Params',
@@ -215,7 +216,7 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
   }
 };
 
-printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = {
+printing.mojom.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_ResponseParams',
@@ -230,6 +231,6 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.PdfToEmfConverterFactoryPtr = printing.mojom.PdfToEmfConverterFactoryRemote;
-printing.mojom.PdfToEmfConverterFactoryRequest = printing.mojom.PdfToEmfConverterFactoryPendingReceiver;
+printing.mojom.mojom.PdfToEmfConverterFactoryPtr = printing.mojom.mojom.PdfToEmfConverterFactoryRemote;
+printing.mojom.mojom.PdfToEmfConverterFactoryRequest = printing.mojom.mojom.PdfToEmfConverterFactoryPendingReceiver;
 

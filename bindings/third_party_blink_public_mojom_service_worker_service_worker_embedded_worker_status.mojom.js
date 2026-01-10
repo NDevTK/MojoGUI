@@ -10,10 +10,10 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ServiceWorkerEmbeddedWorkerStatus
-blink.mojom.ServiceWorkerEmbeddedWorkerStatus = {
+blink.mojom.mojom.ServiceWorkerEmbeddedWorkerStatus = {
   kStopped: 0,
   kStarting: 1,
   kRunning: 2,
   kStopping: 3,
 };
-blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ServiceWorkerEmbeddedWorkerStatusSpec = { $: mojo.internal.Enum() };

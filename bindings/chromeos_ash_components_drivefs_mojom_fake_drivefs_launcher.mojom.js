@@ -10,24 +10,24 @@ drivefs.mojom = drivefs.mojom || {};
 
 
 // Interface: FakeDriveFsLauncher
-drivefs.mojom.FakeDriveFsLauncher = {};
+drivefs.mojom.mojom.FakeDriveFsLauncher = {};
 
-drivefs.mojom.FakeDriveFsLauncherPendingReceiver = class {
+drivefs.mojom.mojom.FakeDriveFsLauncherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-drivefs.mojom.FakeDriveFsLauncherRemote = class {
+drivefs.mojom.mojom.FakeDriveFsLauncherRemote = class {
   static get $interfaceName() {
     return 'drivefs.mojom.FakeDriveFsLauncher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      drivefs.mojom.FakeDriveFsLauncherPendingReceiver,
+      drivefs.mojom.mojom.FakeDriveFsLauncherPendingReceiver,
       handle);
-    this.$ = new drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler(this.proxy);
+    this.$ = new drivefs.mojom.mojom.FakeDriveFsLauncherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ drivefs.mojom.FakeDriveFsLauncherRemote = class {
   }
 };
 
-drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler = class {
+drivefs.mojom.mojom.FakeDriveFsLauncherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec,
+      drivefs.mojom.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec,
       null,
       [datadir_path, mount_path, mojo_socket_handle]);
   }
 
 };
 
-drivefs.mojom.FakeDriveFsLauncher.getRemote = function() {
-  let remote = new drivefs.mojom.FakeDriveFsLauncherRemote();
+drivefs.mojom.mojom.FakeDriveFsLauncher.getRemote = function() {
+  let remote = new drivefs.mojom.mojom.FakeDriveFsLauncherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ drivefs.mojom.FakeDriveFsLauncher.getRemote = function() {
 };
 
 // ParamsSpec for LaunchDriveFs
-drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = {
+drivefs.mojom.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.FakeDriveFsLauncher.LaunchDriveFs_Params',
@@ -82,6 +82,6 @@ drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec = {
 };
 
 // Legacy compatibility
-drivefs.mojom.FakeDriveFsLauncherPtr = drivefs.mojom.FakeDriveFsLauncherRemote;
-drivefs.mojom.FakeDriveFsLauncherRequest = drivefs.mojom.FakeDriveFsLauncherPendingReceiver;
+drivefs.mojom.mojom.FakeDriveFsLauncherPtr = drivefs.mojom.mojom.FakeDriveFsLauncherRemote;
+drivefs.mojom.mojom.FakeDriveFsLauncherRequest = drivefs.mojom.mojom.FakeDriveFsLauncherPendingReceiver;
 

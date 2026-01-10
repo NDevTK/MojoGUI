@@ -10,24 +10,24 @@ video_capture.mojom = video_capture.mojom || {};
 
 
 // Interface: DevicesChangedObserver
-video_capture.mojom.DevicesChangedObserver = {};
+video_capture.mojom.mojom.DevicesChangedObserver = {};
 
-video_capture.mojom.DevicesChangedObserverPendingReceiver = class {
+video_capture.mojom.mojom.DevicesChangedObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-video_capture.mojom.DevicesChangedObserverRemote = class {
+video_capture.mojom.mojom.DevicesChangedObserverRemote = class {
   static get $interfaceName() {
     return 'video_capture.mojom.DevicesChangedObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      video_capture.mojom.DevicesChangedObserverPendingReceiver,
+      video_capture.mojom.mojom.DevicesChangedObserverPendingReceiver,
       handle);
-    this.$ = new video_capture.mojom.DevicesChangedObserverRemoteCallHandler(this.proxy);
+    this.$ = new video_capture.mojom.mojom.DevicesChangedObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ video_capture.mojom.DevicesChangedObserverRemote = class {
   }
 };
 
-video_capture.mojom.DevicesChangedObserverRemoteCallHandler = class {
+video_capture.mojom.mojom.DevicesChangedObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ video_capture.mojom.DevicesChangedObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec,
+      video_capture.mojom.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-video_capture.mojom.DevicesChangedObserver.getRemote = function() {
-  let remote = new video_capture.mojom.DevicesChangedObserverRemote();
+video_capture.mojom.mojom.DevicesChangedObserver.getRemote = function() {
+  let remote = new video_capture.mojom.mojom.DevicesChangedObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ video_capture.mojom.DevicesChangedObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnDevicesChanged
-video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = {
+video_capture.mojom.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'video_capture.mojom.DevicesChangedObserver.OnDevicesChanged_Params',
@@ -79,6 +79,6 @@ video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-video_capture.mojom.DevicesChangedObserverPtr = video_capture.mojom.DevicesChangedObserverRemote;
-video_capture.mojom.DevicesChangedObserverRequest = video_capture.mojom.DevicesChangedObserverPendingReceiver;
+video_capture.mojom.mojom.DevicesChangedObserverPtr = video_capture.mojom.mojom.DevicesChangedObserverRemote;
+video_capture.mojom.mojom.DevicesChangedObserverRequest = video_capture.mojom.mojom.DevicesChangedObserverPendingReceiver;
 

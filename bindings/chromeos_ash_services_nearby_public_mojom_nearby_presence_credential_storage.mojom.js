@@ -7,29 +7,29 @@
 // Module namespace
 var ash = ash || {};
 ash.nearby = ash.nearby || {};
-ash.nearby.presence = ash.nearby.presence || {};
-ash.nearby.presence.mojom = ash.nearby.presence.mojom || {};
+ash.nearby.nearby.presence = ash.nearby.nearby.presence || {};
+ash.nearby.nearby.presence.presence.mojom = ash.nearby.nearby.presence.presence.mojom || {};
 
 
 // Interface: NearbyPresenceCredentialStorage
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage = {};
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage = {};
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePendingReceiver = class {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote = class {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorageRemote = class {
   static get $interfaceName() {
     return 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePendingReceiver,
+      ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStoragePendingReceiver,
       handle);
-    this.$ = new ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler(this.proxy);
+    this.$ = new ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +41,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote = class {
   }
 };
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = class {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,8 +50,8 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec,
-      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec,
+      ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec,
+      ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec,
       [local_credentials, shared_credentials, public_credential_type]);
   }
 
@@ -59,8 +59,8 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec,
-      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec,
+      ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec,
+      ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec,
       [public_credential_type]);
   }
 
@@ -68,8 +68,8 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec,
-      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec,
+      ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec,
+      ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec,
       []);
   }
 
@@ -77,15 +77,15 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec,
-      ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec,
+      ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec,
+      ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec,
       [local_credential]);
   }
 
 };
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.getRemote = function() {
-  let remote = new ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote();
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage.getRemote = function() {
+  let remote = new ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -95,7 +95,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.getRemote = function()
 };
 
 // ParamsSpec for SaveCredentials
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec = {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.SaveCredentials_Params',
@@ -110,7 +110,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_Params
   }
 };
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec = {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.SaveCredentials_ResponseParams',
@@ -124,7 +124,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_Respon
 };
 
 // ParamsSpec for GetPublicCredentials
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec = {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.GetPublicCredentials_Params',
@@ -137,14 +137,14 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_P
   }
 };
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec = {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.GetPublicCredentials_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'shared_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.SharedCredentialSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -152,7 +152,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_R
 };
 
 // ParamsSpec for GetPrivateCredentials
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec = {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.GetPrivateCredentials_Params',
@@ -164,14 +164,14 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_
   }
 };
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec = {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.GetPrivateCredentials_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'local_credentials', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.LocalCredentialSpec, false), nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'local_credentials', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.nearby.presence.mojom.LocalCredentialSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -179,7 +179,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_
 };
 
 // ParamsSpec for UpdateLocalCredential
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec = {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.UpdateLocalCredential_Params',
@@ -192,7 +192,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_
   }
 };
 
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec = {
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.UpdateLocalCredential_ResponseParams',
@@ -206,6 +206,6 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_
 };
 
 // Legacy compatibility
-ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePtr = ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote;
-ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRequest = ash.nearby.presence.mojom.NearbyPresenceCredentialStoragePendingReceiver;
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStoragePtr = ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorageRemote;
+ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStorageRequest = ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresenceCredentialStoragePendingReceiver;
 

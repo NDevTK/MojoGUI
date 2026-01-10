@@ -7,10 +7,12 @@
 // Module namespace
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: SyncedScrollOffset
-cc.mojom.SyncedScrollOffsetSpec = {
+cc.mojom.mojom.SyncedScrollOffsetSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.SyncedScrollOffset',

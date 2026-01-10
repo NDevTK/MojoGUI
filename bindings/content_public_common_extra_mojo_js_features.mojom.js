@@ -10,7 +10,7 @@ content.mojom = content.mojom || {};
 
 
 // Struct: ExtraMojoJsFeatures
-content.mojom.ExtraMojoJsFeaturesSpec = {
+content.mojom.mojom.ExtraMojoJsFeaturesSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.ExtraMojoJsFeatures',

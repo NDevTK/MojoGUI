@@ -7,42 +7,43 @@
 // Module namespace
 var commerce = commerce || {};
 commerce.product_specifications = commerce.product_specifications || {};
-commerce.product_specifications.mojom = commerce.product_specifications.mojom || {};
+commerce.product_specifications.product_specifications.mojom = commerce.product_specifications.product_specifications.mojom || {};
+var url = url || {};
 
 
 // Enum: DisclosureVersion
-commerce.product_specifications.mojom.DisclosureVersion = {
+commerce.product_specifications.product_specifications.mojom.mojom.DisclosureVersion = {
   kUnknown: 0,
   kV1: 1,
 };
-commerce.product_specifications.mojom.DisclosureVersionSpec = { $: mojo.internal.Enum() };
+commerce.product_specifications.product_specifications.mojom.mojom.DisclosureVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShowSetDisposition
-commerce.product_specifications.mojom.ShowSetDisposition = {
+commerce.product_specifications.product_specifications.mojom.mojom.ShowSetDisposition = {
   kInNewTabs: 0,
   kInNewWindow: 1,
 };
-commerce.product_specifications.mojom.ShowSetDispositionSpec = { $: mojo.internal.Enum() };
+commerce.product_specifications.product_specifications.mojom.mojom.ShowSetDispositionSpec = { $: mojo.internal.Enum() };
 
 // Interface: ProductSpecificationsHandler
-commerce.product_specifications.mojom.ProductSpecificationsHandler = {};
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler = {};
 
-commerce.product_specifications.mojom.ProductSpecificationsHandlerPendingReceiver = class {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote = class {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerRemote = class {
   static get $interfaceName() {
     return 'commerce.product_specifications.mojom.ProductSpecificationsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce.product_specifications.mojom.ProductSpecificationsHandlerPendingReceiver,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerPendingReceiver,
       handle);
-    this.$ = new commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +55,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote = class
   }
 };
 
-commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHandler = class {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +64,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec,
       null,
       [version]);
   }
@@ -72,8 +73,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec,
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec,
       [urls, name, set_id]);
   }
 
@@ -81,7 +82,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec,
       null,
       []);
   }
@@ -90,7 +91,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec,
       null,
       []);
   }
@@ -99,8 +100,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec,
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec,
       [url]);
   }
 
@@ -108,7 +109,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec,
       null,
       [uuid, in_new_tab]);
   }
@@ -117,7 +118,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec,
       null,
       [uuids, disposition]);
   }
@@ -126,7 +127,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec,
       null,
       [in_new_tab]);
   }
@@ -135,15 +136,15 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec,
-      commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec,
       [uuid]);
   }
 
 };
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler.getRemote = function() {
-  let remote = new commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote();
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler.getRemote = function() {
+  let remote = new commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -153,7 +154,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler.getRemote = f
 };
 
 // ParamsSpec for SetAcceptedDisclosureVersion
-commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.SetAcceptedDisclosureVersion_Params',
@@ -167,7 +168,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDi
 };
 
 // ParamsSpec for MaybeShowDisclosure
-commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.MaybeShowDisclosure_Params',
@@ -182,7 +183,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisc
   }
 };
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.MaybeShowDisclosure_ResponseParams',
@@ -196,7 +197,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisc
 };
 
 // ParamsSpec for DeclineDisclosure
-commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.DeclineDisclosure_Params',
@@ -209,7 +210,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclo
 };
 
 // ParamsSpec for ShowSyncSetupFlow
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowSyncSetupFlow_Params',
@@ -222,7 +223,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetup
 };
 
 // ParamsSpec for GetPageTitleFromHistory
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetPageTitleFromHistory_Params',
@@ -235,7 +236,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
   }
 };
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetPageTitleFromHistory_ResponseParams',
@@ -249,7 +250,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
 };
 
 // ParamsSpec for ShowProductSpecificationsSetForUuid
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowProductSpecificationsSetForUuid_Params',
@@ -264,7 +265,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
 };
 
 // ParamsSpec for ShowProductSpecificationsSetsForUuids
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowProductSpecificationsSetsForUuids_Params',
@@ -279,7 +280,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSp
 };
 
 // ParamsSpec for ShowComparePage
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowComparePage_Params',
@@ -293,7 +294,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePa
 };
 
 // ParamsSpec for GetComparisonTableUrlForUuid
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetComparisonTableUrlForUuid_Params',
@@ -306,7 +307,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
   }
 };
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetComparisonTableUrlForUuid_ResponseParams',
@@ -320,29 +321,29 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
 };
 
 // Legacy compatibility
-commerce.product_specifications.mojom.ProductSpecificationsHandlerPtr = commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote;
-commerce.product_specifications.mojom.ProductSpecificationsHandlerRequest = commerce.product_specifications.mojom.ProductSpecificationsHandlerPendingReceiver;
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerPtr = commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerRemote;
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerRequest = commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerPendingReceiver;
 
 
 // Interface: Page
-commerce.product_specifications.mojom.Page = {};
+commerce.product_specifications.product_specifications.mojom.mojom.Page = {};
 
-commerce.product_specifications.mojom.PagePendingReceiver = class {
+commerce.product_specifications.product_specifications.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce.product_specifications.mojom.PageRemote = class {
+commerce.product_specifications.product_specifications.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'commerce.product_specifications.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce.product_specifications.mojom.PagePendingReceiver,
+      commerce.product_specifications.product_specifications.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new commerce.product_specifications.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new commerce.product_specifications.product_specifications.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -354,7 +355,7 @@ commerce.product_specifications.mojom.PageRemote = class {
   }
 };
 
-commerce.product_specifications.mojom.PageRemoteCallHandler = class {
+commerce.product_specifications.product_specifications.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -363,7 +364,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec,
       null,
       [set]);
   }
@@ -372,7 +373,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec,
       null,
       [set]);
   }
@@ -381,7 +382,7 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec,
       null,
       [uuid]);
   }
@@ -390,15 +391,15 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.Page_OnSyncStateChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-commerce.product_specifications.mojom.Page.getRemote = function() {
-  let remote = new commerce.product_specifications.mojom.PageRemote();
+commerce.product_specifications.product_specifications.mojom.mojom.Page.getRemote = function() {
+  let remote = new commerce.product_specifications.product_specifications.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -408,7 +409,7 @@ commerce.product_specifications.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnProductSpecificationsSetAdded
-commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetAdded_Params',
@@ -422,7 +423,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_Param
 };
 
 // ParamsSpec for OnProductSpecificationsSetUpdated
-commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetUpdated_Params',
@@ -436,7 +437,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_Par
 };
 
 // ParamsSpec for OnProductSpecificationsSetRemoved
-commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetRemoved_Params',
@@ -450,7 +451,7 @@ commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_Par
 };
 
 // ParamsSpec for OnSyncStateChanged
-commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.Page_OnSyncStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.Page.OnSyncStateChanged_Params',
@@ -463,29 +464,29 @@ commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-commerce.product_specifications.mojom.PagePtr = commerce.product_specifications.mojom.PageRemote;
-commerce.product_specifications.mojom.PageRequest = commerce.product_specifications.mojom.PagePendingReceiver;
+commerce.product_specifications.product_specifications.mojom.mojom.PagePtr = commerce.product_specifications.product_specifications.mojom.mojom.PageRemote;
+commerce.product_specifications.product_specifications.mojom.mojom.PageRequest = commerce.product_specifications.product_specifications.mojom.mojom.PagePendingReceiver;
 
 
 // Interface: ProductSpecificationsHandlerFactory
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory = {};
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactory = {};
 
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPendingReceiver = class {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemote = class {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPendingReceiver,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -497,7 +498,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemote 
   }
 };
 
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemoteCallHandler = class {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -506,15 +507,15 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemoteC
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec,
+      commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.getRemote = function() {
-  let remote = new commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemote();
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactory.getRemote = function() {
+  let remote = new commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -524,7 +525,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.getRem
 };
 
 // ParamsSpec for CreateProductSpecificationsHandler
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec = {
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.CreateProductSpecificationsHandler_Params',
@@ -539,6 +540,6 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_Create
 };
 
 // Legacy compatibility
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPtr = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemote;
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRequest = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPendingReceiver;
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryPtr = commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryRemote;
+commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryRequest = commerce.product_specifications.product_specifications.mojom.mojom.ProductSpecificationsHandlerFactoryPendingReceiver;
 

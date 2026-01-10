@@ -7,27 +7,28 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Interface: WebSocketConnector
-blink.mojom.WebSocketConnector = {};
+blink.mojom.mojom.WebSocketConnector = {};
 
-blink.mojom.WebSocketConnectorPendingReceiver = class {
+blink.mojom.mojom.WebSocketConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WebSocketConnectorRemote = class {
+blink.mojom.mojom.WebSocketConnectorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebSocketConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WebSocketConnectorPendingReceiver,
+      blink.mojom.mojom.WebSocketConnectorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WebSocketConnectorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WebSocketConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ blink.mojom.WebSocketConnectorRemote = class {
   }
 };
 
-blink.mojom.WebSocketConnectorRemoteCallHandler = class {
+blink.mojom.mojom.WebSocketConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ blink.mojom.WebSocketConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebSocketConnector_Connect_ParamsSpec,
+      blink.mojom.mojom.WebSocketConnector_Connect_ParamsSpec,
       null,
       [url, requested_protocols, site_for_cookies, user_agent, storage_access_api_status, handshake_client, throttling_profile_id]);
   }
 
 };
 
-blink.mojom.WebSocketConnector.getRemote = function() {
-  let remote = new blink.mojom.WebSocketConnectorRemote();
+blink.mojom.mojom.WebSocketConnector.getRemote = function() {
+  let remote = new blink.mojom.mojom.WebSocketConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ blink.mojom.WebSocketConnector.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-blink.mojom.WebSocketConnector_Connect_ParamsSpec = {
+blink.mojom.mojom.WebSocketConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebSocketConnector.Connect_Params',
@@ -76,9 +77,9 @@ blink.mojom.WebSocketConnector_Connect_ParamsSpec = {
         { name: 'requested_protocols', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
         { name: 'site_for_cookies', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false, minVersion: 0 },
         { name: 'user_agent', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'storage_access_api_status', packedOffset: 32, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'handshake_client', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'throttling_profile_id', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'storage_access_api_status', packedOffset: 40, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'handshake_client', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'throttling_profile_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -86,6 +87,6 @@ blink.mojom.WebSocketConnector_Connect_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WebSocketConnectorPtr = blink.mojom.WebSocketConnectorRemote;
-blink.mojom.WebSocketConnectorRequest = blink.mojom.WebSocketConnectorPendingReceiver;
+blink.mojom.mojom.WebSocketConnectorPtr = blink.mojom.mojom.WebSocketConnectorRemote;
+blink.mojom.mojom.WebSocketConnectorRequest = blink.mojom.mojom.WebSocketConnectorPendingReceiver;
 

@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: KeepAliveHandle
-blink.mojom.KeepAliveHandle = {};
+blink.mojom.mojom.KeepAliveHandle = {};
 
-blink.mojom.KeepAliveHandlePendingReceiver = class {
+blink.mojom.mojom.KeepAliveHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.KeepAliveHandleRemote = class {
+blink.mojom.mojom.KeepAliveHandleRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.KeepAliveHandle';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.KeepAliveHandlePendingReceiver,
+      blink.mojom.mojom.KeepAliveHandlePendingReceiver,
       handle);
-    this.$ = new blink.mojom.KeepAliveHandleRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.KeepAliveHandleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,15 +39,15 @@ blink.mojom.KeepAliveHandleRemote = class {
   }
 };
 
-blink.mojom.KeepAliveHandleRemoteCallHandler = class {
+blink.mojom.mojom.KeepAliveHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-blink.mojom.KeepAliveHandle.getRemote = function() {
-  let remote = new blink.mojom.KeepAliveHandleRemote();
+blink.mojom.mojom.KeepAliveHandle.getRemote = function() {
+  let remote = new blink.mojom.mojom.KeepAliveHandleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -57,6 +57,6 @@ blink.mojom.KeepAliveHandle.getRemote = function() {
 };
 
 // Legacy compatibility
-blink.mojom.KeepAliveHandlePtr = blink.mojom.KeepAliveHandleRemote;
-blink.mojom.KeepAliveHandleRequest = blink.mojom.KeepAliveHandlePendingReceiver;
+blink.mojom.mojom.KeepAliveHandlePtr = blink.mojom.mojom.KeepAliveHandleRemote;
+blink.mojom.mojom.KeepAliveHandleRequest = blink.mojom.mojom.KeepAliveHandlePendingReceiver;
 

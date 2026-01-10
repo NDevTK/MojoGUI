@@ -10,7 +10,7 @@ mirroring.mojom = mirroring.mojom || {};
 
 
 // Enum: SessionError
-mirroring.mojom.SessionError = {
+mirroring.mojom.mojom.SessionError = {
   ANSWER_TIME_OUT: 0,
   ANSWER_NOT_OK: 1,
   ANSWER_MISMATCHED_CAST_MODE: 2,
@@ -26,27 +26,27 @@ mirroring.mojom.SessionError = {
   CAST_TRANSPORT_ERROR: 12,
   OPENSCREEN_SESSION_ERROR: 13,
 };
-mirroring.mojom.SessionErrorSpec = { $: mojo.internal.Enum() };
+mirroring.mojom.mojom.SessionErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: SessionObserver
-mirroring.mojom.SessionObserver = {};
+mirroring.mojom.mojom.SessionObserver = {};
 
-mirroring.mojom.SessionObserverPendingReceiver = class {
+mirroring.mojom.mojom.SessionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mirroring.mojom.SessionObserverRemote = class {
+mirroring.mojom.mojom.SessionObserverRemote = class {
   static get $interfaceName() {
     return 'mirroring.mojom.SessionObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mirroring.mojom.SessionObserverPendingReceiver,
+      mirroring.mojom.mojom.SessionObserverPendingReceiver,
       handle);
-    this.$ = new mirroring.mojom.SessionObserverRemoteCallHandler(this.proxy);
+    this.$ = new mirroring.mojom.mojom.SessionObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -58,7 +58,7 @@ mirroring.mojom.SessionObserverRemote = class {
   }
 };
 
-mirroring.mojom.SessionObserverRemoteCallHandler = class {
+mirroring.mojom.mojom.SessionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -67,7 +67,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mirroring.mojom.SessionObserver_OnError_ParamsSpec,
+      mirroring.mojom.mojom.SessionObserver_OnError_ParamsSpec,
       null,
       [error]);
   }
@@ -76,7 +76,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mirroring.mojom.SessionObserver_DidStart_ParamsSpec,
+      mirroring.mojom.mojom.SessionObserver_DidStart_ParamsSpec,
       null,
       []);
   }
@@ -85,7 +85,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mirroring.mojom.SessionObserver_DidStop_ParamsSpec,
+      mirroring.mojom.mojom.SessionObserver_DidStop_ParamsSpec,
       null,
       []);
   }
@@ -94,7 +94,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec,
+      mirroring.mojom.mojom.SessionObserver_LogInfoMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -103,7 +103,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec,
+      mirroring.mojom.mojom.SessionObserver_LogErrorMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -112,7 +112,7 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec,
+      mirroring.mojom.mojom.SessionObserver_OnSourceChanged_ParamsSpec,
       null,
       []);
   }
@@ -121,15 +121,15 @@ mirroring.mojom.SessionObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec,
+      mirroring.mojom.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec,
       null,
       [is_remoting]);
   }
 
 };
 
-mirroring.mojom.SessionObserver.getRemote = function() {
-  let remote = new mirroring.mojom.SessionObserverRemote();
+mirroring.mojom.mojom.SessionObserver.getRemote = function() {
+  let remote = new mirroring.mojom.mojom.SessionObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -139,7 +139,7 @@ mirroring.mojom.SessionObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnError
-mirroring.mojom.SessionObserver_OnError_ParamsSpec = {
+mirroring.mojom.mojom.SessionObserver_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionObserver.OnError_Params',
@@ -153,7 +153,7 @@ mirroring.mojom.SessionObserver_OnError_ParamsSpec = {
 };
 
 // ParamsSpec for DidStart
-mirroring.mojom.SessionObserver_DidStart_ParamsSpec = {
+mirroring.mojom.mojom.SessionObserver_DidStart_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionObserver.DidStart_Params',
@@ -166,7 +166,7 @@ mirroring.mojom.SessionObserver_DidStart_ParamsSpec = {
 };
 
 // ParamsSpec for DidStop
-mirroring.mojom.SessionObserver_DidStop_ParamsSpec = {
+mirroring.mojom.mojom.SessionObserver_DidStop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionObserver.DidStop_Params',
@@ -179,7 +179,7 @@ mirroring.mojom.SessionObserver_DidStop_ParamsSpec = {
 };
 
 // ParamsSpec for LogInfoMessage
-mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
+mirroring.mojom.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionObserver.LogInfoMessage_Params',
@@ -193,7 +193,7 @@ mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
 };
 
 // ParamsSpec for LogErrorMessage
-mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
+mirroring.mojom.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionObserver.LogErrorMessage_Params',
@@ -207,7 +207,7 @@ mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
 };
 
 // ParamsSpec for OnSourceChanged
-mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec = {
+mirroring.mojom.mojom.SessionObserver_OnSourceChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionObserver.OnSourceChanged_Params',
@@ -220,7 +220,7 @@ mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnRemotingStateChanged
-mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
+mirroring.mojom.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.SessionObserver.OnRemotingStateChanged_Params',
@@ -234,6 +234,6 @@ mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-mirroring.mojom.SessionObserverPtr = mirroring.mojom.SessionObserverRemote;
-mirroring.mojom.SessionObserverRequest = mirroring.mojom.SessionObserverPendingReceiver;
+mirroring.mojom.mojom.SessionObserverPtr = mirroring.mojom.mojom.SessionObserverRemote;
+mirroring.mojom.mojom.SessionObserverRequest = mirroring.mojom.mojom.SessionObserverPendingReceiver;
 

@@ -7,31 +7,32 @@
 // Module namespace
 var continuous_search = continuous_search || {};
 continuous_search.mojom = continuous_search.mojom || {};
+var url = url || {};
 
 
 // Enum: ResultType
-continuous_search.mojom.ResultType = {
+continuous_search.mojom.mojom.ResultType = {
   kSearchResults: 0,
   kRelatedSearches: 1,
 };
-continuous_search.mojom.ResultTypeSpec = { $: mojo.internal.Enum() };
+continuous_search.mojom.mojom.ResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Category
-continuous_search.mojom.Category = {
+continuous_search.mojom.mojom.Category = {
   kNone: 0,
   kOrganic: 1,
 };
-continuous_search.mojom.CategorySpec = { $: mojo.internal.Enum() };
+continuous_search.mojom.mojom.CategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
-continuous_search.mojom.Status = {
+continuous_search.mojom.mojom.Status = {
   kSuccess: 0,
   kNoResults: 1,
 };
-continuous_search.mojom.StatusSpec = { $: mojo.internal.Enum() };
+continuous_search.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: SearchResult
-continuous_search.mojom.SearchResultSpec = {
+continuous_search.mojom.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.SearchResult',
@@ -46,14 +47,14 @@ continuous_search.mojom.SearchResultSpec = {
 };
 
 // Struct: ResultGroup
-continuous_search.mojom.ResultGroupSpec = {
+continuous_search.mojom.mojom.ResultGroupSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.ResultGroup',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: continuous_search.mojom.ResultTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.ResultTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -61,15 +62,15 @@ continuous_search.mojom.ResultGroupSpec = {
 };
 
 // Struct: CategoryResults
-continuous_search.mojom.CategoryResultsSpec = {
+continuous_search.mojom.mojom.CategoryResultsSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.CategoryResults',
       packedSize: 32,
       fields: [
         { name: 'document_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'category_type', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.CategorySpec, nullable: false, minVersion: 0 },
-        { name: 'groups', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.ResultGroupSpec, false), nullable: false, minVersion: 0 },
+        { name: 'category_type', packedOffset: 16, packedBitOffset: 0, type: continuous_search.mojom.CategorySpec, nullable: false, minVersion: 0 },
+        { name: 'groups', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(continuous_search.mojom.ResultGroupSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -77,24 +78,24 @@ continuous_search.mojom.CategoryResultsSpec = {
 };
 
 // Interface: SearchResultExtractor
-continuous_search.mojom.SearchResultExtractor = {};
+continuous_search.mojom.mojom.SearchResultExtractor = {};
 
-continuous_search.mojom.SearchResultExtractorPendingReceiver = class {
+continuous_search.mojom.mojom.SearchResultExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-continuous_search.mojom.SearchResultExtractorRemote = class {
+continuous_search.mojom.mojom.SearchResultExtractorRemote = class {
   static get $interfaceName() {
     return 'continuous_search.mojom.SearchResultExtractor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      continuous_search.mojom.SearchResultExtractorPendingReceiver,
+      continuous_search.mojom.mojom.SearchResultExtractorPendingReceiver,
       handle);
-    this.$ = new continuous_search.mojom.SearchResultExtractorRemoteCallHandler(this.proxy);
+    this.$ = new continuous_search.mojom.mojom.SearchResultExtractorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -106,7 +107,7 @@ continuous_search.mojom.SearchResultExtractorRemote = class {
   }
 };
 
-continuous_search.mojom.SearchResultExtractorRemoteCallHandler = class {
+continuous_search.mojom.mojom.SearchResultExtractorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -115,15 +116,15 @@ continuous_search.mojom.SearchResultExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec,
-      continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
+      continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec,
+      continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
       [result_types]);
   }
 
 };
 
-continuous_search.mojom.SearchResultExtractor.getRemote = function() {
-  let remote = new continuous_search.mojom.SearchResultExtractorRemote();
+continuous_search.mojom.mojom.SearchResultExtractor.getRemote = function() {
+  let remote = new continuous_search.mojom.mojom.SearchResultExtractorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -133,7 +134,7 @@ continuous_search.mojom.SearchResultExtractor.getRemote = function() {
 };
 
 // ParamsSpec for ExtractCurrentSearchResults
-continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = {
+continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_Params',
@@ -146,14 +147,14 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params
   }
 };
 
-continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = {
+continuous_search.mojom.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: continuous_search.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.CategoryResultsSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: continuous_search.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: continuous_search.mojom.CategoryResultsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -161,6 +162,6 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Respon
 };
 
 // Legacy compatibility
-continuous_search.mojom.SearchResultExtractorPtr = continuous_search.mojom.SearchResultExtractorRemote;
-continuous_search.mojom.SearchResultExtractorRequest = continuous_search.mojom.SearchResultExtractorPendingReceiver;
+continuous_search.mojom.mojom.SearchResultExtractorPtr = continuous_search.mojom.mojom.SearchResultExtractorRemote;
+continuous_search.mojom.mojom.SearchResultExtractorRequest = continuous_search.mojom.mojom.SearchResultExtractorPendingReceiver;
 

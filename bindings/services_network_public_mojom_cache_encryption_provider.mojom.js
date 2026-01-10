@@ -10,24 +10,24 @@ network.mojom = network.mojom || {};
 
 
 // Interface: CacheEncryptionProvider
-network.mojom.CacheEncryptionProvider = {};
+network.mojom.mojom.CacheEncryptionProvider = {};
 
-network.mojom.CacheEncryptionProviderPendingReceiver = class {
+network.mojom.mojom.CacheEncryptionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.CacheEncryptionProviderRemote = class {
+network.mojom.mojom.CacheEncryptionProviderRemote = class {
   static get $interfaceName() {
     return 'network.mojom.CacheEncryptionProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.CacheEncryptionProviderPendingReceiver,
+      network.mojom.mojom.CacheEncryptionProviderPendingReceiver,
       handle);
-    this.$ = new network.mojom.CacheEncryptionProviderRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.CacheEncryptionProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ network.mojom.CacheEncryptionProviderRemote = class {
   }
 };
 
-network.mojom.CacheEncryptionProviderRemoteCallHandler = class {
+network.mojom.mojom.CacheEncryptionProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ network.mojom.CacheEncryptionProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec,
-      network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec,
+      network.mojom.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec,
+      network.mojom.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec,
       []);
   }
 
 };
 
-network.mojom.CacheEncryptionProvider.getRemote = function() {
-  let remote = new network.mojom.CacheEncryptionProviderRemote();
+network.mojom.mojom.CacheEncryptionProvider.getRemote = function() {
+  let remote = new network.mojom.mojom.CacheEncryptionProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ network.mojom.CacheEncryptionProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetEncryptor
-network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = {
+network.mojom.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CacheEncryptionProvider.GetEncryptor_Params',
@@ -78,7 +78,7 @@ network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = {
   }
 };
 
-network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
+network.mojom.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CacheEncryptionProvider.GetEncryptor_ResponseParams',
@@ -92,6 +92,6 @@ network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.CacheEncryptionProviderPtr = network.mojom.CacheEncryptionProviderRemote;
-network.mojom.CacheEncryptionProviderRequest = network.mojom.CacheEncryptionProviderPendingReceiver;
+network.mojom.mojom.CacheEncryptionProviderPtr = network.mojom.mojom.CacheEncryptionProviderRemote;
+network.mojom.mojom.CacheEncryptionProviderRequest = network.mojom.mojom.CacheEncryptionProviderPendingReceiver;
 

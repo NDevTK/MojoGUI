@@ -10,7 +10,7 @@ discards.mojom = discards.mojom || {};
 
 
 // Struct: SiteDataFeature
-discards.mojom.SiteDataFeatureSpec = {
+discards.mojom.mojom.SiteDataFeatureSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataFeature',
@@ -25,7 +25,7 @@ discards.mojom.SiteDataFeatureSpec = {
 };
 
 // Struct: SiteDataPerformanceMeasurement
-discards.mojom.SiteDataPerformanceMeasurementSpec = {
+discards.mojom.mojom.SiteDataPerformanceMeasurementSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataPerformanceMeasurement',
@@ -41,7 +41,7 @@ discards.mojom.SiteDataPerformanceMeasurementSpec = {
 };
 
 // Struct: SiteDataDatabaseSize
-discards.mojom.SiteDataDatabaseSizeSpec = {
+discards.mojom.mojom.SiteDataDatabaseSizeSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataDatabaseSize',
@@ -56,17 +56,17 @@ discards.mojom.SiteDataDatabaseSizeSpec = {
 };
 
 // Struct: SiteDataValue
-discards.mojom.SiteDataValueSpec = {
+discards.mojom.mojom.SiteDataValueSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataValue',
       packedSize: 48,
       fields: [
-        { name: 'last_loaded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'updates_favicon_in_background', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'updates_title_in_background', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'uses_audio_in_background', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'load_time_estimates', packedOffset: 32, packedBitOffset: 0, type: discards.mojom.SiteDataPerformanceMeasurementSpec, nullable: true, minVersion: 0 },
+        { name: 'last_loaded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'updates_favicon_in_background', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'updates_title_in_background', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'uses_audio_in_background', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'load_time_estimates', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.SiteDataPerformanceMeasurementSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -74,15 +74,15 @@ discards.mojom.SiteDataValueSpec = {
 };
 
 // Struct: SiteDataEntry
-discards.mojom.SiteDataEntrySpec = {
+discards.mojom.mojom.SiteDataEntrySpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataEntry',
       packedSize: 32,
       fields: [
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_dirty', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataValueSpec, nullable: true, minVersion: 0 },
+        { name: 'is_dirty', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataValueSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -90,7 +90,7 @@ discards.mojom.SiteDataEntrySpec = {
 };
 
 // Struct: SiteDataArray
-discards.mojom.SiteDataArraySpec = {
+discards.mojom.mojom.SiteDataArraySpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataArray',
@@ -104,24 +104,24 @@ discards.mojom.SiteDataArraySpec = {
 };
 
 // Interface: SiteDataProvider
-discards.mojom.SiteDataProvider = {};
+discards.mojom.mojom.SiteDataProvider = {};
 
-discards.mojom.SiteDataProviderPendingReceiver = class {
+discards.mojom.mojom.SiteDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-discards.mojom.SiteDataProviderRemote = class {
+discards.mojom.mojom.SiteDataProviderRemote = class {
   static get $interfaceName() {
     return 'discards.mojom.SiteDataProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      discards.mojom.SiteDataProviderPendingReceiver,
+      discards.mojom.mojom.SiteDataProviderPendingReceiver,
       handle);
-    this.$ = new discards.mojom.SiteDataProviderRemoteCallHandler(this.proxy);
+    this.$ = new discards.mojom.mojom.SiteDataProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -133,7 +133,7 @@ discards.mojom.SiteDataProviderRemote = class {
   }
 };
 
-discards.mojom.SiteDataProviderRemoteCallHandler = class {
+discards.mojom.mojom.SiteDataProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -142,8 +142,8 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec,
-      discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec,
+      discards.mojom.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec,
+      discards.mojom.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec,
       [explicitly_requested_origins]);
   }
 
@@ -151,15 +151,15 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec,
-      discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec,
+      discards.mojom.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec,
+      discards.mojom.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec,
       []);
   }
 
 };
 
-discards.mojom.SiteDataProvider.getRemote = function() {
-  let remote = new discards.mojom.SiteDataProviderRemote();
+discards.mojom.mojom.SiteDataProvider.getRemote = function() {
+  let remote = new discards.mojom.mojom.SiteDataProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -169,7 +169,7 @@ discards.mojom.SiteDataProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetSiteDataArray
-discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
+discards.mojom.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_Params',
@@ -182,7 +182,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
   }
 };
 
-discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
+discards.mojom.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_ResponseParams',
@@ -196,7 +196,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSiteDataDatabaseSize
-discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
+discards.mojom.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_Params',
@@ -208,7 +208,7 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
   }
 };
 
-discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
+discards.mojom.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_ResponseParams',
@@ -222,6 +222,6 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-discards.mojom.SiteDataProviderPtr = discards.mojom.SiteDataProviderRemote;
-discards.mojom.SiteDataProviderRequest = discards.mojom.SiteDataProviderPendingReceiver;
+discards.mojom.mojom.SiteDataProviderPtr = discards.mojom.mojom.SiteDataProviderRemote;
+discards.mojom.mojom.SiteDataProviderRequest = discards.mojom.mojom.SiteDataProviderPendingReceiver;
 

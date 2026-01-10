@@ -7,19 +7,20 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var url = url || {};
 
 
 // Enum: PatternType
-arc.mojom.PatternType = {
+arc.mojom.mojom.PatternType = {
   PATTERN_LITERAL: 0,
   PATTERN_PREFIX: 1,
   PATTERN_SIMPLE_GLOB: 2,
   Default: 3,
 };
-arc.mojom.PatternTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.PatternTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChromePage
-arc.mojom.ChromePage = {
+arc.mojom.mojom.ChromePage = {
   MULTIDEVICE: 0,
   MAIN: 1,
   POWER: 2,
@@ -70,44 +71,44 @@ arc.mojom.ChromePage = {
   GRAPHICSTABLET: 47,
   NETWORKS: 48,
 };
-arc.mojom.ChromePageSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ChromePageSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChromeApp
-arc.mojom.ChromeApp = {
+arc.mojom.mojom.ChromeApp = {
   CAMERA: 0,
   LAST: 1,
 };
-arc.mojom.ChromeAppSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ChromeAppSpec = { $: mojo.internal.Enum() };
 
 // Enum: SupportedLinkChangeSource
-arc.mojom.SupportedLinkChangeSource = {
+arc.mojom.mojom.SupportedLinkChangeSource = {
   kUnknown: 0,
   kArcSystem: 1,
   kUserPreference: 2,
 };
-arc.mojom.SupportedLinkChangeSourceSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.SupportedLinkChangeSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidSetting
-arc.mojom.AndroidSetting = {
+arc.mojom.mojom.AndroidSetting = {
   kGeoLocation: 0,
   kGeoLocationAtBoot: 1,
   kGeoLocationUserTriggered: 2,
   kGeoLocationAccuracyUserTriggered: 3,
 };
-arc.mojom.AndroidSettingSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.AndroidSettingSpec = { $: mojo.internal.Enum() };
 
 // Enum: CaptionTextShadowType
-arc.mojom.CaptionTextShadowType = {
+arc.mojom.mojom.CaptionTextShadowType = {
   kNone: 0,
   kUniform: 1,
   kDropShadow: 2,
   kRaised: 3,
   kDepressed: 4,
 };
-arc.mojom.CaptionTextShadowTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.CaptionTextShadowTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PatternMatcher
-arc.mojom.PatternMatcherSpec = {
+arc.mojom.mojom.PatternMatcherSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PatternMatcher',
@@ -122,7 +123,7 @@ arc.mojom.PatternMatcherSpec = {
 };
 
 // Struct: AuthorityEntry
-arc.mojom.AuthorityEntrySpec = {
+arc.mojom.mojom.AuthorityEntrySpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AuthorityEntry',
@@ -137,7 +138,7 @@ arc.mojom.AuthorityEntrySpec = {
 };
 
 // Struct: UriComponents
-arc.mojom.UriComponentsSpec = {
+arc.mojom.mojom.UriComponentsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UriComponents',
@@ -153,7 +154,7 @@ arc.mojom.UriComponentsSpec = {
 };
 
 // Struct: IntentInfo
-arc.mojom.IntentInfoSpec = {
+arc.mojom.mojom.IntentInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentInfo',
@@ -164,17 +165,17 @@ arc.mojom.IntentInfoSpec = {
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'clip_data_uri', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'ui_bypassed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
-        { name: 'extras', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 22 },
-        { name: 'uri_components', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.UriComponentsSpec, nullable: true, minVersion: 30 },
+        { name: 'ui_bypassed', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
+        { name: 'extras', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 22 },
+        { name: 'uri_components', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.UriComponentsSpec, nullable: true, minVersion: 30 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 13, packedSize: 48}, {version: 20, packedSize: 56}, {version: 22, packedSize: 64}, {version: 30, packedSize: 72}]
+      versions: [{version: 0, packedSize: 40}, {version: 13, packedSize: 48}, {version: 20, packedSize: 72}, {version: 22, packedSize: 72}, {version: 30, packedSize: 72}]
     }
   }
 };
 
 // Struct: IntentFilter
-arc.mojom.IntentFilterSpec = {
+arc.mojom.mojom.IntentFilterSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentFilter',
@@ -197,7 +198,7 @@ arc.mojom.IntentFilterSpec = {
 };
 
 // Struct: IntentHandlerInfo
-arc.mojom.IntentHandlerInfoSpec = {
+arc.mojom.mojom.IntentHandlerInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHandlerInfo',
@@ -206,36 +207,36 @@ arc.mojom.IntentHandlerInfoSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'activity_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'action_type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.ActionTypeSpec, nullable: false, minVersion: 4 },
-        { name: 'is_preferred', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 6 },
-        { name: 'action', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 11 },
-        { name: 'fallback_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 14 },
+        { name: 'action_type', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.ActionTypeSpec, nullable: false, minVersion: 4 },
+        { name: 'is_preferred', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 6 },
+        { name: 'action', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 11 },
+        { name: 'fallback_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 14 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 4, packedSize: 40}, {version: 6, packedSize: 40}, {version: 11, packedSize: 48}, {version: 14, packedSize: 56}]
+      versions: [{version: 0, packedSize: 32}, {version: 4, packedSize: 56}, {version: 6, packedSize: 56}, {version: 11, packedSize: 56}, {version: 14, packedSize: 56}]
     }
   }
 };
 
 // Struct: ActivityIcon
-arc.mojom.ActivityIconSpec = {
+arc.mojom.mojom.ActivityIconSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ActivityIcon',
       packedSize: 40,
       fields: [
         { name: 'activity', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'icon_png_data', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 40 },
+        { name: 'width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'height', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'icon_png_data', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 40 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 40, packedSize: 40}]
+      versions: [{version: 0, packedSize: 40}, {version: 40, packedSize: 40}]
     }
   }
 };
 
 // Struct: UrlWithMimeType
-arc.mojom.UrlWithMimeTypeSpec = {
+arc.mojom.mojom.UrlWithMimeTypeSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.UrlWithMimeType',
@@ -250,7 +251,7 @@ arc.mojom.UrlWithMimeTypeSpec = {
 };
 
 // Struct: TextSelectionAction
-arc.mojom.TextSelectionActionSpec = {
+arc.mojom.mojom.TextSelectionActionSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TextSelectionAction',
@@ -260,8 +261,8 @@ arc.mojom.TextSelectionActionSpec = {
         { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
         { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'action_intent', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.IntentInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'text_classifier_action', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 23 },
-        { name: 'bitmap_icon', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true, minVersion: 23 },
+        { name: 'text_classifier_action', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 23 },
+        { name: 'bitmap_icon', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.ArcBitmapSpec, nullable: true, minVersion: 23 },
       ],
       versions: [{version: 0, packedSize: 40}, {version: 23, packedSize: 56}]
     }
@@ -269,7 +270,7 @@ arc.mojom.TextSelectionActionSpec = {
 };
 
 // Struct: LaunchFileInfo
-arc.mojom.LaunchFileInfoSpec = {
+arc.mojom.mojom.LaunchFileInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.LaunchFileInfo',
@@ -287,7 +288,7 @@ arc.mojom.LaunchFileInfoSpec = {
 };
 
 // Struct: LaunchIntent
-arc.mojom.LaunchIntentSpec = {
+arc.mojom.mojom.LaunchIntentSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.LaunchIntent',
@@ -306,7 +307,7 @@ arc.mojom.LaunchIntentSpec = {
 };
 
 // Struct: SupportedLinksPackage
-arc.mojom.SupportedLinksPackageSpec = {
+arc.mojom.mojom.SupportedLinksPackageSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.SupportedLinksPackage',
@@ -321,7 +322,7 @@ arc.mojom.SupportedLinksPackageSpec = {
 };
 
 // Struct: CaptionColor
-arc.mojom.CaptionColorSpec = {
+arc.mojom.mojom.CaptionColorSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CaptionColor',
@@ -338,17 +339,17 @@ arc.mojom.CaptionColorSpec = {
 };
 
 // Struct: CaptionStyle
-arc.mojom.CaptionStyleSpec = {
+arc.mojom.mojom.CaptionStyleSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CaptionStyle',
       packedSize: 40,
       fields: [
         { name: 'user_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'font_scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'text_color', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true, minVersion: 0 },
-        { name: 'background_color', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true, minVersion: 0 },
-        { name: 'text_shadow_type', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.CaptionTextShadowTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'font_scale', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'text_color', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true, minVersion: 0 },
+        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.CaptionColorSpec, nullable: true, minVersion: 0 },
+        { name: 'text_shadow_type', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.CaptionTextShadowTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -356,7 +357,7 @@ arc.mojom.CaptionStyleSpec = {
 };
 
 // Struct: AccessibilityFeatures
-arc.mojom.AccessibilityFeaturesSpec = {
+arc.mojom.mojom.AccessibilityFeaturesSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.AccessibilityFeatures',
@@ -375,24 +376,24 @@ arc.mojom.AccessibilityFeaturesSpec = {
 };
 
 // Interface: CustomTabSession
-arc.mojom.CustomTabSession = {};
+arc.mojom.mojom.CustomTabSession = {};
 
-arc.mojom.CustomTabSessionPendingReceiver = class {
+arc.mojom.mojom.CustomTabSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.CustomTabSessionRemote = class {
+arc.mojom.mojom.CustomTabSessionRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.CustomTabSession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.CustomTabSessionPendingReceiver,
+      arc.mojom.mojom.CustomTabSessionPendingReceiver,
       handle);
-    this.$ = new arc.mojom.CustomTabSessionRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.CustomTabSessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -404,7 +405,7 @@ arc.mojom.CustomTabSessionRemote = class {
   }
 };
 
-arc.mojom.CustomTabSessionRemoteCallHandler = class {
+arc.mojom.mojom.CustomTabSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -413,15 +414,15 @@ arc.mojom.CustomTabSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec,
+      arc.mojom.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.CustomTabSession.getRemote = function() {
-  let remote = new arc.mojom.CustomTabSessionRemote();
+arc.mojom.mojom.CustomTabSession.getRemote = function() {
+  let remote = new arc.mojom.mojom.CustomTabSessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -431,7 +432,7 @@ arc.mojom.CustomTabSession.getRemote = function() {
 };
 
 // ParamsSpec for OnOpenInChromeClicked
-arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec = {
+arc.mojom.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CustomTabSession.OnOpenInChromeClicked_Params',
@@ -444,29 +445,29 @@ arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.CustomTabSessionPtr = arc.mojom.CustomTabSessionRemote;
-arc.mojom.CustomTabSessionRequest = arc.mojom.CustomTabSessionPendingReceiver;
+arc.mojom.mojom.CustomTabSessionPtr = arc.mojom.mojom.CustomTabSessionRemote;
+arc.mojom.mojom.CustomTabSessionRequest = arc.mojom.mojom.CustomTabSessionPendingReceiver;
 
 
 // Interface: IntentHelperHost
-arc.mojom.IntentHelperHost = {};
+arc.mojom.mojom.IntentHelperHost = {};
 
-arc.mojom.IntentHelperHostPendingReceiver = class {
+arc.mojom.mojom.IntentHelperHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.IntentHelperHostRemote = class {
+arc.mojom.mojom.IntentHelperHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.IntentHelperHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.IntentHelperHostPendingReceiver,
+      arc.mojom.mojom.IntentHelperHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.IntentHelperHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.IntentHelperHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -478,7 +479,7 @@ arc.mojom.IntentHelperHostRemote = class {
   }
 };
 
-arc.mojom.IntentHelperHostRemoteCallHandler = class {
+arc.mojom.mojom.IntentHelperHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -487,7 +488,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec,
       null,
       [package_name]);
   }
@@ -496,7 +497,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec,
       null,
       [intent_filters]);
   }
@@ -505,7 +506,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec,
       null,
       []);
   }
@@ -514,7 +515,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec,
       null,
       [url]);
   }
@@ -523,8 +524,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec,
-      arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec,
       [url, task_id]);
   }
 
@@ -532,7 +533,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec,
       null,
       []);
   }
@@ -541,7 +542,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec,
       null,
       []);
   }
@@ -550,7 +551,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec,
       null,
       [page]);
   }
@@ -559,7 +560,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec,
       null,
       [url]);
   }
@@ -568,7 +569,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec,
       null,
       []);
   }
@@ -577,7 +578,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec,
       null,
       [intent_id, mode, should_handle_result, should_down_scale, is_secure, task_id]);
   }
@@ -586,7 +587,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec,
       null,
       [package_name, intent_filters]);
   }
@@ -595,7 +596,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec,
       null,
       []);
   }
@@ -604,8 +605,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec,
-      arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec,
       [app]);
   }
 
@@ -613,7 +614,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec,
       null,
       [added_packages, removed_packages, source]);
   }
@@ -622,7 +623,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec,
       null,
       [relative_path, owner_package_name]);
   }
@@ -631,7 +632,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec,
       null,
       [start_url, intent]);
   }
@@ -640,7 +641,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec,
       null,
       []);
   }
@@ -649,7 +650,7 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec,
       null,
       []);
   }
@@ -658,15 +659,15 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec,
+      arc.mojom.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec,
       null,
       [setting, is_enabled]);
   }
 
 };
 
-arc.mojom.IntentHelperHost.getRemote = function() {
-  let remote = new arc.mojom.IntentHelperHostRemote();
+arc.mojom.mojom.IntentHelperHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.IntentHelperHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -676,7 +677,7 @@ arc.mojom.IntentHelperHost.getRemote = function() {
 };
 
 // ParamsSpec for OnIconInvalidated
-arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnIconInvalidated_Params',
@@ -690,7 +691,7 @@ arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec = {
 };
 
 // ParamsSpec for OnIntentFiltersUpdated
-arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnIntentFiltersUpdated_Params',
@@ -704,7 +705,7 @@ arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec = {
 };
 
 // ParamsSpec for OnOpenDownloads
-arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnOpenDownloads_Params',
@@ -717,7 +718,7 @@ arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec = {
 };
 
 // ParamsSpec for OnOpenUrl
-arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnOpenUrl_Params',
@@ -731,7 +732,7 @@ arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec = {
 };
 
 // ParamsSpec for OnOpenCustomTab
-arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnOpenCustomTab_Params',
@@ -745,7 +746,7 @@ arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec = {
   }
 };
 
-arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnOpenCustomTab_ResponseParams',
@@ -759,7 +760,7 @@ arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenWallpaperPicker
-arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OpenWallpaperPicker_Params',
@@ -772,7 +773,7 @@ arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec = {
 };
 
 // ParamsSpec for OpenVolumeControl
-arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OpenVolumeControl_Params',
@@ -785,7 +786,7 @@ arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec = {
 };
 
 // ParamsSpec for OnOpenChromePage
-arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnOpenChromePage_Params',
@@ -799,7 +800,7 @@ arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec = {
 };
 
 // ParamsSpec for OnOpenWebApp
-arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnOpenWebApp_Params',
@@ -813,7 +814,7 @@ arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec = {
 };
 
 // ParamsSpec for FactoryResetArc
-arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.FactoryResetArc_Params',
@@ -826,7 +827,7 @@ arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec = {
 };
 
 // ParamsSpec for LaunchCameraApp
-arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.LaunchCameraApp_Params',
@@ -834,10 +835,10 @@ arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec = {
       fields: [
         { name: 'intent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'mode', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.CameraIntentModeSpec, nullable: false, minVersion: 0 },
-        { name: 'should_handle_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_down_scale', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_secure', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 36 },
+        { name: 'should_handle_result', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'should_down_scale', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_secure', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 36 },
       ],
       versions: [{version: 0, packedSize: 24}, {version: 36, packedSize: 24}]
     }
@@ -845,7 +846,7 @@ arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec = {
 };
 
 // ParamsSpec for OnIntentFiltersUpdatedForPackage
-arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnIntentFiltersUpdatedForPackage_Params',
@@ -860,7 +861,7 @@ arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec = {
 };
 
 // ParamsSpec for CloseCameraApp
-arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.CloseCameraApp_Params',
@@ -873,7 +874,7 @@ arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec = {
 };
 
 // ParamsSpec for IsChromeAppEnabled
-arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.IsChromeAppEnabled_Params',
@@ -886,7 +887,7 @@ arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec = {
   }
 };
 
-arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.IsChromeAppEnabled_ResponseParams',
@@ -900,7 +901,7 @@ arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnSupportedLinksChanged
-arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnSupportedLinksChanged_Params',
@@ -916,7 +917,7 @@ arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnDownloadAddedDeprecated
-arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnDownloadAddedDeprecated_Params',
@@ -931,7 +932,7 @@ arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec = {
 };
 
 // ParamsSpec for OnOpenAppWithIntent
-arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnOpenAppWithIntent_Params',
@@ -946,7 +947,7 @@ arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec = {
 };
 
 // ParamsSpec for OnOpenGlobalActions
-arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnOpenGlobalActions_Params',
@@ -959,7 +960,7 @@ arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec = {
 };
 
 // ParamsSpec for OnCloseSystemDialogs
-arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnCloseSystemDialogs_Params',
@@ -972,7 +973,7 @@ arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec = {
 };
 
 // ParamsSpec for OnAndroidSettingChange
-arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec = {
+arc.mojom.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperHost.OnAndroidSettingChange_Params',
@@ -987,29 +988,29 @@ arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.IntentHelperHostPtr = arc.mojom.IntentHelperHostRemote;
-arc.mojom.IntentHelperHostRequest = arc.mojom.IntentHelperHostPendingReceiver;
+arc.mojom.mojom.IntentHelperHostPtr = arc.mojom.mojom.IntentHelperHostRemote;
+arc.mojom.mojom.IntentHelperHostRequest = arc.mojom.mojom.IntentHelperHostPendingReceiver;
 
 
 // Interface: IntentHelperInstance
-arc.mojom.IntentHelperInstance = {};
+arc.mojom.mojom.IntentHelperInstance = {};
 
-arc.mojom.IntentHelperInstancePendingReceiver = class {
+arc.mojom.mojom.IntentHelperInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.IntentHelperInstanceRemote = class {
+arc.mojom.mojom.IntentHelperInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.IntentHelperInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.IntentHelperInstancePendingReceiver,
+      arc.mojom.mojom.IntentHelperInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.IntentHelperInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.IntentHelperInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1021,7 +1022,7 @@ arc.mojom.IntentHelperInstanceRemote = class {
   }
 };
 
-arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
+arc.mojom.mojom.IntentHelperInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1030,7 +1031,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec,
       null,
       [package_name]);
   }
@@ -1039,7 +1040,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec,
       null,
       [package_names, always_open]);
   }
@@ -1048,7 +1049,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_HandleIntent_ParamsSpec,
       null,
       [intent, activity]);
   }
@@ -1057,7 +1058,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec,
       null,
       [intent, activity, window_info]);
   }
@@ -1066,7 +1067,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_HandleUrl_ParamsSpec,
       null,
       [url, package_name]);
   }
@@ -1075,7 +1076,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      arc.mojom.IntentHelperInstance_Init_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -1084,8 +1085,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec,
-      arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec,
       [activities, scale_factor]);
   }
 
@@ -1093,8 +1094,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec,
-      arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec,
       [intent]);
   }
 
@@ -1102,8 +1103,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec,
-      arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec,
       [url]);
   }
 
@@ -1111,8 +1112,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec,
-      arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec,
       [urls]);
   }
 
@@ -1120,7 +1121,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec,
       null,
       [action, package_name, cls, extras]);
   }
@@ -1129,8 +1130,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec,
-      arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec,
       [text, scale_factor]);
   }
 
@@ -1138,8 +1139,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec,
-      arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec,
       [intent_id, action, data]);
   }
 
@@ -1147,7 +1148,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec,
       null,
       []);
   }
@@ -1156,7 +1157,7 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec,
       null,
       [style]);
   }
@@ -1165,15 +1166,15 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec,
+      arc.mojom.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec,
       null,
       [features]);
   }
 
 };
 
-arc.mojom.IntentHelperInstance.getRemote = function() {
-  let remote = new arc.mojom.IntentHelperInstanceRemote();
+arc.mojom.mojom.IntentHelperInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.IntentHelperInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1183,7 +1184,7 @@ arc.mojom.IntentHelperInstance.getRemote = function() {
 };
 
 // ParamsSpec for AddPreferredPackage
-arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.AddPreferredPackage_Params',
@@ -1197,7 +1198,7 @@ arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec = {
 };
 
 // ParamsSpec for SetVerifiedLinks
-arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.SetVerifiedLinks_Params',
@@ -1212,7 +1213,7 @@ arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec = {
 };
 
 // ParamsSpec for HandleIntent
-arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_HandleIntent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.HandleIntent_Params',
@@ -1227,7 +1228,7 @@ arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec = {
 };
 
 // ParamsSpec for HandleIntentWithWindowInfo
-arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.HandleIntentWithWindowInfo_Params',
@@ -1243,7 +1244,7 @@ arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec = {
 };
 
 // ParamsSpec for HandleUrl
-arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_HandleUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.HandleUrl_Params',
@@ -1258,7 +1259,7 @@ arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec = {
 };
 
 // ParamsSpec for Init
-arc.mojom.IntentHelperInstance_Init_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.Init_Params',
@@ -1272,7 +1273,7 @@ arc.mojom.IntentHelperInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for RequestActivityIcons
-arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestActivityIcons_Params',
@@ -1286,7 +1287,7 @@ arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec = {
   }
 };
 
-arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestActivityIcons_ResponseParams',
@@ -1300,7 +1301,7 @@ arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestIntentHandlerList
-arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestIntentHandlerList_Params',
@@ -1313,7 +1314,7 @@ arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec = {
   }
 };
 
-arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestIntentHandlerList_ResponseParams',
@@ -1327,7 +1328,7 @@ arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestUrlHandlerList
-arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestUrlHandlerList_Params',
@@ -1340,7 +1341,7 @@ arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec = {
   }
 };
 
-arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestUrlHandlerList_ResponseParams',
@@ -1354,7 +1355,7 @@ arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestUrlListHandlerList
-arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestUrlListHandlerList_Params',
@@ -1367,7 +1368,7 @@ arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec = {
   }
 };
 
-arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestUrlListHandlerList_ResponseParams',
@@ -1381,7 +1382,7 @@ arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SendBroadcast
-arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.SendBroadcast_Params',
@@ -1398,7 +1399,7 @@ arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec = {
 };
 
 // ParamsSpec for RequestTextSelectionActions
-arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestTextSelectionActions_Params',
@@ -1412,7 +1413,7 @@ arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec = {
   }
 };
 
-arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestTextSelectionActions_ResponseParams',
@@ -1426,22 +1427,22 @@ arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec = 
 };
 
 // ParamsSpec for HandleCameraResult
-arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.HandleCameraResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'intent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.CameraIntentActionSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'intent_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.CameraIntentActionSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.HandleCameraResult_ResponseParams',
@@ -1455,7 +1456,7 @@ arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestDomainVerificationStatusUpdate
-arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.RequestDomainVerificationStatusUpdate_Params',
@@ -1468,7 +1469,7 @@ arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec 
 };
 
 // ParamsSpec for SetCaptionStyle
-arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.SetCaptionStyle_Params',
@@ -1482,7 +1483,7 @@ arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec = {
 };
 
 // ParamsSpec for EnableAccessibilityFeatures
-arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec = {
+arc.mojom.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.IntentHelperInstance.EnableAccessibilityFeatures_Params',
@@ -1496,6 +1497,6 @@ arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.IntentHelperInstancePtr = arc.mojom.IntentHelperInstanceRemote;
-arc.mojom.IntentHelperInstanceRequest = arc.mojom.IntentHelperInstancePendingReceiver;
+arc.mojom.mojom.IntentHelperInstancePtr = arc.mojom.mojom.IntentHelperInstanceRemote;
+arc.mojom.mojom.IntentHelperInstanceRequest = arc.mojom.mojom.IntentHelperInstancePendingReceiver;
 

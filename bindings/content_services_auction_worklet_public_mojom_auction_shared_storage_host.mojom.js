@@ -10,33 +10,33 @@ auction_worklet.mojom = auction_worklet.mojom || {};
 
 
 // Enum: AuctionWorkletFunction
-auction_worklet.mojom.AuctionWorkletFunction = {
+auction_worklet.mojom.mojom.AuctionWorkletFunction = {
   kBidderGenerateBid: 0,
   kBidderReportWin: 1,
   kSellerScoreAd: 2,
   kSellerReportResult: 3,
 };
-auction_worklet.mojom.AuctionWorkletFunctionSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.mojom.AuctionWorkletFunctionSpec = { $: mojo.internal.Enum() };
 
 // Interface: AuctionSharedStorageHost
-auction_worklet.mojom.AuctionSharedStorageHost = {};
+auction_worklet.mojom.mojom.AuctionSharedStorageHost = {};
 
-auction_worklet.mojom.AuctionSharedStorageHostPendingReceiver = class {
+auction_worklet.mojom.mojom.AuctionSharedStorageHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-auction_worklet.mojom.AuctionSharedStorageHostRemote = class {
+auction_worklet.mojom.mojom.AuctionSharedStorageHostRemote = class {
   static get $interfaceName() {
     return 'auction_worklet.mojom.AuctionSharedStorageHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      auction_worklet.mojom.AuctionSharedStorageHostPendingReceiver,
+      auction_worklet.mojom.mojom.AuctionSharedStorageHostPendingReceiver,
       handle);
-    this.$ = new auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler(this.proxy);
+    this.$ = new auction_worklet.mojom.mojom.AuctionSharedStorageHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -48,7 +48,7 @@ auction_worklet.mojom.AuctionSharedStorageHostRemote = class {
   }
 };
 
-auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
+auction_worklet.mojom.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -57,7 +57,7 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec,
+      auction_worklet.mojom.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec,
       null,
       [method_with_options, source_auction_worklet_function]);
   }
@@ -66,15 +66,15 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec,
+      auction_worklet.mojom.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec,
       null,
       [methods_with_options, with_lock, source_auction_worklet_function]);
   }
 
 };
 
-auction_worklet.mojom.AuctionSharedStorageHost.getRemote = function() {
-  let remote = new auction_worklet.mojom.AuctionSharedStorageHostRemote();
+auction_worklet.mojom.mojom.AuctionSharedStorageHost.getRemote = function() {
+  let remote = new auction_worklet.mojom.mojom.AuctionSharedStorageHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ auction_worklet.mojom.AuctionSharedStorageHost.getRemote = function() {
 };
 
 // ParamsSpec for SharedStorageUpdate
-auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = {
+auction_worklet.mojom.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.AuctionSharedStorageHost.SharedStorageUpdate_Params',
@@ -99,7 +99,7 @@ auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = 
 };
 
 // ParamsSpec for SharedStorageBatchUpdate
-auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec = {
+auction_worklet.mojom.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.AuctionSharedStorageHost.SharedStorageBatchUpdate_Params',
@@ -115,6 +115,6 @@ auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSp
 };
 
 // Legacy compatibility
-auction_worklet.mojom.AuctionSharedStorageHostPtr = auction_worklet.mojom.AuctionSharedStorageHostRemote;
-auction_worklet.mojom.AuctionSharedStorageHostRequest = auction_worklet.mojom.AuctionSharedStorageHostPendingReceiver;
+auction_worklet.mojom.mojom.AuctionSharedStorageHostPtr = auction_worklet.mojom.mojom.AuctionSharedStorageHostRemote;
+auction_worklet.mojom.mojom.AuctionSharedStorageHostRequest = auction_worklet.mojom.mojom.AuctionSharedStorageHostPendingReceiver;
 

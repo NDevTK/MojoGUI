@@ -7,27 +7,28 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Interface: WebTransportConnector
-blink.mojom.WebTransportConnector = {};
+blink.mojom.mojom.WebTransportConnector = {};
 
-blink.mojom.WebTransportConnectorPendingReceiver = class {
+blink.mojom.mojom.WebTransportConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WebTransportConnectorRemote = class {
+blink.mojom.mojom.WebTransportConnectorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebTransportConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WebTransportConnectorPendingReceiver,
+      blink.mojom.mojom.WebTransportConnectorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WebTransportConnectorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WebTransportConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ blink.mojom.WebTransportConnectorRemote = class {
   }
 };
 
-blink.mojom.WebTransportConnectorRemoteCallHandler = class {
+blink.mojom.mojom.WebTransportConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ blink.mojom.WebTransportConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebTransportConnector_Connect_ParamsSpec,
+      blink.mojom.mojom.WebTransportConnector_Connect_ParamsSpec,
       null,
       [url, fingerprints, application_protocols, client]);
   }
 
 };
 
-blink.mojom.WebTransportConnector.getRemote = function() {
-  let remote = new blink.mojom.WebTransportConnectorRemote();
+blink.mojom.mojom.WebTransportConnector.getRemote = function() {
+  let remote = new blink.mojom.mojom.WebTransportConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ blink.mojom.WebTransportConnector.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-blink.mojom.WebTransportConnector_Connect_ParamsSpec = {
+blink.mojom.mojom.WebTransportConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebTransportConnector.Connect_Params',
@@ -83,6 +84,6 @@ blink.mojom.WebTransportConnector_Connect_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WebTransportConnectorPtr = blink.mojom.WebTransportConnectorRemote;
-blink.mojom.WebTransportConnectorRequest = blink.mojom.WebTransportConnectorPendingReceiver;
+blink.mojom.mojom.WebTransportConnectorPtr = blink.mojom.mojom.WebTransportConnectorRemote;
+blink.mojom.mojom.WebTransportConnectorRequest = blink.mojom.mojom.WebTransportConnectorPendingReceiver;
 

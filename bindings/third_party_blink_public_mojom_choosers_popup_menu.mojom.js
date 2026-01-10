@@ -10,17 +10,17 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: Type
-blink.mojom.Type = {
+blink.mojom.mojom.Type = {
   kOption: 0,
   kCheckableOption: 1,
   kGroup: 2,
   kSeparator: 3,
   kSubMenu: 4,
 };
-blink.mojom.TypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MenuItem
-blink.mojom.MenuItemSpec = {
+blink.mojom.mojom.MenuItemSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MenuItem',
@@ -34,24 +34,24 @@ blink.mojom.MenuItemSpec = {
 };
 
 // Interface: PopupMenuClient
-blink.mojom.PopupMenuClient = {};
+blink.mojom.mojom.PopupMenuClient = {};
 
-blink.mojom.PopupMenuClientPendingReceiver = class {
+blink.mojom.mojom.PopupMenuClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.PopupMenuClientRemote = class {
+blink.mojom.mojom.PopupMenuClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PopupMenuClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.PopupMenuClientPendingReceiver,
+      blink.mojom.mojom.PopupMenuClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.PopupMenuClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.PopupMenuClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -63,7 +63,7 @@ blink.mojom.PopupMenuClientRemote = class {
   }
 };
 
-blink.mojom.PopupMenuClientRemoteCallHandler = class {
+blink.mojom.mojom.PopupMenuClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -72,7 +72,7 @@ blink.mojom.PopupMenuClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec,
+      blink.mojom.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec,
       null,
       [indices]);
   }
@@ -81,15 +81,15 @@ blink.mojom.PopupMenuClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PopupMenuClient_DidCancel_ParamsSpec,
+      blink.mojom.mojom.PopupMenuClient_DidCancel_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.PopupMenuClient.getRemote = function() {
-  let remote = new blink.mojom.PopupMenuClientRemote();
+blink.mojom.mojom.PopupMenuClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.PopupMenuClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +99,7 @@ blink.mojom.PopupMenuClient.getRemote = function() {
 };
 
 // ParamsSpec for DidAcceptIndices
-blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
+blink.mojom.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PopupMenuClient.DidAcceptIndices_Params',
@@ -113,7 +113,7 @@ blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec = {
 };
 
 // ParamsSpec for DidCancel
-blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
+blink.mojom.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PopupMenuClient.DidCancel_Params',
@@ -126,6 +126,6 @@ blink.mojom.PopupMenuClient_DidCancel_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.PopupMenuClientPtr = blink.mojom.PopupMenuClientRemote;
-blink.mojom.PopupMenuClientRequest = blink.mojom.PopupMenuClientPendingReceiver;
+blink.mojom.mojom.PopupMenuClientPtr = blink.mojom.mojom.PopupMenuClientRemote;
+blink.mojom.mojom.PopupMenuClientRequest = blink.mojom.mojom.PopupMenuClientPendingReceiver;
 

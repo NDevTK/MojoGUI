@@ -7,27 +7,29 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: PlaybackEventsRecorder
-media.mojom.PlaybackEventsRecorder = {};
+media.mojom.mojom.PlaybackEventsRecorder = {};
 
-media.mojom.PlaybackEventsRecorderPendingReceiver = class {
+media.mojom.mojom.PlaybackEventsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.PlaybackEventsRecorderRemote = class {
+media.mojom.mojom.PlaybackEventsRecorderRemote = class {
   static get $interfaceName() {
     return 'media.mojom.PlaybackEventsRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.PlaybackEventsRecorderPendingReceiver,
+      media.mojom.mojom.PlaybackEventsRecorderPendingReceiver,
       handle);
-    this.$ = new media.mojom.PlaybackEventsRecorderRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.PlaybackEventsRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ media.mojom.PlaybackEventsRecorderRemote = class {
   }
 };
 
-media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
+media.mojom.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +50,7 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec,
+      media.mojom.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +59,7 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec,
+      media.mojom.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +68,7 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec,
+      media.mojom.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +77,7 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec,
+      media.mojom.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec,
       null,
       []);
   }
@@ -84,7 +86,7 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec,
+      media.mojom.mojom.PlaybackEventsRecorder_OnError_ParamsSpec,
       null,
       [status]);
   }
@@ -93,7 +95,7 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec,
+      media.mojom.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +104,7 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec,
+      media.mojom.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec,
       null,
       []);
   }
@@ -111,7 +113,7 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec,
+      media.mojom.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec,
       null,
       [size]);
   }
@@ -120,15 +122,15 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec,
+      media.mojom.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec,
       null,
       [stats]);
   }
 
 };
 
-media.mojom.PlaybackEventsRecorder.getRemote = function() {
-  let remote = new media.mojom.PlaybackEventsRecorderRemote();
+media.mojom.mojom.PlaybackEventsRecorder.getRemote = function() {
+  let remote = new media.mojom.mojom.PlaybackEventsRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -138,7 +140,7 @@ media.mojom.PlaybackEventsRecorder.getRemote = function() {
 };
 
 // ParamsSpec for OnPlaying
-media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = {
+media.mojom.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackEventsRecorder.OnPlaying_Params',
@@ -151,7 +153,7 @@ media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = {
 };
 
 // ParamsSpec for OnPaused
-media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = {
+media.mojom.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackEventsRecorder.OnPaused_Params',
@@ -164,7 +166,7 @@ media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = {
 };
 
 // ParamsSpec for OnSeeking
-media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = {
+media.mojom.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackEventsRecorder.OnSeeking_Params',
@@ -177,7 +179,7 @@ media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = {
 };
 
 // ParamsSpec for OnEnded
-media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = {
+media.mojom.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackEventsRecorder.OnEnded_Params',
@@ -190,7 +192,7 @@ media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = {
 };
 
 // ParamsSpec for OnError
-media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
+media.mojom.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackEventsRecorder.OnError_Params',
@@ -204,7 +206,7 @@ media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = {
 };
 
 // ParamsSpec for OnBuffering
-media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = {
+media.mojom.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackEventsRecorder.OnBuffering_Params',
@@ -217,7 +219,7 @@ media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = {
 };
 
 // ParamsSpec for OnBufferingComplete
-media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = {
+media.mojom.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackEventsRecorder.OnBufferingComplete_Params',
@@ -230,7 +232,7 @@ media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = {
 };
 
 // ParamsSpec for OnNaturalSizeChanged
-media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
+media.mojom.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackEventsRecorder.OnNaturalSizeChanged_Params',
@@ -244,7 +246,7 @@ media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnPipelineStatistics
-media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
+media.mojom.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaybackEventsRecorder.OnPipelineStatistics_Params',
@@ -258,6 +260,6 @@ media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.PlaybackEventsRecorderPtr = media.mojom.PlaybackEventsRecorderRemote;
-media.mojom.PlaybackEventsRecorderRequest = media.mojom.PlaybackEventsRecorderPendingReceiver;
+media.mojom.mojom.PlaybackEventsRecorderPtr = media.mojom.mojom.PlaybackEventsRecorderRemote;
+media.mojom.mojom.PlaybackEventsRecorderRequest = media.mojom.mojom.PlaybackEventsRecorderPendingReceiver;
 

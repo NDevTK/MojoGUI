@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: Uuid
-mojo_base.mojom.UuidSpec = {
+mojo_base.mojom.mojom.UuidSpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Uuid',

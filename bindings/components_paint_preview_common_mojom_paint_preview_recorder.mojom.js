@@ -7,10 +7,13 @@
 // Module namespace
 var paint_preview = paint_preview || {};
 paint_preview.mojom = paint_preview.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
 
 
 // Enum: PaintPreviewStatus
-paint_preview.mojom.PaintPreviewStatus = {
+paint_preview.mojom.mojom.PaintPreviewStatus = {
   kOk: 0,
   kAlreadyCapturing: 1,
   kCaptureFailed: 2,
@@ -19,24 +22,24 @@ paint_preview.mojom.PaintPreviewStatus = {
   kPartialSuccess: 5,
   kFailed: 6,
 };
-paint_preview.mojom.PaintPreviewStatusSpec = { $: mojo.internal.Enum() };
+paint_preview.mojom.mojom.PaintPreviewStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PaintPreviewCaptureParams
-paint_preview.mojom.PaintPreviewCaptureParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCaptureParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCaptureParams',
       packedSize: 56,
       fields: [
-        { name: 'persistence', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.RecordingPersistenceSpec, nullable: false, minVersion: 0 },
-        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'geometry_metadata_params', packedOffset: 16, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'is_main_frame', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'capture_links', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-        { name: 'max_capture_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'max_decoded_image_size_bytes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'skip_accelerated_content', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'persistence', packedOffset: 40, packedBitOffset: 0, type: paint_preview.mojom.RecordingPersistenceSpec, nullable: false, minVersion: 0 },
+        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'geometry_metadata_params', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'is_main_frame', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'capture_links', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
+        { name: 'max_capture_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'max_decoded_image_size_bytes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'skip_accelerated_content', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -44,7 +47,7 @@ paint_preview.mojom.PaintPreviewCaptureParamsSpec = {
 };
 
 // Struct: LinkData
-paint_preview.mojom.LinkDataSpec = {
+paint_preview.mojom.mojom.LinkDataSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.LinkData',
@@ -59,19 +62,19 @@ paint_preview.mojom.LinkDataSpec = {
 };
 
 // Struct: PaintPreviewCaptureResponse
-paint_preview.mojom.PaintPreviewCaptureResponseSpec = {
+paint_preview.mojom.mojom.PaintPreviewCaptureResponseSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCaptureResponse',
       packedSize: 72,
       fields: [
-        { name: 'embedding_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'content_id_to_embedding_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo_base.mojom.UnguessableTokenSpec, false), nullable: false, minVersion: 0 },
-        { name: 'links', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(paint_preview.mojom.LinkDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'blink_recording_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'serialized_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'geometry_metadata', packedOffset: 40, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataResponseSpec, nullable: false, minVersion: 0 },
-        { name: 'skp', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
+        { name: 'embedding_token', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'content_id_to_embedding_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo_base.mojom.UnguessableTokenSpec, false), nullable: false, minVersion: 0 },
+        { name: 'links', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(paint_preview.mojom.LinkDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'blink_recording_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'serialized_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'geometry_metadata', packedOffset: 56, packedBitOffset: 0, type: paint_preview.mojom.GeometryMetadataResponseSpec, nullable: false, minVersion: 0 },
+        { name: 'skp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -79,7 +82,7 @@ paint_preview.mojom.PaintPreviewCaptureResponseSpec = {
 };
 
 // Struct: GeometryMetadataParams
-paint_preview.mojom.GeometryMetadataParamsSpec = {
+paint_preview.mojom.mojom.GeometryMetadataParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.GeometryMetadataParams',
@@ -96,7 +99,7 @@ paint_preview.mojom.GeometryMetadataParamsSpec = {
 };
 
 // Struct: GeometryMetadataResponse
-paint_preview.mojom.GeometryMetadataResponseSpec = {
+paint_preview.mojom.mojom.GeometryMetadataResponseSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.GeometryMetadataResponse',
@@ -111,24 +114,24 @@ paint_preview.mojom.GeometryMetadataResponseSpec = {
 };
 
 // Interface: PaintPreviewRecorder
-paint_preview.mojom.PaintPreviewRecorder = {};
+paint_preview.mojom.mojom.PaintPreviewRecorder = {};
 
-paint_preview.mojom.PaintPreviewRecorderPendingReceiver = class {
+paint_preview.mojom.mojom.PaintPreviewRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-paint_preview.mojom.PaintPreviewRecorderRemote = class {
+paint_preview.mojom.mojom.PaintPreviewRecorderRemote = class {
   static get $interfaceName() {
     return 'paint_preview.mojom.PaintPreviewRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      paint_preview.mojom.PaintPreviewRecorderPendingReceiver,
+      paint_preview.mojom.mojom.PaintPreviewRecorderPendingReceiver,
       handle);
-    this.$ = new paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler(this.proxy);
+    this.$ = new paint_preview.mojom.mojom.PaintPreviewRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -140,7 +143,7 @@ paint_preview.mojom.PaintPreviewRecorderRemote = class {
   }
 };
 
-paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
+paint_preview.mojom.mojom.PaintPreviewRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -149,7 +152,7 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec,
       null,
       [params]);
   }
@@ -158,15 +161,15 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec,
-      paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec,
       [params]);
   }
 
 };
 
-paint_preview.mojom.PaintPreviewRecorder.getRemote = function() {
-  let remote = new paint_preview.mojom.PaintPreviewRecorderRemote();
+paint_preview.mojom.mojom.PaintPreviewRecorder.getRemote = function() {
+  let remote = new paint_preview.mojom.mojom.PaintPreviewRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -176,7 +179,7 @@ paint_preview.mojom.PaintPreviewRecorder.getRemote = function() {
 };
 
 // ParamsSpec for CapturePaintPreview
-paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewRecorder.CapturePaintPreview_Params',
@@ -190,7 +193,7 @@ paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = {
 };
 
 // ParamsSpec for GetGeometryMetadata
-paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_Params',
@@ -203,7 +206,7 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = {
   }
 };
 
-paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewRecorder.GetGeometryMetadata_ResponseParams',
@@ -217,6 +220,6 @@ paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec 
 };
 
 // Legacy compatibility
-paint_preview.mojom.PaintPreviewRecorderPtr = paint_preview.mojom.PaintPreviewRecorderRemote;
-paint_preview.mojom.PaintPreviewRecorderRequest = paint_preview.mojom.PaintPreviewRecorderPendingReceiver;
+paint_preview.mojom.mojom.PaintPreviewRecorderPtr = paint_preview.mojom.mojom.PaintPreviewRecorderRemote;
+paint_preview.mojom.mojom.PaintPreviewRecorderRequest = paint_preview.mojom.mojom.PaintPreviewRecorderPendingReceiver;
 

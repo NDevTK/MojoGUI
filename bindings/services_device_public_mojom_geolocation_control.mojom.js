@@ -10,24 +10,24 @@ device.mojom = device.mojom || {};
 
 
 // Interface: GeolocationControl
-device.mojom.GeolocationControl = {};
+device.mojom.mojom.GeolocationControl = {};
 
-device.mojom.GeolocationControlPendingReceiver = class {
+device.mojom.mojom.GeolocationControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.GeolocationControlRemote = class {
+device.mojom.mojom.GeolocationControlRemote = class {
   static get $interfaceName() {
     return 'device.mojom.GeolocationControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.GeolocationControlPendingReceiver,
+      device.mojom.mojom.GeolocationControlPendingReceiver,
       handle);
-    this.$ = new device.mojom.GeolocationControlRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.GeolocationControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ device.mojom.GeolocationControlRemote = class {
   }
 };
 
-device.mojom.GeolocationControlRemoteCallHandler = class {
+device.mojom.mojom.GeolocationControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ device.mojom.GeolocationControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec,
+      device.mojom.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.GeolocationControl.getRemote = function() {
-  let remote = new device.mojom.GeolocationControlRemote();
+device.mojom.mojom.GeolocationControl.getRemote = function() {
+  let remote = new device.mojom.mojom.GeolocationControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ device.mojom.GeolocationControl.getRemote = function() {
 };
 
 // ParamsSpec for UserDidOptIntoLocationServices
-device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = {
+device.mojom.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.GeolocationControl.UserDidOptIntoLocationServices_Params',
@@ -79,6 +79,6 @@ device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.GeolocationControlPtr = device.mojom.GeolocationControlRemote;
-device.mojom.GeolocationControlRequest = device.mojom.GeolocationControlPendingReceiver;
+device.mojom.mojom.GeolocationControlPtr = device.mojom.mojom.GeolocationControlRemote;
+device.mojom.mojom.GeolocationControlRequest = device.mojom.mojom.GeolocationControlPendingReceiver;
 

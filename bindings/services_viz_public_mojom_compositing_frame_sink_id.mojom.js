@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: FrameSinkId
-viz.mojom.FrameSinkIdSpec = {
+viz.mojom.mojom.FrameSinkIdSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkId',

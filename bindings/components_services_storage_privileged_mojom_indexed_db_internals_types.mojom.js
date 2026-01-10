@@ -7,28 +7,29 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var url = url || {};
 
 
 // Enum: IdbTransactionMode
-storage.mojom.IdbTransactionMode = {
+storage.mojom.mojom.IdbTransactionMode = {
   kReadOnly: 0,
   kReadWrite: 1,
   kVersionChange: 2,
 };
-storage.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum() };
+storage.mojom.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IdbTransactionState
-storage.mojom.IdbTransactionState = {
+storage.mojom.mojom.IdbTransactionState = {
   kBlocked: 0,
   kRunning: 1,
   kStarted: 2,
   kCommitting: 3,
   kFinished: 4,
 };
-storage.mojom.IdbTransactionStateSpec = { $: mojo.internal.Enum() };
+storage.mojom.mojom.IdbTransactionStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: IdbOriginMetadata
-storage.mojom.IdbOriginMetadataSpec = {
+storage.mojom.mojom.IdbOriginMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbOriginMetadata',
@@ -43,7 +44,7 @@ storage.mojom.IdbOriginMetadataSpec = {
 };
 
 // Struct: IdbStorageKeyMetadata
-storage.mojom.IdbStorageKeyMetadataSpec = {
+storage.mojom.mojom.IdbStorageKeyMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbStorageKeyMetadata',
@@ -59,7 +60,7 @@ storage.mojom.IdbStorageKeyMetadataSpec = {
 };
 
 // Struct: IdbBucketMetadata
-storage.mojom.IdbBucketMetadataSpec = {
+storage.mojom.mojom.IdbBucketMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbBucketMetadata',
@@ -81,7 +82,7 @@ storage.mojom.IdbBucketMetadataSpec = {
 };
 
 // Struct: IdbDatabaseMetadata
-storage.mojom.IdbDatabaseMetadataSpec = {
+storage.mojom.mojom.IdbDatabaseMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbDatabaseMetadata',
@@ -99,23 +100,23 @@ storage.mojom.IdbDatabaseMetadataSpec = {
 };
 
 // Struct: IdbTransactionMetadata
-storage.mojom.IdbTransactionMetadataSpec = {
+storage.mojom.mojom.IdbTransactionMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbTransactionMetadata',
       packedSize: 88,
       fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.IdbTransactionModeSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 4, packedBitOffset: 0, type: storage.mojom.IdbTransactionStateSpec, nullable: false, minVersion: 0 },
-        { name: 'tid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'connection_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'client_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'age', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'runtime', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'tasks_scheduled', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'tasks_completed', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'scope', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
-        { name: 'state_history', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbTransactionMetadataStateHistorySpec, false), nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 64, packedBitOffset: 0, type: storage.mojom.IdbTransactionModeSpec, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 68, packedBitOffset: 0, type: storage.mojom.IdbTransactionStateSpec, nullable: false, minVersion: 0 },
+        { name: 'tid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'connection_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'client_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'age', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'runtime', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'tasks_scheduled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'tasks_completed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'scope', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
+        { name: 'state_history', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbTransactionMetadataStateHistorySpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }
@@ -123,14 +124,14 @@ storage.mojom.IdbTransactionMetadataSpec = {
 };
 
 // Struct: IdbTransactionMetadataStateHistory
-storage.mojom.IdbTransactionMetadataStateHistorySpec = {
+storage.mojom.mojom.IdbTransactionMetadataStateHistorySpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbTransactionMetadataStateHistory',
       packedSize: 24,
       fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.IdbTransactionStateSpec, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.IdbTransactionStateSpec, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

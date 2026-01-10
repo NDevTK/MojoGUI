@@ -7,17 +7,20 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Enum: SessionStorageCloneType
-storage.mojom.SessionStorageCloneType = {
+storage.mojom.mojom.SessionStorageCloneType = {
   kImmediate: 0,
   kWaitForCloneOnNamespace: 1,
 };
-storage.mojom.SessionStorageCloneTypeSpec = { $: mojo.internal.Enum() };
+storage.mojom.mojom.SessionStorageCloneTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SessionStorageUsageInfo
-storage.mojom.SessionStorageUsageInfoSpec = {
+storage.mojom.mojom.SessionStorageUsageInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageUsageInfo',
@@ -32,24 +35,24 @@ storage.mojom.SessionStorageUsageInfoSpec = {
 };
 
 // Interface: SessionStorageControl
-storage.mojom.SessionStorageControl = {};
+storage.mojom.mojom.SessionStorageControl = {};
 
-storage.mojom.SessionStorageControlPendingReceiver = class {
+storage.mojom.mojom.SessionStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.SessionStorageControlRemote = class {
+storage.mojom.mojom.SessionStorageControlRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.SessionStorageControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.SessionStorageControlPendingReceiver,
+      storage.mojom.mojom.SessionStorageControlPendingReceiver,
       handle);
-    this.$ = new storage.mojom.SessionStorageControlRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.mojom.SessionStorageControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +64,7 @@ storage.mojom.SessionStorageControlRemote = class {
   }
 };
 
-storage.mojom.SessionStorageControlRemoteCallHandler = class {
+storage.mojom.mojom.SessionStorageControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,7 +73,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_BindNamespace_ParamsSpec,
       null,
       [namespace_id, receiver]);
   }
@@ -79,7 +82,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_BindStorageArea_ParamsSpec,
       null,
       [storage_key, namespace_id, receiver]);
   }
@@ -88,8 +91,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.SessionStorageControl_GetUsage_ParamsSpec,
-      storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_GetUsage_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec,
       []);
   }
 
@@ -97,7 +100,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_DeleteStorage_ParamsSpec,
       null,
       [storage_key, namespace_id]);
   }
@@ -106,7 +109,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec,
       null,
       []);
   }
@@ -115,7 +118,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec,
       null,
       []);
   }
@@ -124,7 +127,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      storage.mojom.SessionStorageControl_Flush_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_Flush_ParamsSpec,
       null,
       []);
   }
@@ -133,7 +136,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_PurgeMemory_ParamsSpec,
       null,
       []);
   }
@@ -142,7 +145,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_CreateNamespace_ParamsSpec,
       null,
       [namespace_id]);
   }
@@ -151,7 +154,7 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_CloneNamespace_ParamsSpec,
       null,
       [namespace_id_to_clone, clone_namespace_id, clone_type]);
   }
@@ -160,15 +163,15 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec,
+      storage.mojom.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec,
       null,
       [namespace_id, should_persist]);
   }
 
 };
 
-storage.mojom.SessionStorageControl.getRemote = function() {
-  let remote = new storage.mojom.SessionStorageControlRemote();
+storage.mojom.mojom.SessionStorageControl.getRemote = function() {
+  let remote = new storage.mojom.mojom.SessionStorageControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -178,7 +181,7 @@ storage.mojom.SessionStorageControl.getRemote = function() {
 };
 
 // ParamsSpec for BindNamespace
-storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_BindNamespace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.BindNamespace_Params',
@@ -193,7 +196,7 @@ storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = {
 };
 
 // ParamsSpec for BindStorageArea
-storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.BindStorageArea_Params',
@@ -209,7 +212,7 @@ storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = {
 };
 
 // ParamsSpec for GetUsage
-storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_GetUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.GetUsage_Params',
@@ -221,7 +224,7 @@ storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = {
   }
 };
 
-storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.GetUsage_ResponseParams',
@@ -235,7 +238,7 @@ storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteStorage
-storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.DeleteStorage_Params',
@@ -250,7 +253,7 @@ storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = {
 };
 
 // ParamsSpec for CleanUpStorage
-storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.CleanUpStorage_Params',
@@ -263,7 +266,7 @@ storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = {
 };
 
 // ParamsSpec for ScavengeUnusedNamespaces
-storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.ScavengeUnusedNamespaces_Params',
@@ -276,7 +279,7 @@ storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = {
 };
 
 // ParamsSpec for Flush
-storage.mojom.SessionStorageControl_Flush_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_Flush_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.Flush_Params',
@@ -289,7 +292,7 @@ storage.mojom.SessionStorageControl_Flush_ParamsSpec = {
 };
 
 // ParamsSpec for PurgeMemory
-storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.PurgeMemory_Params',
@@ -302,7 +305,7 @@ storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = {
 };
 
 // ParamsSpec for CreateNamespace
-storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.CreateNamespace_Params',
@@ -316,7 +319,7 @@ storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = {
 };
 
 // ParamsSpec for CloneNamespace
-storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.CloneNamespace_Params',
@@ -332,7 +335,7 @@ storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = {
 };
 
 // ParamsSpec for DeleteNamespace
-storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = {
+storage.mojom.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.SessionStorageControl.DeleteNamespace_Params',
@@ -347,6 +350,6 @@ storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.SessionStorageControlPtr = storage.mojom.SessionStorageControlRemote;
-storage.mojom.SessionStorageControlRequest = storage.mojom.SessionStorageControlPendingReceiver;
+storage.mojom.mojom.SessionStorageControlPtr = storage.mojom.mojom.SessionStorageControlRemote;
+storage.mojom.mojom.SessionStorageControlRequest = storage.mojom.mojom.SessionStorageControlPendingReceiver;
 

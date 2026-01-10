@@ -10,24 +10,24 @@ network.mojom = network.mojom || {};
 
 
 // Interface: NetworkQualityEstimatorManagerClient
-network.mojom.NetworkQualityEstimatorManagerClient = {};
+network.mojom.mojom.NetworkQualityEstimatorManagerClient = {};
 
-network.mojom.NetworkQualityEstimatorManagerClientPendingReceiver = class {
+network.mojom.mojom.NetworkQualityEstimatorManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.NetworkQualityEstimatorManagerClientRemote = class {
+network.mojom.mojom.NetworkQualityEstimatorManagerClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetworkQualityEstimatorManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.NetworkQualityEstimatorManagerClientPendingReceiver,
+      network.mojom.mojom.NetworkQualityEstimatorManagerClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ network.mojom.NetworkQualityEstimatorManagerClientRemote = class {
   }
 };
 
-network.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler = class {
+network.mojom.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ network.mojom.NetworkQualityEstimatorManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec,
+      network.mojom.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec,
       null,
       [type, http_rtt, transport_rtt, downlink_bandwidth_kbps]);
   }
 
 };
 
-network.mojom.NetworkQualityEstimatorManagerClient.getRemote = function() {
-  let remote = new network.mojom.NetworkQualityEstimatorManagerClientRemote();
+network.mojom.mojom.NetworkQualityEstimatorManagerClient.getRemote = function() {
+  let remote = new network.mojom.mojom.NetworkQualityEstimatorManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ network.mojom.NetworkQualityEstimatorManagerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnNetworkQualityChanged
-network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec = {
+network.mojom.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkQualityEstimatorManagerClient.OnNetworkQualityChanged_Params',
@@ -83,29 +83,29 @@ network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Param
 };
 
 // Legacy compatibility
-network.mojom.NetworkQualityEstimatorManagerClientPtr = network.mojom.NetworkQualityEstimatorManagerClientRemote;
-network.mojom.NetworkQualityEstimatorManagerClientRequest = network.mojom.NetworkQualityEstimatorManagerClientPendingReceiver;
+network.mojom.mojom.NetworkQualityEstimatorManagerClientPtr = network.mojom.mojom.NetworkQualityEstimatorManagerClientRemote;
+network.mojom.mojom.NetworkQualityEstimatorManagerClientRequest = network.mojom.mojom.NetworkQualityEstimatorManagerClientPendingReceiver;
 
 
 // Interface: NetworkQualityEstimatorManager
-network.mojom.NetworkQualityEstimatorManager = {};
+network.mojom.mojom.NetworkQualityEstimatorManager = {};
 
-network.mojom.NetworkQualityEstimatorManagerPendingReceiver = class {
+network.mojom.mojom.NetworkQualityEstimatorManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.NetworkQualityEstimatorManagerRemote = class {
+network.mojom.mojom.NetworkQualityEstimatorManagerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetworkQualityEstimatorManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.NetworkQualityEstimatorManagerPendingReceiver,
+      network.mojom.mojom.NetworkQualityEstimatorManagerPendingReceiver,
       handle);
-    this.$ = new network.mojom.NetworkQualityEstimatorManagerRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.NetworkQualityEstimatorManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -117,7 +117,7 @@ network.mojom.NetworkQualityEstimatorManagerRemote = class {
   }
 };
 
-network.mojom.NetworkQualityEstimatorManagerRemoteCallHandler = class {
+network.mojom.mojom.NetworkQualityEstimatorManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -126,15 +126,15 @@ network.mojom.NetworkQualityEstimatorManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec,
+      network.mojom.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec,
       null,
       [client]);
   }
 
 };
 
-network.mojom.NetworkQualityEstimatorManager.getRemote = function() {
-  let remote = new network.mojom.NetworkQualityEstimatorManagerRemote();
+network.mojom.mojom.NetworkQualityEstimatorManager.getRemote = function() {
+  let remote = new network.mojom.mojom.NetworkQualityEstimatorManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -144,7 +144,7 @@ network.mojom.NetworkQualityEstimatorManager.getRemote = function() {
 };
 
 // ParamsSpec for RequestNotifications
-network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
+network.mojom.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkQualityEstimatorManager.RequestNotifications_Params',
@@ -158,6 +158,6 @@ network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.NetworkQualityEstimatorManagerPtr = network.mojom.NetworkQualityEstimatorManagerRemote;
-network.mojom.NetworkQualityEstimatorManagerRequest = network.mojom.NetworkQualityEstimatorManagerPendingReceiver;
+network.mojom.mojom.NetworkQualityEstimatorManagerPtr = network.mojom.mojom.NetworkQualityEstimatorManagerRemote;
+network.mojom.mojom.NetworkQualityEstimatorManagerRequest = network.mojom.mojom.NetworkQualityEstimatorManagerPendingReceiver;
 

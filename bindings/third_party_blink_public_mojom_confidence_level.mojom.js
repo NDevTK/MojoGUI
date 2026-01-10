@@ -10,8 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ConfidenceLevel
-blink.mojom.ConfidenceLevel = {
+blink.mojom.mojom.ConfidenceLevel = {
   kHigh: 0,
   kLow: 1,
 };
-blink.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum() };

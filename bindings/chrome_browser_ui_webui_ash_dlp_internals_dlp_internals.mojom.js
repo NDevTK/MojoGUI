@@ -7,10 +7,11 @@
 // Module namespace
 var dlp_internals = dlp_internals || {};
 dlp_internals.mojom = dlp_internals.mojom || {};
+var url = url || {};
 
 
 // Enum: EndpointType
-dlp_internals.mojom.EndpointType = {
+dlp_internals.mojom.mojom.EndpointType = {
   kDefault: 0,
   kUrl: 1,
   kClipboardHistory: 2,
@@ -20,29 +21,29 @@ dlp_internals.mojom.EndpointType = {
   kCrostini: 6,
   kPluginVm: 7,
 };
-dlp_internals.mojom.EndpointTypeSpec = { $: mojo.internal.Enum() };
+dlp_internals.mojom.mojom.EndpointTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContentRestriction
-dlp_internals.mojom.ContentRestriction = {
+dlp_internals.mojom.mojom.ContentRestriction = {
   kScreenshot: 0,
   kPrivacyScreen: 1,
   kPrint: 2,
   kScreenShare: 3,
 };
-dlp_internals.mojom.ContentRestrictionSpec = { $: mojo.internal.Enum() };
+dlp_internals.mojom.mojom.ContentRestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Level
-dlp_internals.mojom.Level = {
+dlp_internals.mojom.mojom.Level = {
   kNotSet: 0,
   kReport: 1,
   kWarn: 2,
   kBlock: 3,
   kAllow: 4,
 };
-dlp_internals.mojom.LevelSpec = { $: mojo.internal.Enum() };
+dlp_internals.mojom.mojom.LevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: Component
-dlp_internals.mojom.Component = {
+dlp_internals.mojom.mojom.Component = {
   kUndefinedComponent: 0,
   kArc: 1,
   kCrostini: 2,
@@ -51,10 +52,10 @@ dlp_internals.mojom.Component = {
   kDrive: 5,
   kOnedrive: 6,
 };
-dlp_internals.mojom.ComponentSpec = { $: mojo.internal.Enum() };
+dlp_internals.mojom.mojom.ComponentSpec = { $: mojo.internal.Enum() };
 
 // Enum: Restriction
-dlp_internals.mojom.Restriction = {
+dlp_internals.mojom.mojom.Restriction = {
   kUndefinedRestriction: 0,
   kClipboard: 1,
   kScreenshot: 2,
@@ -63,36 +64,36 @@ dlp_internals.mojom.Restriction = {
   kEprivacy: 5,
   kFiles: 6,
 };
-dlp_internals.mojom.RestrictionSpec = { $: mojo.internal.Enum() };
+dlp_internals.mojom.mojom.RestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mode
-dlp_internals.mojom.Mode = {
+dlp_internals.mojom.mojom.Mode = {
   kUndefinedMode: 0,
   kBlock: 1,
   kReport: 2,
   kWarn: 3,
   kWarnProceed: 4,
 };
-dlp_internals.mojom.ModeSpec = { $: mojo.internal.Enum() };
+dlp_internals.mojom.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserType
-dlp_internals.mojom.UserType = {
+dlp_internals.mojom.mojom.UserType = {
   kUndefinedUserType: 0,
   kRegular: 1,
   kManagedGuest: 2,
   kKiosk: 3,
 };
-dlp_internals.mojom.UserTypeSpec = { $: mojo.internal.Enum() };
+dlp_internals.mojom.mojom.UserTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: DataTransferEndpoint
-dlp_internals.mojom.DataTransferEndpointSpec = {
+dlp_internals.mojom.mojom.DataTransferEndpointSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.DataTransferEndpoint',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.EndpointTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: dlp_internals.mojom.EndpointTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -100,15 +101,15 @@ dlp_internals.mojom.DataTransferEndpointSpec = {
 };
 
 // Struct: ContentRestrictionInfo
-dlp_internals.mojom.ContentRestrictionInfoSpec = {
+dlp_internals.mojom.mojom.ContentRestrictionInfoSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.ContentRestrictionInfo',
       packedSize: 24,
       fields: [
-        { name: 'restriction', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.ContentRestrictionSpec, nullable: false, minVersion: 0 },
-        { name: 'level', packedOffset: 4, packedBitOffset: 0, type: dlp_internals.mojom.LevelSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'restriction', packedOffset: 8, packedBitOffset: 0, type: dlp_internals.mojom.ContentRestrictionSpec, nullable: false, minVersion: 0 },
+        { name: 'level', packedOffset: 12, packedBitOffset: 0, type: dlp_internals.mojom.LevelSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -116,7 +117,7 @@ dlp_internals.mojom.ContentRestrictionInfoSpec = {
 };
 
 // Struct: RenderFrameHostInfo
-dlp_internals.mojom.RenderFrameHostInfoSpec = {
+dlp_internals.mojom.mojom.RenderFrameHostInfoSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.RenderFrameHostInfo',
@@ -131,7 +132,7 @@ dlp_internals.mojom.RenderFrameHostInfoSpec = {
 };
 
 // Struct: WebContentsInfo
-dlp_internals.mojom.WebContentsInfoSpec = {
+dlp_internals.mojom.mojom.WebContentsInfoSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.WebContentsInfo',
@@ -147,7 +148,7 @@ dlp_internals.mojom.WebContentsInfoSpec = {
 };
 
 // Struct: EventDestination
-dlp_internals.mojom.EventDestinationSpec = {
+dlp_internals.mojom.mojom.EventDestinationSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.EventDestination',
@@ -161,7 +162,7 @@ dlp_internals.mojom.EventDestinationSpec = {
 };
 
 // Struct: DlpEvent
-dlp_internals.mojom.DlpEventSpec = {
+dlp_internals.mojom.mojom.DlpEventSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.DlpEvent',
@@ -175,18 +176,18 @@ dlp_internals.mojom.DlpEventSpec = {
 };
 
 // Struct: FileDatabaseEntry
-dlp_internals.mojom.FileDatabaseEntrySpec = {
+dlp_internals.mojom.mojom.FileDatabaseEntrySpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.FileDatabaseEntry',
       packedSize: 48,
       fields: [
-        { name: 'inode_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'inode_$value', originalFieldName: 'inode' } },
-        { name: 'inode_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'inode_$flag', originalFieldName: 'inode' } },
-        { name: 'crtime_$flag', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'crtime_$value', originalFieldName: 'crtime' } },
-        { name: 'crtime_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'crtime_$flag', originalFieldName: 'crtime' } },
-        { name: 'source_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'referrer_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'inode_$flag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'inode_$value', originalFieldName: 'inode' } },
+        { name: 'inode_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'inode_$flag', originalFieldName: 'inode' } },
+        { name: 'crtime_$flag', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'crtime_$value', originalFieldName: 'crtime' } },
+        { name: 'crtime_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'crtime_$flag', originalFieldName: 'crtime' } },
+        { name: 'source_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'referrer_url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -194,24 +195,24 @@ dlp_internals.mojom.FileDatabaseEntrySpec = {
 };
 
 // Interface: ReportingObserver
-dlp_internals.mojom.ReportingObserver = {};
+dlp_internals.mojom.mojom.ReportingObserver = {};
 
-dlp_internals.mojom.ReportingObserverPendingReceiver = class {
+dlp_internals.mojom.mojom.ReportingObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-dlp_internals.mojom.ReportingObserverRemote = class {
+dlp_internals.mojom.mojom.ReportingObserverRemote = class {
   static get $interfaceName() {
     return 'dlp_internals.mojom.ReportingObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      dlp_internals.mojom.ReportingObserverPendingReceiver,
+      dlp_internals.mojom.mojom.ReportingObserverPendingReceiver,
       handle);
-    this.$ = new dlp_internals.mojom.ReportingObserverRemoteCallHandler(this.proxy);
+    this.$ = new dlp_internals.mojom.mojom.ReportingObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -223,7 +224,7 @@ dlp_internals.mojom.ReportingObserverRemote = class {
   }
 };
 
-dlp_internals.mojom.ReportingObserverRemoteCallHandler = class {
+dlp_internals.mojom.mojom.ReportingObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -232,15 +233,15 @@ dlp_internals.mojom.ReportingObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec,
+      dlp_internals.mojom.mojom.ReportingObserver_OnReportEvent_ParamsSpec,
       null,
       [event]);
   }
 
 };
 
-dlp_internals.mojom.ReportingObserver.getRemote = function() {
-  let remote = new dlp_internals.mojom.ReportingObserverRemote();
+dlp_internals.mojom.mojom.ReportingObserver.getRemote = function() {
+  let remote = new dlp_internals.mojom.mojom.ReportingObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -250,7 +251,7 @@ dlp_internals.mojom.ReportingObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnReportEvent
-dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = {
+dlp_internals.mojom.mojom.ReportingObserver_OnReportEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.ReportingObserver.OnReportEvent_Params',
@@ -264,29 +265,29 @@ dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-dlp_internals.mojom.ReportingObserverPtr = dlp_internals.mojom.ReportingObserverRemote;
-dlp_internals.mojom.ReportingObserverRequest = dlp_internals.mojom.ReportingObserverPendingReceiver;
+dlp_internals.mojom.mojom.ReportingObserverPtr = dlp_internals.mojom.mojom.ReportingObserverRemote;
+dlp_internals.mojom.mojom.ReportingObserverRequest = dlp_internals.mojom.mojom.ReportingObserverPendingReceiver;
 
 
 // Interface: PageHandler
-dlp_internals.mojom.PageHandler = {};
+dlp_internals.mojom.mojom.PageHandler = {};
 
-dlp_internals.mojom.PageHandlerPendingReceiver = class {
+dlp_internals.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-dlp_internals.mojom.PageHandlerRemote = class {
+dlp_internals.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'dlp_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      dlp_internals.mojom.PageHandlerPendingReceiver,
+      dlp_internals.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new dlp_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new dlp_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -298,7 +299,7 @@ dlp_internals.mojom.PageHandlerRemote = class {
   }
 };
 
-dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
+dlp_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -307,8 +308,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec,
-      dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec,
+      dlp_internals.mojom.mojom.PageHandler_GetClipboardDataSource_ParamsSpec,
+      dlp_internals.mojom.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec,
       []);
   }
 
@@ -316,8 +317,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec,
-      dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec,
+      dlp_internals.mojom.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec,
+      dlp_internals.mojom.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec,
       []);
   }
 
@@ -325,7 +326,7 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec,
+      dlp_internals.mojom.mojom.PageHandler_ObserveReporting_ParamsSpec,
       null,
       [observer]);
   }
@@ -334,8 +335,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec,
-      dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec,
+      dlp_internals.mojom.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec,
+      dlp_internals.mojom.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec,
       []);
   }
 
@@ -343,15 +344,15 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec,
-      dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec,
+      dlp_internals.mojom.mojom.PageHandler_GetFileInode_ParamsSpec,
+      dlp_internals.mojom.mojom.PageHandler_GetFileInode_ResponseParamsSpec,
       [file_name]);
   }
 
 };
 
-dlp_internals.mojom.PageHandler.getRemote = function() {
-  let remote = new dlp_internals.mojom.PageHandlerRemote();
+dlp_internals.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new dlp_internals.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -361,7 +362,7 @@ dlp_internals.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetClipboardDataSource
-dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = {
+dlp_internals.mojom.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.PageHandler.GetClipboardDataSource_Params',
@@ -373,7 +374,7 @@ dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = {
   }
 };
 
-dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
+dlp_internals.mojom.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.PageHandler.GetClipboardDataSource_ResponseParams',
@@ -387,7 +388,7 @@ dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetContentRestrictionsInfo
-dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = {
+dlp_internals.mojom.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.PageHandler.GetContentRestrictionsInfo_Params',
@@ -399,7 +400,7 @@ dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = {
   }
 };
 
-dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = {
+dlp_internals.mojom.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.PageHandler.GetContentRestrictionsInfo_ResponseParams',
@@ -413,7 +414,7 @@ dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = 
 };
 
 // ParamsSpec for ObserveReporting
-dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec = {
+dlp_internals.mojom.mojom.PageHandler_ObserveReporting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.PageHandler.ObserveReporting_Params',
@@ -427,7 +428,7 @@ dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec = {
 };
 
 // ParamsSpec for GetFilesDatabaseEntries
-dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = {
+dlp_internals.mojom.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.PageHandler.GetFilesDatabaseEntries_Params',
@@ -439,7 +440,7 @@ dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = {
   }
 };
 
-dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = {
+dlp_internals.mojom.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.PageHandler.GetFilesDatabaseEntries_ResponseParams',
@@ -453,7 +454,7 @@ dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetFileInode
-dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = {
+dlp_internals.mojom.mojom.PageHandler_GetFileInode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.PageHandler.GetFileInode_Params',
@@ -466,7 +467,7 @@ dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = {
   }
 };
 
-dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = {
+dlp_internals.mojom.mojom.PageHandler_GetFileInode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'dlp_internals.mojom.PageHandler.GetFileInode_ResponseParams',
@@ -480,6 +481,6 @@ dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-dlp_internals.mojom.PageHandlerPtr = dlp_internals.mojom.PageHandlerRemote;
-dlp_internals.mojom.PageHandlerRequest = dlp_internals.mojom.PageHandlerPendingReceiver;
+dlp_internals.mojom.mojom.PageHandlerPtr = dlp_internals.mojom.mojom.PageHandlerRemote;
+dlp_internals.mojom.mojom.PageHandlerRequest = dlp_internals.mojom.mojom.PageHandlerPendingReceiver;
 

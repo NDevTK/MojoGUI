@@ -7,10 +7,12 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Enum: BaseValue
-auction_worklet.mojom.BaseValue = {
+auction_worklet.mojom.mojom.BaseValue = {
   kWinningBid: 0,
   kHighestScoringOtherBid: 1,
   kScriptRunTime: 2,
@@ -28,19 +30,19 @@ auction_worklet.mojom.BaseValue = {
   kInterestGroupStorageUsed: 14,
   kPercentInterestGroupStorageQuotaUsed: 15,
 };
-auction_worklet.mojom.BaseValueSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.mojom.BaseValueSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReservedNonErrorEventType
-auction_worklet.mojom.ReservedNonErrorEventType = {
+auction_worklet.mojom.mojom.ReservedNonErrorEventType = {
   kReservedAlways: 0,
   kReservedWin: 1,
   kReservedLoss: 2,
   kReservedOnce: 3,
 };
-auction_worklet.mojom.ReservedNonErrorEventTypeSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.mojom.ReservedNonErrorEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReservedErrorEventType
-auction_worklet.mojom.ReservedErrorEventType = {
+auction_worklet.mojom.mojom.ReservedErrorEventType = {
   kReportSuccess: 0,
   kTooManyContributions: 1,
   kEmptyReportDropped: 2,
@@ -48,10 +50,10 @@ auction_worklet.mojom.ReservedErrorEventType = {
   kInsufficientBudget: 4,
   kUncaughtError: 5,
 };
-auction_worklet.mojom.ReservedErrorEventTypeSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.mojom.ReservedErrorEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: ForEventSignalBucket
-auction_worklet.mojom.ForEventSignalBucketSpec = { $: mojo.internal.Union(
+auction_worklet.mojom.mojom.ForEventSignalBucketSpec = { $: mojo.internal.Union(
     'auction_worklet.mojom.ForEventSignalBucket', {
       'id_bucket': {
         'ordinal': 0,
@@ -65,7 +67,7 @@ auction_worklet.mojom.ForEventSignalBucketSpec = { $: mojo.internal.Union(
 };
 
 // Union: ForEventSignalValue
-auction_worklet.mojom.ForEventSignalValueSpec = { $: mojo.internal.Union(
+auction_worklet.mojom.mojom.ForEventSignalValueSpec = { $: mojo.internal.Union(
     'auction_worklet.mojom.ForEventSignalValue', {
       'int_value': {
         'ordinal': 0,
@@ -79,7 +81,7 @@ auction_worklet.mojom.ForEventSignalValueSpec = { $: mojo.internal.Union(
 };
 
 // Union: EventType
-auction_worklet.mojom.EventTypeSpec = { $: mojo.internal.Union(
+auction_worklet.mojom.mojom.EventTypeSpec = { $: mojo.internal.Union(
     'auction_worklet.mojom.EventType', {
       'reserved_non_error': {
         'ordinal': 0,
@@ -97,7 +99,7 @@ auction_worklet.mojom.EventTypeSpec = { $: mojo.internal.Union(
 };
 
 // Union: AggregatableReportContribution
-auction_worklet.mojom.AggregatableReportContributionSpec = { $: mojo.internal.Union(
+auction_worklet.mojom.mojom.AggregatableReportContributionSpec = { $: mojo.internal.Union(
     'auction_worklet.mojom.AggregatableReportContribution', {
       'histogram_contribution': {
         'ordinal': 0,
@@ -111,7 +113,7 @@ auction_worklet.mojom.AggregatableReportContributionSpec = { $: mojo.internal.Un
 };
 
 // Struct: BucketOffset
-auction_worklet.mojom.BucketOffsetSpec = {
+auction_worklet.mojom.mojom.BucketOffsetSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.BucketOffset',
@@ -126,15 +128,15 @@ auction_worklet.mojom.BucketOffsetSpec = {
 };
 
 // Struct: SignalBucket
-auction_worklet.mojom.SignalBucketSpec = {
+auction_worklet.mojom.mojom.SignalBucketSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SignalBucket',
       packedSize: 32,
       fields: [
-        { name: 'base_value', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false, minVersion: 0 },
-        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.BucketOffsetSpec, nullable: true, minVersion: 0 },
+        { name: 'base_value', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false, minVersion: 0 },
+        { name: 'scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.BucketOffsetSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -142,15 +144,15 @@ auction_worklet.mojom.SignalBucketSpec = {
 };
 
 // Struct: SignalValue
-auction_worklet.mojom.SignalValueSpec = {
+auction_worklet.mojom.mojom.SignalValueSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.SignalValue',
       packedSize: 24,
       fields: [
-        { name: 'base_value', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false, minVersion: 0 },
-        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'base_value', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.BaseValueSpec, nullable: false, minVersion: 0 },
+        { name: 'scale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -158,7 +160,7 @@ auction_worklet.mojom.SignalValueSpec = {
 };
 
 // Struct: AggregatableReportForEventContribution
-auction_worklet.mojom.AggregatableReportForEventContributionSpec = {
+auction_worklet.mojom.mojom.AggregatableReportForEventContributionSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.AggregatableReportForEventContribution',
@@ -166,9 +168,9 @@ auction_worklet.mojom.AggregatableReportForEventContributionSpec = {
       fields: [
         { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalBucketSpec, nullable: false, minVersion: 0 },
         { name: 'value', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.ForEventSignalValueSpec, nullable: false, minVersion: 0 },
-        { name: 'filtering_id_$flag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'filtering_id_$value', originalFieldName: 'filtering_id' } },
-        { name: 'filtering_id_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'filtering_id_$flag', originalFieldName: 'filtering_id' } },
-        { name: 'event_type', packedOffset: 48, packedBitOffset: 0, type: auction_worklet.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'filtering_id_$flag', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'filtering_id_$value', originalFieldName: 'filtering_id' } },
+        { name: 'filtering_id_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'filtering_id_$flag', originalFieldName: 'filtering_id' } },
+        { name: 'event_type', packedOffset: 32, packedBitOffset: 0, type: auction_worklet.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -176,7 +178,7 @@ auction_worklet.mojom.AggregatableReportForEventContributionSpec = {
 };
 
 // Struct: PrivateAggregationRequest
-auction_worklet.mojom.PrivateAggregationRequestSpec = {
+auction_worklet.mojom.mojom.PrivateAggregationRequestSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.PrivateAggregationRequest',
@@ -191,7 +193,7 @@ auction_worklet.mojom.PrivateAggregationRequestSpec = {
 };
 
 // Struct: FinalizedPrivateAggregationRequest
-auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec = {
+auction_worklet.mojom.mojom.FinalizedPrivateAggregationRequestSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.FinalizedPrivateAggregationRequest',

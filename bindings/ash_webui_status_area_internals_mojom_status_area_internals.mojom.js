@@ -7,38 +7,38 @@
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
-ash.mojom.status_area_internals = ash.mojom.status_area_internals || {};
+ash.mojom.mojom.status_area_internals = ash.mojom.mojom.status_area_internals || {};
 
 
 // Enum: BatteryIcon
-ash.mojom.status_area_internals.BatteryIcon = {
+ash.mojom.mojom.status_area_internals.status_area_internals.BatteryIcon = {
   kDefault: 0,
   kXIcon: 1,
   kUnreliableIcon: 2,
   kBoltIcon: 3,
   kBatterySaverPlusIcon: 4,
 };
-ash.mojom.status_area_internals.BatteryIconSpec = { $: mojo.internal.Enum() };
+ash.mojom.mojom.status_area_internals.status_area_internals.BatteryIconSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandler
-ash.mojom.status_area_internals.PageHandler = {};
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler = {};
 
-ash.mojom.status_area_internals.PageHandlerPendingReceiver = class {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.mojom.status_area_internals.PageHandlerRemote = class {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.mojom.status_area_internals.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.mojom.status_area_internals.PageHandlerPendingReceiver,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.mojom.status_area_internals.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -50,7 +50,7 @@ ash.mojom.status_area_internals.PageHandlerRemote = class {
   }
 };
 
-ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -59,7 +59,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -68,7 +68,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -77,7 +77,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -86,7 +86,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -95,7 +95,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -104,7 +104,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -113,7 +113,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec,
       null,
       [visible]);
   }
@@ -122,7 +122,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec,
       null,
       [in_child_session]);
   }
@@ -131,7 +131,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec,
       null,
       [app_id, app_name, is_camera_used, is_microphone_used]);
   }
@@ -140,7 +140,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec,
       null,
       []);
   }
@@ -149,7 +149,7 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec,
       null,
       [icon]);
   }
@@ -158,15 +158,15 @@ ash.mojom.status_area_internals.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec,
+      ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec,
       null,
       [percent]);
   }
 
 };
 
-ash.mojom.status_area_internals.PageHandler.getRemote = function() {
-  let remote = new ash.mojom.status_area_internals.PageHandlerRemote();
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler.getRemote = function() {
+  let remote = new ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -176,7 +176,7 @@ ash.mojom.status_area_internals.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for ToggleImeTray
-ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleImeTray_Params',
@@ -190,7 +190,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = {
 };
 
 // ParamsSpec for TogglePaletteTray
-ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.TogglePaletteTray_Params',
@@ -204,7 +204,7 @@ ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = {
 };
 
 // ParamsSpec for ToggleLogoutTray
-ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleLogoutTray_Params',
@@ -218,7 +218,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec = {
 };
 
 // ParamsSpec for ToggleVirtualKeyboardTray
-ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleVirtualKeyboardTray_Params',
@@ -232,7 +232,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec
 };
 
 // ParamsSpec for ToggleDictationTray
-ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleDictationTray_Params',
@@ -246,7 +246,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec = {
 };
 
 // ParamsSpec for ToggleVideoConferenceTray
-ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleVideoConferenceTray_Params',
@@ -260,7 +260,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec
 };
 
 // ParamsSpec for ToggleAnnotationTray
-ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.ToggleAnnotationTray_Params',
@@ -274,7 +274,7 @@ ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec = {
 };
 
 // ParamsSpec for SetIsInUserChildSession
-ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.SetIsInUserChildSession_Params',
@@ -288,7 +288,7 @@ ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec =
 };
 
 // ParamsSpec for TriggerPrivacyIndicators
-ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.TriggerPrivacyIndicators_Params',
@@ -305,7 +305,7 @@ ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec 
 };
 
 // ParamsSpec for ResetHmrConsentStatus
-ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.ResetHmrConsentStatus_Params',
@@ -318,7 +318,7 @@ ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec = {
 };
 
 // ParamsSpec for SetBatteryIcon
-ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.SetBatteryIcon_Params',
@@ -332,7 +332,7 @@ ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = {
 };
 
 // ParamsSpec for SetBatteryPercent
-ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec = {
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.status_area_internals.PageHandler.SetBatteryPercent_Params',
@@ -346,6 +346,6 @@ ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.mojom.status_area_internals.PageHandlerPtr = ash.mojom.status_area_internals.PageHandlerRemote;
-ash.mojom.status_area_internals.PageHandlerRequest = ash.mojom.status_area_internals.PageHandlerPendingReceiver;
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerPtr = ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerRemote;
+ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerRequest = ash.mojom.mojom.status_area_internals.status_area_internals.PageHandlerPendingReceiver;
 

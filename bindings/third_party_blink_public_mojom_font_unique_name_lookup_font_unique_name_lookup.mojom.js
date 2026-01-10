@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FontUniqueNameLookup
-blink.mojom.FontUniqueNameLookup = {};
+blink.mojom.mojom.FontUniqueNameLookup = {};
 
-blink.mojom.FontUniqueNameLookupPendingReceiver = class {
+blink.mojom.mojom.FontUniqueNameLookupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FontUniqueNameLookupRemote = class {
+blink.mojom.mojom.FontUniqueNameLookupRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FontUniqueNameLookup';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FontUniqueNameLookupPendingReceiver,
+      blink.mojom.mojom.FontUniqueNameLookupPendingReceiver,
       handle);
-    this.$ = new blink.mojom.FontUniqueNameLookupRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.FontUniqueNameLookupRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.FontUniqueNameLookupRemote = class {
   }
 };
 
-blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
+blink.mojom.mojom.FontUniqueNameLookupRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec,
-      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec,
+      blink.mojom.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec,
+      blink.mojom.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec,
       []);
   }
 
@@ -57,15 +57,15 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec,
-      blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
+      blink.mojom.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec,
+      blink.mojom.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.FontUniqueNameLookup.getRemote = function() {
-  let remote = new blink.mojom.FontUniqueNameLookupRemote();
+blink.mojom.mojom.FontUniqueNameLookup.getRemote = function() {
+  let remote = new blink.mojom.mojom.FontUniqueNameLookupRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ blink.mojom.FontUniqueNameLookup.getRemote = function() {
 };
 
 // ParamsSpec for GetUniqueNameLookupTableIfAvailable
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec = {
+blink.mojom.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTableIfAvailable_Params',
@@ -87,14 +87,14 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec 
   }
 };
 
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec = {
+blink.mojom.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTableIfAvailable_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'sync_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'font_lookup_table', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
+        { name: 'sync_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'font_lookup_table', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -102,7 +102,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponsePar
 };
 
 // ParamsSpec for GetUniqueNameLookupTable
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec = {
+blink.mojom.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTable_Params',
@@ -114,7 +114,7 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec = {
   }
 };
 
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
+blink.mojom.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTable_ResponseParams',
@@ -128,6 +128,6 @@ blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.FontUniqueNameLookupPtr = blink.mojom.FontUniqueNameLookupRemote;
-blink.mojom.FontUniqueNameLookupRequest = blink.mojom.FontUniqueNameLookupPendingReceiver;
+blink.mojom.mojom.FontUniqueNameLookupPtr = blink.mojom.mojom.FontUniqueNameLookupRemote;
+blink.mojom.mojom.FontUniqueNameLookupRequest = blink.mojom.mojom.FontUniqueNameLookupPendingReceiver;
 

@@ -7,23 +7,25 @@
 // Module namespace
 var most_visited = most_visited || {};
 most_visited.mojom = most_visited.mojom || {};
+var skia = skia || {};
+var url = url || {};
 
 
 // Struct: MostVisitedTile
-most_visited.mojom.MostVisitedTileSpec = {
+most_visited.mojom.mojom.MostVisitedTileSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedTile',
       packedSize: 40,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title_direction', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'is_query_tile', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_user_edit', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_user_delete', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: ntp_tiles.mojom.TileSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'title_source', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'title_direction', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'is_query_tile', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_user_edit', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_user_delete', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 20, packedBitOffset: 0, type: ntp_tiles.mojom.TileSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'title_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -31,7 +33,7 @@ most_visited.mojom.MostVisitedTileSpec = {
 };
 
 // Struct: MostVisitedTheme
-most_visited.mojom.MostVisitedThemeSpec = {
+most_visited.mojom.mojom.MostVisitedThemeSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedTheme',
@@ -47,16 +49,16 @@ most_visited.mojom.MostVisitedThemeSpec = {
 };
 
 // Struct: MostVisitedInfo
-most_visited.mojom.MostVisitedInfoSpec = {
+most_visited.mojom.mojom.MostVisitedInfoSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedInfo',
       packedSize: 24,
       fields: [
-        { name: 'custom_links_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enterprise_shortcuts_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'visible', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'tiles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(most_visited.mojom.MostVisitedTileSpec, false), nullable: false, minVersion: 0 },
+        { name: 'custom_links_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enterprise_shortcuts_enabled', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'visible', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'tiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(most_visited.mojom.MostVisitedTileSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -64,24 +66,24 @@ most_visited.mojom.MostVisitedInfoSpec = {
 };
 
 // Interface: MostVisitedPageHandlerFactory
-most_visited.mojom.MostVisitedPageHandlerFactory = {};
+most_visited.mojom.mojom.MostVisitedPageHandlerFactory = {};
 
-most_visited.mojom.MostVisitedPageHandlerFactoryPendingReceiver = class {
+most_visited.mojom.mojom.MostVisitedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-most_visited.mojom.MostVisitedPageHandlerFactoryRemote = class {
+most_visited.mojom.mojom.MostVisitedPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'most_visited.mojom.MostVisitedPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      most_visited.mojom.MostVisitedPageHandlerFactoryPendingReceiver,
+      most_visited.mojom.mojom.MostVisitedPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new most_visited.mojom.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -93,7 +95,7 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRemote = class {
   }
 };
 
-most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
+most_visited.mojom.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -102,15 +104,15 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-most_visited.mojom.MostVisitedPageHandlerFactory.getRemote = function() {
-  let remote = new most_visited.mojom.MostVisitedPageHandlerFactoryRemote();
+most_visited.mojom.mojom.MostVisitedPageHandlerFactory.getRemote = function() {
+  let remote = new most_visited.mojom.mojom.MostVisitedPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -120,7 +122,7 @@ most_visited.mojom.MostVisitedPageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandlerFactory.CreatePageHandler_Params',
@@ -135,29 +137,29 @@ most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = 
 };
 
 // Legacy compatibility
-most_visited.mojom.MostVisitedPageHandlerFactoryPtr = most_visited.mojom.MostVisitedPageHandlerFactoryRemote;
-most_visited.mojom.MostVisitedPageHandlerFactoryRequest = most_visited.mojom.MostVisitedPageHandlerFactoryPendingReceiver;
+most_visited.mojom.mojom.MostVisitedPageHandlerFactoryPtr = most_visited.mojom.mojom.MostVisitedPageHandlerFactoryRemote;
+most_visited.mojom.mojom.MostVisitedPageHandlerFactoryRequest = most_visited.mojom.mojom.MostVisitedPageHandlerFactoryPendingReceiver;
 
 
 // Interface: MostVisitedPageHandler
-most_visited.mojom.MostVisitedPageHandler = {};
+most_visited.mojom.mojom.MostVisitedPageHandler = {};
 
-most_visited.mojom.MostVisitedPageHandlerPendingReceiver = class {
+most_visited.mojom.mojom.MostVisitedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-most_visited.mojom.MostVisitedPageHandlerRemote = class {
+most_visited.mojom.mojom.MostVisitedPageHandlerRemote = class {
   static get $interfaceName() {
     return 'most_visited.mojom.MostVisitedPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      most_visited.mojom.MostVisitedPageHandlerPendingReceiver,
+      most_visited.mojom.mojom.MostVisitedPageHandlerPendingReceiver,
       handle);
-    this.$ = new most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new most_visited.mojom.mojom.MostVisitedPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -169,7 +171,7 @@ most_visited.mojom.MostVisitedPageHandlerRemote = class {
   }
 };
 
-most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
+most_visited.mojom.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -178,8 +180,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec,
-      most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec,
       [url, title]);
   }
 
@@ -187,7 +189,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec,
       null,
       [tile]);
   }
@@ -196,7 +198,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec,
       null,
       [tile, new_pos]);
   }
@@ -205,7 +207,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec,
       null,
       [source]);
   }
@@ -214,7 +216,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec,
       null,
       []);
   }
@@ -223,7 +225,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec,
       null,
       [source]);
   }
@@ -232,7 +234,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec,
       null,
       []);
   }
@@ -241,8 +243,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec,
-      most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec,
       [tile, new_url, new_title]);
   }
 
@@ -250,7 +252,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec,
       null,
       [tile]);
   }
@@ -259,7 +261,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec,
       null,
       [tile]);
   }
@@ -268,7 +270,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec,
       null,
       [tile]);
   }
@@ -277,7 +279,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec,
       null,
       []);
   }
@@ -286,8 +288,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec,
-      most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec,
       []);
   }
 
@@ -295,7 +297,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec,
       null,
       [is_expanded]);
   }
@@ -304,7 +306,7 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec,
       null,
       [tiles, time]);
   }
@@ -313,15 +315,15 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec,
       null,
       [tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
   }
 
 };
 
-most_visited.mojom.MostVisitedPageHandler.getRemote = function() {
-  let remote = new most_visited.mojom.MostVisitedPageHandlerRemote();
+most_visited.mojom.mojom.MostVisitedPageHandler.getRemote = function() {
+  let remote = new most_visited.mojom.mojom.MostVisitedPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -331,7 +333,7 @@ most_visited.mojom.MostVisitedPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for AddMostVisitedTile
-most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.AddMostVisitedTile_Params',
@@ -345,7 +347,7 @@ most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = {
   }
 };
 
-most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.AddMostVisitedTile_ResponseParams',
@@ -359,7 +361,7 @@ most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec 
 };
 
 // ParamsSpec for DeleteMostVisitedTile
-most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.DeleteMostVisitedTile_Params',
@@ -373,7 +375,7 @@ most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec = {
 };
 
 // ParamsSpec for ReorderMostVisitedTile
-most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.ReorderMostVisitedTile_Params',
@@ -388,7 +390,7 @@ most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec = {
 };
 
 // ParamsSpec for RestoreMostVisitedDefaults
-most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.RestoreMostVisitedDefaults_Params',
@@ -402,7 +404,7 @@ most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec 
 };
 
 // ParamsSpec for UndoMostVisitedAutoRemoval
-most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.UndoMostVisitedAutoRemoval_Params',
@@ -415,7 +417,7 @@ most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec 
 };
 
 // ParamsSpec for UndoMostVisitedTileAction
-most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.UndoMostVisitedTileAction_Params',
@@ -429,7 +431,7 @@ most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec =
 };
 
 // ParamsSpec for UpdateMostVisitedInfo
-most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.UpdateMostVisitedInfo_Params',
@@ -442,7 +444,7 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateMostVisitedTile
-most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.UpdateMostVisitedTile_Params',
@@ -457,7 +459,7 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec = {
   }
 };
 
-most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.UpdateMostVisitedTile_ResponseParams',
@@ -471,7 +473,7 @@ most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSp
 };
 
 // ParamsSpec for PrerenderMostVisitedTile
-most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.PrerenderMostVisitedTile_Params',
@@ -485,7 +487,7 @@ most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec = 
 };
 
 // ParamsSpec for PrefetchMostVisitedTile
-most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.PrefetchMostVisitedTile_Params',
@@ -499,7 +501,7 @@ most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec = {
 };
 
 // ParamsSpec for PreconnectMostVisitedTile
-most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.PreconnectMostVisitedTile_Params',
@@ -513,7 +515,7 @@ most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec =
 };
 
 // ParamsSpec for CancelPrerender
-most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.CancelPrerender_Params',
@@ -526,7 +528,7 @@ most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec = {
 };
 
 // ParamsSpec for GetMostVisitedExpandedState
-most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.GetMostVisitedExpandedState_Params',
@@ -538,7 +540,7 @@ most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec
   }
 };
 
-most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.GetMostVisitedExpandedState_ResponseParams',
@@ -552,7 +554,7 @@ most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponsePa
 };
 
 // ParamsSpec for SetMostVisitedExpandedState
-most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.SetMostVisitedExpandedState_Params',
@@ -566,7 +568,7 @@ most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec
 };
 
 // ParamsSpec for OnMostVisitedTilesRendered
-most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.OnMostVisitedTilesRendered_Params',
@@ -581,7 +583,7 @@ most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec 
 };
 
 // ParamsSpec for OnMostVisitedTileNavigation
-most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPageHandler.OnMostVisitedTileNavigation_Params',
@@ -601,29 +603,29 @@ most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec
 };
 
 // Legacy compatibility
-most_visited.mojom.MostVisitedPageHandlerPtr = most_visited.mojom.MostVisitedPageHandlerRemote;
-most_visited.mojom.MostVisitedPageHandlerRequest = most_visited.mojom.MostVisitedPageHandlerPendingReceiver;
+most_visited.mojom.mojom.MostVisitedPageHandlerPtr = most_visited.mojom.mojom.MostVisitedPageHandlerRemote;
+most_visited.mojom.mojom.MostVisitedPageHandlerRequest = most_visited.mojom.mojom.MostVisitedPageHandlerPendingReceiver;
 
 
 // Interface: MostVisitedPage
-most_visited.mojom.MostVisitedPage = {};
+most_visited.mojom.mojom.MostVisitedPage = {};
 
-most_visited.mojom.MostVisitedPagePendingReceiver = class {
+most_visited.mojom.mojom.MostVisitedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-most_visited.mojom.MostVisitedPageRemote = class {
+most_visited.mojom.mojom.MostVisitedPageRemote = class {
   static get $interfaceName() {
     return 'most_visited.mojom.MostVisitedPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      most_visited.mojom.MostVisitedPagePendingReceiver,
+      most_visited.mojom.mojom.MostVisitedPagePendingReceiver,
       handle);
-    this.$ = new most_visited.mojom.MostVisitedPageRemoteCallHandler(this.proxy);
+    this.$ = new most_visited.mojom.mojom.MostVisitedPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -635,7 +637,7 @@ most_visited.mojom.MostVisitedPageRemote = class {
   }
 };
 
-most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
+most_visited.mojom.mojom.MostVisitedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -644,7 +646,7 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec,
       null,
       [info]);
   }
@@ -653,15 +655,15 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec,
+      most_visited.mojom.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec,
       null,
       []);
   }
 
 };
 
-most_visited.mojom.MostVisitedPage.getRemote = function() {
-  let remote = new most_visited.mojom.MostVisitedPageRemote();
+most_visited.mojom.mojom.MostVisitedPage.getRemote = function() {
+  let remote = new most_visited.mojom.mojom.MostVisitedPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -671,7 +673,7 @@ most_visited.mojom.MostVisitedPage.getRemote = function() {
 };
 
 // ParamsSpec for SetMostVisitedInfo
-most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPage.SetMostVisitedInfo_Params',
@@ -685,7 +687,7 @@ most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = {
 };
 
 // ParamsSpec for OnMostVisitedTilesAutoRemoval
-most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = {
+most_visited.mojom.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = {
   $: {
     structSpec: {
       name: 'most_visited.mojom.MostVisitedPage.OnMostVisitedTilesAutoRemoval_Params',
@@ -698,6 +700,6 @@ most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = {
 };
 
 // Legacy compatibility
-most_visited.mojom.MostVisitedPagePtr = most_visited.mojom.MostVisitedPageRemote;
-most_visited.mojom.MostVisitedPageRequest = most_visited.mojom.MostVisitedPagePendingReceiver;
+most_visited.mojom.mojom.MostVisitedPagePtr = most_visited.mojom.mojom.MostVisitedPageRemote;
+most_visited.mojom.mojom.MostVisitedPageRequest = most_visited.mojom.mojom.MostVisitedPagePendingReceiver;
 

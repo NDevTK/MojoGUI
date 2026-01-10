@@ -10,8 +10,8 @@ network.mojom = network.mojom || {};
 
 
 // Enum: StorageAccessApiStatus
-network.mojom.StorageAccessApiStatus = {
+network.mojom.mojom.StorageAccessApiStatus = {
   kNone: 0,
   kAccessViaAPI: 1,
 };
-network.mojom.StorageAccessApiStatusSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.StorageAccessApiStatusSpec = { $: mojo.internal.Enum() };

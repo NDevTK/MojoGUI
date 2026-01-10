@@ -10,14 +10,14 @@ segmentation_internals.mojom = segmentation_internals.mojom || {};
 
 
 // Struct: ServiceStatus
-segmentation_internals.mojom.ServiceStatusSpec = {
+segmentation_internals.mojom.mojom.ServiceStatusSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.ServiceStatus',
       packedSize: 16,
       fields: [
-        { name: 'is_initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'intialization_status', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_initialized', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'intialization_status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -25,18 +25,18 @@ segmentation_internals.mojom.ServiceStatusSpec = {
 };
 
 // Struct: SegmentInfo
-segmentation_internals.mojom.SegmentInfoSpec = {
+segmentation_internals.mojom.mojom.SegmentInfoSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.SegmentInfo',
       packedSize: 48,
       fields: [
         { name: 'segment_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'segment_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'segment_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'can_execute_segment', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'prediction_result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'prediction_timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'segment_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'segment_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'can_execute_segment', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'prediction_result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'prediction_timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -44,7 +44,7 @@ segmentation_internals.mojom.SegmentInfoSpec = {
 };
 
 // Struct: ClientInfo
-segmentation_internals.mojom.ClientInfoSpec = {
+segmentation_internals.mojom.mojom.ClientInfoSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.ClientInfo',
@@ -60,24 +60,24 @@ segmentation_internals.mojom.ClientInfoSpec = {
 };
 
 // Interface: PageHandlerFactory
-segmentation_internals.mojom.PageHandlerFactory = {};
+segmentation_internals.mojom.mojom.PageHandlerFactory = {};
 
-segmentation_internals.mojom.PageHandlerFactoryPendingReceiver = class {
+segmentation_internals.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-segmentation_internals.mojom.PageHandlerFactoryRemote = class {
+segmentation_internals.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'segmentation_internals.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      segmentation_internals.mojom.PageHandlerFactoryPendingReceiver,
+      segmentation_internals.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new segmentation_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -89,7 +89,7 @@ segmentation_internals.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
+segmentation_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -98,15 +98,15 @@ segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      segmentation_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-segmentation_internals.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new segmentation_internals.mojom.PageHandlerFactoryRemote();
+segmentation_internals.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new segmentation_internals.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -116,7 +116,7 @@ segmentation_internals.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+segmentation_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -131,29 +131,29 @@ segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-segmentation_internals.mojom.PageHandlerFactoryPtr = segmentation_internals.mojom.PageHandlerFactoryRemote;
-segmentation_internals.mojom.PageHandlerFactoryRequest = segmentation_internals.mojom.PageHandlerFactoryPendingReceiver;
+segmentation_internals.mojom.mojom.PageHandlerFactoryPtr = segmentation_internals.mojom.mojom.PageHandlerFactoryRemote;
+segmentation_internals.mojom.mojom.PageHandlerFactoryRequest = segmentation_internals.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-segmentation_internals.mojom.PageHandler = {};
+segmentation_internals.mojom.mojom.PageHandler = {};
 
-segmentation_internals.mojom.PageHandlerPendingReceiver = class {
+segmentation_internals.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-segmentation_internals.mojom.PageHandlerRemote = class {
+segmentation_internals.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'segmentation_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      segmentation_internals.mojom.PageHandlerPendingReceiver,
+      segmentation_internals.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new segmentation_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new segmentation_internals.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -165,7 +165,7 @@ segmentation_internals.mojom.PageHandlerRemote = class {
   }
 };
 
-segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
+segmentation_internals.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -174,7 +174,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec,
+      segmentation_internals.mojom.mojom.PageHandler_GetServiceStatus_ParamsSpec,
       null,
       []);
   }
@@ -183,7 +183,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec,
+      segmentation_internals.mojom.mojom.PageHandler_ExecuteModel_ParamsSpec,
       null,
       [segment_id]);
   }
@@ -192,7 +192,7 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec,
+      segmentation_internals.mojom.mojom.PageHandler_OverwriteResult_ParamsSpec,
       null,
       [segment_id, result]);
   }
@@ -201,15 +201,15 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec,
+      segmentation_internals.mojom.mojom.PageHandler_SetSelected_ParamsSpec,
       null,
       [segmentation_key, optimization_target]);
   }
 
 };
 
-segmentation_internals.mojom.PageHandler.getRemote = function() {
-  let remote = new segmentation_internals.mojom.PageHandlerRemote();
+segmentation_internals.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new segmentation_internals.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -219,7 +219,7 @@ segmentation_internals.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetServiceStatus
-segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec = {
+segmentation_internals.mojom.mojom.PageHandler_GetServiceStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.PageHandler.GetServiceStatus_Params',
@@ -232,7 +232,7 @@ segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec = {
 };
 
 // ParamsSpec for ExecuteModel
-segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec = {
+segmentation_internals.mojom.mojom.PageHandler_ExecuteModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.PageHandler.ExecuteModel_Params',
@@ -246,7 +246,7 @@ segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec = {
 };
 
 // ParamsSpec for OverwriteResult
-segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = {
+segmentation_internals.mojom.mojom.PageHandler_OverwriteResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.PageHandler.OverwriteResult_Params',
@@ -261,7 +261,7 @@ segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = {
 };
 
 // ParamsSpec for SetSelected
-segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec = {
+segmentation_internals.mojom.mojom.PageHandler_SetSelected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.PageHandler.SetSelected_Params',
@@ -276,29 +276,29 @@ segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec = {
 };
 
 // Legacy compatibility
-segmentation_internals.mojom.PageHandlerPtr = segmentation_internals.mojom.PageHandlerRemote;
-segmentation_internals.mojom.PageHandlerRequest = segmentation_internals.mojom.PageHandlerPendingReceiver;
+segmentation_internals.mojom.mojom.PageHandlerPtr = segmentation_internals.mojom.mojom.PageHandlerRemote;
+segmentation_internals.mojom.mojom.PageHandlerRequest = segmentation_internals.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-segmentation_internals.mojom.Page = {};
+segmentation_internals.mojom.mojom.Page = {};
 
-segmentation_internals.mojom.PagePendingReceiver = class {
+segmentation_internals.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-segmentation_internals.mojom.PageRemote = class {
+segmentation_internals.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'segmentation_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      segmentation_internals.mojom.PagePendingReceiver,
+      segmentation_internals.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new segmentation_internals.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new segmentation_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -310,7 +310,7 @@ segmentation_internals.mojom.PageRemote = class {
   }
 };
 
-segmentation_internals.mojom.PageRemoteCallHandler = class {
+segmentation_internals.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -319,7 +319,7 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec,
+      segmentation_internals.mojom.mojom.Page_OnServiceStatusChanged_ParamsSpec,
       null,
       [is_initialized, status_flag]);
   }
@@ -328,15 +328,15 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec,
+      segmentation_internals.mojom.mojom.Page_OnClientInfoAvailable_ParamsSpec,
       null,
       [client_info]);
   }
 
 };
 
-segmentation_internals.mojom.Page.getRemote = function() {
-  let remote = new segmentation_internals.mojom.PageRemote();
+segmentation_internals.mojom.mojom.Page.getRemote = function() {
+  let remote = new segmentation_internals.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -346,14 +346,14 @@ segmentation_internals.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnServiceStatusChanged
-segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = {
+segmentation_internals.mojom.mojom.Page_OnServiceStatusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.Page.OnServiceStatusChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'is_initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'status_flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_initialized', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'status_flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -361,7 +361,7 @@ segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnClientInfoAvailable
-segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = {
+segmentation_internals.mojom.mojom.Page_OnClientInfoAvailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'segmentation_internals.mojom.Page.OnClientInfoAvailable_Params',
@@ -375,6 +375,6 @@ segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = {
 };
 
 // Legacy compatibility
-segmentation_internals.mojom.PagePtr = segmentation_internals.mojom.PageRemote;
-segmentation_internals.mojom.PageRequest = segmentation_internals.mojom.PagePendingReceiver;
+segmentation_internals.mojom.mojom.PagePtr = segmentation_internals.mojom.mojom.PageRemote;
+segmentation_internals.mojom.mojom.PageRequest = segmentation_internals.mojom.mojom.PagePendingReceiver;
 

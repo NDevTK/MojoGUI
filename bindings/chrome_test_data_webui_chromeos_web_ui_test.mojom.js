@@ -10,24 +10,24 @@ web_ui_test.mojom = web_ui_test.mojom || {};
 
 
 // Interface: TestRunner
-web_ui_test.mojom.TestRunner = {};
+web_ui_test.mojom.mojom.TestRunner = {};
 
-web_ui_test.mojom.TestRunnerPendingReceiver = class {
+web_ui_test.mojom.mojom.TestRunnerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-web_ui_test.mojom.TestRunnerRemote = class {
+web_ui_test.mojom.mojom.TestRunnerRemote = class {
   static get $interfaceName() {
     return 'web_ui_test.mojom.TestRunner';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      web_ui_test.mojom.TestRunnerPendingReceiver,
+      web_ui_test.mojom.mojom.TestRunnerPendingReceiver,
       handle);
-    this.$ = new web_ui_test.mojom.TestRunnerRemoteCallHandler(this.proxy);
+    this.$ = new web_ui_test.mojom.mojom.TestRunnerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ web_ui_test.mojom.TestRunnerRemote = class {
   }
 };
 
-web_ui_test.mojom.TestRunnerRemoteCallHandler = class {
+web_ui_test.mojom.mojom.TestRunnerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ web_ui_test.mojom.TestRunnerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec,
+      web_ui_test.mojom.mojom.TestRunner_TestComplete_ParamsSpec,
       null,
       [failureMessage]);
   }
 
 };
 
-web_ui_test.mojom.TestRunner.getRemote = function() {
-  let remote = new web_ui_test.mojom.TestRunnerRemote();
+web_ui_test.mojom.mojom.TestRunner.getRemote = function() {
+  let remote = new web_ui_test.mojom.mojom.TestRunnerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ web_ui_test.mojom.TestRunner.getRemote = function() {
 };
 
 // ParamsSpec for TestComplete
-web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = {
+web_ui_test.mojom.mojom.TestRunner_TestComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'web_ui_test.mojom.TestRunner.TestComplete_Params',
@@ -80,6 +80,6 @@ web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = {
 };
 
 // Legacy compatibility
-web_ui_test.mojom.TestRunnerPtr = web_ui_test.mojom.TestRunnerRemote;
-web_ui_test.mojom.TestRunnerRequest = web_ui_test.mojom.TestRunnerPendingReceiver;
+web_ui_test.mojom.mojom.TestRunnerPtr = web_ui_test.mojom.mojom.TestRunnerRemote;
+web_ui_test.mojom.mojom.TestRunnerRequest = web_ui_test.mojom.mojom.TestRunnerPendingReceiver;
 

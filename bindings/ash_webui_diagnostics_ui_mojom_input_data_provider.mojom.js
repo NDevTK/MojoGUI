@@ -7,25 +7,25 @@
 // Module namespace
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
-ash.diagnostics.mojom = ash.diagnostics.mojom || {};
+ash.diagnostics.diagnostics.mojom = ash.diagnostics.diagnostics.mojom || {};
 
 
 // Enum: KeyEventType
-ash.diagnostics.mojom.KeyEventType = {
+ash.diagnostics.diagnostics.mojom.mojom.KeyEventType = {
   kPress: 0,
   kRelease: 1,
 };
-ash.diagnostics.mojom.KeyEventTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.diagnostics.mojom.mojom.KeyEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TouchDeviceType
-ash.diagnostics.mojom.TouchDeviceType = {
+ash.diagnostics.diagnostics.mojom.mojom.TouchDeviceType = {
   kDirect: 0,
   kPointer: 1,
 };
-ash.diagnostics.mojom.TouchDeviceTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.diagnostics.mojom.mojom.TouchDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: KeyEvent
-ash.diagnostics.mojom.KeyEventSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.KeyEventSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.KeyEvent',
@@ -43,17 +43,17 @@ ash.diagnostics.mojom.KeyEventSpec = {
 };
 
 // Struct: TouchDeviceInfo
-ash.diagnostics.mojom.TouchDeviceInfoSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.TouchDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.TouchDeviceInfo',
       packedSize: 32,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'connection_type', packedOffset: 4, packedBitOffset: 0, type: ash.diagnostics.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.TouchDeviceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'testable', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'connection_type', packedOffset: 12, packedBitOffset: 0, type: ash.diagnostics.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.TouchDeviceTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'testable', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -61,7 +61,7 @@ ash.diagnostics.mojom.TouchDeviceInfoSpec = {
 };
 
 // Struct: ConnectedDevices
-ash.diagnostics.mojom.ConnectedDevicesSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.ConnectedDevices',
@@ -76,24 +76,24 @@ ash.diagnostics.mojom.ConnectedDevicesSpec = {
 };
 
 // Interface: KeyboardObserver
-ash.diagnostics.mojom.KeyboardObserver = {};
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserver = {};
 
-ash.diagnostics.mojom.KeyboardObserverPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.KeyboardObserverRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.KeyboardObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.KeyboardObserverPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -105,7 +105,7 @@ ash.diagnostics.mojom.KeyboardObserverRemote = class {
   }
 };
 
-ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -114,7 +114,7 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -123,7 +123,7 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec,
       null,
       []);
   }
@@ -132,15 +132,15 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.diagnostics.mojom.KeyboardObserver.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.KeyboardObserverRemote();
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserver.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -150,7 +150,7 @@ ash.diagnostics.mojom.KeyboardObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnKeyEvent
-ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.KeyboardObserver.OnKeyEvent_Params',
@@ -164,7 +164,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec = {
 };
 
 // ParamsSpec for OnKeyEventsPaused
-ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.KeyboardObserver.OnKeyEventsPaused_Params',
@@ -177,7 +177,7 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec = {
 };
 
 // ParamsSpec for OnKeyEventsResumed
-ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.KeyboardObserver.OnKeyEventsResumed_Params',
@@ -190,29 +190,29 @@ ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.KeyboardObserverPtr = ash.diagnostics.mojom.KeyboardObserverRemote;
-ash.diagnostics.mojom.KeyboardObserverRequest = ash.diagnostics.mojom.KeyboardObserverPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverPtr = ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverRemote;
+ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverRequest = ash.diagnostics.diagnostics.mojom.mojom.KeyboardObserverPendingReceiver;
 
 
 // Interface: InternalDisplayPowerStateObserver
-ash.diagnostics.mojom.InternalDisplayPowerStateObserver = {};
+ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserver = {};
 
-ash.diagnostics.mojom.InternalDisplayPowerStateObserverPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.InternalDisplayPowerStateObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.InternalDisplayPowerStateObserverPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -224,7 +224,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote = class {
   }
 };
 
-ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -233,15 +233,15 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec,
       null,
       [is_display_on]);
   }
 
 };
 
-ash.diagnostics.mojom.InternalDisplayPowerStateObserver.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote();
+ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserver.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -251,7 +251,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnInternalDisplayPowerStateChanged
-ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InternalDisplayPowerStateObserver.OnInternalDisplayPowerStateChanged_Params',
@@ -265,29 +265,29 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerSt
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.InternalDisplayPowerStateObserverPtr = ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote;
-ash.diagnostics.mojom.InternalDisplayPowerStateObserverRequest = ash.diagnostics.mojom.InternalDisplayPowerStateObserverPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverPtr = ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverRemote;
+ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverRequest = ash.diagnostics.diagnostics.mojom.mojom.InternalDisplayPowerStateObserverPendingReceiver;
 
 
 // Interface: TabletModeObserver
-ash.diagnostics.mojom.TabletModeObserver = {};
+ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserver = {};
 
-ash.diagnostics.mojom.TabletModeObserverPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.TabletModeObserverRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.TabletModeObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.TabletModeObserverPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -299,7 +299,7 @@ ash.diagnostics.mojom.TabletModeObserverRemote = class {
   }
 };
 
-ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -308,15 +308,15 @@ ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
       [is_tablet_mode]);
   }
 
 };
 
-ash.diagnostics.mojom.TabletModeObserver.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.TabletModeObserverRemote();
+ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserver.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -326,7 +326,7 @@ ash.diagnostics.mojom.TabletModeObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnTabletModeChanged
-ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.TabletModeObserver.OnTabletModeChanged_Params',
@@ -340,29 +340,29 @@ ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.TabletModeObserverPtr = ash.diagnostics.mojom.TabletModeObserverRemote;
-ash.diagnostics.mojom.TabletModeObserverRequest = ash.diagnostics.mojom.TabletModeObserverPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverPtr = ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverRemote;
+ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverRequest = ash.diagnostics.diagnostics.mojom.mojom.TabletModeObserverPendingReceiver;
 
 
 // Interface: LidStateObserver
-ash.diagnostics.mojom.LidStateObserver = {};
+ash.diagnostics.diagnostics.mojom.mojom.LidStateObserver = {};
 
-ash.diagnostics.mojom.LidStateObserverPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.LidStateObserverRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.LidStateObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.LidStateObserverPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.LidStateObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -374,7 +374,7 @@ ash.diagnostics.mojom.LidStateObserverRemote = class {
   }
 };
 
-ash.diagnostics.mojom.LidStateObserverRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -383,15 +383,15 @@ ash.diagnostics.mojom.LidStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
       null,
       [is_lid_open]);
   }
 
 };
 
-ash.diagnostics.mojom.LidStateObserver.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.LidStateObserverRemote();
+ash.diagnostics.diagnostics.mojom.mojom.LidStateObserver.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -401,7 +401,7 @@ ash.diagnostics.mojom.LidStateObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnLidStateChanged
-ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.LidStateObserver.OnLidStateChanged_Params',
@@ -415,29 +415,29 @@ ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.LidStateObserverPtr = ash.diagnostics.mojom.LidStateObserverRemote;
-ash.diagnostics.mojom.LidStateObserverRequest = ash.diagnostics.mojom.LidStateObserverPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverPtr = ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverRemote;
+ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverRequest = ash.diagnostics.diagnostics.mojom.mojom.LidStateObserverPendingReceiver;
 
 
 // Interface: ConnectedDevicesObserver
-ash.diagnostics.mojom.ConnectedDevicesObserver = {};
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver = {};
 
-ash.diagnostics.mojom.ConnectedDevicesObserverPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.ConnectedDevicesObserverRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.ConnectedDevicesObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.ConnectedDevicesObserverPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -449,7 +449,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemote = class {
   }
 };
 
-ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -458,7 +458,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec,
       null,
       [new_keyboard]);
   }
@@ -467,7 +467,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec,
       null,
       [id]);
   }
@@ -476,7 +476,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec,
       null,
       [new_touch_device]);
   }
@@ -485,15 +485,15 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec,
       null,
       [id]);
   }
 
 };
 
-ash.diagnostics.mojom.ConnectedDevicesObserver.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.ConnectedDevicesObserverRemote();
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -503,7 +503,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnKeyboardConnected
-ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnKeyboardConnected_Params',
@@ -517,7 +517,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec = 
 };
 
 // ParamsSpec for OnKeyboardDisconnected
-ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnKeyboardDisconnected_Params',
@@ -531,7 +531,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec
 };
 
 // ParamsSpec for OnTouchDeviceConnected
-ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnTouchDeviceConnected_Params',
@@ -545,7 +545,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec
 };
 
 // ParamsSpec for OnTouchDeviceDisconnected
-ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.ConnectedDevicesObserver.OnTouchDeviceDisconnected_Params',
@@ -559,29 +559,29 @@ ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsS
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.ConnectedDevicesObserverPtr = ash.diagnostics.mojom.ConnectedDevicesObserverRemote;
-ash.diagnostics.mojom.ConnectedDevicesObserverRequest = ash.diagnostics.mojom.ConnectedDevicesObserverPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverPtr = ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverRemote;
+ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverRequest = ash.diagnostics.diagnostics.mojom.mojom.ConnectedDevicesObserverPendingReceiver;
 
 
 // Interface: InputDataProvider
-ash.diagnostics.mojom.InputDataProvider = {};
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider = {};
 
-ash.diagnostics.mojom.InputDataProviderPendingReceiver = class {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.InputDataProviderRemote = class {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.InputDataProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.InputDataProviderPendingReceiver,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.InputDataProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -593,7 +593,7 @@ ash.diagnostics.mojom.InputDataProviderRemote = class {
   }
 };
 
-ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -602,8 +602,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec,
-      ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec,
       []);
   }
 
@@ -611,7 +611,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec,
       null,
       [observer]);
   }
@@ -620,7 +620,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec,
       null,
       [id, observer]);
   }
@@ -629,8 +629,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec,
-      ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec,
       [observer]);
   }
 
@@ -638,8 +638,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec,
-      ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveLidState_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec,
       [observer]);
   }
 
@@ -647,7 +647,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec,
       null,
       [observer]);
   }
@@ -656,7 +656,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec,
       null,
       [evdev_id]);
   }
@@ -665,7 +665,7 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec,
       null,
       []);
   }
@@ -674,15 +674,15 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec,
+      ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-ash.diagnostics.mojom.InputDataProvider.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.InputDataProviderRemote();
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider.getRemote = function() {
+  let remote = new ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -692,7 +692,7 @@ ash.diagnostics.mojom.InputDataProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetConnectedDevices
-ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.GetConnectedDevices_Params',
@@ -704,7 +704,7 @@ ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec = {
   }
 };
 
-ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.GetConnectedDevices_ResponseParams',
@@ -718,7 +718,7 @@ ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec =
 };
 
 // ParamsSpec for ObserveConnectedDevices
-ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveConnectedDevices_Params',
@@ -732,7 +732,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec = {
 };
 
 // ParamsSpec for ObserveKeyEvents
-ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveKeyEvents_Params',
@@ -747,7 +747,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec = {
 };
 
 // ParamsSpec for ObserveTabletMode
-ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveTabletMode_Params',
@@ -760,7 +760,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec = {
   }
 };
 
-ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveTabletMode_ResponseParams',
@@ -774,7 +774,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ObserveLidState
-ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveLidState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveLidState_Params',
@@ -787,7 +787,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec = {
   }
 };
 
-ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveLidState_ResponseParams',
@@ -801,7 +801,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ObserveInternalDisplayPowerState
-ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.ObserveInternalDisplayPowerState_Params',
@@ -815,7 +815,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsS
 };
 
 // ParamsSpec for MoveAppToTestingScreen
-ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.MoveAppToTestingScreen_Params',
@@ -829,7 +829,7 @@ ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec = {
 };
 
 // ParamsSpec for MoveAppBackToPreviousScreen
-ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.MoveAppBackToPreviousScreen_Params',
@@ -842,7 +842,7 @@ ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec =
 };
 
 // ParamsSpec for SetA11yTouchPassthrough
-ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec = {
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.InputDataProvider.SetA11yTouchPassthrough_Params',
@@ -856,6 +856,6 @@ ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.diagnostics.mojom.InputDataProviderPtr = ash.diagnostics.mojom.InputDataProviderRemote;
-ash.diagnostics.mojom.InputDataProviderRequest = ash.diagnostics.mojom.InputDataProviderPendingReceiver;
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderPtr = ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderRemote;
+ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderRequest = ash.diagnostics.diagnostics.mojom.mojom.InputDataProviderPendingReceiver;
 

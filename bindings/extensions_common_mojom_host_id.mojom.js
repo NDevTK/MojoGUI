@@ -10,15 +10,15 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: HostType
-extensions.mojom.HostType = {
+extensions.mojom.mojom.HostType = {
   kExtensions: 0,
   kWebUi: 1,
   kControlledFrameEmbedder: 2,
 };
-extensions.mojom.HostTypeSpec = { $: mojo.internal.Enum() };
+extensions.mojom.mojom.HostTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HostID
-extensions.mojom.HostIDSpec = {
+extensions.mojom.mojom.HostIDSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.HostID',

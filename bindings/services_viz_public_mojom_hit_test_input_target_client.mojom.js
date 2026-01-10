@@ -7,27 +7,29 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: InputTargetClient
-viz.mojom.InputTargetClient = {};
+viz.mojom.mojom.InputTargetClient = {};
 
-viz.mojom.InputTargetClientPendingReceiver = class {
+viz.mojom.mojom.InputTargetClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.InputTargetClientRemote = class {
+viz.mojom.mojom.InputTargetClientRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.InputTargetClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.InputTargetClientPendingReceiver,
+      viz.mojom.mojom.InputTargetClientPendingReceiver,
       handle);
-    this.$ = new viz.mojom.InputTargetClientRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.InputTargetClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ viz.mojom.InputTargetClientRemote = class {
   }
 };
 
-viz.mojom.InputTargetClientRemoteCallHandler = class {
+viz.mojom.mojom.InputTargetClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +50,15 @@ viz.mojom.InputTargetClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec,
-      viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec,
+      viz.mojom.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec,
+      viz.mojom.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec,
       [point, trace_id]);
   }
 
 };
 
-viz.mojom.InputTargetClient.getRemote = function() {
-  let remote = new viz.mojom.InputTargetClientRemote();
+viz.mojom.mojom.InputTargetClient.getRemote = function() {
+  let remote = new viz.mojom.mojom.InputTargetClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +68,7 @@ viz.mojom.InputTargetClient.getRemote = function() {
 };
 
 // ParamsSpec for FrameSinkIdAt
-viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
+viz.mojom.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.InputTargetClient.FrameSinkIdAt_Params',
@@ -80,7 +82,7 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
   }
 };
 
-viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
+viz.mojom.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.InputTargetClient.FrameSinkIdAt_ResponseParams',
@@ -95,6 +97,6 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.InputTargetClientPtr = viz.mojom.InputTargetClientRemote;
-viz.mojom.InputTargetClientRequest = viz.mojom.InputTargetClientPendingReceiver;
+viz.mojom.mojom.InputTargetClientPtr = viz.mojom.mojom.InputTargetClientRemote;
+viz.mojom.mojom.InputTargetClientRequest = viz.mojom.mojom.InputTargetClientPendingReceiver;
 

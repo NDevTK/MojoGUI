@@ -10,7 +10,7 @@ enterprise_reporting.mojom = enterprise_reporting.mojom || {};
 
 
 // Struct: ErpHistoryData
-enterprise_reporting.mojom.ErpHistoryDataSpec = {
+enterprise_reporting.mojom.mojom.ErpHistoryDataSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.ErpHistoryData',
@@ -24,7 +24,7 @@ enterprise_reporting.mojom.ErpHistoryDataSpec = {
 };
 
 // Struct: ErpHistoryEvent
-enterprise_reporting.mojom.ErpHistoryEventSpec = {
+enterprise_reporting.mojom.mojom.ErpHistoryEventSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.ErpHistoryEvent',
@@ -41,7 +41,7 @@ enterprise_reporting.mojom.ErpHistoryEventSpec = {
 };
 
 // Struct: ErpHistoryEventParameter
-enterprise_reporting.mojom.ErpHistoryEventParameterSpec = {
+enterprise_reporting.mojom.mojom.ErpHistoryEventParameterSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.ErpHistoryEventParameter',
@@ -56,24 +56,24 @@ enterprise_reporting.mojom.ErpHistoryEventParameterSpec = {
 };
 
 // Interface: PageHandlerFactory
-enterprise_reporting.mojom.PageHandlerFactory = {};
+enterprise_reporting.mojom.mojom.PageHandlerFactory = {};
 
-enterprise_reporting.mojom.PageHandlerFactoryPendingReceiver = class {
+enterprise_reporting.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-enterprise_reporting.mojom.PageHandlerFactoryRemote = class {
+enterprise_reporting.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'enterprise_reporting.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      enterprise_reporting.mojom.PageHandlerFactoryPendingReceiver,
+      enterprise_reporting.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new enterprise_reporting.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -85,7 +85,7 @@ enterprise_reporting.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHandler = class {
+enterprise_reporting.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -94,15 +94,15 @@ enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      enterprise_reporting.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-enterprise_reporting.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new enterprise_reporting.mojom.PageHandlerFactoryRemote();
+enterprise_reporting.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new enterprise_reporting.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -112,7 +112,7 @@ enterprise_reporting.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+enterprise_reporting.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -127,29 +127,29 @@ enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-enterprise_reporting.mojom.PageHandlerFactoryPtr = enterprise_reporting.mojom.PageHandlerFactoryRemote;
-enterprise_reporting.mojom.PageHandlerFactoryRequest = enterprise_reporting.mojom.PageHandlerFactoryPendingReceiver;
+enterprise_reporting.mojom.mojom.PageHandlerFactoryPtr = enterprise_reporting.mojom.mojom.PageHandlerFactoryRemote;
+enterprise_reporting.mojom.mojom.PageHandlerFactoryRequest = enterprise_reporting.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-enterprise_reporting.mojom.PageHandler = {};
+enterprise_reporting.mojom.mojom.PageHandler = {};
 
-enterprise_reporting.mojom.PageHandlerPendingReceiver = class {
+enterprise_reporting.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-enterprise_reporting.mojom.PageHandlerRemote = class {
+enterprise_reporting.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'enterprise_reporting.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      enterprise_reporting.mojom.PageHandlerPendingReceiver,
+      enterprise_reporting.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new enterprise_reporting.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new enterprise_reporting.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -161,7 +161,7 @@ enterprise_reporting.mojom.PageHandlerRemote = class {
   }
 };
 
-enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
+enterprise_reporting.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -170,7 +170,7 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec,
+      enterprise_reporting.mojom.mojom.PageHandler_RecordDebugState_ParamsSpec,
       null,
       [state]);
   }
@@ -179,8 +179,8 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec,
-      enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec,
+      enterprise_reporting.mojom.mojom.PageHandler_GetDebugState_ParamsSpec,
+      enterprise_reporting.mojom.mojom.PageHandler_GetDebugState_ResponseParamsSpec,
       []);
   }
 
@@ -188,15 +188,15 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec,
-      enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec,
+      enterprise_reporting.mojom.mojom.PageHandler_GetErpHistoryData_ParamsSpec,
+      enterprise_reporting.mojom.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec,
       []);
   }
 
 };
 
-enterprise_reporting.mojom.PageHandler.getRemote = function() {
-  let remote = new enterprise_reporting.mojom.PageHandlerRemote();
+enterprise_reporting.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new enterprise_reporting.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -206,7 +206,7 @@ enterprise_reporting.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for RecordDebugState
-enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = {
+enterprise_reporting.mojom.mojom.PageHandler_RecordDebugState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.PageHandler.RecordDebugState_Params',
@@ -220,7 +220,7 @@ enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = {
 };
 
 // ParamsSpec for GetDebugState
-enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = {
+enterprise_reporting.mojom.mojom.PageHandler_GetDebugState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.PageHandler.GetDebugState_Params',
@@ -232,7 +232,7 @@ enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = {
   }
 };
 
-enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = {
+enterprise_reporting.mojom.mojom.PageHandler_GetDebugState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.PageHandler.GetDebugState_ResponseParams',
@@ -246,7 +246,7 @@ enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetErpHistoryData
-enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = {
+enterprise_reporting.mojom.mojom.PageHandler_GetErpHistoryData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.PageHandler.GetErpHistoryData_Params',
@@ -258,7 +258,7 @@ enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = {
   }
 };
 
-enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = {
+enterprise_reporting.mojom.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.PageHandler.GetErpHistoryData_ResponseParams',
@@ -272,29 +272,29 @@ enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-enterprise_reporting.mojom.PageHandlerPtr = enterprise_reporting.mojom.PageHandlerRemote;
-enterprise_reporting.mojom.PageHandlerRequest = enterprise_reporting.mojom.PageHandlerPendingReceiver;
+enterprise_reporting.mojom.mojom.PageHandlerPtr = enterprise_reporting.mojom.mojom.PageHandlerRemote;
+enterprise_reporting.mojom.mojom.PageHandlerRequest = enterprise_reporting.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-enterprise_reporting.mojom.Page = {};
+enterprise_reporting.mojom.mojom.Page = {};
 
-enterprise_reporting.mojom.PagePendingReceiver = class {
+enterprise_reporting.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-enterprise_reporting.mojom.PageRemote = class {
+enterprise_reporting.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'enterprise_reporting.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      enterprise_reporting.mojom.PagePendingReceiver,
+      enterprise_reporting.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new enterprise_reporting.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new enterprise_reporting.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -306,7 +306,7 @@ enterprise_reporting.mojom.PageRemote = class {
   }
 };
 
-enterprise_reporting.mojom.PageRemoteCallHandler = class {
+enterprise_reporting.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -315,15 +315,15 @@ enterprise_reporting.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec,
+      enterprise_reporting.mojom.mojom.Page_SetErpHistoryData_ParamsSpec,
       null,
       [history_data]);
   }
 
 };
 
-enterprise_reporting.mojom.Page.getRemote = function() {
-  let remote = new enterprise_reporting.mojom.PageRemote();
+enterprise_reporting.mojom.mojom.Page.getRemote = function() {
+  let remote = new enterprise_reporting.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -333,7 +333,7 @@ enterprise_reporting.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for SetErpHistoryData
-enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = {
+enterprise_reporting.mojom.mojom.Page_SetErpHistoryData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'enterprise_reporting.mojom.Page.SetErpHistoryData_Params',
@@ -347,6 +347,6 @@ enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = {
 };
 
 // Legacy compatibility
-enterprise_reporting.mojom.PagePtr = enterprise_reporting.mojom.PageRemote;
-enterprise_reporting.mojom.PageRequest = enterprise_reporting.mojom.PagePendingReceiver;
+enterprise_reporting.mojom.mojom.PagePtr = enterprise_reporting.mojom.mojom.PageRemote;
+enterprise_reporting.mojom.mojom.PageRequest = enterprise_reporting.mojom.mojom.PagePendingReceiver;
 

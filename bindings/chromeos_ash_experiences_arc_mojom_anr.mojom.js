@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: AnrType
-arc.mojom.AnrType = {
+arc.mojom.mojom.AnrType = {
   UNKNOWN: 0,
   INPUT: 1,
   FOREGROUND_SERVICE: 2,
@@ -20,10 +20,10 @@ arc.mojom.AnrType = {
   PROCESS: 6,
   BACKGROUND_SERVICE: 7,
 };
-arc.mojom.AnrTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.AnrTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AnrSource
-arc.mojom.AnrSource = {
+arc.mojom.mojom.AnrSource = {
   OTHER: 0,
   SYSTEM_SERVER: 1,
   SYSTEM_APP: 2,
@@ -33,10 +33,10 @@ arc.mojom.AnrSource = {
   ARC_OTHER: 6,
   ARC_APP_LAUNCHER: 7,
 };
-arc.mojom.AnrSourceSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.AnrSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: Anr
-arc.mojom.AnrSpec = {
+arc.mojom.mojom.AnrSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.Anr',

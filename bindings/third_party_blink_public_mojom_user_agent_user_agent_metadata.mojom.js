@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: UserAgentBrandVersion
-blink.mojom.UserAgentBrandVersionSpec = {
+blink.mojom.mojom.UserAgentBrandVersionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UserAgentBrandVersion',
@@ -25,7 +25,7 @@ blink.mojom.UserAgentBrandVersionSpec = {
 };
 
 // Struct: UserAgentMetadata
-blink.mojom.UserAgentMetadataSpec = {
+blink.mojom.mojom.UserAgentMetadataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UserAgentMetadata',
@@ -38,10 +38,10 @@ blink.mojom.UserAgentMetadataSpec = {
         { name: 'platform_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'architecture', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'model', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mobile', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bitness', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'wow64', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'form_factors', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'mobile', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'bitness', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'wow64', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'form_factors', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }
@@ -49,7 +49,7 @@ blink.mojom.UserAgentMetadataSpec = {
 };
 
 // Struct: UserAgentOverride
-blink.mojom.UserAgentOverrideSpec = {
+blink.mojom.mojom.UserAgentOverrideSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UserAgentOverride',

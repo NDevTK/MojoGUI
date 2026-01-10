@@ -7,30 +7,32 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: LayerContextSettings
-viz.mojom.LayerContextSettingsSpec = {
+viz.mojom.mojom.LayerContextSettingsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.LayerContextSettings',
       packedSize: 64,
       fields: [
-        { name: 'draw_mode_is_gpu', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_early_damage_check', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'damaged_frame_limit', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'scrollbar_animator', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.ScrollbarAnimatorSpec, nullable: false, minVersion: 0 },
-        { name: 'scrollbar_fade_delay', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'scrollbar_fade_duration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'scrollbar_thinning_duration', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'idle_thickness_scale', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'top_controls_show_threshold', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'top_controls_hide_threshold', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'minimum_occlusion_tracking_size', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'enable_edge_anti_aliasing', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_backface_visibility_interop', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_fluent_scrollbar', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_fluent_overlay_scrollbar', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'draw_mode_is_gpu', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_early_damage_check', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'damaged_frame_limit', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'scrollbar_animator', packedOffset: 36, packedBitOffset: 0, type: cc.mojom.ScrollbarAnimatorSpec, nullable: false, minVersion: 0 },
+        { name: 'scrollbar_fade_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'scrollbar_fade_duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'scrollbar_thinning_duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'idle_thickness_scale', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'top_controls_show_threshold', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'top_controls_hide_threshold', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'minimum_occlusion_tracking_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'enable_edge_anti_aliasing', packedOffset: 52, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_backface_visibility_interop', packedOffset: 52, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_fluent_scrollbar', packedOffset: 52, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_fluent_overlay_scrollbar', packedOffset: 52, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -38,7 +40,7 @@ viz.mojom.LayerContextSettingsSpec = {
 };
 
 // Struct: CompositorFrameSinkParams
-viz.mojom.CompositorFrameSinkParamsSpec = {
+viz.mojom.mojom.CompositorFrameSinkParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSinkParams',
@@ -54,24 +56,24 @@ viz.mojom.CompositorFrameSinkParamsSpec = {
 };
 
 // Interface: CompositorFrameSink
-viz.mojom.CompositorFrameSink = {};
+viz.mojom.mojom.CompositorFrameSink = {};
 
-viz.mojom.CompositorFrameSinkPendingReceiver = class {
+viz.mojom.mojom.CompositorFrameSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.CompositorFrameSinkRemote = class {
+viz.mojom.mojom.CompositorFrameSinkRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.CompositorFrameSink';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.CompositorFrameSinkPendingReceiver,
+      viz.mojom.mojom.CompositorFrameSinkPendingReceiver,
       handle);
-    this.$ = new viz.mojom.CompositorFrameSinkRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.CompositorFrameSinkRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -83,7 +85,7 @@ viz.mojom.CompositorFrameSinkRemote = class {
   }
 };
 
-viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
+viz.mojom.mojom.CompositorFrameSinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -92,7 +94,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.CompositorFrameSink_SetParams_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSink_SetParams_ParamsSpec,
       null,
       [params]);
   }
@@ -101,7 +103,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec,
       null,
       [needs_begin_frame]);
   }
@@ -110,7 +112,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec,
       null,
       [local_surface_id, frame, hit_test_region_list, submit_time]);
   }
@@ -119,7 +121,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec,
       null,
       [ack]);
   }
@@ -128,7 +130,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec,
       null,
       []);
   }
@@ -137,7 +139,7 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec,
       null,
       [context, settings]);
   }
@@ -146,15 +148,15 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSink_SetThreads_ParamsSpec,
       null,
       [threads]);
   }
 
 };
 
-viz.mojom.CompositorFrameSink.getRemote = function() {
-  let remote = new viz.mojom.CompositorFrameSinkRemote();
+viz.mojom.mojom.CompositorFrameSink.getRemote = function() {
+  let remote = new viz.mojom.mojom.CompositorFrameSinkRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -164,7 +166,7 @@ viz.mojom.CompositorFrameSink.getRemote = function() {
 };
 
 // ParamsSpec for SetParams
-viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSink_SetParams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSink.SetParams_Params',
@@ -178,7 +180,7 @@ viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = {
 };
 
 // ParamsSpec for SetNeedsBeginFrame
-viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSink.SetNeedsBeginFrame_Params',
@@ -192,7 +194,7 @@ viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = {
 };
 
 // ParamsSpec for SubmitCompositorFrame
-viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSink.SubmitCompositorFrame_Params',
@@ -209,7 +211,7 @@ viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = {
 };
 
 // ParamsSpec for DidNotProduceFrame
-viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSink.DidNotProduceFrame_Params',
@@ -223,7 +225,7 @@ viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyNewLocalSurfaceIdExpectedWhilePaused
-viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSink.NotifyNewLocalSurfaceIdExpectedWhilePaused_Params',
@@ -236,7 +238,7 @@ viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsS
 };
 
 // ParamsSpec for BindLayerContext
-viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSink.BindLayerContext_Params',
@@ -251,7 +253,7 @@ viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = {
 };
 
 // ParamsSpec for SetThreads
-viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSink_SetThreads_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSink.SetThreads_Params',
@@ -265,29 +267,29 @@ viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.CompositorFrameSinkPtr = viz.mojom.CompositorFrameSinkRemote;
-viz.mojom.CompositorFrameSinkRequest = viz.mojom.CompositorFrameSinkPendingReceiver;
+viz.mojom.mojom.CompositorFrameSinkPtr = viz.mojom.mojom.CompositorFrameSinkRemote;
+viz.mojom.mojom.CompositorFrameSinkRequest = viz.mojom.mojom.CompositorFrameSinkPendingReceiver;
 
 
 // Interface: CompositorFrameSinkClient
-viz.mojom.CompositorFrameSinkClient = {};
+viz.mojom.mojom.CompositorFrameSinkClient = {};
 
-viz.mojom.CompositorFrameSinkClientPendingReceiver = class {
+viz.mojom.mojom.CompositorFrameSinkClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.CompositorFrameSinkClientRemote = class {
+viz.mojom.mojom.CompositorFrameSinkClientRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.CompositorFrameSinkClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.CompositorFrameSinkClientPendingReceiver,
+      viz.mojom.mojom.CompositorFrameSinkClientPendingReceiver,
       handle);
-    this.$ = new viz.mojom.CompositorFrameSinkClientRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.CompositorFrameSinkClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -299,7 +301,7 @@ viz.mojom.CompositorFrameSinkClientRemote = class {
   }
 };
 
-viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
+viz.mojom.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -308,7 +310,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec,
       null,
       [resources]);
   }
@@ -317,7 +319,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec,
       null,
       [args, details, resources]);
   }
@@ -326,7 +328,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
       [paused]);
   }
@@ -335,7 +337,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec,
       null,
       [resources]);
   }
@@ -344,7 +346,7 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
       [sequence_id]);
   }
@@ -353,15 +355,15 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec,
+      viz.mojom.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec,
       null,
       [local_surface_id]);
   }
 
 };
 
-viz.mojom.CompositorFrameSinkClient.getRemote = function() {
-  let remote = new viz.mojom.CompositorFrameSinkClientRemote();
+viz.mojom.mojom.CompositorFrameSinkClient.getRemote = function() {
+  let remote = new viz.mojom.mojom.CompositorFrameSinkClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -371,7 +373,7 @@ viz.mojom.CompositorFrameSinkClient.getRemote = function() {
 };
 
 // ParamsSpec for DidReceiveCompositorFrameAck
-viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSinkClient.DidReceiveCompositorFrameAck_Params',
@@ -385,7 +387,7 @@ viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = {
 };
 
 // ParamsSpec for OnBeginFrame
-viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSinkClient.OnBeginFrame_Params',
@@ -401,7 +403,7 @@ viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = {
 };
 
 // ParamsSpec for OnBeginFramePausedChanged
-viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSinkClient.OnBeginFramePausedChanged_Params',
@@ -415,7 +417,7 @@ viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = {
 };
 
 // ParamsSpec for ReclaimResources
-viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSinkClient.ReclaimResources_Params',
@@ -429,7 +431,7 @@ viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = {
 };
 
 // ParamsSpec for OnCompositorFrameTransitionDirectiveProcessed
-viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSinkClient.OnCompositorFrameTransitionDirectiveProcessed_Params',
@@ -443,7 +445,7 @@ viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcesse
 };
 
 // ParamsSpec for OnSurfaceEvicted
-viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = {
+viz.mojom.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.CompositorFrameSinkClient.OnSurfaceEvicted_Params',
@@ -457,6 +459,6 @@ viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.CompositorFrameSinkClientPtr = viz.mojom.CompositorFrameSinkClientRemote;
-viz.mojom.CompositorFrameSinkClientRequest = viz.mojom.CompositorFrameSinkClientPendingReceiver;
+viz.mojom.mojom.CompositorFrameSinkClientPtr = viz.mojom.mojom.CompositorFrameSinkClientRemote;
+viz.mojom.mojom.CompositorFrameSinkClientRequest = viz.mojom.mojom.CompositorFrameSinkClientPendingReceiver;
 

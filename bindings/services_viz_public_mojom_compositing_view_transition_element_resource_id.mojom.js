@@ -7,10 +7,11 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var blink = blink || {};
 
 
 // Struct: ViewTransitionElementResourceId
-viz.mojom.ViewTransitionElementResourceIdSpec = {
+viz.mojom.mojom.ViewTransitionElementResourceIdSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.ViewTransitionElementResourceId',

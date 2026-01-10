@@ -10,24 +10,24 @@ device.mojom = device.mojom || {};
 
 
 // Interface: PowerMonitor
-device.mojom.PowerMonitor = {};
+device.mojom.mojom.PowerMonitor = {};
 
-device.mojom.PowerMonitorPendingReceiver = class {
+device.mojom.mojom.PowerMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.PowerMonitorRemote = class {
+device.mojom.mojom.PowerMonitorRemote = class {
   static get $interfaceName() {
     return 'device.mojom.PowerMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.PowerMonitorPendingReceiver,
+      device.mojom.mojom.PowerMonitorPendingReceiver,
       handle);
-    this.$ = new device.mojom.PowerMonitorRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.PowerMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ device.mojom.PowerMonitorRemote = class {
   }
 };
 
-device.mojom.PowerMonitorRemoteCallHandler = class {
+device.mojom.mojom.PowerMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ device.mojom.PowerMonitorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.PowerMonitor_AddClient_ParamsSpec,
+      device.mojom.mojom.PowerMonitor_AddClient_ParamsSpec,
       null,
       [client]);
   }
 
 };
 
-device.mojom.PowerMonitor.getRemote = function() {
-  let remote = new device.mojom.PowerMonitorRemote();
+device.mojom.mojom.PowerMonitor.getRemote = function() {
+  let remote = new device.mojom.mojom.PowerMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ device.mojom.PowerMonitor.getRemote = function() {
 };
 
 // ParamsSpec for AddClient
-device.mojom.PowerMonitor_AddClient_ParamsSpec = {
+device.mojom.mojom.PowerMonitor_AddClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PowerMonitor.AddClient_Params',
@@ -80,29 +80,29 @@ device.mojom.PowerMonitor_AddClient_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.PowerMonitorPtr = device.mojom.PowerMonitorRemote;
-device.mojom.PowerMonitorRequest = device.mojom.PowerMonitorPendingReceiver;
+device.mojom.mojom.PowerMonitorPtr = device.mojom.mojom.PowerMonitorRemote;
+device.mojom.mojom.PowerMonitorRequest = device.mojom.mojom.PowerMonitorPendingReceiver;
 
 
 // Interface: PowerMonitorClient
-device.mojom.PowerMonitorClient = {};
+device.mojom.mojom.PowerMonitorClient = {};
 
-device.mojom.PowerMonitorClientPendingReceiver = class {
+device.mojom.mojom.PowerMonitorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.PowerMonitorClientRemote = class {
+device.mojom.mojom.PowerMonitorClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.PowerMonitorClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.PowerMonitorClientPendingReceiver,
+      device.mojom.mojom.PowerMonitorClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.PowerMonitorClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.PowerMonitorClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +114,7 @@ device.mojom.PowerMonitorClientRemote = class {
   }
 };
 
-device.mojom.PowerMonitorClientRemoteCallHandler = class {
+device.mojom.mojom.PowerMonitorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,7 +123,7 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec,
+      device.mojom.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec,
       null,
       [battery_power_status]);
   }
@@ -132,7 +132,7 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.PowerMonitorClient_Suspend_ParamsSpec,
+      device.mojom.mojom.PowerMonitorClient_Suspend_ParamsSpec,
       null,
       []);
   }
@@ -141,15 +141,15 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.PowerMonitorClient_Resume_ParamsSpec,
+      device.mojom.mojom.PowerMonitorClient_Resume_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.PowerMonitorClient.getRemote = function() {
-  let remote = new device.mojom.PowerMonitorClientRemote();
+device.mojom.mojom.PowerMonitorClient.getRemote = function() {
+  let remote = new device.mojom.mojom.PowerMonitorClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +159,7 @@ device.mojom.PowerMonitorClient.getRemote = function() {
 };
 
 // ParamsSpec for PowerStateChange
-device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
+device.mojom.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PowerMonitorClient.PowerStateChange_Params',
@@ -173,7 +173,7 @@ device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec = {
 };
 
 // ParamsSpec for Suspend
-device.mojom.PowerMonitorClient_Suspend_ParamsSpec = {
+device.mojom.mojom.PowerMonitorClient_Suspend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PowerMonitorClient.Suspend_Params',
@@ -186,7 +186,7 @@ device.mojom.PowerMonitorClient_Suspend_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-device.mojom.PowerMonitorClient_Resume_ParamsSpec = {
+device.mojom.mojom.PowerMonitorClient_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.PowerMonitorClient.Resume_Params',
@@ -199,6 +199,6 @@ device.mojom.PowerMonitorClient_Resume_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.PowerMonitorClientPtr = device.mojom.PowerMonitorClientRemote;
-device.mojom.PowerMonitorClientRequest = device.mojom.PowerMonitorClientPendingReceiver;
+device.mojom.mojom.PowerMonitorClientPtr = device.mojom.mojom.PowerMonitorClientRemote;
+device.mojom.mojom.PowerMonitorClientRequest = device.mojom.mojom.PowerMonitorClientPendingReceiver;
 

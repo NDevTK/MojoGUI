@@ -10,7 +10,7 @@ persistent_cache.mojom = persistent_cache.mojom || {};
 
 
 // Struct: PendingReadOnlyBackend
-persistent_cache.mojom.PendingReadOnlyBackendSpec = {
+persistent_cache.mojom.mojom.PendingReadOnlyBackendSpec = {
   $: {
     structSpec: {
       name: 'persistent_cache.mojom.PendingReadOnlyBackend',
@@ -26,7 +26,7 @@ persistent_cache.mojom.PendingReadOnlyBackendSpec = {
 };
 
 // Struct: PendingReadWriteBackend
-persistent_cache.mojom.PendingReadWriteBackendSpec = {
+persistent_cache.mojom.mojom.PendingReadWriteBackendSpec = {
   $: {
     structSpec: {
       name: 'persistent_cache.mojom.PendingReadWriteBackend',

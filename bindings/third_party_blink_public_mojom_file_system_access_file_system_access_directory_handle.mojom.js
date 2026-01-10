@@ -7,10 +7,16 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Union: FileSystemAccessHandle
-blink.mojom.FileSystemAccessHandleSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.FileSystemAccessHandleSpec = { $: mojo.internal.Union(
     'blink.mojom.FileSystemAccessHandle', {
       'file': {
         'ordinal': 0,
@@ -24,7 +30,7 @@ blink.mojom.FileSystemAccessHandleSpec = { $: mojo.internal.Union(
 };
 
 // Struct: FileSystemAccessEntry
-blink.mojom.FileSystemAccessEntrySpec = {
+blink.mojom.mojom.FileSystemAccessEntrySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessEntry',
@@ -39,24 +45,24 @@ blink.mojom.FileSystemAccessEntrySpec = {
 };
 
 // Interface: FileSystemAccessDirectoryEntriesListener
-blink.mojom.FileSystemAccessDirectoryEntriesListener = {};
+blink.mojom.mojom.FileSystemAccessDirectoryEntriesListener = {};
 
-blink.mojom.FileSystemAccessDirectoryEntriesListenerPendingReceiver = class {
+blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote = class {
+blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileSystemAccessDirectoryEntriesListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FileSystemAccessDirectoryEntriesListenerPendingReceiver,
+      blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.FileSystemAccessDirectoryEntriesListenerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -68,7 +74,7 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote = class {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryEntriesListenerRemoteCallHandler = class {
+blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -77,15 +83,15 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec,
       null,
       [result, entries, has_more_entries]);
   }
 
 };
 
-blink.mojom.FileSystemAccessDirectoryEntriesListener.getRemote = function() {
-  let remote = new blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote();
+blink.mojom.mojom.FileSystemAccessDirectoryEntriesListener.getRemote = function() {
+  let remote = new blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -95,7 +101,7 @@ blink.mojom.FileSystemAccessDirectoryEntriesListener.getRemote = function() {
 };
 
 // ParamsSpec for DidReadDirectory
-blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryEntriesListener.DidReadDirectory_Params',
@@ -111,29 +117,29 @@ blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec
 };
 
 // Legacy compatibility
-blink.mojom.FileSystemAccessDirectoryEntriesListenerPtr = blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote;
-blink.mojom.FileSystemAccessDirectoryEntriesListenerRequest = blink.mojom.FileSystemAccessDirectoryEntriesListenerPendingReceiver;
+blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerPtr = blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerRemote;
+blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerRequest = blink.mojom.mojom.FileSystemAccessDirectoryEntriesListenerPendingReceiver;
 
 
 // Interface: FileSystemAccessDirectoryHandle
-blink.mojom.FileSystemAccessDirectoryHandle = {};
+blink.mojom.mojom.FileSystemAccessDirectoryHandle = {};
 
-blink.mojom.FileSystemAccessDirectoryHandlePendingReceiver = class {
+blink.mojom.mojom.FileSystemAccessDirectoryHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandleRemote = class {
+blink.mojom.mojom.FileSystemAccessDirectoryHandleRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileSystemAccessDirectoryHandle';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FileSystemAccessDirectoryHandlePendingReceiver,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandlePendingReceiver,
       handle);
-    this.$ = new blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -145,7 +151,7 @@ blink.mojom.FileSystemAccessDirectoryHandleRemote = class {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
+blink.mojom.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -154,8 +160,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec,
       [mode]);
   }
 
@@ -163,8 +169,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec,
       [mode]);
   }
 
@@ -172,8 +178,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec,
       [basename, create]);
   }
 
@@ -181,8 +187,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec,
       [basename, create]);
   }
 
@@ -190,7 +196,7 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec,
       null,
       [listener]);
   }
@@ -199,8 +205,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec,
       [new_entry_name]);
   }
 
@@ -208,8 +214,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec,
       [destination_directory, new_entry_name]);
   }
 
@@ -217,8 +223,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec,
       [recurse]);
   }
 
@@ -226,8 +232,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec,
       [basename, recurse]);
   }
 
@@ -235,8 +241,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec,
       [possible_child]);
   }
 
@@ -244,7 +250,7 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec,
       null,
       [token]);
   }
@@ -253,8 +259,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec,
       []);
   }
 
@@ -262,15 +268,15 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec,
-      blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec,
+      blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle.getRemote = function() {
-  let remote = new blink.mojom.FileSystemAccessDirectoryHandleRemote();
+blink.mojom.mojom.FileSystemAccessDirectoryHandle.getRemote = function() {
+  let remote = new blink.mojom.mojom.FileSystemAccessDirectoryHandleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -280,7 +286,7 @@ blink.mojom.FileSystemAccessDirectoryHandle.getRemote = function() {
 };
 
 // ParamsSpec for GetPermissionStatus
-blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetPermissionStatus_Params',
@@ -293,7 +299,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetPermissionStatus_ResponseParams',
@@ -307,7 +313,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSp
 };
 
 // ParamsSpec for RequestPermission
-blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.RequestPermission_Params',
@@ -320,7 +326,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.RequestPermission_ResponseParams',
@@ -335,7 +341,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec
 };
 
 // ParamsSpec for GetFile
-blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetFile_Params',
@@ -349,7 +355,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetFile_ResponseParams',
@@ -364,7 +370,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDirectory
-blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetDirectory_Params',
@@ -378,7 +384,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetDirectory_ResponseParams',
@@ -393,7 +399,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetEntries
-blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetEntries_Params',
@@ -407,7 +413,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec = {
 };
 
 // ParamsSpec for Rename
-blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Rename_Params',
@@ -420,7 +426,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Rename_ResponseParams',
@@ -434,21 +440,21 @@ blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Move
-blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Move_Params',
       packedSize: 24,
       fields: [
-        { name: 'destination_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'new_entry_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'destination_directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'new_entry_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Move_ResponseParams',
@@ -462,7 +468,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Remove
-blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Remove_Params',
@@ -475,7 +481,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Remove_ResponseParams',
@@ -489,7 +495,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveEntry
-blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.RemoveEntry_Params',
@@ -503,7 +509,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.RemoveEntry_ResponseParams',
@@ -517,7 +523,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Resolve
-blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Resolve_Params',
@@ -530,7 +536,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Resolve_ResponseParams',
@@ -545,7 +551,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Transfer
-blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.Transfer_Params',
@@ -559,7 +565,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec = {
 };
 
 // ParamsSpec for GetUniqueId
-blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetUniqueId_Params',
@@ -571,7 +577,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetUniqueId_ResponseParams',
@@ -586,7 +592,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetCloudIdentifiers
-blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetCloudIdentifiers_Params',
@@ -598,7 +604,7 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec = {
   }
 };
 
-blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec = {
+blink.mojom.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileSystemAccessDirectoryHandle.GetCloudIdentifiers_ResponseParams',
@@ -613,6 +619,6 @@ blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSp
 };
 
 // Legacy compatibility
-blink.mojom.FileSystemAccessDirectoryHandlePtr = blink.mojom.FileSystemAccessDirectoryHandleRemote;
-blink.mojom.FileSystemAccessDirectoryHandleRequest = blink.mojom.FileSystemAccessDirectoryHandlePendingReceiver;
+blink.mojom.mojom.FileSystemAccessDirectoryHandlePtr = blink.mojom.mojom.FileSystemAccessDirectoryHandleRemote;
+blink.mojom.mojom.FileSystemAccessDirectoryHandleRequest = blink.mojom.mojom.FileSystemAccessDirectoryHandlePendingReceiver;
 

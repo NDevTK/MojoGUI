@@ -7,10 +7,11 @@
 // Module namespace
 var site_engagement = site_engagement || {};
 site_engagement.mojom = site_engagement.mojom || {};
+var url = url || {};
 
 
 // Struct: SiteEngagementDetails
-site_engagement.mojom.SiteEngagementDetailsSpec = {
+site_engagement.mojom.mojom.SiteEngagementDetailsSpec = {
   $: {
     structSpec: {
       name: 'site_engagement.mojom.SiteEngagementDetails',
@@ -27,24 +28,24 @@ site_engagement.mojom.SiteEngagementDetailsSpec = {
 };
 
 // Interface: SiteEngagementDetailsProvider
-site_engagement.mojom.SiteEngagementDetailsProvider = {};
+site_engagement.mojom.mojom.SiteEngagementDetailsProvider = {};
 
-site_engagement.mojom.SiteEngagementDetailsProviderPendingReceiver = class {
+site_engagement.mojom.mojom.SiteEngagementDetailsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-site_engagement.mojom.SiteEngagementDetailsProviderRemote = class {
+site_engagement.mojom.mojom.SiteEngagementDetailsProviderRemote = class {
   static get $interfaceName() {
     return 'site_engagement.mojom.SiteEngagementDetailsProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      site_engagement.mojom.SiteEngagementDetailsProviderPendingReceiver,
+      site_engagement.mojom.mojom.SiteEngagementDetailsProviderPendingReceiver,
       handle);
-    this.$ = new site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler(this.proxy);
+    this.$ = new site_engagement.mojom.mojom.SiteEngagementDetailsProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -56,7 +57,7 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemote = class {
   }
 };
 
-site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
+site_engagement.mojom.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -65,8 +66,8 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec,
-      site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec,
+      site_engagement.mojom.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec,
+      site_engagement.mojom.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec,
       []);
   }
 
@@ -74,15 +75,15 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec,
+      site_engagement.mojom.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec,
       null,
       [url, score]);
   }
 
 };
 
-site_engagement.mojom.SiteEngagementDetailsProvider.getRemote = function() {
-  let remote = new site_engagement.mojom.SiteEngagementDetailsProviderRemote();
+site_engagement.mojom.mojom.SiteEngagementDetailsProvider.getRemote = function() {
+  let remote = new site_engagement.mojom.mojom.SiteEngagementDetailsProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -92,7 +93,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetSiteEngagementDetails
-site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec = {
+site_engagement.mojom.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'site_engagement.mojom.SiteEngagementDetailsProvider.GetSiteEngagementDetails_Params',
@@ -104,7 +105,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Par
   }
 };
 
-site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = {
+site_engagement.mojom.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'site_engagement.mojom.SiteEngagementDetailsProvider.GetSiteEngagementDetails_ResponseParams',
@@ -118,7 +119,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Res
 };
 
 // ParamsSpec for SetSiteEngagementBaseScoreForUrl
-site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec = {
+site_engagement.mojom.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'site_engagement.mojom.SiteEngagementDetailsProvider.SetSiteEngagementBaseScoreForUrl_Params',
@@ -133,6 +134,6 @@ site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreFo
 };
 
 // Legacy compatibility
-site_engagement.mojom.SiteEngagementDetailsProviderPtr = site_engagement.mojom.SiteEngagementDetailsProviderRemote;
-site_engagement.mojom.SiteEngagementDetailsProviderRequest = site_engagement.mojom.SiteEngagementDetailsProviderPendingReceiver;
+site_engagement.mojom.mojom.SiteEngagementDetailsProviderPtr = site_engagement.mojom.mojom.SiteEngagementDetailsProviderRemote;
+site_engagement.mojom.mojom.SiteEngagementDetailsProviderRequest = site_engagement.mojom.mojom.SiteEngagementDetailsProviderPendingReceiver;
 

@@ -10,34 +10,34 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ArcResizeLockState
-arc.mojom.ArcResizeLockState = {
+arc.mojom.mojom.ArcResizeLockState = {
   UNDEFINED: 0,
   READY: 1,
   ON: 2,
   OFF: 3,
   FULLY_LOCKED: 4,
 };
-arc.mojom.ArcResizeLockStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ArcResizeLockStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: CompatibilityModeInstance
-arc.mojom.CompatibilityModeInstance = {};
+arc.mojom.mojom.CompatibilityModeInstance = {};
 
-arc.mojom.CompatibilityModeInstancePendingReceiver = class {
+arc.mojom.mojom.CompatibilityModeInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.CompatibilityModeInstanceRemote = class {
+arc.mojom.mojom.CompatibilityModeInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.CompatibilityModeInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.CompatibilityModeInstancePendingReceiver,
+      arc.mojom.mojom.CompatibilityModeInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.CompatibilityModeInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.CompatibilityModeInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -49,7 +49,7 @@ arc.mojom.CompatibilityModeInstanceRemote = class {
   }
 };
 
-arc.mojom.CompatibilityModeInstanceRemoteCallHandler = class {
+arc.mojom.mojom.CompatibilityModeInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -58,7 +58,7 @@ arc.mojom.CompatibilityModeInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec,
+      arc.mojom.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec,
       null,
       [package_name, state]);
   }
@@ -67,15 +67,15 @@ arc.mojom.CompatibilityModeInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec,
-      arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec,
+      arc.mojom.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec,
+      arc.mojom.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec,
       [package_name]);
   }
 
 };
 
-arc.mojom.CompatibilityModeInstance.getRemote = function() {
-  let remote = new arc.mojom.CompatibilityModeInstanceRemote();
+arc.mojom.mojom.CompatibilityModeInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.CompatibilityModeInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -85,7 +85,7 @@ arc.mojom.CompatibilityModeInstance.getRemote = function() {
 };
 
 // ParamsSpec for SetResizeLockState
-arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec = {
+arc.mojom.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CompatibilityModeInstance.SetResizeLockState_Params',
@@ -100,7 +100,7 @@ arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec = {
 };
 
 // ParamsSpec for IsOptimizedForCrosApp
-arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec = {
+arc.mojom.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CompatibilityModeInstance.IsOptimizedForCrosApp_Params',
@@ -113,7 +113,7 @@ arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec = {
   }
 };
 
-arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec = {
+arc.mojom.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CompatibilityModeInstance.IsOptimizedForCrosApp_ResponseParams',
@@ -127,6 +127,6 @@ arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.CompatibilityModeInstancePtr = arc.mojom.CompatibilityModeInstanceRemote;
-arc.mojom.CompatibilityModeInstanceRequest = arc.mojom.CompatibilityModeInstancePendingReceiver;
+arc.mojom.mojom.CompatibilityModeInstancePtr = arc.mojom.mojom.CompatibilityModeInstanceRemote;
+arc.mojom.mojom.CompatibilityModeInstanceRequest = arc.mojom.mojom.CompatibilityModeInstancePendingReceiver;
 

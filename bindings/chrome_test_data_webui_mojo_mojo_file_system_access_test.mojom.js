@@ -10,24 +10,24 @@ test.mojom = test.mojom || {};
 
 
 // Interface: MojoFileSystemAccessTest
-test.mojom.MojoFileSystemAccessTest = {};
+test.mojom.mojom.MojoFileSystemAccessTest = {};
 
-test.mojom.MojoFileSystemAccessTestPendingReceiver = class {
+test.mojom.mojom.MojoFileSystemAccessTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-test.mojom.MojoFileSystemAccessTestRemote = class {
+test.mojom.mojom.MojoFileSystemAccessTestRemote = class {
   static get $interfaceName() {
     return 'test.mojom.MojoFileSystemAccessTest';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      test.mojom.MojoFileSystemAccessTestPendingReceiver,
+      test.mojom.mojom.MojoFileSystemAccessTestPendingReceiver,
       handle);
-    this.$ = new test.mojom.MojoFileSystemAccessTestRemoteCallHandler(this.proxy);
+    this.$ = new test.mojom.mojom.MojoFileSystemAccessTestRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ test.mojom.MojoFileSystemAccessTestRemote = class {
   }
 };
 
-test.mojom.MojoFileSystemAccessTestRemoteCallHandler = class {
+test.mojom.mojom.MojoFileSystemAccessTestRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ test.mojom.MojoFileSystemAccessTestRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec,
+      test.mojom.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec,
       null,
       [h]);
   }
 
 };
 
-test.mojom.MojoFileSystemAccessTest.getRemote = function() {
-  let remote = new test.mojom.MojoFileSystemAccessTestRemote();
+test.mojom.mojom.MojoFileSystemAccessTest.getRemote = function() {
+  let remote = new test.mojom.mojom.MojoFileSystemAccessTestRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ test.mojom.MojoFileSystemAccessTest.getRemote = function() {
 };
 
 // ParamsSpec for ResolveTransferToken
-test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = {
+test.mojom.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'test.mojom.MojoFileSystemAccessTest.ResolveTransferToken_Params',
@@ -80,6 +80,6 @@ test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = {
 };
 
 // Legacy compatibility
-test.mojom.MojoFileSystemAccessTestPtr = test.mojom.MojoFileSystemAccessTestRemote;
-test.mojom.MojoFileSystemAccessTestRequest = test.mojom.MojoFileSystemAccessTestPendingReceiver;
+test.mojom.mojom.MojoFileSystemAccessTestPtr = test.mojom.mojom.MojoFileSystemAccessTestRemote;
+test.mojom.mojom.MojoFileSystemAccessTestRequest = test.mojom.mojom.MojoFileSystemAccessTestPendingReceiver;
 

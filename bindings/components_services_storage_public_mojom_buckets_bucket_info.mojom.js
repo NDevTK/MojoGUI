@@ -7,10 +7,12 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Struct: BucketInfo
-storage.mojom.BucketInfoSpec = {
+storage.mojom.mojom.BucketInfoSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BucketInfo',
@@ -21,8 +23,8 @@ storage.mojom.BucketInfoSpec = {
         { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'expiration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
         { name: 'quota', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'persistent', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'durability', packedOffset: 44, packedBitOffset: 0, type: blink.mojom.BucketDurabilitySpec, nullable: false, minVersion: 0 },
+        { name: 'persistent', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'durability', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.BucketDurabilitySpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }

@@ -7,29 +7,29 @@
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
-ash.settings.magic_boost_handler = ash.settings.magic_boost_handler || {};
-ash.settings.magic_boost_handler.mojom = ash.settings.magic_boost_handler.mojom || {};
+ash.settings.settings.magic_boost_handler = ash.settings.settings.magic_boost_handler || {};
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom = ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom || {};
 
 
 // Interface: PageHandlerFactory
-ash.settings.magic_boost_handler.mojom.PageHandlerFactory = {};
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactory = {};
 
-ash.settings.magic_boost_handler.mojom.PageHandlerFactoryPendingReceiver = class {
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemote = class {
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.settings.magic_boost_handler.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.magic_boost_handler.mojom.PageHandlerFactoryPendingReceiver,
+      ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +41,7 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemoteCallHandler = class {
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,15 +50,15 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemoteCallHandler = cla
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-ash.settings.magic_boost_handler.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemote();
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -68,7 +68,7 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactory.getRemote = function()
 };
 
 // ParamsSpec for CreatePageHandler
-ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.magic_boost_handler.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -82,29 +82,29 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_Para
 };
 
 // Legacy compatibility
-ash.settings.magic_boost_handler.mojom.PageHandlerFactoryPtr = ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemote;
-ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRequest = ash.settings.magic_boost_handler.mojom.PageHandlerFactoryPendingReceiver;
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryPtr = ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryRemote;
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryRequest = ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.settings.magic_boost_handler.mojom.PageHandler = {};
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandler = {};
 
-ash.settings.magic_boost_handler.mojom.PageHandlerPendingReceiver = class {
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.settings.magic_boost_handler.mojom.PageHandlerRemote = class {
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.settings.magic_boost_handler.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.settings.magic_boost_handler.mojom.PageHandlerPendingReceiver,
+      ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.settings.magic_boost_handler.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -116,7 +116,7 @@ ash.settings.magic_boost_handler.mojom.PageHandlerRemote = class {
   }
 };
 
-ash.settings.magic_boost_handler.mojom.PageHandlerRemoteCallHandler = class {
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -125,15 +125,15 @@ ash.settings.magic_boost_handler.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec,
+      ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandler_ShowNotice_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.settings.magic_boost_handler.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.settings.magic_boost_handler.mojom.PageHandlerRemote();
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -143,7 +143,7 @@ ash.settings.magic_boost_handler.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for ShowNotice
-ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec = {
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandler_ShowNotice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.settings.magic_boost_handler.mojom.PageHandler.ShowNotice_Params',
@@ -156,6 +156,6 @@ ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.settings.magic_boost_handler.mojom.PageHandlerPtr = ash.settings.magic_boost_handler.mojom.PageHandlerRemote;
-ash.settings.magic_boost_handler.mojom.PageHandlerRequest = ash.settings.magic_boost_handler.mojom.PageHandlerPendingReceiver;
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerPtr = ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerRemote;
+ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerRequest = ash.settings.settings.magic_boost_handler.magic_boost_handler.mojom.mojom.PageHandlerPendingReceiver;
 

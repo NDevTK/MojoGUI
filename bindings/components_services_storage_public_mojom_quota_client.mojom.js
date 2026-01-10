@@ -7,27 +7,29 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Interface: QuotaClient
-storage.mojom.QuotaClient = {};
+storage.mojom.mojom.QuotaClient = {};
 
-storage.mojom.QuotaClientPendingReceiver = class {
+storage.mojom.mojom.QuotaClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.QuotaClientRemote = class {
+storage.mojom.mojom.QuotaClientRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.QuotaClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.QuotaClientPendingReceiver,
+      storage.mojom.mojom.QuotaClientPendingReceiver,
       handle);
-    this.$ = new storage.mojom.QuotaClientRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.mojom.QuotaClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ storage.mojom.QuotaClientRemote = class {
   }
 };
 
-storage.mojom.QuotaClientRemoteCallHandler = class {
+storage.mojom.mojom.QuotaClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +50,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec,
-      storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec,
+      storage.mojom.mojom.QuotaClient_GetBucketUsage_ParamsSpec,
+      storage.mojom.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec,
       [bucket]);
   }
 
@@ -57,8 +59,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec,
-      storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec,
+      storage.mojom.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec,
+      storage.mojom.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +68,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec,
-      storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec,
+      storage.mojom.mojom.QuotaClient_DeleteBucketData_ParamsSpec,
+      storage.mojom.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec,
       [bucket]);
   }
 
@@ -75,15 +77,15 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec,
+      storage.mojom.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec,
       null,
       []);
   }
 
 };
 
-storage.mojom.QuotaClient.getRemote = function() {
-  let remote = new storage.mojom.QuotaClientRemote();
+storage.mojom.mojom.QuotaClient.getRemote = function() {
+  let remote = new storage.mojom.mojom.QuotaClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +95,7 @@ storage.mojom.QuotaClient.getRemote = function() {
 };
 
 // ParamsSpec for GetBucketUsage
-storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
+storage.mojom.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaClient.GetBucketUsage_Params',
@@ -106,7 +108,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
   }
 };
 
-storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = {
+storage.mojom.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaClient.GetBucketUsage_ResponseParams',
@@ -120,7 +122,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDefaultStorageKeys
-storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = {
+storage.mojom.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaClient.GetDefaultStorageKeys_Params',
@@ -132,7 +134,7 @@ storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = {
   }
 };
 
-storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = {
+storage.mojom.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaClient.GetDefaultStorageKeys_ResponseParams',
@@ -146,7 +148,7 @@ storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteBucketData
-storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
+storage.mojom.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaClient.DeleteBucketData_Params',
@@ -159,7 +161,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
   }
 };
 
-storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
+storage.mojom.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaClient.DeleteBucketData_ResponseParams',
@@ -173,7 +175,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for PerformStorageCleanup
-storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = {
+storage.mojom.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaClient.PerformStorageCleanup_Params',
@@ -186,6 +188,6 @@ storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.QuotaClientPtr = storage.mojom.QuotaClientRemote;
-storage.mojom.QuotaClientRequest = storage.mojom.QuotaClientPendingReceiver;
+storage.mojom.mojom.QuotaClientPtr = storage.mojom.mojom.QuotaClientRemote;
+storage.mojom.mojom.QuotaClientRequest = storage.mojom.mojom.QuotaClientPendingReceiver;
 

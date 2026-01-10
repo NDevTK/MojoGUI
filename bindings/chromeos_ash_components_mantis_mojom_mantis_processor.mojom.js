@@ -10,24 +10,24 @@ mantis.mojom = mantis.mojom || {};
 
 
 // Enum: MantisError
-mantis.mojom.MantisError = {
+mantis.mojom.mojom.MantisError = {
 };
-mantis.mojom.MantisErrorSpec = { $: mojo.internal.Enum() };
+mantis.mojom.mojom.MantisErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: SafetyClassifierVerdict
-mantis.mojom.SafetyClassifierVerdict = {
+mantis.mojom.mojom.SafetyClassifierVerdict = {
   kPass: 0,
 };
-mantis.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
+mantis.mojom.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
 
 // Enum: SegmentationMode
-mantis.mojom.SegmentationMode = {
+mantis.mojom.mojom.SegmentationMode = {
   kLasso: 0,
 };
-mantis.mojom.SegmentationModeSpec = { $: mojo.internal.Enum() };
+mantis.mojom.mojom.SegmentationModeSpec = { $: mojo.internal.Enum() };
 
 // Union: MantisResult
-mantis.mojom.MantisResultSpec = { $: mojo.internal.Union(
+mantis.mojom.mojom.MantisResultSpec = { $: mojo.internal.Union(
     'mantis.mojom.MantisResult', {
       'error': {
         'ordinal': 0,
@@ -41,7 +41,7 @@ mantis.mojom.MantisResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: TouchPoint
-mantis.mojom.TouchPointSpec = {
+mantis.mojom.mojom.TouchPointSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.TouchPoint',
@@ -56,24 +56,24 @@ mantis.mojom.TouchPointSpec = {
 };
 
 // Interface: MantisProcessor
-mantis.mojom.MantisProcessor = {};
+mantis.mojom.mojom.MantisProcessor = {};
 
-mantis.mojom.MantisProcessorPendingReceiver = class {
+mantis.mojom.mojom.MantisProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mantis.mojom.MantisProcessorRemote = class {
+mantis.mojom.mojom.MantisProcessorRemote = class {
   static get $interfaceName() {
     return 'mantis.mojom.MantisProcessor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mantis.mojom.MantisProcessorPendingReceiver,
+      mantis.mojom.mojom.MantisProcessorPendingReceiver,
       handle);
-    this.$ = new mantis.mojom.MantisProcessorRemoteCallHandler(this.proxy);
+    this.$ = new mantis.mojom.mojom.MantisProcessorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -85,7 +85,7 @@ mantis.mojom.MantisProcessorRemote = class {
   }
 };
 
-mantis.mojom.MantisProcessorRemoteCallHandler = class {
+mantis.mojom.mojom.MantisProcessorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -94,8 +94,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mantis.mojom.MantisProcessor_Inpainting_ParamsSpec,
-      mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_Inpainting_ParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_Inpainting_ResponseParamsSpec,
       [image, mask, seed]);
   }
 
@@ -103,8 +103,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec,
-      mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_GenerativeFill_ParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec,
       [image, mask, seed, prompt]);
   }
 
@@ -112,8 +112,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mantis.mojom.MantisProcessor_Segmentation_ParamsSpec,
-      mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_Segmentation_ParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_Segmentation_ResponseParamsSpec,
       [image, prior]);
   }
 
@@ -121,8 +121,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec,
-      mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec,
       [image]);
   }
 
@@ -130,8 +130,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mantis.mojom.MantisProcessor_Outpainting_ParamsSpec,
-      mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_Outpainting_ParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_Outpainting_ResponseParamsSpec,
       [image, mask, seed]);
   }
 
@@ -139,15 +139,15 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec,
-      mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec,
+      mantis.mojom.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec,
       [gesture]);
   }
 
 };
 
-mantis.mojom.MantisProcessor.getRemote = function() {
-  let remote = new mantis.mojom.MantisProcessorRemote();
+mantis.mojom.mojom.MantisProcessor.getRemote = function() {
+  let remote = new mantis.mojom.mojom.MantisProcessorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -157,7 +157,7 @@ mantis.mojom.MantisProcessor.getRemote = function() {
 };
 
 // ParamsSpec for Inpainting
-mantis.mojom.MantisProcessor_Inpainting_ParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_Inpainting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.Inpainting_Params',
@@ -172,7 +172,7 @@ mantis.mojom.MantisProcessor_Inpainting_ParamsSpec = {
   }
 };
 
-mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_Inpainting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.Inpainting_ResponseParams',
@@ -186,7 +186,7 @@ mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GenerativeFill
-mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_GenerativeFill_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.GenerativeFill_Params',
@@ -194,15 +194,15 @@ mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec = {
       fields: [
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
         { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'prompt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'seed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'prompt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.GenerativeFill_ResponseParams',
@@ -216,7 +216,7 @@ mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Segmentation
-mantis.mojom.MantisProcessor_Segmentation_ParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_Segmentation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.Segmentation_Params',
@@ -230,7 +230,7 @@ mantis.mojom.MantisProcessor_Segmentation_ParamsSpec = {
   }
 };
 
-mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_Segmentation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.Segmentation_ResponseParams',
@@ -244,7 +244,7 @@ mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ClassifyImageSafety
-mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.ClassifyImageSafety_Params',
@@ -257,7 +257,7 @@ mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec = {
   }
 };
 
-mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.ClassifyImageSafety_ResponseParams',
@@ -271,7 +271,7 @@ mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Outpainting
-mantis.mojom.MantisProcessor_Outpainting_ParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_Outpainting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.Outpainting_Params',
@@ -286,7 +286,7 @@ mantis.mojom.MantisProcessor_Outpainting_ParamsSpec = {
   }
 };
 
-mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_Outpainting_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.Outpainting_ResponseParams',
@@ -300,7 +300,7 @@ mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InferSegmentationMode
-mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.InferSegmentationMode_Params',
@@ -313,7 +313,7 @@ mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = {
   }
 };
 
-mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec = {
+mantis.mojom.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisProcessor.InferSegmentationMode_ResponseParams',
@@ -327,6 +327,6 @@ mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-mantis.mojom.MantisProcessorPtr = mantis.mojom.MantisProcessorRemote;
-mantis.mojom.MantisProcessorRequest = mantis.mojom.MantisProcessorPendingReceiver;
+mantis.mojom.mojom.MantisProcessorPtr = mantis.mojom.mojom.MantisProcessorRemote;
+mantis.mojom.mojom.MantisProcessorRequest = mantis.mojom.mojom.MantisProcessorPendingReceiver;
 

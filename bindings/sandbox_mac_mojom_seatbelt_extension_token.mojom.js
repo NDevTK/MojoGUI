@@ -7,11 +7,11 @@
 // Module namespace
 var sandbox = sandbox || {};
 sandbox.mac = sandbox.mac || {};
-sandbox.mac.mojom = sandbox.mac.mojom || {};
+sandbox.mac.mac.mojom = sandbox.mac.mac.mojom || {};
 
 
 // Struct: SeatbeltExtensionToken
-sandbox.mac.mojom.SeatbeltExtensionTokenSpec = {
+sandbox.mac.mac.mojom.mojom.SeatbeltExtensionTokenSpec = {
   $: {
     structSpec: {
       name: 'sandbox.mac.mojom.SeatbeltExtensionToken',

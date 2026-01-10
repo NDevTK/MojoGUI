@@ -10,33 +10,33 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: MountEvent
-arc.mojom.MountEvent = {
+arc.mojom.mojom.MountEvent = {
   MOUNTING: 0,
   UNMOUNTING: 1,
 };
-arc.mojom.MountEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.MountEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceType
-arc.mojom.DeviceType = {
+arc.mojom.mojom.DeviceType = {
   DEVICE_TYPE_UNKNOWN: 0,
   DEVICE_TYPE_USB: 1,
   DEVICE_TYPE_SD: 2,
 };
-arc.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MountPointInfo
-arc.mojom.MountPointInfoSpec = {
+arc.mojom.mojom.MountPointInfoSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MountPointInfo',
       packedSize: 56,
       fields: [
-        { name: 'mount_event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MountEventSpec, nullable: false, minVersion: 0 },
-        { name: 'source_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mount_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'fs_uuid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_type', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.DeviceTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'mount_event', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.MountEventSpec, nullable: false, minVersion: 0 },
+        { name: 'source_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'mount_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'fs_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'device_type', packedOffset: 36, packedBitOffset: 0, type: arc.mojom.DeviceTypeSpec, nullable: false, minVersion: 0 },
         { name: 'visible', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
       ],
       versions: [{version: 0, packedSize: 48}, {version: 2, packedSize: 56}]
@@ -45,24 +45,24 @@ arc.mojom.MountPointInfoSpec = {
 };
 
 // Interface: VolumeMounterHost
-arc.mojom.VolumeMounterHost = {};
+arc.mojom.mojom.VolumeMounterHost = {};
 
-arc.mojom.VolumeMounterHostPendingReceiver = class {
+arc.mojom.mojom.VolumeMounterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.VolumeMounterHostRemote = class {
+arc.mojom.mojom.VolumeMounterHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.VolumeMounterHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.VolumeMounterHostPendingReceiver,
+      arc.mojom.mojom.VolumeMounterHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.VolumeMounterHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.VolumeMounterHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +74,7 @@ arc.mojom.VolumeMounterHostRemote = class {
   }
 };
 
-arc.mojom.VolumeMounterHostRemoteCallHandler = class {
+arc.mojom.mojom.VolumeMounterHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,7 +83,7 @@ arc.mojom.VolumeMounterHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec,
+      arc.mojom.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec,
       null,
       []);
   }
@@ -92,8 +92,8 @@ arc.mojom.VolumeMounterHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec,
-      arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec,
+      arc.mojom.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec,
+      arc.mojom.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec,
       [media_provider_uid]);
   }
 
@@ -101,15 +101,15 @@ arc.mojom.VolumeMounterHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec,
+      arc.mojom.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec,
       null,
       [success]);
   }
 
 };
 
-arc.mojom.VolumeMounterHost.getRemote = function() {
-  let remote = new arc.mojom.VolumeMounterHostRemote();
+arc.mojom.mojom.VolumeMounterHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.VolumeMounterHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +119,7 @@ arc.mojom.VolumeMounterHost.getRemote = function() {
 };
 
 // ParamsSpec for RequestAllMountPoints
-arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec = {
+arc.mojom.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VolumeMounterHost.RequestAllMountPoints_Params',
@@ -132,7 +132,7 @@ arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec = {
 };
 
 // ParamsSpec for SetUpExternalStorageMountPoints
-arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec = {
+arc.mojom.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VolumeMounterHost.SetUpExternalStorageMountPoints_Params',
@@ -145,7 +145,7 @@ arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec = {
   }
 };
 
-arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec = {
+arc.mojom.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VolumeMounterHost.SetUpExternalStorageMountPoints_ResponseParams',
@@ -159,7 +159,7 @@ arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec =
 };
 
 // ParamsSpec for OnReadyToSuspend
-arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec = {
+arc.mojom.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VolumeMounterHost.OnReadyToSuspend_Params',
@@ -173,29 +173,29 @@ arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.VolumeMounterHostPtr = arc.mojom.VolumeMounterHostRemote;
-arc.mojom.VolumeMounterHostRequest = arc.mojom.VolumeMounterHostPendingReceiver;
+arc.mojom.mojom.VolumeMounterHostPtr = arc.mojom.mojom.VolumeMounterHostRemote;
+arc.mojom.mojom.VolumeMounterHostRequest = arc.mojom.mojom.VolumeMounterHostPendingReceiver;
 
 
 // Interface: VolumeMounterInstance
-arc.mojom.VolumeMounterInstance = {};
+arc.mojom.mojom.VolumeMounterInstance = {};
 
-arc.mojom.VolumeMounterInstancePendingReceiver = class {
+arc.mojom.mojom.VolumeMounterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.VolumeMounterInstanceRemote = class {
+arc.mojom.mojom.VolumeMounterInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.VolumeMounterInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.VolumeMounterInstancePendingReceiver,
+      arc.mojom.mojom.VolumeMounterInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.VolumeMounterInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.VolumeMounterInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -207,7 +207,7 @@ arc.mojom.VolumeMounterInstanceRemote = class {
   }
 };
 
-arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
+arc.mojom.mojom.VolumeMounterInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -216,7 +216,7 @@ arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.VolumeMounterInstance_Init_ParamsSpec,
+      arc.mojom.mojom.VolumeMounterInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -225,7 +225,7 @@ arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec,
+      arc.mojom.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec,
       null,
       [mount_point_info]);
   }
@@ -234,15 +234,15 @@ arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec,
-      arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec,
+      arc.mojom.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec,
+      arc.mojom.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-arc.mojom.VolumeMounterInstance.getRemote = function() {
-  let remote = new arc.mojom.VolumeMounterInstanceRemote();
+arc.mojom.mojom.VolumeMounterInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.VolumeMounterInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -252,7 +252,7 @@ arc.mojom.VolumeMounterInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.VolumeMounterInstance_Init_ParamsSpec = {
+arc.mojom.mojom.VolumeMounterInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VolumeMounterInstance.Init_Params',
@@ -266,7 +266,7 @@ arc.mojom.VolumeMounterInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for OnMountEvent
-arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec = {
+arc.mojom.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VolumeMounterInstance.OnMountEvent_Params',
@@ -280,7 +280,7 @@ arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec = {
 };
 
 // ParamsSpec for PrepareForRemovableMediaUnmount
-arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec = {
+arc.mojom.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VolumeMounterInstance.PrepareForRemovableMediaUnmount_Params',
@@ -293,7 +293,7 @@ arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec = {
   }
 };
 
-arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec = {
+arc.mojom.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VolumeMounterInstance.PrepareForRemovableMediaUnmount_ResponseParams',
@@ -307,6 +307,6 @@ arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSp
 };
 
 // Legacy compatibility
-arc.mojom.VolumeMounterInstancePtr = arc.mojom.VolumeMounterInstanceRemote;
-arc.mojom.VolumeMounterInstanceRequest = arc.mojom.VolumeMounterInstancePendingReceiver;
+arc.mojom.mojom.VolumeMounterInstancePtr = arc.mojom.mojom.VolumeMounterInstanceRemote;
+arc.mojom.mojom.VolumeMounterInstanceRequest = arc.mojom.mojom.VolumeMounterInstancePendingReceiver;
 

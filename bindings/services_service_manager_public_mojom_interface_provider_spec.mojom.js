@@ -9,10 +9,10 @@ var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
 
 
-service_manager.mojom.kServiceManager_ConnectorSpec = "service_manager:connector";
+service_manager.mojom.mojom.kServiceManager_ConnectorSpec = "service_manager:connector";
 
 // Struct: InterfaceSet
-service_manager.mojom.InterfaceSetSpec = {
+service_manager.mojom.mojom.InterfaceSetSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.InterfaceSet',
@@ -26,7 +26,7 @@ service_manager.mojom.InterfaceSetSpec = {
 };
 
 // Struct: CapabilitySet
-service_manager.mojom.CapabilitySetSpec = {
+service_manager.mojom.mojom.CapabilitySetSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.CapabilitySet',
@@ -40,7 +40,7 @@ service_manager.mojom.CapabilitySetSpec = {
 };
 
 // Struct: InterfaceProviderSpec
-service_manager.mojom.InterfaceProviderSpecSpec = {
+service_manager.mojom.mojom.InterfaceProviderSpecSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.InterfaceProviderSpec',

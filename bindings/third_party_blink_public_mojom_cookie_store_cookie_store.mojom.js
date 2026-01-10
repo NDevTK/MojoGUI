@@ -7,18 +7,19 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Struct: CookieChangeSubscription
-blink.mojom.CookieChangeSubscriptionSpec = {
+blink.mojom.mojom.CookieChangeSubscriptionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieChangeSubscription',
       packedSize: 32,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'match_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CookieMatchTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'match_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CookieMatchTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -26,24 +27,24 @@ blink.mojom.CookieChangeSubscriptionSpec = {
 };
 
 // Interface: CookieStore
-blink.mojom.CookieStore = {};
+blink.mojom.mojom.CookieStore = {};
 
-blink.mojom.CookieStorePendingReceiver = class {
+blink.mojom.mojom.CookieStorePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.CookieStoreRemote = class {
+blink.mojom.mojom.CookieStoreRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.CookieStore';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.CookieStorePendingReceiver,
+      blink.mojom.mojom.CookieStorePendingReceiver,
       handle);
-    this.$ = new blink.mojom.CookieStoreRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.CookieStoreRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +56,7 @@ blink.mojom.CookieStoreRemote = class {
   }
 };
 
-blink.mojom.CookieStoreRemoteCallHandler = class {
+blink.mojom.mojom.CookieStoreRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,8 +65,8 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.CookieStore_AddSubscriptions_ParamsSpec,
-      blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec,
+      blink.mojom.mojom.CookieStore_AddSubscriptions_ParamsSpec,
+      blink.mojom.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec,
       [service_worker_registration_id, subscription]);
   }
 
@@ -73,8 +74,8 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec,
-      blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec,
+      blink.mojom.mojom.CookieStore_RemoveSubscriptions_ParamsSpec,
+      blink.mojom.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec,
       [service_worker_registration_id, subscription]);
   }
 
@@ -82,15 +83,15 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.CookieStore_GetSubscriptions_ParamsSpec,
-      blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec,
+      blink.mojom.mojom.CookieStore_GetSubscriptions_ParamsSpec,
+      blink.mojom.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
 };
 
-blink.mojom.CookieStore.getRemote = function() {
-  let remote = new blink.mojom.CookieStoreRemote();
+blink.mojom.mojom.CookieStore.getRemote = function() {
+  let remote = new blink.mojom.mojom.CookieStoreRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -100,7 +101,7 @@ blink.mojom.CookieStore.getRemote = function() {
 };
 
 // ParamsSpec for AddSubscriptions
-blink.mojom.CookieStore_AddSubscriptions_ParamsSpec = {
+blink.mojom.mojom.CookieStore_AddSubscriptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieStore.AddSubscriptions_Params',
@@ -114,7 +115,7 @@ blink.mojom.CookieStore_AddSubscriptions_ParamsSpec = {
   }
 };
 
-blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec = {
+blink.mojom.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieStore.AddSubscriptions_ResponseParams',
@@ -128,7 +129,7 @@ blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveSubscriptions
-blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec = {
+blink.mojom.mojom.CookieStore_RemoveSubscriptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieStore.RemoveSubscriptions_Params',
@@ -142,7 +143,7 @@ blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec = {
   }
 };
 
-blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec = {
+blink.mojom.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieStore.RemoveSubscriptions_ResponseParams',
@@ -156,7 +157,7 @@ blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSubscriptions
-blink.mojom.CookieStore_GetSubscriptions_ParamsSpec = {
+blink.mojom.mojom.CookieStore_GetSubscriptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieStore.GetSubscriptions_Params',
@@ -169,7 +170,7 @@ blink.mojom.CookieStore_GetSubscriptions_ParamsSpec = {
   }
 };
 
-blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = {
+blink.mojom.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CookieStore.GetSubscriptions_ResponseParams',
@@ -184,6 +185,6 @@ blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.CookieStorePtr = blink.mojom.CookieStoreRemote;
-blink.mojom.CookieStoreRequest = blink.mojom.CookieStorePendingReceiver;
+blink.mojom.mojom.CookieStorePtr = blink.mojom.mojom.CookieStoreRemote;
+blink.mojom.mojom.CookieStoreRequest = blink.mojom.mojom.CookieStorePendingReceiver;
 

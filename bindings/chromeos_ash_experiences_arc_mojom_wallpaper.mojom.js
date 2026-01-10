@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: WallpaperHost
-arc.mojom.WallpaperHost = {};
+arc.mojom.mojom.WallpaperHost = {};
 
-arc.mojom.WallpaperHostPendingReceiver = class {
+arc.mojom.mojom.WallpaperHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.WallpaperHostRemote = class {
+arc.mojom.mojom.WallpaperHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.WallpaperHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.WallpaperHostPendingReceiver,
+      arc.mojom.mojom.WallpaperHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.WallpaperHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.WallpaperHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.WallpaperHostRemote = class {
   }
 };
 
-arc.mojom.WallpaperHostRemoteCallHandler = class {
+arc.mojom.mojom.WallpaperHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ arc.mojom.WallpaperHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec,
-      arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec,
+      arc.mojom.mojom.WallpaperHost_GetWallpaper_ParamsSpec,
+      arc.mojom.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +57,7 @@ arc.mojom.WallpaperHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec,
+      arc.mojom.mojom.WallpaperHost_SetWallpaper_ParamsSpec,
       null,
       [data, wallpaper_id]);
   }
@@ -66,15 +66,15 @@ arc.mojom.WallpaperHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec,
+      arc.mojom.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.WallpaperHost.getRemote = function() {
-  let remote = new arc.mojom.WallpaperHostRemote();
+arc.mojom.mojom.WallpaperHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.WallpaperHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ arc.mojom.WallpaperHost.getRemote = function() {
 };
 
 // ParamsSpec for GetWallpaper
-arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec = {
+arc.mojom.mojom.WallpaperHost_GetWallpaper_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WallpaperHost.GetWallpaper_Params',
@@ -96,7 +96,7 @@ arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec = {
   }
 };
 
-arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec = {
+arc.mojom.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WallpaperHost.GetWallpaper_ResponseParams',
@@ -110,7 +110,7 @@ arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetWallpaper
-arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec = {
+arc.mojom.mojom.WallpaperHost_SetWallpaper_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WallpaperHost.SetWallpaper_Params',
@@ -125,7 +125,7 @@ arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec = {
 };
 
 // ParamsSpec for SetDefaultWallpaper
-arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec = {
+arc.mojom.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WallpaperHost.SetDefaultWallpaper_Params',
@@ -138,29 +138,29 @@ arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.WallpaperHostPtr = arc.mojom.WallpaperHostRemote;
-arc.mojom.WallpaperHostRequest = arc.mojom.WallpaperHostPendingReceiver;
+arc.mojom.mojom.WallpaperHostPtr = arc.mojom.mojom.WallpaperHostRemote;
+arc.mojom.mojom.WallpaperHostRequest = arc.mojom.mojom.WallpaperHostPendingReceiver;
 
 
 // Interface: WallpaperInstance
-arc.mojom.WallpaperInstance = {};
+arc.mojom.mojom.WallpaperInstance = {};
 
-arc.mojom.WallpaperInstancePendingReceiver = class {
+arc.mojom.mojom.WallpaperInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.WallpaperInstanceRemote = class {
+arc.mojom.mojom.WallpaperInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.WallpaperInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.WallpaperInstancePendingReceiver,
+      arc.mojom.mojom.WallpaperInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.WallpaperInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.WallpaperInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -172,7 +172,7 @@ arc.mojom.WallpaperInstanceRemote = class {
   }
 };
 
-arc.mojom.WallpaperInstanceRemoteCallHandler = class {
+arc.mojom.mojom.WallpaperInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -181,7 +181,7 @@ arc.mojom.WallpaperInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.WallpaperInstance_Init_ParamsSpec,
+      arc.mojom.mojom.WallpaperInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -190,15 +190,15 @@ arc.mojom.WallpaperInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec,
+      arc.mojom.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec,
       null,
       [wallpaper_id]);
   }
 
 };
 
-arc.mojom.WallpaperInstance.getRemote = function() {
-  let remote = new arc.mojom.WallpaperInstanceRemote();
+arc.mojom.mojom.WallpaperInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.WallpaperInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -208,7 +208,7 @@ arc.mojom.WallpaperInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.WallpaperInstance_Init_ParamsSpec = {
+arc.mojom.mojom.WallpaperInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WallpaperInstance.Init_Params',
@@ -222,7 +222,7 @@ arc.mojom.WallpaperInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for OnWallpaperChanged
-arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = {
+arc.mojom.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WallpaperInstance.OnWallpaperChanged_Params',
@@ -236,6 +236,6 @@ arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.WallpaperInstancePtr = arc.mojom.WallpaperInstanceRemote;
-arc.mojom.WallpaperInstanceRequest = arc.mojom.WallpaperInstancePendingReceiver;
+arc.mojom.mojom.WallpaperInstancePtr = arc.mojom.mojom.WallpaperInstanceRemote;
+arc.mojom.mojom.WallpaperInstanceRequest = arc.mojom.mojom.WallpaperInstancePendingReceiver;
 

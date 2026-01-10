@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Union: StructuredHeadersItem
-network.mojom.StructuredHeadersItemSpec = { $: mojo.internal.Union(
+network.mojom.mojom.StructuredHeadersItemSpec = { $: mojo.internal.Union(
     'network.mojom.StructuredHeadersItem', {
       'null_value': {
         'ordinal': 0,
@@ -44,14 +44,14 @@ network.mojom.StructuredHeadersItemSpec = { $: mojo.internal.Union(
 };
 
 // Struct: StructuredHeadersParameter
-network.mojom.StructuredHeadersParameterSpec = {
+network.mojom.mojom.StructuredHeadersParameterSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StructuredHeadersParameter',
       packedSize: 32,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'item', packedOffset: 8, packedBitOffset: 0, type: network.mojom.StructuredHeadersItemSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: network.mojom.StructuredHeadersItemSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -59,7 +59,7 @@ network.mojom.StructuredHeadersParameterSpec = {
 };
 
 // Struct: StructuredHeadersParameterizedItem
-network.mojom.StructuredHeadersParameterizedItemSpec = {
+network.mojom.mojom.StructuredHeadersParameterizedItemSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StructuredHeadersParameterizedItem',
@@ -74,15 +74,15 @@ network.mojom.StructuredHeadersParameterizedItemSpec = {
 };
 
 // Struct: StructuredHeadersParameterizedMember
-network.mojom.StructuredHeadersParameterizedMemberSpec = {
+network.mojom.mojom.StructuredHeadersParameterizedMemberSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StructuredHeadersParameterizedMember',
       packedSize: 32,
       fields: [
         { name: 'member', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.StructuredHeadersParameterizedItemSpec, false), nullable: false, minVersion: 0 },
-        { name: 'member_is_inner_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'parameters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.StructuredHeadersParameterSpec, false), nullable: false, minVersion: 0 },
+        { name: 'member_is_inner_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'parameters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.StructuredHeadersParameterSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -90,7 +90,7 @@ network.mojom.StructuredHeadersParameterizedMemberSpec = {
 };
 
 // Struct: StructuredHeadersDictionaryMember
-network.mojom.StructuredHeadersDictionaryMemberSpec = {
+network.mojom.mojom.StructuredHeadersDictionaryMemberSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StructuredHeadersDictionaryMember',
@@ -105,7 +105,7 @@ network.mojom.StructuredHeadersDictionaryMemberSpec = {
 };
 
 // Struct: StructuredHeadersDictionary
-network.mojom.StructuredHeadersDictionarySpec = {
+network.mojom.mojom.StructuredHeadersDictionarySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.StructuredHeadersDictionary',

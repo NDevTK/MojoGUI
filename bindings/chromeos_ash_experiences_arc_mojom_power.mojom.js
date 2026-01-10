@@ -10,38 +10,38 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: CpuRestrictionState
-arc.mojom.CpuRestrictionState = {
+arc.mojom.mojom.CpuRestrictionState = {
   CPU_RESTRICTION_FOREGROUND: 0,
   CPU_RESTRICTION_BACKGROUND: 1,
 };
-arc.mojom.CpuRestrictionStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.CpuRestrictionStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayWakeLockType
-arc.mojom.DisplayWakeLockType = {
+arc.mojom.mojom.DisplayWakeLockType = {
   BRIGHT: 0,
   DIM: 1,
 };
-arc.mojom.DisplayWakeLockTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.DisplayWakeLockTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WakefulnessMode
-arc.mojom.WakefulnessMode = {
+arc.mojom.mojom.WakefulnessMode = {
   UNKNOWN: 0,
   ASLEEP: 1,
   AWAKE: 2,
   DREAMING: 3,
   DOZING: 4,
 };
-arc.mojom.WakefulnessModeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.WakefulnessModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IdleState
-arc.mojom.IdleState = {
+arc.mojom.mojom.IdleState = {
   INACTIVE: 0,
   FORCE_INACTIVE: 1,
 };
-arc.mojom.IdleStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.IdleStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: BatterySaverModeState
-arc.mojom.BatterySaverModeStateSpec = {
+arc.mojom.mojom.BatterySaverModeStateSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.BatterySaverModeState',
@@ -55,24 +55,24 @@ arc.mojom.BatterySaverModeStateSpec = {
 };
 
 // Interface: PowerHost
-arc.mojom.PowerHost = {};
+arc.mojom.mojom.PowerHost = {};
 
-arc.mojom.PowerHostPendingReceiver = class {
+arc.mojom.mojom.PowerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.PowerHostRemote = class {
+arc.mojom.mojom.PowerHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PowerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.PowerHostPendingReceiver,
+      arc.mojom.mojom.PowerHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.PowerHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.PowerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -84,7 +84,7 @@ arc.mojom.PowerHostRemote = class {
   }
 };
 
-arc.mojom.PowerHostRemoteCallHandler = class {
+arc.mojom.mojom.PowerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -93,7 +93,7 @@ arc.mojom.PowerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec,
+      arc.mojom.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec,
       null,
       [type]);
   }
@@ -102,7 +102,7 @@ arc.mojom.PowerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec,
+      arc.mojom.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec,
       null,
       [type]);
   }
@@ -111,7 +111,7 @@ arc.mojom.PowerHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec,
+      arc.mojom.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec,
       null,
       [mode]);
   }
@@ -120,8 +120,8 @@ arc.mojom.PowerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.PowerHost_IsDisplayOn_ParamsSpec,
-      arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec,
+      arc.mojom.mojom.PowerHost_IsDisplayOn_ParamsSpec,
+      arc.mojom.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec,
       []);
   }
 
@@ -129,7 +129,7 @@ arc.mojom.PowerHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec,
+      arc.mojom.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec,
       null,
       [percent]);
   }
@@ -138,7 +138,7 @@ arc.mojom.PowerHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.PowerHost_OnPreAnr_ParamsSpec,
+      arc.mojom.mojom.PowerHost_OnPreAnr_ParamsSpec,
       null,
       [type]);
   }
@@ -147,7 +147,7 @@ arc.mojom.PowerHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec,
+      arc.mojom.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec,
       null,
       [type]);
   }
@@ -156,15 +156,15 @@ arc.mojom.PowerHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec,
-      arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec,
+      arc.mojom.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec,
+      arc.mojom.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.PowerHost.getRemote = function() {
-  let remote = new arc.mojom.PowerHostRemote();
+arc.mojom.mojom.PowerHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.PowerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -174,7 +174,7 @@ arc.mojom.PowerHost.getRemote = function() {
 };
 
 // ParamsSpec for OnAcquireDisplayWakeLock
-arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec = {
+arc.mojom.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.OnAcquireDisplayWakeLock_Params',
@@ -188,7 +188,7 @@ arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec = {
 };
 
 // ParamsSpec for OnReleaseDisplayWakeLock
-arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec = {
+arc.mojom.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.OnReleaseDisplayWakeLock_Params',
@@ -202,7 +202,7 @@ arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec = {
 };
 
 // ParamsSpec for OnWakefulnessChanged
-arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec = {
+arc.mojom.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.OnWakefulnessChanged_Params',
@@ -216,7 +216,7 @@ arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec = {
 };
 
 // ParamsSpec for IsDisplayOn
-arc.mojom.PowerHost_IsDisplayOn_ParamsSpec = {
+arc.mojom.mojom.PowerHost_IsDisplayOn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.IsDisplayOn_Params',
@@ -228,7 +228,7 @@ arc.mojom.PowerHost_IsDisplayOn_ParamsSpec = {
   }
 };
 
-arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec = {
+arc.mojom.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.IsDisplayOn_ResponseParams',
@@ -242,7 +242,7 @@ arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnScreenBrightnessUpdateRequest
-arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec = {
+arc.mojom.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.OnScreenBrightnessUpdateRequest_Params',
@@ -256,7 +256,7 @@ arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec = {
 };
 
 // ParamsSpec for OnPreAnr
-arc.mojom.PowerHost_OnPreAnr_ParamsSpec = {
+arc.mojom.mojom.PowerHost_OnPreAnr_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.OnPreAnr_Params',
@@ -270,7 +270,7 @@ arc.mojom.PowerHost_OnPreAnr_ParamsSpec = {
 };
 
 // ParamsSpec for OnAnrRecoveryFailed
-arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec = {
+arc.mojom.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.OnAnrRecoveryFailed_Params',
@@ -284,7 +284,7 @@ arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec = {
 };
 
 // ParamsSpec for GetBatterySaverModeState
-arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = {
+arc.mojom.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.GetBatterySaverModeState_Params',
@@ -296,7 +296,7 @@ arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = {
   }
 };
 
-arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec = {
+arc.mojom.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerHost.GetBatterySaverModeState_ResponseParams',
@@ -310,29 +310,29 @@ arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.PowerHostPtr = arc.mojom.PowerHostRemote;
-arc.mojom.PowerHostRequest = arc.mojom.PowerHostPendingReceiver;
+arc.mojom.mojom.PowerHostPtr = arc.mojom.mojom.PowerHostRemote;
+arc.mojom.mojom.PowerHostRequest = arc.mojom.mojom.PowerHostPendingReceiver;
 
 
 // Interface: PowerInstance
-arc.mojom.PowerInstance = {};
+arc.mojom.mojom.PowerInstance = {};
 
-arc.mojom.PowerInstancePendingReceiver = class {
+arc.mojom.mojom.PowerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.PowerInstanceRemote = class {
+arc.mojom.mojom.PowerInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PowerInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.PowerInstancePendingReceiver,
+      arc.mojom.mojom.PowerInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.PowerInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.PowerInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -344,7 +344,7 @@ arc.mojom.PowerInstanceRemote = class {
   }
 };
 
-arc.mojom.PowerInstanceRemoteCallHandler = class {
+arc.mojom.mojom.PowerInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -353,7 +353,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      arc.mojom.PowerInstance_Init_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -362,7 +362,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec,
       null,
       [enabled]);
   }
@@ -371,7 +371,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.PowerInstance_Suspend_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_Suspend_ParamsSpec,
       null,
       []);
   }
@@ -380,7 +380,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.PowerInstance_Resume_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_Resume_ParamsSpec,
       null,
       []);
   }
@@ -389,7 +389,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec,
       null,
       [percent]);
   }
@@ -398,7 +398,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec,
       null,
       []);
   }
@@ -407,8 +407,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec,
-      arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec,
+      arc.mojom.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec,
       []);
   }
 
@@ -416,7 +416,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec,
       null,
       [state]);
   }
@@ -425,7 +425,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec,
       null,
       [state]);
   }
@@ -434,15 +434,15 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      arc.mojom.PowerInstance_SetIdleState_ParamsSpec,
+      arc.mojom.mojom.PowerInstance_SetIdleState_ParamsSpec,
       null,
       [state]);
   }
 
 };
 
-arc.mojom.PowerInstance.getRemote = function() {
-  let remote = new arc.mojom.PowerInstanceRemote();
+arc.mojom.mojom.PowerInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.PowerInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -452,7 +452,7 @@ arc.mojom.PowerInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.PowerInstance_Init_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.Init_Params',
@@ -466,7 +466,7 @@ arc.mojom.PowerInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for SetInteractiveDeprecated
-arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.SetInteractiveDeprecated_Params',
@@ -480,7 +480,7 @@ arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec = {
 };
 
 // ParamsSpec for Suspend
-arc.mojom.PowerInstance_Suspend_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_Suspend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.Suspend_Params',
@@ -493,7 +493,7 @@ arc.mojom.PowerInstance_Suspend_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-arc.mojom.PowerInstance_Resume_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.Resume_Params',
@@ -506,7 +506,7 @@ arc.mojom.PowerInstance_Resume_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateScreenBrightnessSettings
-arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.UpdateScreenBrightnessSettings_Params',
@@ -520,7 +520,7 @@ arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec = {
 };
 
 // ParamsSpec for PowerSupplyInfoChanged
-arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.PowerSupplyInfoChanged_Params',
@@ -533,7 +533,7 @@ arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec = {
 };
 
 // ParamsSpec for GetWakefulnessMode
-arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.GetWakefulnessMode_Params',
@@ -545,7 +545,7 @@ arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec = {
   }
 };
 
-arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec = {
+arc.mojom.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.GetWakefulnessMode_ResponseParams',
@@ -559,7 +559,7 @@ arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnCpuRestrictionChanged
-arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.OnCpuRestrictionChanged_Params',
@@ -573,7 +573,7 @@ arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnBatterySaverModeStateChanged
-arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.OnBatterySaverModeStateChanged_Params',
@@ -587,7 +587,7 @@ arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for SetIdleState
-arc.mojom.PowerInstance_SetIdleState_ParamsSpec = {
+arc.mojom.mojom.PowerInstance_SetIdleState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PowerInstance.SetIdleState_Params',
@@ -601,6 +601,6 @@ arc.mojom.PowerInstance_SetIdleState_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.PowerInstancePtr = arc.mojom.PowerInstanceRemote;
-arc.mojom.PowerInstanceRequest = arc.mojom.PowerInstancePendingReceiver;
+arc.mojom.mojom.PowerInstancePtr = arc.mojom.mojom.PowerInstanceRemote;
+arc.mojom.mojom.PowerInstanceRequest = arc.mojom.mojom.PowerInstancePendingReceiver;
 

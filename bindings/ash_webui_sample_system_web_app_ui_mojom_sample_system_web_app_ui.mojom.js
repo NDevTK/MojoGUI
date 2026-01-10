@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
-ash.mojom.sample_swa = ash.mojom.sample_swa || {};
+ash.mojom.mojom.sample_swa = ash.mojom.mojom.sample_swa || {};
 
 
 // Struct: Preferences
-ash.mojom.sample_swa.PreferencesSpec = {
+ash.mojom.mojom.sample_swa.sample_swa.PreferencesSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.Preferences',
@@ -26,24 +26,24 @@ ash.mojom.sample_swa.PreferencesSpec = {
 };
 
 // Interface: PageHandlerFactory
-ash.mojom.sample_swa.PageHandlerFactory = {};
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactory = {};
 
-ash.mojom.sample_swa.PageHandlerFactoryPendingReceiver = class {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.mojom.sample_swa.PageHandlerFactoryRemote = class {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.mojom.sample_swa.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.mojom.sample_swa.PageHandlerFactoryPendingReceiver,
+      ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +55,7 @@ ash.mojom.sample_swa.PageHandlerFactoryRemote = class {
   }
 };
 
-ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler = class {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +64,15 @@ ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler, page]);
   }
 
 };
 
-ash.mojom.sample_swa.PageHandlerFactory.getRemote = function() {
-  let remote = new ash.mojom.sample_swa.PageHandlerFactoryRemote();
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactory.getRemote = function() {
+  let remote = new ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +82,7 @@ ash.mojom.sample_swa.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.PageHandlerFactory.CreatePageHandler_Params',
@@ -97,29 +97,29 @@ ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.mojom.sample_swa.PageHandlerFactoryPtr = ash.mojom.sample_swa.PageHandlerFactoryRemote;
-ash.mojom.sample_swa.PageHandlerFactoryRequest = ash.mojom.sample_swa.PageHandlerFactoryPendingReceiver;
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryPtr = ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryRemote;
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryRequest = ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.mojom.sample_swa.PageHandler = {};
+ash.mojom.mojom.sample_swa.sample_swa.PageHandler = {};
 
-ash.mojom.sample_swa.PageHandlerPendingReceiver = class {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.mojom.sample_swa.PageHandlerRemote = class {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.mojom.sample_swa.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.mojom.sample_swa.PageHandlerPendingReceiver,
+      ash.mojom.mojom.sample_swa.sample_swa.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.mojom.sample_swa.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.mojom.mojom.sample_swa.sample_swa.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -131,7 +131,7 @@ ash.mojom.sample_swa.PageHandlerRemote = class {
   }
 };
 
-ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -140,8 +140,8 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec,
-      ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec,
+      ash.mojom.mojom.sample_swa.sample_swa.PageHandler_GetPreferences_ParamsSpec,
+      ash.mojom.mojom.sample_swa.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec,
       []);
   }
 
@@ -149,7 +149,7 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.sample_swa.PageHandler_Send_ParamsSpec,
+      ash.mojom.mojom.sample_swa.sample_swa.PageHandler_Send_ParamsSpec,
       null,
       [message]);
   }
@@ -158,15 +158,15 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec,
+      ash.mojom.mojom.sample_swa.sample_swa.PageHandler_DoSomething_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.mojom.sample_swa.PageHandler.getRemote = function() {
-  let remote = new ash.mojom.sample_swa.PageHandlerRemote();
+ash.mojom.mojom.sample_swa.sample_swa.PageHandler.getRemote = function() {
+  let remote = new ash.mojom.mojom.sample_swa.sample_swa.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -176,7 +176,7 @@ ash.mojom.sample_swa.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetPreferences
-ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.PageHandler.GetPreferences_Params',
@@ -188,7 +188,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
   }
 };
 
-ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.PageHandler.GetPreferences_ResponseParams',
@@ -202,7 +202,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Send
-ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandler_Send_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.PageHandler.Send_Params',
@@ -216,7 +216,7 @@ ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = {
 };
 
 // ParamsSpec for DoSomething
-ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = {
+ash.mojom.mojom.sample_swa.sample_swa.PageHandler_DoSomething_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.PageHandler.DoSomething_Params',
@@ -229,29 +229,29 @@ ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.mojom.sample_swa.PageHandlerPtr = ash.mojom.sample_swa.PageHandlerRemote;
-ash.mojom.sample_swa.PageHandlerRequest = ash.mojom.sample_swa.PageHandlerPendingReceiver;
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerPtr = ash.mojom.mojom.sample_swa.sample_swa.PageHandlerRemote;
+ash.mojom.mojom.sample_swa.sample_swa.PageHandlerRequest = ash.mojom.mojom.sample_swa.sample_swa.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.mojom.sample_swa.Page = {};
+ash.mojom.mojom.sample_swa.sample_swa.Page = {};
 
-ash.mojom.sample_swa.PagePendingReceiver = class {
+ash.mojom.mojom.sample_swa.sample_swa.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.mojom.sample_swa.PageRemote = class {
+ash.mojom.mojom.sample_swa.sample_swa.PageRemote = class {
   static get $interfaceName() {
     return 'ash.mojom.sample_swa.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.mojom.sample_swa.PagePendingReceiver,
+      ash.mojom.mojom.sample_swa.sample_swa.PagePendingReceiver,
       handle);
-    this.$ = new ash.mojom.sample_swa.PageRemoteCallHandler(this.proxy);
+    this.$ = new ash.mojom.mojom.sample_swa.sample_swa.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -263,7 +263,7 @@ ash.mojom.sample_swa.PageRemote = class {
   }
 };
 
-ash.mojom.sample_swa.PageRemoteCallHandler = class {
+ash.mojom.mojom.sample_swa.sample_swa.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -272,7 +272,7 @@ ash.mojom.sample_swa.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec,
+      ash.mojom.mojom.sample_swa.sample_swa.Page_OnEventOccurred_ParamsSpec,
       null,
       [name]);
   }
@@ -281,15 +281,15 @@ ash.mojom.sample_swa.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec,
+      ash.mojom.mojom.sample_swa.sample_swa.Page_CreateParentPage_ParamsSpec,
       null,
       [child_untrusted_page, parent_trusted_page]);
   }
 
 };
 
-ash.mojom.sample_swa.Page.getRemote = function() {
-  let remote = new ash.mojom.sample_swa.PageRemote();
+ash.mojom.mojom.sample_swa.sample_swa.Page.getRemote = function() {
+  let remote = new ash.mojom.mojom.sample_swa.sample_swa.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -299,7 +299,7 @@ ash.mojom.sample_swa.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnEventOccurred
-ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = {
+ash.mojom.mojom.sample_swa.sample_swa.Page_OnEventOccurred_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.Page.OnEventOccurred_Params',
@@ -313,7 +313,7 @@ ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = {
 };
 
 // ParamsSpec for CreateParentPage
-ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = {
+ash.mojom.mojom.sample_swa.sample_swa.Page_CreateParentPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.Page.CreateParentPage_Params',
@@ -328,6 +328,6 @@ ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.mojom.sample_swa.PagePtr = ash.mojom.sample_swa.PageRemote;
-ash.mojom.sample_swa.PageRequest = ash.mojom.sample_swa.PagePendingReceiver;
+ash.mojom.mojom.sample_swa.sample_swa.PagePtr = ash.mojom.mojom.sample_swa.sample_swa.PageRemote;
+ash.mojom.mojom.sample_swa.sample_swa.PageRequest = ash.mojom.mojom.sample_swa.sample_swa.PagePendingReceiver;
 

@@ -10,14 +10,14 @@ media.mojom = media.mojom || {};
 
 
 // Enum: SpeechAudioErrorDetails
-media.mojom.SpeechAudioErrorDetails = {
+media.mojom.mojom.SpeechAudioErrorDetails = {
   kNone: 0,
   kNoMic: 1,
 };
-media.mojom.SpeechAudioErrorDetailsSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.SpeechAudioErrorDetailsSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpeechRecognitionError
-media.mojom.SpeechRecognitionErrorSpec = {
+media.mojom.mojom.SpeechRecognitionErrorSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionError',

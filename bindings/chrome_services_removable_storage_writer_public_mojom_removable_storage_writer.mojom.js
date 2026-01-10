@@ -9,11 +9,11 @@ var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
 
-chrome.mojom.kRemovableStorageWriterSandbox = sandbox.mojom.Sandbox.kNoSandboxAndElevatedPrivileges;
+chrome.mojom.mojom.kRemovableStorageWriterSandbox = sandbox.mojom.Sandbox.kNoSandboxAndElevatedPrivileges;
 
-chrome.mojom.kRemovableStorageWriterSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+chrome.mojom.mojom.kRemovableStorageWriterSandbox = sandbox.mojom.Sandbox.kNoSandbox;
 
-chrome.mojom.kTestDevice = "chrome:
+chrome.mojom.mojom.kTestDevice = "chrome:
 
   
   
@@ -22,24 +22,24 @@ chrome.mojom.kTestDevice = "chrome:
         pending_remote<RemovableStorageWriterClient> client);
 
 // Interface: RemovableStorageWriter
-chrome.mojom.RemovableStorageWriter = {};
+chrome.mojom.mojom.RemovableStorageWriter = {};
 
-chrome.mojom.RemovableStorageWriterPendingReceiver = class {
+chrome.mojom.mojom.RemovableStorageWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.RemovableStorageWriterRemote = class {
+chrome.mojom.mojom.RemovableStorageWriterRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.RemovableStorageWriter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.RemovableStorageWriterPendingReceiver,
+      chrome.mojom.mojom.RemovableStorageWriterPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.RemovableStorageWriterRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.RemovableStorageWriterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -51,7 +51,7 @@ chrome.mojom.RemovableStorageWriterRemote = class {
   }
 };
 
-chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
+chrome.mojom.mojom.RemovableStorageWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -60,7 +60,7 @@ chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.RemovableStorageWriter_Write_ParamsSpec,
+      chrome.mojom.mojom.RemovableStorageWriter_Write_ParamsSpec,
       null,
       [source, target, client]);
   }
@@ -69,15 +69,15 @@ chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec,
+      chrome.mojom.mojom.RemovableStorageWriter_Verify_ParamsSpec,
       null,
       [source, target, client]);
   }
 
 };
 
-chrome.mojom.RemovableStorageWriter.getRemote = function() {
-  let remote = new chrome.mojom.RemovableStorageWriterRemote();
+chrome.mojom.mojom.RemovableStorageWriter.getRemote = function() {
+  let remote = new chrome.mojom.mojom.RemovableStorageWriterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -87,7 +87,7 @@ chrome.mojom.RemovableStorageWriter.getRemote = function() {
 };
 
 // ParamsSpec for Write
-chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = {
+chrome.mojom.mojom.RemovableStorageWriter_Write_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.RemovableStorageWriter.Write_Params',
@@ -103,7 +103,7 @@ chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = {
 };
 
 // ParamsSpec for Verify
-chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = {
+chrome.mojom.mojom.RemovableStorageWriter_Verify_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.RemovableStorageWriter.Verify_Params',
@@ -119,29 +119,29 @@ chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.RemovableStorageWriterPtr = chrome.mojom.RemovableStorageWriterRemote;
-chrome.mojom.RemovableStorageWriterRequest = chrome.mojom.RemovableStorageWriterPendingReceiver;
+chrome.mojom.mojom.RemovableStorageWriterPtr = chrome.mojom.mojom.RemovableStorageWriterRemote;
+chrome.mojom.mojom.RemovableStorageWriterRequest = chrome.mojom.mojom.RemovableStorageWriterPendingReceiver;
 
 
 // Interface: RemovableStorageWriterClient
-chrome.mojom.RemovableStorageWriterClient = {};
+chrome.mojom.mojom.RemovableStorageWriterClient = {};
 
-chrome.mojom.RemovableStorageWriterClientPendingReceiver = class {
+chrome.mojom.mojom.RemovableStorageWriterClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.RemovableStorageWriterClientRemote = class {
+chrome.mojom.mojom.RemovableStorageWriterClientRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.RemovableStorageWriterClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.RemovableStorageWriterClientPendingReceiver,
+      chrome.mojom.mojom.RemovableStorageWriterClientPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.RemovableStorageWriterClientRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.RemovableStorageWriterClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -153,7 +153,7 @@ chrome.mojom.RemovableStorageWriterClientRemote = class {
   }
 };
 
-chrome.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
+chrome.mojom.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -162,7 +162,7 @@ chrome.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec,
+      chrome.mojom.mojom.RemovableStorageWriterClient_Progress_ParamsSpec,
       null,
       [progress]);
   }
@@ -171,15 +171,15 @@ chrome.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec,
+      chrome.mojom.mojom.RemovableStorageWriterClient_Complete_ParamsSpec,
       null,
       [error]);
   }
 
 };
 
-chrome.mojom.RemovableStorageWriterClient.getRemote = function() {
-  let remote = new chrome.mojom.RemovableStorageWriterClientRemote();
+chrome.mojom.mojom.RemovableStorageWriterClient.getRemote = function() {
+  let remote = new chrome.mojom.mojom.RemovableStorageWriterClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -189,7 +189,7 @@ chrome.mojom.RemovableStorageWriterClient.getRemote = function() {
 };
 
 // ParamsSpec for Progress
-chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = {
+chrome.mojom.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.RemovableStorageWriterClient.Progress_Params',
@@ -203,7 +203,7 @@ chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = {
 };
 
 // ParamsSpec for Complete
-chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = {
+chrome.mojom.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.RemovableStorageWriterClient.Complete_Params',
@@ -217,6 +217,6 @@ chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.RemovableStorageWriterClientPtr = chrome.mojom.RemovableStorageWriterClientRemote;
-chrome.mojom.RemovableStorageWriterClientRequest = chrome.mojom.RemovableStorageWriterClientPendingReceiver;
+chrome.mojom.mojom.RemovableStorageWriterClientPtr = chrome.mojom.mojom.RemovableStorageWriterClientRemote;
+chrome.mojom.mojom.RemovableStorageWriterClientRequest = chrome.mojom.mojom.RemovableStorageWriterClientPendingReceiver;
 

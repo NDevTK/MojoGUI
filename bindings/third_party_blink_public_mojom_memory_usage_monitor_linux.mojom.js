@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: MemoryUsageMonitorLinux
-blink.mojom.MemoryUsageMonitorLinux = {};
+blink.mojom.mojom.MemoryUsageMonitorLinux = {};
 
-blink.mojom.MemoryUsageMonitorLinuxPendingReceiver = class {
+blink.mojom.mojom.MemoryUsageMonitorLinuxPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.MemoryUsageMonitorLinuxRemote = class {
+blink.mojom.mojom.MemoryUsageMonitorLinuxRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.MemoryUsageMonitorLinux';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.MemoryUsageMonitorLinuxPendingReceiver,
+      blink.mojom.mojom.MemoryUsageMonitorLinuxPendingReceiver,
       handle);
-    this.$ = new blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.MemoryUsageMonitorLinuxRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.MemoryUsageMonitorLinuxRemote = class {
   }
 };
 
-blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = class {
+blink.mojom.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec,
+      blink.mojom.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec,
       null,
       [statm_file, status_file]);
   }
 
 };
 
-blink.mojom.MemoryUsageMonitorLinux.getRemote = function() {
-  let remote = new blink.mojom.MemoryUsageMonitorLinuxRemote();
+blink.mojom.mojom.MemoryUsageMonitorLinux.getRemote = function() {
+  let remote = new blink.mojom.mojom.MemoryUsageMonitorLinuxRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ blink.mojom.MemoryUsageMonitorLinux.getRemote = function() {
 };
 
 // ParamsSpec for SetProcFiles
-blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec = {
+blink.mojom.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MemoryUsageMonitorLinux.SetProcFiles_Params',
@@ -81,6 +81,6 @@ blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.MemoryUsageMonitorLinuxPtr = blink.mojom.MemoryUsageMonitorLinuxRemote;
-blink.mojom.MemoryUsageMonitorLinuxRequest = blink.mojom.MemoryUsageMonitorLinuxPendingReceiver;
+blink.mojom.mojom.MemoryUsageMonitorLinuxPtr = blink.mojom.mojom.MemoryUsageMonitorLinuxRemote;
+blink.mojom.mojom.MemoryUsageMonitorLinuxRequest = blink.mojom.mojom.MemoryUsageMonitorLinuxPendingReceiver;
 

@@ -10,24 +10,24 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Interface: Remoting
-crosapi.mojom.Remoting = {};
+crosapi.mojom.mojom.Remoting = {};
 
-crosapi.mojom.RemotingPendingReceiver = class {
+crosapi.mojom.mojom.RemotingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.RemotingRemote = class {
+crosapi.mojom.mojom.RemotingRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.Remoting';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.RemotingPendingReceiver,
+      crosapi.mojom.mojom.RemotingPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.RemotingRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.RemotingRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ crosapi.mojom.RemotingRemote = class {
   }
 };
 
-crosapi.mojom.RemotingRemoteCallHandler = class {
+crosapi.mojom.mojom.RemotingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ crosapi.mojom.RemotingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec,
-      crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec,
+      crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ParamsSpec,
+      crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec,
       []);
   }
 
@@ -57,15 +57,15 @@ crosapi.mojom.RemotingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.Remoting_StartSupportSession_ParamsSpec,
-      crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec,
+      crosapi.mojom.mojom.Remoting_StartSupportSession_ParamsSpec,
+      crosapi.mojom.mojom.Remoting_StartSupportSession_ResponseParamsSpec,
       [params]);
   }
 
 };
 
-crosapi.mojom.Remoting.getRemote = function() {
-  let remote = new crosapi.mojom.RemotingRemote();
+crosapi.mojom.mojom.Remoting.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.RemotingRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ crosapi.mojom.Remoting.getRemote = function() {
 };
 
 // ParamsSpec for GetSupportHostDetails
-crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
+crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Remoting.GetSupportHostDetails_Params',
@@ -87,7 +87,7 @@ crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
   }
 };
 
-crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = {
+crosapi.mojom.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Remoting.GetSupportHostDetails_ResponseParams',
@@ -101,7 +101,7 @@ crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartSupportSession
-crosapi.mojom.Remoting_StartSupportSession_ParamsSpec = {
+crosapi.mojom.mojom.Remoting_StartSupportSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Remoting.StartSupportSession_Params',
@@ -114,7 +114,7 @@ crosapi.mojom.Remoting_StartSupportSession_ParamsSpec = {
   }
 };
 
-crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec = {
+crosapi.mojom.mojom.Remoting_StartSupportSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Remoting.StartSupportSession_ResponseParams',
@@ -128,6 +128,6 @@ crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.RemotingPtr = crosapi.mojom.RemotingRemote;
-crosapi.mojom.RemotingRequest = crosapi.mojom.RemotingPendingReceiver;
+crosapi.mojom.mojom.RemotingPtr = crosapi.mojom.mojom.RemotingRemote;
+crosapi.mojom.mojom.RemotingRequest = crosapi.mojom.mojom.RemotingPendingReceiver;
 

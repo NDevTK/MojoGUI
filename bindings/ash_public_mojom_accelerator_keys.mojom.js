@@ -10,7 +10,7 @@ ash.mojom = ash.mojom || {};
 
 
 // Enum: VKey
-ash.mojom.VKey = {
+ash.mojom.mojom.VKey = {
   kCancel: 0,
   kBack: 1,
   kTab: 2,
@@ -232,4 +232,4 @@ ash.mojom.VKey = {
   kButtonY: 218,
   kButtonZ: 219,
 };
-ash.mojom.VKeySpec = { $: mojo.internal.Enum() };
+ash.mojom.mojom.VKeySpec = { $: mojo.internal.Enum() };

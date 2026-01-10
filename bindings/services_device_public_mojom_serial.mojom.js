@@ -10,15 +10,15 @@ device.mojom = device.mojom || {};
 
 
 // Enum: SerialSendError
-device.mojom.SerialSendError = {
+device.mojom.mojom.SerialSendError = {
   NONE: 0,
   DISCONNECTED: 1,
   SYSTEM_ERROR: 2,
 };
-device.mojom.SerialSendErrorSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.SerialSendErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: SerialReceiveError
-device.mojom.SerialReceiveError = {
+device.mojom.mojom.SerialReceiveError = {
   NONE: 0,
   DISCONNECTED: 1,
   DEVICE_LOST: 2,
@@ -29,50 +29,50 @@ device.mojom.SerialReceiveError = {
   PARITY_ERROR: 7,
   SYSTEM_ERROR: 8,
 };
-device.mojom.SerialReceiveErrorSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.SerialReceiveErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: SerialDataBits
-device.mojom.SerialDataBits = {
+device.mojom.mojom.SerialDataBits = {
   NONE: 0,
   SEVEN: 1,
   EIGHT: 2,
 };
-device.mojom.SerialDataBitsSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.SerialDataBitsSpec = { $: mojo.internal.Enum() };
 
 // Enum: SerialParityBit
-device.mojom.SerialParityBit = {
+device.mojom.mojom.SerialParityBit = {
   NONE: 0,
   NO_PARITY: 1,
   ODD: 2,
   EVEN: 3,
 };
-device.mojom.SerialParityBitSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.SerialParityBitSpec = { $: mojo.internal.Enum() };
 
 // Enum: SerialStopBits
-device.mojom.SerialStopBits = {
+device.mojom.mojom.SerialStopBits = {
   NONE: 0,
   ONE: 1,
   TWO: 2,
 };
-device.mojom.SerialStopBitsSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.SerialStopBitsSpec = { $: mojo.internal.Enum() };
 
 // Enum: SerialPortFlushMode
-device.mojom.SerialPortFlushMode = {
+device.mojom.mojom.SerialPortFlushMode = {
   kReceiveAndTransmit: 0,
   kReceive: 1,
   kTransmit: 2,
 };
-device.mojom.SerialPortFlushModeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.SerialPortFlushModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SerialPortType
-device.mojom.SerialPortType = {
+device.mojom.mojom.SerialPortType = {
   PLATFORM_SERIAL: 0,
   BLUETOOTH_CLASSIC_RFCOMM: 1,
 };
-device.mojom.SerialPortTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.SerialPortTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SerialPortInfo
-device.mojom.SerialPortInfoSpec = {
+device.mojom.mojom.SerialPortInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortInfo',
@@ -80,18 +80,18 @@ device.mojom.SerialPortInfoSpec = {
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
         { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: device.mojom.SerialPortTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'alternate_path', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
-        { name: 'usb_driver_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'device_instance_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'vendor_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'has_vendor_id', packedOffset: 22, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'product_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'has_product_id', packedOffset: 22, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bluetooth_service_class_id', packedOffset: 56, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
-        { name: 'display_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'serial_number', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'connected', packedOffset: 22, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 64, packedBitOffset: 0, type: device.mojom.SerialPortTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'alternate_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
+        { name: 'usb_driver_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'device_instance_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'has_vendor_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'product_id', packedOffset: 70, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'has_product_id', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'bluetooth_service_class_id', packedOffset: 40, packedBitOffset: 0, type: bluetooth.mojom.UUIDSpec, nullable: true, minVersion: 0 },
+        { name: 'display_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'serial_number', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'connected', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }
@@ -99,7 +99,7 @@ device.mojom.SerialPortInfoSpec = {
 };
 
 // Struct: SerialConnectionOptions
-device.mojom.SerialConnectionOptionsSpec = {
+device.mojom.mojom.SerialConnectionOptionsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialConnectionOptions',
@@ -118,7 +118,7 @@ device.mojom.SerialConnectionOptionsSpec = {
 };
 
 // Struct: SerialConnectionInfo
-device.mojom.SerialConnectionInfoSpec = {
+device.mojom.mojom.SerialConnectionInfoSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialConnectionInfo',
@@ -136,7 +136,7 @@ device.mojom.SerialConnectionInfoSpec = {
 };
 
 // Struct: SerialHostControlSignals
-device.mojom.SerialHostControlSignalsSpec = {
+device.mojom.mojom.SerialHostControlSignalsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialHostControlSignals',
@@ -155,7 +155,7 @@ device.mojom.SerialHostControlSignalsSpec = {
 };
 
 // Struct: SerialPortControlSignals
-device.mojom.SerialPortControlSignalsSpec = {
+device.mojom.mojom.SerialPortControlSignalsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortControlSignals',
@@ -172,24 +172,24 @@ device.mojom.SerialPortControlSignalsSpec = {
 };
 
 // Interface: SerialPortManager
-device.mojom.SerialPortManager = {};
+device.mojom.mojom.SerialPortManager = {};
 
-device.mojom.SerialPortManagerPendingReceiver = class {
+device.mojom.mojom.SerialPortManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.SerialPortManagerRemote = class {
+device.mojom.mojom.SerialPortManagerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SerialPortManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.SerialPortManagerPendingReceiver,
+      device.mojom.mojom.SerialPortManagerPendingReceiver,
       handle);
-    this.$ = new device.mojom.SerialPortManagerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.SerialPortManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -201,7 +201,7 @@ device.mojom.SerialPortManagerRemote = class {
   }
 };
 
-device.mojom.SerialPortManagerRemoteCallHandler = class {
+device.mojom.mojom.SerialPortManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -210,7 +210,7 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SerialPortManager_SetClient_ParamsSpec,
+      device.mojom.mojom.SerialPortManager_SetClient_ParamsSpec,
       null,
       [client]);
   }
@@ -219,8 +219,8 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SerialPortManager_GetDevices_ParamsSpec,
-      device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec,
+      device.mojom.mojom.SerialPortManager_GetDevices_ParamsSpec,
+      device.mojom.mojom.SerialPortManager_GetDevices_ResponseParamsSpec,
       []);
   }
 
@@ -228,15 +228,15 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.SerialPortManager_OpenPort_ParamsSpec,
-      device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec,
+      device.mojom.mojom.SerialPortManager_OpenPort_ParamsSpec,
+      device.mojom.mojom.SerialPortManager_OpenPort_ResponseParamsSpec,
       [token, use_alternate_path, options, client, watcher]);
   }
 
 };
 
-device.mojom.SerialPortManager.getRemote = function() {
-  let remote = new device.mojom.SerialPortManagerRemote();
+device.mojom.mojom.SerialPortManager.getRemote = function() {
+  let remote = new device.mojom.mojom.SerialPortManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -246,7 +246,7 @@ device.mojom.SerialPortManager.getRemote = function() {
 };
 
 // ParamsSpec for SetClient
-device.mojom.SerialPortManager_SetClient_ParamsSpec = {
+device.mojom.mojom.SerialPortManager_SetClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortManager.SetClient_Params',
@@ -260,7 +260,7 @@ device.mojom.SerialPortManager_SetClient_ParamsSpec = {
 };
 
 // ParamsSpec for GetDevices
-device.mojom.SerialPortManager_GetDevices_ParamsSpec = {
+device.mojom.mojom.SerialPortManager_GetDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortManager.GetDevices_Params',
@@ -272,7 +272,7 @@ device.mojom.SerialPortManager_GetDevices_ParamsSpec = {
   }
 };
 
-device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec = {
+device.mojom.mojom.SerialPortManager_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortManager.GetDevices_ResponseParams',
@@ -286,24 +286,24 @@ device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenPort
-device.mojom.SerialPortManager_OpenPort_ParamsSpec = {
+device.mojom.mojom.SerialPortManager_OpenPort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortManager.OpenPort_Params',
       packedSize: 40,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'use_alternate_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: device.mojom.SerialConnectionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'watcher', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'use_alternate_path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SerialConnectionOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'watcher', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
   }
 };
 
-device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec = {
+device.mojom.mojom.SerialPortManager_OpenPort_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortManager.OpenPort_ResponseParams',
@@ -317,29 +317,29 @@ device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.SerialPortManagerPtr = device.mojom.SerialPortManagerRemote;
-device.mojom.SerialPortManagerRequest = device.mojom.SerialPortManagerPendingReceiver;
+device.mojom.mojom.SerialPortManagerPtr = device.mojom.mojom.SerialPortManagerRemote;
+device.mojom.mojom.SerialPortManagerRequest = device.mojom.mojom.SerialPortManagerPendingReceiver;
 
 
 // Interface: SerialPortManagerClient
-device.mojom.SerialPortManagerClient = {};
+device.mojom.mojom.SerialPortManagerClient = {};
 
-device.mojom.SerialPortManagerClientPendingReceiver = class {
+device.mojom.mojom.SerialPortManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.SerialPortManagerClientRemote = class {
+device.mojom.mojom.SerialPortManagerClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SerialPortManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.SerialPortManagerClientPendingReceiver,
+      device.mojom.mojom.SerialPortManagerClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.SerialPortManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.SerialPortManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -351,7 +351,7 @@ device.mojom.SerialPortManagerClientRemote = class {
   }
 };
 
-device.mojom.SerialPortManagerClientRemoteCallHandler = class {
+device.mojom.mojom.SerialPortManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -360,7 +360,7 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec,
+      device.mojom.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec,
       null,
       [port_info]);
   }
@@ -369,7 +369,7 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec,
+      device.mojom.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec,
       null,
       [port_info]);
   }
@@ -378,15 +378,15 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec,
+      device.mojom.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
       [port_info]);
   }
 
 };
 
-device.mojom.SerialPortManagerClient.getRemote = function() {
-  let remote = new device.mojom.SerialPortManagerClientRemote();
+device.mojom.mojom.SerialPortManagerClient.getRemote = function() {
+  let remote = new device.mojom.mojom.SerialPortManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -396,7 +396,7 @@ device.mojom.SerialPortManagerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnPortAdded
-device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec = {
+device.mojom.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortManagerClient.OnPortAdded_Params',
@@ -410,7 +410,7 @@ device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec = {
 };
 
 // ParamsSpec for OnPortRemoved
-device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec = {
+device.mojom.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortManagerClient.OnPortRemoved_Params',
@@ -424,7 +424,7 @@ device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec = {
 };
 
 // ParamsSpec for OnPortConnectedStateChanged
-device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec = {
+device.mojom.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortManagerClient.OnPortConnectedStateChanged_Params',
@@ -438,29 +438,29 @@ device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.SerialPortManagerClientPtr = device.mojom.SerialPortManagerClientRemote;
-device.mojom.SerialPortManagerClientRequest = device.mojom.SerialPortManagerClientPendingReceiver;
+device.mojom.mojom.SerialPortManagerClientPtr = device.mojom.mojom.SerialPortManagerClientRemote;
+device.mojom.mojom.SerialPortManagerClientRequest = device.mojom.mojom.SerialPortManagerClientPendingReceiver;
 
 
 // Interface: SerialPort
-device.mojom.SerialPort = {};
+device.mojom.mojom.SerialPort = {};
 
-device.mojom.SerialPortPendingReceiver = class {
+device.mojom.mojom.SerialPortPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.SerialPortRemote = class {
+device.mojom.mojom.SerialPortRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SerialPort';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.SerialPortPendingReceiver,
+      device.mojom.mojom.SerialPortPendingReceiver,
       handle);
-    this.$ = new device.mojom.SerialPortRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.SerialPortRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -472,7 +472,7 @@ device.mojom.SerialPortRemote = class {
   }
 };
 
-device.mojom.SerialPortRemoteCallHandler = class {
+device.mojom.mojom.SerialPortRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -481,7 +481,7 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SerialPort_StartWriting_ParamsSpec,
+      device.mojom.mojom.SerialPort_StartWriting_ParamsSpec,
       null,
       [consumer]);
   }
@@ -490,7 +490,7 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SerialPort_StartReading_ParamsSpec,
+      device.mojom.mojom.SerialPort_StartReading_ParamsSpec,
       null,
       [producer]);
   }
@@ -499,7 +499,7 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.SerialPort_Flush_ParamsSpec,
+      device.mojom.mojom.SerialPort_Flush_ParamsSpec,
       null,
       [mode]);
   }
@@ -508,7 +508,7 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.SerialPort_Drain_ParamsSpec,
+      device.mojom.mojom.SerialPort_Drain_ParamsSpec,
       null,
       []);
   }
@@ -517,8 +517,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.SerialPort_GetControlSignals_ParamsSpec,
-      device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec,
+      device.mojom.mojom.SerialPort_GetControlSignals_ParamsSpec,
+      device.mojom.mojom.SerialPort_GetControlSignals_ResponseParamsSpec,
       []);
   }
 
@@ -526,8 +526,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.SerialPort_SetControlSignals_ParamsSpec,
-      device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec,
+      device.mojom.mojom.SerialPort_SetControlSignals_ParamsSpec,
+      device.mojom.mojom.SerialPort_SetControlSignals_ResponseParamsSpec,
       [signals]);
   }
 
@@ -535,8 +535,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      device.mojom.SerialPort_ConfigurePort_ParamsSpec,
-      device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec,
+      device.mojom.mojom.SerialPort_ConfigurePort_ParamsSpec,
+      device.mojom.mojom.SerialPort_ConfigurePort_ResponseParamsSpec,
       [options]);
   }
 
@@ -544,8 +544,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      device.mojom.SerialPort_GetPortInfo_ParamsSpec,
-      device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec,
+      device.mojom.mojom.SerialPort_GetPortInfo_ParamsSpec,
+      device.mojom.mojom.SerialPort_GetPortInfo_ResponseParamsSpec,
       []);
   }
 
@@ -553,15 +553,15 @@ device.mojom.SerialPortRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      device.mojom.SerialPort_Close_ParamsSpec,
+      device.mojom.mojom.SerialPort_Close_ParamsSpec,
       null,
       [flush]);
   }
 
 };
 
-device.mojom.SerialPort.getRemote = function() {
-  let remote = new device.mojom.SerialPortRemote();
+device.mojom.mojom.SerialPort.getRemote = function() {
+  let remote = new device.mojom.mojom.SerialPortRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -571,7 +571,7 @@ device.mojom.SerialPort.getRemote = function() {
 };
 
 // ParamsSpec for StartWriting
-device.mojom.SerialPort_StartWriting_ParamsSpec = {
+device.mojom.mojom.SerialPort_StartWriting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.StartWriting_Params',
@@ -585,7 +585,7 @@ device.mojom.SerialPort_StartWriting_ParamsSpec = {
 };
 
 // ParamsSpec for StartReading
-device.mojom.SerialPort_StartReading_ParamsSpec = {
+device.mojom.mojom.SerialPort_StartReading_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.StartReading_Params',
@@ -599,7 +599,7 @@ device.mojom.SerialPort_StartReading_ParamsSpec = {
 };
 
 // ParamsSpec for Flush
-device.mojom.SerialPort_Flush_ParamsSpec = {
+device.mojom.mojom.SerialPort_Flush_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.Flush_Params',
@@ -613,7 +613,7 @@ device.mojom.SerialPort_Flush_ParamsSpec = {
 };
 
 // ParamsSpec for Drain
-device.mojom.SerialPort_Drain_ParamsSpec = {
+device.mojom.mojom.SerialPort_Drain_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.Drain_Params',
@@ -626,7 +626,7 @@ device.mojom.SerialPort_Drain_ParamsSpec = {
 };
 
 // ParamsSpec for GetControlSignals
-device.mojom.SerialPort_GetControlSignals_ParamsSpec = {
+device.mojom.mojom.SerialPort_GetControlSignals_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.GetControlSignals_Params',
@@ -638,7 +638,7 @@ device.mojom.SerialPort_GetControlSignals_ParamsSpec = {
   }
 };
 
-device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec = {
+device.mojom.mojom.SerialPort_GetControlSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.GetControlSignals_ResponseParams',
@@ -652,7 +652,7 @@ device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetControlSignals
-device.mojom.SerialPort_SetControlSignals_ParamsSpec = {
+device.mojom.mojom.SerialPort_SetControlSignals_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.SetControlSignals_Params',
@@ -665,7 +665,7 @@ device.mojom.SerialPort_SetControlSignals_ParamsSpec = {
   }
 };
 
-device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec = {
+device.mojom.mojom.SerialPort_SetControlSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.SetControlSignals_ResponseParams',
@@ -679,7 +679,7 @@ device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ConfigurePort
-device.mojom.SerialPort_ConfigurePort_ParamsSpec = {
+device.mojom.mojom.SerialPort_ConfigurePort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.ConfigurePort_Params',
@@ -692,7 +692,7 @@ device.mojom.SerialPort_ConfigurePort_ParamsSpec = {
   }
 };
 
-device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec = {
+device.mojom.mojom.SerialPort_ConfigurePort_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.ConfigurePort_ResponseParams',
@@ -706,7 +706,7 @@ device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetPortInfo
-device.mojom.SerialPort_GetPortInfo_ParamsSpec = {
+device.mojom.mojom.SerialPort_GetPortInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.GetPortInfo_Params',
@@ -718,7 +718,7 @@ device.mojom.SerialPort_GetPortInfo_ParamsSpec = {
   }
 };
 
-device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec = {
+device.mojom.mojom.SerialPort_GetPortInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.GetPortInfo_ResponseParams',
@@ -732,7 +732,7 @@ device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Close
-device.mojom.SerialPort_Close_ParamsSpec = {
+device.mojom.mojom.SerialPort_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPort.Close_Params',
@@ -746,29 +746,29 @@ device.mojom.SerialPort_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.SerialPortPtr = device.mojom.SerialPortRemote;
-device.mojom.SerialPortRequest = device.mojom.SerialPortPendingReceiver;
+device.mojom.mojom.SerialPortPtr = device.mojom.mojom.SerialPortRemote;
+device.mojom.mojom.SerialPortRequest = device.mojom.mojom.SerialPortPendingReceiver;
 
 
 // Interface: SerialPortClient
-device.mojom.SerialPortClient = {};
+device.mojom.mojom.SerialPortClient = {};
 
-device.mojom.SerialPortClientPendingReceiver = class {
+device.mojom.mojom.SerialPortClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.SerialPortClientRemote = class {
+device.mojom.mojom.SerialPortClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SerialPortClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.SerialPortClientPendingReceiver,
+      device.mojom.mojom.SerialPortClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.SerialPortClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.SerialPortClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -780,7 +780,7 @@ device.mojom.SerialPortClientRemote = class {
   }
 };
 
-device.mojom.SerialPortClientRemoteCallHandler = class {
+device.mojom.mojom.SerialPortClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -789,7 +789,7 @@ device.mojom.SerialPortClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SerialPortClient_OnReadError_ParamsSpec,
+      device.mojom.mojom.SerialPortClient_OnReadError_ParamsSpec,
       null,
       [error]);
   }
@@ -798,15 +798,15 @@ device.mojom.SerialPortClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SerialPortClient_OnSendError_ParamsSpec,
+      device.mojom.mojom.SerialPortClient_OnSendError_ParamsSpec,
       null,
       [error]);
   }
 
 };
 
-device.mojom.SerialPortClient.getRemote = function() {
-  let remote = new device.mojom.SerialPortClientRemote();
+device.mojom.mojom.SerialPortClient.getRemote = function() {
+  let remote = new device.mojom.mojom.SerialPortClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -816,7 +816,7 @@ device.mojom.SerialPortClient.getRemote = function() {
 };
 
 // ParamsSpec for OnReadError
-device.mojom.SerialPortClient_OnReadError_ParamsSpec = {
+device.mojom.mojom.SerialPortClient_OnReadError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortClient.OnReadError_Params',
@@ -830,7 +830,7 @@ device.mojom.SerialPortClient_OnReadError_ParamsSpec = {
 };
 
 // ParamsSpec for OnSendError
-device.mojom.SerialPortClient_OnSendError_ParamsSpec = {
+device.mojom.mojom.SerialPortClient_OnSendError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortClient.OnSendError_Params',
@@ -844,29 +844,29 @@ device.mojom.SerialPortClient_OnSendError_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.SerialPortClientPtr = device.mojom.SerialPortClientRemote;
-device.mojom.SerialPortClientRequest = device.mojom.SerialPortClientPendingReceiver;
+device.mojom.mojom.SerialPortClientPtr = device.mojom.mojom.SerialPortClientRemote;
+device.mojom.mojom.SerialPortClientRequest = device.mojom.mojom.SerialPortClientPendingReceiver;
 
 
 // Interface: SerialPortConnectionWatcher
-device.mojom.SerialPortConnectionWatcher = {};
+device.mojom.mojom.SerialPortConnectionWatcher = {};
 
-device.mojom.SerialPortConnectionWatcherPendingReceiver = class {
+device.mojom.mojom.SerialPortConnectionWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.SerialPortConnectionWatcherRemote = class {
+device.mojom.mojom.SerialPortConnectionWatcherRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SerialPortConnectionWatcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.SerialPortConnectionWatcherPendingReceiver,
+      device.mojom.mojom.SerialPortConnectionWatcherPendingReceiver,
       handle);
-    this.$ = new device.mojom.SerialPortConnectionWatcherRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.SerialPortConnectionWatcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -878,15 +878,15 @@ device.mojom.SerialPortConnectionWatcherRemote = class {
   }
 };
 
-device.mojom.SerialPortConnectionWatcherRemoteCallHandler = class {
+device.mojom.mojom.SerialPortConnectionWatcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-device.mojom.SerialPortConnectionWatcher.getRemote = function() {
-  let remote = new device.mojom.SerialPortConnectionWatcherRemote();
+device.mojom.mojom.SerialPortConnectionWatcher.getRemote = function() {
+  let remote = new device.mojom.mojom.SerialPortConnectionWatcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -896,6 +896,6 @@ device.mojom.SerialPortConnectionWatcher.getRemote = function() {
 };
 
 // Legacy compatibility
-device.mojom.SerialPortConnectionWatcherPtr = device.mojom.SerialPortConnectionWatcherRemote;
-device.mojom.SerialPortConnectionWatcherRequest = device.mojom.SerialPortConnectionWatcherPendingReceiver;
+device.mojom.mojom.SerialPortConnectionWatcherPtr = device.mojom.mojom.SerialPortConnectionWatcherRemote;
+device.mojom.mojom.SerialPortConnectionWatcherRequest = device.mojom.mojom.SerialPortConnectionWatcherPendingReceiver;
 

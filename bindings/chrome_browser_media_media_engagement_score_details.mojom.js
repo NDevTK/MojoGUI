@@ -7,10 +7,11 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var url = url || {};
 
 
 // Struct: MediaEngagementScoreDetails
-media.mojom.MediaEngagementScoreDetailsSpec = {
+media.mojom.mojom.MediaEngagementScoreDetailsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetails',
@@ -18,9 +19,9 @@ media.mojom.MediaEngagementScoreDetailsSpec = {
       fields: [
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
         { name: 'total_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'visits', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'media_playbacks', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'last_media_playback_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'visits', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'media_playbacks', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'last_media_playback_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
         { name: 'is_high', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
@@ -29,24 +30,24 @@ media.mojom.MediaEngagementScoreDetailsSpec = {
 };
 
 // Struct: MediaEngagementConfig
-media.mojom.MediaEngagementConfigSpec = {
+media.mojom.mojom.MediaEngagementConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementConfig',
       packedSize: 48,
       fields: [
-        { name: 'score_min_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'high_score_lower_threshold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'high_score_upper_threshold', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'feature_record_data', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_bypass_autoplay', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_preload_data', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_https_only', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_autoplay_disable_settings', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'pref_disable_unified_autoplay', packedOffset: 4, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_custom_autoplay_policy', packedOffset: 4, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'autoplay_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'preload_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'score_min_visits', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'high_score_lower_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'high_score_upper_threshold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'feature_record_data', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'feature_bypass_autoplay', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'feature_preload_data', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'feature_https_only', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'feature_autoplay_disable_settings', packedOffset: 36, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'pref_disable_unified_autoplay', packedOffset: 36, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_custom_autoplay_policy', packedOffset: 36, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'autoplay_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'preload_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -54,24 +55,24 @@ media.mojom.MediaEngagementConfigSpec = {
 };
 
 // Interface: MediaEngagementScoreDetailsProvider
-media.mojom.MediaEngagementScoreDetailsProvider = {};
+media.mojom.mojom.MediaEngagementScoreDetailsProvider = {};
 
-media.mojom.MediaEngagementScoreDetailsProviderPendingReceiver = class {
+media.mojom.mojom.MediaEngagementScoreDetailsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaEngagementScoreDetailsProviderRemote = class {
+media.mojom.mojom.MediaEngagementScoreDetailsProviderRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaEngagementScoreDetailsProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaEngagementScoreDetailsProviderPendingReceiver,
+      media.mojom.mojom.MediaEngagementScoreDetailsProviderPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -83,7 +84,7 @@ media.mojom.MediaEngagementScoreDetailsProviderRemote = class {
   }
 };
 
-media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
+media.mojom.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -92,8 +93,8 @@ media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec,
-      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec,
+      media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec,
+      media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec,
       []);
   }
 
@@ -101,15 +102,15 @@ media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec,
-      media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec,
+      media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec,
+      media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec,
       []);
   }
 
 };
 
-media.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
-  let remote = new media.mojom.MediaEngagementScoreDetailsProviderRemote();
+media.mojom.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaEngagementScoreDetailsProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +120,7 @@ media.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetMediaEngagementScoreDetails
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec = {
+media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementScoreDetails_Params',
@@ -131,7 +132,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_P
   }
 };
 
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec = {
+media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementScoreDetails_ResponseParams',
@@ -145,7 +146,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_R
 };
 
 // ParamsSpec for GetMediaEngagementConfig
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec = {
+media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementConfig_Params',
@@ -157,7 +158,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsS
   }
 };
 
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec = {
+media.mojom.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementConfig_ResponseParams',
@@ -171,6 +172,6 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Respons
 };
 
 // Legacy compatibility
-media.mojom.MediaEngagementScoreDetailsProviderPtr = media.mojom.MediaEngagementScoreDetailsProviderRemote;
-media.mojom.MediaEngagementScoreDetailsProviderRequest = media.mojom.MediaEngagementScoreDetailsProviderPendingReceiver;
+media.mojom.mojom.MediaEngagementScoreDetailsProviderPtr = media.mojom.mojom.MediaEngagementScoreDetailsProviderRemote;
+media.mojom.mojom.MediaEngagementScoreDetailsProviderRequest = media.mojom.mojom.MediaEngagementScoreDetailsProviderPendingReceiver;
 

@@ -10,24 +10,24 @@ network.mojom = network.mojom || {};
 
 
 // Interface: SystemDnsResolver
-network.mojom.SystemDnsResolver = {};
+network.mojom.mojom.SystemDnsResolver = {};
 
-network.mojom.SystemDnsResolverPendingReceiver = class {
+network.mojom.mojom.SystemDnsResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.SystemDnsResolverRemote = class {
+network.mojom.mojom.SystemDnsResolverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.SystemDnsResolver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.SystemDnsResolverPendingReceiver,
+      network.mojom.mojom.SystemDnsResolverPendingReceiver,
       handle);
-    this.$ = new network.mojom.SystemDnsResolverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.SystemDnsResolverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ network.mojom.SystemDnsResolverRemote = class {
   }
 };
 
-network.mojom.SystemDnsResolverRemoteCallHandler = class {
+network.mojom.mojom.SystemDnsResolverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ network.mojom.SystemDnsResolverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.SystemDnsResolver_Resolve_ParamsSpec,
-      network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec,
+      network.mojom.mojom.SystemDnsResolver_Resolve_ParamsSpec,
+      network.mojom.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec,
       [hostname, addr_family, flags, network]);
   }
 
 };
 
-network.mojom.SystemDnsResolver.getRemote = function() {
-  let remote = new network.mojom.SystemDnsResolverRemote();
+network.mojom.mojom.SystemDnsResolver.getRemote = function() {
+  let remote = new network.mojom.mojom.SystemDnsResolverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,23 +66,23 @@ network.mojom.SystemDnsResolver.getRemote = function() {
 };
 
 // ParamsSpec for Resolve
-network.mojom.SystemDnsResolver_Resolve_ParamsSpec = {
+network.mojom.mojom.SystemDnsResolver_Resolve_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SystemDnsResolver.Resolve_Params',
       packedSize: 32,
       fields: [
         { name: 'hostname', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'addr_family', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'network', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'addr_family', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'network', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
   }
 };
 
-network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = {
+network.mojom.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SystemDnsResolver.Resolve_ResponseParams',
@@ -98,6 +98,6 @@ network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.SystemDnsResolverPtr = network.mojom.SystemDnsResolverRemote;
-network.mojom.SystemDnsResolverRequest = network.mojom.SystemDnsResolverPendingReceiver;
+network.mojom.mojom.SystemDnsResolverPtr = network.mojom.mojom.SystemDnsResolverRemote;
+network.mojom.mojom.SystemDnsResolverRequest = network.mojom.mojom.SystemDnsResolverPendingReceiver;
 

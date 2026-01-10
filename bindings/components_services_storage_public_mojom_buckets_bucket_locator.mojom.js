@@ -7,10 +7,11 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var blink = blink || {};
 
 
 // Struct: BucketLocator
-storage.mojom.BucketLocatorSpec = {
+storage.mojom.mojom.BucketLocatorSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.BucketLocator',

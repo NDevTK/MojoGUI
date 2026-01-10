@@ -7,10 +7,11 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var ui = ui || {};
 
 
 // Enum: VisibilityType
-chromecast.mojom.VisibilityType = {
+chromecast.mojom.mojom.VisibilityType = {
   UNKNOWN: 0,
   FULL_SCREEN: 1,
   PARTIAL_OUT: 2,
@@ -18,10 +19,10 @@ chromecast.mojom.VisibilityType = {
   TILE: 4,
   TRANSIENTLY_HIDDEN: 5,
 };
-chromecast.mojom.VisibilityTypeSpec = { $: mojo.internal.Enum() };
+chromecast.mojom.mojom.VisibilityTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: VisibilityPriority
-chromecast.mojom.VisibilityPriority = {
+chromecast.mojom.mojom.VisibilityPriority = {
   DESTROYED: 0,
   DEFAULT: 1,
   TRANSIENT_TIMEOUTABLE: 2,
@@ -31,27 +32,27 @@ chromecast.mojom.VisibilityPriority = {
   HIDDEN: 6,
   HIDDEN_STICKY: 7,
 };
-chromecast.mojom.VisibilityPrioritySpec = { $: mojo.internal.Enum() };
+chromecast.mojom.mojom.VisibilityPrioritySpec = { $: mojo.internal.Enum() };
 
 // Interface: CastContentWindowObserver
-chromecast.mojom.CastContentWindowObserver = {};
+chromecast.mojom.mojom.CastContentWindowObserver = {};
 
-chromecast.mojom.CastContentWindowObserverPendingReceiver = class {
+chromecast.mojom.mojom.CastContentWindowObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.CastContentWindowObserverRemote = class {
+chromecast.mojom.mojom.CastContentWindowObserverRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.CastContentWindowObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.CastContentWindowObserverPendingReceiver,
+      chromecast.mojom.mojom.CastContentWindowObserverPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.CastContentWindowObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.CastContentWindowObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -63,7 +64,7 @@ chromecast.mojom.CastContentWindowObserverRemote = class {
   }
 };
 
-chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
+chromecast.mojom.mojom.CastContentWindowObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -72,7 +73,7 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec,
+      chromecast.mojom.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec,
       null,
       [visibility_type]);
   }
@@ -81,15 +82,15 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec,
+      chromecast.mojom.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chromecast.mojom.CastContentWindowObserver.getRemote = function() {
-  let remote = new chromecast.mojom.CastContentWindowObserverRemote();
+chromecast.mojom.mojom.CastContentWindowObserver.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.CastContentWindowObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +100,7 @@ chromecast.mojom.CastContentWindowObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnVisibilityChange
-chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = {
+chromecast.mojom.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastContentWindowObserver.OnVisibilityChange_Params',
@@ -113,7 +114,7 @@ chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = {
 };
 
 // ParamsSpec for OnWindowDestroyed
-chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = {
+chromecast.mojom.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastContentWindowObserver.OnWindowDestroyed_Params',
@@ -126,29 +127,29 @@ chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.CastContentWindowObserverPtr = chromecast.mojom.CastContentWindowObserverRemote;
-chromecast.mojom.CastContentWindowObserverRequest = chromecast.mojom.CastContentWindowObserverPendingReceiver;
+chromecast.mojom.mojom.CastContentWindowObserverPtr = chromecast.mojom.mojom.CastContentWindowObserverRemote;
+chromecast.mojom.mojom.CastContentWindowObserverRequest = chromecast.mojom.mojom.CastContentWindowObserverPendingReceiver;
 
 
 // Interface: CastContentWindow
-chromecast.mojom.CastContentWindow = {};
+chromecast.mojom.mojom.CastContentWindow = {};
 
-chromecast.mojom.CastContentWindowPendingReceiver = class {
+chromecast.mojom.mojom.CastContentWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.CastContentWindowRemote = class {
+chromecast.mojom.mojom.CastContentWindowRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.CastContentWindow';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.CastContentWindowPendingReceiver,
+      chromecast.mojom.mojom.CastContentWindowPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.CastContentWindowRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.CastContentWindowRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -160,7 +161,7 @@ chromecast.mojom.CastContentWindowRemote = class {
   }
 };
 
-chromecast.mojom.CastContentWindowRemoteCallHandler = class {
+chromecast.mojom.mojom.CastContentWindowRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -169,7 +170,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec,
+      chromecast.mojom.mojom.CastContentWindow_CreateWindow_ParamsSpec,
       null,
       [z_order, priority]);
   }
@@ -178,7 +179,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec,
+      chromecast.mojom.mojom.CastContentWindow_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -187,7 +188,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec,
+      chromecast.mojom.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec,
       null,
       []);
   }
@@ -196,7 +197,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec,
+      chromecast.mojom.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec,
       null,
       []);
   }
@@ -205,7 +206,7 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec,
+      chromecast.mojom.mojom.CastContentWindow_RequestVisibility_ParamsSpec,
       null,
       [priority]);
   }
@@ -214,15 +215,15 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec,
+      chromecast.mojom.mojom.CastContentWindow_EnableTouchInput_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-chromecast.mojom.CastContentWindow.getRemote = function() {
-  let remote = new chromecast.mojom.CastContentWindowRemote();
+chromecast.mojom.mojom.CastContentWindow.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.CastContentWindowRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -232,7 +233,7 @@ chromecast.mojom.CastContentWindow.getRemote = function() {
 };
 
 // ParamsSpec for CreateWindow
-chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = {
+chromecast.mojom.mojom.CastContentWindow_CreateWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastContentWindow.CreateWindow_Params',
@@ -247,7 +248,7 @@ chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = {
 };
 
 // ParamsSpec for AddObserver
-chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = {
+chromecast.mojom.mojom.CastContentWindow_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastContentWindow.AddObserver_Params',
@@ -261,7 +262,7 @@ chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for GrantScreenAccess
-chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = {
+chromecast.mojom.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastContentWindow.GrantScreenAccess_Params',
@@ -274,7 +275,7 @@ chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = {
 };
 
 // ParamsSpec for RevokeScreenAccess
-chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = {
+chromecast.mojom.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastContentWindow.RevokeScreenAccess_Params',
@@ -287,7 +288,7 @@ chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = {
 };
 
 // ParamsSpec for RequestVisibility
-chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = {
+chromecast.mojom.mojom.CastContentWindow_RequestVisibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastContentWindow.RequestVisibility_Params',
@@ -301,7 +302,7 @@ chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = {
 };
 
 // ParamsSpec for EnableTouchInput
-chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = {
+chromecast.mojom.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastContentWindow.EnableTouchInput_Params',
@@ -315,6 +316,6 @@ chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.CastContentWindowPtr = chromecast.mojom.CastContentWindowRemote;
-chromecast.mojom.CastContentWindowRequest = chromecast.mojom.CastContentWindowPendingReceiver;
+chromecast.mojom.mojom.CastContentWindowPtr = chromecast.mojom.mojom.CastContentWindowRemote;
+chromecast.mojom.mojom.CastContentWindowRequest = chromecast.mojom.mojom.CastContentWindowPendingReceiver;
 

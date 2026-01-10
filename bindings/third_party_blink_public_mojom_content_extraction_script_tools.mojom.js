@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: ScriptToolAnnotations
-blink.mojom.ScriptToolAnnotationsSpec = {
+blink.mojom.mojom.ScriptToolAnnotationsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScriptToolAnnotations',
@@ -24,7 +24,7 @@ blink.mojom.ScriptToolAnnotationsSpec = {
 };
 
 // Struct: ScriptTool
-blink.mojom.ScriptToolSpec = {
+blink.mojom.mojom.ScriptToolSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScriptTool',

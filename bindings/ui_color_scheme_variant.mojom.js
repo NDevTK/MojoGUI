@@ -10,9 +10,9 @@ color.mojom = color.mojom || {};
 
 
 // Enum: SchemeVariant
-color.mojom.SchemeVariant = {
+color.mojom.mojom.SchemeVariant = {
   kNeutral: 0,
   kVibrant: 1,
   kExpressive: 2,
 };
-color.mojom.SchemeVariantSpec = { $: mojo.internal.Enum() };
+color.mojom.mojom.SchemeVariantSpec = { $: mojo.internal.Enum() };

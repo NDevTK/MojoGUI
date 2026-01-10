@@ -7,10 +7,11 @@
 // Module namespace
 var app_management = app_management || {};
 app_management.mojom = app_management.mojom || {};
+var url = url || {};
 
 
 // Enum: AppType
-app_management.mojom.AppType = {
+app_management.mojom.mojom.AppType = {
   kUnknown: 0,
   kArc: 1,
   kCrostini: 2,
@@ -23,10 +24,10 @@ app_management.mojom.AppType = {
   kExtension: 9,
   kBruschetta: 10,
 };
-app_management.mojom.AppTypeSpec = { $: mojo.internal.Enum() };
+app_management.mojom.mojom.AppTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PermissionType
-app_management.mojom.PermissionType = {
+app_management.mojom.mojom.PermissionType = {
   kUnknown: 0,
   kCamera: 1,
   kLocation: 2,
@@ -37,18 +38,18 @@ app_management.mojom.PermissionType = {
   kPrinting: 7,
   kFileHandling: 8,
 };
-app_management.mojom.PermissionTypeSpec = { $: mojo.internal.Enum() };
+app_management.mojom.mojom.PermissionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TriState
-app_management.mojom.TriState = {
+app_management.mojom.mojom.TriState = {
   kAllow: 0,
   kBlock: 1,
   kAsk: 2,
 };
-app_management.mojom.TriStateSpec = { $: mojo.internal.Enum() };
+app_management.mojom.mojom.TriStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: InstallReason
-app_management.mojom.InstallReason = {
+app_management.mojom.mojom.InstallReason = {
   kUnknown: 0,
   kSystem: 1,
   kPolicy: 2,
@@ -60,10 +61,10 @@ app_management.mojom.InstallReason = {
   kKiosk: 8,
   kCommandLine: 9,
 };
-app_management.mojom.InstallReasonSpec = { $: mojo.internal.Enum() };
+app_management.mojom.mojom.InstallReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: InstallSource
-app_management.mojom.InstallSource = {
+app_management.mojom.mojom.InstallSource = {
   kUnknown: 0,
   kSystem: 1,
   kSync: 2,
@@ -71,27 +72,27 @@ app_management.mojom.InstallSource = {
   kChromeWebStore: 4,
   kBrowser: 5,
 };
-app_management.mojom.InstallSourceSpec = { $: mojo.internal.Enum() };
+app_management.mojom.mojom.InstallSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: WindowMode
-app_management.mojom.WindowMode = {
+app_management.mojom.mojom.WindowMode = {
   kUnknown: 0,
   kWindow: 1,
   kBrowser: 2,
   kTabbedWindow: 3,
 };
-app_management.mojom.WindowModeSpec = { $: mojo.internal.Enum() };
+app_management.mojom.mojom.WindowModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RunOnOsLoginMode
-app_management.mojom.RunOnOsLoginMode = {
+app_management.mojom.mojom.RunOnOsLoginMode = {
   kUnknown: 0,
   kNotRun: 1,
   kWindowed: 2,
 };
-app_management.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum() };
+app_management.mojom.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum() };
 
 // Union: PermissionValue
-app_management.mojom.PermissionValueSpec = { $: mojo.internal.Union(
+app_management.mojom.mojom.PermissionValueSpec = { $: mojo.internal.Union(
     'app_management.mojom.PermissionValue', {
       'bool_value': {
         'ordinal': 0,
@@ -105,16 +106,16 @@ app_management.mojom.PermissionValueSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Permission
-app_management.mojom.PermissionSpec = {
+app_management.mojom.mojom.PermissionSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.Permission',
       packedSize: 40,
       fields: [
-        { name: 'permission_type', packedOffset: 0, packedBitOffset: 0, type: app_management.mojom.PermissionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: app_management.mojom.PermissionValueSpec, nullable: false, minVersion: 0 },
-        { name: 'is_managed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'permission_type', packedOffset: 24, packedBitOffset: 0, type: app_management.mojom.PermissionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: app_management.mojom.PermissionValueSpec, nullable: false, minVersion: 0 },
+        { name: 'is_managed', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -122,7 +123,7 @@ app_management.mojom.PermissionSpec = {
 };
 
 // Struct: RunOnOsLogin
-app_management.mojom.RunOnOsLoginSpec = {
+app_management.mojom.mojom.RunOnOsLoginSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.RunOnOsLogin',
@@ -137,7 +138,7 @@ app_management.mojom.RunOnOsLoginSpec = {
 };
 
 // Struct: Locale
-app_management.mojom.LocaleSpec = {
+app_management.mojom.mojom.LocaleSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.Locale',
@@ -153,45 +154,45 @@ app_management.mojom.LocaleSpec = {
 };
 
 // Struct: App
-app_management.mojom.AppSpec = {
+app_management.mojom.mojom.AppSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.App',
       packedSize: 160,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: app_management.mojom.AppTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_pinned_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_pinned_$value', originalFieldName: 'is_pinned' } },
-        { name: 'is_pinned_$value', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_pinned_$flag', originalFieldName: 'is_pinned' } },
-        { name: 'is_policy_pinned_$flag', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_policy_pinned_$value', originalFieldName: 'is_policy_pinned' } },
-        { name: 'is_policy_pinned_$value', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_policy_pinned_$flag', originalFieldName: 'is_policy_pinned' } },
-        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'size', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'permissions', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(app_management.mojom.PermissionTypeSpec, app_management.mojom.PermissionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'install_reason', packedOffset: 56, packedBitOffset: 0, type: app_management.mojom.InstallReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'install_source', packedOffset: 60, packedBitOffset: 0, type: app_management.mojom.InstallSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'hide_more_settings', packedOffset: 12, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hide_pin_to_shelf', packedOffset: 12, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_preferred_app', packedOffset: 12, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'window_mode', packedOffset: 64, packedBitOffset: 0, type: app_management.mojom.WindowModeSpec, nullable: false, minVersion: 0 },
-        { name: 'hide_window_mode', packedOffset: 12, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resize_locked', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hide_resize_locked', packedOffset: 13, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supported_links', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'run_on_os_login', packedOffset: 80, packedBitOffset: 0, type: app_management.mojom.RunOnOsLoginSpec, nullable: true, minVersion: 0 },
-        { name: 'file_handling_state', packedOffset: 88, packedBitOffset: 0, type: app_management.mojom.FileHandlingStateSpec, nullable: true, minVersion: 0 },
-        { name: 'app_size', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'data_size', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'publisher_id', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'formatted_origin', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'scope_extensions', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'supported_locales', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Array(app_management.mojom.LocaleSpec, false), nullable: false, minVersion: 0 },
-        { name: 'selected_locale', packedOffset: 144, packedBitOffset: 0, type: app_management.mojom.LocaleSpec, nullable: true, minVersion: 0 },
-        { name: 'show_system_notifications_settings_link', packedOffset: 13, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_uninstall', packedOffset: 13, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'disable_user_choice_navigation_capturing', packedOffset: 13, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 128, packedBitOffset: 0, type: app_management.mojom.AppTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'is_pinned_$flag', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_pinned_$value', originalFieldName: 'is_pinned' } },
+        { name: 'is_pinned_$value', packedOffset: 144, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_pinned_$flag', originalFieldName: 'is_pinned' } },
+        { name: 'is_policy_pinned_$flag', packedOffset: 144, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_policy_pinned_$value', originalFieldName: 'is_policy_pinned' } },
+        { name: 'is_policy_pinned_$value', packedOffset: 144, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_policy_pinned_$flag', originalFieldName: 'is_policy_pinned' } },
+        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'permissions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(app_management.mojom.PermissionTypeSpec, app_management.mojom.PermissionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'install_reason', packedOffset: 132, packedBitOffset: 0, type: app_management.mojom.InstallReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'install_source', packedOffset: 136, packedBitOffset: 0, type: app_management.mojom.InstallSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'hide_more_settings', packedOffset: 144, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hide_pin_to_shelf', packedOffset: 144, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_preferred_app', packedOffset: 144, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'window_mode', packedOffset: 140, packedBitOffset: 0, type: app_management.mojom.WindowModeSpec, nullable: false, minVersion: 0 },
+        { name: 'hide_window_mode', packedOffset: 144, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'resize_locked', packedOffset: 145, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hide_resize_locked', packedOffset: 145, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'supported_links', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'run_on_os_login', packedOffset: 56, packedBitOffset: 0, type: app_management.mojom.RunOnOsLoginSpec, nullable: true, minVersion: 0 },
+        { name: 'file_handling_state', packedOffset: 64, packedBitOffset: 0, type: app_management.mojom.FileHandlingStateSpec, nullable: true, minVersion: 0 },
+        { name: 'app_size', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'data_size', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'publisher_id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'formatted_origin', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'scope_extensions', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'supported_locales', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array(app_management.mojom.LocaleSpec, false), nullable: false, minVersion: 0 },
+        { name: 'selected_locale', packedOffset: 120, packedBitOffset: 0, type: app_management.mojom.LocaleSpec, nullable: true, minVersion: 0 },
+        { name: 'show_system_notifications_settings_link', packedOffset: 145, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_uninstall', packedOffset: 145, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'disable_user_choice_navigation_capturing', packedOffset: 145, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 160}]
     }
@@ -199,7 +200,7 @@ app_management.mojom.AppSpec = {
 };
 
 // Struct: ExtensionAppPermissionMessage
-app_management.mojom.ExtensionAppPermissionMessageSpec = {
+app_management.mojom.mojom.ExtensionAppPermissionMessageSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.ExtensionAppPermissionMessage',
@@ -214,17 +215,17 @@ app_management.mojom.ExtensionAppPermissionMessageSpec = {
 };
 
 // Struct: FileHandlingState
-app_management.mojom.FileHandlingStateSpec = {
+app_management.mojom.mojom.FileHandlingStateSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.FileHandlingState',
       packedSize: 40,
       fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_managed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'user_visible_types', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_visible_types_label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'learn_more_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'enabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_managed', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'user_visible_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'user_visible_types_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'learn_more_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -232,24 +233,24 @@ app_management.mojom.FileHandlingStateSpec = {
 };
 
 // Interface: PageHandlerFactory
-app_management.mojom.PageHandlerFactory = {};
+app_management.mojom.mojom.PageHandlerFactory = {};
 
-app_management.mojom.PageHandlerFactoryPendingReceiver = class {
+app_management.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-app_management.mojom.PageHandlerFactoryRemote = class {
+app_management.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'app_management.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      app_management.mojom.PageHandlerFactoryPendingReceiver,
+      app_management.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new app_management.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new app_management.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -261,7 +262,7 @@ app_management.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-app_management.mojom.PageHandlerFactoryRemoteCallHandler = class {
+app_management.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -270,15 +271,15 @@ app_management.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      app_management.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-app_management.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new app_management.mojom.PageHandlerFactoryRemote();
+app_management.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new app_management.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -288,7 +289,7 @@ app_management.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+app_management.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -303,29 +304,29 @@ app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-app_management.mojom.PageHandlerFactoryPtr = app_management.mojom.PageHandlerFactoryRemote;
-app_management.mojom.PageHandlerFactoryRequest = app_management.mojom.PageHandlerFactoryPendingReceiver;
+app_management.mojom.mojom.PageHandlerFactoryPtr = app_management.mojom.mojom.PageHandlerFactoryRemote;
+app_management.mojom.mojom.PageHandlerFactoryRequest = app_management.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-app_management.mojom.PageHandler = {};
+app_management.mojom.mojom.PageHandler = {};
 
-app_management.mojom.PageHandlerPendingReceiver = class {
+app_management.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-app_management.mojom.PageHandlerRemote = class {
+app_management.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'app_management.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      app_management.mojom.PageHandlerPendingReceiver,
+      app_management.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new app_management.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new app_management.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -337,7 +338,7 @@ app_management.mojom.PageHandlerRemote = class {
   }
 };
 
-app_management.mojom.PageHandlerRemoteCallHandler = class {
+app_management.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -346,8 +347,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      app_management.mojom.PageHandler_GetApps_ParamsSpec,
-      app_management.mojom.PageHandler_GetApps_ResponseParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetApps_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetApps_ResponseParamsSpec,
       []);
   }
 
@@ -355,8 +356,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      app_management.mojom.PageHandler_GetApp_ParamsSpec,
-      app_management.mojom.PageHandler_GetApp_ResponseParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetApp_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetApp_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -364,8 +365,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec,
-      app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec,
       []);
   }
 
@@ -373,8 +374,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec,
-      app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -382,7 +383,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      app_management.mojom.PageHandler_SetPinned_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_SetPinned_ParamsSpec,
       null,
       [app_id, pinned]);
   }
@@ -391,7 +392,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      app_management.mojom.PageHandler_SetPermission_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_SetPermission_ParamsSpec,
       null,
       [app_id, permission]);
   }
@@ -400,7 +401,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_SetResizeLocked_ParamsSpec,
       null,
       [app_id, locked]);
   }
@@ -409,7 +410,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      app_management.mojom.PageHandler_Uninstall_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_Uninstall_ParamsSpec,
       null,
       [app_id]);
   }
@@ -418,7 +419,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_OpenNativeSettings_ParamsSpec,
       null,
       [app_id]);
   }
@@ -427,7 +428,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_SetPreferredApp_ParamsSpec,
       null,
       [app_id, is_preferred_app]);
   }
@@ -436,8 +437,8 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec,
-      app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec,
       [app_id]);
   }
 
@@ -445,7 +446,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_UpdateAppSize_ParamsSpec,
       null,
       [app_id]);
   }
@@ -454,7 +455,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      app_management.mojom.PageHandler_SetWindowMode_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_SetWindowMode_ParamsSpec,
       null,
       [app_id, window_mode]);
   }
@@ -463,7 +464,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec,
       null,
       [app_id, run_on_os_login_mode]);
   }
@@ -472,7 +473,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec,
       null,
       [app_id, enabled]);
   }
@@ -481,7 +482,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec,
       null,
       []);
   }
@@ -490,7 +491,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      app_management.mojom.PageHandler_OpenStorePage_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_OpenStorePage_ParamsSpec,
       null,
       [app_id]);
   }
@@ -499,7 +500,7 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      app_management.mojom.PageHandler_SetAppLocale_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_SetAppLocale_ParamsSpec,
       null,
       [app_id, locale_tag]);
   }
@@ -508,15 +509,15 @@ app_management.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec,
+      app_management.mojom.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec,
       null,
       [app_id]);
   }
 
 };
 
-app_management.mojom.PageHandler.getRemote = function() {
-  let remote = new app_management.mojom.PageHandlerRemote();
+app_management.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new app_management.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -526,7 +527,7 @@ app_management.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetApps
-app_management.mojom.PageHandler_GetApps_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetApps_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetApps_Params',
@@ -538,7 +539,7 @@ app_management.mojom.PageHandler_GetApps_ParamsSpec = {
   }
 };
 
-app_management.mojom.PageHandler_GetApps_ResponseParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetApps_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetApps_ResponseParams',
@@ -552,7 +553,7 @@ app_management.mojom.PageHandler_GetApps_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetApp
-app_management.mojom.PageHandler_GetApp_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetApp_Params',
@@ -565,7 +566,7 @@ app_management.mojom.PageHandler_GetApp_ParamsSpec = {
   }
 };
 
-app_management.mojom.PageHandler_GetApp_ResponseParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetApp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetApp_ResponseParams',
@@ -579,7 +580,7 @@ app_management.mojom.PageHandler_GetApp_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSubAppToParentMap
-app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetSubAppToParentMap_Params',
@@ -591,7 +592,7 @@ app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec = {
   }
 };
 
-app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetSubAppToParentMap_ResponseParams',
@@ -605,7 +606,7 @@ app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetExtensionAppPermissionMessages
-app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetExtensionAppPermissionMessages_Params',
@@ -618,7 +619,7 @@ app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec = 
   }
 };
 
-app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetExtensionAppPermissionMessages_ResponseParams',
@@ -632,7 +633,7 @@ app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParam
 };
 
 // ParamsSpec for SetPinned
-app_management.mojom.PageHandler_SetPinned_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_SetPinned_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.SetPinned_Params',
@@ -647,7 +648,7 @@ app_management.mojom.PageHandler_SetPinned_ParamsSpec = {
 };
 
 // ParamsSpec for SetPermission
-app_management.mojom.PageHandler_SetPermission_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_SetPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.SetPermission_Params',
@@ -662,7 +663,7 @@ app_management.mojom.PageHandler_SetPermission_ParamsSpec = {
 };
 
 // ParamsSpec for SetResizeLocked
-app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_SetResizeLocked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.SetResizeLocked_Params',
@@ -677,7 +678,7 @@ app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec = {
 };
 
 // ParamsSpec for Uninstall
-app_management.mojom.PageHandler_Uninstall_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_Uninstall_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.Uninstall_Params',
@@ -691,7 +692,7 @@ app_management.mojom.PageHandler_Uninstall_ParamsSpec = {
 };
 
 // ParamsSpec for OpenNativeSettings
-app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_OpenNativeSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.OpenNativeSettings_Params',
@@ -705,7 +706,7 @@ app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec = {
 };
 
 // ParamsSpec for SetPreferredApp
-app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_SetPreferredApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.SetPreferredApp_Params',
@@ -720,7 +721,7 @@ app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec = {
 };
 
 // ParamsSpec for GetOverlappingPreferredApps
-app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetOverlappingPreferredApps_Params',
@@ -733,7 +734,7 @@ app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec = {
   }
 };
 
-app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec = {
+app_management.mojom.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.GetOverlappingPreferredApps_ResponseParams',
@@ -747,7 +748,7 @@ app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec 
 };
 
 // ParamsSpec for UpdateAppSize
-app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_UpdateAppSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.UpdateAppSize_Params',
@@ -761,7 +762,7 @@ app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec = {
 };
 
 // ParamsSpec for SetWindowMode
-app_management.mojom.PageHandler_SetWindowMode_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_SetWindowMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.SetWindowMode_Params',
@@ -776,7 +777,7 @@ app_management.mojom.PageHandler_SetWindowMode_ParamsSpec = {
 };
 
 // ParamsSpec for SetRunOnOsLoginMode
-app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.SetRunOnOsLoginMode_Params',
@@ -791,7 +792,7 @@ app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = {
 };
 
 // ParamsSpec for SetFileHandlingEnabled
-app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.SetFileHandlingEnabled_Params',
@@ -806,7 +807,7 @@ app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for ShowDefaultAppAssociationsUi
-app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.ShowDefaultAppAssociationsUi_Params',
@@ -819,7 +820,7 @@ app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec = {
 };
 
 // ParamsSpec for OpenStorePage
-app_management.mojom.PageHandler_OpenStorePage_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_OpenStorePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.OpenStorePage_Params',
@@ -833,7 +834,7 @@ app_management.mojom.PageHandler_OpenStorePage_ParamsSpec = {
 };
 
 // ParamsSpec for SetAppLocale
-app_management.mojom.PageHandler_SetAppLocale_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_SetAppLocale_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.SetAppLocale_Params',
@@ -848,7 +849,7 @@ app_management.mojom.PageHandler_SetAppLocale_ParamsSpec = {
 };
 
 // ParamsSpec for OpenSystemNotificationSettings
-app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec = {
+app_management.mojom.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.PageHandler.OpenSystemNotificationSettings_Params',
@@ -862,29 +863,29 @@ app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec = {
 };
 
 // Legacy compatibility
-app_management.mojom.PageHandlerPtr = app_management.mojom.PageHandlerRemote;
-app_management.mojom.PageHandlerRequest = app_management.mojom.PageHandlerPendingReceiver;
+app_management.mojom.mojom.PageHandlerPtr = app_management.mojom.mojom.PageHandlerRemote;
+app_management.mojom.mojom.PageHandlerRequest = app_management.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-app_management.mojom.Page = {};
+app_management.mojom.mojom.Page = {};
 
-app_management.mojom.PagePendingReceiver = class {
+app_management.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-app_management.mojom.PageRemote = class {
+app_management.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'app_management.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      app_management.mojom.PagePendingReceiver,
+      app_management.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new app_management.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new app_management.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -896,7 +897,7 @@ app_management.mojom.PageRemote = class {
   }
 };
 
-app_management.mojom.PageRemoteCallHandler = class {
+app_management.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -905,7 +906,7 @@ app_management.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      app_management.mojom.Page_OnAppAdded_ParamsSpec,
+      app_management.mojom.mojom.Page_OnAppAdded_ParamsSpec,
       null,
       [app]);
   }
@@ -914,7 +915,7 @@ app_management.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      app_management.mojom.Page_OnAppChanged_ParamsSpec,
+      app_management.mojom.mojom.Page_OnAppChanged_ParamsSpec,
       null,
       [update]);
   }
@@ -923,15 +924,15 @@ app_management.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      app_management.mojom.Page_OnAppRemoved_ParamsSpec,
+      app_management.mojom.mojom.Page_OnAppRemoved_ParamsSpec,
       null,
       [app_id]);
   }
 
 };
 
-app_management.mojom.Page.getRemote = function() {
-  let remote = new app_management.mojom.PageRemote();
+app_management.mojom.mojom.Page.getRemote = function() {
+  let remote = new app_management.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -941,7 +942,7 @@ app_management.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for OnAppAdded
-app_management.mojom.Page_OnAppAdded_ParamsSpec = {
+app_management.mojom.mojom.Page_OnAppAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.Page.OnAppAdded_Params',
@@ -955,7 +956,7 @@ app_management.mojom.Page_OnAppAdded_ParamsSpec = {
 };
 
 // ParamsSpec for OnAppChanged
-app_management.mojom.Page_OnAppChanged_ParamsSpec = {
+app_management.mojom.mojom.Page_OnAppChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.Page.OnAppChanged_Params',
@@ -969,7 +970,7 @@ app_management.mojom.Page_OnAppChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnAppRemoved
-app_management.mojom.Page_OnAppRemoved_ParamsSpec = {
+app_management.mojom.mojom.Page_OnAppRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'app_management.mojom.Page.OnAppRemoved_Params',
@@ -983,6 +984,6 @@ app_management.mojom.Page_OnAppRemoved_ParamsSpec = {
 };
 
 // Legacy compatibility
-app_management.mojom.PagePtr = app_management.mojom.PageRemote;
-app_management.mojom.PageRequest = app_management.mojom.PagePendingReceiver;
+app_management.mojom.mojom.PagePtr = app_management.mojom.mojom.PageRemote;
+app_management.mojom.mojom.PageRequest = app_management.mojom.mojom.PagePendingReceiver;
 

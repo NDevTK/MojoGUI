@@ -7,10 +7,12 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Struct: SameOriginBfcacheNotRestoredDetails
-blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec = {
+blink.mojom.mojom.SameOriginBfcacheNotRestoredDetailsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SameOriginBfcacheNotRestoredDetails',
@@ -25,7 +27,7 @@ blink.mojom.SameOriginBfcacheNotRestoredDetailsSpec = {
 };
 
 // Struct: BFCacheBlockingDetailedReason
-blink.mojom.BFCacheBlockingDetailedReasonSpec = {
+blink.mojom.mojom.BFCacheBlockingDetailedReasonSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BFCacheBlockingDetailedReason',
@@ -40,7 +42,7 @@ blink.mojom.BFCacheBlockingDetailedReasonSpec = {
 };
 
 // Struct: BackForwardCacheNotRestoredReasons
-blink.mojom.BackForwardCacheNotRestoredReasonsSpec = {
+blink.mojom.mojom.BackForwardCacheNotRestoredReasonsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackForwardCacheNotRestoredReasons',

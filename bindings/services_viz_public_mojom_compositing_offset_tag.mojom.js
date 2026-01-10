@@ -7,10 +7,12 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: OffsetTag
-viz.mojom.OffsetTagSpec = {
+viz.mojom.mojom.OffsetTagSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OffsetTag',
@@ -24,7 +26,7 @@ viz.mojom.OffsetTagSpec = {
 };
 
 // Struct: OffsetTagValue
-viz.mojom.OffsetTagValueSpec = {
+viz.mojom.mojom.OffsetTagValueSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OffsetTagValue',
@@ -39,7 +41,7 @@ viz.mojom.OffsetTagValueSpec = {
 };
 
 // Struct: OffsetTagDefinition
-viz.mojom.OffsetTagDefinitionSpec = {
+viz.mojom.mojom.OffsetTagDefinitionSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.OffsetTagDefinition',

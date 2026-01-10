@@ -10,24 +10,24 @@ data_decoder.mojom = data_decoder.mojom || {};
 
 
 // Interface: Gzipper
-data_decoder.mojom.Gzipper = {};
+data_decoder.mojom.mojom.Gzipper = {};
 
-data_decoder.mojom.GzipperPendingReceiver = class {
+data_decoder.mojom.mojom.GzipperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-data_decoder.mojom.GzipperRemote = class {
+data_decoder.mojom.mojom.GzipperRemote = class {
   static get $interfaceName() {
     return 'data_decoder.mojom.Gzipper';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      data_decoder.mojom.GzipperPendingReceiver,
+      data_decoder.mojom.mojom.GzipperPendingReceiver,
       handle);
-    this.$ = new data_decoder.mojom.GzipperRemoteCallHandler(this.proxy);
+    this.$ = new data_decoder.mojom.mojom.GzipperRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ data_decoder.mojom.GzipperRemote = class {
   }
 };
 
-data_decoder.mojom.GzipperRemoteCallHandler = class {
+data_decoder.mojom.mojom.GzipperRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      data_decoder.mojom.Gzipper_Deflate_ParamsSpec,
-      data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec,
+      data_decoder.mojom.mojom.Gzipper_Deflate_ParamsSpec,
+      data_decoder.mojom.mojom.Gzipper_Deflate_ResponseParamsSpec,
       [data]);
   }
 
@@ -57,8 +57,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      data_decoder.mojom.Gzipper_Inflate_ParamsSpec,
-      data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec,
+      data_decoder.mojom.mojom.Gzipper_Inflate_ParamsSpec,
+      data_decoder.mojom.mojom.Gzipper_Inflate_ResponseParamsSpec,
       [data, max_uncompressed_size]);
   }
 
@@ -66,8 +66,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      data_decoder.mojom.Gzipper_Compress_ParamsSpec,
-      data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec,
+      data_decoder.mojom.mojom.Gzipper_Compress_ParamsSpec,
+      data_decoder.mojom.mojom.Gzipper_Compress_ResponseParamsSpec,
       [data]);
   }
 
@@ -75,15 +75,15 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      data_decoder.mojom.Gzipper_Uncompress_ParamsSpec,
-      data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec,
+      data_decoder.mojom.mojom.Gzipper_Uncompress_ParamsSpec,
+      data_decoder.mojom.mojom.Gzipper_Uncompress_ResponseParamsSpec,
       [compressed_data]);
   }
 
 };
 
-data_decoder.mojom.Gzipper.getRemote = function() {
-  let remote = new data_decoder.mojom.GzipperRemote();
+data_decoder.mojom.mojom.Gzipper.getRemote = function() {
+  let remote = new data_decoder.mojom.mojom.GzipperRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +93,7 @@ data_decoder.mojom.Gzipper.getRemote = function() {
 };
 
 // ParamsSpec for Deflate
-data_decoder.mojom.Gzipper_Deflate_ParamsSpec = {
+data_decoder.mojom.mojom.Gzipper_Deflate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.Gzipper.Deflate_Params',
@@ -106,7 +106,7 @@ data_decoder.mojom.Gzipper_Deflate_ParamsSpec = {
   }
 };
 
-data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = {
+data_decoder.mojom.mojom.Gzipper_Deflate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.Gzipper.Deflate_ResponseParams',
@@ -120,7 +120,7 @@ data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Inflate
-data_decoder.mojom.Gzipper_Inflate_ParamsSpec = {
+data_decoder.mojom.mojom.Gzipper_Inflate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.Gzipper.Inflate_Params',
@@ -134,7 +134,7 @@ data_decoder.mojom.Gzipper_Inflate_ParamsSpec = {
   }
 };
 
-data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = {
+data_decoder.mojom.mojom.Gzipper_Inflate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.Gzipper.Inflate_ResponseParams',
@@ -148,7 +148,7 @@ data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Compress
-data_decoder.mojom.Gzipper_Compress_ParamsSpec = {
+data_decoder.mojom.mojom.Gzipper_Compress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.Gzipper.Compress_Params',
@@ -161,7 +161,7 @@ data_decoder.mojom.Gzipper_Compress_ParamsSpec = {
   }
 };
 
-data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = {
+data_decoder.mojom.mojom.Gzipper_Compress_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.Gzipper.Compress_ResponseParams',
@@ -175,7 +175,7 @@ data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Uncompress
-data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = {
+data_decoder.mojom.mojom.Gzipper_Uncompress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.Gzipper.Uncompress_Params',
@@ -188,7 +188,7 @@ data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = {
   }
 };
 
-data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = {
+data_decoder.mojom.mojom.Gzipper_Uncompress_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'data_decoder.mojom.Gzipper.Uncompress_ResponseParams',
@@ -202,6 +202,6 @@ data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-data_decoder.mojom.GzipperPtr = data_decoder.mojom.GzipperRemote;
-data_decoder.mojom.GzipperRequest = data_decoder.mojom.GzipperPendingReceiver;
+data_decoder.mojom.mojom.GzipperPtr = data_decoder.mojom.mojom.GzipperRemote;
+data_decoder.mojom.mojom.GzipperRequest = data_decoder.mojom.mojom.GzipperPendingReceiver;
 

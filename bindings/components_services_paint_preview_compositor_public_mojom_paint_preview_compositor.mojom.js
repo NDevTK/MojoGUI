@@ -7,27 +7,31 @@
 // Module namespace
 var paint_preview = paint_preview || {};
 paint_preview.mojom = paint_preview.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
 
 
 // Enum: BeginCompositeStatus
-paint_preview.mojom.BeginCompositeStatus = {
+paint_preview.mojom.mojom.BeginCompositeStatus = {
   kSuccess: 0,
   kPartialSuccess: 1,
   kDeserializingFailure: 2,
   kCompositingFailure: 3,
 };
-paint_preview.mojom.BeginCompositeStatusSpec = { $: mojo.internal.Enum() };
+paint_preview.mojom.mojom.BeginCompositeStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: BitmapStatus
-paint_preview.mojom.BitmapStatus = {
+paint_preview.mojom.mojom.BitmapStatus = {
   kSuccess: 0,
   kMissingFrame: 1,
   kAllocFailed: 2,
 };
-paint_preview.mojom.BitmapStatusSpec = { $: mojo.internal.Enum() };
+paint_preview.mojom.mojom.BitmapStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PaintPreviewBeginCompositeRequest
-paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec = {
+paint_preview.mojom.mojom.PaintPreviewBeginCompositeRequestSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewBeginCompositeRequest',
@@ -42,7 +46,7 @@ paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec = {
 };
 
 // Struct: SubframeClipRect
-paint_preview.mojom.SubframeClipRectSpec = {
+paint_preview.mojom.mojom.SubframeClipRectSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.SubframeClipRect',
@@ -57,7 +61,7 @@ paint_preview.mojom.SubframeClipRectSpec = {
 };
 
 // Struct: FrameData
-paint_preview.mojom.FrameDataSpec = {
+paint_preview.mojom.mojom.FrameDataSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.FrameData',
@@ -73,7 +77,7 @@ paint_preview.mojom.FrameDataSpec = {
 };
 
 // Struct: PaintPreviewBeginCompositeResponse
-paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec = {
+paint_preview.mojom.mojom.PaintPreviewBeginCompositeResponseSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewBeginCompositeResponse',
@@ -88,24 +92,24 @@ paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec = {
 };
 
 // Interface: PaintPreviewCompositor
-paint_preview.mojom.PaintPreviewCompositor = {};
+paint_preview.mojom.mojom.PaintPreviewCompositor = {};
 
-paint_preview.mojom.PaintPreviewCompositorPendingReceiver = class {
+paint_preview.mojom.mojom.PaintPreviewCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositorRemote = class {
+paint_preview.mojom.mojom.PaintPreviewCompositorRemote = class {
   static get $interfaceName() {
     return 'paint_preview.mojom.PaintPreviewCompositor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      paint_preview.mojom.PaintPreviewCompositorPendingReceiver,
+      paint_preview.mojom.mojom.PaintPreviewCompositorPendingReceiver,
       handle);
-    this.$ = new paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler(this.proxy);
+    this.$ = new paint_preview.mojom.mojom.PaintPreviewCompositorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -117,7 +121,7 @@ paint_preview.mojom.PaintPreviewCompositorRemote = class {
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
+paint_preview.mojom.mojom.PaintPreviewCompositorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -126,8 +130,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec,
       [request]);
   }
 
@@ -135,8 +139,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec,
       [frame_guid, clip_rect, scale_factor]);
   }
 
@@ -144,8 +148,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec,
       [request]);
   }
 
@@ -153,8 +157,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec,
       [clip_rect, scale_factor]);
   }
 
@@ -162,15 +166,15 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec,
       null,
       [url]);
   }
 
 };
 
-paint_preview.mojom.PaintPreviewCompositor.getRemote = function() {
-  let remote = new paint_preview.mojom.PaintPreviewCompositorRemote();
+paint_preview.mojom.mojom.PaintPreviewCompositor.getRemote = function() {
+  let remote = new paint_preview.mojom.mojom.PaintPreviewCompositorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -180,7 +184,7 @@ paint_preview.mojom.PaintPreviewCompositor.getRemote = function() {
 };
 
 // ParamsSpec for BeginSeparatedFrameComposite
-paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositor.BeginSeparatedFrameComposite_Params',
@@ -193,14 +197,14 @@ paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSp
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositor.BeginSeparatedFrameComposite_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.BeginCompositeStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.BeginCompositeStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -208,7 +212,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_Response
 };
 
 // ParamsSpec for BitmapForSeparatedFrame
-paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForSeparatedFrame_Params',
@@ -223,14 +227,14 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = 
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForSeparatedFrame_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.BitmapStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.BitmapStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -238,7 +242,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParam
 };
 
 // ParamsSpec for BeginMainFrameComposite
-paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositor.BeginMainFrameComposite_Params',
@@ -251,14 +255,14 @@ paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = 
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositor.BeginMainFrameComposite_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.BeginCompositeStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.BeginCompositeStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -266,7 +270,7 @@ paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParam
 };
 
 // ParamsSpec for BitmapForMainFrame
-paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForMainFrame_Params',
@@ -280,14 +284,14 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = {
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForMainFrame_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.BitmapStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'bitmap', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.BitmapStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -295,7 +299,7 @@ paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec
 };
 
 // ParamsSpec for SetRootFrameUrl
-paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositor.SetRootFrameUrl_Params',
@@ -309,29 +313,29 @@ paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = {
 };
 
 // Legacy compatibility
-paint_preview.mojom.PaintPreviewCompositorPtr = paint_preview.mojom.PaintPreviewCompositorRemote;
-paint_preview.mojom.PaintPreviewCompositorRequest = paint_preview.mojom.PaintPreviewCompositorPendingReceiver;
+paint_preview.mojom.mojom.PaintPreviewCompositorPtr = paint_preview.mojom.mojom.PaintPreviewCompositorRemote;
+paint_preview.mojom.mojom.PaintPreviewCompositorRequest = paint_preview.mojom.mojom.PaintPreviewCompositorPendingReceiver;
 
 
 // Interface: PaintPreviewCompositorCollection
-paint_preview.mojom.PaintPreviewCompositorCollection = {};
+paint_preview.mojom.mojom.PaintPreviewCompositorCollection = {};
 
-paint_preview.mojom.PaintPreviewCompositorCollectionPendingReceiver = class {
+paint_preview.mojom.mojom.PaintPreviewCompositorCollectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositorCollectionRemote = class {
+paint_preview.mojom.mojom.PaintPreviewCompositorCollectionRemote = class {
   static get $interfaceName() {
     return 'paint_preview.mojom.PaintPreviewCompositorCollection';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      paint_preview.mojom.PaintPreviewCompositorCollectionPendingReceiver,
+      paint_preview.mojom.mojom.PaintPreviewCompositorCollectionPendingReceiver,
       handle);
-    this.$ = new paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler(this.proxy);
+    this.$ = new paint_preview.mojom.mojom.PaintPreviewCompositorCollectionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -343,7 +347,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemote = class {
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
+paint_preview.mojom.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -352,7 +356,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec,
       null,
       [manager]);
   }
@@ -361,8 +365,8 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec,
       [compositor]);
   }
 
@@ -370,15 +374,15 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec,
-      paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec,
+      paint_preview.mojom.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec,
       []);
   }
 
 };
 
-paint_preview.mojom.PaintPreviewCompositorCollection.getRemote = function() {
-  let remote = new paint_preview.mojom.PaintPreviewCompositorCollectionRemote();
+paint_preview.mojom.mojom.PaintPreviewCompositorCollection.getRemote = function() {
+  let remote = new paint_preview.mojom.mojom.PaintPreviewCompositorCollectionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -388,7 +392,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection.getRemote = function() {
 };
 
 // ParamsSpec for SetDiscardableSharedMemoryManager
-paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositorCollection.SetDiscardableSharedMemoryManager_Params',
@@ -402,7 +406,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryM
 };
 
 // ParamsSpec for CreateCompositor
-paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositorCollection.CreateCompositor_Params',
@@ -415,7 +419,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositorCollection.CreateCompositor_ResponseParams',
@@ -429,7 +433,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponsePa
 };
 
 // ParamsSpec for ListCompositors
-paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositorCollection.ListCompositors_Params',
@@ -441,7 +445,7 @@ paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec 
   }
 };
 
-paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec = {
+paint_preview.mojom.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'paint_preview.mojom.PaintPreviewCompositorCollection.ListCompositors_ResponseParams',
@@ -455,6 +459,6 @@ paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponsePar
 };
 
 // Legacy compatibility
-paint_preview.mojom.PaintPreviewCompositorCollectionPtr = paint_preview.mojom.PaintPreviewCompositorCollectionRemote;
-paint_preview.mojom.PaintPreviewCompositorCollectionRequest = paint_preview.mojom.PaintPreviewCompositorCollectionPendingReceiver;
+paint_preview.mojom.mojom.PaintPreviewCompositorCollectionPtr = paint_preview.mojom.mojom.PaintPreviewCompositorCollectionRemote;
+paint_preview.mojom.mojom.PaintPreviewCompositorCollectionRequest = paint_preview.mojom.mojom.PaintPreviewCompositorCollectionPendingReceiver;
 

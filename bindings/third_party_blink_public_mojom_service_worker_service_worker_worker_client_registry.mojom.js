@@ -7,27 +7,28 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Interface: ServiceWorkerWorkerClientRegistry
-blink.mojom.ServiceWorkerWorkerClientRegistry = {};
+blink.mojom.mojom.ServiceWorkerWorkerClientRegistry = {};
 
-blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver = class {
+blink.mojom.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ServiceWorkerWorkerClientRegistryRemote = class {
+blink.mojom.mojom.ServiceWorkerWorkerClientRegistryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ServiceWorkerWorkerClientRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver,
+      blink.mojom.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemote = class {
   }
 };
 
-blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
+blink.mojom.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +49,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec,
       null,
       [client]);
   }
@@ -57,15 +58,15 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec,
+      blink.mojom.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec,
       null,
       [host]);
   }
 
 };
 
-blink.mojom.ServiceWorkerWorkerClientRegistry.getRemote = function() {
-  let remote = new blink.mojom.ServiceWorkerWorkerClientRegistryRemote();
+blink.mojom.mojom.ServiceWorkerWorkerClientRegistry.getRemote = function() {
+  let remote = new blink.mojom.mojom.ServiceWorkerWorkerClientRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +76,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistry.getRemote = function() {
 };
 
 // ParamsSpec for RegisterWorkerClient
-blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerWorkerClientRegistry.RegisterWorkerClient_Params',
@@ -89,7 +90,7 @@ blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec = 
 };
 
 // ParamsSpec for CloneWorkerClientRegistry
-blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec = {
+blink.mojom.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerWorkerClientRegistry.CloneWorkerClientRegistry_Params',
@@ -103,6 +104,6 @@ blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSp
 };
 
 // Legacy compatibility
-blink.mojom.ServiceWorkerWorkerClientRegistryPtr = blink.mojom.ServiceWorkerWorkerClientRegistryRemote;
-blink.mojom.ServiceWorkerWorkerClientRegistryRequest = blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver;
+blink.mojom.mojom.ServiceWorkerWorkerClientRegistryPtr = blink.mojom.mojom.ServiceWorkerWorkerClientRegistryRemote;
+blink.mojom.mojom.ServiceWorkerWorkerClientRegistryRequest = blink.mojom.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver;
 

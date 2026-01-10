@@ -7,27 +7,28 @@
 // Module namespace
 var wallet = wallet || {};
 wallet.mojom = wallet.mojom || {};
+var skia = skia || {};
 
 
 // Interface: ImageExtractor
-wallet.mojom.ImageExtractor = {};
+wallet.mojom.mojom.ImageExtractor = {};
 
-wallet.mojom.ImageExtractorPendingReceiver = class {
+wallet.mojom.mojom.ImageExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-wallet.mojom.ImageExtractorRemote = class {
+wallet.mojom.mojom.ImageExtractorRemote = class {
   static get $interfaceName() {
     return 'wallet.mojom.ImageExtractor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      wallet.mojom.ImageExtractorPendingReceiver,
+      wallet.mojom.mojom.ImageExtractorPendingReceiver,
       handle);
-    this.$ = new wallet.mojom.ImageExtractorRemoteCallHandler(this.proxy);
+    this.$ = new wallet.mojom.mojom.ImageExtractorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ wallet.mojom.ImageExtractorRemote = class {
   }
 };
 
-wallet.mojom.ImageExtractorRemoteCallHandler = class {
+wallet.mojom.mojom.ImageExtractorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ wallet.mojom.ImageExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec,
-      wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec,
+      wallet.mojom.mojom.ImageExtractor_ExtractImages_ParamsSpec,
+      wallet.mojom.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec,
       []);
   }
 
 };
 
-wallet.mojom.ImageExtractor.getRemote = function() {
-  let remote = new wallet.mojom.ImageExtractorRemote();
+wallet.mojom.mojom.ImageExtractor.getRemote = function() {
+  let remote = new wallet.mojom.mojom.ImageExtractorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ wallet.mojom.ImageExtractor.getRemote = function() {
 };
 
 // ParamsSpec for ExtractImages
-wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = {
+wallet.mojom.mojom.ImageExtractor_ExtractImages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'wallet.mojom.ImageExtractor.ExtractImages_Params',
@@ -78,7 +79,7 @@ wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = {
   }
 };
 
-wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = {
+wallet.mojom.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'wallet.mojom.ImageExtractor.ExtractImages_ResponseParams',
@@ -92,6 +93,6 @@ wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-wallet.mojom.ImageExtractorPtr = wallet.mojom.ImageExtractorRemote;
-wallet.mojom.ImageExtractorRequest = wallet.mojom.ImageExtractorPendingReceiver;
+wallet.mojom.mojom.ImageExtractorPtr = wallet.mojom.mojom.ImageExtractorRemote;
+wallet.mojom.mojom.ImageExtractorRequest = wallet.mojom.mojom.ImageExtractorPendingReceiver;
 

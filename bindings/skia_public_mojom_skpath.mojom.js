@@ -10,7 +10,7 @@ skia.mojom = skia.mojom || {};
 
 
 // Struct: SkPath
-skia.mojom.SkPathSpec = {
+skia.mojom.mojom.SkPathSpec = {
   $: {
     structSpec: {
       name: 'skia.mojom.SkPath',

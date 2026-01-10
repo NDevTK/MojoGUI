@@ -7,28 +7,32 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: SyntheticMouseEventButton
-ax.mojom.SyntheticMouseEventButton = {
+ax.mojom.mojom.SyntheticMouseEventButton = {
   kLeft: 0,
   kMiddle: 1,
   kRight: 2,
   kBack: 3,
   kForward: 4,
 };
-ax.mojom.SyntheticMouseEventButtonSpec = { $: mojo.internal.Enum() };
+ax.mojom.mojom.SyntheticMouseEventButtonSpec = { $: mojo.internal.Enum() };
 
 // Struct: SyntheticKeyEvent
-ax.mojom.SyntheticKeyEventSpec = {
+ax.mojom.mojom.SyntheticKeyEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.SyntheticKeyEvent',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'key_data', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.KeyDataSpec, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'key_data', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.KeyDataSpec, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -36,15 +40,15 @@ ax.mojom.SyntheticKeyEventSpec = {
 };
 
 // Struct: SyntheticMouseEvent
-ax.mojom.SyntheticMouseEventSpec = {
+ax.mojom.mojom.SyntheticMouseEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.SyntheticMouseEvent',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'point', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'mouse_button', packedOffset: 4, packedBitOffset: 0, type: ax.mojom.SyntheticMouseEventButtonSpec, nullable: true, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'mouse_button', packedOffset: 12, packedBitOffset: 0, type: ax.mojom.SyntheticMouseEventButtonSpec, nullable: true, minVersion: 0 },
         { name: 'touch_accessibility_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'touch_accessibility_$value', originalFieldName: 'touch_accessibility' } },
         { name: 'touch_accessibility_$value', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'touch_accessibility_$flag', originalFieldName: 'touch_accessibility' } },
       ],
@@ -54,24 +58,24 @@ ax.mojom.SyntheticMouseEventSpec = {
 };
 
 // Interface: UserInput
-ax.mojom.UserInput = {};
+ax.mojom.mojom.UserInput = {};
 
-ax.mojom.UserInputPendingReceiver = class {
+ax.mojom.mojom.UserInputPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.UserInputRemote = class {
+ax.mojom.mojom.UserInputRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.UserInput';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.UserInputPendingReceiver,
+      ax.mojom.mojom.UserInputPendingReceiver,
       handle);
-    this.$ = new ax.mojom.UserInputRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.mojom.UserInputRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -83,7 +87,7 @@ ax.mojom.UserInputRemote = class {
   }
 };
 
-ax.mojom.UserInputRemoteCallHandler = class {
+ax.mojom.mojom.UserInputRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -92,7 +96,7 @@ ax.mojom.UserInputRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec,
+      ax.mojom.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec,
       null,
       [key_event]);
   }
@@ -101,15 +105,15 @@ ax.mojom.UserInputRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec,
+      ax.mojom.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec,
       null,
       [mouse_event]);
   }
 
 };
 
-ax.mojom.UserInput.getRemote = function() {
-  let remote = new ax.mojom.UserInputRemote();
+ax.mojom.mojom.UserInput.getRemote = function() {
+  let remote = new ax.mojom.mojom.UserInputRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -119,7 +123,7 @@ ax.mojom.UserInput.getRemote = function() {
 };
 
 // ParamsSpec for SendSyntheticKeyEventForShortcutOrNavigation
-ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
+ax.mojom.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.UserInput.SendSyntheticKeyEventForShortcutOrNavigation_Params',
@@ -133,7 +137,7 @@ ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
 };
 
 // ParamsSpec for SendSyntheticMouseEvent
-ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
+ax.mojom.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.UserInput.SendSyntheticMouseEvent_Params',
@@ -147,6 +151,6 @@ ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.UserInputPtr = ax.mojom.UserInputRemote;
-ax.mojom.UserInputRequest = ax.mojom.UserInputPendingReceiver;
+ax.mojom.mojom.UserInputPtr = ax.mojom.mojom.UserInputRemote;
+ax.mojom.mojom.UserInputRequest = ax.mojom.mojom.UserInputPendingReceiver;
 

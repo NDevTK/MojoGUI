@@ -10,24 +10,24 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Interface: AppWindow
-extensions.mojom.AppWindow = {};
+extensions.mojom.mojom.AppWindow = {};
 
-extensions.mojom.AppWindowPendingReceiver = class {
+extensions.mojom.mojom.AppWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.AppWindowRemote = class {
+extensions.mojom.mojom.AppWindowRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.AppWindow';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.AppWindowPendingReceiver,
+      extensions.mojom.mojom.AppWindowPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.AppWindowRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.mojom.AppWindowRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ extensions.mojom.AppWindowRemote = class {
   }
 };
 
-extensions.mojom.AppWindowRemoteCallHandler = class {
+extensions.mojom.mojom.AppWindowRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ extensions.mojom.AppWindowRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec,
+      extensions.mojom.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec,
       null,
       [deemphasized]);
   }
 
 };
 
-extensions.mojom.AppWindow.getRemote = function() {
-  let remote = new extensions.mojom.AppWindowRemote();
+extensions.mojom.mojom.AppWindow.getRemote = function() {
+  let remote = new extensions.mojom.mojom.AppWindowRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ extensions.mojom.AppWindow.getRemote = function() {
 };
 
 // ParamsSpec for SetVisuallyDeemphasized
-extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
+extensions.mojom.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.AppWindow.SetVisuallyDeemphasized_Params',
@@ -80,6 +80,6 @@ extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.AppWindowPtr = extensions.mojom.AppWindowRemote;
-extensions.mojom.AppWindowRequest = extensions.mojom.AppWindowPendingReceiver;
+extensions.mojom.mojom.AppWindowPtr = extensions.mojom.mojom.AppWindowRemote;
+extensions.mojom.mojom.AppWindowRequest = extensions.mojom.mojom.AppWindowPendingReceiver;
 

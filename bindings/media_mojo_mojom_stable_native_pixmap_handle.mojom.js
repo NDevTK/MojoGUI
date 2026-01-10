@@ -7,20 +7,20 @@
 // Module namespace
 var media = media || {};
 media.stable = media.stable || {};
-media.stable.mojom = media.stable.mojom || {};
+media.stable.stable.mojom = media.stable.stable.mojom || {};
 
 
 // Struct: NativePixmapPlane
-media.stable.mojom.NativePixmapPlaneSpec = {
+media.stable.stable.mojom.mojom.NativePixmapPlaneSpec = {
   $: {
     structSpec: {
       name: 'media.stable.mojom.NativePixmapPlane',
       packedSize: 40,
       fields: [
-        { name: 'stride', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'buffer_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'stride', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'buffer_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -28,7 +28,7 @@ media.stable.mojom.NativePixmapPlaneSpec = {
 };
 
 // Struct: NativePixmapHandle
-media.stable.mojom.NativePixmapHandleSpec = {
+media.stable.stable.mojom.mojom.NativePixmapHandleSpec = {
   $: {
     structSpec: {
       name: 'media.stable.mojom.NativePixmapHandle',

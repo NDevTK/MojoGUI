@@ -7,43 +7,44 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var url = url || {};
 
 
 // Enum: BackgroundColor
-chromecast.mojom.BackgroundColor = {
+chromecast.mojom.mojom.BackgroundColor = {
   NONE: 0,
   WHITE: 1,
   BLACK: 2,
   TRANSPARENT: 3,
 };
-chromecast.mojom.BackgroundColorSpec = { $: mojo.internal.Enum() };
+chromecast.mojom.mojom.BackgroundColorSpec = { $: mojo.internal.Enum() };
 
 // Enum: RendererType
-chromecast.mojom.RendererType = {
+chromecast.mojom.mojom.RendererType = {
   DEFAULT_RENDERER: 0,
   MOJO_RENDERER: 1,
   REMOTING_RENDERER: 2,
 };
-chromecast.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
+chromecast.mojom.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RendererPool
-chromecast.mojom.RendererPool = {
+chromecast.mojom.mojom.RendererPool = {
   NONE: 0,
   OVERLAY: 1,
 };
-chromecast.mojom.RendererPoolSpec = { $: mojo.internal.Enum() };
+chromecast.mojom.mojom.RendererPoolSpec = { $: mojo.internal.Enum() };
 
 // Enum: GesturePriority
-chromecast.mojom.GesturePriority = {
+chromecast.mojom.mojom.GesturePriority = {
   NONE: 0,
   ROOT_UI: 1,
   MAIN_ACTIVITY: 2,
   SETTINGS_UI: 3,
 };
-chromecast.mojom.GesturePrioritySpec = { $: mojo.internal.Enum() };
+chromecast.mojom.mojom.GesturePrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: CastWebViewParams
-chromecast.mojom.CastWebViewParamsSpec = {
+chromecast.mojom.mojom.CastWebViewParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebViewParams',
@@ -52,31 +53,31 @@ chromecast.mojom.CastWebViewParamsSpec = {
         { name: 'activity_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'sdk_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'allow_media_access', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'force_720p_resolution', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'managed', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'log_js_console_messages', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'log_prefix', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'shutdown_delay', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'renderer_pool', packedOffset: 28, packedBitOffset: 0, type: chromecast.mojom.RendererPoolSpec, nullable: false, minVersion: 0 },
-        { name: 'prelaunch_url', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'enabled_for_dev', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'renderer_type', packedOffset: 56, packedBitOffset: 0, type: chromecast.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_root_window', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'handle_inner_contents', packedOffset: 24, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'use_media_blocker', packedOffset: 24, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'background_color', packedOffset: 60, packedBitOffset: 0, type: chromecast.mojom.BackgroundColorSpec, nullable: false, minVersion: 0 },
-        { name: 'enable_websql', packedOffset: 25, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_mixer_audio', packedOffset: 25, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'url_filters', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'webrtc_allow_legacy_tls_protocols', packedOffset: 25, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_touch_input', packedOffset: 25, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_remote_control_mode', packedOffset: 25, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'turn_on_screen', packedOffset: 25, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'keep_screen_on', packedOffset: 25, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'gesture_priority', packedOffset: 72, packedBitOffset: 0, type: chromecast.mojom.GesturePrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'enable_webui_bindings_permission', packedOffset: 25, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_url_rewrite_rules', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allow_media_access', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'force_720p_resolution', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'managed', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'log_js_console_messages', packedOffset: 72, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'log_prefix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'shutdown_delay', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'renderer_pool', packedOffset: 56, packedBitOffset: 0, type: chromecast.mojom.RendererPoolSpec, nullable: false, minVersion: 0 },
+        { name: 'prelaunch_url', packedOffset: 40, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'enabled_for_dev', packedOffset: 72, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'renderer_type', packedOffset: 60, packedBitOffset: 0, type: chromecast.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_root_window', packedOffset: 72, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'handle_inner_contents', packedOffset: 72, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'use_media_blocker', packedOffset: 72, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'background_color', packedOffset: 64, packedBitOffset: 0, type: chromecast.mojom.BackgroundColorSpec, nullable: false, minVersion: 0 },
+        { name: 'enable_websql', packedOffset: 73, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_mixer_audio', packedOffset: 73, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'url_filters', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
+        { name: 'webrtc_allow_legacy_tls_protocols', packedOffset: 73, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_touch_input', packedOffset: 73, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_remote_control_mode', packedOffset: 73, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'turn_on_screen', packedOffset: 73, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'keep_screen_on', packedOffset: 73, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'gesture_priority', packedOffset: 68, packedBitOffset: 0, type: chromecast.mojom.GesturePrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'enable_webui_bindings_permission', packedOffset: 73, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_url_rewrite_rules', packedOffset: 74, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }
@@ -84,24 +85,24 @@ chromecast.mojom.CastWebViewParamsSpec = {
 };
 
 // Interface: CastWebService
-chromecast.mojom.CastWebService = {};
+chromecast.mojom.mojom.CastWebService = {};
 
-chromecast.mojom.CastWebServicePendingReceiver = class {
+chromecast.mojom.mojom.CastWebServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.CastWebServiceRemote = class {
+chromecast.mojom.mojom.CastWebServiceRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.CastWebService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.CastWebServicePendingReceiver,
+      chromecast.mojom.mojom.CastWebServicePendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.CastWebServiceRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.CastWebServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -113,7 +114,7 @@ chromecast.mojom.CastWebServiceRemote = class {
   }
 };
 
-chromecast.mojom.CastWebServiceRemoteCallHandler = class {
+chromecast.mojom.mojom.CastWebServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -122,7 +123,7 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.CastWebService_CreateWebView_ParamsSpec,
+      chromecast.mojom.mojom.CastWebService_CreateWebView_ParamsSpec,
       null,
       [params, web_contents, window]);
   }
@@ -131,7 +132,7 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec,
+      chromecast.mojom.mojom.CastWebService_RegisterWebUiClient_ParamsSpec,
       null,
       [client, hosts]);
   }
@@ -140,7 +141,7 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec,
+      chromecast.mojom.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec,
       null,
       []);
   }
@@ -149,15 +150,15 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec,
+      chromecast.mojom.mojom.CastWebService_ClearLocalStorage_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chromecast.mojom.CastWebService.getRemote = function() {
-  let remote = new chromecast.mojom.CastWebServiceRemote();
+chromecast.mojom.mojom.CastWebService.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.CastWebServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -167,7 +168,7 @@ chromecast.mojom.CastWebService.getRemote = function() {
 };
 
 // ParamsSpec for CreateWebView
-chromecast.mojom.CastWebService_CreateWebView_ParamsSpec = {
+chromecast.mojom.mojom.CastWebService_CreateWebView_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebService.CreateWebView_Params',
@@ -183,14 +184,14 @@ chromecast.mojom.CastWebService_CreateWebView_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterWebUiClient
-chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = {
+chromecast.mojom.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebService.RegisterWebUiClient_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -198,7 +199,7 @@ chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = {
 };
 
 // ParamsSpec for FlushDomLocalStorage
-chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = {
+chromecast.mojom.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebService.FlushDomLocalStorage_Params',
@@ -211,7 +212,7 @@ chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = {
 };
 
 // ParamsSpec for ClearLocalStorage
-chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec = {
+chromecast.mojom.mojom.CastWebService_ClearLocalStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebService.ClearLocalStorage_Params',
@@ -224,6 +225,6 @@ chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.CastWebServicePtr = chromecast.mojom.CastWebServiceRemote;
-chromecast.mojom.CastWebServiceRequest = chromecast.mojom.CastWebServicePendingReceiver;
+chromecast.mojom.mojom.CastWebServicePtr = chromecast.mojom.mojom.CastWebServiceRemote;
+chromecast.mojom.mojom.CastWebServiceRequest = chromecast.mojom.mojom.CastWebServicePendingReceiver;
 

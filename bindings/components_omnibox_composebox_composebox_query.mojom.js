@@ -10,7 +10,7 @@ composebox_query.mojom = composebox_query.mojom || {};
 
 
 // Enum: FileUploadStatus
-composebox_query.mojom.FileUploadStatus = {
+composebox_query.mojom.mojom.FileUploadStatus = {
   kNotUploaded: 0,
   kProcessing: 1,
   kValidationFailed: 2,
@@ -20,10 +20,10 @@ composebox_query.mojom.FileUploadStatus = {
   kUploadExpired: 6,
   kProcessingSuggestSignalsReady: 7,
 };
-composebox_query.mojom.FileUploadStatusSpec = { $: mojo.internal.Enum() };
+composebox_query.mojom.mojom.FileUploadStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileUploadErrorType
-composebox_query.mojom.FileUploadErrorType = {
+composebox_query.mojom.mojom.FileUploadErrorType = {
   kUnknown: 0,
   kBrowserProcessingError: 1,
   kNetworkError: 2,
@@ -32,4 +32,4 @@ composebox_query.mojom.FileUploadErrorType = {
   kAborted: 5,
   kImageProcessingError: 6,
 };
-composebox_query.mojom.FileUploadErrorTypeSpec = { $: mojo.internal.Enum() };
+composebox_query.mojom.mojom.FileUploadErrorTypeSpec = { $: mojo.internal.Enum() };

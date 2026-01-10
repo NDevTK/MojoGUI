@@ -7,28 +7,28 @@
 // Module namespace
 var ash = ash || {};
 ash.rollback_network_config = ash.rollback_network_config || {};
-ash.rollback_network_config.mojom = ash.rollback_network_config.mojom || {};
+ash.rollback_network_config.rollback_network_config.mojom = ash.rollback_network_config.rollback_network_config.mojom || {};
 
 
 // Interface: RollbackNetworkConfig
-ash.rollback_network_config.mojom.RollbackNetworkConfig = {};
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig = {};
 
-ash.rollback_network_config.mojom.RollbackNetworkConfigPendingReceiver = class {
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.rollback_network_config.mojom.RollbackNetworkConfigRemote = class {
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigRemote = class {
   static get $interfaceName() {
     return 'ash.rollback_network_config.mojom.RollbackNetworkConfig';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.rollback_network_config.mojom.RollbackNetworkConfigPendingReceiver,
+      ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigPendingReceiver,
       handle);
-    this.$ = new ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler(this.proxy);
+    this.$ = new ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigRemote = class {
   }
 };
 
-ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler = class {
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,8 +49,8 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec,
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec,
+      ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec,
+      ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec,
       [config]);
   }
 
@@ -58,15 +58,15 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec,
-      ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec,
+      ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec,
+      ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.rollback_network_config.mojom.RollbackNetworkConfig.getRemote = function() {
-  let remote = new ash.rollback_network_config.mojom.RollbackNetworkConfigRemote();
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig.getRemote = function() {
+  let remote = new ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -76,7 +76,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig.getRemote = function() {
 };
 
 // ParamsSpec for RollbackConfigImport
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec = {
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigImport_Params',
@@ -89,7 +89,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Par
   }
 };
 
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec = {
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigImport_ResponseParams',
@@ -103,7 +103,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Res
 };
 
 // ParamsSpec for RollbackConfigExport
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec = {
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigExport_Params',
@@ -115,7 +115,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Par
   }
 };
 
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec = {
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigExport_ResponseParams',
@@ -129,6 +129,6 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Res
 };
 
 // Legacy compatibility
-ash.rollback_network_config.mojom.RollbackNetworkConfigPtr = ash.rollback_network_config.mojom.RollbackNetworkConfigRemote;
-ash.rollback_network_config.mojom.RollbackNetworkConfigRequest = ash.rollback_network_config.mojom.RollbackNetworkConfigPendingReceiver;
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigPtr = ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigRemote;
+ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigRequest = ash.rollback_network_config.rollback_network_config.mojom.mojom.RollbackNetworkConfigPendingReceiver;
 

@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: SurfaceRange
-viz.mojom.SurfaceRangeSpec = {
+viz.mojom.mojom.SurfaceRangeSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.SurfaceRange',

@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: WebSandboxFlags
-network.mojom.WebSandboxFlags = {
+network.mojom.mojom.WebSandboxFlags = {
   kNone: 0,
   kNavigation: 1,
   kPlugins: 2,
@@ -33,4 +33,4 @@ network.mojom.WebSandboxFlags = {
   kAllowSameSiteNoneCookies: 19,
   kAll: 20,
 };
-network.mojom.WebSandboxFlagsSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.WebSandboxFlagsSpec = { $: mojo.internal.Enum() };

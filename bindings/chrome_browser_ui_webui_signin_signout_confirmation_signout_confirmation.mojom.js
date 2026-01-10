@@ -10,7 +10,7 @@ signout_confirmation.mojom = signout_confirmation.mojom || {};
 
 
 // Struct: ExtensionInfo
-signout_confirmation.mojom.ExtensionInfoSpec = {
+signout_confirmation.mojom.mojom.ExtensionInfoSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.ExtensionInfo',
@@ -25,7 +25,7 @@ signout_confirmation.mojom.ExtensionInfoSpec = {
 };
 
 // Struct: SignoutConfirmationData
-signout_confirmation.mojom.SignoutConfirmationDataSpec = {
+signout_confirmation.mojom.mojom.SignoutConfirmationDataSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.SignoutConfirmationData',
@@ -45,24 +45,24 @@ signout_confirmation.mojom.SignoutConfirmationDataSpec = {
 };
 
 // Interface: PageHandlerFactory
-signout_confirmation.mojom.PageHandlerFactory = {};
+signout_confirmation.mojom.mojom.PageHandlerFactory = {};
 
-signout_confirmation.mojom.PageHandlerFactoryPendingReceiver = class {
+signout_confirmation.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-signout_confirmation.mojom.PageHandlerFactoryRemote = class {
+signout_confirmation.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'signout_confirmation.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      signout_confirmation.mojom.PageHandlerFactoryPendingReceiver,
+      signout_confirmation.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new signout_confirmation.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -74,7 +74,7 @@ signout_confirmation.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler = class {
+signout_confirmation.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -83,15 +83,15 @@ signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec,
+      signout_confirmation.mojom.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-signout_confirmation.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new signout_confirmation.mojom.PageHandlerFactoryRemote();
+signout_confirmation.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new signout_confirmation.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -101,7 +101,7 @@ signout_confirmation.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateSignoutConfirmationHandler
-signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec = {
+signout_confirmation.mojom.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.PageHandlerFactory.CreateSignoutConfirmationHandler_Params',
@@ -116,29 +116,29 @@ signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_P
 };
 
 // Legacy compatibility
-signout_confirmation.mojom.PageHandlerFactoryPtr = signout_confirmation.mojom.PageHandlerFactoryRemote;
-signout_confirmation.mojom.PageHandlerFactoryRequest = signout_confirmation.mojom.PageHandlerFactoryPendingReceiver;
+signout_confirmation.mojom.mojom.PageHandlerFactoryPtr = signout_confirmation.mojom.mojom.PageHandlerFactoryRemote;
+signout_confirmation.mojom.mojom.PageHandlerFactoryRequest = signout_confirmation.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-signout_confirmation.mojom.PageHandler = {};
+signout_confirmation.mojom.mojom.PageHandler = {};
 
-signout_confirmation.mojom.PageHandlerPendingReceiver = class {
+signout_confirmation.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-signout_confirmation.mojom.PageHandlerRemote = class {
+signout_confirmation.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'signout_confirmation.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      signout_confirmation.mojom.PageHandlerPendingReceiver,
+      signout_confirmation.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new signout_confirmation.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new signout_confirmation.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -150,7 +150,7 @@ signout_confirmation.mojom.PageHandlerRemote = class {
   }
 };
 
-signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
+signout_confirmation.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -159,7 +159,7 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
+      signout_confirmation.mojom.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
       [height]);
   }
@@ -168,7 +168,7 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      signout_confirmation.mojom.PageHandler_Accept_ParamsSpec,
+      signout_confirmation.mojom.mojom.PageHandler_Accept_ParamsSpec,
       null,
       [uninstall_account_extensions]);
   }
@@ -177,7 +177,7 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec,
+      signout_confirmation.mojom.mojom.PageHandler_Cancel_ParamsSpec,
       null,
       [uninstall_account_extensions]);
   }
@@ -186,7 +186,7 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec,
+      signout_confirmation.mojom.mojom.PageHandler_PerformReauth_ParamsSpec,
       null,
       []);
   }
@@ -195,15 +195,15 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      signout_confirmation.mojom.PageHandler_Close_ParamsSpec,
+      signout_confirmation.mojom.mojom.PageHandler_Close_ParamsSpec,
       null,
       []);
   }
 
 };
 
-signout_confirmation.mojom.PageHandler.getRemote = function() {
-  let remote = new signout_confirmation.mojom.PageHandlerRemote();
+signout_confirmation.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new signout_confirmation.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -213,7 +213,7 @@ signout_confirmation.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for UpdateViewHeight
-signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
+signout_confirmation.mojom.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.PageHandler.UpdateViewHeight_Params',
@@ -227,7 +227,7 @@ signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = {
 };
 
 // ParamsSpec for Accept
-signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = {
+signout_confirmation.mojom.mojom.PageHandler_Accept_ParamsSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.PageHandler.Accept_Params',
@@ -241,7 +241,7 @@ signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec = {
+signout_confirmation.mojom.mojom.PageHandler_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.PageHandler.Cancel_Params',
@@ -255,7 +255,7 @@ signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec = {
 };
 
 // ParamsSpec for PerformReauth
-signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec = {
+signout_confirmation.mojom.mojom.PageHandler_PerformReauth_ParamsSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.PageHandler.PerformReauth_Params',
@@ -268,7 +268,7 @@ signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec = {
 };
 
 // ParamsSpec for Close
-signout_confirmation.mojom.PageHandler_Close_ParamsSpec = {
+signout_confirmation.mojom.mojom.PageHandler_Close_ParamsSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.PageHandler.Close_Params',
@@ -281,29 +281,29 @@ signout_confirmation.mojom.PageHandler_Close_ParamsSpec = {
 };
 
 // Legacy compatibility
-signout_confirmation.mojom.PageHandlerPtr = signout_confirmation.mojom.PageHandlerRemote;
-signout_confirmation.mojom.PageHandlerRequest = signout_confirmation.mojom.PageHandlerPendingReceiver;
+signout_confirmation.mojom.mojom.PageHandlerPtr = signout_confirmation.mojom.mojom.PageHandlerRemote;
+signout_confirmation.mojom.mojom.PageHandlerRequest = signout_confirmation.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-signout_confirmation.mojom.Page = {};
+signout_confirmation.mojom.mojom.Page = {};
 
-signout_confirmation.mojom.PagePendingReceiver = class {
+signout_confirmation.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-signout_confirmation.mojom.PageRemote = class {
+signout_confirmation.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'signout_confirmation.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      signout_confirmation.mojom.PagePendingReceiver,
+      signout_confirmation.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new signout_confirmation.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new signout_confirmation.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -315,7 +315,7 @@ signout_confirmation.mojom.PageRemote = class {
   }
 };
 
-signout_confirmation.mojom.PageRemoteCallHandler = class {
+signout_confirmation.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -324,15 +324,15 @@ signout_confirmation.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec,
+      signout_confirmation.mojom.mojom.Page_SendSignoutConfirmationData_ParamsSpec,
       null,
       [data]);
   }
 
 };
 
-signout_confirmation.mojom.Page.getRemote = function() {
-  let remote = new signout_confirmation.mojom.PageRemote();
+signout_confirmation.mojom.mojom.Page.getRemote = function() {
+  let remote = new signout_confirmation.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -342,7 +342,7 @@ signout_confirmation.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for SendSignoutConfirmationData
-signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = {
+signout_confirmation.mojom.mojom.Page_SendSignoutConfirmationData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'signout_confirmation.mojom.Page.SendSignoutConfirmationData_Params',
@@ -356,6 +356,6 @@ signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = {
 };
 
 // Legacy compatibility
-signout_confirmation.mojom.PagePtr = signout_confirmation.mojom.PageRemote;
-signout_confirmation.mojom.PageRequest = signout_confirmation.mojom.PagePendingReceiver;
+signout_confirmation.mojom.mojom.PagePtr = signout_confirmation.mojom.mojom.PageRemote;
+signout_confirmation.mojom.mojom.PageRequest = signout_confirmation.mojom.mojom.PagePendingReceiver;
 

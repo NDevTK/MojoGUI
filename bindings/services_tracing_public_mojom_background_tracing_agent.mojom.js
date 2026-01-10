@@ -10,7 +10,7 @@ tracing.mojom = tracing.mojom || {};
 
 
 // Struct: BackgroundTracingRule
-tracing.mojom.BackgroundTracingRuleSpec = {
+tracing.mojom.mojom.BackgroundTracingRuleSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.BackgroundTracingRule',
@@ -24,24 +24,24 @@ tracing.mojom.BackgroundTracingRuleSpec = {
 };
 
 // Interface: BackgroundTracingAgentClient
-tracing.mojom.BackgroundTracingAgentClient = {};
+tracing.mojom.mojom.BackgroundTracingAgentClient = {};
 
-tracing.mojom.BackgroundTracingAgentClientPendingReceiver = class {
+tracing.mojom.mojom.BackgroundTracingAgentClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.BackgroundTracingAgentClientRemote = class {
+tracing.mojom.mojom.BackgroundTracingAgentClientRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.BackgroundTracingAgentClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.BackgroundTracingAgentClientPendingReceiver,
+      tracing.mojom.mojom.BackgroundTracingAgentClientPendingReceiver,
       handle);
-    this.$ = new tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.mojom.BackgroundTracingAgentClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +53,7 @@ tracing.mojom.BackgroundTracingAgentClientRemote = class {
   }
 };
 
-tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
+tracing.mojom.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,7 +62,7 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec,
+      tracing.mojom.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec,
       null,
       []);
   }
@@ -71,15 +71,15 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec,
+      tracing.mojom.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec,
       null,
       [rule, histogram_value, flow_id]);
   }
 
 };
 
-tracing.mojom.BackgroundTracingAgentClient.getRemote = function() {
-  let remote = new tracing.mojom.BackgroundTracingAgentClientRemote();
+tracing.mojom.mojom.BackgroundTracingAgentClient.getRemote = function() {
+  let remote = new tracing.mojom.mojom.BackgroundTracingAgentClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -89,7 +89,7 @@ tracing.mojom.BackgroundTracingAgentClient.getRemote = function() {
 };
 
 // ParamsSpec for OnInitialized
-tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = {
+tracing.mojom.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.BackgroundTracingAgentClient.OnInitialized_Params',
@@ -102,16 +102,16 @@ tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = {
 };
 
 // ParamsSpec for OnTriggerBackgroundTrace
-tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec = {
+tracing.mojom.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.BackgroundTracingAgentClient.OnTriggerBackgroundTrace_Params',
       packedSize: 32,
       fields: [
         { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.BackgroundTracingRuleSpec, nullable: false, minVersion: 0 },
-        { name: 'histogram_value_$flag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'histogram_value_$value', originalFieldName: 'histogram_value' } },
-        { name: 'histogram_value_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'histogram_value_$flag', originalFieldName: 'histogram_value' } },
-        { name: 'flow_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'histogram_value_$flag', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'histogram_value_$value', originalFieldName: 'histogram_value' } },
+        { name: 'histogram_value_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'histogram_value_$flag', originalFieldName: 'histogram_value' } },
+        { name: 'flow_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -119,29 +119,29 @@ tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec =
 };
 
 // Legacy compatibility
-tracing.mojom.BackgroundTracingAgentClientPtr = tracing.mojom.BackgroundTracingAgentClientRemote;
-tracing.mojom.BackgroundTracingAgentClientRequest = tracing.mojom.BackgroundTracingAgentClientPendingReceiver;
+tracing.mojom.mojom.BackgroundTracingAgentClientPtr = tracing.mojom.mojom.BackgroundTracingAgentClientRemote;
+tracing.mojom.mojom.BackgroundTracingAgentClientRequest = tracing.mojom.mojom.BackgroundTracingAgentClientPendingReceiver;
 
 
 // Interface: BackgroundTracingAgent
-tracing.mojom.BackgroundTracingAgent = {};
+tracing.mojom.mojom.BackgroundTracingAgent = {};
 
-tracing.mojom.BackgroundTracingAgentPendingReceiver = class {
+tracing.mojom.mojom.BackgroundTracingAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.BackgroundTracingAgentRemote = class {
+tracing.mojom.mojom.BackgroundTracingAgentRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.BackgroundTracingAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.BackgroundTracingAgentPendingReceiver,
+      tracing.mojom.mojom.BackgroundTracingAgentPendingReceiver,
       handle);
-    this.$ = new tracing.mojom.BackgroundTracingAgentRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.mojom.BackgroundTracingAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -153,7 +153,7 @@ tracing.mojom.BackgroundTracingAgentRemote = class {
   }
 };
 
-tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
+tracing.mojom.mojom.BackgroundTracingAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -162,7 +162,7 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec,
+      tracing.mojom.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec,
       null,
       [rule, histogram_name, histogram_lower_value, histogram_upper_value]);
   }
@@ -171,15 +171,15 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec,
+      tracing.mojom.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec,
       null,
       [rule]);
   }
 
 };
 
-tracing.mojom.BackgroundTracingAgent.getRemote = function() {
-  let remote = new tracing.mojom.BackgroundTracingAgentRemote();
+tracing.mojom.mojom.BackgroundTracingAgent.getRemote = function() {
+  let remote = new tracing.mojom.mojom.BackgroundTracingAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -189,7 +189,7 @@ tracing.mojom.BackgroundTracingAgent.getRemote = function() {
 };
 
 // ParamsSpec for SetUMACallback
-tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = {
+tracing.mojom.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.BackgroundTracingAgent.SetUMACallback_Params',
@@ -206,7 +206,7 @@ tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = {
 };
 
 // ParamsSpec for ClearUMACallback
-tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = {
+tracing.mojom.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.BackgroundTracingAgent.ClearUMACallback_Params',
@@ -220,29 +220,29 @@ tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.BackgroundTracingAgentPtr = tracing.mojom.BackgroundTracingAgentRemote;
-tracing.mojom.BackgroundTracingAgentRequest = tracing.mojom.BackgroundTracingAgentPendingReceiver;
+tracing.mojom.mojom.BackgroundTracingAgentPtr = tracing.mojom.mojom.BackgroundTracingAgentRemote;
+tracing.mojom.mojom.BackgroundTracingAgentRequest = tracing.mojom.mojom.BackgroundTracingAgentPendingReceiver;
 
 
 // Interface: BackgroundTracingAgentProvider
-tracing.mojom.BackgroundTracingAgentProvider = {};
+tracing.mojom.mojom.BackgroundTracingAgentProvider = {};
 
-tracing.mojom.BackgroundTracingAgentProviderPendingReceiver = class {
+tracing.mojom.mojom.BackgroundTracingAgentProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.BackgroundTracingAgentProviderRemote = class {
+tracing.mojom.mojom.BackgroundTracingAgentProviderRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.BackgroundTracingAgentProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.BackgroundTracingAgentProviderPendingReceiver,
+      tracing.mojom.mojom.BackgroundTracingAgentProviderPendingReceiver,
       handle);
-    this.$ = new tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.mojom.BackgroundTracingAgentProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -254,7 +254,7 @@ tracing.mojom.BackgroundTracingAgentProviderRemote = class {
   }
 };
 
-tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
+tracing.mojom.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -263,15 +263,15 @@ tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec,
+      tracing.mojom.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec,
       null,
       [tracing_process_id, client, agent]);
   }
 
 };
 
-tracing.mojom.BackgroundTracingAgentProvider.getRemote = function() {
-  let remote = new tracing.mojom.BackgroundTracingAgentProviderRemote();
+tracing.mojom.mojom.BackgroundTracingAgentProvider.getRemote = function() {
+  let remote = new tracing.mojom.mojom.BackgroundTracingAgentProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -281,7 +281,7 @@ tracing.mojom.BackgroundTracingAgentProvider.getRemote = function() {
 };
 
 // ParamsSpec for Create
-tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
+tracing.mojom.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.BackgroundTracingAgentProvider.Create_Params',
@@ -297,6 +297,6 @@ tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.BackgroundTracingAgentProviderPtr = tracing.mojom.BackgroundTracingAgentProviderRemote;
-tracing.mojom.BackgroundTracingAgentProviderRequest = tracing.mojom.BackgroundTracingAgentProviderPendingReceiver;
+tracing.mojom.mojom.BackgroundTracingAgentProviderPtr = tracing.mojom.mojom.BackgroundTracingAgentProviderRemote;
+tracing.mojom.mojom.BackgroundTracingAgentProviderRequest = tracing.mojom.mojom.BackgroundTracingAgentProviderPendingReceiver;
 

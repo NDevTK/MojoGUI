@@ -7,11 +7,12 @@
 // Module namespace
 var commerce = commerce || {};
 commerce.shared = commerce.shared || {};
-commerce.shared.mojom = commerce.shared.mojom || {};
+commerce.shared.shared.mojom = commerce.shared.shared.mojom || {};
+var url = url || {};
 
 
 // Struct: ProductInfo
-commerce.shared.mojom.ProductInfoSpec = {
+commerce.shared.shared.mojom.mojom.ProductInfoSpec = {
   $: {
     structSpec: {
       name: 'commerce.shared.mojom.ProductInfo',
@@ -34,7 +35,7 @@ commerce.shared.mojom.ProductInfoSpec = {
 };
 
 // Struct: BookmarkProductInfo
-commerce.shared.mojom.BookmarkProductInfoSpec = {
+commerce.shared.shared.mojom.mojom.BookmarkProductInfoSpec = {
   $: {
     structSpec: {
       name: 'commerce.shared.mojom.BookmarkProductInfo',
@@ -49,7 +50,7 @@ commerce.shared.mojom.BookmarkProductInfoSpec = {
 };
 
 // Struct: ProductSpecificationsSet
-commerce.shared.mojom.ProductSpecificationsSetSpec = {
+commerce.shared.shared.mojom.mojom.ProductSpecificationsSetSpec = {
   $: {
     structSpec: {
       name: 'commerce.shared.mojom.ProductSpecificationsSet',

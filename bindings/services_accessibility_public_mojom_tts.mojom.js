@@ -10,7 +10,7 @@ ax.mojom = ax.mojom || {};
 
 
 // Enum: TtsEventType
-ax.mojom.TtsEventType = {
+ax.mojom.mojom.TtsEventType = {
   kStart: 0,
   kEnd: 1,
   kWord: 2,
@@ -22,10 +22,10 @@ ax.mojom.TtsEventType = {
   kPause: 8,
   kResume: 9,
 };
-ax.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
+ax.mojom.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TtsError
-ax.mojom.TtsError = {
+ax.mojom.mojom.TtsError = {
   kNoError: 0,
   kErrorExtensionIdMismatch: 1,
   kErrorInvalidLang: 2,
@@ -36,10 +36,10 @@ ax.mojom.TtsError = {
   kErrorUndeclaredEventType: 7,
   kErrorUtteranceTooLong: 8,
 };
-ax.mojom.TtsErrorSpec = { $: mojo.internal.Enum() };
+ax.mojom.mojom.TtsErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: TtsVoice
-ax.mojom.TtsVoiceSpec = {
+ax.mojom.mojom.TtsVoiceSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsVoice',
@@ -47,9 +47,9 @@ ax.mojom.TtsVoiceSpec = {
       fields: [
         { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'engine_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'event_types', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.TtsEventTypeSpec, false), nullable: true, minVersion: 0 },
+        { name: 'remote', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'engine_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'event_types', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.TtsEventTypeSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -57,7 +57,7 @@ ax.mojom.TtsVoiceSpec = {
 };
 
 // Struct: TtsOptions
-ax.mojom.TtsOptionsSpec = {
+ax.mojom.mojom.TtsOptionsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsOptions',
@@ -66,11 +66,11 @@ ax.mojom.TtsOptionsSpec = {
         { name: 'pitch', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
         { name: 'rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
         { name: 'volume', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'enqueue', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'voice_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'engine_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'lang', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'on_event', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enqueue', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'voice_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'engine_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'lang', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'on_event', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -78,15 +78,15 @@ ax.mojom.TtsOptionsSpec = {
 };
 
 // Struct: TtsEvent
-ax.mojom.TtsEventSpec = {
+ax.mojom.mojom.TtsEventSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsEvent',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsEventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'char_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsEventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'char_index', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'is_final', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
@@ -96,7 +96,7 @@ ax.mojom.TtsEventSpec = {
 };
 
 // Struct: TtsSpeakResult
-ax.mojom.TtsSpeakResultSpec = {
+ax.mojom.mojom.TtsSpeakResultSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsSpeakResult',
@@ -111,24 +111,24 @@ ax.mojom.TtsSpeakResultSpec = {
 };
 
 // Interface: TtsUtteranceClient
-ax.mojom.TtsUtteranceClient = {};
+ax.mojom.mojom.TtsUtteranceClient = {};
 
-ax.mojom.TtsUtteranceClientPendingReceiver = class {
+ax.mojom.mojom.TtsUtteranceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.TtsUtteranceClientRemote = class {
+ax.mojom.mojom.TtsUtteranceClientRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.TtsUtteranceClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.TtsUtteranceClientPendingReceiver,
+      ax.mojom.mojom.TtsUtteranceClientPendingReceiver,
       handle);
-    this.$ = new ax.mojom.TtsUtteranceClientRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.mojom.TtsUtteranceClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -140,7 +140,7 @@ ax.mojom.TtsUtteranceClientRemote = class {
   }
 };
 
-ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
+ax.mojom.mojom.TtsUtteranceClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -149,15 +149,15 @@ ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec,
+      ax.mojom.mojom.TtsUtteranceClient_OnEvent_ParamsSpec,
       null,
       [event]);
   }
 
 };
 
-ax.mojom.TtsUtteranceClient.getRemote = function() {
-  let remote = new ax.mojom.TtsUtteranceClientRemote();
+ax.mojom.mojom.TtsUtteranceClient.getRemote = function() {
+  let remote = new ax.mojom.mojom.TtsUtteranceClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -167,7 +167,7 @@ ax.mojom.TtsUtteranceClient.getRemote = function() {
 };
 
 // ParamsSpec for OnEvent
-ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
+ax.mojom.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsUtteranceClient.OnEvent_Params',
@@ -181,29 +181,29 @@ ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.TtsUtteranceClientPtr = ax.mojom.TtsUtteranceClientRemote;
-ax.mojom.TtsUtteranceClientRequest = ax.mojom.TtsUtteranceClientPendingReceiver;
+ax.mojom.mojom.TtsUtteranceClientPtr = ax.mojom.mojom.TtsUtteranceClientRemote;
+ax.mojom.mojom.TtsUtteranceClientRequest = ax.mojom.mojom.TtsUtteranceClientPendingReceiver;
 
 
 // Interface: Tts
-ax.mojom.Tts = {};
+ax.mojom.mojom.Tts = {};
 
-ax.mojom.TtsPendingReceiver = class {
+ax.mojom.mojom.TtsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.TtsRemote = class {
+ax.mojom.mojom.TtsRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.Tts';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.TtsPendingReceiver,
+      ax.mojom.mojom.TtsPendingReceiver,
       handle);
-    this.$ = new ax.mojom.TtsRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.mojom.TtsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -215,7 +215,7 @@ ax.mojom.TtsRemote = class {
   }
 };
 
-ax.mojom.TtsRemoteCallHandler = class {
+ax.mojom.mojom.TtsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -224,8 +224,8 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.Tts_Speak_ParamsSpec,
-      ax.mojom.Tts_Speak_ResponseParamsSpec,
+      ax.mojom.mojom.Tts_Speak_ParamsSpec,
+      ax.mojom.mojom.Tts_Speak_ResponseParamsSpec,
       [utterance, options]);
   }
 
@@ -233,7 +233,7 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.Tts_Stop_ParamsSpec,
+      ax.mojom.mojom.Tts_Stop_ParamsSpec,
       null,
       []);
   }
@@ -242,7 +242,7 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.Tts_Pause_ParamsSpec,
+      ax.mojom.mojom.Tts_Pause_ParamsSpec,
       null,
       []);
   }
@@ -251,7 +251,7 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.Tts_Resume_ParamsSpec,
+      ax.mojom.mojom.Tts_Resume_ParamsSpec,
       null,
       []);
   }
@@ -260,8 +260,8 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ax.mojom.Tts_IsSpeaking_ParamsSpec,
-      ax.mojom.Tts_IsSpeaking_ResponseParamsSpec,
+      ax.mojom.mojom.Tts_IsSpeaking_ParamsSpec,
+      ax.mojom.mojom.Tts_IsSpeaking_ResponseParamsSpec,
       []);
   }
 
@@ -269,15 +269,15 @@ ax.mojom.TtsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ax.mojom.Tts_GetVoices_ParamsSpec,
-      ax.mojom.Tts_GetVoices_ResponseParamsSpec,
+      ax.mojom.mojom.Tts_GetVoices_ParamsSpec,
+      ax.mojom.mojom.Tts_GetVoices_ResponseParamsSpec,
       []);
   }
 
 };
 
-ax.mojom.Tts.getRemote = function() {
-  let remote = new ax.mojom.TtsRemote();
+ax.mojom.mojom.Tts.getRemote = function() {
+  let remote = new ax.mojom.mojom.TtsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -287,7 +287,7 @@ ax.mojom.Tts.getRemote = function() {
 };
 
 // ParamsSpec for Speak
-ax.mojom.Tts_Speak_ParamsSpec = {
+ax.mojom.mojom.Tts_Speak_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Speak_Params',
@@ -301,7 +301,7 @@ ax.mojom.Tts_Speak_ParamsSpec = {
   }
 };
 
-ax.mojom.Tts_Speak_ResponseParamsSpec = {
+ax.mojom.mojom.Tts_Speak_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Speak_ResponseParams',
@@ -315,7 +315,7 @@ ax.mojom.Tts_Speak_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Stop
-ax.mojom.Tts_Stop_ParamsSpec = {
+ax.mojom.mojom.Tts_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Stop_Params',
@@ -328,7 +328,7 @@ ax.mojom.Tts_Stop_ParamsSpec = {
 };
 
 // ParamsSpec for Pause
-ax.mojom.Tts_Pause_ParamsSpec = {
+ax.mojom.mojom.Tts_Pause_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Pause_Params',
@@ -341,7 +341,7 @@ ax.mojom.Tts_Pause_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-ax.mojom.Tts_Resume_ParamsSpec = {
+ax.mojom.mojom.Tts_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.Resume_Params',
@@ -354,7 +354,7 @@ ax.mojom.Tts_Resume_ParamsSpec = {
 };
 
 // ParamsSpec for IsSpeaking
-ax.mojom.Tts_IsSpeaking_ParamsSpec = {
+ax.mojom.mojom.Tts_IsSpeaking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.IsSpeaking_Params',
@@ -366,7 +366,7 @@ ax.mojom.Tts_IsSpeaking_ParamsSpec = {
   }
 };
 
-ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
+ax.mojom.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.IsSpeaking_ResponseParams',
@@ -380,7 +380,7 @@ ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetVoices
-ax.mojom.Tts_GetVoices_ParamsSpec = {
+ax.mojom.mojom.Tts_GetVoices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.GetVoices_Params',
@@ -392,7 +392,7 @@ ax.mojom.Tts_GetVoices_ParamsSpec = {
   }
 };
 
-ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
+ax.mojom.mojom.Tts_GetVoices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.Tts.GetVoices_ResponseParams',
@@ -406,6 +406,6 @@ ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.TtsPtr = ax.mojom.TtsRemote;
-ax.mojom.TtsRequest = ax.mojom.TtsPendingReceiver;
+ax.mojom.mojom.TtsPtr = ax.mojom.mojom.TtsRemote;
+ax.mojom.mojom.TtsRequest = ax.mojom.mojom.TtsPendingReceiver;
 

@@ -7,17 +7,19 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Enum: Operation
-extensions.mojom.Operation = {
+extensions.mojom.mojom.Operation = {
   kAdd: 0,
   kRemove: 1,
 };
-extensions.mojom.OperationSpec = { $: mojo.internal.Enum() };
+extensions.mojom.mojom.OperationSpec = { $: mojo.internal.Enum() };
 
 // Union: CodeInjection
-extensions.mojom.CodeInjectionSpec = { $: mojo.internal.Union(
+extensions.mojom.mojom.CodeInjectionSpec = { $: mojo.internal.Union(
     'extensions.mojom.CodeInjection', {
       'css': {
         'ordinal': 0,
@@ -31,7 +33,7 @@ extensions.mojom.CodeInjectionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: JSSource
-extensions.mojom.JSSourceSpec = {
+extensions.mojom.mojom.JSSourceSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.JSSource',
@@ -46,7 +48,7 @@ extensions.mojom.JSSourceSpec = {
 };
 
 // Struct: CSSSource
-extensions.mojom.CSSSourceSpec = {
+extensions.mojom.mojom.CSSSourceSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.CSSSource',
@@ -61,16 +63,16 @@ extensions.mojom.CSSSourceSpec = {
 };
 
 // Struct: JSInjection
-extensions.mojom.JSInjectionSpec = {
+extensions.mojom.mojom.JSInjectionSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.JSInjection',
       packedSize: 40,
       fields: [
         { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(extensions.mojom.JSSourceSpec, false), nullable: false, minVersion: 0 },
-        { name: 'world', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ExecutionWorldSpec, nullable: false, minVersion: 0 },
-        { name: 'world_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'wants_result', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.WantResultOptionSpec, nullable: false, minVersion: 0 },
+        { name: 'world', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ExecutionWorldSpec, nullable: false, minVersion: 0 },
+        { name: 'world_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'wants_result', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.WantResultOptionSpec, nullable: false, minVersion: 0 },
         { name: 'user_gesture', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.UserActivationOptionSpec, nullable: false, minVersion: 0 },
         { name: 'wait_for_promise', packedOffset: 28, packedBitOffset: 0, type: blink.mojom.PromiseResultOptionSpec, nullable: false, minVersion: 0 },
       ],
@@ -80,7 +82,7 @@ extensions.mojom.JSInjectionSpec = {
 };
 
 // Struct: CSSInjection
-extensions.mojom.CSSInjectionSpec = {
+extensions.mojom.mojom.CSSInjectionSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.CSSInjection',

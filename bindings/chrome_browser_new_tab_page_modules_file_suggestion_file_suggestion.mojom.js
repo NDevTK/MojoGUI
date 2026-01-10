@@ -7,18 +7,19 @@
 // Module namespace
 var file_suggestion = file_suggestion || {};
 file_suggestion.mojom = file_suggestion.mojom || {};
+var url = url || {};
 
 
 // Enum: RecommendationType
-file_suggestion.mojom.RecommendationType = {
+file_suggestion.mojom.mojom.RecommendationType = {
   kUsed: 0,
   kShared: 1,
   kTrending: 2,
 };
-file_suggestion.mojom.RecommendationTypeSpec = { $: mojo.internal.Enum() };
+file_suggestion.mojom.mojom.RecommendationTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: File
-file_suggestion.mojom.FileSpec = {
+file_suggestion.mojom.mojom.FileSpec = {
   $: {
     structSpec: {
       name: 'file_suggestion.mojom.File',

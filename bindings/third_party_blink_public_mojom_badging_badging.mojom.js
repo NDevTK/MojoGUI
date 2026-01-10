@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Union: BadgeValue
-blink.mojom.BadgeValueSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.BadgeValueSpec = { $: mojo.internal.Union(
     'blink.mojom.BadgeValue', {
       'flag': {
         'ordinal': 0,
@@ -24,24 +24,24 @@ blink.mojom.BadgeValueSpec = { $: mojo.internal.Union(
 };
 
 // Interface: BadgeService
-blink.mojom.BadgeService = {};
+blink.mojom.mojom.BadgeService = {};
 
-blink.mojom.BadgeServicePendingReceiver = class {
+blink.mojom.mojom.BadgeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BadgeServiceRemote = class {
+blink.mojom.mojom.BadgeServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BadgeService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BadgeServicePendingReceiver,
+      blink.mojom.mojom.BadgeServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.BadgeServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BadgeServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +53,7 @@ blink.mojom.BadgeServiceRemote = class {
   }
 };
 
-blink.mojom.BadgeServiceRemoteCallHandler = class {
+blink.mojom.mojom.BadgeServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,7 +62,7 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BadgeService_SetBadge_ParamsSpec,
+      blink.mojom.mojom.BadgeService_SetBadge_ParamsSpec,
       null,
       [value]);
   }
@@ -71,15 +71,15 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BadgeService_ClearBadge_ParamsSpec,
+      blink.mojom.mojom.BadgeService_ClearBadge_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.BadgeService.getRemote = function() {
-  let remote = new blink.mojom.BadgeServiceRemote();
+blink.mojom.mojom.BadgeService.getRemote = function() {
+  let remote = new blink.mojom.mojom.BadgeServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -89,7 +89,7 @@ blink.mojom.BadgeService.getRemote = function() {
 };
 
 // ParamsSpec for SetBadge
-blink.mojom.BadgeService_SetBadge_ParamsSpec = {
+blink.mojom.mojom.BadgeService_SetBadge_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BadgeService.SetBadge_Params',
@@ -103,7 +103,7 @@ blink.mojom.BadgeService_SetBadge_ParamsSpec = {
 };
 
 // ParamsSpec for ClearBadge
-blink.mojom.BadgeService_ClearBadge_ParamsSpec = {
+blink.mojom.mojom.BadgeService_ClearBadge_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BadgeService.ClearBadge_Params',
@@ -116,6 +116,6 @@ blink.mojom.BadgeService_ClearBadge_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.BadgeServicePtr = blink.mojom.BadgeServiceRemote;
-blink.mojom.BadgeServiceRequest = blink.mojom.BadgeServicePendingReceiver;
+blink.mojom.mojom.BadgeServicePtr = blink.mojom.mojom.BadgeServiceRemote;
+blink.mojom.mojom.BadgeServiceRequest = blink.mojom.mojom.BadgeServicePendingReceiver;
 

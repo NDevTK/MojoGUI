@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: InstallationService
-blink.mojom.InstallationService = {};
+blink.mojom.mojom.InstallationService = {};
 
-blink.mojom.InstallationServicePendingReceiver = class {
+blink.mojom.mojom.InstallationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.InstallationServiceRemote = class {
+blink.mojom.mojom.InstallationServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.InstallationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.InstallationServicePendingReceiver,
+      blink.mojom.mojom.InstallationServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.InstallationServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.InstallationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.InstallationServiceRemote = class {
   }
 };
 
-blink.mojom.InstallationServiceRemoteCallHandler = class {
+blink.mojom.mojom.InstallationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ blink.mojom.InstallationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.InstallationService_OnInstall_ParamsSpec,
+      blink.mojom.mojom.InstallationService_OnInstall_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.InstallationService.getRemote = function() {
-  let remote = new blink.mojom.InstallationServiceRemote();
+blink.mojom.mojom.InstallationService.getRemote = function() {
+  let remote = new blink.mojom.mojom.InstallationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ blink.mojom.InstallationService.getRemote = function() {
 };
 
 // ParamsSpec for OnInstall
-blink.mojom.InstallationService_OnInstall_ParamsSpec = {
+blink.mojom.mojom.InstallationService_OnInstall_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InstallationService.OnInstall_Params',
@@ -79,6 +79,6 @@ blink.mojom.InstallationService_OnInstall_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.InstallationServicePtr = blink.mojom.InstallationServiceRemote;
-blink.mojom.InstallationServiceRequest = blink.mojom.InstallationServicePendingReceiver;
+blink.mojom.mojom.InstallationServicePtr = blink.mojom.mojom.InstallationServiceRemote;
+blink.mojom.mojom.InstallationServiceRequest = blink.mojom.mojom.InstallationServicePendingReceiver;
 

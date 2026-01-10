@@ -7,10 +7,14 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Struct: FrameReplicationState
-blink.mojom.FrameReplicationStateSpec = {
+blink.mojom.mojom.FrameReplicationStateSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FrameReplicationState',

@@ -10,24 +10,24 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: RemoteInterfaces
-chromecast.mojom.RemoteInterfaces = {};
+chromecast.mojom.mojom.RemoteInterfaces = {};
 
-chromecast.mojom.RemoteInterfacesPendingReceiver = class {
+chromecast.mojom.mojom.RemoteInterfacesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.RemoteInterfacesRemote = class {
+chromecast.mojom.mojom.RemoteInterfacesRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.RemoteInterfaces';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.RemoteInterfacesPendingReceiver,
+      chromecast.mojom.mojom.RemoteInterfacesPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.RemoteInterfacesRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.RemoteInterfacesRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ chromecast.mojom.RemoteInterfacesRemote = class {
   }
 };
 
-chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
+chromecast.mojom.mojom.RemoteInterfacesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec,
+      chromecast.mojom.mojom.RemoteInterfaces_BindInterface_ParamsSpec,
       null,
       [interface_name, pipe]);
   }
@@ -57,15 +57,15 @@ chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec,
+      chromecast.mojom.mojom.RemoteInterfaces_AddClient_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-chromecast.mojom.RemoteInterfaces.getRemote = function() {
-  let remote = new chromecast.mojom.RemoteInterfacesRemote();
+chromecast.mojom.mojom.RemoteInterfaces.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.RemoteInterfacesRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ chromecast.mojom.RemoteInterfaces.getRemote = function() {
 };
 
 // ParamsSpec for BindInterface
-chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec = {
+chromecast.mojom.mojom.RemoteInterfaces_BindInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.RemoteInterfaces.BindInterface_Params',
@@ -90,7 +90,7 @@ chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec = {
 };
 
 // ParamsSpec for AddClient
-chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
+chromecast.mojom.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.RemoteInterfaces.AddClient_Params',
@@ -104,6 +104,6 @@ chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.RemoteInterfacesPtr = chromecast.mojom.RemoteInterfacesRemote;
-chromecast.mojom.RemoteInterfacesRequest = chromecast.mojom.RemoteInterfacesPendingReceiver;
+chromecast.mojom.mojom.RemoteInterfacesPtr = chromecast.mojom.mojom.RemoteInterfacesRemote;
+chromecast.mojom.mojom.RemoteInterfacesRequest = chromecast.mojom.mojom.RemoteInterfacesPendingReceiver;
 

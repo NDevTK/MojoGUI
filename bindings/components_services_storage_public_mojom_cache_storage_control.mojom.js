@@ -7,34 +7,36 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Enum: CacheStorageOwner
-storage.mojom.CacheStorageOwner = {
+storage.mojom.mojom.CacheStorageOwner = {
   kCacheAPI: 0,
   kBackgroundFetch: 1,
 };
-storage.mojom.CacheStorageOwnerSpec = { $: mojo.internal.Enum() };
+storage.mojom.mojom.CacheStorageOwnerSpec = { $: mojo.internal.Enum() };
 
 // Interface: CacheStorageObserver
-storage.mojom.CacheStorageObserver = {};
+storage.mojom.mojom.CacheStorageObserver = {};
 
-storage.mojom.CacheStorageObserverPendingReceiver = class {
+storage.mojom.mojom.CacheStorageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.CacheStorageObserverRemote = class {
+storage.mojom.mojom.CacheStorageObserverRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.CacheStorageObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.CacheStorageObserverPendingReceiver,
+      storage.mojom.mojom.CacheStorageObserverPendingReceiver,
       handle);
-    this.$ = new storage.mojom.CacheStorageObserverRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.mojom.CacheStorageObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -46,7 +48,7 @@ storage.mojom.CacheStorageObserverRemote = class {
   }
 };
 
-storage.mojom.CacheStorageObserverRemoteCallHandler = class {
+storage.mojom.mojom.CacheStorageObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -55,7 +57,7 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec,
+      storage.mojom.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec,
       null,
       [bucket_locator]);
   }
@@ -64,15 +66,15 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec,
+      storage.mojom.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec,
       null,
       [bucket_locator, cache_name]);
   }
 
 };
 
-storage.mojom.CacheStorageObserver.getRemote = function() {
-  let remote = new storage.mojom.CacheStorageObserverRemote();
+storage.mojom.mojom.CacheStorageObserver.getRemote = function() {
+  let remote = new storage.mojom.mojom.CacheStorageObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +84,7 @@ storage.mojom.CacheStorageObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnCacheListChanged
-storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
+storage.mojom.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.CacheStorageObserver.OnCacheListChanged_Params',
@@ -96,7 +98,7 @@ storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnCacheContentChanged
-storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
+storage.mojom.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.CacheStorageObserver.OnCacheContentChanged_Params',
@@ -111,29 +113,29 @@ storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.CacheStorageObserverPtr = storage.mojom.CacheStorageObserverRemote;
-storage.mojom.CacheStorageObserverRequest = storage.mojom.CacheStorageObserverPendingReceiver;
+storage.mojom.mojom.CacheStorageObserverPtr = storage.mojom.mojom.CacheStorageObserverRemote;
+storage.mojom.mojom.CacheStorageObserverRequest = storage.mojom.mojom.CacheStorageObserverPendingReceiver;
 
 
 // Interface: CacheStorageControl
-storage.mojom.CacheStorageControl = {};
+storage.mojom.mojom.CacheStorageControl = {};
 
-storage.mojom.CacheStorageControlPendingReceiver = class {
+storage.mojom.mojom.CacheStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.CacheStorageControlRemote = class {
+storage.mojom.mojom.CacheStorageControlRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.CacheStorageControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.CacheStorageControlPendingReceiver,
+      storage.mojom.mojom.CacheStorageControlPendingReceiver,
       handle);
-    this.$ = new storage.mojom.CacheStorageControlRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.mojom.CacheStorageControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -145,7 +147,7 @@ storage.mojom.CacheStorageControlRemote = class {
   }
 };
 
-storage.mojom.CacheStorageControlRemoteCallHandler = class {
+storage.mojom.mojom.CacheStorageControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -154,7 +156,7 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec,
+      storage.mojom.mojom.CacheStorageControl_AddReceiver_ParamsSpec,
       null,
       [cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver]);
   }
@@ -163,7 +165,7 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.CacheStorageControl_AddObserver_ParamsSpec,
+      storage.mojom.mojom.CacheStorageControl_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -172,15 +174,15 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec,
+      storage.mojom.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
       [policy_updates]);
   }
 
 };
 
-storage.mojom.CacheStorageControl.getRemote = function() {
-  let remote = new storage.mojom.CacheStorageControlRemote();
+storage.mojom.mojom.CacheStorageControl.getRemote = function() {
+  let remote = new storage.mojom.mojom.CacheStorageControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -190,17 +192,17 @@ storage.mojom.CacheStorageControl.getRemote = function() {
 };
 
 // ParamsSpec for AddReceiver
-storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
+storage.mojom.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.CacheStorageControl.AddReceiver_Params',
       packedSize: 48,
       fields: [
         { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'coep_reporter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'document_isolation_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'dip_reporter', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'bucket_locator', packedOffset: 24, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
+        { name: 'coep_reporter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'document_isolation_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'dip_reporter', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'bucket_locator', packedOffset: 16, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
         { name: 'owner', packedOffset: 32, packedBitOffset: 0, type: storage.mojom.CacheStorageOwnerSpec, nullable: false, minVersion: 0 },
         { name: 'receiver', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
@@ -210,7 +212,7 @@ storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
 };
 
 // ParamsSpec for AddObserver
-storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = {
+storage.mojom.mojom.CacheStorageControl_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.CacheStorageControl.AddObserver_Params',
@@ -224,7 +226,7 @@ storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for ApplyPolicyUpdates
-storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = {
+storage.mojom.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.CacheStorageControl.ApplyPolicyUpdates_Params',
@@ -238,6 +240,6 @@ storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.CacheStorageControlPtr = storage.mojom.CacheStorageControlRemote;
-storage.mojom.CacheStorageControlRequest = storage.mojom.CacheStorageControlPendingReceiver;
+storage.mojom.mojom.CacheStorageControlPtr = storage.mojom.mojom.CacheStorageControlRemote;
+storage.mojom.mojom.CacheStorageControlRequest = storage.mojom.mojom.CacheStorageControlPendingReceiver;
 

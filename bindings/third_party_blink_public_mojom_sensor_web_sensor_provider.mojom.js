@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WebSensorProvider
-blink.mojom.WebSensorProvider = {};
+blink.mojom.mojom.WebSensorProvider = {};
 
-blink.mojom.WebSensorProviderPendingReceiver = class {
+blink.mojom.mojom.WebSensorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WebSensorProviderRemote = class {
+blink.mojom.mojom.WebSensorProviderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebSensorProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WebSensorProviderPendingReceiver,
+      blink.mojom.mojom.WebSensorProviderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WebSensorProviderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WebSensorProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.WebSensorProviderRemote = class {
   }
 };
 
-blink.mojom.WebSensorProviderRemoteCallHandler = class {
+blink.mojom.mojom.WebSensorProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ blink.mojom.WebSensorProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebSensorProvider_GetSensor_ParamsSpec,
-      blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec,
+      blink.mojom.mojom.WebSensorProvider_GetSensor_ParamsSpec,
+      blink.mojom.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec,
       [type]);
   }
 
 };
 
-blink.mojom.WebSensorProvider.getRemote = function() {
-  let remote = new blink.mojom.WebSensorProviderRemote();
+blink.mojom.mojom.WebSensorProvider.getRemote = function() {
+  let remote = new blink.mojom.mojom.WebSensorProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ blink.mojom.WebSensorProvider.getRemote = function() {
 };
 
 // ParamsSpec for GetSensor
-blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
+blink.mojom.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebSensorProvider.GetSensor_Params',
@@ -79,14 +79,14 @@ blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
   }
 };
 
-blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
+blink.mojom.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebSensorProvider.GetSensor_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorCreationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'init_params', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorInitParamsSpec, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorCreationResultSpec, nullable: false, minVersion: 0 },
+        { name: 'init_params', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorInitParamsSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -94,6 +94,6 @@ blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WebSensorProviderPtr = blink.mojom.WebSensorProviderRemote;
-blink.mojom.WebSensorProviderRequest = blink.mojom.WebSensorProviderPendingReceiver;
+blink.mojom.mojom.WebSensorProviderPtr = blink.mojom.mojom.WebSensorProviderRemote;
+blink.mojom.mojom.WebSensorProviderRequest = blink.mojom.mojom.WebSensorProviderPendingReceiver;
 

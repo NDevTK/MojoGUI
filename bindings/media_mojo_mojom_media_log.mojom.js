@@ -10,24 +10,24 @@ media.mojom = media.mojom || {};
 
 
 // Interface: MediaLog
-media.mojom.MediaLog = {};
+media.mojom.mojom.MediaLog = {};
 
-media.mojom.MediaLogPendingReceiver = class {
+media.mojom.mojom.MediaLogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.MediaLogRemote = class {
+media.mojom.mojom.MediaLogRemote = class {
   static get $interfaceName() {
     return 'media.mojom.MediaLog';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.MediaLogPendingReceiver,
+      media.mojom.mojom.MediaLogPendingReceiver,
       handle);
-    this.$ = new media.mojom.MediaLogRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.MediaLogRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ media.mojom.MediaLogRemote = class {
   }
 };
 
-media.mojom.MediaLogRemoteCallHandler = class {
+media.mojom.mojom.MediaLogRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ media.mojom.MediaLogRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.MediaLog_AddLogRecord_ParamsSpec,
+      media.mojom.mojom.MediaLog_AddLogRecord_ParamsSpec,
       null,
       [event]);
   }
 
 };
 
-media.mojom.MediaLog.getRemote = function() {
-  let remote = new media.mojom.MediaLogRemote();
+media.mojom.mojom.MediaLog.getRemote = function() {
+  let remote = new media.mojom.mojom.MediaLogRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ media.mojom.MediaLog.getRemote = function() {
 };
 
 // ParamsSpec for AddLogRecord
-media.mojom.MediaLog_AddLogRecord_ParamsSpec = {
+media.mojom.mojom.MediaLog_AddLogRecord_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaLog.AddLogRecord_Params',
@@ -80,6 +80,6 @@ media.mojom.MediaLog_AddLogRecord_ParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.MediaLogPtr = media.mojom.MediaLogRemote;
-media.mojom.MediaLogRequest = media.mojom.MediaLogPendingReceiver;
+media.mojom.mojom.MediaLogPtr = media.mojom.mojom.MediaLogRemote;
+media.mojom.mojom.MediaLogRequest = media.mojom.mojom.MediaLogPendingReceiver;
 

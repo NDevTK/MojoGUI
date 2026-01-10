@@ -7,18 +7,19 @@
 // Module namespace
 var mahi = mahi || {};
 mahi.mojom = mahi.mojom || {};
+var ui = ui || {};
 
 
 // Enum: ResponseStatus
-mahi.mojom.ResponseStatus = {
+mahi.mojom.mojom.ResponseStatus = {
   kSuccess: 0,
   kUnknownError: 1,
   kScreen2xNotAvailable: 2,
 };
-mahi.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
+mahi.mojom.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ExtractionMethods
-mahi.mojom.ExtractionMethodsSpec = {
+mahi.mojom.mojom.ExtractionMethodsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ExtractionMethods',
@@ -33,17 +34,17 @@ mahi.mojom.ExtractionMethodsSpec = {
 };
 
 // Struct: ExtractionRequest
-mahi.mojom.ExtractionRequestSpec = {
+mahi.mojom.mojom.ExtractionRequestSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ExtractionRequest',
       packedSize: 48,
       fields: [
-        { name: 'deprecated_ukm_source_id_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'deprecated_ukm_source_id_$value', originalFieldName: 'deprecated_ukm_source_id' } },
-        { name: 'deprecated_ukm_source_id_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'deprecated_ukm_source_id_$flag', originalFieldName: 'deprecated_ukm_source_id' } },
-        { name: 'snapshot', packedOffset: 16, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: true, minVersion: 0 },
-        { name: 'extraction_methods', packedOffset: 24, packedBitOffset: 0, type: mahi.mojom.ExtractionMethodsSpec, nullable: false, minVersion: 0 },
-        { name: 'updates', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXTreeUpdateSpec, false), nullable: true, minVersion: 0 },
+        { name: 'deprecated_ukm_source_id_$flag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'deprecated_ukm_source_id_$value', originalFieldName: 'deprecated_ukm_source_id' } },
+        { name: 'deprecated_ukm_source_id_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'deprecated_ukm_source_id_$flag', originalFieldName: 'deprecated_ukm_source_id' } },
+        { name: 'snapshot', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: true, minVersion: 0 },
+        { name: 'extraction_methods', packedOffset: 16, packedBitOffset: 0, type: mahi.mojom.ExtractionMethodsSpec, nullable: false, minVersion: 0 },
+        { name: 'updates', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXTreeUpdateSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -51,7 +52,7 @@ mahi.mojom.ExtractionRequestSpec = {
 };
 
 // Struct: ExtractionResponse
-mahi.mojom.ExtractionResponseSpec = {
+mahi.mojom.mojom.ExtractionResponseSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ExtractionResponse',
@@ -66,7 +67,7 @@ mahi.mojom.ExtractionResponseSpec = {
 };
 
 // Struct: ContentSizeResponse
-mahi.mojom.ContentSizeResponseSpec = {
+mahi.mojom.mojom.ContentSizeResponseSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentSizeResponse',
@@ -81,24 +82,24 @@ mahi.mojom.ContentSizeResponseSpec = {
 };
 
 // Interface: ContentExtractionService
-mahi.mojom.ContentExtractionService = {};
+mahi.mojom.mojom.ContentExtractionService = {};
 
-mahi.mojom.ContentExtractionServicePendingReceiver = class {
+mahi.mojom.mojom.ContentExtractionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mahi.mojom.ContentExtractionServiceRemote = class {
+mahi.mojom.mojom.ContentExtractionServiceRemote = class {
   static get $interfaceName() {
     return 'mahi.mojom.ContentExtractionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mahi.mojom.ContentExtractionServicePendingReceiver,
+      mahi.mojom.mojom.ContentExtractionServicePendingReceiver,
       handle);
-    this.$ = new mahi.mojom.ContentExtractionServiceRemoteCallHandler(this.proxy);
+    this.$ = new mahi.mojom.mojom.ContentExtractionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -110,7 +111,7 @@ mahi.mojom.ContentExtractionServiceRemote = class {
   }
 };
 
-mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
+mahi.mojom.mojom.ContentExtractionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -119,8 +120,8 @@ mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
-      mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
+      mahi.mojom.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
+      mahi.mojom.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
       [extraction_request]);
   }
 
@@ -128,15 +129,15 @@ mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
-      mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
+      mahi.mojom.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
+      mahi.mojom.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
       [extraction_request]);
   }
 
 };
 
-mahi.mojom.ContentExtractionService.getRemote = function() {
-  let remote = new mahi.mojom.ContentExtractionServiceRemote();
+mahi.mojom.mojom.ContentExtractionService.getRemote = function() {
+  let remote = new mahi.mojom.mojom.ContentExtractionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -146,7 +147,7 @@ mahi.mojom.ContentExtractionService.getRemote = function() {
 };
 
 // ParamsSpec for ExtractContent
-mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = {
+mahi.mojom.mojom.ContentExtractionService_ExtractContent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionService.ExtractContent_Params',
@@ -159,7 +160,7 @@ mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = {
   }
 };
 
-mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = {
+mahi.mojom.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionService.ExtractContent_ResponseParams',
@@ -173,7 +174,7 @@ mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetContentSize
-mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = {
+mahi.mojom.mojom.ContentExtractionService_GetContentSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionService.GetContentSize_Params',
@@ -186,7 +187,7 @@ mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = {
   }
 };
 
-mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = {
+mahi.mojom.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionService.GetContentSize_ResponseParams',
@@ -200,29 +201,29 @@ mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-mahi.mojom.ContentExtractionServicePtr = mahi.mojom.ContentExtractionServiceRemote;
-mahi.mojom.ContentExtractionServiceRequest = mahi.mojom.ContentExtractionServicePendingReceiver;
+mahi.mojom.mojom.ContentExtractionServicePtr = mahi.mojom.mojom.ContentExtractionServiceRemote;
+mahi.mojom.mojom.ContentExtractionServiceRequest = mahi.mojom.mojom.ContentExtractionServicePendingReceiver;
 
 
 // Interface: ContentExtractionServiceFactory
-mahi.mojom.ContentExtractionServiceFactory = {};
+mahi.mojom.mojom.ContentExtractionServiceFactory = {};
 
-mahi.mojom.ContentExtractionServiceFactoryPendingReceiver = class {
+mahi.mojom.mojom.ContentExtractionServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mahi.mojom.ContentExtractionServiceFactoryRemote = class {
+mahi.mojom.mojom.ContentExtractionServiceFactoryRemote = class {
   static get $interfaceName() {
     return 'mahi.mojom.ContentExtractionServiceFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mahi.mojom.ContentExtractionServiceFactoryPendingReceiver,
+      mahi.mojom.mojom.ContentExtractionServiceFactoryPendingReceiver,
       handle);
-    this.$ = new mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mahi.mojom.mojom.ContentExtractionServiceFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -234,7 +235,7 @@ mahi.mojom.ContentExtractionServiceFactoryRemote = class {
   }
 };
 
-mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
+mahi.mojom.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -243,7 +244,7 @@ mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
+      mahi.mojom.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
       null,
       [content_extraction_service]);
   }
@@ -252,15 +253,15 @@ mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
+      mahi.mojom.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
       null,
       [extractor]);
   }
 
 };
 
-mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
-  let remote = new mahi.mojom.ContentExtractionServiceFactoryRemote();
+mahi.mojom.mojom.ContentExtractionServiceFactory.getRemote = function() {
+  let remote = new mahi.mojom.mojom.ContentExtractionServiceFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -270,7 +271,7 @@ mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
 };
 
 // ParamsSpec for BindContentExtractionService
-mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = {
+mahi.mojom.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionServiceFactory.BindContentExtractionService_Params',
@@ -284,7 +285,7 @@ mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSp
 };
 
 // ParamsSpec for OnScreen2xReady
-mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = {
+mahi.mojom.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mahi.mojom.ContentExtractionServiceFactory.OnScreen2xReady_Params',
@@ -298,6 +299,6 @@ mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = {
 };
 
 // Legacy compatibility
-mahi.mojom.ContentExtractionServiceFactoryPtr = mahi.mojom.ContentExtractionServiceFactoryRemote;
-mahi.mojom.ContentExtractionServiceFactoryRequest = mahi.mojom.ContentExtractionServiceFactoryPendingReceiver;
+mahi.mojom.mojom.ContentExtractionServiceFactoryPtr = mahi.mojom.mojom.ContentExtractionServiceFactoryRemote;
+mahi.mojom.mojom.ContentExtractionServiceFactoryRequest = mahi.mojom.mojom.ContentExtractionServiceFactoryPendingReceiver;
 

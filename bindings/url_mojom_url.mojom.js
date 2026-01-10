@@ -9,10 +9,10 @@ var url = url || {};
 url.mojom = url.mojom || {};
 
 
-url.mojom.kMaxURLChars = 2097152;
+url.mojom.mojom.kMaxURLChars = 2097152;
 
 // Struct: Url
-url.mojom.UrlSpec = {
+url.mojom.mojom.UrlSpec = {
   $: {
     structSpec: {
       name: 'url.mojom.Url',

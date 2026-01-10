@@ -7,29 +7,29 @@
 // Module namespace
 var ash = ash || {};
 ash.printing = ash.printing || {};
-ash.printing.print_preview = ash.printing.print_preview || {};
-ash.printing.print_preview.mojom = ash.printing.print_preview.mojom || {};
+ash.printing.printing.print_preview = ash.printing.printing.print_preview || {};
+ash.printing.printing.print_preview.print_preview.mojom = ash.printing.printing.print_preview.print_preview.mojom || {};
 
 
 // Interface: DestinationProvider
-ash.printing.print_preview.mojom.DestinationProvider = {};
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProvider = {};
 
-ash.printing.print_preview.mojom.DestinationProviderPendingReceiver = class {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.printing.print_preview.mojom.DestinationProviderRemote = class {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderRemote = class {
   static get $interfaceName() {
     return 'ash.printing.print_preview.mojom.DestinationProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.printing.print_preview.mojom.DestinationProviderPendingReceiver,
+      ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderPendingReceiver,
       handle);
-    this.$ = new ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler(this.proxy);
+    this.$ = new ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -41,7 +41,7 @@ ash.printing.print_preview.mojom.DestinationProviderRemote = class {
   }
 };
 
-ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler = class {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -50,15 +50,15 @@ ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec,
-      ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec,
+      ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProvider_FetchCapabilities_ParamsSpec,
+      ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec,
       [destination_id, printer_type]);
   }
 
 };
 
-ash.printing.print_preview.mojom.DestinationProvider.getRemote = function() {
-  let remote = new ash.printing.print_preview.mojom.DestinationProviderRemote();
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProvider.getRemote = function() {
+  let remote = new ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -68,7 +68,7 @@ ash.printing.print_preview.mojom.DestinationProvider.getRemote = function() {
 };
 
 // ParamsSpec for FetchCapabilities
-ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProvider_FetchCapabilities_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DestinationProvider.FetchCapabilities_Params',
@@ -82,7 +82,7 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpe
   }
 };
 
-ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DestinationProvider.FetchCapabilities_ResponseParams',
@@ -96,6 +96,6 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseP
 };
 
 // Legacy compatibility
-ash.printing.print_preview.mojom.DestinationProviderPtr = ash.printing.print_preview.mojom.DestinationProviderRemote;
-ash.printing.print_preview.mojom.DestinationProviderRequest = ash.printing.print_preview.mojom.DestinationProviderPendingReceiver;
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderPtr = ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderRemote;
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderRequest = ash.printing.printing.print_preview.print_preview.mojom.mojom.DestinationProviderPendingReceiver;
 

@@ -7,25 +7,26 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Enum: CorsPortMatchMode
-network.mojom.CorsPortMatchMode = {
+network.mojom.mojom.CorsPortMatchMode = {
   kAllowAnyPort: 0,
   kAllowOnlySpecifiedPort: 1,
 };
-network.mojom.CorsPortMatchModeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.CorsPortMatchModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CorsDomainMatchMode
-network.mojom.CorsDomainMatchMode = {
+network.mojom.mojom.CorsDomainMatchMode = {
   kAllowSubdomains: 0,
   kAllowRegistrableDomains: 1,
   kDisallowSubdomains: 2,
 };
-network.mojom.CorsDomainMatchModeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.CorsDomainMatchModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CorsOriginAccessMatchPriority
-network.mojom.CorsOriginAccessMatchPriority = {
+network.mojom.mojom.CorsOriginAccessMatchPriority = {
   kNoMatchingOrigin: 0,
   kDefaultPriority: 1,
   kLowPriority: 2,
@@ -33,10 +34,10 @@ network.mojom.CorsOriginAccessMatchPriority = {
   kHighPriority: 4,
   kMaxPriority: 5,
 };
-network.mojom.CorsOriginAccessMatchPrioritySpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.CorsOriginAccessMatchPrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: CorsOriginPattern
-network.mojom.CorsOriginPatternSpec = {
+network.mojom.mojom.CorsOriginPatternSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CorsOriginPattern',
@@ -44,10 +45,10 @@ network.mojom.CorsOriginPatternSpec = {
       fields: [
         { name: 'protocol', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'domain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'domain_match_mode', packedOffset: 20, packedBitOffset: 0, type: network.mojom.CorsDomainMatchModeSpec, nullable: false, minVersion: 0 },
-        { name: 'port_match_mode', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CorsPortMatchModeSpec, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 28, packedBitOffset: 0, type: network.mojom.CorsOriginAccessMatchPrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'domain_match_mode', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CorsDomainMatchModeSpec, nullable: false, minVersion: 0 },
+        { name: 'port_match_mode', packedOffset: 20, packedBitOffset: 0, type: network.mojom.CorsPortMatchModeSpec, nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CorsOriginAccessMatchPrioritySpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -55,7 +56,7 @@ network.mojom.CorsOriginPatternSpec = {
 };
 
 // Struct: CorsOriginAccessPatterns
-network.mojom.CorsOriginAccessPatternsSpec = {
+network.mojom.mojom.CorsOriginAccessPatternsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.CorsOriginAccessPatterns',

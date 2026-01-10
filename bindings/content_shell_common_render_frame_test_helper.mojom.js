@@ -7,27 +7,29 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Interface: RenderFrameTestHelper
-content.mojom.RenderFrameTestHelper = {};
+content.mojom.mojom.RenderFrameTestHelper = {};
 
-content.mojom.RenderFrameTestHelperPendingReceiver = class {
+content.mojom.mojom.RenderFrameTestHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.RenderFrameTestHelperRemote = class {
+content.mojom.mojom.RenderFrameTestHelperRemote = class {
   static get $interfaceName() {
     return 'content.mojom.RenderFrameTestHelper';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.RenderFrameTestHelperPendingReceiver,
+      content.mojom.mojom.RenderFrameTestHelperPendingReceiver,
       handle);
-    this.$ = new content.mojom.RenderFrameTestHelperRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.RenderFrameTestHelperRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ content.mojom.RenderFrameTestHelperRemote = class {
   }
 };
 
-content.mojom.RenderFrameTestHelperRemoteCallHandler = class {
+content.mojom.mojom.RenderFrameTestHelperRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +50,15 @@ content.mojom.RenderFrameTestHelperRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec,
-      content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec,
+      content.mojom.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec,
+      content.mojom.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec,
       []);
   }
 
 };
 
-content.mojom.RenderFrameTestHelper.getRemote = function() {
-  let remote = new content.mojom.RenderFrameTestHelperRemote();
+content.mojom.mojom.RenderFrameTestHelper.getRemote = function() {
+  let remote = new content.mojom.mojom.RenderFrameTestHelperRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +68,7 @@ content.mojom.RenderFrameTestHelper.getRemote = function() {
 };
 
 // ParamsSpec for GetDocumentToken
-content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
+content.mojom.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RenderFrameTestHelper.GetDocumentToken_Params',
@@ -78,7 +80,7 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec = {
   }
 };
 
-content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = {
+content.mojom.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RenderFrameTestHelper.GetDocumentToken_ResponseParams',
@@ -92,6 +94,6 @@ content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.RenderFrameTestHelperPtr = content.mojom.RenderFrameTestHelperRemote;
-content.mojom.RenderFrameTestHelperRequest = content.mojom.RenderFrameTestHelperPendingReceiver;
+content.mojom.mojom.RenderFrameTestHelperPtr = content.mojom.mojom.RenderFrameTestHelperRemote;
+content.mojom.mojom.RenderFrameTestHelperRequest = content.mojom.mojom.RenderFrameTestHelperPendingReceiver;
 

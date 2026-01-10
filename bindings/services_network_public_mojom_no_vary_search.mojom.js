@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: NoVarySearchParseError
-network.mojom.NoVarySearchParseError = {
+network.mojom.mojom.NoVarySearchParseError = {
   kOk: 0,
   kDefaultValue: 1,
   kNotDictionary: 2,
@@ -20,10 +20,10 @@ network.mojom.NoVarySearchParseError = {
   kExceptNotStringList: 6,
   kExceptWithoutTrueParams: 7,
 };
-network.mojom.NoVarySearchParseErrorSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.NoVarySearchParseErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: SearchParamsVariance
-network.mojom.SearchParamsVarianceSpec = { $: mojo.internal.Union(
+network.mojom.mojom.SearchParamsVarianceSpec = { $: mojo.internal.Union(
     'network.mojom.SearchParamsVariance', {
       'no_vary_params': {
         'ordinal': 0,
@@ -37,7 +37,7 @@ network.mojom.SearchParamsVarianceSpec = { $: mojo.internal.Union(
 };
 
 // Union: NoVarySearchWithParseError
-network.mojom.NoVarySearchWithParseErrorSpec = { $: mojo.internal.Union(
+network.mojom.mojom.NoVarySearchWithParseErrorSpec = { $: mojo.internal.Union(
     'network.mojom.NoVarySearchWithParseError', {
       'no_vary_search': {
         'ordinal': 0,
@@ -51,7 +51,7 @@ network.mojom.NoVarySearchWithParseErrorSpec = { $: mojo.internal.Union(
 };
 
 // Struct: NoVarySearch
-network.mojom.NoVarySearchSpec = {
+network.mojom.mojom.NoVarySearchSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NoVarySearch',

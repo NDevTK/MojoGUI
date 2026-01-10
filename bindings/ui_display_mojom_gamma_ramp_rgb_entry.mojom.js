@@ -10,7 +10,7 @@ display.mojom = display.mojom || {};
 
 
 // Struct: GammaRampRGBEntry
-display.mojom.GammaRampRGBEntrySpec = {
+display.mojom.mojom.GammaRampRGBEntrySpec = {
   $: {
     structSpec: {
       name: 'display.mojom.GammaRampRGBEntry',

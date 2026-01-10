@@ -7,18 +7,23 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: ContentColorUsage
-gfx.mojom.ContentColorUsage = {
+gfx.mojom.mojom.ContentColorUsage = {
   kSRGB: 0,
   kWideColorGamut: 1,
   kHDR: 2,
 };
-gfx.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum() };
+gfx.mojom.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum() };
 
 // Struct: DisplayColorSpaces
-gfx.mojom.DisplayColorSpacesSpec = {
+gfx.mojom.mojom.DisplayColorSpacesSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DisplayColorSpaces',

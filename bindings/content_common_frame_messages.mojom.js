@@ -7,10 +7,11 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var blink = blink || {};
 
 
 // Struct: DidCommitProvisionalLoadInterfaceParams
-content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec = {
+content.mojom.mojom.DidCommitProvisionalLoadInterfaceParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.DidCommitProvisionalLoadInterfaceParams',

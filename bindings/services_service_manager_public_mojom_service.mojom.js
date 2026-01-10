@@ -10,7 +10,7 @@ service_manager.mojom = service_manager.mojom || {};
 
 
 // Struct: BindSourceInfo
-service_manager.mojom.BindSourceInfoSpec = {
+service_manager.mojom.mojom.BindSourceInfoSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.BindSourceInfo',
@@ -25,24 +25,24 @@ service_manager.mojom.BindSourceInfoSpec = {
 };
 
 // Interface: Service
-service_manager.mojom.Service = {};
+service_manager.mojom.mojom.Service = {};
 
-service_manager.mojom.ServicePendingReceiver = class {
+service_manager.mojom.mojom.ServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-service_manager.mojom.ServiceRemote = class {
+service_manager.mojom.mojom.ServiceRemote = class {
   static get $interfaceName() {
     return 'service_manager.mojom.Service';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      service_manager.mojom.ServicePendingReceiver,
+      service_manager.mojom.mojom.ServicePendingReceiver,
       handle);
-    this.$ = new service_manager.mojom.ServiceRemoteCallHandler(this.proxy);
+    this.$ = new service_manager.mojom.mojom.ServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ service_manager.mojom.ServiceRemote = class {
   }
 };
 
-service_manager.mojom.ServiceRemoteCallHandler = class {
+service_manager.mojom.mojom.ServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +63,8 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      service_manager.mojom.Service_OnStart_ParamsSpec,
-      service_manager.mojom.Service_OnStart_ResponseParamsSpec,
+      service_manager.mojom.mojom.Service_OnStart_ParamsSpec,
+      service_manager.mojom.mojom.Service_OnStart_ResponseParamsSpec,
       [identity]);
   }
 
@@ -72,7 +72,7 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      service_manager.mojom.Service_OnBindInterface_ParamsSpec,
+      service_manager.mojom.mojom.Service_OnBindInterface_ParamsSpec,
       null,
       [source, interface_name, interface_pipe]);
   }
@@ -81,15 +81,15 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec,
+      service_manager.mojom.mojom.Service_CreatePackagedServiceInstance_ParamsSpec,
       null,
       [identity, receiver, metadata]);
   }
 
 };
 
-service_manager.mojom.Service.getRemote = function() {
-  let remote = new service_manager.mojom.ServiceRemote();
+service_manager.mojom.mojom.Service.getRemote = function() {
+  let remote = new service_manager.mojom.mojom.ServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -99,7 +99,7 @@ service_manager.mojom.Service.getRemote = function() {
 };
 
 // ParamsSpec for OnStart
-service_manager.mojom.Service_OnStart_ParamsSpec = {
+service_manager.mojom.mojom.Service_OnStart_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Service.OnStart_Params',
@@ -112,7 +112,7 @@ service_manager.mojom.Service_OnStart_ParamsSpec = {
   }
 };
 
-service_manager.mojom.Service_OnStart_ResponseParamsSpec = {
+service_manager.mojom.mojom.Service_OnStart_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Service.OnStart_ResponseParams',
@@ -127,7 +127,7 @@ service_manager.mojom.Service_OnStart_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OnBindInterface
-service_manager.mojom.Service_OnBindInterface_ParamsSpec = {
+service_manager.mojom.mojom.Service_OnBindInterface_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Service.OnBindInterface_Params',
@@ -143,7 +143,7 @@ service_manager.mojom.Service_OnBindInterface_ParamsSpec = {
 };
 
 // ParamsSpec for CreatePackagedServiceInstance
-service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
+service_manager.mojom.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Service.CreatePackagedServiceInstance_Params',
@@ -159,6 +159,6 @@ service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
 };
 
 // Legacy compatibility
-service_manager.mojom.ServicePtr = service_manager.mojom.ServiceRemote;
-service_manager.mojom.ServiceRequest = service_manager.mojom.ServicePendingReceiver;
+service_manager.mojom.mojom.ServicePtr = service_manager.mojom.mojom.ServiceRemote;
+service_manager.mojom.mojom.ServiceRequest = service_manager.mojom.mojom.ServicePendingReceiver;
 

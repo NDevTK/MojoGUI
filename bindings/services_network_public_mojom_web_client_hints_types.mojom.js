@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: WebClientHintsType
-network.mojom.WebClientHintsType = {
+network.mojom.mojom.WebClientHintsType = {
   kDeviceMemory_DEPRECATED: 0,
   kDpr_DEPRECATED: 1,
   kResourceWidth_DEPRECATED: 2,
@@ -39,4 +39,4 @@ network.mojom.WebClientHintsType = {
   kUAFormFactors: 25,
   kPrefersReducedTransparency: 26,
 };
-network.mojom.WebClientHintsTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.WebClientHintsTypeSpec = { $: mojo.internal.Enum() };

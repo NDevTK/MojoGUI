@@ -7,12 +7,13 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
-blink.mojom.kMaximumEmbeddedDataSize = 256000;
+blink.mojom.mojom.kMaximumEmbeddedDataSize = 256000;
 
 // Union: DataElement
-blink.mojom.DataElementSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.DataElementSpec = { $: mojo.internal.Union(
     'blink.mojom.DataElement', {
       'bytes': {
         'ordinal': 0,
@@ -30,7 +31,7 @@ blink.mojom.DataElementSpec = { $: mojo.internal.Union(
 };
 
 // Struct: DataElementBytes
-blink.mojom.DataElementBytesSpec = {
+blink.mojom.mojom.DataElementBytesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DataElementBytes',
@@ -47,7 +48,7 @@ blink.mojom.DataElementBytesSpec = {
 };
 
 // Struct: DataElementFile
-blink.mojom.DataElementFileSpec = {
+blink.mojom.mojom.DataElementFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DataElementFile',
@@ -64,15 +65,15 @@ blink.mojom.DataElementFileSpec = {
 };
 
 // Struct: DataElementBlob
-blink.mojom.DataElementBlobSpec = {
+blink.mojom.mojom.DataElementBlobSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DataElementBlob',
       packedSize: 32,
       fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'blob', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -80,24 +81,24 @@ blink.mojom.DataElementBlobSpec = {
 };
 
 // Interface: BytesProvider
-blink.mojom.BytesProvider = {};
+blink.mojom.mojom.BytesProvider = {};
 
-blink.mojom.BytesProviderPendingReceiver = class {
+blink.mojom.mojom.BytesProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BytesProviderRemote = class {
+blink.mojom.mojom.BytesProviderRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BytesProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BytesProviderPendingReceiver,
+      blink.mojom.mojom.BytesProviderPendingReceiver,
       handle);
-    this.$ = new blink.mojom.BytesProviderRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BytesProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -109,7 +110,7 @@ blink.mojom.BytesProviderRemote = class {
   }
 };
 
-blink.mojom.BytesProviderRemoteCallHandler = class {
+blink.mojom.mojom.BytesProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -118,8 +119,8 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BytesProvider_RequestAsReply_ParamsSpec,
-      blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec,
+      blink.mojom.mojom.BytesProvider_RequestAsReply_ParamsSpec,
+      blink.mojom.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec,
       []);
   }
 
@@ -127,7 +128,7 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BytesProvider_RequestAsStream_ParamsSpec,
+      blink.mojom.mojom.BytesProvider_RequestAsStream_ParamsSpec,
       null,
       [pipe]);
   }
@@ -136,15 +137,15 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BytesProvider_RequestAsFile_ParamsSpec,
-      blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec,
+      blink.mojom.mojom.BytesProvider_RequestAsFile_ParamsSpec,
+      blink.mojom.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec,
       [source_offset, source_size, file, file_offset]);
   }
 
 };
 
-blink.mojom.BytesProvider.getRemote = function() {
-  let remote = new blink.mojom.BytesProviderRemote();
+blink.mojom.mojom.BytesProvider.getRemote = function() {
+  let remote = new blink.mojom.mojom.BytesProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -154,7 +155,7 @@ blink.mojom.BytesProvider.getRemote = function() {
 };
 
 // ParamsSpec for RequestAsReply
-blink.mojom.BytesProvider_RequestAsReply_ParamsSpec = {
+blink.mojom.mojom.BytesProvider_RequestAsReply_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BytesProvider.RequestAsReply_Params',
@@ -166,7 +167,7 @@ blink.mojom.BytesProvider_RequestAsReply_ParamsSpec = {
   }
 };
 
-blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec = {
+blink.mojom.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BytesProvider.RequestAsReply_ResponseParams',
@@ -180,7 +181,7 @@ blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestAsStream
-blink.mojom.BytesProvider_RequestAsStream_ParamsSpec = {
+blink.mojom.mojom.BytesProvider_RequestAsStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BytesProvider.RequestAsStream_Params',
@@ -194,7 +195,7 @@ blink.mojom.BytesProvider_RequestAsStream_ParamsSpec = {
 };
 
 // ParamsSpec for RequestAsFile
-blink.mojom.BytesProvider_RequestAsFile_ParamsSpec = {
+blink.mojom.mojom.BytesProvider_RequestAsFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BytesProvider.RequestAsFile_Params',
@@ -210,7 +211,7 @@ blink.mojom.BytesProvider_RequestAsFile_ParamsSpec = {
   }
 };
 
-blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec = {
+blink.mojom.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BytesProvider.RequestAsFile_ResponseParams',
@@ -224,6 +225,6 @@ blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.BytesProviderPtr = blink.mojom.BytesProviderRemote;
-blink.mojom.BytesProviderRequest = blink.mojom.BytesProviderPendingReceiver;
+blink.mojom.mojom.BytesProviderPtr = blink.mojom.mojom.BytesProviderRemote;
+blink.mojom.mojom.BytesProviderRequest = blink.mojom.mojom.BytesProviderPendingReceiver;
 

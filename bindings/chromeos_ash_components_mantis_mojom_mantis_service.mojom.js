@@ -10,38 +10,38 @@ mantis.mojom = mantis.mojom || {};
 
 
 // Enum: MantisFeatureStatus
-mantis.mojom.MantisFeatureStatus = {
+mantis.mojom.mojom.MantisFeatureStatus = {
   kARCVMDisabled: 0,
   kAvailable: 1,
 };
-mantis.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum() };
+mantis.mojom.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: InitializeResult
-mantis.mojom.InitializeResult = {
+mantis.mojom.mojom.InitializeResult = {
   kSuccess: 0,
   kGpuBlocked: 1,
 };
-mantis.mojom.InitializeResultSpec = { $: mojo.internal.Enum() };
+mantis.mojom.mojom.InitializeResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: PlatformModelProgressObserver
-mantis.mojom.PlatformModelProgressObserver = {};
+mantis.mojom.mojom.PlatformModelProgressObserver = {};
 
-mantis.mojom.PlatformModelProgressObserverPendingReceiver = class {
+mantis.mojom.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mantis.mojom.PlatformModelProgressObserverRemote = class {
+mantis.mojom.mojom.PlatformModelProgressObserverRemote = class {
   static get $interfaceName() {
     return 'mantis.mojom.PlatformModelProgressObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mantis.mojom.PlatformModelProgressObserverPendingReceiver,
+      mantis.mojom.mojom.PlatformModelProgressObserverPendingReceiver,
       handle);
-    this.$ = new mantis.mojom.PlatformModelProgressObserverRemoteCallHandler(this.proxy);
+    this.$ = new mantis.mojom.mojom.PlatformModelProgressObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +53,7 @@ mantis.mojom.PlatformModelProgressObserverRemote = class {
   }
 };
 
-mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
+mantis.mojom.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,15 +62,15 @@ mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
+      mantis.mojom.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
       null,
       [progress]);
   }
 
 };
 
-mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
-  let remote = new mantis.mojom.PlatformModelProgressObserverRemote();
+mantis.mojom.mojom.PlatformModelProgressObserver.getRemote = function() {
+  let remote = new mantis.mojom.mojom.PlatformModelProgressObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -80,7 +80,7 @@ mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
 };
 
 // ParamsSpec for Progress
-mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = {
+mantis.mojom.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.PlatformModelProgressObserver.Progress_Params',
@@ -94,29 +94,29 @@ mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = {
 };
 
 // Legacy compatibility
-mantis.mojom.PlatformModelProgressObserverPtr = mantis.mojom.PlatformModelProgressObserverRemote;
-mantis.mojom.PlatformModelProgressObserverRequest = mantis.mojom.PlatformModelProgressObserverPendingReceiver;
+mantis.mojom.mojom.PlatformModelProgressObserverPtr = mantis.mojom.mojom.PlatformModelProgressObserverRemote;
+mantis.mojom.mojom.PlatformModelProgressObserverRequest = mantis.mojom.mojom.PlatformModelProgressObserverPendingReceiver;
 
 
 // Interface: MantisService
-mantis.mojom.MantisService = {};
+mantis.mojom.mojom.MantisService = {};
 
-mantis.mojom.MantisServicePendingReceiver = class {
+mantis.mojom.mojom.MantisServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mantis.mojom.MantisServiceRemote = class {
+mantis.mojom.mojom.MantisServiceRemote = class {
   static get $interfaceName() {
     return 'mantis.mojom.MantisService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mantis.mojom.MantisServicePendingReceiver,
+      mantis.mojom.mojom.MantisServicePendingReceiver,
       handle);
-    this.$ = new mantis.mojom.MantisServiceRemoteCallHandler(this.proxy);
+    this.$ = new mantis.mojom.mojom.MantisServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -128,7 +128,7 @@ mantis.mojom.MantisServiceRemote = class {
   }
 };
 
-mantis.mojom.MantisServiceRemoteCallHandler = class {
+mantis.mojom.mojom.MantisServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -137,8 +137,8 @@ mantis.mojom.MantisServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec,
-      mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec,
+      mantis.mojom.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec,
+      mantis.mojom.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec,
       []);
   }
 
@@ -146,15 +146,15 @@ mantis.mojom.MantisServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mantis.mojom.MantisService_Initialize_ParamsSpec,
-      mantis.mojom.MantisService_Initialize_ResponseParamsSpec,
+      mantis.mojom.mojom.MantisService_Initialize_ParamsSpec,
+      mantis.mojom.mojom.MantisService_Initialize_ResponseParamsSpec,
       [progress_observer, processor, dlc_uuid, text_classifier]);
   }
 
 };
 
-mantis.mojom.MantisService.getRemote = function() {
-  let remote = new mantis.mojom.MantisServiceRemote();
+mantis.mojom.mojom.MantisService.getRemote = function() {
+  let remote = new mantis.mojom.mojom.MantisServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -164,7 +164,7 @@ mantis.mojom.MantisService.getRemote = function() {
 };
 
 // ParamsSpec for GetMantisFeatureStatus
-mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = {
+mantis.mojom.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisService.GetMantisFeatureStatus_Params',
@@ -176,7 +176,7 @@ mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = {
   }
 };
 
-mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = {
+mantis.mojom.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisService.GetMantisFeatureStatus_ResponseParams',
@@ -190,23 +190,23 @@ mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Initialize
-mantis.mojom.MantisService_Initialize_ParamsSpec = {
+mantis.mojom.mojom.MantisService_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisService.Initialize_Params',
       packedSize: 32,
       fields: [
-        { name: 'progress_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'processor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'dlc_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true, minVersion: 3 },
+        { name: 'progress_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'processor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'dlc_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true, minVersion: 3 },
         { name: 'text_classifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 4 },
       ],
-      versions: [{version: 0, packedSize: 16}, {version: 3, packedSize: 24}, {version: 4, packedSize: 32}]
+      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 24}, {version: 4, packedSize: 32}]
     }
   }
 };
 
-mantis.mojom.MantisService_Initialize_ResponseParamsSpec = {
+mantis.mojom.mojom.MantisService_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisService.Initialize_ResponseParams',
@@ -220,6 +220,6 @@ mantis.mojom.MantisService_Initialize_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-mantis.mojom.MantisServicePtr = mantis.mojom.MantisServiceRemote;
-mantis.mojom.MantisServiceRequest = mantis.mojom.MantisServicePendingReceiver;
+mantis.mojom.mojom.MantisServicePtr = mantis.mojom.mojom.MantisServiceRemote;
+mantis.mojom.mojom.MantisServiceRequest = mantis.mojom.mojom.MantisServicePendingReceiver;
 

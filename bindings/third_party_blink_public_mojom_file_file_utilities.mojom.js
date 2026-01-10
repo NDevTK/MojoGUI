@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: FileUtilitiesHost
-blink.mojom.FileUtilitiesHost = {};
+blink.mojom.mojom.FileUtilitiesHost = {};
 
-blink.mojom.FileUtilitiesHostPendingReceiver = class {
+blink.mojom.mojom.FileUtilitiesHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FileUtilitiesHostRemote = class {
+blink.mojom.mojom.FileUtilitiesHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FileUtilitiesHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FileUtilitiesHostPendingReceiver,
+      blink.mojom.mojom.FileUtilitiesHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.FileUtilitiesHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.FileUtilitiesHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.FileUtilitiesHostRemote = class {
   }
 };
 
-blink.mojom.FileUtilitiesHostRemoteCallHandler = class {
+blink.mojom.mojom.FileUtilitiesHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ blink.mojom.FileUtilitiesHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec,
-      blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec,
+      blink.mojom.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec,
+      blink.mojom.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec,
       [path]);
   }
 
 };
 
-blink.mojom.FileUtilitiesHost.getRemote = function() {
-  let remote = new blink.mojom.FileUtilitiesHostRemote();
+blink.mojom.mojom.FileUtilitiesHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.FileUtilitiesHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ blink.mojom.FileUtilitiesHost.getRemote = function() {
 };
 
 // ParamsSpec for GetFileInfo
-blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
+blink.mojom.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileUtilitiesHost.GetFileInfo_Params',
@@ -79,7 +79,7 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
   }
 };
 
-blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = {
+blink.mojom.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FileUtilitiesHost.GetFileInfo_ResponseParams',
@@ -93,6 +93,6 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.FileUtilitiesHostPtr = blink.mojom.FileUtilitiesHostRemote;
-blink.mojom.FileUtilitiesHostRequest = blink.mojom.FileUtilitiesHostPendingReceiver;
+blink.mojom.mojom.FileUtilitiesHostPtr = blink.mojom.mojom.FileUtilitiesHostRemote;
+blink.mojom.mojom.FileUtilitiesHostRequest = blink.mojom.mojom.FileUtilitiesHostPendingReceiver;
 

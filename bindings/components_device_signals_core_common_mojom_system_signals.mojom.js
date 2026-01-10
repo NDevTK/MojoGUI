@@ -10,36 +10,36 @@ device_signals.mojom = device_signals.mojom || {};
 
 
 // Enum: PresenceValue
-device_signals.mojom.PresenceValue = {
+device_signals.mojom.mojom.PresenceValue = {
   kUnspecified: 0,
   kAccessDenied: 1,
   kNotFound: 2,
   kFound: 3,
 };
-device_signals.mojom.PresenceValueSpec = { $: mojo.internal.Enum() };
+device_signals.mojom.mojom.PresenceValueSpec = { $: mojo.internal.Enum() };
 
 // Enum: AntiVirusProductState
-device_signals.mojom.AntiVirusProductState = {
+device_signals.mojom.mojom.AntiVirusProductState = {
   kOn: 0,
   kOff: 1,
   kSnoozed: 2,
   kExpired: 3,
 };
-device_signals.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum() };
+device_signals.mojom.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ExecutableMetadata
-device_signals.mojom.ExecutableMetadataSpec = {
+device_signals.mojom.mojom.ExecutableMetadataSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.ExecutableMetadata',
       packedSize: 48,
       fields: [
-        { name: 'is_running', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'public_keys_hashes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: true, minVersion: 0 },
-        { name: 'product_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_os_verified', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'subject_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'is_running', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'public_keys_hashes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: true, minVersion: 0 },
+        { name: 'product_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'is_os_verified', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'subject_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -47,16 +47,16 @@ device_signals.mojom.ExecutableMetadataSpec = {
 };
 
 // Struct: FileSystemItem
-device_signals.mojom.FileSystemItemSpec = {
+device_signals.mojom.mojom.FileSystemItemSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.FileSystemItem',
       packedSize: 40,
       fields: [
         { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'presence', packedOffset: 8, packedBitOffset: 0, type: device_signals.mojom.PresenceValueSpec, nullable: false, minVersion: 0 },
-        { name: 'sha256_hash', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true, minVersion: 0 },
-        { name: 'executable_metadata', packedOffset: 24, packedBitOffset: 0, type: device_signals.mojom.ExecutableMetadataSpec, nullable: true, minVersion: 0 },
+        { name: 'presence', packedOffset: 24, packedBitOffset: 0, type: device_signals.mojom.PresenceValueSpec, nullable: false, minVersion: 0 },
+        { name: 'sha256_hash', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true, minVersion: 0 },
+        { name: 'executable_metadata', packedOffset: 16, packedBitOffset: 0, type: device_signals.mojom.ExecutableMetadataSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -64,7 +64,7 @@ device_signals.mojom.FileSystemItemSpec = {
 };
 
 // Struct: FileSystemItemRequest
-device_signals.mojom.FileSystemItemRequestSpec = {
+device_signals.mojom.mojom.FileSystemItemRequestSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.FileSystemItemRequest',
@@ -80,7 +80,7 @@ device_signals.mojom.FileSystemItemRequestSpec = {
 };
 
 // Struct: AntiVirusSignal
-device_signals.mojom.AntiVirusSignalSpec = {
+device_signals.mojom.mojom.AntiVirusSignalSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.AntiVirusSignal',
@@ -95,7 +95,7 @@ device_signals.mojom.AntiVirusSignalSpec = {
 };
 
 // Struct: HotfixSignal
-device_signals.mojom.HotfixSignalSpec = {
+device_signals.mojom.mojom.HotfixSignalSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.HotfixSignal',
@@ -109,24 +109,24 @@ device_signals.mojom.HotfixSignalSpec = {
 };
 
 // Interface: SystemSignalsService
-device_signals.mojom.SystemSignalsService = {};
+device_signals.mojom.mojom.SystemSignalsService = {};
 
-device_signals.mojom.SystemSignalsServicePendingReceiver = class {
+device_signals.mojom.mojom.SystemSignalsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device_signals.mojom.SystemSignalsServiceRemote = class {
+device_signals.mojom.mojom.SystemSignalsServiceRemote = class {
   static get $interfaceName() {
     return 'device_signals.mojom.SystemSignalsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device_signals.mojom.SystemSignalsServicePendingReceiver,
+      device_signals.mojom.mojom.SystemSignalsServicePendingReceiver,
       handle);
-    this.$ = new device_signals.mojom.SystemSignalsServiceRemoteCallHandler(this.proxy);
+    this.$ = new device_signals.mojom.mojom.SystemSignalsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -138,7 +138,7 @@ device_signals.mojom.SystemSignalsServiceRemote = class {
   }
 };
 
-device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
+device_signals.mojom.mojom.SystemSignalsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -147,8 +147,8 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec,
-      device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec,
+      device_signals.mojom.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec,
+      device_signals.mojom.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec,
       [requests]);
   }
 
@@ -156,8 +156,8 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec,
-      device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec,
+      device_signals.mojom.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec,
+      device_signals.mojom.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec,
       []);
   }
 
@@ -165,15 +165,15 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec,
-      device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec,
+      device_signals.mojom.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec,
+      device_signals.mojom.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec,
       []);
   }
 
 };
 
-device_signals.mojom.SystemSignalsService.getRemote = function() {
-  let remote = new device_signals.mojom.SystemSignalsServiceRemote();
+device_signals.mojom.mojom.SystemSignalsService.getRemote = function() {
+  let remote = new device_signals.mojom.mojom.SystemSignalsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -183,7 +183,7 @@ device_signals.mojom.SystemSignalsService.getRemote = function() {
 };
 
 // ParamsSpec for GetFileSystemSignals
-device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
+device_signals.mojom.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.SystemSignalsService.GetFileSystemSignals_Params',
@@ -196,7 +196,7 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
   }
 };
 
-device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec = {
+device_signals.mojom.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.SystemSignalsService.GetFileSystemSignals_ResponseParams',
@@ -210,7 +210,7 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpe
 };
 
 // ParamsSpec for GetAntiVirusSignals
-device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = {
+device_signals.mojom.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.SystemSignalsService.GetAntiVirusSignals_Params',
@@ -222,7 +222,7 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = {
   }
 };
 
-device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec = {
+device_signals.mojom.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.SystemSignalsService.GetAntiVirusSignals_ResponseParams',
@@ -236,7 +236,7 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec
 };
 
 // ParamsSpec for GetHotfixSignals
-device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = {
+device_signals.mojom.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.SystemSignalsService.GetHotfixSignals_Params',
@@ -248,7 +248,7 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = {
   }
 };
 
-device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = {
+device_signals.mojom.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device_signals.mojom.SystemSignalsService.GetHotfixSignals_ResponseParams',
@@ -262,6 +262,6 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-device_signals.mojom.SystemSignalsServicePtr = device_signals.mojom.SystemSignalsServiceRemote;
-device_signals.mojom.SystemSignalsServiceRequest = device_signals.mojom.SystemSignalsServicePendingReceiver;
+device_signals.mojom.mojom.SystemSignalsServicePtr = device_signals.mojom.mojom.SystemSignalsServiceRemote;
+device_signals.mojom.mojom.SystemSignalsServiceRequest = device_signals.mojom.mojom.SystemSignalsServicePendingReceiver;
 

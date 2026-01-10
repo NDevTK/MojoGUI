@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Enum: ContextLostReason
-viz.mojom.ContextLostReason = {
+viz.mojom.mojom.ContextLostReason = {
   GUILTY: 0,
   INNOCENT: 1,
   UNKNOWN: 2,
@@ -19,4 +19,4 @@ viz.mojom.ContextLostReason = {
   GPU_CHANNEL_LOST: 5,
   INVALID_GPU_MESSAGE: 6,
 };
-viz.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum() };
+viz.mojom.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum() };

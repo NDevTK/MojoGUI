@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: DedicatedWorkerHost
-blink.mojom.DedicatedWorkerHost = {};
+blink.mojom.mojom.DedicatedWorkerHost = {};
 
-blink.mojom.DedicatedWorkerHostPendingReceiver = class {
+blink.mojom.mojom.DedicatedWorkerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.DedicatedWorkerHostRemote = class {
+blink.mojom.mojom.DedicatedWorkerHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DedicatedWorkerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.DedicatedWorkerHostPendingReceiver,
+      blink.mojom.mojom.DedicatedWorkerHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.DedicatedWorkerHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.DedicatedWorkerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,15 +39,15 @@ blink.mojom.DedicatedWorkerHostRemote = class {
   }
 };
 
-blink.mojom.DedicatedWorkerHostRemoteCallHandler = class {
+blink.mojom.mojom.DedicatedWorkerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-blink.mojom.DedicatedWorkerHost.getRemote = function() {
-  let remote = new blink.mojom.DedicatedWorkerHostRemote();
+blink.mojom.mojom.DedicatedWorkerHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.DedicatedWorkerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -57,6 +57,6 @@ blink.mojom.DedicatedWorkerHost.getRemote = function() {
 };
 
 // Legacy compatibility
-blink.mojom.DedicatedWorkerHostPtr = blink.mojom.DedicatedWorkerHostRemote;
-blink.mojom.DedicatedWorkerHostRequest = blink.mojom.DedicatedWorkerHostPendingReceiver;
+blink.mojom.mojom.DedicatedWorkerHostPtr = blink.mojom.mojom.DedicatedWorkerHostRemote;
+blink.mojom.mojom.DedicatedWorkerHostRequest = blink.mojom.mojom.DedicatedWorkerHostPendingReceiver;
 

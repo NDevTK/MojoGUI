@@ -7,10 +7,22 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Struct: ServiceWorkerRouterData
-blink.mojom.ServiceWorkerRouterDataSpec = {
+blink.mojom.mojom.ServiceWorkerRouterDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterData',
@@ -27,21 +39,21 @@ blink.mojom.ServiceWorkerRouterDataSpec = {
 };
 
 // Struct: ControllerServiceWorkerInfo
-blink.mojom.ControllerServiceWorkerInfoSpec = {
+blink.mojom.mojom.ControllerServiceWorkerInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ControllerServiceWorkerInfo',
       packedSize: 72,
       fields: [
-        { name: 'fetch_handler_bypass_option', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, nullable: false, minVersion: 0 },
-        { name: 'sha256_script_checksum', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'need_router_evaluate', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'router_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterDataSpec, nullable: true, minVersion: 0 },
-        { name: 'remote_controller', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'client_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'fetch_request_window_id', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'object_info', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'used_features', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebFeatureSpec, false), nullable: false, minVersion: 0 },
+        { name: 'fetch_handler_bypass_option', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, nullable: false, minVersion: 0 },
+        { name: 'sha256_script_checksum', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'need_router_evaluate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'router_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRouterDataSpec, nullable: true, minVersion: 0 },
+        { name: 'remote_controller', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'fetch_request_window_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'object_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'used_features', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebFeatureSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -49,24 +61,24 @@ blink.mojom.ControllerServiceWorkerInfoSpec = {
 };
 
 // Interface: ControllerServiceWorker
-blink.mojom.ControllerServiceWorker = {};
+blink.mojom.mojom.ControllerServiceWorker = {};
 
-blink.mojom.ControllerServiceWorkerPendingReceiver = class {
+blink.mojom.mojom.ControllerServiceWorkerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ControllerServiceWorkerRemote = class {
+blink.mojom.mojom.ControllerServiceWorkerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ControllerServiceWorker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ControllerServiceWorkerPendingReceiver,
+      blink.mojom.mojom.ControllerServiceWorkerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ControllerServiceWorkerRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ControllerServiceWorkerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -78,7 +90,7 @@ blink.mojom.ControllerServiceWorkerRemote = class {
   }
 };
 
-blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
+blink.mojom.mojom.ControllerServiceWorkerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -87,8 +99,8 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec,
-      blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec,
+      blink.mojom.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec,
+      blink.mojom.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec,
       [params, response_callback]);
   }
 
@@ -96,15 +108,15 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ControllerServiceWorker_Clone_ParamsSpec,
+      blink.mojom.mojom.ControllerServiceWorker_Clone_ParamsSpec,
       null,
       [receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter]);
   }
 
 };
 
-blink.mojom.ControllerServiceWorker.getRemote = function() {
-  let remote = new blink.mojom.ControllerServiceWorkerRemote();
+blink.mojom.mojom.ControllerServiceWorker.getRemote = function() {
+  let remote = new blink.mojom.mojom.ControllerServiceWorkerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -114,7 +126,7 @@ blink.mojom.ControllerServiceWorker.getRemote = function() {
 };
 
 // ParamsSpec for DispatchFetchEventForSubresource
-blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec = {
+blink.mojom.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ControllerServiceWorker.DispatchFetchEventForSubresource_Params',
@@ -128,7 +140,7 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec 
   }
 };
 
-blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec = {
+blink.mojom.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ControllerServiceWorker.DispatchFetchEventForSubresource_ResponseParams',
@@ -142,16 +154,16 @@ blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponsePar
 };
 
 // ParamsSpec for Clone
-blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = {
+blink.mojom.mojom.ControllerServiceWorker_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ControllerServiceWorker.Clone_Params',
       packedSize: 40,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'cross_origin_embedder_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'coep_reporter', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'document_isolation_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'coep_reporter', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'document_isolation_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
         { name: 'dip_reporter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
@@ -160,29 +172,29 @@ blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ControllerServiceWorkerPtr = blink.mojom.ControllerServiceWorkerRemote;
-blink.mojom.ControllerServiceWorkerRequest = blink.mojom.ControllerServiceWorkerPendingReceiver;
+blink.mojom.mojom.ControllerServiceWorkerPtr = blink.mojom.mojom.ControllerServiceWorkerRemote;
+blink.mojom.mojom.ControllerServiceWorkerRequest = blink.mojom.mojom.ControllerServiceWorkerPendingReceiver;
 
 
 // Interface: ControllerServiceWorkerConnector
-blink.mojom.ControllerServiceWorkerConnector = {};
+blink.mojom.mojom.ControllerServiceWorkerConnector = {};
 
-blink.mojom.ControllerServiceWorkerConnectorPendingReceiver = class {
+blink.mojom.mojom.ControllerServiceWorkerConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ControllerServiceWorkerConnectorRemote = class {
+blink.mojom.mojom.ControllerServiceWorkerConnectorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ControllerServiceWorkerConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ControllerServiceWorkerConnectorPendingReceiver,
+      blink.mojom.mojom.ControllerServiceWorkerConnectorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ControllerServiceWorkerConnectorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ControllerServiceWorkerConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -194,7 +206,7 @@ blink.mojom.ControllerServiceWorkerConnectorRemote = class {
   }
 };
 
-blink.mojom.ControllerServiceWorkerConnectorRemoteCallHandler = class {
+blink.mojom.mojom.ControllerServiceWorkerConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -203,15 +215,15 @@ blink.mojom.ControllerServiceWorkerConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec,
+      blink.mojom.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec,
       null,
       [controller]);
   }
 
 };
 
-blink.mojom.ControllerServiceWorkerConnector.getRemote = function() {
-  let remote = new blink.mojom.ControllerServiceWorkerConnectorRemote();
+blink.mojom.mojom.ControllerServiceWorkerConnector.getRemote = function() {
+  let remote = new blink.mojom.mojom.ControllerServiceWorkerConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -221,7 +233,7 @@ blink.mojom.ControllerServiceWorkerConnector.getRemote = function() {
 };
 
 // ParamsSpec for UpdateController
-blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = {
+blink.mojom.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ControllerServiceWorkerConnector.UpdateController_Params',
@@ -235,6 +247,6 @@ blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ControllerServiceWorkerConnectorPtr = blink.mojom.ControllerServiceWorkerConnectorRemote;
-blink.mojom.ControllerServiceWorkerConnectorRequest = blink.mojom.ControllerServiceWorkerConnectorPendingReceiver;
+blink.mojom.mojom.ControllerServiceWorkerConnectorPtr = blink.mojom.mojom.ControllerServiceWorkerConnectorRemote;
+blink.mojom.mojom.ControllerServiceWorkerConnectorRequest = blink.mojom.mojom.ControllerServiceWorkerConnectorPendingReceiver;
 

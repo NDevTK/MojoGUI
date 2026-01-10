@@ -10,7 +10,7 @@ mojom.user_education_internals = mojom.user_education_internals || {};
 
 
 // Struct: FeaturePromoDemoPageData
-mojom.user_education_internals.FeaturePromoDemoPageDataSpec = {
+mojom.user_education_internals.user_education_internals.FeaturePromoDemoPageDataSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.FeaturePromoDemoPageData',
@@ -25,7 +25,7 @@ mojom.user_education_internals.FeaturePromoDemoPageDataSpec = {
 };
 
 // Struct: FeaturePromoDemoPageInfo
-mojom.user_education_internals.FeaturePromoDemoPageInfoSpec = {
+mojom.user_education_internals.user_education_internals.FeaturePromoDemoPageInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.FeaturePromoDemoPageInfo',
@@ -35,12 +35,12 @@ mojom.user_education_internals.FeaturePromoDemoPageInfoSpec = {
         { name: 'display_description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'internal_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'added_milestone', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'supported_platforms', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'required_features', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'instructions', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'followed_by_internal_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'added_milestone', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'supported_platforms', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'required_features', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'instructions', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'followed_by_internal_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }
@@ -48,7 +48,7 @@ mojom.user_education_internals.FeaturePromoDemoPageInfoSpec = {
 };
 
 // Struct: WhatsNewModuleDemoPageInfo
-mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec = {
+mojom.user_education_internals.user_education_internals.WhatsNewModuleDemoPageInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.WhatsNewModuleDemoPageInfo',
@@ -56,9 +56,9 @@ mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec = {
       fields: [
         { name: 'display_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'module_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'has_browser_command', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_feature_enabled', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'queue_position', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'has_browser_command', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_feature_enabled', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'queue_position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -66,7 +66,7 @@ mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec = {
 };
 
 // Struct: WhatsNewEditionDemoPageInfo
-mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec = {
+mojom.user_education_internals.user_education_internals.WhatsNewEditionDemoPageInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.WhatsNewEditionDemoPageInfo',
@@ -74,9 +74,9 @@ mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec = {
       fields: [
         { name: 'display_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'edition_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_feature_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_been_used', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'version_used', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_feature_enabled', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_been_used', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'version_used', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -84,24 +84,24 @@ mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec = {
 };
 
 // Interface: UserEducationInternalsPageHandler
-mojom.user_education_internals.UserEducationInternalsPageHandler = {};
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler = {};
 
-mojom.user_education_internals.UserEducationInternalsPageHandlerPendingReceiver = class {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandlerRemote = class {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerRemote = class {
   static get $interfaceName() {
     return 'mojom.user_education_internals.UserEducationInternalsPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojom.user_education_internals.UserEducationInternalsPageHandlerPendingReceiver,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerPendingReceiver,
       handle);
-    this.$ = new mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -113,7 +113,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemote = class {
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandler = class {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -122,8 +122,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec,
       []);
   }
 
@@ -131,8 +131,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec,
       [tutorial_id]);
   }
 
@@ -140,8 +140,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec,
       []);
   }
 
@@ -149,8 +149,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec,
       []);
   }
 
@@ -158,8 +158,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec,
       [feature_name]);
   }
 
@@ -167,8 +167,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec,
       [feature_name]);
   }
 
@@ -176,8 +176,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec,
       []);
   }
 
@@ -185,8 +185,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec,
       []);
   }
 
@@ -194,8 +194,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec,
       []);
   }
 
@@ -203,8 +203,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec,
       []);
   }
 
@@ -212,8 +212,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec,
       []);
   }
 
@@ -221,8 +221,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec,
       []);
   }
 
@@ -230,8 +230,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec,
       []);
   }
 
@@ -239,8 +239,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec,
       []);
   }
 
@@ -248,8 +248,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec,
       [feature_name]);
   }
 
@@ -257,8 +257,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec,
       []);
   }
 
@@ -266,8 +266,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec,
       [id]);
   }
 
@@ -275,8 +275,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec,
-      mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec,
       []);
   }
 
@@ -284,15 +284,15 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec,
+      mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec,
       null,
       []);
   }
 
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler.getRemote = function() {
-  let remote = new mojom.user_education_internals.UserEducationInternalsPageHandlerRemote();
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler.getRemote = function() {
+  let remote = new mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -302,7 +302,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler.getRemote = fun
 };
 
 // ParamsSpec for GetTutorials
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetTutorials_Params',
@@ -314,7 +314,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_Pa
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetTutorials_ResponseParams',
@@ -328,7 +328,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_Re
 };
 
 // ParamsSpec for StartTutorial
-mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.StartTutorial_Params',
@@ -341,7 +341,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_P
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.StartTutorial_ResponseParams',
@@ -355,7 +355,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_R
 };
 
 // ParamsSpec for GetSessionData
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetSessionData_Params',
@@ -367,7 +367,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetSessionData_ResponseParams',
@@ -381,7 +381,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_
 };
 
 // ParamsSpec for GetFeaturePromos
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetFeaturePromos_Params',
@@ -393,7 +393,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromo
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetFeaturePromos_ResponseParams',
@@ -407,7 +407,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromo
 };
 
 // ParamsSpec for ShowFeaturePromo
-mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ShowFeaturePromo_Params',
@@ -420,7 +420,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeatureProm
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ShowFeaturePromo_ResponseParams',
@@ -434,7 +434,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeatureProm
 };
 
 // ParamsSpec for ClearFeaturePromoData
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearFeaturePromoData_Params',
@@ -447,7 +447,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePro
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearFeaturePromoData_ResponseParams',
@@ -461,7 +461,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePro
 };
 
 // ParamsSpec for ClearSessionData
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearSessionData_Params',
@@ -473,7 +473,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionDat
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearSessionData_ResponseParams',
@@ -487,7 +487,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionDat
 };
 
 // ParamsSpec for ForceNewSession
-mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ForceNewSession_Params',
@@ -499,7 +499,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ForceNewSession_ResponseParams',
@@ -513,7 +513,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession
 };
 
 // ParamsSpec for RemoveGracePeriods
-mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.RemoveGracePeriods_Params',
@@ -525,7 +525,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeri
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.RemoveGracePeriods_ResponseParams',
@@ -539,7 +539,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeri
 };
 
 // ParamsSpec for GetNewBadges
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNewBadges_Params',
@@ -551,7 +551,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_Pa
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNewBadges_ResponseParams',
@@ -565,7 +565,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_Re
 };
 
 // ParamsSpec for GetWhatsNewModules
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewModules_Params',
@@ -577,7 +577,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModu
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewModules_ResponseParams',
@@ -591,7 +591,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModu
 };
 
 // ParamsSpec for GetWhatsNewEditions
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewEditions_Params',
@@ -603,7 +603,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEdit
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewEditions_ResponseParams',
@@ -617,7 +617,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEdit
 };
 
 // ParamsSpec for GetNtpPromos
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromos_Params',
@@ -629,7 +629,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_Pa
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromos_ResponseParams',
@@ -643,7 +643,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_Re
 };
 
 // ParamsSpec for GetNtpPromoPreferences
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromoPreferences_Params',
@@ -655,7 +655,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPref
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromoPreferences_ResponseParams',
@@ -669,7 +669,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPref
 };
 
 // ParamsSpec for ClearNewBadgeData
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNewBadgeData_Params',
@@ -682,7 +682,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeDa
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNewBadgeData_ResponseParams',
@@ -696,7 +696,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeDa
 };
 
 // ParamsSpec for ClearWhatsNewData
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearWhatsNewData_Params',
@@ -708,7 +708,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewDa
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearWhatsNewData_ResponseParams',
@@ -722,7 +722,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewDa
 };
 
 // ParamsSpec for ClearNtpPromoData
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoData_Params',
@@ -735,7 +735,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoDa
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoData_ResponseParams',
@@ -749,7 +749,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoDa
 };
 
 // ParamsSpec for ClearNtpPromoPreferences
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoPreferences_Params',
@@ -761,7 +761,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPr
   }
 };
 
-mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoPreferences_ResponseParams',
@@ -775,7 +775,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPr
 };
 
 // ParamsSpec for LaunchWhatsNewStaging
-mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec = {
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.LaunchWhatsNewStaging_Params',
@@ -788,6 +788,6 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewS
 };
 
 // Legacy compatibility
-mojom.user_education_internals.UserEducationInternalsPageHandlerPtr = mojom.user_education_internals.UserEducationInternalsPageHandlerRemote;
-mojom.user_education_internals.UserEducationInternalsPageHandlerRequest = mojom.user_education_internals.UserEducationInternalsPageHandlerPendingReceiver;
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerPtr = mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerRemote;
+mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerRequest = mojom.user_education_internals.user_education_internals.UserEducationInternalsPageHandlerPendingReceiver;
 

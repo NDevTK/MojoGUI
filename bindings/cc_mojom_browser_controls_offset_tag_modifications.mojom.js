@@ -10,7 +10,7 @@ cc.mojom = cc.mojom || {};
 
 
 // Struct: BrowserControlsOffsetTagModifications
-cc.mojom.BrowserControlsOffsetTagModificationsSpec = {
+cc.mojom.mojom.BrowserControlsOffsetTagModificationsSpec = {
   $: {
     structSpec: {
       name: 'cc.mojom.BrowserControlsOffsetTagModifications',

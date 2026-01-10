@@ -10,7 +10,7 @@ gfx.mojom = gfx.mojom || {};
 
 
 // Enum: OverlayTransform
-gfx.mojom.OverlayTransform = {
+gfx.mojom.mojom.OverlayTransform = {
   OVERLAY_TRANSFORM_INVALID: 0,
   OVERLAY_TRANSFORM_NONE: 1,
   OVERLAY_TRANSFORM_FLIP_HORIZONTAL: 2,
@@ -22,4 +22,4 @@ gfx.mojom.OverlayTransform = {
   OVERLAY_TRANSFORM_FLIP_VERTICAL_CLOCKWISE_270: 8,
   OVERLAY_TRANSFORM_LAST: 9,
 };
-gfx.mojom.OverlayTransformSpec = { $: mojo.internal.Enum() };
+gfx.mojom.mojom.OverlayTransformSpec = { $: mojo.internal.Enum() };

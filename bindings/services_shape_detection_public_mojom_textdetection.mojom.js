@@ -7,10 +7,13 @@
 // Module namespace
 var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: TextDetectionResult
-shape_detection.mojom.TextDetectionResultSpec = {
+shape_detection.mojom.mojom.TextDetectionResultSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.TextDetectionResult',
@@ -26,24 +29,24 @@ shape_detection.mojom.TextDetectionResultSpec = {
 };
 
 // Interface: TextDetection
-shape_detection.mojom.TextDetection = {};
+shape_detection.mojom.mojom.TextDetection = {};
 
-shape_detection.mojom.TextDetectionPendingReceiver = class {
+shape_detection.mojom.mojom.TextDetectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-shape_detection.mojom.TextDetectionRemote = class {
+shape_detection.mojom.mojom.TextDetectionRemote = class {
   static get $interfaceName() {
     return 'shape_detection.mojom.TextDetection';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      shape_detection.mojom.TextDetectionPendingReceiver,
+      shape_detection.mojom.mojom.TextDetectionPendingReceiver,
       handle);
-    this.$ = new shape_detection.mojom.TextDetectionRemoteCallHandler(this.proxy);
+    this.$ = new shape_detection.mojom.mojom.TextDetectionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -55,7 +58,7 @@ shape_detection.mojom.TextDetectionRemote = class {
   }
 };
 
-shape_detection.mojom.TextDetectionRemoteCallHandler = class {
+shape_detection.mojom.mojom.TextDetectionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -64,15 +67,15 @@ shape_detection.mojom.TextDetectionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      shape_detection.mojom.TextDetection_Detect_ParamsSpec,
-      shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec,
+      shape_detection.mojom.mojom.TextDetection_Detect_ParamsSpec,
+      shape_detection.mojom.mojom.TextDetection_Detect_ResponseParamsSpec,
       [bitmap_data]);
   }
 
 };
 
-shape_detection.mojom.TextDetection.getRemote = function() {
-  let remote = new shape_detection.mojom.TextDetectionRemote();
+shape_detection.mojom.mojom.TextDetection.getRemote = function() {
+  let remote = new shape_detection.mojom.mojom.TextDetectionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -82,7 +85,7 @@ shape_detection.mojom.TextDetection.getRemote = function() {
 };
 
 // ParamsSpec for Detect
-shape_detection.mojom.TextDetection_Detect_ParamsSpec = {
+shape_detection.mojom.mojom.TextDetection_Detect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.TextDetection.Detect_Params',
@@ -95,7 +98,7 @@ shape_detection.mojom.TextDetection_Detect_ParamsSpec = {
   }
 };
 
-shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec = {
+shape_detection.mojom.mojom.TextDetection_Detect_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.TextDetection.Detect_ResponseParams',
@@ -109,6 +112,6 @@ shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-shape_detection.mojom.TextDetectionPtr = shape_detection.mojom.TextDetectionRemote;
-shape_detection.mojom.TextDetectionRequest = shape_detection.mojom.TextDetectionPendingReceiver;
+shape_detection.mojom.mojom.TextDetectionPtr = shape_detection.mojom.mojom.TextDetectionRemote;
+shape_detection.mojom.mojom.TextDetectionRequest = shape_detection.mojom.mojom.TextDetectionPendingReceiver;
 

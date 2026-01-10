@@ -10,7 +10,7 @@ storage.mojom = storage.mojom || {};
 
 
 // Struct: IdbPartitionMetadata
-storage.mojom.IdbPartitionMetadataSpec = {
+storage.mojom.mojom.IdbPartitionMetadataSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbPartitionMetadata',
@@ -25,24 +25,24 @@ storage.mojom.IdbPartitionMetadataSpec = {
 };
 
 // Interface: IdbInternalsHandler
-storage.mojom.IdbInternalsHandler = {};
+storage.mojom.mojom.IdbInternalsHandler = {};
 
-storage.mojom.IdbInternalsHandlerPendingReceiver = class {
+storage.mojom.mojom.IdbInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.IdbInternalsHandlerRemote = class {
+storage.mojom.mojom.IdbInternalsHandlerRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.IdbInternalsHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.IdbInternalsHandlerPendingReceiver,
+      storage.mojom.mojom.IdbInternalsHandlerPendingReceiver,
       handle);
-    this.$ = new storage.mojom.IdbInternalsHandlerRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.mojom.IdbInternalsHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ storage.mojom.IdbInternalsHandlerRemote = class {
   }
 };
 
-storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
+storage.mojom.mojom.IdbInternalsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +63,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec,
-      storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec,
       []);
   }
 
@@ -72,8 +72,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec,
-      storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec,
       [bucketId]);
   }
 
@@ -81,8 +81,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec,
-      storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_ForceClose_ParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec,
       [bucketId]);
   }
 
@@ -90,8 +90,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec,
-      storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec,
       [bucket_id]);
   }
 
@@ -99,8 +99,8 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec,
-      storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec,
       [bucket_id]);
   }
 
@@ -108,15 +108,15 @@ storage.mojom.IdbInternalsHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec,
-      storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_InspectClient_ParamsSpec,
+      storage.mojom.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec,
       [client_info]);
   }
 
 };
 
-storage.mojom.IdbInternalsHandler.getRemote = function() {
-  let remote = new storage.mojom.IdbInternalsHandlerRemote();
+storage.mojom.mojom.IdbInternalsHandler.getRemote = function() {
+  let remote = new storage.mojom.mojom.IdbInternalsHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -126,7 +126,7 @@ storage.mojom.IdbInternalsHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetAllBucketsAcrossAllStorageKeys
-storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.GetAllBucketsAcrossAllStorageKeys_Params',
@@ -138,7 +138,7 @@ storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec =
   }
 };
 
-storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.GetAllBucketsAcrossAllStorageKeys_ResponseParams',
@@ -153,7 +153,7 @@ storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponsePara
 };
 
 // ParamsSpec for DownloadBucketData
-storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.DownloadBucketData_Params',
@@ -166,7 +166,7 @@ storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec = {
   }
 };
 
-storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.DownloadBucketData_ResponseParams',
@@ -180,7 +180,7 @@ storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ForceClose
-storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_ForceClose_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.ForceClose_Params',
@@ -193,7 +193,7 @@ storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec = {
   }
 };
 
-storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.ForceClose_ResponseParams',
@@ -207,7 +207,7 @@ storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartMetadataRecording
-storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.StartMetadataRecording_Params',
@@ -220,7 +220,7 @@ storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec = {
   }
 };
 
-storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.StartMetadataRecording_ResponseParams',
@@ -234,7 +234,7 @@ storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StopMetadataRecording
-storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.StopMetadataRecording_Params',
@@ -247,7 +247,7 @@ storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec = {
   }
 };
 
-storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.StopMetadataRecording_ResponseParams',
@@ -262,7 +262,7 @@ storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec = {
 };
 
 // ParamsSpec for InspectClient
-storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_InspectClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.InspectClient_Params',
@@ -275,7 +275,7 @@ storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec = {
   }
 };
 
-storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec = {
+storage.mojom.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.IdbInternalsHandler.InspectClient_ResponseParams',
@@ -289,6 +289,6 @@ storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.IdbInternalsHandlerPtr = storage.mojom.IdbInternalsHandlerRemote;
-storage.mojom.IdbInternalsHandlerRequest = storage.mojom.IdbInternalsHandlerPendingReceiver;
+storage.mojom.mojom.IdbInternalsHandlerPtr = storage.mojom.mojom.IdbInternalsHandlerRemote;
+storage.mojom.mojom.IdbInternalsHandlerRequest = storage.mojom.mojom.IdbInternalsHandlerPendingReceiver;
 

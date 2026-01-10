@@ -10,24 +10,24 @@ math.mojom = math.mojom || {};
 
 
 // Interface: MathService
-math.mojom.MathService = {};
+math.mojom.mojom.MathService = {};
 
-math.mojom.MathServicePendingReceiver = class {
+math.mojom.mojom.MathServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-math.mojom.MathServiceRemote = class {
+math.mojom.mojom.MathServiceRemote = class {
   static get $interfaceName() {
     return 'math.mojom.MathService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      math.mojom.MathServicePendingReceiver,
+      math.mojom.mojom.MathServicePendingReceiver,
       handle);
-    this.$ = new math.mojom.MathServiceRemoteCallHandler(this.proxy);
+    this.$ = new math.mojom.mojom.MathServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ math.mojom.MathServiceRemote = class {
   }
 };
 
-math.mojom.MathServiceRemoteCallHandler = class {
+math.mojom.mojom.MathServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ math.mojom.MathServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      math.mojom.MathService_Divide_ParamsSpec,
-      math.mojom.MathService_Divide_ResponseParamsSpec,
+      math.mojom.mojom.MathService_Divide_ParamsSpec,
+      math.mojom.mojom.MathService_Divide_ResponseParamsSpec,
       [dividend, divisor]);
   }
 
 };
 
-math.mojom.MathService.getRemote = function() {
-  let remote = new math.mojom.MathServiceRemote();
+math.mojom.mojom.MathService.getRemote = function() {
+  let remote = new math.mojom.mojom.MathServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ math.mojom.MathService.getRemote = function() {
 };
 
 // ParamsSpec for Divide
-math.mojom.MathService_Divide_ParamsSpec = {
+math.mojom.mojom.MathService_Divide_ParamsSpec = {
   $: {
     structSpec: {
       name: 'math.mojom.MathService.Divide_Params',
@@ -80,7 +80,7 @@ math.mojom.MathService_Divide_ParamsSpec = {
   }
 };
 
-math.mojom.MathService_Divide_ResponseParamsSpec = {
+math.mojom.mojom.MathService_Divide_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'math.mojom.MathService.Divide_ResponseParams',
@@ -94,6 +94,6 @@ math.mojom.MathService_Divide_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-math.mojom.MathServicePtr = math.mojom.MathServiceRemote;
-math.mojom.MathServiceRequest = math.mojom.MathServicePendingReceiver;
+math.mojom.mojom.MathServicePtr = math.mojom.mojom.MathServiceRemote;
+math.mojom.mojom.MathServiceRequest = math.mojom.mojom.MathServicePendingReceiver;
 

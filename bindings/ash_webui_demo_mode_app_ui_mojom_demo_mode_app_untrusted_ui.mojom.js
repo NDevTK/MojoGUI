@@ -7,28 +7,28 @@
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
-ash.mojom.demo_mode = ash.mojom.demo_mode || {};
+ash.mojom.mojom.demo_mode = ash.mojom.mojom.demo_mode || {};
 
 
 // Interface: UntrustedPageHandlerFactory
-ash.mojom.demo_mode.UntrustedPageHandlerFactory = {};
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactory = {};
 
-ash.mojom.demo_mode.UntrustedPageHandlerFactoryPendingReceiver = class {
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote = class {
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.mojom.demo_mode.UntrustedPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.mojom.demo_mode.UntrustedPageHandlerFactoryPendingReceiver,
+      ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote = class {
   }
 };
 
-ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler = class {
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +49,15 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec,
+      ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-ash.mojom.demo_mode.UntrustedPageHandlerFactory.getRemote = function() {
-  let remote = new ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote();
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactory.getRemote = function() {
+  let remote = new ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +67,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.demo_mode.UntrustedPageHandlerFactory.CreatePageHandler_Params',
@@ -81,29 +81,29 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.mojom.demo_mode.UntrustedPageHandlerFactoryPtr = ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote;
-ash.mojom.demo_mode.UntrustedPageHandlerFactoryRequest = ash.mojom.demo_mode.UntrustedPageHandlerFactoryPendingReceiver;
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryPtr = ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryRemote;
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryRequest = ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactoryPendingReceiver;
 
 
 // Interface: UntrustedPageHandler
-ash.mojom.demo_mode.UntrustedPageHandler = {};
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandler = {};
 
-ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver = class {
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.mojom.demo_mode.UntrustedPageHandlerRemote = class {
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.mojom.demo_mode.UntrustedPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver,
+      ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +115,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemote = class {
   }
 };
 
-ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,7 +124,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec,
+      ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec,
       null,
       []);
   }
@@ -133,15 +133,15 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec,
+      ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec,
       null,
       [app_id]);
   }
 
 };
 
-ash.mojom.demo_mode.UntrustedPageHandler.getRemote = function() {
-  let remote = new ash.mojom.demo_mode.UntrustedPageHandlerRemote();
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandler.getRemote = function() {
+  let remote = new ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -151,7 +151,7 @@ ash.mojom.demo_mode.UntrustedPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for ToggleFullscreen
-ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = {
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.demo_mode.UntrustedPageHandler.ToggleFullscreen_Params',
@@ -164,7 +164,7 @@ ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = {
 };
 
 // ParamsSpec for LaunchApp
-ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.demo_mode.UntrustedPageHandler.LaunchApp_Params',
@@ -178,6 +178,6 @@ ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.mojom.demo_mode.UntrustedPageHandlerPtr = ash.mojom.demo_mode.UntrustedPageHandlerRemote;
-ash.mojom.demo_mode.UntrustedPageHandlerRequest = ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver;
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerPtr = ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerRemote;
+ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerRequest = ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerPendingReceiver;
 

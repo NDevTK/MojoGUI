@@ -10,14 +10,14 @@ metrics.mojom = metrics.mojom || {};
 
 
 // Enum: ProfileType
-metrics.mojom.ProfileType = {
+metrics.mojom.mojom.ProfileType = {
   kCPU: 0,
   kHeap: 1,
 };
-metrics.mojom.ProfileTypeSpec = { $: mojo.internal.Enum() };
+metrics.mojom.mojom.ProfileTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SampledProfile
-metrics.mojom.SampledProfileSpec = {
+metrics.mojom.mojom.SampledProfileSpec = {
   $: {
     structSpec: {
       name: 'metrics.mojom.SampledProfile',
@@ -31,24 +31,24 @@ metrics.mojom.SampledProfileSpec = {
 };
 
 // Interface: CallStackProfileCollector
-metrics.mojom.CallStackProfileCollector = {};
+metrics.mojom.mojom.CallStackProfileCollector = {};
 
-metrics.mojom.CallStackProfileCollectorPendingReceiver = class {
+metrics.mojom.mojom.CallStackProfileCollectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-metrics.mojom.CallStackProfileCollectorRemote = class {
+metrics.mojom.mojom.CallStackProfileCollectorRemote = class {
   static get $interfaceName() {
     return 'metrics.mojom.CallStackProfileCollector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      metrics.mojom.CallStackProfileCollectorPendingReceiver,
+      metrics.mojom.mojom.CallStackProfileCollectorPendingReceiver,
       handle);
-    this.$ = new metrics.mojom.CallStackProfileCollectorRemoteCallHandler(this.proxy);
+    this.$ = new metrics.mojom.mojom.CallStackProfileCollectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -60,7 +60,7 @@ metrics.mojom.CallStackProfileCollectorRemote = class {
   }
 };
 
-metrics.mojom.CallStackProfileCollectorRemoteCallHandler = class {
+metrics.mojom.mojom.CallStackProfileCollectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -69,15 +69,15 @@ metrics.mojom.CallStackProfileCollectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec,
+      metrics.mojom.mojom.CallStackProfileCollector_Collect_ParamsSpec,
       null,
       [start_timestamp, profile_type, profile]);
   }
 
 };
 
-metrics.mojom.CallStackProfileCollector.getRemote = function() {
-  let remote = new metrics.mojom.CallStackProfileCollectorRemote();
+metrics.mojom.mojom.CallStackProfileCollector.getRemote = function() {
+  let remote = new metrics.mojom.mojom.CallStackProfileCollectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -87,15 +87,15 @@ metrics.mojom.CallStackProfileCollector.getRemote = function() {
 };
 
 // ParamsSpec for Collect
-metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec = {
+metrics.mojom.mojom.CallStackProfileCollector_Collect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'metrics.mojom.CallStackProfileCollector.Collect_Params',
       packedSize: 32,
       fields: [
         { name: 'start_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'profile_type', packedOffset: 8, packedBitOffset: 0, type: metrics.mojom.ProfileTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 16, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false, minVersion: 0 },
+        { name: 'profile_type', packedOffset: 16, packedBitOffset: 0, type: metrics.mojom.ProfileTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -103,6 +103,6 @@ metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec = {
 };
 
 // Legacy compatibility
-metrics.mojom.CallStackProfileCollectorPtr = metrics.mojom.CallStackProfileCollectorRemote;
-metrics.mojom.CallStackProfileCollectorRequest = metrics.mojom.CallStackProfileCollectorPendingReceiver;
+metrics.mojom.mojom.CallStackProfileCollectorPtr = metrics.mojom.mojom.CallStackProfileCollectorRemote;
+metrics.mojom.mojom.CallStackProfileCollectorRequest = metrics.mojom.mojom.CallStackProfileCollectorPendingReceiver;
 

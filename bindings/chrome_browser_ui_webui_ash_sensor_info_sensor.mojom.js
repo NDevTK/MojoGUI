@@ -10,7 +10,7 @@ sensor.mojom = sensor.mojom || {};
 
 
 // Enum: SensorType
-sensor.mojom.SensorType = {
+sensor.mojom.mojom.SensorType = {
   kLidAngle: 0,
   kAccelerometerBase: 1,
   kAccelerometerLid: 2,
@@ -18,10 +18,10 @@ sensor.mojom.SensorType = {
   kGyroscopeLid: 4,
   kSensorTypeCount: 5,
 };
-sensor.mojom.SensorTypeSpec = { $: mojo.internal.Enum() };
+sensor.mojom.mojom.SensorTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: SensorUpdateInfo
-sensor.mojom.SensorUpdateInfoSpec = { $: mojo.internal.Union(
+sensor.mojom.mojom.SensorUpdateInfoSpec = { $: mojo.internal.Union(
     'sensor.mojom.SensorUpdateInfo', {
       'lid_angle_update_info': {
         'ordinal': 0,
@@ -35,7 +35,7 @@ sensor.mojom.SensorUpdateInfoSpec = { $: mojo.internal.Union(
 };
 
 // Struct: NonLidAngleUpdateInfo
-sensor.mojom.NonLidAngleUpdateInfoSpec = {
+sensor.mojom.mojom.NonLidAngleUpdateInfoSpec = {
   $: {
     structSpec: {
       name: 'sensor.mojom.NonLidAngleUpdateInfo',
@@ -52,7 +52,7 @@ sensor.mojom.NonLidAngleUpdateInfoSpec = {
 };
 
 // Struct: LidAngleUpdateInfo
-sensor.mojom.LidAngleUpdateInfoSpec = {
+sensor.mojom.mojom.LidAngleUpdateInfoSpec = {
   $: {
     structSpec: {
       name: 'sensor.mojom.LidAngleUpdateInfo',
@@ -67,24 +67,24 @@ sensor.mojom.LidAngleUpdateInfoSpec = {
 };
 
 // Interface: PageHandlerFactory
-sensor.mojom.PageHandlerFactory = {};
+sensor.mojom.mojom.PageHandlerFactory = {};
 
-sensor.mojom.PageHandlerFactoryPendingReceiver = class {
+sensor.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sensor.mojom.PageHandlerFactoryRemote = class {
+sensor.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'sensor.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sensor.mojom.PageHandlerFactoryPendingReceiver,
+      sensor.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new sensor.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new sensor.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -96,7 +96,7 @@ sensor.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-sensor.mojom.PageHandlerFactoryRemoteCallHandler = class {
+sensor.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -105,15 +105,15 @@ sensor.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      sensor.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-sensor.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new sensor.mojom.PageHandlerFactoryRemote();
+sensor.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new sensor.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -123,7 +123,7 @@ sensor.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+sensor.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sensor.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -137,29 +137,29 @@ sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-sensor.mojom.PageHandlerFactoryPtr = sensor.mojom.PageHandlerFactoryRemote;
-sensor.mojom.PageHandlerFactoryRequest = sensor.mojom.PageHandlerFactoryPendingReceiver;
+sensor.mojom.mojom.PageHandlerFactoryPtr = sensor.mojom.mojom.PageHandlerFactoryRemote;
+sensor.mojom.mojom.PageHandlerFactoryRequest = sensor.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-sensor.mojom.PageHandler = {};
+sensor.mojom.mojom.PageHandler = {};
 
-sensor.mojom.PageHandlerPendingReceiver = class {
+sensor.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sensor.mojom.PageHandlerRemote = class {
+sensor.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'sensor.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sensor.mojom.PageHandlerPendingReceiver,
+      sensor.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new sensor.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new sensor.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -171,7 +171,7 @@ sensor.mojom.PageHandlerRemote = class {
   }
 };
 
-sensor.mojom.PageHandlerRemoteCallHandler = class {
+sensor.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -180,7 +180,7 @@ sensor.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec,
+      sensor.mojom.mojom.PageHandler_StartRecordingUpdate_ParamsSpec,
       null,
       []);
   }
@@ -189,15 +189,15 @@ sensor.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec,
+      sensor.mojom.mojom.PageHandler_StopRecordingUpdate_ParamsSpec,
       null,
       []);
   }
 
 };
 
-sensor.mojom.PageHandler.getRemote = function() {
-  let remote = new sensor.mojom.PageHandlerRemote();
+sensor.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new sensor.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -207,7 +207,7 @@ sensor.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for StartRecordingUpdate
-sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = {
+sensor.mojom.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sensor.mojom.PageHandler.StartRecordingUpdate_Params',
@@ -220,7 +220,7 @@ sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = {
 };
 
 // ParamsSpec for StopRecordingUpdate
-sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = {
+sensor.mojom.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sensor.mojom.PageHandler.StopRecordingUpdate_Params',
@@ -233,6 +233,6 @@ sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = {
 };
 
 // Legacy compatibility
-sensor.mojom.PageHandlerPtr = sensor.mojom.PageHandlerRemote;
-sensor.mojom.PageHandlerRequest = sensor.mojom.PageHandlerPendingReceiver;
+sensor.mojom.mojom.PageHandlerPtr = sensor.mojom.mojom.PageHandlerRemote;
+sensor.mojom.mojom.PageHandlerRequest = sensor.mojom.mojom.PageHandlerPendingReceiver;
 

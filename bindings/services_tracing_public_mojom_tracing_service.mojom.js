@@ -9,12 +9,12 @@ var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
 
 
-tracing.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kUtility;
+tracing.mojom.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kUtility;
 
-tracing.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kService;
+tracing.mojom.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kService;
 
 // Struct: ClientInfo
-tracing.mojom.ClientInfoSpec = {
+tracing.mojom.mojom.ClientInfoSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ClientInfo',
@@ -29,24 +29,24 @@ tracing.mojom.ClientInfoSpec = {
 };
 
 // Interface: TracingService
-tracing.mojom.TracingService = {};
+tracing.mojom.mojom.TracingService = {};
 
-tracing.mojom.TracingServicePendingReceiver = class {
+tracing.mojom.mojom.TracingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tracing.mojom.TracingServiceRemote = class {
+tracing.mojom.mojom.TracingServiceRemote = class {
   static get $interfaceName() {
     return 'tracing.mojom.TracingService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tracing.mojom.TracingServicePendingReceiver,
+      tracing.mojom.mojom.TracingServicePendingReceiver,
       handle);
-    this.$ = new tracing.mojom.TracingServiceRemoteCallHandler(this.proxy);
+    this.$ = new tracing.mojom.mojom.TracingServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -58,7 +58,7 @@ tracing.mojom.TracingServiceRemote = class {
   }
 };
 
-tracing.mojom.TracingServiceRemoteCallHandler = class {
+tracing.mojom.mojom.TracingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -67,7 +67,7 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      tracing.mojom.TracingService_Initialize_ParamsSpec,
+      tracing.mojom.mojom.TracingService_Initialize_ParamsSpec,
       null,
       [clients]);
   }
@@ -76,7 +76,7 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      tracing.mojom.TracingService_AddClient_ParamsSpec,
+      tracing.mojom.mojom.TracingService_AddClient_ParamsSpec,
       null,
       [client]);
   }
@@ -85,15 +85,15 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      tracing.mojom.TracingService_BindConsumerHost_ParamsSpec,
+      tracing.mojom.mojom.TracingService_BindConsumerHost_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-tracing.mojom.TracingService.getRemote = function() {
-  let remote = new tracing.mojom.TracingServiceRemote();
+tracing.mojom.mojom.TracingService.getRemote = function() {
+  let remote = new tracing.mojom.mojom.TracingServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -103,7 +103,7 @@ tracing.mojom.TracingService.getRemote = function() {
 };
 
 // ParamsSpec for Initialize
-tracing.mojom.TracingService_Initialize_ParamsSpec = {
+tracing.mojom.mojom.TracingService_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingService.Initialize_Params',
@@ -117,7 +117,7 @@ tracing.mojom.TracingService_Initialize_ParamsSpec = {
 };
 
 // ParamsSpec for AddClient
-tracing.mojom.TracingService_AddClient_ParamsSpec = {
+tracing.mojom.mojom.TracingService_AddClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingService.AddClient_Params',
@@ -131,7 +131,7 @@ tracing.mojom.TracingService_AddClient_ParamsSpec = {
 };
 
 // ParamsSpec for BindConsumerHost
-tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = {
+tracing.mojom.mojom.TracingService_BindConsumerHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.TracingService.BindConsumerHost_Params',
@@ -145,6 +145,6 @@ tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = {
 };
 
 // Legacy compatibility
-tracing.mojom.TracingServicePtr = tracing.mojom.TracingServiceRemote;
-tracing.mojom.TracingServiceRequest = tracing.mojom.TracingServicePendingReceiver;
+tracing.mojom.mojom.TracingServicePtr = tracing.mojom.mojom.TracingServiceRemote;
+tracing.mojom.mojom.TracingServiceRequest = tracing.mojom.mojom.TracingServicePendingReceiver;
 

@@ -7,11 +7,11 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.connectivity = chromeos.connectivity || {};
-chromeos.connectivity.mojom = chromeos.connectivity.mojom || {};
+chromeos.connectivity.connectivity.mojom = chromeos.connectivity.connectivity.mojom || {};
 
 
 // Struct: PasspointSubscription
-chromeos.connectivity.mojom.PasspointSubscriptionSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointSubscriptionSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointSubscription',
@@ -30,24 +30,24 @@ chromeos.connectivity.mojom.PasspointSubscriptionSpec = {
 };
 
 // Interface: PasspointEventsListener
-chromeos.connectivity.mojom.PasspointEventsListener = {};
+chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListener = {};
 
-chromeos.connectivity.mojom.PasspointEventsListenerPendingReceiver = class {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.connectivity.mojom.PasspointEventsListenerRemote = class {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerRemote = class {
   static get $interfaceName() {
     return 'chromeos.connectivity.mojom.PasspointEventsListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.connectivity.mojom.PasspointEventsListenerPendingReceiver,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerPendingReceiver,
       handle);
-    this.$ = new chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -59,7 +59,7 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemote = class {
   }
 };
 
-chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -68,7 +68,7 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec,
       null,
       [subscription]);
   }
@@ -77,15 +77,15 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec,
       null,
       [subscription]);
   }
 
 };
 
-chromeos.connectivity.mojom.PasspointEventsListener.getRemote = function() {
-  let remote = new chromeos.connectivity.mojom.PasspointEventsListenerRemote();
+chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListener.getRemote = function() {
+  let remote = new chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -95,7 +95,7 @@ chromeos.connectivity.mojom.PasspointEventsListener.getRemote = function() {
 };
 
 // ParamsSpec for OnPasspointSubscriptionAdded
-chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionAdded_Params',
@@ -109,7 +109,7 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded
 };
 
 // ParamsSpec for OnPasspointSubscriptionRemoved
-chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointEventsListener.OnPasspointSubscriptionRemoved_Params',
@@ -123,29 +123,29 @@ chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemov
 };
 
 // Legacy compatibility
-chromeos.connectivity.mojom.PasspointEventsListenerPtr = chromeos.connectivity.mojom.PasspointEventsListenerRemote;
-chromeos.connectivity.mojom.PasspointEventsListenerRequest = chromeos.connectivity.mojom.PasspointEventsListenerPendingReceiver;
+chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerPtr = chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerRemote;
+chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerRequest = chromeos.connectivity.connectivity.mojom.mojom.PasspointEventsListenerPendingReceiver;
 
 
 // Interface: PasspointService
-chromeos.connectivity.mojom.PasspointService = {};
+chromeos.connectivity.connectivity.mojom.mojom.PasspointService = {};
 
-chromeos.connectivity.mojom.PasspointServicePendingReceiver = class {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.connectivity.mojom.PasspointServiceRemote = class {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointServiceRemote = class {
   static get $interfaceName() {
     return 'chromeos.connectivity.mojom.PasspointService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.connectivity.mojom.PasspointServicePendingReceiver,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointServicePendingReceiver,
       handle);
-    this.$ = new chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.connectivity.connectivity.mojom.mojom.PasspointServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -157,7 +157,7 @@ chromeos.connectivity.mojom.PasspointServiceRemote = class {
   }
 };
 
-chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -166,8 +166,8 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec,
-      chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointService_GetPasspointSubscription_ParamsSpec,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec,
       [id]);
   }
 
@@ -175,8 +175,8 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec,
-      chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec,
       []);
   }
 
@@ -184,8 +184,8 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec,
-      chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec,
       [id]);
   }
 
@@ -193,15 +193,15 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec,
+      chromeos.connectivity.connectivity.mojom.mojom.PasspointService_RegisterPasspointListener_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-chromeos.connectivity.mojom.PasspointService.getRemote = function() {
-  let remote = new chromeos.connectivity.mojom.PasspointServiceRemote();
+chromeos.connectivity.connectivity.mojom.mojom.PasspointService.getRemote = function() {
+  let remote = new chromeos.connectivity.connectivity.mojom.mojom.PasspointServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -211,7 +211,7 @@ chromeos.connectivity.mojom.PasspointService.getRemote = function() {
 };
 
 // ParamsSpec for GetPasspointSubscription
-chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointService_GetPasspointSubscription_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_Params',
@@ -224,7 +224,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec
   }
 };
 
-chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_ResponseParams',
@@ -238,7 +238,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponsePa
 };
 
 // ParamsSpec for ListPasspointSubscriptions
-chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointService.ListPasspointSubscriptions_Params',
@@ -250,7 +250,7 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSp
   }
 };
 
-chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointService.ListPasspointSubscriptions_ResponseParams',
@@ -264,7 +264,7 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_Response
 };
 
 // ParamsSpec for DeletePasspointSubscription
-chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointService.DeletePasspointSubscription_Params',
@@ -277,7 +277,7 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsS
   }
 };
 
-chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointService.DeletePasspointSubscription_ResponseParams',
@@ -291,7 +291,7 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_Respons
 };
 
 // ParamsSpec for RegisterPasspointListener
-chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec = {
+chromeos.connectivity.connectivity.mojom.mojom.PasspointService_RegisterPasspointListener_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.connectivity.mojom.PasspointService.RegisterPasspointListener_Params',
@@ -305,6 +305,6 @@ chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpe
 };
 
 // Legacy compatibility
-chromeos.connectivity.mojom.PasspointServicePtr = chromeos.connectivity.mojom.PasspointServiceRemote;
-chromeos.connectivity.mojom.PasspointServiceRequest = chromeos.connectivity.mojom.PasspointServicePendingReceiver;
+chromeos.connectivity.connectivity.mojom.mojom.PasspointServicePtr = chromeos.connectivity.connectivity.mojom.mojom.PasspointServiceRemote;
+chromeos.connectivity.connectivity.mojom.mojom.PasspointServiceRequest = chromeos.connectivity.connectivity.mojom.mojom.PasspointServicePendingReceiver;
 

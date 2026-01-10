@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Struct: SurfaceHandle
-gpu.mojom.SurfaceHandleSpec = {
+gpu.mojom.mojom.SurfaceHandleSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SurfaceHandle',

@@ -10,7 +10,7 @@ bluetooth.mojom = bluetooth.mojom || {};
 
 
 // Enum: GattServiceErrorCode
-bluetooth.mojom.GattServiceErrorCode = {
+bluetooth.mojom.mojom.GattServiceErrorCode = {
   kUnknown: 0,
   kFailed: 1,
   kInProgress: 2,
@@ -20,4 +20,4 @@ bluetooth.mojom.GattServiceErrorCode = {
   kNotPaired: 6,
   kNotSupported: 7,
 };
-bluetooth.mojom.GattServiceErrorCodeSpec = { $: mojo.internal.Enum() };
+bluetooth.mojom.mojom.GattServiceErrorCodeSpec = { $: mojo.internal.Enum() };

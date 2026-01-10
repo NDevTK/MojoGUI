@@ -7,10 +7,17 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var skia = skia || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: BackgroundFetchError
-blink.mojom.BackgroundFetchError = {
+blink.mojom.mojom.BackgroundFetchError = {
   NONE: 0,
   DUPLICATED_DEVELOPER_ID: 1,
   INVALID_ARGUMENT: 2,
@@ -21,18 +28,18 @@ blink.mojom.BackgroundFetchError = {
   PERMISSION_DENIED: 7,
   REGISTRATION_LIMIT_EXCEEDED: 8,
 };
-blink.mojom.BackgroundFetchErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.BackgroundFetchErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundFetchResult
-blink.mojom.BackgroundFetchResult = {
+blink.mojom.mojom.BackgroundFetchResult = {
   UNSET: 0,
   FAILURE: 1,
   SUCCESS: 2,
 };
-blink.mojom.BackgroundFetchResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.BackgroundFetchResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: BackgroundFetchFailureReason
-blink.mojom.BackgroundFetchFailureReason = {
+blink.mojom.mojom.BackgroundFetchFailureReason = {
   NONE: 0,
   CANCELLED_FROM_UI: 1,
   CANCELLED_BY_DEVELOPER: 2,
@@ -42,10 +49,10 @@ blink.mojom.BackgroundFetchFailureReason = {
   QUOTA_EXCEEDED: 6,
   DOWNLOAD_TOTAL_EXCEEDED: 7,
 };
-blink.mojom.BackgroundFetchFailureReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.BackgroundFetchFailureReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: BackgroundFetchSettledFetch
-blink.mojom.BackgroundFetchSettledFetchSpec = {
+blink.mojom.mojom.BackgroundFetchSettledFetchSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchSettledFetch',
@@ -60,7 +67,7 @@ blink.mojom.BackgroundFetchSettledFetchSpec = {
 };
 
 // Struct: BackgroundFetchOptions
-blink.mojom.BackgroundFetchOptionsSpec = {
+blink.mojom.mojom.BackgroundFetchOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchOptions',
@@ -76,7 +83,7 @@ blink.mojom.BackgroundFetchOptionsSpec = {
 };
 
 // Struct: BackgroundFetchRegistrationData
-blink.mojom.BackgroundFetchRegistrationDataSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationData',
@@ -95,7 +102,7 @@ blink.mojom.BackgroundFetchRegistrationDataSpec = {
 };
 
 // Struct: BackgroundFetchRegistration
-blink.mojom.BackgroundFetchRegistrationSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistration',
@@ -110,7 +117,7 @@ blink.mojom.BackgroundFetchRegistrationSpec = {
 };
 
 // Struct: BackgroundFetchUkmData
-blink.mojom.BackgroundFetchUkmDataSpec = {
+blink.mojom.mojom.BackgroundFetchUkmDataSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchUkmData',
@@ -124,24 +131,24 @@ blink.mojom.BackgroundFetchUkmDataSpec = {
 };
 
 // Interface: BackgroundFetchRegistrationObserver
-blink.mojom.BackgroundFetchRegistrationObserver = {};
+blink.mojom.mojom.BackgroundFetchRegistrationObserver = {};
 
-blink.mojom.BackgroundFetchRegistrationObserverPendingReceiver = class {
+blink.mojom.mojom.BackgroundFetchRegistrationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BackgroundFetchRegistrationObserverRemote = class {
+blink.mojom.mojom.BackgroundFetchRegistrationObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BackgroundFetchRegistrationObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BackgroundFetchRegistrationObserverPendingReceiver,
+      blink.mojom.mojom.BackgroundFetchRegistrationObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -153,7 +160,7 @@ blink.mojom.BackgroundFetchRegistrationObserverRemote = class {
   }
 };
 
-blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
+blink.mojom.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -162,7 +169,7 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec,
       null,
       [upload_total, uploaded, download_total, downloaded, result, failure_reason]);
   }
@@ -171,7 +178,7 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec,
       null,
       []);
   }
@@ -180,15 +187,15 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec,
       null,
       [request, response]);
   }
 
 };
 
-blink.mojom.BackgroundFetchRegistrationObserver.getRemote = function() {
-  let remote = new blink.mojom.BackgroundFetchRegistrationObserverRemote();
+blink.mojom.mojom.BackgroundFetchRegistrationObserver.getRemote = function() {
+  let remote = new blink.mojom.mojom.BackgroundFetchRegistrationObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -198,7 +205,7 @@ blink.mojom.BackgroundFetchRegistrationObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnProgress
-blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationObserver.OnProgress_Params',
@@ -217,7 +224,7 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = {
 };
 
 // ParamsSpec for OnRecordsUnavailable
-blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationObserver.OnRecordsUnavailable_Params',
@@ -230,7 +237,7 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec 
 };
 
 // ParamsSpec for OnRequestCompleted
-blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationObserver.OnRequestCompleted_Params',
@@ -245,29 +252,29 @@ blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = 
 };
 
 // Legacy compatibility
-blink.mojom.BackgroundFetchRegistrationObserverPtr = blink.mojom.BackgroundFetchRegistrationObserverRemote;
-blink.mojom.BackgroundFetchRegistrationObserverRequest = blink.mojom.BackgroundFetchRegistrationObserverPendingReceiver;
+blink.mojom.mojom.BackgroundFetchRegistrationObserverPtr = blink.mojom.mojom.BackgroundFetchRegistrationObserverRemote;
+blink.mojom.mojom.BackgroundFetchRegistrationObserverRequest = blink.mojom.mojom.BackgroundFetchRegistrationObserverPendingReceiver;
 
 
 // Interface: BackgroundFetchService
-blink.mojom.BackgroundFetchService = {};
+blink.mojom.mojom.BackgroundFetchService = {};
 
-blink.mojom.BackgroundFetchServicePendingReceiver = class {
+blink.mojom.mojom.BackgroundFetchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BackgroundFetchServiceRemote = class {
+blink.mojom.mojom.BackgroundFetchServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BackgroundFetchService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BackgroundFetchServicePendingReceiver,
+      blink.mojom.mojom.BackgroundFetchServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.BackgroundFetchServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BackgroundFetchServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -279,7 +286,7 @@ blink.mojom.BackgroundFetchServiceRemote = class {
   }
 };
 
-blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
+blink.mojom.mojom.BackgroundFetchServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -288,8 +295,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BackgroundFetchService_Fetch_ParamsSpec,
-      blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec,
+      blink.mojom.mojom.BackgroundFetchService_Fetch_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec,
       [service_worker_registration_id, developer_id, requests, options, icon, ukm_data]);
   }
 
@@ -297,8 +304,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec,
-      blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec,
+      blink.mojom.mojom.BackgroundFetchService_GetRegistration_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec,
       [service_worker_registration_id, developer_id]);
   }
 
@@ -306,8 +313,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec,
-      blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec,
+      blink.mojom.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
@@ -315,15 +322,15 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec,
-      blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec,
+      blink.mojom.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.BackgroundFetchService.getRemote = function() {
-  let remote = new blink.mojom.BackgroundFetchServiceRemote();
+blink.mojom.mojom.BackgroundFetchService.getRemote = function() {
+  let remote = new blink.mojom.mojom.BackgroundFetchServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -333,7 +340,7 @@ blink.mojom.BackgroundFetchService.getRemote = function() {
 };
 
 // ParamsSpec for Fetch
-blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchService_Fetch_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchService.Fetch_Params',
@@ -351,14 +358,14 @@ blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = {
   }
 };
 
-blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = {
+blink.mojom.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchService.Fetch_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -366,7 +373,7 @@ blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetRegistration
-blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchService.GetRegistration_Params',
@@ -380,14 +387,14 @@ blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = {
   }
 };
 
-blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = {
+blink.mojom.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchService.GetRegistration_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -395,7 +402,7 @@ blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDeveloperIds
-blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchService.GetDeveloperIds_Params',
@@ -408,14 +415,14 @@ blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = {
   }
 };
 
-blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = {
+blink.mojom.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchService.GetDeveloperIds_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'developer_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'developer_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -423,7 +430,7 @@ blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetIconDisplaySize
-blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchService.GetIconDisplaySize_Params',
@@ -435,7 +442,7 @@ blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = {
   }
 };
 
-blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = {
+blink.mojom.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchService.GetIconDisplaySize_ResponseParams',
@@ -449,29 +456,29 @@ blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.BackgroundFetchServicePtr = blink.mojom.BackgroundFetchServiceRemote;
-blink.mojom.BackgroundFetchServiceRequest = blink.mojom.BackgroundFetchServicePendingReceiver;
+blink.mojom.mojom.BackgroundFetchServicePtr = blink.mojom.mojom.BackgroundFetchServiceRemote;
+blink.mojom.mojom.BackgroundFetchServiceRequest = blink.mojom.mojom.BackgroundFetchServicePendingReceiver;
 
 
 // Interface: BackgroundFetchRegistrationService
-blink.mojom.BackgroundFetchRegistrationService = {};
+blink.mojom.mojom.BackgroundFetchRegistrationService = {};
 
-blink.mojom.BackgroundFetchRegistrationServicePendingReceiver = class {
+blink.mojom.mojom.BackgroundFetchRegistrationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BackgroundFetchRegistrationServiceRemote = class {
+blink.mojom.mojom.BackgroundFetchRegistrationServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BackgroundFetchRegistrationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BackgroundFetchRegistrationServicePendingReceiver,
+      blink.mojom.mojom.BackgroundFetchRegistrationServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -483,7 +490,7 @@ blink.mojom.BackgroundFetchRegistrationServiceRemote = class {
   }
 };
 
-blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
+blink.mojom.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -492,8 +499,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec,
-      blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec,
       [title, icon]);
   }
 
@@ -501,8 +508,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec,
-      blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec,
       []);
   }
 
@@ -510,8 +517,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec,
-      blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec,
       [request_to_match, cache_query_options, match_all]);
   }
 
@@ -519,15 +526,15 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec,
+      blink.mojom.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-blink.mojom.BackgroundFetchRegistrationService.getRemote = function() {
-  let remote = new blink.mojom.BackgroundFetchRegistrationServiceRemote();
+blink.mojom.mojom.BackgroundFetchRegistrationService.getRemote = function() {
+  let remote = new blink.mojom.mojom.BackgroundFetchRegistrationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -537,7 +544,7 @@ blink.mojom.BackgroundFetchRegistrationService.getRemote = function() {
 };
 
 // ParamsSpec for UpdateUI
-blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationService.UpdateUI_Params',
@@ -551,7 +558,7 @@ blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = {
   }
 };
 
-blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationService.UpdateUI_ResponseParams',
@@ -565,7 +572,7 @@ blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Abort
-blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationService.Abort_Params',
@@ -577,7 +584,7 @@ blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = {
   }
 };
 
-blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationService.Abort_ResponseParams',
@@ -591,7 +598,7 @@ blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = {
 };
 
 // ParamsSpec for MatchRequests
-blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationService.MatchRequests_Params',
@@ -606,7 +613,7 @@ blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
   }
 };
 
-blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationService.MatchRequests_ResponseParams',
@@ -620,7 +627,7 @@ blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec 
 };
 
 // ParamsSpec for AddRegistrationObserver
-blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec = {
+blink.mojom.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BackgroundFetchRegistrationService.AddRegistrationObserver_Params',
@@ -634,6 +641,6 @@ blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpe
 };
 
 // Legacy compatibility
-blink.mojom.BackgroundFetchRegistrationServicePtr = blink.mojom.BackgroundFetchRegistrationServiceRemote;
-blink.mojom.BackgroundFetchRegistrationServiceRequest = blink.mojom.BackgroundFetchRegistrationServicePendingReceiver;
+blink.mojom.mojom.BackgroundFetchRegistrationServicePtr = blink.mojom.mojom.BackgroundFetchRegistrationServiceRemote;
+blink.mojom.mojom.BackgroundFetchRegistrationServiceRequest = blink.mojom.mojom.BackgroundFetchRegistrationServicePendingReceiver;
 

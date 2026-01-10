@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: PrerenderParam
-blink.mojom.PrerenderParamSpec = {
+blink.mojom.mojom.PrerenderParamSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PrerenderParam',

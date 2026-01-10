@@ -10,24 +10,24 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: ActivityWindow
-chromecast.mojom.ActivityWindow = {};
+chromecast.mojom.mojom.ActivityWindow = {};
 
-chromecast.mojom.ActivityWindowPendingReceiver = class {
+chromecast.mojom.mojom.ActivityWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.ActivityWindowRemote = class {
+chromecast.mojom.mojom.ActivityWindowRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.ActivityWindow';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.ActivityWindowPendingReceiver,
+      chromecast.mojom.mojom.ActivityWindowPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.ActivityWindowRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.ActivityWindowRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ chromecast.mojom.ActivityWindowRemote = class {
   }
 };
 
-chromecast.mojom.ActivityWindowRemoteCallHandler = class {
+chromecast.mojom.mojom.ActivityWindowRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ chromecast.mojom.ActivityWindowRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.ActivityWindow_Show_ParamsSpec,
+      chromecast.mojom.mojom.ActivityWindow_Show_ParamsSpec,
       null,
       []);
   }
@@ -57,15 +57,15 @@ chromecast.mojom.ActivityWindowRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.ActivityWindow_Hide_ParamsSpec,
+      chromecast.mojom.mojom.ActivityWindow_Hide_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chromecast.mojom.ActivityWindow.getRemote = function() {
-  let remote = new chromecast.mojom.ActivityWindowRemote();
+chromecast.mojom.mojom.ActivityWindow.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.ActivityWindowRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ chromecast.mojom.ActivityWindow.getRemote = function() {
 };
 
 // ParamsSpec for Show
-chromecast.mojom.ActivityWindow_Show_ParamsSpec = {
+chromecast.mojom.mojom.ActivityWindow_Show_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ActivityWindow.Show_Params',
@@ -88,7 +88,7 @@ chromecast.mojom.ActivityWindow_Show_ParamsSpec = {
 };
 
 // ParamsSpec for Hide
-chromecast.mojom.ActivityWindow_Hide_ParamsSpec = {
+chromecast.mojom.mojom.ActivityWindow_Hide_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ActivityWindow.Hide_Params',
@@ -101,6 +101,6 @@ chromecast.mojom.ActivityWindow_Hide_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.ActivityWindowPtr = chromecast.mojom.ActivityWindowRemote;
-chromecast.mojom.ActivityWindowRequest = chromecast.mojom.ActivityWindowPendingReceiver;
+chromecast.mojom.mojom.ActivityWindowPtr = chromecast.mojom.mojom.ActivityWindowRemote;
+chromecast.mojom.mojom.ActivityWindowRequest = chromecast.mojom.mojom.ActivityWindowPendingReceiver;
 

@@ -10,7 +10,7 @@ bluetooth.mojom = bluetooth.mojom || {};
 
 
 // Struct: UUID
-bluetooth.mojom.UUIDSpec = {
+bluetooth.mojom.mojom.UUIDSpec = {
   $: {
     structSpec: {
       name: 'bluetooth.mojom.UUID',

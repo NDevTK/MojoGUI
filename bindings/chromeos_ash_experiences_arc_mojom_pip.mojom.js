@@ -10,30 +10,30 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ArcPipEvent
-arc.mojom.ArcPipEvent = {
+arc.mojom.mojom.ArcPipEvent = {
   ENTER: 0,
 };
-arc.mojom.ArcPipEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ArcPipEventSpec = { $: mojo.internal.Enum() };
 
 // Interface: PipHost
-arc.mojom.PipHost = {};
+arc.mojom.mojom.PipHost = {};
 
-arc.mojom.PipHostPendingReceiver = class {
+arc.mojom.mojom.PipHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.PipHostRemote = class {
+arc.mojom.mojom.PipHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PipHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.PipHostPendingReceiver,
+      arc.mojom.mojom.PipHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.PipHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.PipHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -45,7 +45,7 @@ arc.mojom.PipHostRemote = class {
   }
 };
 
-arc.mojom.PipHostRemoteCallHandler = class {
+arc.mojom.mojom.PipHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -54,15 +54,15 @@ arc.mojom.PipHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.PipHost_OnPipEvent_ParamsSpec,
+      arc.mojom.mojom.PipHost_OnPipEvent_ParamsSpec,
       null,
       [event]);
   }
 
 };
 
-arc.mojom.PipHost.getRemote = function() {
-  let remote = new arc.mojom.PipHostRemote();
+arc.mojom.mojom.PipHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.PipHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -72,7 +72,7 @@ arc.mojom.PipHost.getRemote = function() {
 };
 
 // ParamsSpec for OnPipEvent
-arc.mojom.PipHost_OnPipEvent_ParamsSpec = {
+arc.mojom.mojom.PipHost_OnPipEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PipHost.OnPipEvent_Params',
@@ -86,29 +86,29 @@ arc.mojom.PipHost_OnPipEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.PipHostPtr = arc.mojom.PipHostRemote;
-arc.mojom.PipHostRequest = arc.mojom.PipHostPendingReceiver;
+arc.mojom.mojom.PipHostPtr = arc.mojom.mojom.PipHostRemote;
+arc.mojom.mojom.PipHostRequest = arc.mojom.mojom.PipHostPendingReceiver;
 
 
 // Interface: PipInstance
-arc.mojom.PipInstance = {};
+arc.mojom.mojom.PipInstance = {};
 
-arc.mojom.PipInstancePendingReceiver = class {
+arc.mojom.mojom.PipInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.PipInstanceRemote = class {
+arc.mojom.mojom.PipInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.PipInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.PipInstancePendingReceiver,
+      arc.mojom.mojom.PipInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.PipInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.PipInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -120,7 +120,7 @@ arc.mojom.PipInstanceRemote = class {
   }
 };
 
-arc.mojom.PipInstanceRemoteCallHandler = class {
+arc.mojom.mojom.PipInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -129,7 +129,7 @@ arc.mojom.PipInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.PipInstance_Init_ParamsSpec,
+      arc.mojom.mojom.PipInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -138,7 +138,7 @@ arc.mojom.PipInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.PipInstance_ClosePip_ParamsSpec,
+      arc.mojom.mojom.PipInstance_ClosePip_ParamsSpec,
       null,
       []);
   }
@@ -147,15 +147,15 @@ arc.mojom.PipInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec,
+      arc.mojom.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec,
       null,
       [suppressed]);
   }
 
 };
 
-arc.mojom.PipInstance.getRemote = function() {
-  let remote = new arc.mojom.PipInstanceRemote();
+arc.mojom.mojom.PipInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.PipInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -165,7 +165,7 @@ arc.mojom.PipInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.PipInstance_Init_ParamsSpec = {
+arc.mojom.mojom.PipInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PipInstance.Init_Params',
@@ -179,7 +179,7 @@ arc.mojom.PipInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for ClosePip
-arc.mojom.PipInstance_ClosePip_ParamsSpec = {
+arc.mojom.mojom.PipInstance_ClosePip_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PipInstance.ClosePip_Params',
@@ -192,7 +192,7 @@ arc.mojom.PipInstance_ClosePip_ParamsSpec = {
 };
 
 // ParamsSpec for SetPipSuppressionStatus
-arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec = {
+arc.mojom.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.PipInstance.SetPipSuppressionStatus_Params',
@@ -206,6 +206,6 @@ arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.PipInstancePtr = arc.mojom.PipInstanceRemote;
-arc.mojom.PipInstanceRequest = arc.mojom.PipInstancePendingReceiver;
+arc.mojom.mojom.PipInstancePtr = arc.mojom.mojom.PipInstanceRemote;
+arc.mojom.mojom.PipInstanceRequest = arc.mojom.mojom.PipInstancePendingReceiver;
 

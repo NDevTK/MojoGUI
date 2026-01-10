@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: KioskHost
-arc.mojom.KioskHost = {};
+arc.mojom.mojom.KioskHost = {};
 
-arc.mojom.KioskHostPendingReceiver = class {
+arc.mojom.mojom.KioskHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.KioskHostRemote = class {
+arc.mojom.mojom.KioskHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.KioskHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.KioskHostPendingReceiver,
+      arc.mojom.mojom.KioskHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.KioskHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.KioskHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.KioskHostRemote = class {
   }
 };
 
-arc.mojom.KioskHostRemoteCallHandler = class {
+arc.mojom.mojom.KioskHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ arc.mojom.KioskHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec,
+      arc.mojom.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec,
       null,
       [session_id]);
   }
@@ -57,15 +57,15 @@ arc.mojom.KioskHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec,
+      arc.mojom.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec,
       null,
       [session_id, succeeded]);
   }
 
 };
 
-arc.mojom.KioskHost.getRemote = function() {
-  let remote = new arc.mojom.KioskHostRemote();
+arc.mojom.mojom.KioskHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.KioskHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ arc.mojom.KioskHost.getRemote = function() {
 };
 
 // ParamsSpec for OnMaintenanceSessionCreated
-arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = {
+arc.mojom.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KioskHost.OnMaintenanceSessionCreated_Params',
@@ -89,7 +89,7 @@ arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = {
 };
 
 // ParamsSpec for OnMaintenanceSessionFinished
-arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = {
+arc.mojom.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KioskHost.OnMaintenanceSessionFinished_Params',
@@ -104,29 +104,29 @@ arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.KioskHostPtr = arc.mojom.KioskHostRemote;
-arc.mojom.KioskHostRequest = arc.mojom.KioskHostPendingReceiver;
+arc.mojom.mojom.KioskHostPtr = arc.mojom.mojom.KioskHostRemote;
+arc.mojom.mojom.KioskHostRequest = arc.mojom.mojom.KioskHostPendingReceiver;
 
 
 // Interface: KioskInstance
-arc.mojom.KioskInstance = {};
+arc.mojom.mojom.KioskInstance = {};
 
-arc.mojom.KioskInstancePendingReceiver = class {
+arc.mojom.mojom.KioskInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.KioskInstanceRemote = class {
+arc.mojom.mojom.KioskInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.KioskInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.KioskInstancePendingReceiver,
+      arc.mojom.mojom.KioskInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.KioskInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.KioskInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -138,7 +138,7 @@ arc.mojom.KioskInstanceRemote = class {
   }
 };
 
-arc.mojom.KioskInstanceRemoteCallHandler = class {
+arc.mojom.mojom.KioskInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -147,15 +147,15 @@ arc.mojom.KioskInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.KioskInstance_Init_ParamsSpec,
+      arc.mojom.mojom.KioskInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.KioskInstance.getRemote = function() {
-  let remote = new arc.mojom.KioskInstanceRemote();
+arc.mojom.mojom.KioskInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.KioskInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -165,7 +165,7 @@ arc.mojom.KioskInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.KioskInstance_Init_ParamsSpec = {
+arc.mojom.mojom.KioskInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.KioskInstance.Init_Params',
@@ -179,6 +179,6 @@ arc.mojom.KioskInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.KioskInstancePtr = arc.mojom.KioskInstanceRemote;
-arc.mojom.KioskInstanceRequest = arc.mojom.KioskInstancePendingReceiver;
+arc.mojom.mojom.KioskInstancePtr = arc.mojom.mojom.KioskInstanceRemote;
+arc.mojom.mojom.KioskInstanceRequest = arc.mojom.mojom.KioskInstancePendingReceiver;
 

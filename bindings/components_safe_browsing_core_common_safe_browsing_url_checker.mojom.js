@@ -7,27 +7,28 @@
 // Module namespace
 var safe_browsing = safe_browsing || {};
 safe_browsing.mojom = safe_browsing.mojom || {};
+var url = url || {};
 
 
 // Interface: SafeBrowsingUrlChecker
-safe_browsing.mojom.SafeBrowsingUrlChecker = {};
+safe_browsing.mojom.mojom.SafeBrowsingUrlChecker = {};
 
-safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver = class {
+safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.SafeBrowsingUrlCheckerRemote = class {
+safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.SafeBrowsingUrlChecker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver,
+      safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandler(this.proxy);
+    this.$ = new safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerRemote = class {
   }
 };
 
-safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandler = class {
+safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec,
-      safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec,
+      safe_browsing.mojom.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec,
+      safe_browsing.mojom.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec,
       [url, method]);
   }
 
 };
 
-safe_browsing.mojom.SafeBrowsingUrlChecker.getRemote = function() {
-  let remote = new safe_browsing.mojom.SafeBrowsingUrlCheckerRemote();
+safe_browsing.mojom.mojom.SafeBrowsingUrlChecker.getRemote = function() {
+  let remote = new safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ safe_browsing.mojom.SafeBrowsingUrlChecker.getRemote = function() {
 };
 
 // ParamsSpec for CheckUrl
-safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
+safe_browsing.mojom.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.SafeBrowsingUrlChecker.CheckUrl_Params',
@@ -80,7 +81,7 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec = {
   }
 };
 
-safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = {
+safe_browsing.mojom.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.SafeBrowsingUrlChecker.CheckUrl_ResponseParams',
@@ -95,6 +96,6 @@ safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-safe_browsing.mojom.SafeBrowsingUrlCheckerPtr = safe_browsing.mojom.SafeBrowsingUrlCheckerRemote;
-safe_browsing.mojom.SafeBrowsingUrlCheckerRequest = safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver;
+safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerPtr = safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerRemote;
+safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerRequest = safe_browsing.mojom.mojom.SafeBrowsingUrlCheckerPendingReceiver;
 

@@ -7,36 +7,52 @@
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
+var skia = skia || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var url = url || {};
 
 
 // Enum: ContextType
-gpu.mojom.ContextType = {
+gpu.mojom.mojom.ContextType = {
   kWebGL1: 0,
   kWebGL2: 1,
   kOpenGLES2: 2,
   kOpenGLES3: 3,
   kOpenGLES31ForTesting: 4,
 };
-gpu.mojom.ContextTypeSpec = { $: mojo.internal.Enum() };
+gpu.mojom.mojom.ContextTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContextColorSpace
-gpu.mojom.ContextColorSpace = {
+gpu.mojom.mojom.ContextColorSpace = {
   kUnspecified: 0,
   kSRGB: 1,
   kDisplayP3: 2,
 };
-gpu.mojom.ContextColorSpaceSpec = { $: mojo.internal.Enum() };
+gpu.mojom.mojom.ContextColorSpaceSpec = { $: mojo.internal.Enum() };
 
 // Enum: SchedulingPriority
-gpu.mojom.SchedulingPriority = {
+gpu.mojom.mojom.SchedulingPriority = {
   kHigh: 0,
   kNormal: 1,
   kLow: 2,
 };
-gpu.mojom.SchedulingPrioritySpec = { $: mojo.internal.Enum() };
+gpu.mojom.mojom.SchedulingPrioritySpec = { $: mojo.internal.Enum() };
 
 // Union: ContextCreationAttribs
-gpu.mojom.ContextCreationAttribsSpec = { $: mojo.internal.Union(
+gpu.mojom.mojom.ContextCreationAttribsSpec = { $: mojo.internal.Union(
     'gpu.mojom.ContextCreationAttribs', {
       'gles': {
         'ordinal': 0,
@@ -54,7 +70,7 @@ gpu.mojom.ContextCreationAttribsSpec = { $: mojo.internal.Union(
 };
 
 // Union: DeferredRequestParams
-gpu.mojom.DeferredRequestParamsSpec = { $: mojo.internal.Union(
+gpu.mojom.mojom.DeferredRequestParamsSpec = { $: mojo.internal.Union(
     'gpu.mojom.DeferredRequestParams', {
       'command_buffer_request': {
         'ordinal': 0,
@@ -72,7 +88,7 @@ gpu.mojom.DeferredRequestParamsSpec = { $: mojo.internal.Union(
 };
 
 // Union: DeferredCommandBufferRequestParams
-gpu.mojom.DeferredCommandBufferRequestParamsSpec = { $: mojo.internal.Union(
+gpu.mojom.mojom.DeferredCommandBufferRequestParamsSpec = { $: mojo.internal.Union(
     'gpu.mojom.DeferredCommandBufferRequestParams', {
       'async_flush': {
         'ordinal': 0,
@@ -86,7 +102,7 @@ gpu.mojom.DeferredCommandBufferRequestParamsSpec = { $: mojo.internal.Union(
 };
 
 // Union: DeferredSharedImageRequest
-gpu.mojom.DeferredSharedImageRequestSpec = { $: mojo.internal.Union(
+gpu.mojom.mojom.DeferredSharedImageRequestSpec = { $: mojo.internal.Union(
     'gpu.mojom.DeferredSharedImageRequest', {
       'nop': {
         'ordinal': 0,
@@ -148,7 +164,7 @@ gpu.mojom.DeferredSharedImageRequestSpec = { $: mojo.internal.Union(
 };
 
 // Struct: RasterCreationAttribs
-gpu.mojom.RasterCreationAttribsSpec = {
+gpu.mojom.mojom.RasterCreationAttribsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.RasterCreationAttribs',
@@ -162,16 +178,16 @@ gpu.mojom.RasterCreationAttribsSpec = {
 };
 
 // Struct: GLESCreationAttribs
-gpu.mojom.GLESCreationAttribsSpec = {
+gpu.mojom.mojom.GLESCreationAttribsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GLESCreationAttribs',
       packedSize: 24,
       fields: [
         { name: 'gpu_preference', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false, minVersion: 0 },
-        { name: 'fail_if_major_perf_caveat', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'lose_context_when_out_of_memory', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'context_type', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.ContextTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'fail_if_major_perf_caveat', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'lose_context_when_out_of_memory', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'context_type', packedOffset: 4, packedBitOffset: 0, type: gpu.mojom.ContextTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -179,7 +195,7 @@ gpu.mojom.GLESCreationAttribsSpec = {
 };
 
 // Struct: WebGPUCreationAttribs
-gpu.mojom.WebGPUCreationAttribsSpec = {
+gpu.mojom.mojom.WebGPUCreationAttribsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.WebGPUCreationAttribs',
@@ -192,17 +208,17 @@ gpu.mojom.WebGPUCreationAttribsSpec = {
 };
 
 // Struct: CreateCommandBufferParams
-gpu.mojom.CreateCommandBufferParamsSpec = {
+gpu.mojom.mojom.CreateCommandBufferParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateCommandBufferParams',
       packedSize: 48,
       fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'stream_priority', packedOffset: 4, packedBitOffset: 0, type: gpu.mojom.SchedulingPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'attribs', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.ContextCreationAttribsSpec, nullable: false, minVersion: 0 },
-        { name: 'active_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'stream_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'stream_priority', packedOffset: 36, packedBitOffset: 0, type: gpu.mojom.SchedulingPrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'attribs', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ContextCreationAttribsSpec, nullable: false, minVersion: 0 },
+        { name: 'active_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -210,17 +226,17 @@ gpu.mojom.CreateCommandBufferParamsSpec = {
 };
 
 // Struct: CommandBufferState
-gpu.mojom.CommandBufferStateSpec = {
+gpu.mojom.mojom.CommandBufferStateSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBufferState',
       packedSize: 48,
       fields: [
-        { name: 'get_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'release_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.ErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'context_lost_reason', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.ContextLostReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'get_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'release_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.ErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'context_lost_reason', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.ContextLostReasonSpec, nullable: false, minVersion: 0 },
         { name: 'generation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'set_get_buffer_count', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
@@ -230,7 +246,7 @@ gpu.mojom.CommandBufferStateSpec = {
 };
 
 // Struct: DeferredRequest
-gpu.mojom.DeferredRequestSpec = {
+gpu.mojom.mojom.DeferredRequestSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DeferredRequest',
@@ -246,14 +262,14 @@ gpu.mojom.DeferredRequestSpec = {
 };
 
 // Struct: DeferredCommandBufferRequest
-gpu.mojom.DeferredCommandBufferRequestSpec = {
+gpu.mojom.mojom.DeferredCommandBufferRequestSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DeferredCommandBufferRequest',
       packedSize: 32,
       fields: [
-        { name: 'routing_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.DeferredCommandBufferRequestParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'routing_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.DeferredCommandBufferRequestParamsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -261,15 +277,15 @@ gpu.mojom.DeferredCommandBufferRequestSpec = {
 };
 
 // Struct: AsyncFlushParams
-gpu.mojom.AsyncFlushParamsSpec = {
+gpu.mojom.mojom.AsyncFlushParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.AsyncFlushParams',
       packedSize: 24,
       fields: [
-        { name: 'put_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'flush_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sync_token_fences', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gpu.mojom.SyncTokenSpec, false), nullable: false, minVersion: 0 },
+        { name: 'put_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'flush_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'sync_token_fences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gpu.mojom.SyncTokenSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -277,7 +293,7 @@ gpu.mojom.AsyncFlushParamsSpec = {
 };
 
 // Struct: SharedImageInfo
-gpu.mojom.SharedImageInfoSpec = {
+gpu.mojom.mojom.SharedImageInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SharedImageInfo',
@@ -292,7 +308,7 @@ gpu.mojom.SharedImageInfoSpec = {
 };
 
 // Struct: CreateSharedImageParams
-gpu.mojom.CreateSharedImageParamsSpec = {
+gpu.mojom.mojom.CreateSharedImageParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateSharedImageParams',
@@ -308,7 +324,7 @@ gpu.mojom.CreateSharedImageParamsSpec = {
 };
 
 // Struct: CreateSharedImageWithDataParams
-gpu.mojom.CreateSharedImageWithDataParamsSpec = {
+gpu.mojom.mojom.CreateSharedImageWithDataParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateSharedImageWithDataParams',
@@ -326,7 +342,7 @@ gpu.mojom.CreateSharedImageWithDataParamsSpec = {
 };
 
 // Struct: CreateSharedImageWithBufferParams
-gpu.mojom.CreateSharedImageWithBufferParamsSpec = {
+gpu.mojom.mojom.CreateSharedImageWithBufferParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateSharedImageWithBufferParams',
@@ -343,7 +359,7 @@ gpu.mojom.CreateSharedImageWithBufferParamsSpec = {
 };
 
 // Struct: UpdateSharedImageParams
-gpu.mojom.UpdateSharedImageParamsSpec = {
+gpu.mojom.mojom.UpdateSharedImageParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.UpdateSharedImageParams',
@@ -358,7 +374,7 @@ gpu.mojom.UpdateSharedImageParamsSpec = {
 };
 
 // Struct: AddReferenceToSharedImageParams
-gpu.mojom.AddReferenceToSharedImageParamsSpec = {
+gpu.mojom.mojom.AddReferenceToSharedImageParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.AddReferenceToSharedImageParams',
@@ -372,7 +388,7 @@ gpu.mojom.AddReferenceToSharedImageParamsSpec = {
 };
 
 // Struct: CopyToGpuMemoryBufferParams
-gpu.mojom.CopyToGpuMemoryBufferParamsSpec = {
+gpu.mojom.mojom.CopyToGpuMemoryBufferParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CopyToGpuMemoryBufferParams',
@@ -386,7 +402,7 @@ gpu.mojom.CopyToGpuMemoryBufferParamsSpec = {
 };
 
 // Struct: RegisterDxgiFenceParams
-gpu.mojom.RegisterDxgiFenceParamsSpec = {
+gpu.mojom.mojom.RegisterDxgiFenceParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.RegisterDxgiFenceParams',
@@ -402,7 +418,7 @@ gpu.mojom.RegisterDxgiFenceParamsSpec = {
 };
 
 // Struct: UpdateDxgiFenceParams
-gpu.mojom.UpdateDxgiFenceParamsSpec = {
+gpu.mojom.mojom.UpdateDxgiFenceParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.UpdateDxgiFenceParams',
@@ -418,7 +434,7 @@ gpu.mojom.UpdateDxgiFenceParamsSpec = {
 };
 
 // Struct: UnregisterDxgiFenceParams
-gpu.mojom.UnregisterDxgiFenceParamsSpec = {
+gpu.mojom.mojom.UnregisterDxgiFenceParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.UnregisterDxgiFenceParams',
@@ -433,7 +449,7 @@ gpu.mojom.UnregisterDxgiFenceParamsSpec = {
 };
 
 // Struct: CreateSharedImagePoolParams
-gpu.mojom.CreateSharedImagePoolParamsSpec = {
+gpu.mojom.mojom.CreateSharedImagePoolParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CreateSharedImagePoolParams',
@@ -448,7 +464,7 @@ gpu.mojom.CreateSharedImagePoolParamsSpec = {
 };
 
 // Struct: DestroySharedImagePoolParams
-gpu.mojom.DestroySharedImagePoolParamsSpec = {
+gpu.mojom.mojom.DestroySharedImagePoolParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DestroySharedImagePoolParams',
@@ -462,24 +478,24 @@ gpu.mojom.DestroySharedImagePoolParamsSpec = {
 };
 
 // Interface: GpuChannel
-gpu.mojom.GpuChannel = {};
+gpu.mojom.mojom.GpuChannel = {};
 
-gpu.mojom.GpuChannelPendingReceiver = class {
+gpu.mojom.mojom.GpuChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gpu.mojom.GpuChannelRemote = class {
+gpu.mojom.mojom.GpuChannelRemote = class {
   static get $interfaceName() {
     return 'gpu.mojom.GpuChannel';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gpu.mojom.GpuChannelPendingReceiver,
+      gpu.mojom.mojom.GpuChannelPendingReceiver,
       handle);
-    this.$ = new gpu.mojom.GpuChannelRemoteCallHandler(this.proxy);
+    this.$ = new gpu.mojom.mojom.GpuChannelRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -491,7 +507,7 @@ gpu.mojom.GpuChannelRemote = class {
   }
 };
 
-gpu.mojom.GpuChannelRemoteCallHandler = class {
+gpu.mojom.mojom.GpuChannelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -500,7 +516,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CrashForTesting_ParamsSpec,
       null,
       []);
   }
@@ -509,7 +525,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_TerminateForTesting_ParamsSpec,
       null,
       []);
   }
@@ -518,8 +534,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec,
-      gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_GetChannelToken_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec,
       []);
   }
 
@@ -527,7 +543,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      gpu.mojom.GpuChannel_Flush_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_Flush_ParamsSpec,
       null,
       []);
   }
@@ -536,8 +552,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec,
-      gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec,
       []);
   }
 
@@ -545,8 +561,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec,
-      gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec,
       [params, routing_id, shared_state, receiver, client]);
   }
 
@@ -554,7 +570,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec,
       null,
       [routing_id]);
   }
@@ -563,7 +579,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec,
       null,
       [requests, flushed_deferred_message_id]);
   }
@@ -572,8 +588,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec,
-      gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec,
       [size, format, buffer_usage]);
   }
 
@@ -581,8 +597,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec,
-      gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec,
       [route_id, receiver]);
   }
 
@@ -590,8 +606,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec,
-      gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec,
       [promotion_hint_observer, mailbox]);
   }
 
@@ -599,8 +615,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec,
-      gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec,
       [routing_id, start, end]);
   }
 
@@ -608,8 +624,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec,
-      gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec,
       [routing_id, set_get_buffer_count, start, end]);
   }
 
@@ -617,7 +633,7 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec,
       null,
       [service_handle, sysmem_token, format, usage, register_with_image_pipe]);
   }
@@ -626,8 +642,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec,
-      gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec,
       [mailbox, sync_token_dependencies, release_count]);
   }
 
@@ -635,15 +651,15 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec,
-      gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec,
+      gpu.mojom.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec,
       [buffer_handle, shared_memory]);
   }
 
 };
 
-gpu.mojom.GpuChannel.getRemote = function() {
-  let remote = new gpu.mojom.GpuChannelRemote();
+gpu.mojom.mojom.GpuChannel.getRemote = function() {
+  let remote = new gpu.mojom.mojom.GpuChannelRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -653,7 +669,7 @@ gpu.mojom.GpuChannel.getRemote = function() {
 };
 
 // ParamsSpec for CrashForTesting
-gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CrashForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CrashForTesting_Params',
@@ -666,7 +682,7 @@ gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec = {
 };
 
 // ParamsSpec for TerminateForTesting
-gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_TerminateForTesting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.TerminateForTesting_Params',
@@ -679,7 +695,7 @@ gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec = {
 };
 
 // ParamsSpec for GetChannelToken
-gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_GetChannelToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.GetChannelToken_Params',
@@ -691,7 +707,7 @@ gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec = {
   }
 };
 
-gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.GetChannelToken_ResponseParams',
@@ -705,7 +721,7 @@ gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Flush
-gpu.mojom.GpuChannel_Flush_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_Flush_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.Flush_Params',
@@ -718,7 +734,7 @@ gpu.mojom.GpuChannel_Flush_ParamsSpec = {
 };
 
 // ParamsSpec for GetSharedMemoryForFlushId
-gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.GetSharedMemoryForFlushId_Params',
@@ -730,7 +746,7 @@ gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec = {
   }
 };
 
-gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.GetSharedMemoryForFlushId_ResponseParams',
@@ -744,16 +760,16 @@ gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateCommandBuffer
-gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CreateCommandBuffer_Params',
       packedSize: 40,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CreateCommandBufferParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'routing_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'shared_state', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'routing_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'shared_state', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
         { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
@@ -761,15 +777,15 @@ gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec = {
   }
 };
 
-gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CreateCommandBuffer_ResponseParams',
       packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ContextResultSpec, nullable: false, minVersion: 0 },
-        { name: 'capabilties', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.CapabilitiesSpec, nullable: false, minVersion: 0 },
-        { name: 'gl_capabilities', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.GLCapabilitiesSpec, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.ContextResultSpec, nullable: false, minVersion: 0 },
+        { name: 'capabilties', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CapabilitiesSpec, nullable: false, minVersion: 0 },
+        { name: 'gl_capabilities', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.GLCapabilitiesSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -777,7 +793,7 @@ gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DestroyCommandBuffer
-gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.DestroyCommandBuffer_Params',
@@ -791,7 +807,7 @@ gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for FlushDeferredRequests
-gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.FlushDeferredRequests_Params',
@@ -806,14 +822,14 @@ gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec = {
 };
 
 // ParamsSpec for CreateGpuMemoryBuffer
-gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CreateGpuMemoryBuffer_Params',
       packedSize: 40,
       fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'format', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SharedImageFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SharedImageFormatSpec, nullable: false, minVersion: 0 },
         { name: 'buffer_usage', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.BufferUsageSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
@@ -821,7 +837,7 @@ gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec = {
   }
 };
 
-gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CreateGpuMemoryBuffer_ResponseParams',
@@ -835,7 +851,7 @@ gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CreateDCOMPTexture
-gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CreateDCOMPTexture_Params',
@@ -849,7 +865,7 @@ gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec = {
   }
 };
 
-gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CreateDCOMPTexture_ResponseParams',
@@ -863,21 +879,21 @@ gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RegisterOverlayStateObserver
-gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.RegisterOverlayStateObserver_Params',
       packedSize: 24,
       fields: [
-        { name: 'promotion_hint_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'mailbox', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false, minVersion: 0 },
+        { name: 'promotion_hint_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.RegisterOverlayStateObserver_ResponseParams',
@@ -891,7 +907,7 @@ gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WaitForTokenInRange
-gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.WaitForTokenInRange_Params',
@@ -906,7 +922,7 @@ gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec = {
   }
 };
 
-gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.WaitForTokenInRange_ResponseParams',
@@ -920,7 +936,7 @@ gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WaitForGetOffsetInRange
-gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.WaitForGetOffsetInRange_Params',
@@ -936,7 +952,7 @@ gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec = {
   }
 };
 
-gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.WaitForGetOffsetInRange_ResponseParams',
@@ -950,15 +966,15 @@ gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RegisterSysmemBufferCollection
-gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.RegisterSysmemBufferCollection_Params',
       packedSize: 48,
       fields: [
-        { name: 'service_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'sysmem_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.SharedImageFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'service_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'sysmem_token', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SharedImageFormatSpec, nullable: false, minVersion: 0 },
         { name: 'usage', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.BufferUsageSpec, nullable: false, minVersion: 0 },
         { name: 'register_with_image_pipe', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
@@ -968,7 +984,7 @@ gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec = {
 };
 
 // ParamsSpec for CopyToGpuMemoryBufferAsync
-gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CopyToGpuMemoryBufferAsync_Params',
@@ -983,7 +999,7 @@ gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec = {
   }
 };
 
-gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CopyToGpuMemoryBufferAsync_ResponseParams',
@@ -997,7 +1013,7 @@ gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CopyNativeGmbToSharedMemoryAsync
-gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CopyNativeGmbToSharedMemoryAsync_Params',
@@ -1011,7 +1027,7 @@ gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec = {
   }
 };
 
-gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec = {
+gpu.mojom.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CopyNativeGmbToSharedMemoryAsync_ResponseParams',
@@ -1025,29 +1041,29 @@ gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-gpu.mojom.GpuChannelPtr = gpu.mojom.GpuChannelRemote;
-gpu.mojom.GpuChannelRequest = gpu.mojom.GpuChannelPendingReceiver;
+gpu.mojom.mojom.GpuChannelPtr = gpu.mojom.mojom.GpuChannelRemote;
+gpu.mojom.mojom.GpuChannelRequest = gpu.mojom.mojom.GpuChannelPendingReceiver;
 
 
 // Interface: CommandBuffer
-gpu.mojom.CommandBuffer = {};
+gpu.mojom.mojom.CommandBuffer = {};
 
-gpu.mojom.CommandBufferPendingReceiver = class {
+gpu.mojom.mojom.CommandBufferPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gpu.mojom.CommandBufferRemote = class {
+gpu.mojom.mojom.CommandBufferRemote = class {
   static get $interfaceName() {
     return 'gpu.mojom.CommandBuffer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gpu.mojom.CommandBufferPendingReceiver,
+      gpu.mojom.mojom.CommandBufferPendingReceiver,
       handle);
-    this.$ = new gpu.mojom.CommandBufferRemoteCallHandler(this.proxy);
+    this.$ = new gpu.mojom.mojom.CommandBufferRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1059,7 +1075,7 @@ gpu.mojom.CommandBufferRemote = class {
   }
 };
 
-gpu.mojom.CommandBufferRemoteCallHandler = class {
+gpu.mojom.mojom.CommandBufferRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1068,7 +1084,7 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec,
+      gpu.mojom.mojom.CommandBuffer_SetGetBuffer_ParamsSpec,
       null,
       [shm_id]);
   }
@@ -1077,7 +1093,7 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec,
+      gpu.mojom.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec,
       null,
       [id, buffer]);
   }
@@ -1086,7 +1102,7 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec,
+      gpu.mojom.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec,
       null,
       [gpu_fence_id, fence_handle]);
   }
@@ -1095,8 +1111,8 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec,
-      gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec,
+      gpu.mojom.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec,
+      gpu.mojom.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec,
       [id]);
   }
 
@@ -1104,7 +1120,7 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec,
+      gpu.mojom.mojom.CommandBuffer_SignalSyncToken_ParamsSpec,
       null,
       [sync_token, signal_id]);
   }
@@ -1113,15 +1129,15 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec,
+      gpu.mojom.mojom.CommandBuffer_SignalQuery_ParamsSpec,
       null,
       [query, signal_id]);
   }
 
 };
 
-gpu.mojom.CommandBuffer.getRemote = function() {
-  let remote = new gpu.mojom.CommandBufferRemote();
+gpu.mojom.mojom.CommandBuffer.getRemote = function() {
+  let remote = new gpu.mojom.mojom.CommandBufferRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1131,7 +1147,7 @@ gpu.mojom.CommandBuffer.getRemote = function() {
 };
 
 // ParamsSpec for SetGetBuffer
-gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec = {
+gpu.mojom.mojom.CommandBuffer_SetGetBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBuffer.SetGetBuffer_Params',
@@ -1145,14 +1161,14 @@ gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for RegisterTransferBuffer
-gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec = {
+gpu.mojom.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBuffer.RegisterTransferBuffer_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1160,14 +1176,14 @@ gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec = {
 };
 
 // ParamsSpec for CreateGpuFenceFromHandle
-gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec = {
+gpu.mojom.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBuffer.CreateGpuFenceFromHandle_Params',
       packedSize: 24,
       fields: [
-        { name: 'gpu_fence_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'fence_handle', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: false, minVersion: 0 },
+        { name: 'gpu_fence_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'fence_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1175,7 +1191,7 @@ gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec = {
 };
 
 // ParamsSpec for GetGpuFenceHandle
-gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec = {
+gpu.mojom.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBuffer.GetGpuFenceHandle_Params',
@@ -1188,7 +1204,7 @@ gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec = {
   }
 };
 
-gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec = {
+gpu.mojom.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBuffer.GetGpuFenceHandle_ResponseParams',
@@ -1202,7 +1218,7 @@ gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SignalSyncToken
-gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec = {
+gpu.mojom.mojom.CommandBuffer_SignalSyncToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBuffer.SignalSyncToken_Params',
@@ -1217,7 +1233,7 @@ gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec = {
 };
 
 // ParamsSpec for SignalQuery
-gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec = {
+gpu.mojom.mojom.CommandBuffer_SignalQuery_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBuffer.SignalQuery_Params',
@@ -1232,29 +1248,29 @@ gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec = {
 };
 
 // Legacy compatibility
-gpu.mojom.CommandBufferPtr = gpu.mojom.CommandBufferRemote;
-gpu.mojom.CommandBufferRequest = gpu.mojom.CommandBufferPendingReceiver;
+gpu.mojom.mojom.CommandBufferPtr = gpu.mojom.mojom.CommandBufferRemote;
+gpu.mojom.mojom.CommandBufferRequest = gpu.mojom.mojom.CommandBufferPendingReceiver;
 
 
 // Interface: CommandBufferClient
-gpu.mojom.CommandBufferClient = {};
+gpu.mojom.mojom.CommandBufferClient = {};
 
-gpu.mojom.CommandBufferClientPendingReceiver = class {
+gpu.mojom.mojom.CommandBufferClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gpu.mojom.CommandBufferClientRemote = class {
+gpu.mojom.mojom.CommandBufferClientRemote = class {
   static get $interfaceName() {
     return 'gpu.mojom.CommandBufferClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gpu.mojom.CommandBufferClientPendingReceiver,
+      gpu.mojom.mojom.CommandBufferClientPendingReceiver,
       handle);
-    this.$ = new gpu.mojom.CommandBufferClientRemoteCallHandler(this.proxy);
+    this.$ = new gpu.mojom.mojom.CommandBufferClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1266,7 +1282,7 @@ gpu.mojom.CommandBufferClientRemote = class {
   }
 };
 
-gpu.mojom.CommandBufferClientRemoteCallHandler = class {
+gpu.mojom.mojom.CommandBufferClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1275,7 +1291,7 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec,
+      gpu.mojom.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec,
       null,
       [message]);
   }
@@ -1284,7 +1300,7 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec,
+      gpu.mojom.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec,
       null,
       []);
   }
@@ -1293,7 +1309,7 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec,
+      gpu.mojom.mojom.CommandBufferClient_OnDestroyed_ParamsSpec,
       null,
       [reason, error]);
   }
@@ -1302,7 +1318,7 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec,
+      gpu.mojom.mojom.CommandBufferClient_OnReturnData_ParamsSpec,
       null,
       [data]);
   }
@@ -1311,15 +1327,15 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec,
+      gpu.mojom.mojom.CommandBufferClient_OnSignalAck_ParamsSpec,
       null,
       [signal_id, state]);
   }
 
 };
 
-gpu.mojom.CommandBufferClient.getRemote = function() {
-  let remote = new gpu.mojom.CommandBufferClientRemote();
+gpu.mojom.mojom.CommandBufferClient.getRemote = function() {
+  let remote = new gpu.mojom.mojom.CommandBufferClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1329,7 +1345,7 @@ gpu.mojom.CommandBufferClient.getRemote = function() {
 };
 
 // ParamsSpec for OnConsoleMessage
-gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec = {
+gpu.mojom.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBufferClient.OnConsoleMessage_Params',
@@ -1343,7 +1359,7 @@ gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec = {
 };
 
 // ParamsSpec for OnGpuSwitched
-gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec = {
+gpu.mojom.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBufferClient.OnGpuSwitched_Params',
@@ -1356,7 +1372,7 @@ gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec = {
 };
 
 // ParamsSpec for OnDestroyed
-gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec = {
+gpu.mojom.mojom.CommandBufferClient_OnDestroyed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBufferClient.OnDestroyed_Params',
@@ -1371,7 +1387,7 @@ gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec = {
 };
 
 // ParamsSpec for OnReturnData
-gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec = {
+gpu.mojom.mojom.CommandBufferClient_OnReturnData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBufferClient.OnReturnData_Params',
@@ -1385,14 +1401,14 @@ gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec = {
 };
 
 // ParamsSpec for OnSignalAck
-gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec = {
+gpu.mojom.mojom.CommandBufferClient_OnSignalAck_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.CommandBufferClient.OnSignalAck_Params',
       packedSize: 24,
       fields: [
-        { name: 'signal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.CommandBufferStateSpec, nullable: false, minVersion: 0 },
+        { name: 'signal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CommandBufferStateSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1400,29 +1416,29 @@ gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec = {
 };
 
 // Legacy compatibility
-gpu.mojom.CommandBufferClientPtr = gpu.mojom.CommandBufferClientRemote;
-gpu.mojom.CommandBufferClientRequest = gpu.mojom.CommandBufferClientPendingReceiver;
+gpu.mojom.mojom.CommandBufferClientPtr = gpu.mojom.mojom.CommandBufferClientRemote;
+gpu.mojom.mojom.CommandBufferClientRequest = gpu.mojom.mojom.CommandBufferClientPendingReceiver;
 
 
 // Interface: DCOMPTexture
-gpu.mojom.DCOMPTexture = {};
+gpu.mojom.mojom.DCOMPTexture = {};
 
-gpu.mojom.DCOMPTexturePendingReceiver = class {
+gpu.mojom.mojom.DCOMPTexturePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gpu.mojom.DCOMPTextureRemote = class {
+gpu.mojom.mojom.DCOMPTextureRemote = class {
   static get $interfaceName() {
     return 'gpu.mojom.DCOMPTexture';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gpu.mojom.DCOMPTexturePendingReceiver,
+      gpu.mojom.mojom.DCOMPTexturePendingReceiver,
       handle);
-    this.$ = new gpu.mojom.DCOMPTextureRemoteCallHandler(this.proxy);
+    this.$ = new gpu.mojom.mojom.DCOMPTextureRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1434,7 +1450,7 @@ gpu.mojom.DCOMPTextureRemote = class {
   }
 };
 
-gpu.mojom.DCOMPTextureRemoteCallHandler = class {
+gpu.mojom.mojom.DCOMPTextureRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1443,7 +1459,7 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.DCOMPTexture_StartListening_ParamsSpec,
+      gpu.mojom.mojom.DCOMPTexture_StartListening_ParamsSpec,
       null,
       [client]);
   }
@@ -1452,7 +1468,7 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec,
+      gpu.mojom.mojom.DCOMPTexture_SetTextureSize_ParamsSpec,
       null,
       [size]);
   }
@@ -1461,15 +1477,15 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec,
-      gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec,
+      gpu.mojom.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec,
+      gpu.mojom.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec,
       [token]);
   }
 
 };
 
-gpu.mojom.DCOMPTexture.getRemote = function() {
-  let remote = new gpu.mojom.DCOMPTextureRemote();
+gpu.mojom.mojom.DCOMPTexture.getRemote = function() {
+  let remote = new gpu.mojom.mojom.DCOMPTextureRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1479,7 +1495,7 @@ gpu.mojom.DCOMPTexture.getRemote = function() {
 };
 
 // ParamsSpec for StartListening
-gpu.mojom.DCOMPTexture_StartListening_ParamsSpec = {
+gpu.mojom.mojom.DCOMPTexture_StartListening_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DCOMPTexture.StartListening_Params',
@@ -1493,7 +1509,7 @@ gpu.mojom.DCOMPTexture_StartListening_ParamsSpec = {
 };
 
 // ParamsSpec for SetTextureSize
-gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec = {
+gpu.mojom.mojom.DCOMPTexture_SetTextureSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DCOMPTexture.SetTextureSize_Params',
@@ -1507,7 +1523,7 @@ gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec = {
 };
 
 // ParamsSpec for SetDCOMPSurfaceHandle
-gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec = {
+gpu.mojom.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DCOMPTexture.SetDCOMPSurfaceHandle_Params',
@@ -1520,7 +1536,7 @@ gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec = {
   }
 };
 
-gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec = {
+gpu.mojom.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DCOMPTexture.SetDCOMPSurfaceHandle_ResponseParams',
@@ -1534,29 +1550,29 @@ gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-gpu.mojom.DCOMPTexturePtr = gpu.mojom.DCOMPTextureRemote;
-gpu.mojom.DCOMPTextureRequest = gpu.mojom.DCOMPTexturePendingReceiver;
+gpu.mojom.mojom.DCOMPTexturePtr = gpu.mojom.mojom.DCOMPTextureRemote;
+gpu.mojom.mojom.DCOMPTextureRequest = gpu.mojom.mojom.DCOMPTexturePendingReceiver;
 
 
 // Interface: DCOMPTextureClient
-gpu.mojom.DCOMPTextureClient = {};
+gpu.mojom.mojom.DCOMPTextureClient = {};
 
-gpu.mojom.DCOMPTextureClientPendingReceiver = class {
+gpu.mojom.mojom.DCOMPTextureClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gpu.mojom.DCOMPTextureClientRemote = class {
+gpu.mojom.mojom.DCOMPTextureClientRemote = class {
   static get $interfaceName() {
     return 'gpu.mojom.DCOMPTextureClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gpu.mojom.DCOMPTextureClientPendingReceiver,
+      gpu.mojom.mojom.DCOMPTextureClientPendingReceiver,
       handle);
-    this.$ = new gpu.mojom.DCOMPTextureClientRemoteCallHandler(this.proxy);
+    this.$ = new gpu.mojom.mojom.DCOMPTextureClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1568,7 +1584,7 @@ gpu.mojom.DCOMPTextureClientRemote = class {
   }
 };
 
-gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
+gpu.mojom.mojom.DCOMPTextureClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1577,7 +1593,7 @@ gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec,
+      gpu.mojom.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec,
       null,
       [mailbox]);
   }
@@ -1586,15 +1602,15 @@ gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec,
+      gpu.mojom.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec,
       null,
       [output_rect]);
   }
 
 };
 
-gpu.mojom.DCOMPTextureClient.getRemote = function() {
-  let remote = new gpu.mojom.DCOMPTextureClientRemote();
+gpu.mojom.mojom.DCOMPTextureClient.getRemote = function() {
+  let remote = new gpu.mojom.mojom.DCOMPTextureClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1604,7 +1620,7 @@ gpu.mojom.DCOMPTextureClient.getRemote = function() {
 };
 
 // ParamsSpec for OnSharedImageMailboxBound
-gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec = {
+gpu.mojom.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DCOMPTextureClient.OnSharedImageMailboxBound_Params',
@@ -1618,7 +1634,7 @@ gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec = {
 };
 
 // ParamsSpec for OnOutputRectChange
-gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec = {
+gpu.mojom.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DCOMPTextureClient.OnOutputRectChange_Params',
@@ -1632,29 +1648,29 @@ gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec = {
 };
 
 // Legacy compatibility
-gpu.mojom.DCOMPTextureClientPtr = gpu.mojom.DCOMPTextureClientRemote;
-gpu.mojom.DCOMPTextureClientRequest = gpu.mojom.DCOMPTextureClientPendingReceiver;
+gpu.mojom.mojom.DCOMPTextureClientPtr = gpu.mojom.mojom.DCOMPTextureClientRemote;
+gpu.mojom.mojom.DCOMPTextureClientRequest = gpu.mojom.mojom.DCOMPTextureClientPendingReceiver;
 
 
 // Interface: OverlayStateObserver
-gpu.mojom.OverlayStateObserver = {};
+gpu.mojom.mojom.OverlayStateObserver = {};
 
-gpu.mojom.OverlayStateObserverPendingReceiver = class {
+gpu.mojom.mojom.OverlayStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gpu.mojom.OverlayStateObserverRemote = class {
+gpu.mojom.mojom.OverlayStateObserverRemote = class {
   static get $interfaceName() {
     return 'gpu.mojom.OverlayStateObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gpu.mojom.OverlayStateObserverPendingReceiver,
+      gpu.mojom.mojom.OverlayStateObserverPendingReceiver,
       handle);
-    this.$ = new gpu.mojom.OverlayStateObserverRemoteCallHandler(this.proxy);
+    this.$ = new gpu.mojom.mojom.OverlayStateObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1666,7 +1682,7 @@ gpu.mojom.OverlayStateObserverRemote = class {
   }
 };
 
-gpu.mojom.OverlayStateObserverRemoteCallHandler = class {
+gpu.mojom.mojom.OverlayStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1675,15 +1691,15 @@ gpu.mojom.OverlayStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec,
+      gpu.mojom.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec,
       null,
       [promoted]);
   }
 
 };
 
-gpu.mojom.OverlayStateObserver.getRemote = function() {
-  let remote = new gpu.mojom.OverlayStateObserverRemote();
+gpu.mojom.mojom.OverlayStateObserver.getRemote = function() {
+  let remote = new gpu.mojom.mojom.OverlayStateObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1693,7 +1709,7 @@ gpu.mojom.OverlayStateObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnStateChanged
-gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec = {
+gpu.mojom.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.OverlayStateObserver.OnStateChanged_Params',
@@ -1707,6 +1723,6 @@ gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-gpu.mojom.OverlayStateObserverPtr = gpu.mojom.OverlayStateObserverRemote;
-gpu.mojom.OverlayStateObserverRequest = gpu.mojom.OverlayStateObserverPendingReceiver;
+gpu.mojom.mojom.OverlayStateObserverPtr = gpu.mojom.mojom.OverlayStateObserverRemote;
+gpu.mojom.mojom.OverlayStateObserverRequest = gpu.mojom.mojom.OverlayStateObserverPendingReceiver;
 

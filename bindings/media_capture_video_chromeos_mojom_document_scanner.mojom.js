@@ -7,17 +7,19 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: DetectCornersResult
-cros.mojom.DetectCornersResultSpec = {
+cros.mojom.mojom.DetectCornersResultSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.DetectCornersResult',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'corners', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'corners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -25,24 +27,24 @@ cros.mojom.DetectCornersResultSpec = {
 };
 
 // Interface: CrosDocumentScanner
-cros.mojom.CrosDocumentScanner = {};
+cros.mojom.mojom.CrosDocumentScanner = {};
 
-cros.mojom.CrosDocumentScannerPendingReceiver = class {
+cros.mojom.mojom.CrosDocumentScannerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.CrosDocumentScannerRemote = class {
+cros.mojom.mojom.CrosDocumentScannerRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CrosDocumentScanner';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.CrosDocumentScannerPendingReceiver,
+      cros.mojom.mojom.CrosDocumentScannerPendingReceiver,
       handle);
-    this.$ = new cros.mojom.CrosDocumentScannerRemoteCallHandler(this.proxy);
+    this.$ = new cros.mojom.mojom.CrosDocumentScannerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +56,7 @@ cros.mojom.CrosDocumentScannerRemote = class {
   }
 };
 
-cros.mojom.CrosDocumentScannerRemoteCallHandler = class {
+cros.mojom.mojom.CrosDocumentScannerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,15 +65,15 @@ cros.mojom.CrosDocumentScannerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
-      cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
+      cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
+      cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
       [nv12_image]);
   }
 
 };
 
-cros.mojom.CrosDocumentScanner.getRemote = function() {
-  let remote = new cros.mojom.CrosDocumentScannerRemote();
+cros.mojom.mojom.CrosDocumentScanner.getRemote = function() {
+  let remote = new cros.mojom.mojom.CrosDocumentScannerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -81,7 +83,7 @@ cros.mojom.CrosDocumentScanner.getRemote = function() {
 };
 
 // ParamsSpec for DetectCornersFromNV12Image
-cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
+cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosDocumentScanner.DetectCornersFromNV12Image_Params',
@@ -94,7 +96,7 @@ cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
   }
 };
 
-cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
+cros.mojom.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CrosDocumentScanner.DetectCornersFromNV12Image_ResponseParams',
@@ -108,6 +110,6 @@ cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-cros.mojom.CrosDocumentScannerPtr = cros.mojom.CrosDocumentScannerRemote;
-cros.mojom.CrosDocumentScannerRequest = cros.mojom.CrosDocumentScannerPendingReceiver;
+cros.mojom.mojom.CrosDocumentScannerPtr = cros.mojom.mojom.CrosDocumentScannerRemote;
+cros.mojom.mojom.CrosDocumentScannerRequest = cros.mojom.mojom.CrosDocumentScannerPendingReceiver;
 

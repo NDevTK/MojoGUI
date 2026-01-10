@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Struct: ScriptSourceLocation
-blink.mojom.ScriptSourceLocationSpec = {
+blink.mojom.mojom.ScriptSourceLocationSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScriptSourceLocation',

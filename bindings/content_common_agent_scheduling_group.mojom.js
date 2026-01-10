@@ -7,27 +7,35 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var content = content || {};
+var content = content || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Interface: AgentSchedulingGroupHost
-content.mojom.AgentSchedulingGroupHost = {};
+content.mojom.mojom.AgentSchedulingGroupHost = {};
 
-content.mojom.AgentSchedulingGroupHostPendingReceiver = class {
+content.mojom.mojom.AgentSchedulingGroupHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.AgentSchedulingGroupHostRemote = class {
+content.mojom.mojom.AgentSchedulingGroupHostRemote = class {
   static get $interfaceName() {
     return 'content.mojom.AgentSchedulingGroupHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.AgentSchedulingGroupHostPendingReceiver,
+      content.mojom.mojom.AgentSchedulingGroupHostPendingReceiver,
       handle);
-    this.$ = new content.mojom.AgentSchedulingGroupHostRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.AgentSchedulingGroupHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +47,7 @@ content.mojom.AgentSchedulingGroupHostRemote = class {
   }
 };
 
-content.mojom.AgentSchedulingGroupHostRemoteCallHandler = class {
+content.mojom.mojom.AgentSchedulingGroupHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +56,15 @@ content.mojom.AgentSchedulingGroupHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec,
+      content.mojom.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec,
       null,
       [frame_token]);
   }
 
 };
 
-content.mojom.AgentSchedulingGroupHost.getRemote = function() {
-  let remote = new content.mojom.AgentSchedulingGroupHostRemote();
+content.mojom.mojom.AgentSchedulingGroupHost.getRemote = function() {
+  let remote = new content.mojom.mojom.AgentSchedulingGroupHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +74,7 @@ content.mojom.AgentSchedulingGroupHost.getRemote = function() {
 };
 
 // ParamsSpec for DidUnloadRenderFrame
-content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
+content.mojom.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.AgentSchedulingGroupHost.DidUnloadRenderFrame_Params',
@@ -80,29 +88,29 @@ content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.AgentSchedulingGroupHostPtr = content.mojom.AgentSchedulingGroupHostRemote;
-content.mojom.AgentSchedulingGroupHostRequest = content.mojom.AgentSchedulingGroupHostPendingReceiver;
+content.mojom.mojom.AgentSchedulingGroupHostPtr = content.mojom.mojom.AgentSchedulingGroupHostRemote;
+content.mojom.mojom.AgentSchedulingGroupHostRequest = content.mojom.mojom.AgentSchedulingGroupHostPendingReceiver;
 
 
 // Interface: AgentSchedulingGroup
-content.mojom.AgentSchedulingGroup = {};
+content.mojom.mojom.AgentSchedulingGroup = {};
 
-content.mojom.AgentSchedulingGroupPendingReceiver = class {
+content.mojom.mojom.AgentSchedulingGroupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.AgentSchedulingGroupRemote = class {
+content.mojom.mojom.AgentSchedulingGroupRemote = class {
   static get $interfaceName() {
     return 'content.mojom.AgentSchedulingGroup';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.AgentSchedulingGroupPendingReceiver,
+      content.mojom.mojom.AgentSchedulingGroupPendingReceiver,
       handle);
-    this.$ = new content.mojom.AgentSchedulingGroupRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.AgentSchedulingGroupRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +122,7 @@ content.mojom.AgentSchedulingGroupRemote = class {
   }
 };
 
-content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
+content.mojom.mojom.AgentSchedulingGroupRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,7 +131,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec,
+      content.mojom.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec,
       null,
       [remote_host, route_provider_receiver]);
   }
@@ -132,7 +140,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec,
+      content.mojom.mojom.AgentSchedulingGroup_CreateView_ParamsSpec,
       null,
       [params]);
   }
@@ -141,7 +149,7 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec,
+      content.mojom.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec,
       null,
       [params]);
   }
@@ -150,15 +158,15 @@ content.mojom.AgentSchedulingGroupRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec,
+      content.mojom.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec,
       null,
       [receiver, global_scope_creation_params]);
   }
 
 };
 
-content.mojom.AgentSchedulingGroup.getRemote = function() {
-  let remote = new content.mojom.AgentSchedulingGroupRemote();
+content.mojom.mojom.AgentSchedulingGroup.getRemote = function() {
+  let remote = new content.mojom.mojom.AgentSchedulingGroupRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -168,7 +176,7 @@ content.mojom.AgentSchedulingGroup.getRemote = function() {
 };
 
 // ParamsSpec for BindAssociatedInterfaces
-content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
+content.mojom.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.AgentSchedulingGroup.BindAssociatedInterfaces_Params',
@@ -183,7 +191,7 @@ content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
 };
 
 // ParamsSpec for CreateView
-content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
+content.mojom.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.AgentSchedulingGroup.CreateView_Params',
@@ -197,7 +205,7 @@ content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
 };
 
 // ParamsSpec for CreateFrame
-content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
+content.mojom.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.AgentSchedulingGroup.CreateFrame_Params',
@@ -211,14 +219,14 @@ content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
 };
 
 // ParamsSpec for CreateSharedStorageWorkletService
-content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec = {
+content.mojom.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.AgentSchedulingGroup.CreateSharedStorageWorkletService_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'global_scope_creation_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WorkletGlobalScopeCreationParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'global_scope_creation_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WorkletGlobalScopeCreationParamsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -226,6 +234,6 @@ content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec 
 };
 
 // Legacy compatibility
-content.mojom.AgentSchedulingGroupPtr = content.mojom.AgentSchedulingGroupRemote;
-content.mojom.AgentSchedulingGroupRequest = content.mojom.AgentSchedulingGroupPendingReceiver;
+content.mojom.mojom.AgentSchedulingGroupPtr = content.mojom.mojom.AgentSchedulingGroupRemote;
+content.mojom.mojom.AgentSchedulingGroupRequest = content.mojom.mojom.AgentSchedulingGroupPendingReceiver;
 

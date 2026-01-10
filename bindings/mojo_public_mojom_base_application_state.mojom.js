@@ -10,11 +10,11 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: ApplicationState
-mojo_base.mojom.ApplicationState = {
+mojo_base.mojom.mojom.ApplicationState = {
   UNKNOWN: 0,
   HAS_RUNNING_ACTIVITIES: 1,
   HAS_PAUSED_ACTIVITIES: 2,
   HAS_STOPPED_ACTIVITIES: 3,
   HAS_DESTROYED_ACTIVITIES: 4,
 };
-mojo_base.mojom.ApplicationStateSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.mojom.ApplicationStateSpec = { $: mojo.internal.Enum() };

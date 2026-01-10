@@ -7,28 +7,29 @@
 // Module namespace
 var ash = ash || {};
 ash.cellular_setup = ash.cellular_setup || {};
-ash.cellular_setup.mojom = ash.cellular_setup.mojom || {};
+ash.cellular_setup.cellular_setup.mojom = ash.cellular_setup.cellular_setup.mojom || {};
+var url = url || {};
 
 
 // Enum: CarrierPortalStatus
-ash.cellular_setup.mojom.CarrierPortalStatus = {
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalStatus = {
   kPortalFailedToLoad: 0,
   kPortalLoadedWithoutPaidUser: 1,
   kPortalLoadedButErrorOccurredDuringPayment: 2,
   kPortalLoadedAndUserCompletedPayment: 3,
 };
-ash.cellular_setup.mojom.CarrierPortalStatusSpec = { $: mojo.internal.Enum() };
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActivationResult
-ash.cellular_setup.mojom.ActivationResult = {
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationResult = {
   kSuccessfullyStartedActivation: 0,
   kAlreadyActivated: 1,
   kFailedToActivate: 2,
 };
-ash.cellular_setup.mojom.ActivationResultSpec = { $: mojo.internal.Enum() };
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: CellularMetadata
-ash.cellular_setup.mojom.CellularMetadataSpec = {
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularMetadataSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.CellularMetadata',
@@ -47,24 +48,24 @@ ash.cellular_setup.mojom.CellularMetadataSpec = {
 };
 
 // Interface: CarrierPortalHandler
-ash.cellular_setup.mojom.CarrierPortalHandler = {};
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandler = {};
 
-ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver = class {
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cellular_setup.mojom.CarrierPortalHandlerRemote = class {
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.cellular_setup.mojom.CarrierPortalHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver,
+      ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerPendingReceiver,
       handle);
-    this.$ = new ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -76,7 +77,7 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRemote = class {
   }
 };
 
-ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -85,15 +86,15 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec,
+      ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-ash.cellular_setup.mojom.CarrierPortalHandler.getRemote = function() {
-  let remote = new ash.cellular_setup.mojom.CarrierPortalHandlerRemote();
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandler.getRemote = function() {
+  let remote = new ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -103,7 +104,7 @@ ash.cellular_setup.mojom.CarrierPortalHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnCarrierPortalStatusChange
-ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec = {
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.CarrierPortalHandler.OnCarrierPortalStatusChange_Params',
@@ -117,29 +118,29 @@ ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params
 };
 
 // Legacy compatibility
-ash.cellular_setup.mojom.CarrierPortalHandlerPtr = ash.cellular_setup.mojom.CarrierPortalHandlerRemote;
-ash.cellular_setup.mojom.CarrierPortalHandlerRequest = ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver;
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerPtr = ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerRemote;
+ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerRequest = ash.cellular_setup.cellular_setup.mojom.mojom.CarrierPortalHandlerPendingReceiver;
 
 
 // Interface: ActivationDelegate
-ash.cellular_setup.mojom.ActivationDelegate = {};
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegate = {};
 
-ash.cellular_setup.mojom.ActivationDelegatePendingReceiver = class {
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cellular_setup.mojom.ActivationDelegateRemote = class {
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegateRemote = class {
   static get $interfaceName() {
     return 'ash.cellular_setup.mojom.ActivationDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cellular_setup.mojom.ActivationDelegatePendingReceiver,
+      ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegatePendingReceiver,
       handle);
-    this.$ = new ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler(this.proxy);
+    this.$ = new ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -151,7 +152,7 @@ ash.cellular_setup.mojom.ActivationDelegateRemote = class {
   }
 };
 
-ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -160,7 +161,7 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec,
+      ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec,
       null,
       [metadata]);
   }
@@ -169,15 +170,15 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec,
+      ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-ash.cellular_setup.mojom.ActivationDelegate.getRemote = function() {
-  let remote = new ash.cellular_setup.mojom.ActivationDelegateRemote();
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegate.getRemote = function() {
+  let remote = new ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -187,7 +188,7 @@ ash.cellular_setup.mojom.ActivationDelegate.getRemote = function() {
 };
 
 // ParamsSpec for OnActivationStarted
-ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationStarted_Params',
@@ -201,7 +202,7 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
 };
 
 // ParamsSpec for OnActivationFinished
-ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationFinished_Params',
@@ -215,29 +216,29 @@ ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.cellular_setup.mojom.ActivationDelegatePtr = ash.cellular_setup.mojom.ActivationDelegateRemote;
-ash.cellular_setup.mojom.ActivationDelegateRequest = ash.cellular_setup.mojom.ActivationDelegatePendingReceiver;
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegatePtr = ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegateRemote;
+ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegateRequest = ash.cellular_setup.cellular_setup.mojom.mojom.ActivationDelegatePendingReceiver;
 
 
 // Interface: CellularSetup
-ash.cellular_setup.mojom.CellularSetup = {};
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetup = {};
 
-ash.cellular_setup.mojom.CellularSetupPendingReceiver = class {
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cellular_setup.mojom.CellularSetupRemote = class {
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupRemote = class {
   static get $interfaceName() {
     return 'ash.cellular_setup.mojom.CellularSetup';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cellular_setup.mojom.CellularSetupPendingReceiver,
+      ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupPendingReceiver,
       handle);
-    this.$ = new ash.cellular_setup.mojom.CellularSetupRemoteCallHandler(this.proxy);
+    this.$ = new ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -249,7 +250,7 @@ ash.cellular_setup.mojom.CellularSetupRemote = class {
   }
 };
 
-ash.cellular_setup.mojom.CellularSetupRemoteCallHandler = class {
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -258,15 +259,15 @@ ash.cellular_setup.mojom.CellularSetupRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec,
-      ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec,
+      ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetup_StartActivation_ParamsSpec,
+      ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetup_StartActivation_ResponseParamsSpec,
       [delegate]);
   }
 
 };
 
-ash.cellular_setup.mojom.CellularSetup.getRemote = function() {
-  let remote = new ash.cellular_setup.mojom.CellularSetupRemote();
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetup.getRemote = function() {
+  let remote = new ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -276,7 +277,7 @@ ash.cellular_setup.mojom.CellularSetup.getRemote = function() {
 };
 
 // ParamsSpec for StartActivation
-ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetup_StartActivation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_Params',
@@ -289,7 +290,7 @@ ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
   }
 };
 
-ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_ResponseParams',
@@ -303,6 +304,6 @@ ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.cellular_setup.mojom.CellularSetupPtr = ash.cellular_setup.mojom.CellularSetupRemote;
-ash.cellular_setup.mojom.CellularSetupRequest = ash.cellular_setup.mojom.CellularSetupPendingReceiver;
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupPtr = ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupRemote;
+ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupRequest = ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetupPendingReceiver;
 

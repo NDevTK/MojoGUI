@@ -7,10 +7,13 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: Behavior
-blink.mojom.Behavior = {
+blink.mojom.mojom.Behavior = {
   kNoScroll: 0,
   kCenter: 1,
   kTop: 2,
@@ -19,10 +22,10 @@ blink.mojom.Behavior = {
   kRight: 5,
   kClosestEdge: 6,
 };
-blink.mojom.BehaviorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.BehaviorSpec = { $: mojo.internal.Enum() };
 
 // Struct: ScrollAlignment
-blink.mojom.ScrollAlignmentSpec = {
+blink.mojom.mojom.ScrollAlignmentSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScrollAlignment',
@@ -36,7 +39,7 @@ blink.mojom.ScrollAlignmentSpec = {
 };
 
 // Struct: FocusedEditableParams
-blink.mojom.FocusedEditableParamsSpec = {
+blink.mojom.mojom.FocusedEditableParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FocusedEditableParams',
@@ -52,7 +55,7 @@ blink.mojom.FocusedEditableParamsSpec = {
 };
 
 // Struct: ScrollIntoViewParams
-blink.mojom.ScrollIntoViewParamsSpec = {
+blink.mojom.mojom.ScrollIntoViewParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ScrollIntoViewParams',
@@ -60,12 +63,12 @@ blink.mojom.ScrollIntoViewParamsSpec = {
       fields: [
         { name: 'align_x', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ScrollAlignmentSpec, nullable: false, minVersion: 0 },
         { name: 'align_y', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScrollAlignmentSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ScrollTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'make_visible_in_visual_viewport', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'behavior', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ScrollBehaviorSpec, nullable: false, minVersion: 0 },
-        { name: 'is_for_scroll_sequence', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'for_focused_editable', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FocusedEditableParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'cross_origin_boundaries', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ScrollTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'make_visible_in_visual_viewport', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'behavior', packedOffset: 28, packedBitOffset: 0, type: blink.mojom.ScrollBehaviorSpec, nullable: false, minVersion: 0 },
+        { name: 'is_for_scroll_sequence', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'for_focused_editable', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FocusedEditableParamsSpec, nullable: true, minVersion: 0 },
+        { name: 'cross_origin_boundaries', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }

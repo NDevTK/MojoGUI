@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: SiteForCookies
-network.mojom.SiteForCookiesSpec = {
+network.mojom.mojom.SiteForCookiesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SiteForCookies',

@@ -10,7 +10,7 @@ legion.mojom = legion.mojom || {};
 
 
 // Struct: HandshakeMessage
-legion.mojom.HandshakeMessageSpec = {
+legion.mojom.mojom.HandshakeMessageSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.HandshakeMessage',
@@ -25,24 +25,24 @@ legion.mojom.HandshakeMessageSpec = {
 };
 
 // Interface: OakSession
-legion.mojom.OakSession = {};
+legion.mojom.mojom.OakSession = {};
 
-legion.mojom.OakSessionPendingReceiver = class {
+legion.mojom.mojom.OakSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-legion.mojom.OakSessionRemote = class {
+legion.mojom.mojom.OakSessionRemote = class {
   static get $interfaceName() {
     return 'legion.mojom.OakSession';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      legion.mojom.OakSessionPendingReceiver,
+      legion.mojom.mojom.OakSessionPendingReceiver,
       handle);
-    this.$ = new legion.mojom.OakSessionRemoteCallHandler(this.proxy);
+    this.$ = new legion.mojom.mojom.OakSessionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ legion.mojom.OakSessionRemote = class {
   }
 };
 
-legion.mojom.OakSessionRemoteCallHandler = class {
+legion.mojom.mojom.OakSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,8 +63,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      legion.mojom.OakSession_InitiateHandshake_ParamsSpec,
-      legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
+      legion.mojom.mojom.OakSession_InitiateHandshake_ParamsSpec,
+      legion.mojom.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
       []);
   }
 
@@ -72,8 +72,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      legion.mojom.OakSession_CompleteHandshake_ParamsSpec,
-      legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
+      legion.mojom.mojom.OakSession_CompleteHandshake_ParamsSpec,
+      legion.mojom.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
       [response]);
   }
 
@@ -81,8 +81,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      legion.mojom.OakSession_Encrypt_ParamsSpec,
-      legion.mojom.OakSession_Encrypt_ResponseParamsSpec,
+      legion.mojom.mojom.OakSession_Encrypt_ParamsSpec,
+      legion.mojom.mojom.OakSession_Encrypt_ResponseParamsSpec,
       [input]);
   }
 
@@ -90,15 +90,15 @@ legion.mojom.OakSessionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      legion.mojom.OakSession_Decrypt_ParamsSpec,
-      legion.mojom.OakSession_Decrypt_ResponseParamsSpec,
+      legion.mojom.mojom.OakSession_Decrypt_ParamsSpec,
+      legion.mojom.mojom.OakSession_Decrypt_ResponseParamsSpec,
       [input]);
   }
 
 };
 
-legion.mojom.OakSession.getRemote = function() {
-  let remote = new legion.mojom.OakSessionRemote();
+legion.mojom.mojom.OakSession.getRemote = function() {
+  let remote = new legion.mojom.mojom.OakSessionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -108,7 +108,7 @@ legion.mojom.OakSession.getRemote = function() {
 };
 
 // ParamsSpec for InitiateHandshake
-legion.mojom.OakSession_InitiateHandshake_ParamsSpec = {
+legion.mojom.mojom.OakSession_InitiateHandshake_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.InitiateHandshake_Params',
@@ -120,7 +120,7 @@ legion.mojom.OakSession_InitiateHandshake_ParamsSpec = {
   }
 };
 
-legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
+legion.mojom.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.InitiateHandshake_ResponseParams',
@@ -134,7 +134,7 @@ legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CompleteHandshake
-legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
+legion.mojom.mojom.OakSession_CompleteHandshake_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.CompleteHandshake_Params',
@@ -147,7 +147,7 @@ legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
   }
 };
 
-legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
+legion.mojom.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.CompleteHandshake_ResponseParams',
@@ -161,7 +161,7 @@ legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Encrypt
-legion.mojom.OakSession_Encrypt_ParamsSpec = {
+legion.mojom.mojom.OakSession_Encrypt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.Encrypt_Params',
@@ -174,7 +174,7 @@ legion.mojom.OakSession_Encrypt_ParamsSpec = {
   }
 };
 
-legion.mojom.OakSession_Encrypt_ResponseParamsSpec = {
+legion.mojom.mojom.OakSession_Encrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.Encrypt_ResponseParams',
@@ -188,7 +188,7 @@ legion.mojom.OakSession_Encrypt_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Decrypt
-legion.mojom.OakSession_Decrypt_ParamsSpec = {
+legion.mojom.mojom.OakSession_Decrypt_ParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.Decrypt_Params',
@@ -201,7 +201,7 @@ legion.mojom.OakSession_Decrypt_ParamsSpec = {
   }
 };
 
-legion.mojom.OakSession_Decrypt_ResponseParamsSpec = {
+legion.mojom.mojom.OakSession_Decrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'legion.mojom.OakSession.Decrypt_ResponseParams',
@@ -215,6 +215,6 @@ legion.mojom.OakSession_Decrypt_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-legion.mojom.OakSessionPtr = legion.mojom.OakSessionRemote;
-legion.mojom.OakSessionRequest = legion.mojom.OakSessionPendingReceiver;
+legion.mojom.mojom.OakSessionPtr = legion.mojom.mojom.OakSessionRemote;
+legion.mojom.mojom.OakSessionRequest = legion.mojom.mojom.OakSessionPendingReceiver;
 

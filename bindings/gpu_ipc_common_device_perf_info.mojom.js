@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Enum: Direct3DFeatureLevel
-gpu.mojom.Direct3DFeatureLevel = {
+gpu.mojom.mojom.Direct3DFeatureLevel = {
   k1_0_Generic: 0,
   k1_0_Core: 1,
   k9_1: 2,
@@ -24,18 +24,18 @@ gpu.mojom.Direct3DFeatureLevel = {
   k12_1: 10,
   k12_2: 11,
 };
-gpu.mojom.Direct3DFeatureLevelSpec = { $: mojo.internal.Enum() };
+gpu.mojom.mojom.Direct3DFeatureLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: HasDiscreteGpu
-gpu.mojom.HasDiscreteGpu = {
+gpu.mojom.mojom.HasDiscreteGpu = {
   kUnknown: 0,
   kNo: 1,
   kYes: 2,
 };
-gpu.mojom.HasDiscreteGpuSpec = { $: mojo.internal.Enum() };
+gpu.mojom.mojom.HasDiscreteGpuSpec = { $: mojo.internal.Enum() };
 
 // Struct: DevicePerfInfo
-gpu.mojom.DevicePerfInfoSpec = {
+gpu.mojom.mojom.DevicePerfInfoSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.DevicePerfInfo',

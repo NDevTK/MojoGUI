@@ -7,11 +7,11 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
-chromeos.cfm.mojom = chromeos.cfm.mojom || {};
+chromeos.cfm.cfm.mojom = chromeos.cfm.cfm.mojom || {};
 
 
 // Struct: ExtensionData
-chromeos.cfm.mojom.ExtensionDataSpec = {
+chromeos.cfm.cfm.mojom.mojom.ExtensionDataSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.ExtensionData',
@@ -29,23 +29,23 @@ chromeos.cfm.mojom.ExtensionDataSpec = {
 };
 
 // Struct: ProcessMemoryInformation
-chromeos.cfm.mojom.ProcessMemoryInformationSpec = {
+chromeos.cfm.cfm.mojom.mojom.ProcessMemoryInformationSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.ProcessMemoryInformation',
       packedSize: 80,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'product_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'num_processes', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'process_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'num_open_fds', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'open_fds_soft_limit', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'renderer_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'titles', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'private_memory_footprint_kb', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'extension_info', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(chromeos.cfm.mojom.ExtensionDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'pid', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'product_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'num_processes', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'process_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'num_open_fds', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'open_fds_soft_limit', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'renderer_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'titles', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'private_memory_footprint_kb', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'extension_info', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(chromeos.cfm.mojom.ExtensionDataSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }
@@ -53,7 +53,7 @@ chromeos.cfm.mojom.ProcessMemoryInformationSpec = {
 };
 
 // Struct: ProcessData
-chromeos.cfm.mojom.ProcessDataSpec = {
+chromeos.cfm.cfm.mojom.mojom.ProcessDataSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.ProcessData',
@@ -69,24 +69,24 @@ chromeos.cfm.mojom.ProcessDataSpec = {
 };
 
 // Interface: CfmBrowser
-chromeos.cfm.mojom.CfmBrowser = {};
+chromeos.cfm.cfm.mojom.mojom.CfmBrowser = {};
 
-chromeos.cfm.mojom.CfmBrowserPendingReceiver = class {
+chromeos.cfm.cfm.mojom.mojom.CfmBrowserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.cfm.mojom.CfmBrowserRemote = class {
+chromeos.cfm.cfm.mojom.mojom.CfmBrowserRemote = class {
   static get $interfaceName() {
     return 'chromeos.cfm.mojom.CfmBrowser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.cfm.mojom.CfmBrowserPendingReceiver,
+      chromeos.cfm.cfm.mojom.mojom.CfmBrowserPendingReceiver,
       handle);
-    this.$ = new chromeos.cfm.mojom.CfmBrowserRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.cfm.cfm.mojom.mojom.CfmBrowserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -98,7 +98,7 @@ chromeos.cfm.mojom.CfmBrowserRemote = class {
   }
 };
 
-chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
+chromeos.cfm.cfm.mojom.mojom.CfmBrowserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -107,8 +107,8 @@ chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec,
-      chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.CfmBrowser_GetVariationsData_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec,
       []);
   }
 
@@ -116,15 +116,15 @@ chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec,
-      chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec,
+      chromeos.cfm.cfm.mojom.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec,
       []);
   }
 
 };
 
-chromeos.cfm.mojom.CfmBrowser.getRemote = function() {
-  let remote = new chromeos.cfm.mojom.CfmBrowserRemote();
+chromeos.cfm.cfm.mojom.mojom.CfmBrowser.getRemote = function() {
+  let remote = new chromeos.cfm.cfm.mojom.mojom.CfmBrowserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -134,7 +134,7 @@ chromeos.cfm.mojom.CfmBrowser.getRemote = function() {
 };
 
 // ParamsSpec for GetVariationsData
-chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.CfmBrowser_GetVariationsData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.CfmBrowser.GetVariationsData_Params',
@@ -146,7 +146,7 @@ chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec = {
   }
 };
 
-chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.CfmBrowser.GetVariationsData_ResponseParams',
@@ -163,7 +163,7 @@ chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetMemoryDetails
-chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.CfmBrowser.GetMemoryDetails_Params',
@@ -175,7 +175,7 @@ chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec = {
   }
 };
 
-chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec = {
+chromeos.cfm.cfm.mojom.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cfm.mojom.CfmBrowser.GetMemoryDetails_ResponseParams',
@@ -190,6 +190,6 @@ chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chromeos.cfm.mojom.CfmBrowserPtr = chromeos.cfm.mojom.CfmBrowserRemote;
-chromeos.cfm.mojom.CfmBrowserRequest = chromeos.cfm.mojom.CfmBrowserPendingReceiver;
+chromeos.cfm.cfm.mojom.mojom.CfmBrowserPtr = chromeos.cfm.cfm.mojom.mojom.CfmBrowserRemote;
+chromeos.cfm.cfm.mojom.mojom.CfmBrowserRequest = chromeos.cfm.cfm.mojom.mojom.CfmBrowserPendingReceiver;
 

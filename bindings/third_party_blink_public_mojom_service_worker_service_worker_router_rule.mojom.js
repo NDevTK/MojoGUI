@@ -7,17 +7,18 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Enum: ServiceWorkerRouterRunningStatusEnum
-blink.mojom.ServiceWorkerRouterRunningStatusEnum = {
+blink.mojom.mojom.ServiceWorkerRouterRunningStatusEnum = {
   kRunning: 0,
   kNotRunning: 1,
 };
-blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ServiceWorkerRouterRunningStatusEnumSpec = { $: mojo.internal.Enum() };
 
 // Union: ServiceWorkerRouterSource
-blink.mojom.ServiceWorkerRouterSourceSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.ServiceWorkerRouterSourceSpec = { $: mojo.internal.Union(
     'blink.mojom.ServiceWorkerRouterSource', {
       'network_source': {
         'ordinal': 0,
@@ -43,7 +44,7 @@ blink.mojom.ServiceWorkerRouterSourceSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ServiceWorkerRouterRunningStatusCondition
-blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec = {
+blink.mojom.mojom.ServiceWorkerRouterRunningStatusConditionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRunningStatusCondition',
@@ -57,17 +58,17 @@ blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec = {
 };
 
 // Struct: ServiceWorkerRouterRequestCondition
-blink.mojom.ServiceWorkerRouterRequestConditionSpec = {
+blink.mojom.mojom.ServiceWorkerRouterRequestConditionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRequestCondition',
       packedSize: 32,
       fields: [
         { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'has_mode', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 12, packedBitOffset: 0, type: network.mojom.RequestModeSpec, nullable: false, minVersion: 0 },
-        { name: 'has_destination', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'destination', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
+        { name: 'has_mode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: network.mojom.RequestModeSpec, nullable: false, minVersion: 0 },
+        { name: 'has_destination', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'destination', packedOffset: 12, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -75,7 +76,7 @@ blink.mojom.ServiceWorkerRouterRequestConditionSpec = {
 };
 
 // Struct: ServiceWorkerRouterOrCondition
-blink.mojom.ServiceWorkerRouterOrConditionSpec = {
+blink.mojom.mojom.ServiceWorkerRouterOrConditionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterOrCondition',
@@ -89,7 +90,7 @@ blink.mojom.ServiceWorkerRouterOrConditionSpec = {
 };
 
 // Struct: ServiceWorkerRouterNotCondition
-blink.mojom.ServiceWorkerRouterNotConditionSpec = {
+blink.mojom.mojom.ServiceWorkerRouterNotConditionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterNotCondition',
@@ -103,7 +104,7 @@ blink.mojom.ServiceWorkerRouterNotConditionSpec = {
 };
 
 // Struct: ServiceWorkerRouterCondition
-blink.mojom.ServiceWorkerRouterConditionSpec = {
+blink.mojom.mojom.ServiceWorkerRouterConditionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterCondition',
@@ -121,7 +122,7 @@ blink.mojom.ServiceWorkerRouterConditionSpec = {
 };
 
 // Struct: ServiceWorkerRouterNetworkSource
-blink.mojom.ServiceWorkerRouterNetworkSourceSpec = {
+blink.mojom.mojom.ServiceWorkerRouterNetworkSourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterNetworkSource',
@@ -134,7 +135,7 @@ blink.mojom.ServiceWorkerRouterNetworkSourceSpec = {
 };
 
 // Struct: ServiceWorkerRouterRaceNetworkAndFetchEventSource
-blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec = {
+blink.mojom.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSource',
@@ -147,7 +148,7 @@ blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec = {
 };
 
 // Struct: ServiceWorkerRouterFetchEventSource
-blink.mojom.ServiceWorkerRouterFetchEventSourceSpec = {
+blink.mojom.mojom.ServiceWorkerRouterFetchEventSourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterFetchEventSource',
@@ -160,7 +161,7 @@ blink.mojom.ServiceWorkerRouterFetchEventSourceSpec = {
 };
 
 // Struct: ServiceWorkerRouterCacheSource
-blink.mojom.ServiceWorkerRouterCacheSourceSpec = {
+blink.mojom.mojom.ServiceWorkerRouterCacheSourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterCacheSource',
@@ -174,7 +175,7 @@ blink.mojom.ServiceWorkerRouterCacheSourceSpec = {
 };
 
 // Struct: ServiceWorkerRouterRaceNetworkAndCacheSource
-blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec = {
+blink.mojom.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSource',
@@ -188,7 +189,7 @@ blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec = {
 };
 
 // Struct: ServiceWorkerRouterRule
-blink.mojom.ServiceWorkerRouterRuleSpec = {
+blink.mojom.mojom.ServiceWorkerRouterRuleSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRule',
@@ -203,7 +204,7 @@ blink.mojom.ServiceWorkerRouterRuleSpec = {
 };
 
 // Struct: ServiceWorkerRouterRules
-blink.mojom.ServiceWorkerRouterRulesSpec = {
+blink.mojom.mojom.ServiceWorkerRouterRulesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRouterRules',

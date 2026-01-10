@@ -7,18 +7,20 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
+chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: DocumentScannerResultStatus
-chromeos.machine_learning.mojom.DocumentScannerResultStatus = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerResultStatus = {
   OK: 0,
   ERROR: 1,
 };
-chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerResultStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DocumentScannerConfig
-chromeos.machine_learning.mojom.DocumentScannerConfigSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerConfigSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.DocumentScannerConfig',
@@ -33,14 +35,14 @@ chromeos.machine_learning.mojom.DocumentScannerConfigSpec = {
 };
 
 // Struct: DetectCornersResult
-chromeos.machine_learning.mojom.DetectCornersResultSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DetectCornersResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.DetectCornersResult',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'corners', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'corners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -48,14 +50,14 @@ chromeos.machine_learning.mojom.DetectCornersResultSpec = {
 };
 
 // Struct: DoPostProcessingResult
-chromeos.machine_learning.mojom.DoPostProcessingResultSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DoPostProcessingResultSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.DoPostProcessingResult',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'processed_jpeg_image', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'processed_jpeg_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -63,24 +65,24 @@ chromeos.machine_learning.mojom.DoPostProcessingResultSpec = {
 };
 
 // Interface: DocumentScanner
-chromeos.machine_learning.mojom.DocumentScanner = {};
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner = {};
 
-chromeos.machine_learning.mojom.DocumentScannerPendingReceiver = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.machine_learning.mojom.DocumentScannerRemote = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerRemote = class {
   static get $interfaceName() {
     return 'chromeos.machine_learning.mojom.DocumentScanner';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.machine_learning.mojom.DocumentScannerPendingReceiver,
+      chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerPendingReceiver,
       handle);
-    this.$ = new chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler(this.proxy);
+    this.$ = new chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -92,7 +94,7 @@ chromeos.machine_learning.mojom.DocumentScannerRemote = class {
   }
 };
 
-chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -101,8 +103,8 @@ chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
-      chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
       [nv12_image]);
   }
 
@@ -110,8 +112,8 @@ chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec,
-      chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec,
       [jpeg_image]);
   }
 
@@ -119,15 +121,15 @@ chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec,
-      chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DoPostProcessing_ParamsSpec,
+      chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec,
       [jpeg_image, corners, rotation]);
   }
 
 };
 
-chromeos.machine_learning.mojom.DocumentScanner.getRemote = function() {
-  let remote = new chromeos.machine_learning.mojom.DocumentScannerRemote();
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner.getRemote = function() {
+  let remote = new chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -137,7 +139,7 @@ chromeos.machine_learning.mojom.DocumentScanner.getRemote = function() {
 };
 
 // ParamsSpec for DetectCornersFromNV12Image
-chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.DocumentScanner.DetectCornersFromNV12Image_Params',
@@ -150,7 +152,7 @@ chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_Param
   }
 };
 
-chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.DocumentScanner.DetectCornersFromNV12Image_ResponseParams',
@@ -164,7 +166,7 @@ chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_Respo
 };
 
 // ParamsSpec for DetectCornersFromJPEGImage
-chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.DocumentScanner.DetectCornersFromJPEGImage_Params',
@@ -177,7 +179,7 @@ chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_Param
   }
 };
 
-chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.DocumentScanner.DetectCornersFromJPEGImage_ResponseParams',
@@ -191,7 +193,7 @@ chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_Respo
 };
 
 // ParamsSpec for DoPostProcessing
-chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DoPostProcessing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.DocumentScanner.DoPostProcessing_Params',
@@ -206,7 +208,7 @@ chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec = {
   }
 };
 
-chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec = {
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.DocumentScanner.DoPostProcessing_ResponseParams',
@@ -220,6 +222,6 @@ chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsS
 };
 
 // Legacy compatibility
-chromeos.machine_learning.mojom.DocumentScannerPtr = chromeos.machine_learning.mojom.DocumentScannerRemote;
-chromeos.machine_learning.mojom.DocumentScannerRequest = chromeos.machine_learning.mojom.DocumentScannerPendingReceiver;
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerPtr = chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerRemote;
+chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerRequest = chromeos.machine_learning.machine_learning.mojom.mojom.DocumentScannerPendingReceiver;
 

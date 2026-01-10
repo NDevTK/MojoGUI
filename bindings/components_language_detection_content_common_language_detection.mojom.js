@@ -10,32 +10,32 @@ language_detection.mojom = language_detection.mojom || {};
 
 
 // Enum: LanguageDetectionModelStatus
-language_detection.mojom.LanguageDetectionModelStatus = {
+language_detection.mojom.mojom.LanguageDetectionModelStatus = {
   kReadily: 0,
   kAfterDownload: 1,
   kNotAvailable: 2,
 };
-language_detection.mojom.LanguageDetectionModelStatusSpec = { $: mojo.internal.Enum() };
+language_detection.mojom.mojom.LanguageDetectionModelStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: ContentLanguageDetectionDriver
-language_detection.mojom.ContentLanguageDetectionDriver = {};
+language_detection.mojom.mojom.ContentLanguageDetectionDriver = {};
 
-language_detection.mojom.ContentLanguageDetectionDriverPendingReceiver = class {
+language_detection.mojom.mojom.ContentLanguageDetectionDriverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-language_detection.mojom.ContentLanguageDetectionDriverRemote = class {
+language_detection.mojom.mojom.ContentLanguageDetectionDriverRemote = class {
   static get $interfaceName() {
     return 'language_detection.mojom.ContentLanguageDetectionDriver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      language_detection.mojom.ContentLanguageDetectionDriverPendingReceiver,
+      language_detection.mojom.mojom.ContentLanguageDetectionDriverPendingReceiver,
       handle);
-    this.$ = new language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler(this.proxy);
+    this.$ = new language_detection.mojom.mojom.ContentLanguageDetectionDriverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -47,7 +47,7 @@ language_detection.mojom.ContentLanguageDetectionDriverRemote = class {
   }
 };
 
-language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class {
+language_detection.mojom.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -56,8 +56,8 @@ language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec,
-      language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec,
+      language_detection.mojom.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec,
+      language_detection.mojom.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec,
       []);
   }
 
@@ -65,15 +65,15 @@ language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec,
-      language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec,
+      language_detection.mojom.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec,
+      language_detection.mojom.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec,
       []);
   }
 
 };
 
-language_detection.mojom.ContentLanguageDetectionDriver.getRemote = function() {
-  let remote = new language_detection.mojom.ContentLanguageDetectionDriverRemote();
+language_detection.mojom.mojom.ContentLanguageDetectionDriver.getRemote = function() {
+  let remote = new language_detection.mojom.mojom.ContentLanguageDetectionDriverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -83,7 +83,7 @@ language_detection.mojom.ContentLanguageDetectionDriver.getRemote = function() {
 };
 
 // ParamsSpec for GetLanguageDetectionModel
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec = {
+language_detection.mojom.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModel_Params',
@@ -95,7 +95,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
   }
 };
 
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec = {
+language_detection.mojom.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModel_ResponseParams',
@@ -109,7 +109,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
 };
 
 // ParamsSpec for GetLanguageDetectionModelStatus
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec = {
+language_detection.mojom.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModelStatus_Params',
@@ -121,7 +121,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
   }
 };
 
-language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec = {
+language_detection.mojom.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModelStatus_ResponseParams',
@@ -135,6 +135,6 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
 };
 
 // Legacy compatibility
-language_detection.mojom.ContentLanguageDetectionDriverPtr = language_detection.mojom.ContentLanguageDetectionDriverRemote;
-language_detection.mojom.ContentLanguageDetectionDriverRequest = language_detection.mojom.ContentLanguageDetectionDriverPendingReceiver;
+language_detection.mojom.mojom.ContentLanguageDetectionDriverPtr = language_detection.mojom.mojom.ContentLanguageDetectionDriverRemote;
+language_detection.mojom.mojom.ContentLanguageDetectionDriverRequest = language_detection.mojom.mojom.ContentLanguageDetectionDriverPendingReceiver;
 

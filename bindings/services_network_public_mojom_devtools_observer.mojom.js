@@ -7,10 +7,12 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
+var url = url || {};
 
 
 // Struct: URLRequestDevToolsInfo
-network.mojom.URLRequestDevToolsInfoSpec = {
+network.mojom.mojom.URLRequestDevToolsInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLRequestDevToolsInfo',
@@ -18,12 +20,12 @@ network.mojom.URLRequestDevToolsInfoSpec = {
       fields: [
         { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'referrer_policy', packedOffset: 20, packedBitOffset: 0, type: network.mojom.URLRequestReferrerPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'trust_token_params', packedOffset: 24, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'has_user_gesture', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resource_type', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'is_ad_related', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'referrer_policy', packedOffset: 28, packedBitOffset: 0, type: network.mojom.URLRequestReferrerPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'trust_token_params', packedOffset: 16, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true, minVersion: 0 },
+        { name: 'has_user_gesture', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'resource_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'is_ad_related', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -31,7 +33,7 @@ network.mojom.URLRequestDevToolsInfoSpec = {
 };
 
 // Struct: URLResponseHeadDevToolsInfo
-network.mojom.URLResponseHeadDevToolsInfoSpec = {
+network.mojom.mojom.URLResponseHeadDevToolsInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLResponseHeadDevToolsInfo',
@@ -42,19 +44,19 @@ network.mojom.URLResponseHeadDevToolsInfoSpec = {
         { name: 'mime_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'charset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'load_timing', packedOffset: 32, packedBitOffset: 0, type: network.mojom.LoadTimingInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'cert_status', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'encoded_data_length', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'was_in_prefetch_cache', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'cache_storage_cache_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'alpn_negotiated_protocol', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'alternate_protocol_usage', packedOffset: 72, packedBitOffset: 0, type: network.mojom.AlternateProtocolUsageSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_spdy', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'service_worker_response_source', packedOffset: 76, packedBitOffset: 0, type: network.mojom.FetchResponseSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_router_info', packedOffset: 80, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'ssl_info', packedOffset: 88, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'remote_endpoint', packedOffset: 96, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'emitted_extra_info', packedOffset: 44, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'cert_status', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'encoded_data_length', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'was_in_prefetch_cache', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'was_fetched_via_service_worker', packedOffset: 100, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'cache_storage_cache_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'alpn_negotiated_protocol', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'alternate_protocol_usage', packedOffset: 92, packedBitOffset: 0, type: network.mojom.AlternateProtocolUsageSpec, nullable: false, minVersion: 0 },
+        { name: 'was_fetched_via_spdy', packedOffset: 100, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'service_worker_response_source', packedOffset: 96, packedBitOffset: 0, type: network.mojom.FetchResponseSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_router_info', packedOffset: 64, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'ssl_info', packedOffset: 72, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'remote_endpoint', packedOffset: 80, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'emitted_extra_info', packedOffset: 100, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 112}]
     }
@@ -62,7 +64,7 @@ network.mojom.URLResponseHeadDevToolsInfoSpec = {
 };
 
 // Struct: OtherPartitionInfo
-network.mojom.OtherPartitionInfoSpec = {
+network.mojom.mojom.OtherPartitionInfoSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.OtherPartitionInfo',
@@ -76,24 +78,24 @@ network.mojom.OtherPartitionInfoSpec = {
 };
 
 // Interface: DevToolsObserver
-network.mojom.DevToolsObserver = {};
+network.mojom.mojom.DevToolsObserver = {};
 
-network.mojom.DevToolsObserverPendingReceiver = class {
+network.mojom.mojom.DevToolsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.DevToolsObserverRemote = class {
+network.mojom.mojom.DevToolsObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.DevToolsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.DevToolsObserverPendingReceiver,
+      network.mojom.mojom.DevToolsObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.DevToolsObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.DevToolsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -105,7 +107,7 @@ network.mojom.DevToolsObserverRemote = class {
   }
 };
 
-network.mojom.DevToolsObserverRemoteCallHandler = class {
+network.mojom.mojom.DevToolsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -114,7 +116,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnRawRequest_ParamsSpec,
       null,
       [devtool_request_id, cookies_with_access_result, headers, timestamp, client_security_state, other_partition_info, applied_network_conditions_id]);
   }
@@ -123,7 +125,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnRawResponse_ParamsSpec,
       null,
       [devtool_request_id, cookies_with_access_result, headers, raw_response_headers, resource_address_space, http_status_code, cookie_partition_key]);
   }
@@ -132,7 +134,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec,
       null,
       [devtool_request_id, headers]);
   }
@@ -141,7 +143,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec,
       null,
       [devtool_request_id, url, is_warning, resource_address_space, client_security_state]);
   }
@@ -150,7 +152,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec,
       null,
       [devtool_request_id, request_headers, request_info, initiator_url, initiator_devtool_request_id]);
   }
@@ -159,7 +161,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec,
       null,
       [devtool_request_id, url, head]);
   }
@@ -168,7 +170,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec,
       null,
       [devtool_request_id, status]);
   }
@@ -177,7 +179,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec,
       null,
       [devtool_request_id, result]);
   }
@@ -186,7 +188,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      network.mojom.DevToolsObserver_OnCorsError_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnCorsError_ParamsSpec,
       null,
       [devtool_request_id, initiator_origin, client_security_state, url, status, is_warning]);
   }
@@ -195,7 +197,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      network.mojom.DevToolsObserver_OnOrbError_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnOrbError_ParamsSpec,
       null,
       [devtools_request_id, url]);
   }
@@ -204,7 +206,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec,
       null,
       [devtool_request_id, url, error]);
   }
@@ -213,7 +215,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec,
       null,
       [devtool_request_id, url, issues]);
   }
@@ -222,7 +224,7 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec,
       null,
       [devtool_request_id, url, issue]);
   }
@@ -231,15 +233,15 @@ network.mojom.DevToolsObserverRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      network.mojom.DevToolsObserver_Clone_ParamsSpec,
+      network.mojom.mojom.DevToolsObserver_Clone_ParamsSpec,
       null,
       [listener]);
   }
 
 };
 
-network.mojom.DevToolsObserver.getRemote = function() {
-  let remote = new network.mojom.DevToolsObserverRemote();
+network.mojom.mojom.DevToolsObserver.getRemote = function() {
+  let remote = new network.mojom.mojom.DevToolsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -249,7 +251,7 @@ network.mojom.DevToolsObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnRawRequest
-network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnRawRequest_Params',
@@ -269,7 +271,7 @@ network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = {
 };
 
 // ParamsSpec for OnRawResponse
-network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnRawResponse_Params',
@@ -279,9 +281,9 @@ network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
         { name: 'cookies_with_access_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CookieAndLineWithAccessResultSpec, false), nullable: false, minVersion: 0 },
         { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpRawHeaderPairSpec, false), nullable: false, minVersion: 0 },
         { name: 'raw_response_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'resource_address_space', packedOffset: 32, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'http_status_code', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'cookie_partition_key', packedOffset: 40, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true, minVersion: 0 },
+        { name: 'resource_address_space', packedOffset: 40, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'http_status_code', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'cookie_partition_key', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CookiePartitionKeySpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -289,7 +291,7 @@ network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = {
 };
 
 // ParamsSpec for OnEarlyHintsResponse
-network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnEarlyHintsResponse_Params',
@@ -304,7 +306,7 @@ network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = {
 };
 
 // ParamsSpec for OnPrivateNetworkRequest
-network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnPrivateNetworkRequest_Params',
@@ -312,9 +314,9 @@ network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
       fields: [
         { name: 'devtool_request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'is_warning', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resource_address_space', packedOffset: 20, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'client_security_state', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: false, minVersion: 0 },
+        { name: 'is_warning', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'resource_address_space', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'client_security_state', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -322,7 +324,7 @@ network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = {
 };
 
 // ParamsSpec for OnCorsPreflightRequest
-network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnCorsPreflightRequest_Params',
@@ -340,7 +342,7 @@ network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = {
 };
 
 // ParamsSpec for OnCorsPreflightResponse
-network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnCorsPreflightResponse_Params',
@@ -356,7 +358,7 @@ network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = {
 };
 
 // ParamsSpec for OnCorsPreflightRequestCompleted
-network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnCorsPreflightRequestCompleted_Params',
@@ -371,7 +373,7 @@ network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = {
 };
 
 // ParamsSpec for OnTrustTokenOperationDone
-network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnTrustTokenOperationDone_Params',
@@ -386,7 +388,7 @@ network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = {
 };
 
 // ParamsSpec for OnCorsError
-network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnCorsError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnCorsError_Params',
@@ -405,7 +407,7 @@ network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = {
 };
 
 // ParamsSpec for OnOrbError
-network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnOrbError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnOrbError_Params',
@@ -420,7 +422,7 @@ network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = {
 };
 
 // ParamsSpec for OnSharedDictionaryError
-network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnSharedDictionaryError_Params',
@@ -436,7 +438,7 @@ network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = {
 };
 
 // ParamsSpec for OnSRIMessageSignatureIssue
-network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnSRIMessageSignatureIssue_Params',
@@ -452,7 +454,7 @@ network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = {
 };
 
 // ParamsSpec for OnUnencodedDigestError
-network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.OnUnencodedDigestError_Params',
@@ -468,7 +470,7 @@ network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = {
 };
 
 // ParamsSpec for Clone
-network.mojom.DevToolsObserver_Clone_ParamsSpec = {
+network.mojom.mojom.DevToolsObserver_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DevToolsObserver.Clone_Params',
@@ -482,6 +484,6 @@ network.mojom.DevToolsObserver_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.DevToolsObserverPtr = network.mojom.DevToolsObserverRemote;
-network.mojom.DevToolsObserverRequest = network.mojom.DevToolsObserverPendingReceiver;
+network.mojom.mojom.DevToolsObserverPtr = network.mojom.mojom.DevToolsObserverRemote;
+network.mojom.mojom.DevToolsObserverRequest = network.mojom.mojom.DevToolsObserverPendingReceiver;
 

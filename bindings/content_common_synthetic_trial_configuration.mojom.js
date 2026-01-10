@@ -10,7 +10,7 @@ content.mojom = content.mojom || {};
 
 
 // Struct: SyntheticTrialGroup
-content.mojom.SyntheticTrialGroupSpec = {
+content.mojom.mojom.SyntheticTrialGroupSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticTrialGroup',
@@ -25,24 +25,24 @@ content.mojom.SyntheticTrialGroupSpec = {
 };
 
 // Interface: SyntheticTrialConfiguration
-content.mojom.SyntheticTrialConfiguration = {};
+content.mojom.mojom.SyntheticTrialConfiguration = {};
 
-content.mojom.SyntheticTrialConfigurationPendingReceiver = class {
+content.mojom.mojom.SyntheticTrialConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.SyntheticTrialConfigurationRemote = class {
+content.mojom.mojom.SyntheticTrialConfigurationRemote = class {
   static get $interfaceName() {
     return 'content.mojom.SyntheticTrialConfiguration';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.SyntheticTrialConfigurationPendingReceiver,
+      content.mojom.mojom.SyntheticTrialConfigurationPendingReceiver,
       handle);
-    this.$ = new content.mojom.SyntheticTrialConfigurationRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.SyntheticTrialConfigurationRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ content.mojom.SyntheticTrialConfigurationRemote = class {
   }
 };
 
-content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
+content.mojom.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +63,7 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec,
+      content.mojom.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec,
       null,
       [groups]);
   }
@@ -72,15 +72,15 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec,
+      content.mojom.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec,
       null,
       [groups]);
   }
 
 };
 
-content.mojom.SyntheticTrialConfiguration.getRemote = function() {
-  let remote = new content.mojom.SyntheticTrialConfigurationRemote();
+content.mojom.mojom.SyntheticTrialConfiguration.getRemote = function() {
+  let remote = new content.mojom.mojom.SyntheticTrialConfigurationRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +90,7 @@ content.mojom.SyntheticTrialConfiguration.getRemote = function() {
 };
 
 // ParamsSpec for AddOrUpdateSyntheticTrialGroups
-content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec = {
+content.mojom.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticTrialConfiguration.AddOrUpdateSyntheticTrialGroups_Params',
@@ -104,7 +104,7 @@ content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params
 };
 
 // ParamsSpec for RemoveSyntheticTrialGroups
-content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec = {
+content.mojom.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.SyntheticTrialConfiguration.RemoveSyntheticTrialGroups_Params',
@@ -118,6 +118,6 @@ content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec 
 };
 
 // Legacy compatibility
-content.mojom.SyntheticTrialConfigurationPtr = content.mojom.SyntheticTrialConfigurationRemote;
-content.mojom.SyntheticTrialConfigurationRequest = content.mojom.SyntheticTrialConfigurationPendingReceiver;
+content.mojom.mojom.SyntheticTrialConfigurationPtr = content.mojom.mojom.SyntheticTrialConfigurationRemote;
+content.mojom.mojom.SyntheticTrialConfigurationRequest = content.mojom.mojom.SyntheticTrialConfigurationPendingReceiver;
 

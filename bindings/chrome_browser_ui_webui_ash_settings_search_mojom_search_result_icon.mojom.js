@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
-ash.settings.mojom = ash.settings.mojom || {};
+ash.settings.settings.mojom = ash.settings.settings.mojom || {};
 
 
 // Enum: SearchResultIcon
-ash.settings.mojom.SearchResultIcon = {
+ash.settings.settings.mojom.mojom.SearchResultIcon = {
   kA11y: 0,
   kAlwaysShowScrollbars: 1,
   kAndroid: 2,
@@ -94,4 +94,4 @@ ash.settings.mojom.SearchResultIcon = {
   kWifi: 79,
   kZoomIn: 80,
 };
-ash.settings.mojom.SearchResultIconSpec = { $: mojo.internal.Enum() };
+ash.settings.settings.mojom.mojom.SearchResultIconSpec = { $: mojo.internal.Enum() };

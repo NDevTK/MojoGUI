@@ -7,10 +7,11 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
+var skia = skia || {};
 
 
 // Struct: HdrMetadataCta861_3
-gfx.mojom.HdrMetadataCta861_3Spec = {
+gfx.mojom.mojom.HdrMetadataCta861_3Spec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.HdrMetadataCta861_3',
@@ -25,7 +26,7 @@ gfx.mojom.HdrMetadataCta861_3Spec = {
 };
 
 // Struct: HdrMetadataSmpteSt2086
-gfx.mojom.HdrMetadataSmpteSt2086Spec = {
+gfx.mojom.mojom.HdrMetadataSmpteSt2086Spec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.HdrMetadataSmpteSt2086',
@@ -41,7 +42,7 @@ gfx.mojom.HdrMetadataSmpteSt2086Spec = {
 };
 
 // Struct: HdrMetadataNdwl
-gfx.mojom.HdrMetadataNdwlSpec = {
+gfx.mojom.mojom.HdrMetadataNdwlSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.HdrMetadataNdwl',
@@ -55,7 +56,7 @@ gfx.mojom.HdrMetadataNdwlSpec = {
 };
 
 // Struct: HdrMetadataExtendedRange
-gfx.mojom.HdrMetadataExtendedRangeSpec = {
+gfx.mojom.mojom.HdrMetadataExtendedRangeSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.HdrMetadataExtendedRange',
@@ -70,7 +71,7 @@ gfx.mojom.HdrMetadataExtendedRangeSpec = {
 };
 
 // Struct: HDRMetadata
-gfx.mojom.HDRMetadataSpec = {
+gfx.mojom.mojom.HDRMetadataSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.HDRMetadata',

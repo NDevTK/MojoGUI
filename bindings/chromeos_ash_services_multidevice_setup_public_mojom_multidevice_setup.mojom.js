@@ -7,37 +7,37 @@
 // Module namespace
 var ash = ash || {};
 ash.multidevice_setup = ash.multidevice_setup || {};
-ash.multidevice_setup.mojom = ash.multidevice_setup.mojom || {};
+ash.multidevice_setup.multidevice_setup.mojom = ash.multidevice_setup.multidevice_setup.mojom || {};
 
 
 // Enum: CameraRollOptInEntryPoint
-ash.multidevice_setup.mojom.CameraRollOptInEntryPoint = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.CameraRollOptInEntryPoint = {
   kSetupFlow: 0,
   kOnboardingDialog: 1,
   kSettings: 2,
 };
-ash.multidevice_setup.mojom.CameraRollOptInEntryPointSpec = { $: mojo.internal.Enum() };
+ash.multidevice_setup.multidevice_setup.mojom.mojom.CameraRollOptInEntryPointSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventTypeForDebugging
-ash.multidevice_setup.mojom.EventTypeForDebugging = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.EventTypeForDebugging = {
   kNewUserPotentialHostExists: 0,
   kExistingUserConnectedHostSwitched: 1,
   kExistingUserNewChromebookAdded: 2,
 };
-ash.multidevice_setup.mojom.EventTypeForDebuggingSpec = { $: mojo.internal.Enum() };
+ash.multidevice_setup.multidevice_setup.mojom.mojom.EventTypeForDebuggingSpec = { $: mojo.internal.Enum() };
 
 // Enum: HostStatus
-ash.multidevice_setup.mojom.HostStatus = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatus = {
   kNoEligibleHosts: 0,
   kEligibleHostExistsButNoHostSet: 1,
   kHostSetLocallyButWaitingForBackendConfirmation: 2,
   kHostSetButNotYetVerified: 3,
   kHostVerified: 4,
 };
-ash.multidevice_setup.mojom.HostStatusSpec = { $: mojo.internal.Enum() };
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Feature
-ash.multidevice_setup.mojom.Feature = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.Feature = {
   kBetterTogetherSuite: 0,
   kInstantTethering: 1,
   kMessages: 2,
@@ -49,10 +49,10 @@ ash.multidevice_setup.mojom.Feature = {
   kEche: 8,
   kPhoneHubCameraRoll: 9,
 };
-ash.multidevice_setup.mojom.FeatureSpec = { $: mojo.internal.Enum() };
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeatureState
-ash.multidevice_setup.mojom.FeatureState = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureState = {
   kProhibitedByPolicy: 0,
   kDisabledByUser: 1,
   kEnabledByUser: 2,
@@ -65,10 +65,10 @@ ash.multidevice_setup.mojom.FeatureState = {
   kUnavailableNoVerifiedHost_NoEligibleHosts: 9,
   kUnavailableNoVerifiedHost_HostExistsButNotSetAndVerified: 10,
 };
-ash.multidevice_setup.mojom.FeatureStateSpec = { $: mojo.internal.Enum() };
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: HostDevice
-ash.multidevice_setup.mojom.HostDeviceSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostDeviceSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.HostDevice',
@@ -83,24 +83,24 @@ ash.multidevice_setup.mojom.HostDeviceSpec = {
 };
 
 // Interface: AccountStatusChangeDelegate
-ash.multidevice_setup.mojom.AccountStatusChangeDelegate = {};
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate = {};
 
-ash.multidevice_setup.mojom.AccountStatusChangeDelegatePendingReceiver = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegateRemote = class {
   static get $interfaceName() {
     return 'ash.multidevice_setup.mojom.AccountStatusChangeDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.multidevice_setup.mojom.AccountStatusChangeDelegatePendingReceiver,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegatePendingReceiver,
       handle);
-    this.$ = new ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler(this.proxy);
+    this.$ = new ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -112,7 +112,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote = class {
   }
 };
 
-ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -121,7 +121,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec,
       null,
       []);
   }
@@ -130,7 +130,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec,
       null,
       []);
   }
@@ -139,7 +139,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec,
       null,
       [new_host_device_name]);
   }
@@ -148,7 +148,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec,
       null,
       [new_host_device_name]);
   }
@@ -157,15 +157,15 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemoteCallHandler = class
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.multidevice_setup.mojom.AccountStatusChangeDelegate.getRemote = function() {
-  let remote = new ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote();
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate.getRemote = function() {
+  let remote = new ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -175,7 +175,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate.getRemote = function() {
 };
 
 // ParamsSpec for OnPotentialHostExistsForNewUser
-ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.AccountStatusChangeDelegate.OnPotentialHostExistsForNewUser_Params',
@@ -188,7 +188,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsFor
 };
 
 // ParamsSpec for OnNoLongerNewUser
-ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.AccountStatusChangeDelegate.OnNoLongerNewUser_Params',
@@ -201,7 +201,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_Params
 };
 
 // ParamsSpec for OnConnectedHostSwitchedForExistingUser
-ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.AccountStatusChangeDelegate.OnConnectedHostSwitchedForExistingUser_Params',
@@ -215,7 +215,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedF
 };
 
 // ParamsSpec for OnNewChromebookAddedForExistingUser
-ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.AccountStatusChangeDelegate.OnNewChromebookAddedForExistingUser_Params',
@@ -229,7 +229,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForE
 };
 
 // ParamsSpec for OnBecameEligibleForWifiSync
-ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.AccountStatusChangeDelegate.OnBecameEligibleForWifiSync_Params',
@@ -242,29 +242,29 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiS
 };
 
 // Legacy compatibility
-ash.multidevice_setup.mojom.AccountStatusChangeDelegatePtr = ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote;
-ash.multidevice_setup.mojom.AccountStatusChangeDelegateRequest = ash.multidevice_setup.mojom.AccountStatusChangeDelegatePendingReceiver;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegatePtr = ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegateRemote;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegateRequest = ash.multidevice_setup.multidevice_setup.mojom.mojom.AccountStatusChangeDelegatePendingReceiver;
 
 
 // Interface: HostStatusObserver
-ash.multidevice_setup.mojom.HostStatusObserver = {};
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserver = {};
 
-ash.multidevice_setup.mojom.HostStatusObserverPendingReceiver = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.multidevice_setup.mojom.HostStatusObserverRemote = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverRemote = class {
   static get $interfaceName() {
     return 'ash.multidevice_setup.mojom.HostStatusObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.multidevice_setup.mojom.HostStatusObserverPendingReceiver,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverPendingReceiver,
       handle);
-    this.$ = new ash.multidevice_setup.mojom.HostStatusObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -276,7 +276,7 @@ ash.multidevice_setup.mojom.HostStatusObserverRemote = class {
   }
 };
 
-ash.multidevice_setup.mojom.HostStatusObserverRemoteCallHandler = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -285,15 +285,15 @@ ash.multidevice_setup.mojom.HostStatusObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec,
       null,
       [host_status, host_device]);
   }
 
 };
 
-ash.multidevice_setup.mojom.HostStatusObserver.getRemote = function() {
-  let remote = new ash.multidevice_setup.mojom.HostStatusObserverRemote();
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserver.getRemote = function() {
+  let remote = new ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -303,14 +303,14 @@ ash.multidevice_setup.mojom.HostStatusObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnHostStatusChanged
-ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.HostStatusObserver.OnHostStatusChanged_Params',
       packedSize: 24,
       fields: [
-        { name: 'host_status', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice_setup.mojom.HostStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'host_device', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: true, minVersion: 0 },
+        { name: 'host_status', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice_setup.mojom.HostStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'host_device', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -318,29 +318,29 @@ ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec = 
 };
 
 // Legacy compatibility
-ash.multidevice_setup.mojom.HostStatusObserverPtr = ash.multidevice_setup.mojom.HostStatusObserverRemote;
-ash.multidevice_setup.mojom.HostStatusObserverRequest = ash.multidevice_setup.mojom.HostStatusObserverPendingReceiver;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverPtr = ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverRemote;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverRequest = ash.multidevice_setup.multidevice_setup.mojom.mojom.HostStatusObserverPendingReceiver;
 
 
 // Interface: FeatureStateObserver
-ash.multidevice_setup.mojom.FeatureStateObserver = {};
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserver = {};
 
-ash.multidevice_setup.mojom.FeatureStateObserverPendingReceiver = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.multidevice_setup.mojom.FeatureStateObserverRemote = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverRemote = class {
   static get $interfaceName() {
     return 'ash.multidevice_setup.mojom.FeatureStateObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.multidevice_setup.mojom.FeatureStateObserverPendingReceiver,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverPendingReceiver,
       handle);
-    this.$ = new ash.multidevice_setup.mojom.FeatureStateObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -352,7 +352,7 @@ ash.multidevice_setup.mojom.FeatureStateObserverRemote = class {
   }
 };
 
-ash.multidevice_setup.mojom.FeatureStateObserverRemoteCallHandler = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -361,15 +361,15 @@ ash.multidevice_setup.mojom.FeatureStateObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec,
       null,
       [feature_states_map]);
   }
 
 };
 
-ash.multidevice_setup.mojom.FeatureStateObserver.getRemote = function() {
-  let remote = new ash.multidevice_setup.mojom.FeatureStateObserverRemote();
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserver.getRemote = function() {
+  let remote = new ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -379,7 +379,7 @@ ash.multidevice_setup.mojom.FeatureStateObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnFeatureStatesChanged
-ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.FeatureStateObserver.OnFeatureStatesChanged_Params',
@@ -393,29 +393,29 @@ ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSp
 };
 
 // Legacy compatibility
-ash.multidevice_setup.mojom.FeatureStateObserverPtr = ash.multidevice_setup.mojom.FeatureStateObserverRemote;
-ash.multidevice_setup.mojom.FeatureStateObserverRequest = ash.multidevice_setup.mojom.FeatureStateObserverPendingReceiver;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverPtr = ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverRemote;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverRequest = ash.multidevice_setup.multidevice_setup.mojom.mojom.FeatureStateObserverPendingReceiver;
 
 
 // Interface: MultiDeviceSetup
-ash.multidevice_setup.mojom.MultiDeviceSetup = {};
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup = {};
 
-ash.multidevice_setup.mojom.MultiDeviceSetupPendingReceiver = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetupRemote = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupRemote = class {
   static get $interfaceName() {
     return 'ash.multidevice_setup.mojom.MultiDeviceSetup';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.multidevice_setup.mojom.MultiDeviceSetupPendingReceiver,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupPendingReceiver,
       handle);
-    this.$ = new ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler(this.proxy);
+    this.$ = new ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -427,7 +427,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemote = class {
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -436,7 +436,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec,
       null,
       [delegate]);
   }
@@ -445,7 +445,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -454,7 +454,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -463,8 +463,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec,
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec,
       []);
   }
 
@@ -472,8 +472,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec,
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec,
       []);
   }
 
@@ -481,8 +481,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec,
-      ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec,
       [instance_id_or_legacy_device_id, auth_token]);
   }
 
@@ -490,7 +490,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec,
       null,
       []);
   }
@@ -499,8 +499,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec,
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec,
       []);
   }
 
@@ -508,8 +508,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec,
-      ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec,
       [feature, enabled, auth_token]);
   }
 
@@ -517,8 +517,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec,
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec,
       []);
   }
 
@@ -526,8 +526,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec,
-      ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec,
       []);
   }
 
@@ -535,8 +535,8 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec,
-      ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec,
       [type]);
   }
 
@@ -544,7 +544,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec,
       null,
       [qs_phone_instance_id]);
   }
@@ -553,15 +553,15 @@ ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec,
-      ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup.getRemote = function() {
-  let remote = new ash.multidevice_setup.mojom.MultiDeviceSetupRemote();
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup.getRemote = function() {
+  let remote = new ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -571,7 +571,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup.getRemote = function() {
 };
 
 // ParamsSpec for SetAccountStatusChangeDelegate
-ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetAccountStatusChangeDelegate_Params',
@@ -585,7 +585,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_Para
 };
 
 // ParamsSpec for AddHostStatusObserver
-ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.AddHostStatusObserver_Params',
@@ -599,7 +599,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec = 
 };
 
 // ParamsSpec for AddFeatureStateObserver
-ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.AddFeatureStateObserver_Params',
@@ -613,7 +613,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec 
 };
 
 // ParamsSpec for GetEligibleHostDevices
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetEligibleHostDevices_Params',
@@ -625,7 +625,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec =
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetEligibleHostDevices_ResponseParams',
@@ -639,7 +639,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponsePara
 };
 
 // ParamsSpec for GetEligibleActiveHostDevices
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetEligibleActiveHostDevices_Params',
@@ -651,7 +651,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_Params
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetEligibleActiveHostDevices_ResponseParams',
@@ -665,7 +665,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_Respon
 };
 
 // ParamsSpec for SetHostDevice
-ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetHostDevice_Params',
@@ -679,7 +679,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec = {
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetHostDevice_ResponseParams',
@@ -693,7 +693,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec = 
 };
 
 // ParamsSpec for RemoveHostDevice
-ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.RemoveHostDevice_Params',
@@ -706,7 +706,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec = {
 };
 
 // ParamsSpec for GetHostStatus
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetHostStatus_Params',
@@ -718,14 +718,14 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec = {
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetHostStatus_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'host_status', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice_setup.mojom.HostStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'host_device', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: true, minVersion: 0 },
+        { name: 'host_status', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice_setup.mojom.HostStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'host_device', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice.mojom.RemoteDeviceSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -733,22 +733,22 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec = 
 };
 
 // ParamsSpec for SetFeatureEnabledState
-ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetFeatureEnabledState_Params',
       packedSize: 24,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: ash.multidevice_setup.mojom.FeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'feature', packedOffset: 8, packedBitOffset: 0, type: ash.multidevice_setup.mojom.FeatureSpec, nullable: false, minVersion: 0 },
+        { name: 'enabled', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetFeatureEnabledState_ResponseParams',
@@ -762,7 +762,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponsePara
 };
 
 // ParamsSpec for GetFeatureStates
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetFeatureStates_Params',
@@ -774,7 +774,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec = {
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetFeatureStates_ResponseParams',
@@ -788,7 +788,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec
 };
 
 // ParamsSpec for RetrySetHostNow
-ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.RetrySetHostNow_Params',
@@ -800,7 +800,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec = {
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.RetrySetHostNow_ResponseParams',
@@ -814,7 +814,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec 
 };
 
 // ParamsSpec for TriggerEventForDebugging
-ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.TriggerEventForDebugging_Params',
@@ -827,7 +827,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.TriggerEventForDebugging_ResponseParams',
@@ -841,7 +841,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponsePa
 };
 
 // ParamsSpec for SetQuickStartPhoneInstanceID
-ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.SetQuickStartPhoneInstanceID_Params',
@@ -855,7 +855,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_Params
 };
 
 // ParamsSpec for GetQuickStartPhoneInstanceID
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetQuickStartPhoneInstanceID_Params',
@@ -867,7 +867,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_Params
   }
 };
 
-ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.MultiDeviceSetup.GetQuickStartPhoneInstanceID_ResponseParams',
@@ -881,29 +881,29 @@ ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_Respon
 };
 
 // Legacy compatibility
-ash.multidevice_setup.mojom.MultiDeviceSetupPtr = ash.multidevice_setup.mojom.MultiDeviceSetupRemote;
-ash.multidevice_setup.mojom.MultiDeviceSetupRequest = ash.multidevice_setup.mojom.MultiDeviceSetupPendingReceiver;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupPtr = ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupRemote;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupRequest = ash.multidevice_setup.multidevice_setup.mojom.mojom.MultiDeviceSetupPendingReceiver;
 
 
 // Interface: PrivilegedHostDeviceSetter
-ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter = {};
+ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetter = {};
 
-ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterPendingReceiver = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemote = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterRemote = class {
   static get $interfaceName() {
     return 'ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterPendingReceiver,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterPendingReceiver,
       handle);
-    this.$ = new ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemoteCallHandler(this.proxy);
+    this.$ = new ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -915,7 +915,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemote = class {
   }
 };
 
-ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemoteCallHandler = class {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -924,15 +924,15 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec,
-      ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec,
+      ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec,
       [instance_id_or_legacy_device_id]);
   }
 
 };
 
-ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.getRemote = function() {
-  let remote = new ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemote();
+ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetter.getRemote = function() {
+  let remote = new ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -942,7 +942,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.getRemote = function() {
 };
 
 // ParamsSpec for SetHostDevice
-ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.SetHostDevice_Params',
@@ -955,7 +955,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec 
   }
 };
 
-ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec = {
+ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.SetHostDevice_ResponseParams',
@@ -969,6 +969,6 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponsePar
 };
 
 // Legacy compatibility
-ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterPtr = ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemote;
-ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRequest = ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterPendingReceiver;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterPtr = ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterRemote;
+ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterRequest = ash.multidevice_setup.multidevice_setup.mojom.mojom.PrivilegedHostDeviceSetterPendingReceiver;
 

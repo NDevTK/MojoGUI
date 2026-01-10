@@ -10,9 +10,9 @@ sandbox.mojom = sandbox.mojom || {};
 
 
 // Enum: Context
-sandbox.mojom.Context = {
+sandbox.mojom.mojom.Context = {
   kBrowser: 0,
   kPrivilegedUtility: 1,
   kLowest: 2,
 };
-sandbox.mojom.ContextSpec = { $: mojo.internal.Enum() };
+sandbox.mojom.mojom.ContextSpec = { $: mojo.internal.Enum() };

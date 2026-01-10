@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: ConnectionEndpointMetadata
-network.mojom.ConnectionEndpointMetadataSpec = {
+network.mojom.mojom.ConnectionEndpointMetadataSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ConnectionEndpointMetadata',

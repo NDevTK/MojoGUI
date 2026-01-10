@@ -10,7 +10,7 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Struct: DoubleValue
-crosapi.mojom.DoubleValueSpec = {
+crosapi.mojom.mojom.DoubleValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.DoubleValue',
@@ -24,7 +24,7 @@ crosapi.mojom.DoubleValueSpec = {
 };
 
 // Struct: Int64Value
-crosapi.mojom.Int64ValueSpec = {
+crosapi.mojom.mojom.Int64ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.Int64Value',
@@ -38,7 +38,7 @@ crosapi.mojom.Int64ValueSpec = {
 };
 
 // Struct: UInt8Value
-crosapi.mojom.UInt8ValueSpec = {
+crosapi.mojom.mojom.UInt8ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.UInt8Value',
@@ -52,7 +52,7 @@ crosapi.mojom.UInt8ValueSpec = {
 };
 
 // Struct: UInt16Value
-crosapi.mojom.UInt16ValueSpec = {
+crosapi.mojom.mojom.UInt16ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.UInt16Value',
@@ -66,7 +66,7 @@ crosapi.mojom.UInt16ValueSpec = {
 };
 
 // Struct: UInt32Value
-crosapi.mojom.UInt32ValueSpec = {
+crosapi.mojom.mojom.UInt32ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.UInt32Value',
@@ -80,7 +80,7 @@ crosapi.mojom.UInt32ValueSpec = {
 };
 
 // Struct: UInt64Value
-crosapi.mojom.UInt64ValueSpec = {
+crosapi.mojom.mojom.UInt64ValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.UInt64Value',
@@ -94,7 +94,7 @@ crosapi.mojom.UInt64ValueSpec = {
 };
 
 // Struct: BoolValue
-crosapi.mojom.BoolValueSpec = {
+crosapi.mojom.mojom.BoolValueSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.BoolValue',

@@ -7,27 +7,28 @@
 // Module namespace
 var visitedlink = visitedlink || {};
 visitedlink.mojom = visitedlink.mojom || {};
+var url = url || {};
 
 
 // Interface: VisitedLinkNotificationSink
-visitedlink.mojom.VisitedLinkNotificationSink = {};
+visitedlink.mojom.mojom.VisitedLinkNotificationSink = {};
 
-visitedlink.mojom.VisitedLinkNotificationSinkPendingReceiver = class {
+visitedlink.mojom.mojom.VisitedLinkNotificationSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-visitedlink.mojom.VisitedLinkNotificationSinkRemote = class {
+visitedlink.mojom.mojom.VisitedLinkNotificationSinkRemote = class {
   static get $interfaceName() {
     return 'visitedlink.mojom.VisitedLinkNotificationSink';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      visitedlink.mojom.VisitedLinkNotificationSinkPendingReceiver,
+      visitedlink.mojom.mojom.VisitedLinkNotificationSinkPendingReceiver,
       handle);
-    this.$ = new visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler(this.proxy);
+    this.$ = new visitedlink.mojom.mojom.VisitedLinkNotificationSinkRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemote = class {
   }
 };
 
-visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
+visitedlink.mojom.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +49,7 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec,
+      visitedlink.mojom.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec,
       null,
       [table_region]);
   }
@@ -57,7 +58,7 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec,
+      visitedlink.mojom.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec,
       null,
       [link_hashes]);
   }
@@ -66,7 +67,7 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec,
+      visitedlink.mojom.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec,
       null,
       [invalidate_cached_hashes]);
   }
@@ -75,15 +76,15 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec,
+      visitedlink.mojom.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec,
       null,
       [origin_salts]);
   }
 
 };
 
-visitedlink.mojom.VisitedLinkNotificationSink.getRemote = function() {
-  let remote = new visitedlink.mojom.VisitedLinkNotificationSinkRemote();
+visitedlink.mojom.mojom.VisitedLinkNotificationSink.getRemote = function() {
+  let remote = new visitedlink.mojom.mojom.VisitedLinkNotificationSinkRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +94,7 @@ visitedlink.mojom.VisitedLinkNotificationSink.getRemote = function() {
 };
 
 // ParamsSpec for UpdateVisitedLinks
-visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
+visitedlink.mojom.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.UpdateVisitedLinks_Params',
@@ -107,7 +108,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec = {
 };
 
 // ParamsSpec for AddVisitedLinks
-visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
+visitedlink.mojom.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.AddVisitedLinks_Params',
@@ -121,7 +122,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec = {
 };
 
 // ParamsSpec for ResetVisitedLinks
-visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
+visitedlink.mojom.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.ResetVisitedLinks_Params',
@@ -135,7 +136,7 @@ visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateOriginSalts
-visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
+visitedlink.mojom.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'visitedlink.mojom.VisitedLinkNotificationSink.UpdateOriginSalts_Params',
@@ -149,6 +150,6 @@ visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec = {
 };
 
 // Legacy compatibility
-visitedlink.mojom.VisitedLinkNotificationSinkPtr = visitedlink.mojom.VisitedLinkNotificationSinkRemote;
-visitedlink.mojom.VisitedLinkNotificationSinkRequest = visitedlink.mojom.VisitedLinkNotificationSinkPendingReceiver;
+visitedlink.mojom.mojom.VisitedLinkNotificationSinkPtr = visitedlink.mojom.mojom.VisitedLinkNotificationSinkRemote;
+visitedlink.mojom.mojom.VisitedLinkNotificationSinkRequest = visitedlink.mojom.mojom.VisitedLinkNotificationSinkPendingReceiver;
 

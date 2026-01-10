@@ -10,7 +10,7 @@ viz.mojom = viz.mojom || {};
 
 
 // Struct: FilterOperations
-viz.mojom.FilterOperationsSpec = {
+viz.mojom.mojom.FilterOperationsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FilterOperations',

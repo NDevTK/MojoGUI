@@ -7,25 +7,26 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var url = url || {};
 
 
 // Enum: InsecureRequestsPolicy
-blink.mojom.InsecureRequestsPolicy = {
+blink.mojom.mojom.InsecureRequestsPolicy = {
   kDoNotUpgrade: 0,
   kUpgrade: 1,
 };
-blink.mojom.InsecureRequestsPolicySpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.InsecureRequestsPolicySpec = { $: mojo.internal.Enum() };
 
 // Struct: FetchClientSettingsObject
-blink.mojom.FetchClientSettingsObjectSpec = {
+blink.mojom.mojom.FetchClientSettingsObjectSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FetchClientSettingsObject',
       packedSize: 24,
       fields: [
-        { name: 'referrer_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'outgoing_referrer', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'insecure_requests_policy', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.InsecureRequestsPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'referrer_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'outgoing_referrer', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'insecure_requests_policy', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.InsecureRequestsPolicySpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

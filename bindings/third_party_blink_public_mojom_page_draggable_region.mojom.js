@@ -7,10 +7,12 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: DraggableRegion
-blink.mojom.DraggableRegionSpec = {
+blink.mojom.mojom.DraggableRegionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DraggableRegion',

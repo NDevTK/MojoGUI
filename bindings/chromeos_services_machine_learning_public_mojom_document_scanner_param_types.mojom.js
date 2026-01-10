@@ -7,14 +7,14 @@
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
+chromeos.machine_learning.machine_learning.mojom = chromeos.machine_learning.machine_learning.mojom || {};
 
 
 // Enum: Rotation
-chromeos.machine_learning.mojom.Rotation = {
+chromeos.machine_learning.machine_learning.mojom.mojom.Rotation = {
   ROTATION_0: 0,
   ROTATION_90: 1,
   ROTATION_180: 2,
   ROTATION_270: 3,
 };
-chromeos.machine_learning.mojom.RotationSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.machine_learning.mojom.mojom.RotationSpec = { $: mojo.internal.Enum() };

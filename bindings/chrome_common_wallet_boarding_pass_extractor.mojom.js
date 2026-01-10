@@ -10,24 +10,24 @@ wallet.mojom = wallet.mojom || {};
 
 
 // Interface: BoardingPassExtractor
-wallet.mojom.BoardingPassExtractor = {};
+wallet.mojom.mojom.BoardingPassExtractor = {};
 
-wallet.mojom.BoardingPassExtractorPendingReceiver = class {
+wallet.mojom.mojom.BoardingPassExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-wallet.mojom.BoardingPassExtractorRemote = class {
+wallet.mojom.mojom.BoardingPassExtractorRemote = class {
   static get $interfaceName() {
     return 'wallet.mojom.BoardingPassExtractor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      wallet.mojom.BoardingPassExtractorPendingReceiver,
+      wallet.mojom.mojom.BoardingPassExtractorPendingReceiver,
       handle);
-    this.$ = new wallet.mojom.BoardingPassExtractorRemoteCallHandler(this.proxy);
+    this.$ = new wallet.mojom.mojom.BoardingPassExtractorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ wallet.mojom.BoardingPassExtractorRemote = class {
   }
 };
 
-wallet.mojom.BoardingPassExtractorRemoteCallHandler = class {
+wallet.mojom.mojom.BoardingPassExtractorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ wallet.mojom.BoardingPassExtractorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec,
-      wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec,
+      wallet.mojom.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec,
+      wallet.mojom.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec,
       []);
   }
 
 };
 
-wallet.mojom.BoardingPassExtractor.getRemote = function() {
-  let remote = new wallet.mojom.BoardingPassExtractorRemote();
+wallet.mojom.mojom.BoardingPassExtractor.getRemote = function() {
+  let remote = new wallet.mojom.mojom.BoardingPassExtractorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ wallet.mojom.BoardingPassExtractor.getRemote = function() {
 };
 
 // ParamsSpec for ExtractBoardingPass
-wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = {
+wallet.mojom.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = {
   $: {
     structSpec: {
       name: 'wallet.mojom.BoardingPassExtractor.ExtractBoardingPass_Params',
@@ -78,7 +78,7 @@ wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = {
   }
 };
 
-wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = {
+wallet.mojom.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'wallet.mojom.BoardingPassExtractor.ExtractBoardingPass_ResponseParams',
@@ -92,6 +92,6 @@ wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-wallet.mojom.BoardingPassExtractorPtr = wallet.mojom.BoardingPassExtractorRemote;
-wallet.mojom.BoardingPassExtractorRequest = wallet.mojom.BoardingPassExtractorPendingReceiver;
+wallet.mojom.mojom.BoardingPassExtractorPtr = wallet.mojom.mojom.BoardingPassExtractorRemote;
+wallet.mojom.mojom.BoardingPassExtractorRequest = wallet.mojom.mojom.BoardingPassExtractorPendingReceiver;
 

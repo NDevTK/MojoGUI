@@ -10,7 +10,7 @@ gpu.mojom = gpu.mojom || {};
 
 
 // Enum: VkPhysicalDeviceType
-gpu.mojom.VkPhysicalDeviceType = {
+gpu.mojom.mojom.VkPhysicalDeviceType = {
   OTHER: 0,
   INTEGRATED_GPU: 1,
   DISCRETE_GPU: 2,
@@ -18,10 +18,10 @@ gpu.mojom.VkPhysicalDeviceType = {
   CPU: 4,
   INVALID_VALUE: 5,
 };
-gpu.mojom.VkPhysicalDeviceTypeSpec = { $: mojo.internal.Enum() };
+gpu.mojom.mojom.VkPhysicalDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: VkExtensionProperties
-gpu.mojom.VkExtensionPropertiesSpec = {
+gpu.mojom.mojom.VkExtensionPropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkExtensionProperties',
@@ -36,16 +36,16 @@ gpu.mojom.VkExtensionPropertiesSpec = {
 };
 
 // Struct: VkLayerProperties
-gpu.mojom.VkLayerPropertiesSpec = {
+gpu.mojom.mojom.VkLayerPropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkLayerProperties',
       packedSize: 32,
       fields: [
         { name: 'layerName', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'specVersion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'implementationVersion', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'specVersion', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'implementationVersion', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -53,118 +53,118 @@ gpu.mojom.VkLayerPropertiesSpec = {
 };
 
 // Struct: VkPhysicalDeviceLimits
-gpu.mojom.VkPhysicalDeviceLimitsSpec = {
+gpu.mojom.mojom.VkPhysicalDeviceLimitsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkPhysicalDeviceLimits',
       packedSize: 488,
       fields: [
-        { name: 'maxImageDimension1D', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxImageDimension2D', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxImageDimension3D', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxImageDimensionCube', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxImageArrayLayers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxTexelBufferElements', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxUniformBufferRange', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxStorageBufferRange', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxPushConstantsSize', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxMemoryAllocationCount', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxSamplerAllocationCount', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bufferImageGranularity', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'sparseAddressSpaceSize', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'maxBoundDescriptorSets', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxPerStageDescriptorSamplers', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxPerStageDescriptorUniformBuffers', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxPerStageDescriptorStorageBuffers', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxPerStageDescriptorSampledImages', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxPerStageDescriptorStorageImages', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxPerStageDescriptorInputAttachments', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxPerStageResources', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDescriptorSetSamplers', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDescriptorSetUniformBuffers', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDescriptorSetUniformBuffersDynamic', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDescriptorSetStorageBuffers', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDescriptorSetStorageBuffersDynamic', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDescriptorSetSampledImages', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDescriptorSetStorageImages', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDescriptorSetInputAttachments', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxVertexInputAttributes', packedOffset: 124, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxVertexInputBindings', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxVertexInputAttributeOffset', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxVertexInputBindingStride', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxVertexOutputComponents', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxTessellationGenerationLevel', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxTessellationPatchSize', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxTessellationControlPerVertexInputComponents', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxTessellationControlPerVertexOutputComponents', packedOffset: 156, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxTessellationControlPerPatchOutputComponents', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxTessellationControlTotalOutputComponents', packedOffset: 164, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxTessellationEvaluationInputComponents', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxTessellationEvaluationOutputComponents', packedOffset: 172, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxGeometryShaderInvocations', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxGeometryInputComponents', packedOffset: 180, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxGeometryOutputComponents', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxGeometryOutputVertices', packedOffset: 188, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxGeometryTotalOutputComponents', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxFragmentInputComponents', packedOffset: 196, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxFragmentOutputAttachments', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxFragmentDualSrcAttachments', packedOffset: 204, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxFragmentCombinedOutputResources', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxComputeSharedMemorySize', packedOffset: 212, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxComputeWorkGroupCount', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'maxComputeWorkGroupInvocations', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxComputeWorkGroupSize', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'subPixelPrecisionBits', packedOffset: 228, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'subTexelPrecisionBits', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mipmapPrecisionBits', packedOffset: 244, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDrawIndexedIndexValue', packedOffset: 248, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxDrawIndirectCount', packedOffset: 252, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxSamplerLodBias', packedOffset: 256, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'maxSamplerAnisotropy', packedOffset: 260, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'maxViewports', packedOffset: 264, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxViewportDimensions', packedOffset: 272, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'viewportBoundsRange', packedOffset: 280, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'viewportSubPixelBits', packedOffset: 268, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'minMemoryMapAlignment', packedOffset: 288, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'minTexelBufferOffsetAlignment', packedOffset: 296, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'minUniformBufferOffsetAlignment', packedOffset: 304, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'minStorageBufferOffsetAlignment', packedOffset: 312, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'minTexelOffset', packedOffset: 320, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'maxTexelOffset', packedOffset: 324, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'minTexelGatherOffset', packedOffset: 328, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'maxTexelGatherOffset', packedOffset: 332, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'minInterpolationOffset', packedOffset: 336, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'maxInterpolationOffset', packedOffset: 340, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'subPixelInterpolationOffsetBits', packedOffset: 344, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxFramebufferWidth', packedOffset: 348, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxFramebufferHeight', packedOffset: 352, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxFramebufferLayers', packedOffset: 356, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'framebufferColorSampleCounts', packedOffset: 360, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'framebufferDepthSampleCounts', packedOffset: 364, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'framebufferStencilSampleCounts', packedOffset: 368, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'framebufferNoAttachmentsSampleCounts', packedOffset: 372, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxColorAttachments', packedOffset: 376, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sampledImageColorSampleCounts', packedOffset: 380, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sampledImageIntegerSampleCounts', packedOffset: 384, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sampledImageDepthSampleCounts', packedOffset: 388, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sampledImageStencilSampleCounts', packedOffset: 392, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'storageImageSampleCounts', packedOffset: 396, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxSampleMaskWords', packedOffset: 400, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'timestampComputeAndGraphics', packedOffset: 404, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'timestampPeriod', packedOffset: 408, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'maxClipDistances', packedOffset: 412, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxCullDistances', packedOffset: 416, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'maxCombinedClipAndCullDistances', packedOffset: 420, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'discreteQueuePriorities', packedOffset: 424, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pointSizeRange', packedOffset: 432, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'lineWidthRange', packedOffset: 440, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'pointSizeGranularity', packedOffset: 428, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'lineWidthGranularity', packedOffset: 448, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'strictLines', packedOffset: 404, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'standardSampleLocations', packedOffset: 404, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'optimalBufferCopyOffsetAlignment', packedOffset: 456, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'optimalBufferCopyRowPitchAlignment', packedOffset: 464, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'nonCoherentAtomSize', packedOffset: 472, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'maxImageDimension1D', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxImageDimension2D', packedOffset: 124, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxImageDimension3D', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxImageDimensionCube', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxImageArrayLayers', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxTexelBufferElements', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxUniformBufferRange', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxStorageBufferRange', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxPushConstantsSize', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxMemoryAllocationCount', packedOffset: 156, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxSamplerAllocationCount', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bufferImageGranularity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'sparseAddressSpaceSize', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'maxBoundDescriptorSets', packedOffset: 164, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxPerStageDescriptorSamplers', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxPerStageDescriptorUniformBuffers', packedOffset: 172, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxPerStageDescriptorStorageBuffers', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxPerStageDescriptorSampledImages', packedOffset: 180, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxPerStageDescriptorStorageImages', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxPerStageDescriptorInputAttachments', packedOffset: 188, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxPerStageResources', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDescriptorSetSamplers', packedOffset: 196, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDescriptorSetUniformBuffers', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDescriptorSetUniformBuffersDynamic', packedOffset: 204, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDescriptorSetStorageBuffers', packedOffset: 208, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDescriptorSetStorageBuffersDynamic', packedOffset: 212, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDescriptorSetSampledImages', packedOffset: 216, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDescriptorSetStorageImages', packedOffset: 220, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDescriptorSetInputAttachments', packedOffset: 224, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxVertexInputAttributes', packedOffset: 228, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxVertexInputBindings', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxVertexInputAttributeOffset', packedOffset: 236, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxVertexInputBindingStride', packedOffset: 240, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxVertexOutputComponents', packedOffset: 244, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxTessellationGenerationLevel', packedOffset: 248, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxTessellationPatchSize', packedOffset: 252, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxTessellationControlPerVertexInputComponents', packedOffset: 256, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxTessellationControlPerVertexOutputComponents', packedOffset: 260, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxTessellationControlPerPatchOutputComponents', packedOffset: 264, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxTessellationControlTotalOutputComponents', packedOffset: 268, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxTessellationEvaluationInputComponents', packedOffset: 272, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxTessellationEvaluationOutputComponents', packedOffset: 276, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxGeometryShaderInvocations', packedOffset: 280, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxGeometryInputComponents', packedOffset: 284, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxGeometryOutputComponents', packedOffset: 288, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxGeometryOutputVertices', packedOffset: 292, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxGeometryTotalOutputComponents', packedOffset: 296, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxFragmentInputComponents', packedOffset: 300, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxFragmentOutputAttachments', packedOffset: 304, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxFragmentDualSrcAttachments', packedOffset: 308, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxFragmentCombinedOutputResources', packedOffset: 312, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxComputeSharedMemorySize', packedOffset: 316, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxComputeWorkGroupCount', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'maxComputeWorkGroupInvocations', packedOffset: 320, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxComputeWorkGroupSize', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'subPixelPrecisionBits', packedOffset: 324, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'subTexelPrecisionBits', packedOffset: 328, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'mipmapPrecisionBits', packedOffset: 332, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDrawIndexedIndexValue', packedOffset: 336, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxDrawIndirectCount', packedOffset: 340, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxSamplerLodBias', packedOffset: 344, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'maxSamplerAnisotropy', packedOffset: 348, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'maxViewports', packedOffset: 352, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxViewportDimensions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'viewportBoundsRange', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'viewportSubPixelBits', packedOffset: 356, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'minMemoryMapAlignment', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'minTexelBufferOffsetAlignment', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'minUniformBufferOffsetAlignment', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'minStorageBufferOffsetAlignment', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'minTexelOffset', packedOffset: 360, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'maxTexelOffset', packedOffset: 364, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'minTexelGatherOffset', packedOffset: 368, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'maxTexelGatherOffset', packedOffset: 372, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'minInterpolationOffset', packedOffset: 376, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'maxInterpolationOffset', packedOffset: 380, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'subPixelInterpolationOffsetBits', packedOffset: 384, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxFramebufferWidth', packedOffset: 388, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxFramebufferHeight', packedOffset: 392, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxFramebufferLayers', packedOffset: 396, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'framebufferColorSampleCounts', packedOffset: 400, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'framebufferDepthSampleCounts', packedOffset: 404, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'framebufferStencilSampleCounts', packedOffset: 408, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'framebufferNoAttachmentsSampleCounts', packedOffset: 412, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxColorAttachments', packedOffset: 416, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'sampledImageColorSampleCounts', packedOffset: 420, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'sampledImageIntegerSampleCounts', packedOffset: 424, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'sampledImageDepthSampleCounts', packedOffset: 428, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'sampledImageStencilSampleCounts', packedOffset: 432, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'storageImageSampleCounts', packedOffset: 436, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxSampleMaskWords', packedOffset: 440, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'timestampComputeAndGraphics', packedOffset: 472, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'timestampPeriod', packedOffset: 444, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'maxClipDistances', packedOffset: 448, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxCullDistances', packedOffset: 452, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'maxCombinedClipAndCullDistances', packedOffset: 456, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'discreteQueuePriorities', packedOffset: 460, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'pointSizeRange', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'lineWidthRange', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'pointSizeGranularity', packedOffset: 464, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'lineWidthGranularity', packedOffset: 468, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'strictLines', packedOffset: 472, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'standardSampleLocations', packedOffset: 472, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'optimalBufferCopyOffsetAlignment', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'optimalBufferCopyRowPitchAlignment', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'nonCoherentAtomSize', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 488}]
     }
@@ -172,7 +172,7 @@ gpu.mojom.VkPhysicalDeviceLimitsSpec = {
 };
 
 // Struct: VkPhysicalDeviceSparseProperties
-gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec = {
+gpu.mojom.mojom.VkPhysicalDeviceSparsePropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkPhysicalDeviceSparseProperties',
@@ -190,21 +190,21 @@ gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec = {
 };
 
 // Struct: VkPhysicalDeviceProperties
-gpu.mojom.VkPhysicalDevicePropertiesSpec = {
+gpu.mojom.mojom.VkPhysicalDevicePropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkPhysicalDeviceProperties',
       packedSize: 64,
       fields: [
-        { name: 'apiVersion', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'driverVersion', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'vendorID', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'deviceID', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'deviceType', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'deviceName', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pipelineCacheUUID', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'limits', packedOffset: 40, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceLimitsSpec, nullable: false, minVersion: 0 },
-        { name: 'sparseProperties', packedOffset: 48, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec, nullable: false, minVersion: 0 },
+        { name: 'apiVersion', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'driverVersion', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'vendorID', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'deviceID', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'deviceType', packedOffset: 48, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'deviceName', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pipelineCacheUUID', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'limits', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceLimitsSpec, nullable: false, minVersion: 0 },
+        { name: 'sparseProperties', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -212,7 +212,7 @@ gpu.mojom.VkPhysicalDevicePropertiesSpec = {
 };
 
 // Struct: VkPhysicalDeviceFeatures
-gpu.mojom.VkPhysicalDeviceFeaturesSpec = {
+gpu.mojom.mojom.VkPhysicalDeviceFeaturesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkPhysicalDeviceFeatures',
@@ -280,7 +280,7 @@ gpu.mojom.VkPhysicalDeviceFeaturesSpec = {
 };
 
 // Struct: VkExtent3D
-gpu.mojom.VkExtent3DSpec = {
+gpu.mojom.mojom.VkExtent3DSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkExtent3D',
@@ -296,16 +296,16 @@ gpu.mojom.VkExtent3DSpec = {
 };
 
 // Struct: VkQueueFamilyProperties
-gpu.mojom.VkQueueFamilyPropertiesSpec = {
+gpu.mojom.mojom.VkQueueFamilyPropertiesSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.VkQueueFamilyProperties',
       packedSize: 32,
       fields: [
-        { name: 'queueFlags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'queueCount', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'timestampValidBits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'minImageTransferGranularity', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.VkExtent3DSpec, nullable: false, minVersion: 0 },
+        { name: 'queueFlags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'queueCount', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'timestampValidBits', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'minImageTransferGranularity', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.VkExtent3DSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

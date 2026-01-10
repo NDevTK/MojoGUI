@@ -7,10 +7,12 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: VideoCapturePixelFormat
-media.mojom.VideoCapturePixelFormat = {
+media.mojom.mojom.VideoCapturePixelFormat = {
   UNKNOWN: 0,
   I420: 1,
   YV12: 2,
@@ -53,41 +55,41 @@ media.mojom.VideoCapturePixelFormat = {
   P210LE: 39,
   P410LE: 40,
 };
-media.mojom.VideoCapturePixelFormatSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.VideoCapturePixelFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResolutionChangePolicy
-media.mojom.ResolutionChangePolicy = {
+media.mojom.mojom.ResolutionChangePolicy = {
   FIXED_RESOLUTION: 0,
   FIXED_ASPECT_RATIO: 1,
   ANY_WITHIN_LIMIT: 2,
 };
-media.mojom.ResolutionChangePolicySpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.ResolutionChangePolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: PowerLineFrequency
-media.mojom.PowerLineFrequency = {
+media.mojom.mojom.PowerLineFrequency = {
   DEFAULT: 0,
   HZ_50: 1,
   HZ_60: 2,
 };
-media.mojom.PowerLineFrequencySpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.PowerLineFrequencySpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoFacingMode
-media.mojom.VideoFacingMode = {
+media.mojom.mojom.VideoFacingMode = {
   NONE: 0,
   USER: 1,
   ENVIRONMENT: 2,
 };
-media.mojom.VideoFacingModeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.VideoFacingModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraAvailability
-media.mojom.CameraAvailability = {
+media.mojom.mojom.CameraAvailability = {
   kAvailable: 0,
   kUnavailableExclusivelyUsedByOtherApplication: 1,
 };
-media.mojom.CameraAvailabilitySpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.CameraAvailabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoCaptureApi
-media.mojom.VideoCaptureApi = {
+media.mojom.mojom.VideoCaptureApi = {
   LINUX_V4L2_SINGLE_PLANE: 0,
   WIN_MEDIA_FOUNDATION: 1,
   WIN_MEDIA_FOUNDATION_SENSOR: 2,
@@ -103,27 +105,27 @@ media.mojom.VideoCaptureApi = {
   UNKNOWN: 12,
   WEBRTC_LINUX_PIPEWIRE_SINGLE_PLANE: 13,
 };
-media.mojom.VideoCaptureApiSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.VideoCaptureApiSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoCaptureTransportType
-media.mojom.VideoCaptureTransportType = {
+media.mojom.mojom.VideoCaptureTransportType = {
   APPLE_USB_OR_BUILT_IN: 0,
   OTHER_TRANSPORT: 1,
 };
-media.mojom.VideoCaptureTransportTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.VideoCaptureTransportTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoCaptureBufferType
-media.mojom.VideoCaptureBufferType = {
+media.mojom.mojom.VideoCaptureBufferType = {
   kSharedMemory: 0,
   kSharedMemoryViaRawFileDescriptor_DEPRECATED: 1,
   kMailboxHolder: 2,
   kGpuMemoryBuffer: 3,
   kSharedImage: 4,
 };
-media.mojom.VideoCaptureBufferTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.VideoCaptureBufferTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoCaptureError
-media.mojom.VideoCaptureError = {
+media.mojom.mojom.VideoCaptureError = {
   kNone: 0,
   kVideoCaptureControllerInvalidOrUnsupportedVideoCaptureParametersRequested: 1,
   kVideoCaptureControllerIsAlreadyInErrorState: 2,
@@ -275,10 +277,10 @@ media.mojom.VideoCaptureError = {
   kWinMediaFoundationCameraBusy: 148,
   kWebRtcStartCaptureFailed: 149,
 };
-media.mojom.VideoCaptureErrorSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.VideoCaptureErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: VideoCaptureFrameDropReason
-media.mojom.VideoCaptureFrameDropReason = {
+media.mojom.mojom.VideoCaptureFrameDropReason = {
   kNone: 0,
   kDeviceClientFrameHasInvalidFormat: 1,
   kDeviceClientLibyuvConvertToI420Failed: 2,
@@ -314,17 +316,17 @@ media.mojom.VideoCaptureFrameDropReason = {
   kResolutionAdapterConvertAndScaleFailed: 32,
   kOldCaptureVersion: 33,
 };
-media.mojom.VideoCaptureFrameDropReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.VideoCaptureFrameDropReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubCaptureTargetType
-media.mojom.SubCaptureTargetType = {
+media.mojom.mojom.SubCaptureTargetType = {
   kCropTarget: 0,
   kRestrictionTarget: 1,
 };
-media.mojom.SubCaptureTargetTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.SubCaptureTargetTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ApplySubCaptureTargetResult
-media.mojom.ApplySubCaptureTargetResult = {
+media.mojom.mojom.ApplySubCaptureTargetResult = {
   kSuccess: 0,
   kErrorGeneric: 1,
   kUnsupportedCaptureDevice: 2,
@@ -332,19 +334,19 @@ media.mojom.ApplySubCaptureTargetResult = {
   kNonIncreasingVersion: 4,
   kInvalidTarget: 5,
 };
-media.mojom.ApplySubCaptureTargetResultSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.ApplySubCaptureTargetResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceEnumerationResult
-media.mojom.DeviceEnumerationResult = {
+media.mojom.mojom.DeviceEnumerationResult = {
   kSuccess: 0,
   kUnknownError: 1,
   kErrorCaptureServiceCrash: 2,
   kErrorCaptureServiceDroppedRequest: 3,
 };
-media.mojom.DeviceEnumerationResultSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.DeviceEnumerationResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: VideoCaptureControlSupport
-media.mojom.VideoCaptureControlSupportSpec = {
+media.mojom.mojom.VideoCaptureControlSupportSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureControlSupport',
@@ -360,7 +362,7 @@ media.mojom.VideoCaptureControlSupportSpec = {
 };
 
 // Struct: VideoCaptureFormat
-media.mojom.VideoCaptureFormatSpec = {
+media.mojom.mojom.VideoCaptureFormatSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureFormat',
@@ -376,7 +378,7 @@ media.mojom.VideoCaptureFormatSpec = {
 };
 
 // Struct: VideoCaptureParams
-media.mojom.VideoCaptureParamsSpec = {
+media.mojom.mojom.VideoCaptureParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureParams',
@@ -386,9 +388,9 @@ media.mojom.VideoCaptureParamsSpec = {
         { name: 'buffer_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureBufferTypeSpec, nullable: false, minVersion: 0 },
         { name: 'resolution_change_policy', packedOffset: 12, packedBitOffset: 0, type: media.mojom.ResolutionChangePolicySpec, nullable: false, minVersion: 0 },
         { name: 'power_line_frequency', packedOffset: 16, packedBitOffset: 0, type: media.mojom.PowerLineFrequencySpec, nullable: false, minVersion: 0 },
-        { name: 'enable_face_detection', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_high_dpi_enabled', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'capture_version_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'enable_face_detection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_high_dpi_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'capture_version_source', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -396,19 +398,19 @@ media.mojom.VideoCaptureParamsSpec = {
 };
 
 // Struct: VideoCaptureFeedback
-media.mojom.VideoCaptureFeedbackSpec = {
+media.mojom.mojom.VideoCaptureFeedbackSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureFeedback',
       packedSize: 40,
       fields: [
         { name: 'resource_utilization', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'max_framerate_fps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'max_pixels', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'require_mapped_frame', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'DEPRECATED_mapped_sizes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: true, minVersion: 0 },
-        { name: 'frame_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'has_frame_id', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'max_framerate_fps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'max_pixels', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'require_mapped_frame', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'DEPRECATED_mapped_sizes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: true, minVersion: 0 },
+        { name: 'frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'has_frame_id', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -416,7 +418,7 @@ media.mojom.VideoCaptureFeedbackSpec = {
 };
 
 // Struct: PlaneStrides
-media.mojom.PlaneStridesSpec = {
+media.mojom.mojom.PlaneStridesSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PlaneStrides',
@@ -430,7 +432,7 @@ media.mojom.PlaneStridesSpec = {
 };
 
 // Struct: VideoCaptureDeviceDescriptor
-media.mojom.VideoCaptureDeviceDescriptorSpec = {
+media.mojom.mojom.VideoCaptureDeviceDescriptorSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureDeviceDescriptor',
@@ -439,9 +441,9 @@ media.mojom.VideoCaptureDeviceDescriptorSpec = {
         { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'model_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'facing_mode', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoFacingModeSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_api', packedOffset: 28, packedBitOffset: 0, type: media.mojom.VideoCaptureApiSpec, nullable: false, minVersion: 0 },
-        { name: 'control_support', packedOffset: 32, packedBitOffset: 0, type: media.mojom.VideoCaptureControlSupportSpec, nullable: false, minVersion: 0 },
+        { name: 'facing_mode', packedOffset: 32, packedBitOffset: 0, type: media.mojom.VideoFacingModeSpec, nullable: false, minVersion: 0 },
+        { name: 'capture_api', packedOffset: 36, packedBitOffset: 0, type: media.mojom.VideoCaptureApiSpec, nullable: false, minVersion: 0 },
+        { name: 'control_support', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoCaptureControlSupportSpec, nullable: false, minVersion: 0 },
         { name: 'transport_type', packedOffset: 40, packedBitOffset: 0, type: media.mojom.VideoCaptureTransportTypeSpec, nullable: false, minVersion: 0 },
         { name: 'availability', packedOffset: 44, packedBitOffset: 0, type: media.mojom.CameraAvailabilitySpec, nullable: true, minVersion: 0 },
       ],
@@ -451,7 +453,7 @@ media.mojom.VideoCaptureDeviceDescriptorSpec = {
 };
 
 // Struct: VideoCaptureDeviceInfo
-media.mojom.VideoCaptureDeviceInfoSpec = {
+media.mojom.mojom.VideoCaptureDeviceInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoCaptureDeviceInfo',

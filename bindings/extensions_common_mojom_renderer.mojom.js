@@ -10,26 +10,26 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Struct: ExtensionLoadedParams
-extensions.mojom.ExtensionLoadedParamsSpec = {
+extensions.mojom.mojom.ExtensionLoadedParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.ExtensionLoadedParams',
       packedSize: 104,
       fields: [
         { name: 'manifest', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.ManifestLocationSpec, nullable: false, minVersion: 0 },
-        { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'active_permissions', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
-        { name: 'withheld_permissions', packedOffset: 32, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
-        { name: 'tab_specific_permissions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, extensions.mojom.PermissionSetSpec, false), nullable: false, minVersion: 0 },
-        { name: 'policy_blocked_hosts', packedOffset: 48, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false, minVersion: 0 },
-        { name: 'policy_allowed_hosts', packedOffset: 56, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false, minVersion: 0 },
-        { name: 'uses_default_policy_blocked_allowed_hosts', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'user_scripts_allowed', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'worker_activation_token', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'creation_flags', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'guid', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'location', packedOffset: 80, packedBitOffset: 0, type: extensions.mojom.ManifestLocationSpec, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'active_permissions', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
+        { name: 'withheld_permissions', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
+        { name: 'tab_specific_permissions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, extensions.mojom.PermissionSetSpec, false), nullable: false, minVersion: 0 },
+        { name: 'policy_blocked_hosts', packedOffset: 40, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false, minVersion: 0 },
+        { name: 'policy_allowed_hosts', packedOffset: 48, packedBitOffset: 0, type: extensions.mojom.URLPatternSetSpec, nullable: false, minVersion: 0 },
+        { name: 'uses_default_policy_blocked_allowed_hosts', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'user_scripts_allowed', packedOffset: 88, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'worker_activation_token', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'creation_flags', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'guid', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 104}]
     }
@@ -37,7 +37,7 @@ extensions.mojom.ExtensionLoadedParamsSpec = {
 };
 
 // Struct: UserScriptWorldInfo
-extensions.mojom.UserScriptWorldInfoSpec = {
+extensions.mojom.mojom.UserScriptWorldInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.UserScriptWorldInfo',
@@ -54,24 +54,24 @@ extensions.mojom.UserScriptWorldInfoSpec = {
 };
 
 // Interface: Renderer
-extensions.mojom.Renderer = {};
+extensions.mojom.mojom.Renderer = {};
 
-extensions.mojom.RendererPendingReceiver = class {
+extensions.mojom.mojom.RendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mojom.RendererRemote = class {
+extensions.mojom.mojom.RendererRemote = class {
   static get $interfaceName() {
     return 'extensions.mojom.Renderer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mojom.RendererPendingReceiver,
+      extensions.mojom.mojom.RendererPendingReceiver,
       handle);
-    this.$ = new extensions.mojom.RendererRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mojom.mojom.RendererRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -83,7 +83,7 @@ extensions.mojom.RendererRemote = class {
   }
 };
 
-extensions.mojom.RendererRemoteCallHandler = class {
+extensions.mojom.mojom.RendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -92,7 +92,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mojom.Renderer_ActivateExtension_ParamsSpec,
+      extensions.mojom.mojom.Renderer_ActivateExtension_ParamsSpec,
       null,
       [extension_id]);
   }
@@ -101,7 +101,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec,
+      extensions.mojom.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec,
       null,
       [enabled]);
   }
@@ -110,7 +110,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      extensions.mojom.Renderer_LoadExtensions_ParamsSpec,
+      extensions.mojom.mojom.Renderer_LoadExtensions_ParamsSpec,
       null,
       [params]);
   }
@@ -119,7 +119,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      extensions.mojom.Renderer_UnloadExtension_ParamsSpec,
+      extensions.mojom.mojom.Renderer_UnloadExtension_ParamsSpec,
       null,
       [extension_id]);
   }
@@ -128,7 +128,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      extensions.mojom.Renderer_SuspendExtension_ParamsSpec,
+      extensions.mojom.mojom.Renderer_SuspendExtension_ParamsSpec,
       null,
       [extension_id]);
   }
@@ -137,7 +137,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec,
+      extensions.mojom.mojom.Renderer_CancelSuspendExtension_ParamsSpec,
       null,
       [extension_id]);
   }
@@ -146,7 +146,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec,
+      extensions.mojom.mojom.Renderer_SetDeveloperMode_ParamsSpec,
       null,
       [developer_mode_only]);
   }
@@ -155,7 +155,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec,
+      extensions.mojom.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec,
       null,
       [extension_id, allowed]);
   }
@@ -164,7 +164,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      extensions.mojom.Renderer_SetSessionInfo_ParamsSpec,
+      extensions.mojom.mojom.Renderer_SetSessionInfo_ParamsSpec,
       null,
       [channel, session]);
   }
@@ -173,7 +173,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      extensions.mojom.Renderer_SetSystemFont_ParamsSpec,
+      extensions.mojom.mojom.Renderer_SetSystemFont_ParamsSpec,
       null,
       [font_family, font_size]);
   }
@@ -182,7 +182,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec,
+      extensions.mojom.mojom.Renderer_SetWebViewPartitionID_ParamsSpec,
       null,
       [partition_id]);
   }
@@ -191,7 +191,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec,
+      extensions.mojom.mojom.Renderer_SetScriptingAllowlist_ParamsSpec,
       null,
       [extension_ids]);
   }
@@ -200,7 +200,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec,
+      extensions.mojom.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec,
       null,
       [infos]);
   }
@@ -209,7 +209,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec,
+      extensions.mojom.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec,
       null,
       [extension_id, world_id]);
   }
@@ -218,7 +218,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      extensions.mojom.Renderer_ShouldSuspend_ParamsSpec,
+      extensions.mojom.mojom.Renderer_ShouldSuspend_ParamsSpec,
       null,
       []);
   }
@@ -227,7 +227,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      extensions.mojom.Renderer_TransferBlobs_ParamsSpec,
+      extensions.mojom.mojom.Renderer_TransferBlobs_ParamsSpec,
       null,
       []);
   }
@@ -236,7 +236,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      extensions.mojom.Renderer_UpdatePermissions_ParamsSpec,
+      extensions.mojom.mojom.Renderer_UpdatePermissions_ParamsSpec,
       null,
       [extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions]);
   }
@@ -245,7 +245,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec,
+      extensions.mojom.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec,
       null,
       [default_policy_blocked_hosts, default_policy_allowed_hosts]);
   }
@@ -254,7 +254,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec,
+      extensions.mojom.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec,
       null,
       [user_blocked_hosts, user_allowed_hosts]);
   }
@@ -263,7 +263,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec,
+      extensions.mojom.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec,
       null,
       [extension_id, new_hosts, tab_id, update_origin_allowlist]);
   }
@@ -272,7 +272,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec,
+      extensions.mojom.mojom.Renderer_UpdateUserScripts_ParamsSpec,
       null,
       [region, owner]);
   }
@@ -281,7 +281,7 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec,
+      extensions.mojom.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec,
       null,
       [extension_ids, tab_id, update_origin_allowlist]);
   }
@@ -290,15 +290,15 @@ extensions.mojom.RendererRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      extensions.mojom.Renderer_WatchPages_ParamsSpec,
+      extensions.mojom.mojom.Renderer_WatchPages_ParamsSpec,
       null,
       [css_selectors]);
   }
 
 };
 
-extensions.mojom.Renderer.getRemote = function() {
-  let remote = new extensions.mojom.RendererRemote();
+extensions.mojom.mojom.Renderer.getRemote = function() {
+  let remote = new extensions.mojom.mojom.RendererRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -308,7 +308,7 @@ extensions.mojom.Renderer.getRemote = function() {
 };
 
 // ParamsSpec for ActivateExtension
-extensions.mojom.Renderer_ActivateExtension_ParamsSpec = {
+extensions.mojom.mojom.Renderer_ActivateExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.ActivateExtension_Params',
@@ -322,7 +322,7 @@ extensions.mojom.Renderer_ActivateExtension_ParamsSpec = {
 };
 
 // ParamsSpec for SetActivityLoggingEnabled
-extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec = {
+extensions.mojom.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.SetActivityLoggingEnabled_Params',
@@ -336,7 +336,7 @@ extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec = {
 };
 
 // ParamsSpec for LoadExtensions
-extensions.mojom.Renderer_LoadExtensions_ParamsSpec = {
+extensions.mojom.mojom.Renderer_LoadExtensions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.LoadExtensions_Params',
@@ -350,7 +350,7 @@ extensions.mojom.Renderer_LoadExtensions_ParamsSpec = {
 };
 
 // ParamsSpec for UnloadExtension
-extensions.mojom.Renderer_UnloadExtension_ParamsSpec = {
+extensions.mojom.mojom.Renderer_UnloadExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.UnloadExtension_Params',
@@ -364,7 +364,7 @@ extensions.mojom.Renderer_UnloadExtension_ParamsSpec = {
 };
 
 // ParamsSpec for SuspendExtension
-extensions.mojom.Renderer_SuspendExtension_ParamsSpec = {
+extensions.mojom.mojom.Renderer_SuspendExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.SuspendExtension_Params',
@@ -378,7 +378,7 @@ extensions.mojom.Renderer_SuspendExtension_ParamsSpec = {
 };
 
 // ParamsSpec for CancelSuspendExtension
-extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec = {
+extensions.mojom.mojom.Renderer_CancelSuspendExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.CancelSuspendExtension_Params',
@@ -392,7 +392,7 @@ extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec = {
 };
 
 // ParamsSpec for SetDeveloperMode
-extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec = {
+extensions.mojom.mojom.Renderer_SetDeveloperMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.SetDeveloperMode_Params',
@@ -406,7 +406,7 @@ extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec = {
 };
 
 // ParamsSpec for SetUserScriptsAllowed
-extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec = {
+extensions.mojom.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.SetUserScriptsAllowed_Params',
@@ -421,7 +421,7 @@ extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec = {
 };
 
 // ParamsSpec for SetSessionInfo
-extensions.mojom.Renderer_SetSessionInfo_ParamsSpec = {
+extensions.mojom.mojom.Renderer_SetSessionInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.SetSessionInfo_Params',
@@ -436,7 +436,7 @@ extensions.mojom.Renderer_SetSessionInfo_ParamsSpec = {
 };
 
 // ParamsSpec for SetSystemFont
-extensions.mojom.Renderer_SetSystemFont_ParamsSpec = {
+extensions.mojom.mojom.Renderer_SetSystemFont_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.SetSystemFont_Params',
@@ -451,7 +451,7 @@ extensions.mojom.Renderer_SetSystemFont_ParamsSpec = {
 };
 
 // ParamsSpec for SetWebViewPartitionID
-extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec = {
+extensions.mojom.mojom.Renderer_SetWebViewPartitionID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.SetWebViewPartitionID_Params',
@@ -465,7 +465,7 @@ extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec = {
 };
 
 // ParamsSpec for SetScriptingAllowlist
-extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec = {
+extensions.mojom.mojom.Renderer_SetScriptingAllowlist_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.SetScriptingAllowlist_Params',
@@ -479,7 +479,7 @@ extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateUserScriptWorlds
-extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec = {
+extensions.mojom.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.UpdateUserScriptWorlds_Params',
@@ -493,7 +493,7 @@ extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec = {
 };
 
 // ParamsSpec for ClearUserScriptWorldConfig
-extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec = {
+extensions.mojom.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.ClearUserScriptWorldConfig_Params',
@@ -508,7 +508,7 @@ extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec = {
 };
 
 // ParamsSpec for ShouldSuspend
-extensions.mojom.Renderer_ShouldSuspend_ParamsSpec = {
+extensions.mojom.mojom.Renderer_ShouldSuspend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.ShouldSuspend_Params',
@@ -521,7 +521,7 @@ extensions.mojom.Renderer_ShouldSuspend_ParamsSpec = {
 };
 
 // ParamsSpec for TransferBlobs
-extensions.mojom.Renderer_TransferBlobs_ParamsSpec = {
+extensions.mojom.mojom.Renderer_TransferBlobs_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.TransferBlobs_Params',
@@ -534,7 +534,7 @@ extensions.mojom.Renderer_TransferBlobs_ParamsSpec = {
 };
 
 // ParamsSpec for UpdatePermissions
-extensions.mojom.Renderer_UpdatePermissions_ParamsSpec = {
+extensions.mojom.mojom.Renderer_UpdatePermissions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.UpdatePermissions_Params',
@@ -553,7 +553,7 @@ extensions.mojom.Renderer_UpdatePermissions_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateDefaultPolicyHostRestrictions
-extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec = {
+extensions.mojom.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.UpdateDefaultPolicyHostRestrictions_Params',
@@ -568,7 +568,7 @@ extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateUserHostRestrictions
-extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec = {
+extensions.mojom.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.UpdateUserHostRestrictions_Params',
@@ -583,7 +583,7 @@ extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateTabSpecificPermissions
-extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec = {
+extensions.mojom.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.UpdateTabSpecificPermissions_Params',
@@ -600,7 +600,7 @@ extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateUserScripts
-extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec = {
+extensions.mojom.mojom.Renderer_UpdateUserScripts_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.UpdateUserScripts_Params',
@@ -615,7 +615,7 @@ extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec = {
 };
 
 // ParamsSpec for ClearTabSpecificPermissions
-extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec = {
+extensions.mojom.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.ClearTabSpecificPermissions_Params',
@@ -631,7 +631,7 @@ extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec = {
 };
 
 // ParamsSpec for WatchPages
-extensions.mojom.Renderer_WatchPages_ParamsSpec = {
+extensions.mojom.mojom.Renderer_WatchPages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mojom.Renderer.WatchPages_Params',
@@ -645,6 +645,6 @@ extensions.mojom.Renderer_WatchPages_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mojom.RendererPtr = extensions.mojom.RendererRemote;
-extensions.mojom.RendererRequest = extensions.mojom.RendererPendingReceiver;
+extensions.mojom.mojom.RendererPtr = extensions.mojom.mojom.RendererRemote;
+extensions.mojom.mojom.RendererRequest = extensions.mojom.mojom.RendererPendingReceiver;
 

@@ -10,7 +10,7 @@ crosapi.mojom = crosapi.mojom || {};
 
 
 // Enum: ChromeKioskInstallResult
-crosapi.mojom.ChromeKioskInstallResult = {
+crosapi.mojom.mojom.ChromeKioskInstallResult = {
   kSuccess: 0,
   kPrimaryAppNotCached: 1,
   kPrimaryAppInstallFailed: 2,
@@ -19,19 +19,19 @@ crosapi.mojom.ChromeKioskInstallResult = {
   kPrimaryAppUpdateFailed: 5,
   kSecondaryAppUpdateFailed: 6,
 };
-crosapi.mojom.ChromeKioskInstallResultSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ChromeKioskInstallResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChromeKioskLaunchResult
-crosapi.mojom.ChromeKioskLaunchResult = {
+crosapi.mojom.mojom.ChromeKioskLaunchResult = {
   kSuccess: 0,
   kUnableToLaunch: 1,
   kNetworkMissing: 2,
   kChromeAppDeprecated: 3,
 };
-crosapi.mojom.ChromeKioskLaunchResultSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.mojom.ChromeKioskLaunchResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: AppInstallParams
-crosapi.mojom.AppInstallParamsSpec = {
+crosapi.mojom.mojom.AppInstallParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.AppInstallParams',
@@ -48,24 +48,24 @@ crosapi.mojom.AppInstallParamsSpec = {
 };
 
 // Interface: ChromeKioskLaunchController
-crosapi.mojom.ChromeKioskLaunchController = {};
+crosapi.mojom.mojom.ChromeKioskLaunchController = {};
 
-crosapi.mojom.ChromeKioskLaunchControllerPendingReceiver = class {
+crosapi.mojom.mojom.ChromeKioskLaunchControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.ChromeKioskLaunchControllerRemote = class {
+crosapi.mojom.mojom.ChromeKioskLaunchControllerRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.ChromeKioskLaunchController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.ChromeKioskLaunchControllerPendingReceiver,
+      crosapi.mojom.mojom.ChromeKioskLaunchControllerPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.ChromeKioskLaunchControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -77,7 +77,7 @@ crosapi.mojom.ChromeKioskLaunchControllerRemote = class {
   }
 };
 
-crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
+crosapi.mojom.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -86,8 +86,8 @@ crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec,
-      crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec,
+      crosapi.mojom.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec,
+      crosapi.mojom.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec,
       [params]);
   }
 
@@ -95,15 +95,15 @@ crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec,
-      crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec,
+      crosapi.mojom.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec,
+      crosapi.mojom.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec,
       [app_id, is_network_ready]);
   }
 
 };
 
-crosapi.mojom.ChromeKioskLaunchController.getRemote = function() {
-  let remote = new crosapi.mojom.ChromeKioskLaunchControllerRemote();
+crosapi.mojom.mojom.ChromeKioskLaunchController.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.ChromeKioskLaunchControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -113,7 +113,7 @@ crosapi.mojom.ChromeKioskLaunchController.getRemote = function() {
 };
 
 // ParamsSpec for InstallKioskApp
-crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec = {
+crosapi.mojom.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ChromeKioskLaunchController.InstallKioskApp_Params',
@@ -126,7 +126,7 @@ crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec = {
   }
 };
 
-crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec = {
+crosapi.mojom.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ChromeKioskLaunchController.InstallKioskApp_ResponseParams',
@@ -140,7 +140,7 @@ crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LaunchKioskApp
-crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec = {
+crosapi.mojom.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ChromeKioskLaunchController.LaunchKioskApp_Params',
@@ -154,7 +154,7 @@ crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec = {
   }
 };
 
-crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec = {
+crosapi.mojom.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ChromeKioskLaunchController.LaunchKioskApp_ResponseParams',
@@ -168,29 +168,29 @@ crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.ChromeKioskLaunchControllerPtr = crosapi.mojom.ChromeKioskLaunchControllerRemote;
-crosapi.mojom.ChromeKioskLaunchControllerRequest = crosapi.mojom.ChromeKioskLaunchControllerPendingReceiver;
+crosapi.mojom.mojom.ChromeKioskLaunchControllerPtr = crosapi.mojom.mojom.ChromeKioskLaunchControllerRemote;
+crosapi.mojom.mojom.ChromeKioskLaunchControllerRequest = crosapi.mojom.mojom.ChromeKioskLaunchControllerPendingReceiver;
 
 
 // Interface: ChromeAppKioskService
-crosapi.mojom.ChromeAppKioskService = {};
+crosapi.mojom.mojom.ChromeAppKioskService = {};
 
-crosapi.mojom.ChromeAppKioskServicePendingReceiver = class {
+crosapi.mojom.mojom.ChromeAppKioskServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.ChromeAppKioskServiceRemote = class {
+crosapi.mojom.mojom.ChromeAppKioskServiceRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.ChromeAppKioskService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.ChromeAppKioskServicePendingReceiver,
+      crosapi.mojom.mojom.ChromeAppKioskServicePendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.ChromeAppKioskServiceRemoteCallHandler(this.proxy);
+    this.$ = new crosapi.mojom.mojom.ChromeAppKioskServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -202,7 +202,7 @@ crosapi.mojom.ChromeAppKioskServiceRemote = class {
   }
 };
 
-crosapi.mojom.ChromeAppKioskServiceRemoteCallHandler = class {
+crosapi.mojom.mojom.ChromeAppKioskServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -211,15 +211,15 @@ crosapi.mojom.ChromeAppKioskServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec,
+      crosapi.mojom.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec,
       null,
       [controller]);
   }
 
 };
 
-crosapi.mojom.ChromeAppKioskService.getRemote = function() {
-  let remote = new crosapi.mojom.ChromeAppKioskServiceRemote();
+crosapi.mojom.mojom.ChromeAppKioskService.getRemote = function() {
+  let remote = new crosapi.mojom.mojom.ChromeAppKioskServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -229,7 +229,7 @@ crosapi.mojom.ChromeAppKioskService.getRemote = function() {
 };
 
 // ParamsSpec for BindLaunchController
-crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec = {
+crosapi.mojom.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.ChromeAppKioskService.BindLaunchController_Params',
@@ -243,6 +243,6 @@ crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec = {
 };
 
 // Legacy compatibility
-crosapi.mojom.ChromeAppKioskServicePtr = crosapi.mojom.ChromeAppKioskServiceRemote;
-crosapi.mojom.ChromeAppKioskServiceRequest = crosapi.mojom.ChromeAppKioskServicePendingReceiver;
+crosapi.mojom.mojom.ChromeAppKioskServicePtr = crosapi.mojom.mojom.ChromeAppKioskServiceRemote;
+crosapi.mojom.mojom.ChromeAppKioskServiceRequest = crosapi.mojom.mojom.ChromeAppKioskServicePendingReceiver;
 

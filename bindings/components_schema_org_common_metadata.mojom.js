@@ -10,7 +10,7 @@ schema_org.mojom = schema_org.mojom || {};
 
 
 // Union: Values
-schema_org.mojom.ValuesSpec = { $: mojo.internal.Union(
+schema_org.mojom.mojom.ValuesSpec = { $: mojo.internal.Union(
     'schema_org.mojom.Values', {
       'bool_values': {
         'ordinal': 0,
@@ -32,14 +32,14 @@ schema_org.mojom.ValuesSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Property
-schema_org.mojom.PropertySpec = {
+schema_org.mojom.mojom.PropertySpec = {
   $: {
     structSpec: {
       name: 'schema_org.mojom.Property',
       packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'values', packedOffset: 8, packedBitOffset: 0, type: schema_org.mojom.ValuesSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: schema_org.mojom.ValuesSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -47,7 +47,7 @@ schema_org.mojom.PropertySpec = {
 };
 
 // Struct: Entity
-schema_org.mojom.EntitySpec = {
+schema_org.mojom.mojom.EntitySpec = {
   $: {
     structSpec: {
       name: 'schema_org.mojom.Entity',

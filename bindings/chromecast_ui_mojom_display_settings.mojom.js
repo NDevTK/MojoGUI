@@ -10,24 +10,24 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: DisplaySettings
-chromecast.mojom.DisplaySettings = {};
+chromecast.mojom.mojom.DisplaySettings = {};
 
-chromecast.mojom.DisplaySettingsPendingReceiver = class {
+chromecast.mojom.mojom.DisplaySettingsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.DisplaySettingsRemote = class {
+chromecast.mojom.mojom.DisplaySettingsRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.DisplaySettings';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.DisplaySettingsPendingReceiver,
+      chromecast.mojom.mojom.DisplaySettingsPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.DisplaySettingsRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.DisplaySettingsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ chromecast.mojom.DisplaySettingsRemote = class {
   }
 };
 
-chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
+chromecast.mojom.mojom.DisplaySettingsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettings_SetColorTemperature_ParamsSpec,
       null,
       [kelvin]);
   }
@@ -57,7 +57,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec,
       null,
       [kelvin, duration]);
   }
@@ -66,7 +66,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +75,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettings_SetBrightness_ParamsSpec,
       null,
       [brightness]);
   }
@@ -84,7 +84,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec,
       null,
       [brightness, duration]);
   }
@@ -93,7 +93,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettings_ResetBrightness_ParamsSpec,
       null,
       []);
   }
@@ -102,7 +102,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettings_SetScreenOn_ParamsSpec,
       null,
       [display_on]);
   }
@@ -111,7 +111,7 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec,
       null,
       [allow_power_off]);
   }
@@ -120,15 +120,15 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-chromecast.mojom.DisplaySettings.getRemote = function() {
-  let remote = new chromecast.mojom.DisplaySettingsRemote();
+chromecast.mojom.mojom.DisplaySettings.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.DisplaySettingsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -138,7 +138,7 @@ chromecast.mojom.DisplaySettings.getRemote = function() {
 };
 
 // ParamsSpec for SetColorTemperature
-chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettings.SetColorTemperature_Params',
@@ -152,14 +152,14 @@ chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = {
 };
 
 // ParamsSpec for SetColorTemperatureSmooth
-chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettings.SetColorTemperatureSmooth_Params',
       packedSize: 24,
       fields: [
-        { name: 'kelvin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'kelvin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -167,7 +167,7 @@ chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = {
 };
 
 // ParamsSpec for ResetColorTemperature
-chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettings.ResetColorTemperature_Params',
@@ -180,7 +180,7 @@ chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = {
 };
 
 // ParamsSpec for SetBrightness
-chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettings_SetBrightness_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettings.SetBrightness_Params',
@@ -194,14 +194,14 @@ chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = {
 };
 
 // ParamsSpec for SetBrightnessSmooth
-chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettings.SetBrightnessSmooth_Params',
       packedSize: 24,
       fields: [
-        { name: 'brightness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'brightness', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -209,7 +209,7 @@ chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = {
 };
 
 // ParamsSpec for ResetBrightness
-chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettings_ResetBrightness_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettings.ResetBrightness_Params',
@@ -222,7 +222,7 @@ chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = {
 };
 
 // ParamsSpec for SetScreenOn
-chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettings_SetScreenOn_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettings.SetScreenOn_Params',
@@ -236,7 +236,7 @@ chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = {
 };
 
 // ParamsSpec for SetAllowScreenPowerOff
-chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettings.SetAllowScreenPowerOff_Params',
@@ -250,7 +250,7 @@ chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = {
 };
 
 // ParamsSpec for AddDisplaySettingsObserver
-chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettings.AddDisplaySettingsObserver_Params',
@@ -264,29 +264,29 @@ chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.DisplaySettingsPtr = chromecast.mojom.DisplaySettingsRemote;
-chromecast.mojom.DisplaySettingsRequest = chromecast.mojom.DisplaySettingsPendingReceiver;
+chromecast.mojom.mojom.DisplaySettingsPtr = chromecast.mojom.mojom.DisplaySettingsRemote;
+chromecast.mojom.mojom.DisplaySettingsRequest = chromecast.mojom.mojom.DisplaySettingsPendingReceiver;
 
 
 // Interface: DisplaySettingsObserver
-chromecast.mojom.DisplaySettingsObserver = {};
+chromecast.mojom.mojom.DisplaySettingsObserver = {};
 
-chromecast.mojom.DisplaySettingsObserverPendingReceiver = class {
+chromecast.mojom.mojom.DisplaySettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.DisplaySettingsObserverRemote = class {
+chromecast.mojom.mojom.DisplaySettingsObserverRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.DisplaySettingsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.DisplaySettingsObserverPendingReceiver,
+      chromecast.mojom.mojom.DisplaySettingsObserverPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.DisplaySettingsObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.DisplaySettingsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -298,7 +298,7 @@ chromecast.mojom.DisplaySettingsObserverRemote = class {
   }
 };
 
-chromecast.mojom.DisplaySettingsObserverRemoteCallHandler = class {
+chromecast.mojom.mojom.DisplaySettingsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -307,15 +307,15 @@ chromecast.mojom.DisplaySettingsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
+      chromecast.mojom.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
       [brightness]);
   }
 
 };
 
-chromecast.mojom.DisplaySettingsObserver.getRemote = function() {
-  let remote = new chromecast.mojom.DisplaySettingsObserverRemote();
+chromecast.mojom.mojom.DisplaySettingsObserver.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.DisplaySettingsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -325,7 +325,7 @@ chromecast.mojom.DisplaySettingsObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnDisplayBrightnessChanged
-chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = {
+chromecast.mojom.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.DisplaySettingsObserver.OnDisplayBrightnessChanged_Params',
@@ -339,6 +339,6 @@ chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec =
 };
 
 // Legacy compatibility
-chromecast.mojom.DisplaySettingsObserverPtr = chromecast.mojom.DisplaySettingsObserverRemote;
-chromecast.mojom.DisplaySettingsObserverRequest = chromecast.mojom.DisplaySettingsObserverPendingReceiver;
+chromecast.mojom.mojom.DisplaySettingsObserverPtr = chromecast.mojom.mojom.DisplaySettingsObserverRemote;
+chromecast.mojom.mojom.DisplaySettingsObserverRequest = chromecast.mojom.mojom.DisplaySettingsObserverPendingReceiver;
 

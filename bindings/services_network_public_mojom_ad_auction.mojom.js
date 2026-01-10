@@ -7,18 +7,19 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Enum: Type
-network.mojom.Type = {
+network.mojom.mojom.Type = {
   kUninitialized: 0,
   kView: 1,
   kClick: 2,
 };
-network.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AdAuctionEventRecord
-network.mojom.AdAuctionEventRecordSpec = {
+network.mojom.mojom.AdAuctionEventRecordSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.AdAuctionEventRecord',

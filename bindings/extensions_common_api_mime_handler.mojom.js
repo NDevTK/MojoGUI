@@ -10,7 +10,7 @@ extensions.mime_handler = extensions.mime_handler || {};
 
 
 // Struct: StreamInfo
-extensions.mime_handler.StreamInfoSpec = {
+extensions.mime_handler.mime_handler.StreamInfoSpec = {
   $: {
     structSpec: {
       name: 'extensions.mime_handler.StreamInfo',
@@ -19,9 +19,9 @@ extensions.mime_handler.StreamInfoSpec = {
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'original_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'stream_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tab_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'response_headers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'embedded', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'tab_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'response_headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'embedded', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -29,7 +29,7 @@ extensions.mime_handler.StreamInfoSpec = {
 };
 
 // Struct: PdfPluginAttributes
-extensions.mime_handler.PdfPluginAttributesSpec = {
+extensions.mime_handler.mime_handler.PdfPluginAttributesSpec = {
   $: {
     structSpec: {
       name: 'extensions.mime_handler.PdfPluginAttributes',
@@ -44,24 +44,24 @@ extensions.mime_handler.PdfPluginAttributesSpec = {
 };
 
 // Interface: MimeHandlerService
-extensions.mime_handler.MimeHandlerService = {};
+extensions.mime_handler.mime_handler.MimeHandlerService = {};
 
-extensions.mime_handler.MimeHandlerServicePendingReceiver = class {
+extensions.mime_handler.mime_handler.MimeHandlerServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mime_handler.MimeHandlerServiceRemote = class {
+extensions.mime_handler.mime_handler.MimeHandlerServiceRemote = class {
   static get $interfaceName() {
     return 'extensions.mime_handler.MimeHandlerService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mime_handler.MimeHandlerServicePendingReceiver,
+      extensions.mime_handler.mime_handler.MimeHandlerServicePendingReceiver,
       handle);
-    this.$ = new extensions.mime_handler.MimeHandlerServiceRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mime_handler.mime_handler.MimeHandlerServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -73,7 +73,7 @@ extensions.mime_handler.MimeHandlerServiceRemote = class {
   }
 };
 
-extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
+extensions.mime_handler.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -82,8 +82,8 @@ extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec,
-      extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec,
+      extensions.mime_handler.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec,
+      extensions.mime_handler.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec,
       []);
   }
 
@@ -91,15 +91,15 @@ extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec,
+      extensions.mime_handler.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec,
       null,
       [pdf_plugin_attributes]);
   }
 
 };
 
-extensions.mime_handler.MimeHandlerService.getRemote = function() {
-  let remote = new extensions.mime_handler.MimeHandlerServiceRemote();
+extensions.mime_handler.mime_handler.MimeHandlerService.getRemote = function() {
+  let remote = new extensions.mime_handler.mime_handler.MimeHandlerServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -109,7 +109,7 @@ extensions.mime_handler.MimeHandlerService.getRemote = function() {
 };
 
 // ParamsSpec for GetStreamInfo
-extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
+extensions.mime_handler.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mime_handler.MimeHandlerService.GetStreamInfo_Params',
@@ -121,7 +121,7 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
   }
 };
 
-extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
+extensions.mime_handler.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mime_handler.MimeHandlerService.GetStreamInfo_ResponseParams',
@@ -135,7 +135,7 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetPdfPluginAttributes
-extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
+extensions.mime_handler.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mime_handler.MimeHandlerService.SetPdfPluginAttributes_Params',
@@ -149,29 +149,29 @@ extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = {
 };
 
 // Legacy compatibility
-extensions.mime_handler.MimeHandlerServicePtr = extensions.mime_handler.MimeHandlerServiceRemote;
-extensions.mime_handler.MimeHandlerServiceRequest = extensions.mime_handler.MimeHandlerServicePendingReceiver;
+extensions.mime_handler.mime_handler.MimeHandlerServicePtr = extensions.mime_handler.mime_handler.MimeHandlerServiceRemote;
+extensions.mime_handler.mime_handler.MimeHandlerServiceRequest = extensions.mime_handler.mime_handler.MimeHandlerServicePendingReceiver;
 
 
 // Interface: BeforeUnloadControl
-extensions.mime_handler.BeforeUnloadControl = {};
+extensions.mime_handler.mime_handler.BeforeUnloadControl = {};
 
-extensions.mime_handler.BeforeUnloadControlPendingReceiver = class {
+extensions.mime_handler.mime_handler.BeforeUnloadControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-extensions.mime_handler.BeforeUnloadControlRemote = class {
+extensions.mime_handler.mime_handler.BeforeUnloadControlRemote = class {
   static get $interfaceName() {
     return 'extensions.mime_handler.BeforeUnloadControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      extensions.mime_handler.BeforeUnloadControlPendingReceiver,
+      extensions.mime_handler.mime_handler.BeforeUnloadControlPendingReceiver,
       handle);
-    this.$ = new extensions.mime_handler.BeforeUnloadControlRemoteCallHandler(this.proxy);
+    this.$ = new extensions.mime_handler.mime_handler.BeforeUnloadControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -183,7 +183,7 @@ extensions.mime_handler.BeforeUnloadControlRemote = class {
   }
 };
 
-extensions.mime_handler.BeforeUnloadControlRemoteCallHandler = class {
+extensions.mime_handler.mime_handler.BeforeUnloadControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -192,15 +192,15 @@ extensions.mime_handler.BeforeUnloadControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec,
+      extensions.mime_handler.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec,
       null,
       [show_dialog]);
   }
 
 };
 
-extensions.mime_handler.BeforeUnloadControl.getRemote = function() {
-  let remote = new extensions.mime_handler.BeforeUnloadControlRemote();
+extensions.mime_handler.mime_handler.BeforeUnloadControl.getRemote = function() {
+  let remote = new extensions.mime_handler.mime_handler.BeforeUnloadControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -210,7 +210,7 @@ extensions.mime_handler.BeforeUnloadControl.getRemote = function() {
 };
 
 // ParamsSpec for SetShowBeforeUnloadDialog
-extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec = {
+extensions.mime_handler.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'extensions.mime_handler.BeforeUnloadControl.SetShowBeforeUnloadDialog_Params',
@@ -224,6 +224,6 @@ extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec
 };
 
 // Legacy compatibility
-extensions.mime_handler.BeforeUnloadControlPtr = extensions.mime_handler.BeforeUnloadControlRemote;
-extensions.mime_handler.BeforeUnloadControlRequest = extensions.mime_handler.BeforeUnloadControlPendingReceiver;
+extensions.mime_handler.mime_handler.BeforeUnloadControlPtr = extensions.mime_handler.mime_handler.BeforeUnloadControlRemote;
+extensions.mime_handler.mime_handler.BeforeUnloadControlRequest = extensions.mime_handler.mime_handler.BeforeUnloadControlPendingReceiver;
 

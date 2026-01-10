@@ -10,27 +10,27 @@ network.mojom = network.mojom || {};
 
 
 // Enum: PrivateNetworkRequestPolicy
-network.mojom.PrivateNetworkRequestPolicy = {
+network.mojom.mojom.PrivateNetworkRequestPolicy = {
   kAllow: 0,
   kWarn: 1,
   kBlock: 2,
   kPermissionWarn: 3,
   kPermissionBlock: 4,
 };
-network.mojom.PrivateNetworkRequestPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.PrivateNetworkRequestPolicySpec = { $: mojo.internal.Enum() };
 
 // Struct: ClientSecurityState
-network.mojom.ClientSecurityStateSpec = {
+network.mojom.mojom.ClientSecurityStateSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ClientSecurityState',
       packedSize: 40,
       fields: [
         { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'is_web_secure_context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ip_address_space', packedOffset: 12, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'private_network_request_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.PrivateNetworkRequestPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'document_isolation_policy', packedOffset: 24, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'is_web_secure_context', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ip_address_space', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'private_network_request_policy', packedOffset: 20, packedBitOffset: 0, type: network.mojom.PrivateNetworkRequestPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'document_isolation_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }

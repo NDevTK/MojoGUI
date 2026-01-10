@@ -10,7 +10,7 @@ shape_detection.mojom = shape_detection.mojom || {};
 
 
 // Struct: BarcodeDetectorOptions
-shape_detection.mojom.BarcodeDetectorOptionsSpec = {
+shape_detection.mojom.mojom.BarcodeDetectorOptionsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.BarcodeDetectorOptions',
@@ -24,24 +24,24 @@ shape_detection.mojom.BarcodeDetectorOptionsSpec = {
 };
 
 // Interface: BarcodeDetectionProvider
-shape_detection.mojom.BarcodeDetectionProvider = {};
+shape_detection.mojom.mojom.BarcodeDetectionProvider = {};
 
-shape_detection.mojom.BarcodeDetectionProviderPendingReceiver = class {
+shape_detection.mojom.mojom.BarcodeDetectionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-shape_detection.mojom.BarcodeDetectionProviderRemote = class {
+shape_detection.mojom.mojom.BarcodeDetectionProviderRemote = class {
   static get $interfaceName() {
     return 'shape_detection.mojom.BarcodeDetectionProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      shape_detection.mojom.BarcodeDetectionProviderPendingReceiver,
+      shape_detection.mojom.mojom.BarcodeDetectionProviderPendingReceiver,
       handle);
-    this.$ = new shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler(this.proxy);
+    this.$ = new shape_detection.mojom.mojom.BarcodeDetectionProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -53,7 +53,7 @@ shape_detection.mojom.BarcodeDetectionProviderRemote = class {
   }
 };
 
-shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler = class {
+shape_detection.mojom.mojom.BarcodeDetectionProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -62,7 +62,7 @@ shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec,
+      shape_detection.mojom.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec,
       null,
       [receiver, options]);
   }
@@ -71,15 +71,15 @@ shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec,
-      shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec,
+      shape_detection.mojom.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec,
+      shape_detection.mojom.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec,
       []);
   }
 
 };
 
-shape_detection.mojom.BarcodeDetectionProvider.getRemote = function() {
-  let remote = new shape_detection.mojom.BarcodeDetectionProviderRemote();
+shape_detection.mojom.mojom.BarcodeDetectionProvider.getRemote = function() {
+  let remote = new shape_detection.mojom.mojom.BarcodeDetectionProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -89,14 +89,14 @@ shape_detection.mojom.BarcodeDetectionProvider.getRemote = function() {
 };
 
 // ParamsSpec for CreateBarcodeDetection
-shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec = {
+shape_detection.mojom.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.BarcodeDetectionProvider.CreateBarcodeDetection_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: shape_detection.mojom.BarcodeDetectorOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: shape_detection.mojom.BarcodeDetectorOptionsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -104,7 +104,7 @@ shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec
 };
 
 // ParamsSpec for EnumerateSupportedFormats
-shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec = {
+shape_detection.mojom.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.BarcodeDetectionProvider.EnumerateSupportedFormats_Params',
@@ -116,7 +116,7 @@ shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsS
   }
 };
 
-shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec = {
+shape_detection.mojom.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'shape_detection.mojom.BarcodeDetectionProvider.EnumerateSupportedFormats_ResponseParams',
@@ -130,6 +130,6 @@ shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_Respons
 };
 
 // Legacy compatibility
-shape_detection.mojom.BarcodeDetectionProviderPtr = shape_detection.mojom.BarcodeDetectionProviderRemote;
-shape_detection.mojom.BarcodeDetectionProviderRequest = shape_detection.mojom.BarcodeDetectionProviderPendingReceiver;
+shape_detection.mojom.mojom.BarcodeDetectionProviderPtr = shape_detection.mojom.mojom.BarcodeDetectionProviderRemote;
+shape_detection.mojom.mojom.BarcodeDetectionProviderRequest = shape_detection.mojom.mojom.BarcodeDetectionProviderPendingReceiver;
 

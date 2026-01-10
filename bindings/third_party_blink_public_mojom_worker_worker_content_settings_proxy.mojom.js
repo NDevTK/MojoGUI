@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: WorkerContentSettingsProxy
-blink.mojom.WorkerContentSettingsProxy = {};
+blink.mojom.mojom.WorkerContentSettingsProxy = {};
 
-blink.mojom.WorkerContentSettingsProxyPendingReceiver = class {
+blink.mojom.mojom.WorkerContentSettingsProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WorkerContentSettingsProxyRemote = class {
+blink.mojom.mojom.WorkerContentSettingsProxyRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WorkerContentSettingsProxy';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WorkerContentSettingsProxyPendingReceiver,
+      blink.mojom.mojom.WorkerContentSettingsProxyPendingReceiver,
       handle);
-    this.$ = new blink.mojom.WorkerContentSettingsProxyRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WorkerContentSettingsProxyRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.WorkerContentSettingsProxyRemote = class {
   }
 };
 
-blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
+blink.mojom.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec,
-      blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec,
+      blink.mojom.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec,
+      blink.mojom.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec,
-      blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec,
+      blink.mojom.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec,
+      blink.mojom.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec,
       []);
   }
 
@@ -66,8 +66,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec,
-      blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec,
+      blink.mojom.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec,
+      blink.mojom.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec,
       []);
   }
 
@@ -75,15 +75,15 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec,
-      blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec,
+      blink.mojom.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec,
+      blink.mojom.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.WorkerContentSettingsProxy.getRemote = function() {
-  let remote = new blink.mojom.WorkerContentSettingsProxyRemote();
+blink.mojom.mojom.WorkerContentSettingsProxy.getRemote = function() {
+  let remote = new blink.mojom.mojom.WorkerContentSettingsProxyRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +93,7 @@ blink.mojom.WorkerContentSettingsProxy.getRemote = function() {
 };
 
 // ParamsSpec for AllowIndexedDB
-blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = {
+blink.mojom.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerContentSettingsProxy.AllowIndexedDB_Params',
@@ -105,7 +105,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = {
   }
 };
 
-blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec = {
+blink.mojom.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerContentSettingsProxy.AllowIndexedDB_ResponseParams',
@@ -119,7 +119,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AllowCacheStorage
-blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = {
+blink.mojom.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerContentSettingsProxy.AllowCacheStorage_Params',
@@ -131,7 +131,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = {
   }
 };
 
-blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec = {
+blink.mojom.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerContentSettingsProxy.AllowCacheStorage_ResponseParams',
@@ -145,7 +145,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AllowWebLocks
-blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = {
+blink.mojom.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerContentSettingsProxy.AllowWebLocks_Params',
@@ -157,7 +157,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = {
   }
 };
 
-blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec = {
+blink.mojom.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerContentSettingsProxy.AllowWebLocks_ResponseParams',
@@ -171,7 +171,7 @@ blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestFileSystemAccessSync
-blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = {
+blink.mojom.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerContentSettingsProxy.RequestFileSystemAccessSync_Params',
@@ -183,7 +183,7 @@ blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = 
   }
 };
 
-blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec = {
+blink.mojom.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WorkerContentSettingsProxy.RequestFileSystemAccessSync_ResponseParams',
@@ -197,6 +197,6 @@ blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParam
 };
 
 // Legacy compatibility
-blink.mojom.WorkerContentSettingsProxyPtr = blink.mojom.WorkerContentSettingsProxyRemote;
-blink.mojom.WorkerContentSettingsProxyRequest = blink.mojom.WorkerContentSettingsProxyPendingReceiver;
+blink.mojom.mojom.WorkerContentSettingsProxyPtr = blink.mojom.mojom.WorkerContentSettingsProxyRemote;
+blink.mojom.mojom.WorkerContentSettingsProxyRequest = blink.mojom.mojom.WorkerContentSettingsProxyPendingReceiver;
 

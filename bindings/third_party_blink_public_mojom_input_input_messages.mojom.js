@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: TextSuggestionBackend
-blink.mojom.TextSuggestionBackend = {};
+blink.mojom.mojom.TextSuggestionBackend = {};
 
-blink.mojom.TextSuggestionBackendPendingReceiver = class {
+blink.mojom.mojom.TextSuggestionBackendPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.TextSuggestionBackendRemote = class {
+blink.mojom.mojom.TextSuggestionBackendRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.TextSuggestionBackend';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.TextSuggestionBackendPendingReceiver,
+      blink.mojom.mojom.TextSuggestionBackendPendingReceiver,
       handle);
-    this.$ = new blink.mojom.TextSuggestionBackendRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.TextSuggestionBackendRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.TextSuggestionBackendRemote = class {
   }
 };
 
-blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
+blink.mojom.mojom.TextSuggestionBackendRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec,
+      blink.mojom.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec,
       null,
       [suggestion]);
   }
@@ -57,7 +57,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec,
+      blink.mojom.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec,
       null,
       [marker_tag, suggestion_index]);
   }
@@ -66,7 +66,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec,
+      blink.mojom.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec,
       null,
       []);
   }
@@ -75,7 +75,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec,
+      blink.mojom.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec,
       null,
       [suggestion]);
   }
@@ -84,7 +84,7 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec,
+      blink.mojom.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec,
       null,
       []);
   }
@@ -93,15 +93,15 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec,
+      blink.mojom.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec,
       null,
       [max_number_of_suggestions]);
   }
 
 };
 
-blink.mojom.TextSuggestionBackend.getRemote = function() {
-  let remote = new blink.mojom.TextSuggestionBackendRemote();
+blink.mojom.mojom.TextSuggestionBackend.getRemote = function() {
+  let remote = new blink.mojom.mojom.TextSuggestionBackendRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -111,7 +111,7 @@ blink.mojom.TextSuggestionBackend.getRemote = function() {
 };
 
 // ParamsSpec for ApplySpellCheckSuggestion
-blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
+blink.mojom.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextSuggestionBackend.ApplySpellCheckSuggestion_Params',
@@ -125,7 +125,7 @@ blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = {
 };
 
 // ParamsSpec for ApplyTextSuggestion
-blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
+blink.mojom.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextSuggestionBackend.ApplyTextSuggestion_Params',
@@ -140,7 +140,7 @@ blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = {
 };
 
 // ParamsSpec for DeleteActiveSuggestionRange
-blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = {
+blink.mojom.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextSuggestionBackend.DeleteActiveSuggestionRange_Params',
@@ -153,7 +153,7 @@ blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = {
 };
 
 // ParamsSpec for OnNewWordAddedToDictionary
-blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
+blink.mojom.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextSuggestionBackend.OnNewWordAddedToDictionary_Params',
@@ -167,7 +167,7 @@ blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = {
 };
 
 // ParamsSpec for OnSuggestionMenuClosed
-blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = {
+blink.mojom.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextSuggestionBackend.OnSuggestionMenuClosed_Params',
@@ -180,7 +180,7 @@ blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = {
 };
 
 // ParamsSpec for SuggestionMenuTimeoutCallback
-blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
+blink.mojom.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TextSuggestionBackend.SuggestionMenuTimeoutCallback_Params',
@@ -194,6 +194,6 @@ blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.TextSuggestionBackendPtr = blink.mojom.TextSuggestionBackendRemote;
-blink.mojom.TextSuggestionBackendRequest = blink.mojom.TextSuggestionBackendPendingReceiver;
+blink.mojom.mojom.TextSuggestionBackendPtr = blink.mojom.mojom.TextSuggestionBackendRemote;
+blink.mojom.mojom.TextSuggestionBackendRequest = blink.mojom.mojom.TextSuggestionBackendPendingReceiver;
 

@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: KeyboardCode
-ui.mojom.KeyboardCode = {
+ui.mojom.mojom.KeyboardCode = {
   BACK: 0,
   TAB: 1,
   CLEAR: 2,
@@ -190,4 +190,4 @@ ui.mojom.KeyboardCode = {
   ALTGR: 176,
   COMPOSE: 177,
 };
-ui.mojom.KeyboardCodeSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.KeyboardCodeSpec = { $: mojo.internal.Enum() };

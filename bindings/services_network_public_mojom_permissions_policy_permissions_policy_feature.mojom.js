@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: PermissionsPolicyFeature
-network.mojom.PermissionsPolicyFeature = {
+network.mojom.mojom.PermissionsPolicyFeature = {
   kNotFound: 0,
   kAutoplay: 1,
   kCamera: 2,
@@ -122,4 +122,4 @@ network.mojom.PermissionsPolicyFeature = {
   kLocalNetwork: 108,
   kLoopbackNetwork: 109,
 };
-network.mojom.PermissionsPolicyFeatureSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.PermissionsPolicyFeatureSpec = { $: mojo.internal.Enum() };

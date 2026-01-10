@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Enum: FileError
-mojo_base.mojom.FileError = {
+mojo_base.mojom.mojom.FileError = {
   OK: 0,
   FAILED: 1,
   IN_USE: 2,
@@ -29,4 +29,4 @@ mojo_base.mojom.FileError = {
   INVALID_URL: 15,
   IO: 16,
 };
-mojo_base.mojom.FileErrorSpec = { $: mojo.internal.Enum() };
+mojo_base.mojom.mojom.FileErrorSpec = { $: mojo.internal.Enum() };

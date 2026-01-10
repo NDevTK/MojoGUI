@@ -7,37 +7,37 @@
 // Module namespace
 var ash = ash || {};
 ash.scanning = ash.scanning || {};
-ash.scanning.mojom = ash.scanning.mojom || {};
+ash.scanning.scanning.mojom = ash.scanning.scanning.mojom || {};
 
 
 // Enum: ColorMode
-ash.scanning.mojom.ColorMode = {
+ash.scanning.scanning.mojom.mojom.ColorMode = {
   kBlackAndWhite: 0,
   kGrayscale: 1,
   kColor: 2,
 };
-ash.scanning.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
+ash.scanning.scanning.mojom.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FileType
-ash.scanning.mojom.FileType = {
+ash.scanning.scanning.mojom.mojom.FileType = {
   kJpg: 0,
   kPdf: 1,
   kPng: 2,
 };
-ash.scanning.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
+ash.scanning.scanning.mojom.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SourceType
-ash.scanning.mojom.SourceType = {
+ash.scanning.scanning.mojom.mojom.SourceType = {
   kUnknown: 0,
   kFlatbed: 1,
   kAdfSimplex: 2,
   kAdfDuplex: 3,
   kDefault: 4,
 };
-ash.scanning.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
+ash.scanning.scanning.mojom.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageSize
-ash.scanning.mojom.PageSize = {
+ash.scanning.scanning.mojom.mojom.PageSize = {
   kIsoA3: 0,
   kIsoA4: 1,
   kIsoB4: 2,
@@ -46,10 +46,10 @@ ash.scanning.mojom.PageSize = {
   kTabloid: 5,
   kMax: 6,
 };
-ash.scanning.mojom.PageSizeSpec = { $: mojo.internal.Enum() };
+ash.scanning.scanning.mojom.mojom.PageSizeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScanResult
-ash.scanning.mojom.ScanResult = {
+ash.scanning.scanning.mojom.mojom.ScanResult = {
   kSuccess: 0,
   kUnknownError: 1,
   kDeviceBusy: 2,
@@ -58,20 +58,20 @@ ash.scanning.mojom.ScanResult = {
   kFlatbedOpen: 5,
   kIoError: 6,
 };
-ash.scanning.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
+ash.scanning.scanning.mojom.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: ScanSource
-ash.scanning.mojom.ScanSourceSpec = {
+ash.scanning.scanning.mojom.mojom.ScanSourceSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanSource',
       packedSize: 48,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.scanning.mojom.SourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'page_sizes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.scanning.mojom.PageSizeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'color_modes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ash.scanning.mojom.ColorModeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'resolutions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: ash.scanning.mojom.SourceTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'page_sizes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.scanning.mojom.PageSizeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'color_modes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.scanning.mojom.ColorModeSpec, false), nullable: false, minVersion: 0 },
+        { name: 'resolutions', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -79,7 +79,7 @@ ash.scanning.mojom.ScanSourceSpec = {
 };
 
 // Struct: ScannerCapabilities
-ash.scanning.mojom.ScannerCapabilitiesSpec = {
+ash.scanning.scanning.mojom.mojom.ScannerCapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScannerCapabilities',
@@ -93,7 +93,7 @@ ash.scanning.mojom.ScannerCapabilitiesSpec = {
 };
 
 // Struct: ScanSettings
-ash.scanning.mojom.ScanSettingsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanSettingsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanSettings',
@@ -112,7 +112,7 @@ ash.scanning.mojom.ScanSettingsSpec = {
 };
 
 // Struct: Scanner
-ash.scanning.mojom.ScannerSpec = {
+ash.scanning.scanning.mojom.mojom.ScannerSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.Scanner',
@@ -127,24 +127,24 @@ ash.scanning.mojom.ScannerSpec = {
 };
 
 // Interface: ScanJobObserver
-ash.scanning.mojom.ScanJobObserver = {};
+ash.scanning.scanning.mojom.mojom.ScanJobObserver = {};
 
-ash.scanning.mojom.ScanJobObserverPendingReceiver = class {
+ash.scanning.scanning.mojom.mojom.ScanJobObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.scanning.mojom.ScanJobObserverRemote = class {
+ash.scanning.scanning.mojom.mojom.ScanJobObserverRemote = class {
   static get $interfaceName() {
     return 'ash.scanning.mojom.ScanJobObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.scanning.mojom.ScanJobObserverPendingReceiver,
+      ash.scanning.scanning.mojom.mojom.ScanJobObserverPendingReceiver,
       handle);
-    this.$ = new ash.scanning.mojom.ScanJobObserverRemoteCallHandler(this.proxy);
+    this.$ = new ash.scanning.scanning.mojom.mojom.ScanJobObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -156,7 +156,7 @@ ash.scanning.mojom.ScanJobObserverRemote = class {
   }
 };
 
-ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
+ash.scanning.scanning.mojom.mojom.ScanJobObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -165,7 +165,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnPageProgress_ParamsSpec,
       null,
       [page_number, progress_percent]);
   }
@@ -174,7 +174,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnPageComplete_ParamsSpec,
       null,
       [page_data, new_page_index]);
   }
@@ -183,7 +183,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnScanComplete_ParamsSpec,
       null,
       [result, scanned_file_paths]);
   }
@@ -192,7 +192,7 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec,
       null,
       [success]);
   }
@@ -201,15 +201,15 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-ash.scanning.mojom.ScanJobObserver.getRemote = function() {
-  let remote = new ash.scanning.mojom.ScanJobObserverRemote();
+ash.scanning.scanning.mojom.mojom.ScanJobObserver.getRemote = function() {
+  let remote = new ash.scanning.scanning.mojom.mojom.ScanJobObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -219,7 +219,7 @@ ash.scanning.mojom.ScanJobObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnPageProgress
-ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanJobObserver.OnPageProgress_Params',
@@ -234,7 +234,7 @@ ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = {
 };
 
 // ParamsSpec for OnPageComplete
-ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanJobObserver.OnPageComplete_Params',
@@ -249,14 +249,14 @@ ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = {
 };
 
 // ParamsSpec for OnScanComplete
-ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanJobObserver.OnScanComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.scanning.mojom.ScanResultSpec, nullable: false, minVersion: 0 },
-        { name: 'scanned_file_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.scanning.mojom.ScanResultSpec, nullable: false, minVersion: 0 },
+        { name: 'scanned_file_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -264,7 +264,7 @@ ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = {
 };
 
 // ParamsSpec for OnCancelComplete
-ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanJobObserver.OnCancelComplete_Params',
@@ -278,7 +278,7 @@ ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = {
 };
 
 // ParamsSpec for OnMultiPageScanFail
-ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanJobObserver.OnMultiPageScanFail_Params',
@@ -292,29 +292,29 @@ ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.scanning.mojom.ScanJobObserverPtr = ash.scanning.mojom.ScanJobObserverRemote;
-ash.scanning.mojom.ScanJobObserverRequest = ash.scanning.mojom.ScanJobObserverPendingReceiver;
+ash.scanning.scanning.mojom.mojom.ScanJobObserverPtr = ash.scanning.scanning.mojom.mojom.ScanJobObserverRemote;
+ash.scanning.scanning.mojom.mojom.ScanJobObserverRequest = ash.scanning.scanning.mojom.mojom.ScanJobObserverPendingReceiver;
 
 
 // Interface: ScanService
-ash.scanning.mojom.ScanService = {};
+ash.scanning.scanning.mojom.mojom.ScanService = {};
 
-ash.scanning.mojom.ScanServicePendingReceiver = class {
+ash.scanning.scanning.mojom.mojom.ScanServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.scanning.mojom.ScanServiceRemote = class {
+ash.scanning.scanning.mojom.mojom.ScanServiceRemote = class {
   static get $interfaceName() {
     return 'ash.scanning.mojom.ScanService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.scanning.mojom.ScanServicePendingReceiver,
+      ash.scanning.scanning.mojom.mojom.ScanServicePendingReceiver,
       handle);
-    this.$ = new ash.scanning.mojom.ScanServiceRemoteCallHandler(this.proxy);
+    this.$ = new ash.scanning.scanning.mojom.mojom.ScanServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -326,7 +326,7 @@ ash.scanning.mojom.ScanServiceRemote = class {
   }
 };
 
-ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
+ash.scanning.scanning.mojom.mojom.ScanServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -335,8 +335,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.scanning.mojom.ScanService_GetScanners_ParamsSpec,
-      ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanService_GetScanners_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanService_GetScanners_ResponseParamsSpec,
       []);
   }
 
@@ -344,8 +344,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec,
-      ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanService_GetScannerCapabilities_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
       [scanner_id]);
   }
 
@@ -353,8 +353,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.scanning.mojom.ScanService_StartScan_ParamsSpec,
-      ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanService_StartScan_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanService_StartScan_ResponseParamsSpec,
       [scanner_id, settings, observer]);
   }
 
@@ -362,8 +362,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec,
-      ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanService_StartMultiPageScan_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
       [scanner_id, settings, observer]);
   }
 
@@ -371,15 +371,15 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.scanning.mojom.ScanService_CancelScan_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.ScanService_CancelScan_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.scanning.mojom.ScanService.getRemote = function() {
-  let remote = new ash.scanning.mojom.ScanServiceRemote();
+ash.scanning.scanning.mojom.mojom.ScanService.getRemote = function() {
+  let remote = new ash.scanning.scanning.mojom.mojom.ScanServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -389,7 +389,7 @@ ash.scanning.mojom.ScanService.getRemote = function() {
 };
 
 // ParamsSpec for GetScanners
-ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanService_GetScanners_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanService.GetScanners_Params',
@@ -401,7 +401,7 @@ ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = {
   }
 };
 
-ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanService_GetScanners_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanService.GetScanners_ResponseParams',
@@ -415,7 +415,7 @@ ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetScannerCapabilities
-ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanService.GetScannerCapabilities_Params',
@@ -428,7 +428,7 @@ ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
   }
 };
 
-ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanService.GetScannerCapabilities_ResponseParams',
@@ -442,7 +442,7 @@ ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartScan
-ash.scanning.mojom.ScanService_StartScan_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanService_StartScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanService.StartScan_Params',
@@ -457,7 +457,7 @@ ash.scanning.mojom.ScanService_StartScan_ParamsSpec = {
   }
 };
 
-ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanService_StartScan_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanService.StartScan_ResponseParams',
@@ -471,7 +471,7 @@ ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartMultiPageScan
-ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanService.StartMultiPageScan_Params',
@@ -486,7 +486,7 @@ ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
   }
 };
 
-ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanService.StartMultiPageScan_ResponseParams',
@@ -500,7 +500,7 @@ ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CancelScan
-ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.ScanService_CancelScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.ScanService.CancelScan_Params',
@@ -513,29 +513,29 @@ ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.scanning.mojom.ScanServicePtr = ash.scanning.mojom.ScanServiceRemote;
-ash.scanning.mojom.ScanServiceRequest = ash.scanning.mojom.ScanServicePendingReceiver;
+ash.scanning.scanning.mojom.mojom.ScanServicePtr = ash.scanning.scanning.mojom.mojom.ScanServiceRemote;
+ash.scanning.scanning.mojom.mojom.ScanServiceRequest = ash.scanning.scanning.mojom.mojom.ScanServicePendingReceiver;
 
 
 // Interface: MultiPageScanController
-ash.scanning.mojom.MultiPageScanController = {};
+ash.scanning.scanning.mojom.mojom.MultiPageScanController = {};
 
-ash.scanning.mojom.MultiPageScanControllerPendingReceiver = class {
+ash.scanning.scanning.mojom.mojom.MultiPageScanControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.scanning.mojom.MultiPageScanControllerRemote = class {
+ash.scanning.scanning.mojom.mojom.MultiPageScanControllerRemote = class {
   static get $interfaceName() {
     return 'ash.scanning.mojom.MultiPageScanController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.scanning.mojom.MultiPageScanControllerPendingReceiver,
+      ash.scanning.scanning.mojom.mojom.MultiPageScanControllerPendingReceiver,
       handle);
-    this.$ = new ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler(this.proxy);
+    this.$ = new ash.scanning.scanning.mojom.mojom.MultiPageScanControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -547,7 +547,7 @@ ash.scanning.mojom.MultiPageScanControllerRemote = class {
   }
 };
 
-ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
+ash.scanning.scanning.mojom.mojom.MultiPageScanControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -556,8 +556,8 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec,
-      ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
+      ash.scanning.scanning.mojom.mojom.MultiPageScanController_ScanNextPage_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
       [scanner_id, settings]);
   }
 
@@ -565,7 +565,7 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.MultiPageScanController_RemovePage_ParamsSpec,
       null,
       [page_index]);
   }
@@ -574,8 +574,8 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec,
-      ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
+      ash.scanning.scanning.mojom.mojom.MultiPageScanController_RescanPage_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
       [scanner_id, settings, page_index]);
   }
 
@@ -583,15 +583,15 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec,
+      ash.scanning.scanning.mojom.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.scanning.mojom.MultiPageScanController.getRemote = function() {
-  let remote = new ash.scanning.mojom.MultiPageScanControllerRemote();
+ash.scanning.scanning.mojom.mojom.MultiPageScanController.getRemote = function() {
+  let remote = new ash.scanning.scanning.mojom.mojom.MultiPageScanControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -601,7 +601,7 @@ ash.scanning.mojom.MultiPageScanController.getRemote = function() {
 };
 
 // ParamsSpec for ScanNextPage
-ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.MultiPageScanController.ScanNextPage_Params',
@@ -615,7 +615,7 @@ ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
   }
 };
 
-ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = {
+ash.scanning.scanning.mojom.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.MultiPageScanController.ScanNextPage_ResponseParams',
@@ -629,7 +629,7 @@ ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemovePage
-ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.MultiPageScanController_RemovePage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.MultiPageScanController.RemovePage_Params',
@@ -643,7 +643,7 @@ ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = {
 };
 
 // ParamsSpec for RescanPage
-ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.MultiPageScanController.RescanPage_Params',
@@ -658,7 +658,7 @@ ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
   }
 };
 
-ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = {
+ash.scanning.scanning.mojom.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.MultiPageScanController.RescanPage_ResponseParams',
@@ -672,7 +672,7 @@ ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CompleteMultiPageScan
-ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = {
+ash.scanning.scanning.mojom.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.scanning.mojom.MultiPageScanController.CompleteMultiPageScan_Params',
@@ -685,6 +685,6 @@ ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.scanning.mojom.MultiPageScanControllerPtr = ash.scanning.mojom.MultiPageScanControllerRemote;
-ash.scanning.mojom.MultiPageScanControllerRequest = ash.scanning.mojom.MultiPageScanControllerPendingReceiver;
+ash.scanning.scanning.mojom.mojom.MultiPageScanControllerPtr = ash.scanning.scanning.mojom.mojom.MultiPageScanControllerRemote;
+ash.scanning.scanning.mojom.mojom.MultiPageScanControllerRequest = ash.scanning.scanning.mojom.mojom.MultiPageScanControllerPendingReceiver;
 

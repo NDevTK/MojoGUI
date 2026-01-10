@@ -7,10 +7,11 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var url = url || {};
 
 
 // Struct: StoragePolicyUpdate
-storage.mojom.StoragePolicyUpdateSpec = {
+storage.mojom.mojom.StoragePolicyUpdateSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.StoragePolicyUpdate',

@@ -10,14 +10,14 @@ optimization_guide.mojom = optimization_guide.mojom || {};
 
 
 // Enum: TextDumpEvent
-optimization_guide.mojom.TextDumpEvent = {
+optimization_guide.mojom.mojom.TextDumpEvent = {
   kFirstLayout: 0,
   kFinishedLoad: 1,
 };
-optimization_guide.mojom.TextDumpEventSpec = { $: mojo.internal.Enum() };
+optimization_guide.mojom.mojom.TextDumpEventSpec = { $: mojo.internal.Enum() };
 
 // Struct: PageTextDumpRequest
-optimization_guide.mojom.PageTextDumpRequestSpec = {
+optimization_guide.mojom.mojom.PageTextDumpRequestSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide.mojom.PageTextDumpRequest',
@@ -32,24 +32,24 @@ optimization_guide.mojom.PageTextDumpRequestSpec = {
 };
 
 // Interface: PageTextConsumer
-optimization_guide.mojom.PageTextConsumer = {};
+optimization_guide.mojom.mojom.PageTextConsumer = {};
 
-optimization_guide.mojom.PageTextConsumerPendingReceiver = class {
+optimization_guide.mojom.mojom.PageTextConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-optimization_guide.mojom.PageTextConsumerRemote = class {
+optimization_guide.mojom.mojom.PageTextConsumerRemote = class {
   static get $interfaceName() {
     return 'optimization_guide.mojom.PageTextConsumer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      optimization_guide.mojom.PageTextConsumerPendingReceiver,
+      optimization_guide.mojom.mojom.PageTextConsumerPendingReceiver,
       handle);
-    this.$ = new optimization_guide.mojom.PageTextConsumerRemoteCallHandler(this.proxy);
+    this.$ = new optimization_guide.mojom.mojom.PageTextConsumerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +61,7 @@ optimization_guide.mojom.PageTextConsumerRemote = class {
   }
 };
 
-optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
+optimization_guide.mojom.mojom.PageTextConsumerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,7 +70,7 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec,
+      optimization_guide.mojom.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec,
       null,
       [chunk]);
   }
@@ -79,15 +79,15 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec,
+      optimization_guide.mojom.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec,
       null,
       []);
   }
 
 };
 
-optimization_guide.mojom.PageTextConsumer.getRemote = function() {
-  let remote = new optimization_guide.mojom.PageTextConsumerRemote();
+optimization_guide.mojom.mojom.PageTextConsumer.getRemote = function() {
+  let remote = new optimization_guide.mojom.mojom.PageTextConsumerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,7 +97,7 @@ optimization_guide.mojom.PageTextConsumer.getRemote = function() {
 };
 
 // ParamsSpec for OnTextDumpChunk
-optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
+optimization_guide.mojom.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide.mojom.PageTextConsumer.OnTextDumpChunk_Params',
@@ -111,7 +111,7 @@ optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
 };
 
 // ParamsSpec for OnChunksEnd
-optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = {
+optimization_guide.mojom.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide.mojom.PageTextConsumer.OnChunksEnd_Params',
@@ -124,29 +124,29 @@ optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = {
 };
 
 // Legacy compatibility
-optimization_guide.mojom.PageTextConsumerPtr = optimization_guide.mojom.PageTextConsumerRemote;
-optimization_guide.mojom.PageTextConsumerRequest = optimization_guide.mojom.PageTextConsumerPendingReceiver;
+optimization_guide.mojom.mojom.PageTextConsumerPtr = optimization_guide.mojom.mojom.PageTextConsumerRemote;
+optimization_guide.mojom.mojom.PageTextConsumerRequest = optimization_guide.mojom.mojom.PageTextConsumerPendingReceiver;
 
 
 // Interface: PageTextService
-optimization_guide.mojom.PageTextService = {};
+optimization_guide.mojom.mojom.PageTextService = {};
 
-optimization_guide.mojom.PageTextServicePendingReceiver = class {
+optimization_guide.mojom.mojom.PageTextServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-optimization_guide.mojom.PageTextServiceRemote = class {
+optimization_guide.mojom.mojom.PageTextServiceRemote = class {
   static get $interfaceName() {
     return 'optimization_guide.mojom.PageTextService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      optimization_guide.mojom.PageTextServicePendingReceiver,
+      optimization_guide.mojom.mojom.PageTextServicePendingReceiver,
       handle);
-    this.$ = new optimization_guide.mojom.PageTextServiceRemoteCallHandler(this.proxy);
+    this.$ = new optimization_guide.mojom.mojom.PageTextServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -158,7 +158,7 @@ optimization_guide.mojom.PageTextServiceRemote = class {
   }
 };
 
-optimization_guide.mojom.PageTextServiceRemoteCallHandler = class {
+optimization_guide.mojom.mojom.PageTextServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -167,15 +167,15 @@ optimization_guide.mojom.PageTextServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec,
+      optimization_guide.mojom.mojom.PageTextService_RequestPageTextDump_ParamsSpec,
       null,
       [request, consumer]);
   }
 
 };
 
-optimization_guide.mojom.PageTextService.getRemote = function() {
-  let remote = new optimization_guide.mojom.PageTextServiceRemote();
+optimization_guide.mojom.mojom.PageTextService.getRemote = function() {
+  let remote = new optimization_guide.mojom.mojom.PageTextServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -185,7 +185,7 @@ optimization_guide.mojom.PageTextService.getRemote = function() {
 };
 
 // ParamsSpec for RequestPageTextDump
-optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
+optimization_guide.mojom.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
   $: {
     structSpec: {
       name: 'optimization_guide.mojom.PageTextService.RequestPageTextDump_Params',
@@ -200,6 +200,6 @@ optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
 };
 
 // Legacy compatibility
-optimization_guide.mojom.PageTextServicePtr = optimization_guide.mojom.PageTextServiceRemote;
-optimization_guide.mojom.PageTextServiceRequest = optimization_guide.mojom.PageTextServicePendingReceiver;
+optimization_guide.mojom.mojom.PageTextServicePtr = optimization_guide.mojom.mojom.PageTextServiceRemote;
+optimization_guide.mojom.mojom.PageTextServiceRequest = optimization_guide.mojom.mojom.PageTextServicePendingReceiver;
 

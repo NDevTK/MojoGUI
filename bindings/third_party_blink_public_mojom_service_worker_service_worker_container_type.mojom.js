@@ -10,11 +10,11 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ServiceWorkerContainerType
-blink.mojom.ServiceWorkerContainerType = {
+blink.mojom.mojom.ServiceWorkerContainerType = {
   kUnknown: 0,
   kForWindow: 1,
   kForDedicatedWorker: 2,
   kForSharedWorker: 3,
   kForServiceWorker: 4,
 };
-blink.mojom.ServiceWorkerContainerTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ServiceWorkerContainerTypeSpec = { $: mojo.internal.Enum() };

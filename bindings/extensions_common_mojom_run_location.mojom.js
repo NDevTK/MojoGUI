@@ -10,7 +10,7 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: RunLocation
-extensions.mojom.RunLocation = {
+extensions.mojom.mojom.RunLocation = {
   kUndefined: 0,
   kDocumentStart: 1,
   kDocumentEnd: 2,
@@ -18,4 +18,4 @@ extensions.mojom.RunLocation = {
   kRunDeferred: 4,
   kBrowserDriven: 5,
 };
-extensions.mojom.RunLocationSpec = { $: mojo.internal.Enum() };
+extensions.mojom.mojom.RunLocationSpec = { $: mojo.internal.Enum() };

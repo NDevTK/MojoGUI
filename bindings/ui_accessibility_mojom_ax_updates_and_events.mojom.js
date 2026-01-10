@@ -7,10 +7,13 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
 
 
 // Struct: AXUpdatesAndEvents
-ax.mojom.AXUpdatesAndEventsSpec = {
+ax.mojom.mojom.AXUpdatesAndEventsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AXUpdatesAndEvents',

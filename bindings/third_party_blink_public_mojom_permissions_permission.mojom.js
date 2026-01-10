@@ -7,10 +7,14 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: PermissionName
-blink.mojom.PermissionName = {
+blink.mojom.mojom.PermissionName = {
   GEOLOCATION: 0,
   NOTIFICATIONS: 1,
   MIDI: 2,
@@ -50,20 +54,20 @@ blink.mojom.PermissionName = {
   SMART_CARD: 36,
   GEOLOCATION_APPROXIMATE: 37,
 };
-blink.mojom.PermissionNameSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.PermissionNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: EmbeddedPermissionControlResult
-blink.mojom.EmbeddedPermissionControlResult = {
+blink.mojom.mojom.EmbeddedPermissionControlResult = {
   kDismissed: 0,
   kGranted: 1,
   kDenied: 2,
   kNotSupported: 3,
   kResolvedNoUserGesture: 4,
 };
-blink.mojom.EmbeddedPermissionControlResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.EmbeddedPermissionControlResultSpec = { $: mojo.internal.Enum() };
 
 // Union: PermissionDescriptorExtension
-blink.mojom.PermissionDescriptorExtensionSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.PermissionDescriptorExtensionSpec = { $: mojo.internal.Union(
     'blink.mojom.PermissionDescriptorExtension', {
       'midi': {
         'ordinal': 0,
@@ -89,7 +93,7 @@ blink.mojom.PermissionDescriptorExtensionSpec = { $: mojo.internal.Union(
 };
 
 // Struct: MidiPermissionDescriptor
-blink.mojom.MidiPermissionDescriptorSpec = {
+blink.mojom.mojom.MidiPermissionDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.MidiPermissionDescriptor',
@@ -103,7 +107,7 @@ blink.mojom.MidiPermissionDescriptorSpec = {
 };
 
 // Struct: ClipboardPermissionDescriptor
-blink.mojom.ClipboardPermissionDescriptorSpec = {
+blink.mojom.mojom.ClipboardPermissionDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ClipboardPermissionDescriptor',
@@ -118,7 +122,7 @@ blink.mojom.ClipboardPermissionDescriptorSpec = {
 };
 
 // Struct: CameraDevicePermissionDescriptor
-blink.mojom.CameraDevicePermissionDescriptorSpec = {
+blink.mojom.mojom.CameraDevicePermissionDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CameraDevicePermissionDescriptor',
@@ -132,7 +136,7 @@ blink.mojom.CameraDevicePermissionDescriptorSpec = {
 };
 
 // Struct: TopLevelStorageAccessPermissionDescriptor
-blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec = {
+blink.mojom.mojom.TopLevelStorageAccessPermissionDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TopLevelStorageAccessPermissionDescriptor',
@@ -146,7 +150,7 @@ blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec = {
 };
 
 // Struct: FullscreenPermissionDescriptor
-blink.mojom.FullscreenPermissionDescriptorSpec = {
+blink.mojom.mojom.FullscreenPermissionDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FullscreenPermissionDescriptor',
@@ -160,14 +164,14 @@ blink.mojom.FullscreenPermissionDescriptorSpec = {
 };
 
 // Struct: PermissionDescriptor
-blink.mojom.PermissionDescriptorSpec = {
+blink.mojom.mojom.PermissionDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionDescriptor',
       packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionNameSpec, nullable: false, minVersion: 0 },
-        { name: 'extension', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorExtensionSpec, nullable: true, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PermissionNameSpec, nullable: false, minVersion: 0 },
+        { name: 'extension', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorExtensionSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -175,7 +179,7 @@ blink.mojom.PermissionDescriptorSpec = {
 };
 
 // Struct: GeolocationEmbeddedPermissionRequestDescriptor
-blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec = {
+blink.mojom.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.GeolocationEmbeddedPermissionRequestDescriptor',
@@ -189,7 +193,7 @@ blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec = {
 };
 
 // Struct: EmbeddedPermissionRequestDescriptor
-blink.mojom.EmbeddedPermissionRequestDescriptorSpec = {
+blink.mojom.mojom.EmbeddedPermissionRequestDescriptorSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedPermissionRequestDescriptor',
@@ -204,24 +208,24 @@ blink.mojom.EmbeddedPermissionRequestDescriptorSpec = {
 };
 
 // Interface: PermissionObserver
-blink.mojom.PermissionObserver = {};
+blink.mojom.mojom.PermissionObserver = {};
 
-blink.mojom.PermissionObserverPendingReceiver = class {
+blink.mojom.mojom.PermissionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.PermissionObserverRemote = class {
+blink.mojom.mojom.PermissionObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PermissionObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.PermissionObserverPendingReceiver,
+      blink.mojom.mojom.PermissionObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.PermissionObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.PermissionObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -233,7 +237,7 @@ blink.mojom.PermissionObserverRemote = class {
   }
 };
 
-blink.mojom.PermissionObserverRemoteCallHandler = class {
+blink.mojom.mojom.PermissionObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -242,15 +246,15 @@ blink.mojom.PermissionObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec,
+      blink.mojom.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-blink.mojom.PermissionObserver.getRemote = function() {
-  let remote = new blink.mojom.PermissionObserverRemote();
+blink.mojom.mojom.PermissionObserver.getRemote = function() {
+  let remote = new blink.mojom.mojom.PermissionObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -260,7 +264,7 @@ blink.mojom.PermissionObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnPermissionStatusChange
-blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = {
+blink.mojom.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionObserver.OnPermissionStatusChange_Params',
@@ -274,29 +278,29 @@ blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.PermissionObserverPtr = blink.mojom.PermissionObserverRemote;
-blink.mojom.PermissionObserverRequest = blink.mojom.PermissionObserverPendingReceiver;
+blink.mojom.mojom.PermissionObserverPtr = blink.mojom.mojom.PermissionObserverRemote;
+blink.mojom.mojom.PermissionObserverRequest = blink.mojom.mojom.PermissionObserverPendingReceiver;
 
 
 // Interface: EmbeddedPermissionControlClient
-blink.mojom.EmbeddedPermissionControlClient = {};
+blink.mojom.mojom.EmbeddedPermissionControlClient = {};
 
-blink.mojom.EmbeddedPermissionControlClientPendingReceiver = class {
+blink.mojom.mojom.EmbeddedPermissionControlClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.EmbeddedPermissionControlClientRemote = class {
+blink.mojom.mojom.EmbeddedPermissionControlClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.EmbeddedPermissionControlClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.EmbeddedPermissionControlClientPendingReceiver,
+      blink.mojom.mojom.EmbeddedPermissionControlClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.EmbeddedPermissionControlClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.EmbeddedPermissionControlClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -308,7 +312,7 @@ blink.mojom.EmbeddedPermissionControlClientRemote = class {
   }
 };
 
-blink.mojom.EmbeddedPermissionControlClientRemoteCallHandler = class {
+blink.mojom.mojom.EmbeddedPermissionControlClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -317,15 +321,15 @@ blink.mojom.EmbeddedPermissionControlClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec,
+      blink.mojom.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec,
       null,
       [allow, statuses]);
   }
 
 };
 
-blink.mojom.EmbeddedPermissionControlClient.getRemote = function() {
-  let remote = new blink.mojom.EmbeddedPermissionControlClientRemote();
+blink.mojom.mojom.EmbeddedPermissionControlClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.EmbeddedPermissionControlClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -335,14 +339,14 @@ blink.mojom.EmbeddedPermissionControlClient.getRemote = function() {
 };
 
 // ParamsSpec for OnEmbeddedPermissionControlRegistered
-blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec = {
+blink.mojom.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.EmbeddedPermissionControlClient.OnEmbeddedPermissionControlRegistered_Params',
       packedSize: 24,
       fields: [
-        { name: 'allow', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'statuses', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), nullable: true, minVersion: 0 },
+        { name: 'allow', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'statuses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -350,29 +354,29 @@ blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistere
 };
 
 // Legacy compatibility
-blink.mojom.EmbeddedPermissionControlClientPtr = blink.mojom.EmbeddedPermissionControlClientRemote;
-blink.mojom.EmbeddedPermissionControlClientRequest = blink.mojom.EmbeddedPermissionControlClientPendingReceiver;
+blink.mojom.mojom.EmbeddedPermissionControlClientPtr = blink.mojom.mojom.EmbeddedPermissionControlClientRemote;
+blink.mojom.mojom.EmbeddedPermissionControlClientRequest = blink.mojom.mojom.EmbeddedPermissionControlClientPendingReceiver;
 
 
 // Interface: PermissionService
-blink.mojom.PermissionService = {};
+blink.mojom.mojom.PermissionService = {};
 
-blink.mojom.PermissionServicePendingReceiver = class {
+blink.mojom.mojom.PermissionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.PermissionServiceRemote = class {
+blink.mojom.mojom.PermissionServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PermissionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.PermissionServicePendingReceiver,
+      blink.mojom.mojom.PermissionServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.PermissionServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.PermissionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -384,7 +388,7 @@ blink.mojom.PermissionServiceRemote = class {
   }
 };
 
-blink.mojom.PermissionServiceRemoteCallHandler = class {
+blink.mojom.mojom.PermissionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -393,8 +397,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.PermissionService_HasPermission_ParamsSpec,
-      blink.mojom.PermissionService_HasPermission_ResponseParamsSpec,
+      blink.mojom.mojom.PermissionService_HasPermission_ParamsSpec,
+      blink.mojom.mojom.PermissionService_HasPermission_ResponseParamsSpec,
       [permission]);
   }
 
@@ -402,7 +406,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec,
+      blink.mojom.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec,
       null,
       [permissions, descriptor, client]);
   }
@@ -411,8 +415,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec,
-      blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec,
+      blink.mojom.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec,
+      blink.mojom.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec,
       [permissions, descriptor]);
   }
 
@@ -420,8 +424,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.PermissionService_RequestPermission_ParamsSpec,
-      blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec,
+      blink.mojom.mojom.PermissionService_RequestPermission_ParamsSpec,
+      blink.mojom.mojom.PermissionService_RequestPermission_ResponseParamsSpec,
       [permission, user_gesture]);
   }
 
@@ -429,8 +433,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.PermissionService_RequestPermissions_ParamsSpec,
-      blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec,
+      blink.mojom.mojom.PermissionService_RequestPermissions_ParamsSpec,
+      blink.mojom.mojom.PermissionService_RequestPermissions_ResponseParamsSpec,
       [permission, user_gesture]);
   }
 
@@ -438,8 +442,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.PermissionService_RevokePermission_ParamsSpec,
-      blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec,
+      blink.mojom.mojom.PermissionService_RevokePermission_ParamsSpec,
+      blink.mojom.mojom.PermissionService_RevokePermission_ResponseParamsSpec,
       [permission]);
   }
 
@@ -447,7 +451,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec,
+      blink.mojom.mojom.PermissionService_AddPermissionObserver_ParamsSpec,
       null,
       [permission, last_known_status, observer]);
   }
@@ -456,7 +460,7 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec,
+      blink.mojom.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec,
       null,
       [permission, last_known_status, observer]);
   }
@@ -465,15 +469,15 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.PermissionService_NotifyEventListener_ParamsSpec,
+      blink.mojom.mojom.PermissionService_NotifyEventListener_ParamsSpec,
       null,
       [permission, event_type, is_added]);
   }
 
 };
 
-blink.mojom.PermissionService.getRemote = function() {
-  let remote = new blink.mojom.PermissionServiceRemote();
+blink.mojom.mojom.PermissionService.getRemote = function() {
+  let remote = new blink.mojom.mojom.PermissionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -483,7 +487,7 @@ blink.mojom.PermissionService.getRemote = function() {
 };
 
 // ParamsSpec for HasPermission
-blink.mojom.PermissionService_HasPermission_ParamsSpec = {
+blink.mojom.mojom.PermissionService_HasPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.HasPermission_Params',
@@ -496,7 +500,7 @@ blink.mojom.PermissionService_HasPermission_ParamsSpec = {
   }
 };
 
-blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = {
+blink.mojom.mojom.PermissionService_HasPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.HasPermission_ResponseParams',
@@ -510,7 +514,7 @@ blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RegisterPageEmbeddedPermissionControl
-blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec = {
+blink.mojom.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.RegisterPageEmbeddedPermissionControl_Params',
@@ -526,7 +530,7 @@ blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec =
 };
 
 // ParamsSpec for RequestPageEmbeddedPermission
-blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = {
+blink.mojom.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.RequestPageEmbeddedPermission_Params',
@@ -540,7 +544,7 @@ blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = {
   }
 };
 
-blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec = {
+blink.mojom.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.RequestPageEmbeddedPermission_ResponseParams',
@@ -554,7 +558,7 @@ blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec =
 };
 
 // ParamsSpec for RequestPermission
-blink.mojom.PermissionService_RequestPermission_ParamsSpec = {
+blink.mojom.mojom.PermissionService_RequestPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.RequestPermission_Params',
@@ -568,7 +572,7 @@ blink.mojom.PermissionService_RequestPermission_ParamsSpec = {
   }
 };
 
-blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = {
+blink.mojom.mojom.PermissionService_RequestPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.RequestPermission_ResponseParams',
@@ -582,7 +586,7 @@ blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RequestPermissions
-blink.mojom.PermissionService_RequestPermissions_ParamsSpec = {
+blink.mojom.mojom.PermissionService_RequestPermissions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.RequestPermissions_Params',
@@ -596,7 +600,7 @@ blink.mojom.PermissionService_RequestPermissions_ParamsSpec = {
   }
 };
 
-blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = {
+blink.mojom.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.RequestPermissions_ResponseParams',
@@ -610,7 +614,7 @@ blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RevokePermission
-blink.mojom.PermissionService_RevokePermission_ParamsSpec = {
+blink.mojom.mojom.PermissionService_RevokePermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.RevokePermission_Params',
@@ -623,7 +627,7 @@ blink.mojom.PermissionService_RevokePermission_ParamsSpec = {
   }
 };
 
-blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = {
+blink.mojom.mojom.PermissionService_RevokePermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.RevokePermission_ResponseParams',
@@ -637,7 +641,7 @@ blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddPermissionObserver
-blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
+blink.mojom.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.AddPermissionObserver_Params',
@@ -653,7 +657,7 @@ blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
 };
 
 // ParamsSpec for AddPageEmbeddedPermissionObserver
-blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = {
+blink.mojom.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.AddPageEmbeddedPermissionObserver_Params',
@@ -669,7 +673,7 @@ blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyEventListener
-blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = {
+blink.mojom.mojom.PermissionService_NotifyEventListener_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.NotifyEventListener_Params',
@@ -685,6 +689,6 @@ blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.PermissionServicePtr = blink.mojom.PermissionServiceRemote;
-blink.mojom.PermissionServiceRequest = blink.mojom.PermissionServicePendingReceiver;
+blink.mojom.mojom.PermissionServicePtr = blink.mojom.mojom.PermissionServiceRemote;
+blink.mojom.mojom.PermissionServiceRequest = blink.mojom.mojom.PermissionServicePendingReceiver;
 

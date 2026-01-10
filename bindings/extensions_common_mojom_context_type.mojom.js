@@ -10,7 +10,7 @@ extensions.mojom = extensions.mojom || {};
 
 
 // Enum: ContextType
-extensions.mojom.ContextType = {
+extensions.mojom.mojom.ContextType = {
   kPrivilegedExtension: 0,
   kUnprivilegedExtension: 1,
   kContentScript: 2,
@@ -22,4 +22,4 @@ extensions.mojom.ContextType = {
   kUserScript: 8,
   kUnspecified: 9,
 };
-extensions.mojom.ContextTypeSpec = { $: mojo.internal.Enum() };
+extensions.mojom.mojom.ContextTypeSpec = { $: mojo.internal.Enum() };

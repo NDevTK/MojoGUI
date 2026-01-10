@@ -9,14 +9,14 @@ var on_device_translation = on_device_translation || {};
 on_device_translation.mojom = on_device_translation.mojom || {};
 
 
-on_device_translation.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kOnDeviceTranslation;
+on_device_translation.mojom.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kOnDeviceTranslation;
 
-on_device_translation.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kService;
+on_device_translation.mojom.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kService;
 
-on_device_translation.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+on_device_translation.mojom.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kNoSandbox;
 
 // Enum: CreateTranslatorResult
-on_device_translation.mojom.CreateTranslatorResult = {
+on_device_translation.mojom.mojom.CreateTranslatorResult = {
   kSuccess: 0,
   kErrorInvalidBinary: 1,
   kErrorInvalidFunctionPointer: 2,
@@ -24,10 +24,10 @@ on_device_translation.mojom.CreateTranslatorResult = {
   kErrorFailedToCreateTranslator: 4,
   kErrorInvalidVersion: 5,
 };
-on_device_translation.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Enum() };
+on_device_translation.mojom.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: OnDeviceTranslationLanguagePackage
-on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec = {
+on_device_translation.mojom.mojom.OnDeviceTranslationLanguagePackageSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.OnDeviceTranslationLanguagePackage',
@@ -42,7 +42,7 @@ on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec = {
 };
 
 // Struct: OnDeviceTranslationServiceConfig
-on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec = {
+on_device_translation.mojom.mojom.OnDeviceTranslationServiceConfigSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.OnDeviceTranslationServiceConfig',
@@ -57,24 +57,24 @@ on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec = {
 };
 
 // Interface: FileOperationProxy
-on_device_translation.mojom.FileOperationProxy = {};
+on_device_translation.mojom.mojom.FileOperationProxy = {};
 
-on_device_translation.mojom.FileOperationProxyPendingReceiver = class {
+on_device_translation.mojom.mojom.FileOperationProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-on_device_translation.mojom.FileOperationProxyRemote = class {
+on_device_translation.mojom.mojom.FileOperationProxyRemote = class {
   static get $interfaceName() {
     return 'on_device_translation.mojom.FileOperationProxy';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      on_device_translation.mojom.FileOperationProxyPendingReceiver,
+      on_device_translation.mojom.mojom.FileOperationProxyPendingReceiver,
       handle);
-    this.$ = new on_device_translation.mojom.FileOperationProxyRemoteCallHandler(this.proxy);
+    this.$ = new on_device_translation.mojom.mojom.FileOperationProxyRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -86,7 +86,7 @@ on_device_translation.mojom.FileOperationProxyRemote = class {
   }
 };
 
-on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
+on_device_translation.mojom.mojom.FileOperationProxyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -95,8 +95,8 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec,
-      on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec,
+      on_device_translation.mojom.mojom.FileOperationProxy_FileExists_ParamsSpec,
+      on_device_translation.mojom.mojom.FileOperationProxy_FileExists_ResponseParamsSpec,
       [package_index, relative_path]);
   }
 
@@ -104,15 +104,15 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec,
-      on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec,
+      on_device_translation.mojom.mojom.FileOperationProxy_Open_ParamsSpec,
+      on_device_translation.mojom.mojom.FileOperationProxy_Open_ResponseParamsSpec,
       [package_index, relative_path]);
   }
 
 };
 
-on_device_translation.mojom.FileOperationProxy.getRemote = function() {
-  let remote = new on_device_translation.mojom.FileOperationProxyRemote();
+on_device_translation.mojom.mojom.FileOperationProxy.getRemote = function() {
+  let remote = new on_device_translation.mojom.mojom.FileOperationProxyRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -122,21 +122,21 @@ on_device_translation.mojom.FileOperationProxy.getRemote = function() {
 };
 
 // ParamsSpec for FileExists
-on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec = {
+on_device_translation.mojom.mojom.FileOperationProxy_FileExists_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.FileOperationProxy.FileExists_Params',
       packedSize: 24,
       fields: [
-        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'relative_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'package_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec = {
+on_device_translation.mojom.mojom.FileOperationProxy_FileExists_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.FileOperationProxy.FileExists_ResponseParams',
@@ -151,21 +151,21 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Open
-on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec = {
+on_device_translation.mojom.mojom.FileOperationProxy_Open_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.FileOperationProxy.Open_Params',
       packedSize: 24,
       fields: [
-        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'relative_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'package_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'relative_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec = {
+on_device_translation.mojom.mojom.FileOperationProxy_Open_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.FileOperationProxy.Open_ResponseParams',
@@ -179,29 +179,29 @@ on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-on_device_translation.mojom.FileOperationProxyPtr = on_device_translation.mojom.FileOperationProxyRemote;
-on_device_translation.mojom.FileOperationProxyRequest = on_device_translation.mojom.FileOperationProxyPendingReceiver;
+on_device_translation.mojom.mojom.FileOperationProxyPtr = on_device_translation.mojom.mojom.FileOperationProxyRemote;
+on_device_translation.mojom.mojom.FileOperationProxyRequest = on_device_translation.mojom.mojom.FileOperationProxyPendingReceiver;
 
 
 // Interface: OnDeviceTranslationService
-on_device_translation.mojom.OnDeviceTranslationService = {};
+on_device_translation.mojom.mojom.OnDeviceTranslationService = {};
 
-on_device_translation.mojom.OnDeviceTranslationServicePendingReceiver = class {
+on_device_translation.mojom.mojom.OnDeviceTranslationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-on_device_translation.mojom.OnDeviceTranslationServiceRemote = class {
+on_device_translation.mojom.mojom.OnDeviceTranslationServiceRemote = class {
   static get $interfaceName() {
     return 'on_device_translation.mojom.OnDeviceTranslationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      on_device_translation.mojom.OnDeviceTranslationServicePendingReceiver,
+      on_device_translation.mojom.mojom.OnDeviceTranslationServicePendingReceiver,
       handle);
-    this.$ = new on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler(this.proxy);
+    this.$ = new on_device_translation.mojom.mojom.OnDeviceTranslationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -213,7 +213,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemote = class {
   }
 };
 
-on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class {
+on_device_translation.mojom.mojom.OnDeviceTranslationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -222,7 +222,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec,
+      on_device_translation.mojom.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec,
       null,
       [config]);
   }
@@ -231,8 +231,8 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec,
-      on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec,
+      on_device_translation.mojom.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec,
+      on_device_translation.mojom.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec,
       [source_lang, target_lang, receiver]);
   }
 
@@ -240,15 +240,15 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec,
-      on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec,
+      on_device_translation.mojom.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec,
+      on_device_translation.mojom.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec,
       [source_lang, target_lang]);
   }
 
 };
 
-on_device_translation.mojom.OnDeviceTranslationService.getRemote = function() {
-  let remote = new on_device_translation.mojom.OnDeviceTranslationServiceRemote();
+on_device_translation.mojom.mojom.OnDeviceTranslationService.getRemote = function() {
+  let remote = new on_device_translation.mojom.mojom.OnDeviceTranslationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -258,7 +258,7 @@ on_device_translation.mojom.OnDeviceTranslationService.getRemote = function() {
 };
 
 // ParamsSpec for SetServiceConfig
-on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec = {
+on_device_translation.mojom.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.OnDeviceTranslationService.SetServiceConfig_Params',
@@ -272,7 +272,7 @@ on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSp
 };
 
 // ParamsSpec for CreateTranslator
-on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec = {
+on_device_translation.mojom.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.OnDeviceTranslationService.CreateTranslator_Params',
@@ -287,7 +287,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSp
   }
 };
 
-on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec = {
+on_device_translation.mojom.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.OnDeviceTranslationService.CreateTranslator_ResponseParams',
@@ -301,7 +301,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_Response
 };
 
 // ParamsSpec for CanTranslate
-on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec = {
+on_device_translation.mojom.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.OnDeviceTranslationService.CanTranslate_Params',
@@ -315,7 +315,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec =
   }
 };
 
-on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec = {
+on_device_translation.mojom.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_translation.mojom.OnDeviceTranslationService.CanTranslate_ResponseParams',
@@ -329,6 +329,6 @@ on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponsePara
 };
 
 // Legacy compatibility
-on_device_translation.mojom.OnDeviceTranslationServicePtr = on_device_translation.mojom.OnDeviceTranslationServiceRemote;
-on_device_translation.mojom.OnDeviceTranslationServiceRequest = on_device_translation.mojom.OnDeviceTranslationServicePendingReceiver;
+on_device_translation.mojom.mojom.OnDeviceTranslationServicePtr = on_device_translation.mojom.mojom.OnDeviceTranslationServiceRemote;
+on_device_translation.mojom.mojom.OnDeviceTranslationServiceRequest = on_device_translation.mojom.mojom.OnDeviceTranslationServicePendingReceiver;
 

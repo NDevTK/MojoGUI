@@ -9,10 +9,10 @@ var mojo = mojo || {};
 mojo.pipe_control = mojo.pipe_control || {};
 
 
-mojo.pipe_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
+mojo.pipe_control.pipe_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
 
 // Union: RunOrClosePipeInput
-mojo.pipe_control.RunOrClosePipeInputSpec = { $: mojo.internal.Union(
+mojo.pipe_control.pipe_control.RunOrClosePipeInputSpec = { $: mojo.internal.Union(
     'mojo.pipe_control.RunOrClosePipeInput', {
       'peer_associated_endpoint_closed_event': {
         'ordinal': 0,
@@ -30,7 +30,7 @@ mojo.pipe_control.RunOrClosePipeInputSpec = { $: mojo.internal.Union(
 };
 
 // Struct: RunOrClosePipeMessageParams
-mojo.pipe_control.RunOrClosePipeMessageParamsSpec = {
+mojo.pipe_control.pipe_control.RunOrClosePipeMessageParamsSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.RunOrClosePipeMessageParams',
@@ -44,14 +44,14 @@ mojo.pipe_control.RunOrClosePipeMessageParamsSpec = {
 };
 
 // Struct: DisconnectReason
-mojo.pipe_control.DisconnectReasonSpec = {
+mojo.pipe_control.pipe_control.DisconnectReasonSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.DisconnectReason',
       packedSize: 24,
       fields: [
-        { name: 'custom_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'custom_reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -59,14 +59,14 @@ mojo.pipe_control.DisconnectReasonSpec = {
 };
 
 // Struct: PeerAssociatedEndpointClosedEvent
-mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec = {
+mojo.pipe_control.pipe_control.PeerAssociatedEndpointClosedEventSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.PeerAssociatedEndpointClosedEvent',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'disconnect_reason', packedOffset: 8, packedBitOffset: 0, type: mojo.pipe_control.DisconnectReasonSpec, nullable: true, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'disconnect_reason', packedOffset: 0, packedBitOffset: 0, type: mojo.pipe_control.DisconnectReasonSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -74,7 +74,7 @@ mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec = {
 };
 
 // Struct: PauseUntilFlushCompletes
-mojo.pipe_control.PauseUntilFlushCompletesSpec = {
+mojo.pipe_control.pipe_control.PauseUntilFlushCompletesSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.PauseUntilFlushCompletes',
@@ -88,7 +88,7 @@ mojo.pipe_control.PauseUntilFlushCompletesSpec = {
 };
 
 // Struct: FlushAsync
-mojo.pipe_control.FlushAsyncSpec = {
+mojo.pipe_control.pipe_control.FlushAsyncSpec = {
   $: {
     structSpec: {
       name: 'mojo.pipe_control.FlushAsync',

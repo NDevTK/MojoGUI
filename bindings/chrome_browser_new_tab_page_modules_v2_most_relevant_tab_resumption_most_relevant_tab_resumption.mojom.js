@@ -7,37 +7,38 @@
 // Module namespace
 var ntp = ntp || {};
 ntp.most_relevant_tab_resumption = ntp.most_relevant_tab_resumption || {};
-ntp.most_relevant_tab_resumption.mojom = ntp.most_relevant_tab_resumption.mojom || {};
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom = ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom || {};
+var url = url || {};
 
 
 // Enum: ScoredURLUserAction
-ntp.most_relevant_tab_resumption.mojom.ScoredURLUserAction = {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.ScoredURLUserAction = {
   kUnknown: 0,
   kSeen: 1,
   kActivated: 2,
   kDismissed: 3,
 };
-ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec = { $: mojo.internal.Enum() };
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.ScoredURLUserActionSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandler
-ntp.most_relevant_tab_resumption.mojom.PageHandler = {};
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler = {};
 
-ntp.most_relevant_tab_resumption.mojom.PageHandlerPendingReceiver = class {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote = class {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ntp.most_relevant_tab_resumption.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ntp.most_relevant_tab_resumption.mojom.PageHandlerPendingReceiver,
+      ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -49,7 +50,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote = class {
   }
 };
 
-ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -58,8 +59,8 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec,
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec,
+      ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_GetURLVisits_ParamsSpec,
+      ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_GetURLVisits_ResponseParamsSpec,
       []);
   }
 
@@ -67,7 +68,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec,
+      ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
       [url_visits]);
   }
@@ -76,7 +77,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec,
+      ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_DismissURLVisit_ParamsSpec,
       null,
       [url_visit]);
   }
@@ -85,7 +86,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec,
+      ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
       [url_visits]);
   }
@@ -94,7 +95,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec,
+      ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_RestoreURLVisit_ParamsSpec,
       null,
       [url_visit]);
   }
@@ -103,15 +104,15 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec,
+      ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_RecordAction_ParamsSpec,
       null,
       [action, url_key, visit_request_id]);
   }
 
 };
 
-ntp.most_relevant_tab_resumption.mojom.PageHandler.getRemote = function() {
-  let remote = new ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote();
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -121,7 +122,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetURLVisits
-ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_GetURLVisits_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.GetURLVisits_Params',
@@ -133,7 +134,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = {
   }
 };
 
-ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec = {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_GetURLVisits_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.GetURLVisits_ResponseParams',
@@ -147,7 +148,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSp
 };
 
 // ParamsSpec for DismissModule
-ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_DismissModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.DismissModule_Params',
@@ -161,7 +162,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = {
 };
 
 // ParamsSpec for DismissURLVisit
-ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_DismissURLVisit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.DismissURLVisit_Params',
@@ -175,7 +176,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = 
 };
 
 // ParamsSpec for RestoreModule
-ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_RestoreModule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.RestoreModule_Params',
@@ -189,7 +190,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = {
 };
 
 // ParamsSpec for RestoreURLVisit
-ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_RestoreURLVisit_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.RestoreURLVisit_Params',
@@ -203,15 +204,15 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = 
 };
 
 // ParamsSpec for RecordAction
-ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = {
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandler_RecordAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.RecordAction_Params',
       packedSize: 32,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, nullable: false, minVersion: 0 },
-        { name: 'url_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'visit_request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, nullable: false, minVersion: 0 },
+        { name: 'url_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'visit_request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -219,6 +220,6 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = {
 };
 
 // Legacy compatibility
-ntp.most_relevant_tab_resumption.mojom.PageHandlerPtr = ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote;
-ntp.most_relevant_tab_resumption.mojom.PageHandlerRequest = ntp.most_relevant_tab_resumption.mojom.PageHandlerPendingReceiver;
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerPtr = ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerRemote;
+ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerRequest = ntp.most_relevant_tab_resumption.most_relevant_tab_resumption.mojom.mojom.PageHandlerPendingReceiver;
 

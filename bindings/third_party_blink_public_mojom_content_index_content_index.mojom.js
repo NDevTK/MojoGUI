@@ -7,31 +7,36 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var skia = skia || {};
+var blink = blink || {};
+var url = url || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
-blink.mojom.kMaxIconResolution = 65536;
+blink.mojom.mojom.kMaxIconResolution = 65536;
 
 // Enum: ContentIndexError
-blink.mojom.ContentIndexError = {
+blink.mojom.mojom.ContentIndexError = {
   NONE: 0,
   INVALID_PARAMETER: 1,
   STORAGE_ERROR: 2,
   NO_SERVICE_WORKER: 3,
 };
-blink.mojom.ContentIndexErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ContentIndexErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContentCategory
-blink.mojom.ContentCategory = {
+blink.mojom.mojom.ContentCategory = {
   NONE: 0,
   HOME_PAGE: 1,
   ARTICLE: 2,
   VIDEO: 3,
   AUDIO: 4,
 };
-blink.mojom.ContentCategorySpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ContentCategorySpec = { $: mojo.internal.Enum() };
 
 // Struct: ContentIconDefinition
-blink.mojom.ContentIconDefinitionSpec = {
+blink.mojom.mojom.ContentIconDefinitionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentIconDefinition',
@@ -47,7 +52,7 @@ blink.mojom.ContentIconDefinitionSpec = {
 };
 
 // Struct: ContentDescription
-blink.mojom.ContentDescriptionSpec = {
+blink.mojom.mojom.ContentDescriptionSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentDescription',
@@ -56,9 +61,9 @@ blink.mojom.ContentDescriptionSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'category', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ContentCategorySpec, nullable: false, minVersion: 0 },
-        { name: 'icons', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ContentIconDefinitionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'launch_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.ContentCategorySpec, nullable: false, minVersion: 0 },
+        { name: 'icons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ContentIconDefinitionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'launch_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -66,24 +71,24 @@ blink.mojom.ContentDescriptionSpec = {
 };
 
 // Interface: ContentIndexService
-blink.mojom.ContentIndexService = {};
+blink.mojom.mojom.ContentIndexService = {};
 
-blink.mojom.ContentIndexServicePendingReceiver = class {
+blink.mojom.mojom.ContentIndexServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ContentIndexServiceRemote = class {
+blink.mojom.mojom.ContentIndexServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ContentIndexService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ContentIndexServicePendingReceiver,
+      blink.mojom.mojom.ContentIndexServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.ContentIndexServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ContentIndexServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -95,7 +100,7 @@ blink.mojom.ContentIndexServiceRemote = class {
   }
 };
 
-blink.mojom.ContentIndexServiceRemoteCallHandler = class {
+blink.mojom.mojom.ContentIndexServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -104,8 +109,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec,
-      blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec,
+      blink.mojom.mojom.ContentIndexService_GetIconSizes_ParamsSpec,
+      blink.mojom.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec,
       [category]);
   }
 
@@ -113,8 +118,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.ContentIndexService_Add_ParamsSpec,
-      blink.mojom.ContentIndexService_Add_ResponseParamsSpec,
+      blink.mojom.mojom.ContentIndexService_Add_ParamsSpec,
+      blink.mojom.mojom.ContentIndexService_Add_ResponseParamsSpec,
       [service_worker_registration_id, description, icon, launchUrl]);
   }
 
@@ -122,8 +127,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.ContentIndexService_Delete_ParamsSpec,
-      blink.mojom.ContentIndexService_Delete_ResponseParamsSpec,
+      blink.mojom.mojom.ContentIndexService_Delete_ParamsSpec,
+      blink.mojom.mojom.ContentIndexService_Delete_ResponseParamsSpec,
       [service_worker_registration_id, id]);
   }
 
@@ -131,15 +136,15 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec,
-      blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec,
+      blink.mojom.mojom.ContentIndexService_GetDescriptions_ParamsSpec,
+      blink.mojom.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec,
       [service_worker_registration_id]);
   }
 
 };
 
-blink.mojom.ContentIndexService.getRemote = function() {
-  let remote = new blink.mojom.ContentIndexServiceRemote();
+blink.mojom.mojom.ContentIndexService.getRemote = function() {
+  let remote = new blink.mojom.mojom.ContentIndexServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -149,7 +154,7 @@ blink.mojom.ContentIndexService.getRemote = function() {
 };
 
 // ParamsSpec for GetIconSizes
-blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec = {
+blink.mojom.mojom.ContentIndexService_GetIconSizes_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentIndexService.GetIconSizes_Params',
@@ -162,7 +167,7 @@ blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec = {
   }
 };
 
-blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec = {
+blink.mojom.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentIndexService.GetIconSizes_ResponseParams',
@@ -176,7 +181,7 @@ blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Add
-blink.mojom.ContentIndexService_Add_ParamsSpec = {
+blink.mojom.mojom.ContentIndexService_Add_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentIndexService.Add_Params',
@@ -192,7 +197,7 @@ blink.mojom.ContentIndexService_Add_ParamsSpec = {
   }
 };
 
-blink.mojom.ContentIndexService_Add_ResponseParamsSpec = {
+blink.mojom.mojom.ContentIndexService_Add_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentIndexService.Add_ResponseParams',
@@ -206,7 +211,7 @@ blink.mojom.ContentIndexService_Add_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Delete
-blink.mojom.ContentIndexService_Delete_ParamsSpec = {
+blink.mojom.mojom.ContentIndexService_Delete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentIndexService.Delete_Params',
@@ -220,7 +225,7 @@ blink.mojom.ContentIndexService_Delete_ParamsSpec = {
   }
 };
 
-blink.mojom.ContentIndexService_Delete_ResponseParamsSpec = {
+blink.mojom.mojom.ContentIndexService_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentIndexService.Delete_ResponseParams',
@@ -234,7 +239,7 @@ blink.mojom.ContentIndexService_Delete_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetDescriptions
-blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec = {
+blink.mojom.mojom.ContentIndexService_GetDescriptions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentIndexService.GetDescriptions_Params',
@@ -247,14 +252,14 @@ blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec = {
   }
 };
 
-blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec = {
+blink.mojom.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ContentIndexService.GetDescriptions_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'descriptions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ContentDescriptionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'descriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ContentDescriptionSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -262,6 +267,6 @@ blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.ContentIndexServicePtr = blink.mojom.ContentIndexServiceRemote;
-blink.mojom.ContentIndexServiceRequest = blink.mojom.ContentIndexServicePendingReceiver;
+blink.mojom.mojom.ContentIndexServicePtr = blink.mojom.mojom.ContentIndexServiceRemote;
+blink.mojom.mojom.ContentIndexServiceRequest = blink.mojom.mojom.ContentIndexServicePendingReceiver;
 

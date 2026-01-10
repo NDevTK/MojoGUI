@@ -10,24 +10,24 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: GeneralAudienceBrowsingAPIKeyObserver
-chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver = {};
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserver = {};
 
-chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverPendingReceiver = class {
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote = class {
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverPendingReceiver,
+      chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote = class {
   }
 };
 
-chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler = class {
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler = class 
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec,
+      chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec,
       null,
       [api_key]);
   }
 
 };
 
-chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver.getRemote = function() {
-  let remote = new chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote();
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserver.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnGeneralAudienceBrowsingAPIKeyChanged
-chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec = {
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver.OnGeneralAudienceBrowsingAPIKeyChanged_Params',
@@ -80,29 +80,29 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsing
 };
 
 // Legacy compatibility
-chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverPtr = chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote;
-chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRequest = chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverPendingReceiver;
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverPtr = chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote;
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverRequest = chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeyObserverPendingReceiver;
 
 
 // Interface: GeneralAudienceBrowsingAPIKeySubject
-chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject = {};
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubject = {};
 
-chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectPendingReceiver = class {
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote = class {
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectPendingReceiver,
+      chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -114,7 +114,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote = class {
   }
 };
 
-chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemoteCallHandler = class {
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -123,15 +123,15 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec,
+      chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject.getRemote = function() {
-  let remote = new chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote();
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubject.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -141,7 +141,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject.getRemote = function() {
 };
 
 // ParamsSpec for AddGeneralAudienceBrowsingAPIKeyObserver
-chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec = {
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject.AddGeneralAudienceBrowsingAPIKeyObserver_Params',
@@ -155,6 +155,6 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsing
 };
 
 // Legacy compatibility
-chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectPtr = chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote;
-chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRequest = chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectPendingReceiver;
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectPtr = chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote;
+chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectRequest = chromecast.mojom.mojom.GeneralAudienceBrowsingAPIKeySubjectPendingReceiver;
 

@@ -10,10 +10,10 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: SuddenTerminationDisablerType
-blink.mojom.SuddenTerminationDisablerType = {
+blink.mojom.mojom.SuddenTerminationDisablerType = {
   kBeforeUnloadHandler: 0,
   kPageHideHandler: 1,
   kUnloadHandler: 2,
   kVisibilityChangeHandler: 3,
 };
-blink.mojom.SuddenTerminationDisablerTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.SuddenTerminationDisablerTypeSpec = { $: mojo.internal.Enum() };

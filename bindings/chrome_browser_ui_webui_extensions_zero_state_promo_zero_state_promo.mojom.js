@@ -9,7 +9,7 @@ var zero_state_promo = zero_state_promo || {};
 zero_state_promo.mojom = zero_state_promo.mojom || {};
 
 
-zero_state_promo.mojom.kDiscoverExtensionWebStoreUrl = "https:
+zero_state_promo.mojom.mojom.kDiscoverExtensionWebStoreUrl = "https:
 const string kCouponWebStoreUrl = "https:
 const string kWritingWebStoreUrl = "https:
 const string kProductivityWebStoreUrl = "https:
@@ -21,34 +21,34 @@ interface PageHandlerFactory {
   CreatePageHandler(pending_receiver<PageHandler> handler);
 
 // Enum: WebStoreLinkClicked
-zero_state_promo.mojom.WebStoreLinkClicked = {
+zero_state_promo.mojom.mojom.WebStoreLinkClicked = {
   kDiscoverExtension: 0,
   kCoupon: 1,
   kWriting: 2,
   kProductivity: 3,
   kAi: 4,
 };
-zero_state_promo.mojom.WebStoreLinkClickedSpec = { $: mojo.internal.Enum() };
+zero_state_promo.mojom.mojom.WebStoreLinkClickedSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-zero_state_promo.mojom.PageHandlerFactory = {};
+zero_state_promo.mojom.mojom.PageHandlerFactory = {};
 
-zero_state_promo.mojom.PageHandlerFactoryPendingReceiver = class {
+zero_state_promo.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-zero_state_promo.mojom.PageHandlerFactoryRemote = class {
+zero_state_promo.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'zero_state_promo.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      zero_state_promo.mojom.PageHandlerFactoryPendingReceiver,
+      zero_state_promo.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new zero_state_promo.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new zero_state_promo.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -60,7 +60,7 @@ zero_state_promo.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-zero_state_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
+zero_state_promo.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -69,15 +69,15 @@ zero_state_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      zero_state_promo.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-zero_state_promo.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new zero_state_promo.mojom.PageHandlerFactoryRemote();
+zero_state_promo.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new zero_state_promo.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -87,7 +87,7 @@ zero_state_promo.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+zero_state_promo.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'zero_state_promo.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -101,29 +101,29 @@ zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-zero_state_promo.mojom.PageHandlerFactoryPtr = zero_state_promo.mojom.PageHandlerFactoryRemote;
-zero_state_promo.mojom.PageHandlerFactoryRequest = zero_state_promo.mojom.PageHandlerFactoryPendingReceiver;
+zero_state_promo.mojom.mojom.PageHandlerFactoryPtr = zero_state_promo.mojom.mojom.PageHandlerFactoryRemote;
+zero_state_promo.mojom.mojom.PageHandlerFactoryRequest = zero_state_promo.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-zero_state_promo.mojom.PageHandler = {};
+zero_state_promo.mojom.mojom.PageHandler = {};
 
-zero_state_promo.mojom.PageHandlerPendingReceiver = class {
+zero_state_promo.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-zero_state_promo.mojom.PageHandlerRemote = class {
+zero_state_promo.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'zero_state_promo.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      zero_state_promo.mojom.PageHandlerPendingReceiver,
+      zero_state_promo.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new zero_state_promo.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new zero_state_promo.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -135,7 +135,7 @@ zero_state_promo.mojom.PageHandlerRemote = class {
   }
 };
 
-zero_state_promo.mojom.PageHandlerRemoteCallHandler = class {
+zero_state_promo.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -144,15 +144,15 @@ zero_state_promo.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec,
+      zero_state_promo.mojom.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec,
       null,
       [link]);
   }
 
 };
 
-zero_state_promo.mojom.PageHandler.getRemote = function() {
-  let remote = new zero_state_promo.mojom.PageHandlerRemote();
+zero_state_promo.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new zero_state_promo.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -162,7 +162,7 @@ zero_state_promo.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for LaunchWebStoreLink
-zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
+zero_state_promo.mojom.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'zero_state_promo.mojom.PageHandler.LaunchWebStoreLink_Params',
@@ -176,6 +176,6 @@ zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = {
 };
 
 // Legacy compatibility
-zero_state_promo.mojom.PageHandlerPtr = zero_state_promo.mojom.PageHandlerRemote;
-zero_state_promo.mojom.PageHandlerRequest = zero_state_promo.mojom.PageHandlerPendingReceiver;
+zero_state_promo.mojom.mojom.PageHandlerPtr = zero_state_promo.mojom.mojom.PageHandlerRemote;
+zero_state_promo.mojom.mojom.PageHandlerRequest = zero_state_promo.mojom.mojom.PageHandlerPendingReceiver;
 

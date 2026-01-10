@@ -7,27 +7,29 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Interface: WebLaunchService
-blink.mojom.WebLaunchService = {};
+blink.mojom.mojom.WebLaunchService = {};
 
-blink.mojom.WebLaunchServicePendingReceiver = class {
+blink.mojom.mojom.WebLaunchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.WebLaunchServiceRemote = class {
+blink.mojom.mojom.WebLaunchServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.WebLaunchService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.WebLaunchServicePendingReceiver,
+      blink.mojom.mojom.WebLaunchServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.WebLaunchServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.WebLaunchServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ blink.mojom.WebLaunchServiceRemote = class {
   }
 };
 
-blink.mojom.WebLaunchServiceRemoteCallHandler = class {
+blink.mojom.mojom.WebLaunchServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +50,7 @@ blink.mojom.WebLaunchServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec,
+      blink.mojom.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec,
       null,
       [files]);
   }
@@ -57,15 +59,15 @@ blink.mojom.WebLaunchServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec,
+      blink.mojom.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec,
       null,
       [launch_url, time_navigation_started_in_browser, navigation_started]);
   }
 
 };
 
-blink.mojom.WebLaunchService.getRemote = function() {
-  let remote = new blink.mojom.WebLaunchServiceRemote();
+blink.mojom.mojom.WebLaunchService.getRemote = function() {
+  let remote = new blink.mojom.mojom.WebLaunchServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +77,7 @@ blink.mojom.WebLaunchService.getRemote = function() {
 };
 
 // ParamsSpec for SetLaunchFiles
-blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = {
+blink.mojom.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebLaunchService.SetLaunchFiles_Params',
@@ -89,7 +91,7 @@ blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = {
 };
 
 // ParamsSpec for EnqueueLaunchParams
-blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
+blink.mojom.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebLaunchService.EnqueueLaunchParams_Params',
@@ -105,6 +107,6 @@ blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.WebLaunchServicePtr = blink.mojom.WebLaunchServiceRemote;
-blink.mojom.WebLaunchServiceRequest = blink.mojom.WebLaunchServicePendingReceiver;
+blink.mojom.mojom.WebLaunchServicePtr = blink.mojom.mojom.WebLaunchServiceRemote;
+blink.mojom.mojom.WebLaunchServiceRequest = blink.mojom.mojom.WebLaunchServicePendingReceiver;
 

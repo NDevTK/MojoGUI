@@ -7,27 +7,29 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: RangeTraitsTestService
-gfx.mojom.RangeTraitsTestService = {};
+gfx.mojom.mojom.RangeTraitsTestService = {};
 
-gfx.mojom.RangeTraitsTestServicePendingReceiver = class {
+gfx.mojom.mojom.RangeTraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gfx.mojom.RangeTraitsTestServiceRemote = class {
+gfx.mojom.mojom.RangeTraitsTestServiceRemote = class {
   static get $interfaceName() {
     return 'gfx.mojom.RangeTraitsTestService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gfx.mojom.RangeTraitsTestServicePendingReceiver,
+      gfx.mojom.mojom.RangeTraitsTestServicePendingReceiver,
       handle);
-    this.$ = new gfx.mojom.RangeTraitsTestServiceRemoteCallHandler(this.proxy);
+    this.$ = new gfx.mojom.mojom.RangeTraitsTestServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ gfx.mojom.RangeTraitsTestServiceRemote = class {
   }
 };
 
-gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
+gfx.mojom.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +50,8 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec,
-      gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec,
+      gfx.mojom.mojom.RangeTraitsTestService_EchoRange_ParamsSpec,
+      gfx.mojom.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec,
       [p]);
   }
 
@@ -57,15 +59,15 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec,
-      gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec,
+      gfx.mojom.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec,
+      gfx.mojom.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec,
       [p]);
   }
 
 };
 
-gfx.mojom.RangeTraitsTestService.getRemote = function() {
-  let remote = new gfx.mojom.RangeTraitsTestServiceRemote();
+gfx.mojom.mojom.RangeTraitsTestService.getRemote = function() {
+  let remote = new gfx.mojom.mojom.RangeTraitsTestServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +77,7 @@ gfx.mojom.RangeTraitsTestService.getRemote = function() {
 };
 
 // ParamsSpec for EchoRange
-gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
+gfx.mojom.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRange_Params',
@@ -88,7 +90,7 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
   }
 };
 
-gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
+gfx.mojom.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRange_ResponseParams',
@@ -102,7 +104,7 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
 };
 
 // ParamsSpec for EchoRangeF
-gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
+gfx.mojom.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRangeF_Params',
@@ -115,7 +117,7 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
   }
 };
 
-gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
+gfx.mojom.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.RangeTraitsTestService.EchoRangeF_ResponseParams',
@@ -129,6 +131,6 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-gfx.mojom.RangeTraitsTestServicePtr = gfx.mojom.RangeTraitsTestServiceRemote;
-gfx.mojom.RangeTraitsTestServiceRequest = gfx.mojom.RangeTraitsTestServicePendingReceiver;
+gfx.mojom.mojom.RangeTraitsTestServicePtr = gfx.mojom.mojom.RangeTraitsTestServiceRemote;
+gfx.mojom.mojom.RangeTraitsTestServiceRequest = gfx.mojom.mojom.RangeTraitsTestServicePendingReceiver;
 

@@ -10,24 +10,24 @@ updater_ui.mojom = updater_ui.mojom || {};
 
 
 // Interface: PageHandlerFactory
-updater_ui.mojom.PageHandlerFactory = {};
+updater_ui.mojom.mojom.PageHandlerFactory = {};
 
-updater_ui.mojom.PageHandlerFactoryPendingReceiver = class {
+updater_ui.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-updater_ui.mojom.PageHandlerFactoryRemote = class {
+updater_ui.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'updater_ui.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      updater_ui.mojom.PageHandlerFactoryPendingReceiver,
+      updater_ui.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new updater_ui.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new updater_ui.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ updater_ui.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-updater_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
+updater_ui.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ updater_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      updater_ui.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-updater_ui.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new updater_ui.mojom.PageHandlerFactoryRemote();
+updater_ui.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new updater_ui.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ updater_ui.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+updater_ui.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater_ui.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -81,29 +81,29 @@ updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-updater_ui.mojom.PageHandlerFactoryPtr = updater_ui.mojom.PageHandlerFactoryRemote;
-updater_ui.mojom.PageHandlerFactoryRequest = updater_ui.mojom.PageHandlerFactoryPendingReceiver;
+updater_ui.mojom.mojom.PageHandlerFactoryPtr = updater_ui.mojom.mojom.PageHandlerFactoryRemote;
+updater_ui.mojom.mojom.PageHandlerFactoryRequest = updater_ui.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-updater_ui.mojom.PageHandler = {};
+updater_ui.mojom.mojom.PageHandler = {};
 
-updater_ui.mojom.PageHandlerPendingReceiver = class {
+updater_ui.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-updater_ui.mojom.PageHandlerRemote = class {
+updater_ui.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'updater_ui.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      updater_ui.mojom.PageHandlerPendingReceiver,
+      updater_ui.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new updater_ui.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new updater_ui.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +115,7 @@ updater_ui.mojom.PageHandlerRemote = class {
   }
 };
 
-updater_ui.mojom.PageHandlerRemoteCallHandler = class {
+updater_ui.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,15 +124,15 @@ updater_ui.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec,
-      updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec,
+      updater_ui.mojom.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec,
+      updater_ui.mojom.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec,
       []);
   }
 
 };
 
-updater_ui.mojom.PageHandler.getRemote = function() {
-  let remote = new updater_ui.mojom.PageHandlerRemote();
+updater_ui.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new updater_ui.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -142,7 +142,7 @@ updater_ui.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetAllUpdaterEvents
-updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = {
+updater_ui.mojom.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = {
   $: {
     structSpec: {
       name: 'updater_ui.mojom.PageHandler.GetAllUpdaterEvents_Params',
@@ -154,7 +154,7 @@ updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = {
   }
 };
 
-updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = {
+updater_ui.mojom.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'updater_ui.mojom.PageHandler.GetAllUpdaterEvents_ResponseParams',
@@ -168,29 +168,29 @@ updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-updater_ui.mojom.PageHandlerPtr = updater_ui.mojom.PageHandlerRemote;
-updater_ui.mojom.PageHandlerRequest = updater_ui.mojom.PageHandlerPendingReceiver;
+updater_ui.mojom.mojom.PageHandlerPtr = updater_ui.mojom.mojom.PageHandlerRemote;
+updater_ui.mojom.mojom.PageHandlerRequest = updater_ui.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-updater_ui.mojom.Page = {};
+updater_ui.mojom.mojom.Page = {};
 
-updater_ui.mojom.PagePendingReceiver = class {
+updater_ui.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-updater_ui.mojom.PageRemote = class {
+updater_ui.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'updater_ui.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      updater_ui.mojom.PagePendingReceiver,
+      updater_ui.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new updater_ui.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new updater_ui.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -202,15 +202,15 @@ updater_ui.mojom.PageRemote = class {
   }
 };
 
-updater_ui.mojom.PageRemoteCallHandler = class {
+updater_ui.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-updater_ui.mojom.Page.getRemote = function() {
-  let remote = new updater_ui.mojom.PageRemote();
+updater_ui.mojom.mojom.Page.getRemote = function() {
+  let remote = new updater_ui.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -220,6 +220,6 @@ updater_ui.mojom.Page.getRemote = function() {
 };
 
 // Legacy compatibility
-updater_ui.mojom.PagePtr = updater_ui.mojom.PageRemote;
-updater_ui.mojom.PageRequest = updater_ui.mojom.PagePendingReceiver;
+updater_ui.mojom.mojom.PagePtr = updater_ui.mojom.mojom.PageRemote;
+updater_ui.mojom.mojom.PageRequest = updater_ui.mojom.mojom.PagePendingReceiver;
 

@@ -10,39 +10,39 @@ media.mojom = media.mojom || {};
 
 
 // Enum: Status
-media.mojom.Status = {
+media.mojom.mojom.Status = {
   kSuccess: 0,
   kInUse: 1,
   kFailure: 2,
 };
-media.mojom.StatusSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
-media.mojom.Status = {
+media.mojom.mojom.Status = {
   kSuccess: 0,
   kFailure: 1,
 };
-media.mojom.StatusSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: CdmStorage
-media.mojom.CdmStorage = {};
+media.mojom.mojom.CdmStorage = {};
 
-media.mojom.CdmStoragePendingReceiver = class {
+media.mojom.mojom.CdmStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.CdmStorageRemote = class {
+media.mojom.mojom.CdmStorageRemote = class {
   static get $interfaceName() {
     return 'media.mojom.CdmStorage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.CdmStoragePendingReceiver,
+      media.mojom.mojom.CdmStoragePendingReceiver,
       handle);
-    this.$ = new media.mojom.CdmStorageRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.CdmStorageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ media.mojom.CdmStorageRemote = class {
   }
 };
 
-media.mojom.CdmStorageRemoteCallHandler = class {
+media.mojom.mojom.CdmStorageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,15 +63,15 @@ media.mojom.CdmStorageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmStorage_Open_ParamsSpec,
-      media.mojom.CdmStorage_Open_ResponseParamsSpec,
+      media.mojom.mojom.CdmStorage_Open_ParamsSpec,
+      media.mojom.mojom.CdmStorage_Open_ResponseParamsSpec,
       [file_name]);
   }
 
 };
 
-media.mojom.CdmStorage.getRemote = function() {
-  let remote = new media.mojom.CdmStorageRemote();
+media.mojom.mojom.CdmStorage.getRemote = function() {
+  let remote = new media.mojom.mojom.CdmStorageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -81,7 +81,7 @@ media.mojom.CdmStorage.getRemote = function() {
 };
 
 // ParamsSpec for Open
-media.mojom.CdmStorage_Open_ParamsSpec = {
+media.mojom.mojom.CdmStorage_Open_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmStorage.Open_Params',
@@ -94,7 +94,7 @@ media.mojom.CdmStorage_Open_ParamsSpec = {
   }
 };
 
-media.mojom.CdmStorage_Open_ResponseParamsSpec = {
+media.mojom.mojom.CdmStorage_Open_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmStorage.Open_ResponseParams',
@@ -109,29 +109,29 @@ media.mojom.CdmStorage_Open_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.CdmStoragePtr = media.mojom.CdmStorageRemote;
-media.mojom.CdmStorageRequest = media.mojom.CdmStoragePendingReceiver;
+media.mojom.mojom.CdmStoragePtr = media.mojom.mojom.CdmStorageRemote;
+media.mojom.mojom.CdmStorageRequest = media.mojom.mojom.CdmStoragePendingReceiver;
 
 
 // Interface: CdmFile
-media.mojom.CdmFile = {};
+media.mojom.mojom.CdmFile = {};
 
-media.mojom.CdmFilePendingReceiver = class {
+media.mojom.mojom.CdmFilePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.CdmFileRemote = class {
+media.mojom.mojom.CdmFileRemote = class {
   static get $interfaceName() {
     return 'media.mojom.CdmFile';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.CdmFilePendingReceiver,
+      media.mojom.mojom.CdmFilePendingReceiver,
       handle);
-    this.$ = new media.mojom.CdmFileRemoteCallHandler(this.proxy);
+    this.$ = new media.mojom.mojom.CdmFileRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -143,7 +143,7 @@ media.mojom.CdmFileRemote = class {
   }
 };
 
-media.mojom.CdmFileRemoteCallHandler = class {
+media.mojom.mojom.CdmFileRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -152,8 +152,8 @@ media.mojom.CdmFileRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      media.mojom.CdmFile_Read_ParamsSpec,
-      media.mojom.CdmFile_Read_ResponseParamsSpec,
+      media.mojom.mojom.CdmFile_Read_ParamsSpec,
+      media.mojom.mojom.CdmFile_Read_ResponseParamsSpec,
       []);
   }
 
@@ -161,15 +161,15 @@ media.mojom.CdmFileRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      media.mojom.CdmFile_Write_ParamsSpec,
-      media.mojom.CdmFile_Write_ResponseParamsSpec,
+      media.mojom.mojom.CdmFile_Write_ParamsSpec,
+      media.mojom.mojom.CdmFile_Write_ResponseParamsSpec,
       [data]);
   }
 
 };
 
-media.mojom.CdmFile.getRemote = function() {
-  let remote = new media.mojom.CdmFileRemote();
+media.mojom.mojom.CdmFile.getRemote = function() {
+  let remote = new media.mojom.mojom.CdmFileRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -179,7 +179,7 @@ media.mojom.CdmFile.getRemote = function() {
 };
 
 // ParamsSpec for Read
-media.mojom.CdmFile_Read_ParamsSpec = {
+media.mojom.mojom.CdmFile_Read_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmFile.Read_Params',
@@ -191,14 +191,14 @@ media.mojom.CdmFile_Read_ParamsSpec = {
   }
 };
 
-media.mojom.CdmFile_Read_ResponseParamsSpec = {
+media.mojom.mojom.CdmFile_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmFile.Read_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -206,7 +206,7 @@ media.mojom.CdmFile_Read_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Write
-media.mojom.CdmFile_Write_ParamsSpec = {
+media.mojom.mojom.CdmFile_Write_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmFile.Write_Params',
@@ -219,7 +219,7 @@ media.mojom.CdmFile_Write_ParamsSpec = {
   }
 };
 
-media.mojom.CdmFile_Write_ResponseParamsSpec = {
+media.mojom.mojom.CdmFile_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmFile.Write_ResponseParams',
@@ -233,6 +233,6 @@ media.mojom.CdmFile_Write_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-media.mojom.CdmFilePtr = media.mojom.CdmFileRemote;
-media.mojom.CdmFileRequest = media.mojom.CdmFilePendingReceiver;
+media.mojom.mojom.CdmFilePtr = media.mojom.mojom.CdmFileRemote;
+media.mojom.mojom.CdmFileRequest = media.mojom.mojom.CdmFilePendingReceiver;
 

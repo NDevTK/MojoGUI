@@ -7,10 +7,14 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: SyncCompositorDemandDrawHwParams
-blink.mojom.SyncCompositorDemandDrawHwParamsSpec = {
+blink.mojom.mojom.SyncCompositorDemandDrawHwParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SyncCompositorDemandDrawHwParams',
@@ -27,7 +31,7 @@ blink.mojom.SyncCompositorDemandDrawHwParamsSpec = {
 };
 
 // Struct: SyncCompositorDemandDrawSwParams
-blink.mojom.SyncCompositorDemandDrawSwParamsSpec = {
+blink.mojom.mojom.SyncCompositorDemandDrawSwParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SyncCompositorDemandDrawSwParams',
@@ -43,22 +47,22 @@ blink.mojom.SyncCompositorDemandDrawSwParamsSpec = {
 };
 
 // Struct: SyncCompositorCommonRendererParams
-blink.mojom.SyncCompositorCommonRendererParamsSpec = {
+blink.mojom.mojom.SyncCompositorCommonRendererParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SyncCompositorCommonRendererParams',
       packedSize: 64,
       fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'total_scroll_offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'max_scroll_offset', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'scrollable_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
-        { name: 'page_scale_factor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'total_scroll_offset', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'max_scroll_offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'scrollable_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeFSpec, nullable: false, minVersion: 0 },
+        { name: 'page_scale_factor', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
         { name: 'min_page_scale_factor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
         { name: 'max_page_scale_factor', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
         { name: 'need_invalidate_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'invalidate_needs_draw', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'did_activate_pending_tree_count', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'invalidate_needs_draw', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'did_activate_pending_tree_count', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -66,24 +70,24 @@ blink.mojom.SyncCompositorCommonRendererParamsSpec = {
 };
 
 // Interface: SynchronousCompositor
-blink.mojom.SynchronousCompositor = {};
+blink.mojom.mojom.SynchronousCompositor = {};
 
-blink.mojom.SynchronousCompositorPendingReceiver = class {
+blink.mojom.mojom.SynchronousCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SynchronousCompositorRemote = class {
+blink.mojom.mojom.SynchronousCompositorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SynchronousCompositor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SynchronousCompositorPendingReceiver,
+      blink.mojom.mojom.SynchronousCompositorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SynchronousCompositorRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SynchronousCompositorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -95,7 +99,7 @@ blink.mojom.SynchronousCompositorRemote = class {
   }
 };
 
-blink.mojom.SynchronousCompositorRemoteCallHandler = class {
+blink.mojom.mojom.SynchronousCompositorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -104,7 +108,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec,
       null,
       [draw_params]);
   }
@@ -113,8 +117,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec,
-      blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec,
       [draw_params]);
   }
 
@@ -122,8 +126,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec,
-      blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec,
       [shm_region]);
   }
 
@@ -131,8 +135,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec,
-      blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec,
       [draw_params]);
   }
 
@@ -140,7 +144,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec,
       null,
       []);
   }
@@ -149,7 +153,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec,
       null,
       []);
   }
@@ -158,8 +162,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec,
-      blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_ZoomBy_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec,
       [delta, anchor]);
   }
 
@@ -167,7 +171,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec,
       null,
       [bytes_limit]);
   }
@@ -176,7 +180,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec,
       null,
       [layer_tree_frame_sink_id, resources]);
   }
@@ -185,7 +189,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
       [layer_tree_frame_sink_id, sequence_id]);
   }
@@ -194,7 +198,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_SetScroll_ParamsSpec,
       null,
       [offset]);
   }
@@ -203,7 +207,7 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_BeginFrame_ParamsSpec,
       null,
       [args, timing_details]);
   }
@@ -212,15 +216,15 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec,
       null,
       [paused]);
   }
 
 };
 
-blink.mojom.SynchronousCompositor.getRemote = function() {
-  let remote = new blink.mojom.SynchronousCompositorRemote();
+blink.mojom.mojom.SynchronousCompositor.getRemote = function() {
+  let remote = new blink.mojom.mojom.SynchronousCompositorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -230,7 +234,7 @@ blink.mojom.SynchronousCompositor.getRemote = function() {
 };
 
 // ParamsSpec for DemandDrawHwAsync
-blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.DemandDrawHwAsync_Params',
@@ -244,7 +248,7 @@ blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = {
 };
 
 // ParamsSpec for DemandDrawHw
-blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.DemandDrawHw_Params',
@@ -257,18 +261,18 @@ blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = {
   }
 };
 
-blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.DemandDrawHw_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'layer_tree_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'metadata_version', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'local_surface_id', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
-        { name: 'frame', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: true, minVersion: 0 },
-        { name: 'hit_test_region_list', packedOffset: 32, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true, minVersion: 0 },
+        { name: 'layer_tree_frame_sink_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'metadata_version', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'local_surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
+        { name: 'frame', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: true, minVersion: 0 },
+        { name: 'hit_test_region_list', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -276,7 +280,7 @@ blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetSharedMemory
-blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.SetSharedMemory_Params',
@@ -289,14 +293,14 @@ blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = {
   }
 };
 
-blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.SetSharedMemory_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -304,7 +308,7 @@ blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DemandDrawSw
-blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.DemandDrawSw_Params',
@@ -317,15 +321,15 @@ blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = {
   }
 };
 
-blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.DemandDrawSw_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'metadata_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'meta_data', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CompositorFrameMetadataSpec, nullable: true, minVersion: 0 },
+        { name: 'metadata_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'meta_data', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorFrameMetadataSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -333,7 +337,7 @@ blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = {
 };
 
 // ParamsSpec for WillSkipDraw
-blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.WillSkipDraw_Params',
@@ -346,7 +350,7 @@ blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = {
 };
 
 // ParamsSpec for ZeroSharedMemory
-blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.ZeroSharedMemory_Params',
@@ -359,21 +363,21 @@ blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = {
 };
 
 // ParamsSpec for ZoomBy
-blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.ZoomBy_Params',
       packedSize: 24,
       fields: [
-        { name: 'delta', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
+        { name: 'delta', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'anchor', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.ZoomBy_ResponseParams',
@@ -387,7 +391,7 @@ blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetMemoryPolicy
-blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.SetMemoryPolicy_Params',
@@ -401,14 +405,14 @@ blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = {
 };
 
 // ParamsSpec for ReclaimResources
-blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.ReclaimResources_Params',
       packedSize: 24,
       fields: [
-        { name: 'layer_tree_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'layer_tree_frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.ReturnedResourceSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -416,7 +420,7 @@ blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = {
 };
 
 // ParamsSpec for OnCompositorFrameTransitionDirectiveProcessed
-blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.OnCompositorFrameTransitionDirectiveProcessed_Params',
@@ -431,7 +435,7 @@ blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_
 };
 
 // ParamsSpec for SetScroll
-blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_SetScroll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.SetScroll_Params',
@@ -445,7 +449,7 @@ blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = {
 };
 
 // ParamsSpec for BeginFrame
-blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.BeginFrame_Params',
@@ -460,7 +464,7 @@ blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = {
 };
 
 // ParamsSpec for SetBeginFrameSourcePaused
-blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositor.SetBeginFrameSourcePaused_Params',
@@ -474,29 +478,29 @@ blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SynchronousCompositorPtr = blink.mojom.SynchronousCompositorRemote;
-blink.mojom.SynchronousCompositorRequest = blink.mojom.SynchronousCompositorPendingReceiver;
+blink.mojom.mojom.SynchronousCompositorPtr = blink.mojom.mojom.SynchronousCompositorRemote;
+blink.mojom.mojom.SynchronousCompositorRequest = blink.mojom.mojom.SynchronousCompositorPendingReceiver;
 
 
 // Interface: SynchronousCompositorHost
-blink.mojom.SynchronousCompositorHost = {};
+blink.mojom.mojom.SynchronousCompositorHost = {};
 
-blink.mojom.SynchronousCompositorHostPendingReceiver = class {
+blink.mojom.mojom.SynchronousCompositorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SynchronousCompositorHostRemote = class {
+blink.mojom.mojom.SynchronousCompositorHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SynchronousCompositorHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SynchronousCompositorHostPendingReceiver,
+      blink.mojom.mojom.SynchronousCompositorHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SynchronousCompositorHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SynchronousCompositorHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -508,7 +512,7 @@ blink.mojom.SynchronousCompositorHostRemote = class {
   }
 };
 
-blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
+blink.mojom.mojom.SynchronousCompositorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -517,7 +521,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec,
       null,
       []);
   }
@@ -526,7 +530,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec,
       null,
       [params]);
   }
@@ -535,7 +539,7 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec,
       null,
       [needs_begin_frames]);
   }
@@ -544,15 +548,15 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec,
       null,
       [threads]);
   }
 
 };
 
-blink.mojom.SynchronousCompositorHost.getRemote = function() {
-  let remote = new blink.mojom.SynchronousCompositorHostRemote();
+blink.mojom.mojom.SynchronousCompositorHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.SynchronousCompositorHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -562,7 +566,7 @@ blink.mojom.SynchronousCompositorHost.getRemote = function() {
 };
 
 // ParamsSpec for LayerTreeFrameSinkCreated
-blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositorHost.LayerTreeFrameSinkCreated_Params',
@@ -575,7 +579,7 @@ blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateState
-blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositorHost.UpdateState_Params',
@@ -589,7 +593,7 @@ blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = {
 };
 
 // ParamsSpec for SetNeedsBeginFrames
-blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositorHost.SetNeedsBeginFrames_Params',
@@ -603,7 +607,7 @@ blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = {
 };
 
 // ParamsSpec for SetThreads
-blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositorHost.SetThreads_Params',
@@ -617,29 +621,29 @@ blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SynchronousCompositorHostPtr = blink.mojom.SynchronousCompositorHostRemote;
-blink.mojom.SynchronousCompositorHostRequest = blink.mojom.SynchronousCompositorHostPendingReceiver;
+blink.mojom.mojom.SynchronousCompositorHostPtr = blink.mojom.mojom.SynchronousCompositorHostRemote;
+blink.mojom.mojom.SynchronousCompositorHostRequest = blink.mojom.mojom.SynchronousCompositorHostPendingReceiver;
 
 
 // Interface: SynchronousCompositorControlHost
-blink.mojom.SynchronousCompositorControlHost = {};
+blink.mojom.mojom.SynchronousCompositorControlHost = {};
 
-blink.mojom.SynchronousCompositorControlHostPendingReceiver = class {
+blink.mojom.mojom.SynchronousCompositorControlHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SynchronousCompositorControlHostRemote = class {
+blink.mojom.mojom.SynchronousCompositorControlHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SynchronousCompositorControlHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SynchronousCompositorControlHostPendingReceiver,
+      blink.mojom.mojom.SynchronousCompositorControlHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SynchronousCompositorControlHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SynchronousCompositorControlHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -651,7 +655,7 @@ blink.mojom.SynchronousCompositorControlHostRemote = class {
   }
 };
 
-blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
+blink.mojom.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -660,7 +664,7 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec,
       null,
       [layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list]);
   }
@@ -669,15 +673,15 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec,
+      blink.mojom.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec,
       null,
       [params]);
   }
 
 };
 
-blink.mojom.SynchronousCompositorControlHost.getRemote = function() {
-  let remote = new blink.mojom.SynchronousCompositorControlHostRemote();
+blink.mojom.mojom.SynchronousCompositorControlHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.SynchronousCompositorControlHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -687,17 +691,17 @@ blink.mojom.SynchronousCompositorControlHost.getRemote = function() {
 };
 
 // ParamsSpec for ReturnFrame
-blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositorControlHost.ReturnFrame_Params',
       packedSize: 40,
       fields: [
-        { name: 'layer_tree_frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'metadata_version', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'local_surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
-        { name: 'frame', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: true, minVersion: 0 },
-        { name: 'hit_test_region_list', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true, minVersion: 0 },
+        { name: 'layer_tree_frame_sink_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'metadata_version', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'local_surface_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
+        { name: 'frame', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.CompositorFrameSpec, nullable: true, minVersion: 0 },
+        { name: 'hit_test_region_list', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.HitTestRegionListSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -705,7 +709,7 @@ blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = {
 };
 
 // ParamsSpec for BeginFrameResponse
-blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = {
+blink.mojom.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SynchronousCompositorControlHost.BeginFrameResponse_Params',
@@ -719,6 +723,6 @@ blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SynchronousCompositorControlHostPtr = blink.mojom.SynchronousCompositorControlHostRemote;
-blink.mojom.SynchronousCompositorControlHostRequest = blink.mojom.SynchronousCompositorControlHostPendingReceiver;
+blink.mojom.mojom.SynchronousCompositorControlHostPtr = blink.mojom.mojom.SynchronousCompositorControlHostRemote;
+blink.mojom.mojom.SynchronousCompositorControlHostRequest = blink.mojom.mojom.SynchronousCompositorControlHostPendingReceiver;
 

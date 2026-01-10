@@ -10,17 +10,17 @@ network.mojom = network.mojom || {};
 
 
 // Enum: AttributionSupport
-network.mojom.AttributionSupport = {
+network.mojom.mojom.AttributionSupport = {
   kWeb: 0,
   kWebAndOs: 1,
   kOs: 2,
   kNone: 3,
   kUnset: 4,
 };
-network.mojom.AttributionSupportSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.AttributionSupportSpec = { $: mojo.internal.Enum() };
 
 // Enum: AttributionReportingEligibility
-network.mojom.AttributionReportingEligibility = {
+network.mojom.mojom.AttributionReportingEligibility = {
   kUnset: 0,
   kEmpty: 1,
   kEventSource: 2,
@@ -28,4 +28,4 @@ network.mojom.AttributionReportingEligibility = {
   kTrigger: 4,
   kEventSourceOrTrigger: 5,
 };
-network.mojom.AttributionReportingEligibilitySpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.AttributionReportingEligibilitySpec = { $: mojo.internal.Enum() };

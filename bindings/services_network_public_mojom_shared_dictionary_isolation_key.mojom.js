@@ -7,10 +7,11 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Struct: SharedDictionaryIsolationKey
-network.mojom.SharedDictionaryIsolationKeySpec = {
+network.mojom.mojom.SharedDictionaryIsolationKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SharedDictionaryIsolationKey',

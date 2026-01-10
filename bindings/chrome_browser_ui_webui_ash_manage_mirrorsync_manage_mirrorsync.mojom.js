@@ -7,36 +7,36 @@
 // Module namespace
 var ash = ash || {};
 ash.manage_mirrorsync = ash.manage_mirrorsync || {};
-ash.manage_mirrorsync.mojom = ash.manage_mirrorsync.mojom || {};
+ash.manage_mirrorsync.manage_mirrorsync.mojom = ash.manage_mirrorsync.manage_mirrorsync.mojom || {};
 
 
 // Enum: GetSyncPathError
-ash.manage_mirrorsync.mojom.GetSyncPathError = {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.GetSyncPathError = {
   kServiceUnavailable: 0,
   kSuccess: 1,
   kFailed: 2,
 };
-ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec = { $: mojo.internal.Enum() };
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.GetSyncPathErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-ash.manage_mirrorsync.mojom.PageHandlerFactory = {};
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactory = {};
 
-ash.manage_mirrorsync.mojom.PageHandlerFactoryPendingReceiver = class {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.manage_mirrorsync.mojom.PageHandlerFactoryRemote = class {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.manage_mirrorsync.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.manage_mirrorsync.mojom.PageHandlerFactoryPendingReceiver,
+      ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -48,7 +48,7 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallHandler = class {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -57,15 +57,15 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [handler]);
   }
 
 };
 
-ash.manage_mirrorsync.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new ash.manage_mirrorsync.mojom.PageHandlerFactoryRemote();
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ ash.manage_mirrorsync.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.manage_mirrorsync.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -89,29 +89,29 @@ ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.manage_mirrorsync.mojom.PageHandlerFactoryPtr = ash.manage_mirrorsync.mojom.PageHandlerFactoryRemote;
-ash.manage_mirrorsync.mojom.PageHandlerFactoryRequest = ash.manage_mirrorsync.mojom.PageHandlerFactoryPendingReceiver;
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryPtr = ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryRemote;
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryRequest = ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.manage_mirrorsync.mojom.PageHandler = {};
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler = {};
 
-ash.manage_mirrorsync.mojom.PageHandlerPendingReceiver = class {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.manage_mirrorsync.mojom.PageHandlerRemote = class {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.manage_mirrorsync.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.manage_mirrorsync.mojom.PageHandlerPendingReceiver,
+      ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -123,7 +123,7 @@ ash.manage_mirrorsync.mojom.PageHandlerRemote = class {
   }
 };
 
-ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -132,8 +132,8 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec,
-      ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec,
+      ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler_GetChildFolders_ParamsSpec,
+      ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler_GetChildFolders_ResponseParamsSpec,
       [path]);
   }
 
@@ -141,15 +141,15 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec,
-      ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec,
+      ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler_GetSyncingPaths_ParamsSpec,
+      ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec,
       []);
   }
 
 };
 
-ash.manage_mirrorsync.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.manage_mirrorsync.mojom.PageHandlerRemote();
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +159,7 @@ ash.manage_mirrorsync.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetChildFolders
-ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler_GetChildFolders_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.manage_mirrorsync.mojom.PageHandler.GetChildFolders_Params',
@@ -172,7 +172,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = {
   }
 };
 
-ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.manage_mirrorsync.mojom.PageHandler.GetChildFolders_ResponseParams',
@@ -186,7 +186,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetSyncingPaths
-ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler_GetSyncingPaths_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.manage_mirrorsync.mojom.PageHandler.GetSyncingPaths_Params',
@@ -198,14 +198,14 @@ ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = {
   }
 };
 
-ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = {
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.manage_mirrorsync.mojom.PageHandler.GetSyncingPaths_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'syncing_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'syncing_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -213,6 +213,6 @@ ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.manage_mirrorsync.mojom.PageHandlerPtr = ash.manage_mirrorsync.mojom.PageHandlerRemote;
-ash.manage_mirrorsync.mojom.PageHandlerRequest = ash.manage_mirrorsync.mojom.PageHandlerPendingReceiver;
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerPtr = ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerRemote;
+ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerRequest = ash.manage_mirrorsync.manage_mirrorsync.mojom.mojom.PageHandlerPendingReceiver;
 

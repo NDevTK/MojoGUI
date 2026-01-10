@@ -10,7 +10,7 @@ device.mojom = device.mojom || {};
 
 
 // Enum: SensorType
-device.mojom.SensorType = {
+device.mojom.mojom.SensorType = {
   AMBIENT_LIGHT: 0,
   ACCELEROMETER: 1,
   LINEAR_ACCELERATION: 2,
@@ -22,17 +22,17 @@ device.mojom.SensorType = {
   RELATIVE_ORIENTATION_EULER_ANGLES: 8,
   RELATIVE_ORIENTATION_QUATERNION: 9,
 };
-device.mojom.SensorTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.SensorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReportingMode
-device.mojom.ReportingMode = {
+device.mojom.mojom.ReportingMode = {
   ON_CHANGE: 0,
   CONTINUOUS: 1,
 };
-device.mojom.ReportingModeSpec = { $: mojo.internal.Enum() };
+device.mojom.mojom.ReportingModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SensorReadingRaw
-device.mojom.SensorReadingRawSpec = {
+device.mojom.mojom.SensorReadingRawSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorReadingRaw',
@@ -47,7 +47,7 @@ device.mojom.SensorReadingRawSpec = {
 };
 
 // Struct: SensorConfiguration
-device.mojom.SensorConfigurationSpec = {
+device.mojom.mojom.SensorConfigurationSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorConfiguration',
@@ -61,24 +61,24 @@ device.mojom.SensorConfigurationSpec = {
 };
 
 // Interface: Sensor
-device.mojom.Sensor = {};
+device.mojom.mojom.Sensor = {};
 
-device.mojom.SensorPendingReceiver = class {
+device.mojom.mojom.SensorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.SensorRemote = class {
+device.mojom.mojom.SensorRemote = class {
   static get $interfaceName() {
     return 'device.mojom.Sensor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.SensorPendingReceiver,
+      device.mojom.mojom.SensorPendingReceiver,
       handle);
-    this.$ = new device.mojom.SensorRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.SensorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -90,7 +90,7 @@ device.mojom.SensorRemote = class {
   }
 };
 
-device.mojom.SensorRemoteCallHandler = class {
+device.mojom.mojom.SensorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -99,8 +99,8 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec,
-      device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec,
+      device.mojom.mojom.Sensor_GetDefaultConfiguration_ParamsSpec,
+      device.mojom.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec,
       []);
   }
 
@@ -108,8 +108,8 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.Sensor_AddConfiguration_ParamsSpec,
-      device.mojom.Sensor_AddConfiguration_ResponseParamsSpec,
+      device.mojom.mojom.Sensor_AddConfiguration_ParamsSpec,
+      device.mojom.mojom.Sensor_AddConfiguration_ResponseParamsSpec,
       [configuration]);
   }
 
@@ -117,7 +117,7 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      device.mojom.Sensor_RemoveConfiguration_ParamsSpec,
+      device.mojom.mojom.Sensor_RemoveConfiguration_ParamsSpec,
       null,
       [configuration]);
   }
@@ -126,7 +126,7 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      device.mojom.Sensor_Suspend_ParamsSpec,
+      device.mojom.mojom.Sensor_Suspend_ParamsSpec,
       null,
       []);
   }
@@ -135,7 +135,7 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      device.mojom.Sensor_Resume_ParamsSpec,
+      device.mojom.mojom.Sensor_Resume_ParamsSpec,
       null,
       []);
   }
@@ -144,15 +144,15 @@ device.mojom.SensorRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec,
+      device.mojom.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-device.mojom.Sensor.getRemote = function() {
-  let remote = new device.mojom.SensorRemote();
+device.mojom.mojom.Sensor.getRemote = function() {
+  let remote = new device.mojom.mojom.SensorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -162,7 +162,7 @@ device.mojom.Sensor.getRemote = function() {
 };
 
 // ParamsSpec for GetDefaultConfiguration
-device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = {
+device.mojom.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Sensor.GetDefaultConfiguration_Params',
@@ -174,7 +174,7 @@ device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = {
   }
 };
 
-device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = {
+device.mojom.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Sensor.GetDefaultConfiguration_ResponseParams',
@@ -188,7 +188,7 @@ device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = {
 };
 
 // ParamsSpec for AddConfiguration
-device.mojom.Sensor_AddConfiguration_ParamsSpec = {
+device.mojom.mojom.Sensor_AddConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Sensor.AddConfiguration_Params',
@@ -201,7 +201,7 @@ device.mojom.Sensor_AddConfiguration_ParamsSpec = {
   }
 };
 
-device.mojom.Sensor_AddConfiguration_ResponseParamsSpec = {
+device.mojom.mojom.Sensor_AddConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Sensor.AddConfiguration_ResponseParams',
@@ -215,7 +215,7 @@ device.mojom.Sensor_AddConfiguration_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RemoveConfiguration
-device.mojom.Sensor_RemoveConfiguration_ParamsSpec = {
+device.mojom.mojom.Sensor_RemoveConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Sensor.RemoveConfiguration_Params',
@@ -229,7 +229,7 @@ device.mojom.Sensor_RemoveConfiguration_ParamsSpec = {
 };
 
 // ParamsSpec for Suspend
-device.mojom.Sensor_Suspend_ParamsSpec = {
+device.mojom.mojom.Sensor_Suspend_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Sensor.Suspend_Params',
@@ -242,7 +242,7 @@ device.mojom.Sensor_Suspend_ParamsSpec = {
 };
 
 // ParamsSpec for Resume
-device.mojom.Sensor_Resume_ParamsSpec = {
+device.mojom.mojom.Sensor_Resume_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Sensor.Resume_Params',
@@ -255,7 +255,7 @@ device.mojom.Sensor_Resume_ParamsSpec = {
 };
 
 // ParamsSpec for ConfigureReadingChangeNotifications
-device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = {
+device.mojom.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.Sensor.ConfigureReadingChangeNotifications_Params',
@@ -269,29 +269,29 @@ device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.SensorPtr = device.mojom.SensorRemote;
-device.mojom.SensorRequest = device.mojom.SensorPendingReceiver;
+device.mojom.mojom.SensorPtr = device.mojom.mojom.SensorRemote;
+device.mojom.mojom.SensorRequest = device.mojom.mojom.SensorPendingReceiver;
 
 
 // Interface: SensorClient
-device.mojom.SensorClient = {};
+device.mojom.mojom.SensorClient = {};
 
-device.mojom.SensorClientPendingReceiver = class {
+device.mojom.mojom.SensorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.SensorClientRemote = class {
+device.mojom.mojom.SensorClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.SensorClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.SensorClientPendingReceiver,
+      device.mojom.mojom.SensorClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.SensorClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.SensorClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -303,7 +303,7 @@ device.mojom.SensorClientRemote = class {
   }
 };
 
-device.mojom.SensorClientRemoteCallHandler = class {
+device.mojom.mojom.SensorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -312,7 +312,7 @@ device.mojom.SensorClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.SensorClient_RaiseError_ParamsSpec,
+      device.mojom.mojom.SensorClient_RaiseError_ParamsSpec,
       null,
       []);
   }
@@ -321,15 +321,15 @@ device.mojom.SensorClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.SensorClient_SensorReadingChanged_ParamsSpec,
+      device.mojom.mojom.SensorClient_SensorReadingChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.SensorClient.getRemote = function() {
-  let remote = new device.mojom.SensorClientRemote();
+device.mojom.mojom.SensorClient.getRemote = function() {
+  let remote = new device.mojom.mojom.SensorClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -339,7 +339,7 @@ device.mojom.SensorClient.getRemote = function() {
 };
 
 // ParamsSpec for RaiseError
-device.mojom.SensorClient_RaiseError_ParamsSpec = {
+device.mojom.mojom.SensorClient_RaiseError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorClient.RaiseError_Params',
@@ -352,7 +352,7 @@ device.mojom.SensorClient_RaiseError_ParamsSpec = {
 };
 
 // ParamsSpec for SensorReadingChanged
-device.mojom.SensorClient_SensorReadingChanged_ParamsSpec = {
+device.mojom.mojom.SensorClient_SensorReadingChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorClient.SensorReadingChanged_Params',
@@ -365,6 +365,6 @@ device.mojom.SensorClient_SensorReadingChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.SensorClientPtr = device.mojom.SensorClientRemote;
-device.mojom.SensorClientRequest = device.mojom.SensorClientPendingReceiver;
+device.mojom.mojom.SensorClientPtr = device.mojom.mojom.SensorClientRemote;
+device.mojom.mojom.SensorClientRequest = device.mojom.mojom.SensorClientPendingReceiver;
 

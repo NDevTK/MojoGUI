@@ -7,11 +7,11 @@
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
-ash.ime.mojom = ash.ime.mojom || {};
+ash.ime.ime.mojom = ash.ime.ime.mojom || {};
 
 
 // Enum: JpPosType
-ash.ime.mojom.JpPosType = {
+ash.ime.ime.mojom.mojom.JpPosType = {
   kNoPos: 0,
   kNoun: 1,
   kAbbreviation: 2,
@@ -58,10 +58,10 @@ ash.ime.mojom.JpPosType = {
   kFreeStandingWord: 43,
   kSuppressionWord: 44,
 };
-ash.ime.mojom.JpPosTypeSpec = { $: mojo.internal.Enum() };
+ash.ime.ime.mojom.mojom.JpPosTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: JapaneseDictionaryEntry
-ash.ime.mojom.JapaneseDictionaryEntrySpec = {
+ash.ime.ime.mojom.mojom.JapaneseDictionaryEntrySpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JapaneseDictionaryEntry',
@@ -69,8 +69,8 @@ ash.ime.mojom.JapaneseDictionaryEntrySpec = {
       fields: [
         { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pos', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.JpPosTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'comment', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'pos', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.JpPosTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'comment', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -78,7 +78,7 @@ ash.ime.mojom.JapaneseDictionaryEntrySpec = {
 };
 
 // Struct: JapaneseDictionary
-ash.ime.mojom.JapaneseDictionarySpec = {
+ash.ime.ime.mojom.mojom.JapaneseDictionarySpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.JapaneseDictionary',

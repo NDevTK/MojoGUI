@@ -10,7 +10,7 @@ mojo_base.mojom = mojo_base.mojom || {};
 
 
 // Struct: Empty
-mojo_base.mojom.EmptySpec = {
+mojo_base.mojom.mojom.EmptySpec = {
   $: {
     structSpec: {
       name: 'mojo_base.mojom.Empty',

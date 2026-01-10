@@ -7,20 +7,21 @@
 // Module namespace
 var bookmark_bar = bookmark_bar || {};
 bookmark_bar.mojom = bookmark_bar.mojom || {};
+var url = url || {};
 
 
 // Enum: BookmarkType
-bookmark_bar.mojom.BookmarkType = {
+bookmark_bar.mojom.mojom.BookmarkType = {
   URL: 0,
   FOLDER: 1,
   BOOKMARK_BAR: 2,
   OTHER_NODE: 3,
   MOBILE: 4,
 };
-bookmark_bar.mojom.BookmarkTypeSpec = { $: mojo.internal.Enum() };
+bookmark_bar.mojom.mojom.BookmarkTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: BookmarkData
-bookmark_bar.mojom.BookmarkDataSpec = {
+bookmark_bar.mojom.mojom.BookmarkDataSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.BookmarkData',
@@ -28,8 +29,8 @@ bookmark_bar.mojom.BookmarkDataSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
         { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'page_url_for_favicon', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: bookmark_bar.mojom.BookmarkTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'page_url_for_favicon', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -37,24 +38,24 @@ bookmark_bar.mojom.BookmarkDataSpec = {
 };
 
 // Interface: PageHandlerFactory
-bookmark_bar.mojom.PageHandlerFactory = {};
+bookmark_bar.mojom.mojom.PageHandlerFactory = {};
 
-bookmark_bar.mojom.PageHandlerFactoryPendingReceiver = class {
+bookmark_bar.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bookmark_bar.mojom.PageHandlerFactoryRemote = class {
+bookmark_bar.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'bookmark_bar.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bookmark_bar.mojom.PageHandlerFactoryPendingReceiver,
+      bookmark_bar.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new bookmark_bar.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -66,7 +67,7 @@ bookmark_bar.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
+bookmark_bar.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -75,15 +76,15 @@ bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      bookmark_bar.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-bookmark_bar.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new bookmark_bar.mojom.PageHandlerFactoryRemote();
+bookmark_bar.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new bookmark_bar.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +94,7 @@ bookmark_bar.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+bookmark_bar.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -108,29 +109,29 @@ bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-bookmark_bar.mojom.PageHandlerFactoryPtr = bookmark_bar.mojom.PageHandlerFactoryRemote;
-bookmark_bar.mojom.PageHandlerFactoryRequest = bookmark_bar.mojom.PageHandlerFactoryPendingReceiver;
+bookmark_bar.mojom.mojom.PageHandlerFactoryPtr = bookmark_bar.mojom.mojom.PageHandlerFactoryRemote;
+bookmark_bar.mojom.mojom.PageHandlerFactoryRequest = bookmark_bar.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-bookmark_bar.mojom.PageHandler = {};
+bookmark_bar.mojom.mojom.PageHandler = {};
 
-bookmark_bar.mojom.PageHandlerPendingReceiver = class {
+bookmark_bar.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bookmark_bar.mojom.PageHandlerRemote = class {
+bookmark_bar.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'bookmark_bar.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bookmark_bar.mojom.PageHandlerPendingReceiver,
+      bookmark_bar.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new bookmark_bar.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new bookmark_bar.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -142,7 +143,7 @@ bookmark_bar.mojom.PageHandlerRemote = class {
   }
 };
 
-bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
+bookmark_bar.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -151,8 +152,8 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec,
-      bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec,
+      bookmark_bar.mojom.mojom.PageHandler_GetBookmarkBar_ParamsSpec,
+      bookmark_bar.mojom.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec,
       []);
   }
 
@@ -160,15 +161,15 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec,
+      bookmark_bar.mojom.mojom.PageHandler_OpenInNewTab_ParamsSpec,
       null,
       [node_id]);
   }
 
 };
 
-bookmark_bar.mojom.PageHandler.getRemote = function() {
-  let remote = new bookmark_bar.mojom.PageHandlerRemote();
+bookmark_bar.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new bookmark_bar.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -178,7 +179,7 @@ bookmark_bar.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for GetBookmarkBar
-bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
+bookmark_bar.mojom.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.PageHandler.GetBookmarkBar_Params',
@@ -190,7 +191,7 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
   }
 };
 
-bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
+bookmark_bar.mojom.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.PageHandler.GetBookmarkBar_ResponseParams',
@@ -204,7 +205,7 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
 };
 
 // ParamsSpec for OpenInNewTab
-bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
+bookmark_bar.mojom.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.PageHandler.OpenInNewTab_Params',
@@ -218,29 +219,29 @@ bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = {
 };
 
 // Legacy compatibility
-bookmark_bar.mojom.PageHandlerPtr = bookmark_bar.mojom.PageHandlerRemote;
-bookmark_bar.mojom.PageHandlerRequest = bookmark_bar.mojom.PageHandlerPendingReceiver;
+bookmark_bar.mojom.mojom.PageHandlerPtr = bookmark_bar.mojom.mojom.PageHandlerRemote;
+bookmark_bar.mojom.mojom.PageHandlerRequest = bookmark_bar.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-bookmark_bar.mojom.Page = {};
+bookmark_bar.mojom.mojom.Page = {};
 
-bookmark_bar.mojom.PagePendingReceiver = class {
+bookmark_bar.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-bookmark_bar.mojom.PageRemote = class {
+bookmark_bar.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'bookmark_bar.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      bookmark_bar.mojom.PagePendingReceiver,
+      bookmark_bar.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new bookmark_bar.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new bookmark_bar.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -252,7 +253,7 @@ bookmark_bar.mojom.PageRemote = class {
   }
 };
 
-bookmark_bar.mojom.PageRemoteCallHandler = class {
+bookmark_bar.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -261,7 +262,7 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec,
+      bookmark_bar.mojom.mojom.Page_BookmarkLoaded_ParamsSpec,
       null,
       []);
   }
@@ -270,7 +271,7 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec,
+      bookmark_bar.mojom.mojom.Page_FavIconChanged_ParamsSpec,
       null,
       [bookmark_data]);
   }
@@ -279,7 +280,7 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      bookmark_bar.mojom.Page_Show_ParamsSpec,
+      bookmark_bar.mojom.mojom.Page_Show_ParamsSpec,
       null,
       []);
   }
@@ -288,15 +289,15 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      bookmark_bar.mojom.Page_Hide_ParamsSpec,
+      bookmark_bar.mojom.mojom.Page_Hide_ParamsSpec,
       null,
       []);
   }
 
 };
 
-bookmark_bar.mojom.Page.getRemote = function() {
-  let remote = new bookmark_bar.mojom.PageRemote();
+bookmark_bar.mojom.mojom.Page.getRemote = function() {
+  let remote = new bookmark_bar.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -306,7 +307,7 @@ bookmark_bar.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for BookmarkLoaded
-bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = {
+bookmark_bar.mojom.mojom.Page_BookmarkLoaded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.Page.BookmarkLoaded_Params',
@@ -319,7 +320,7 @@ bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = {
 };
 
 // ParamsSpec for FavIconChanged
-bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
+bookmark_bar.mojom.mojom.Page_FavIconChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.Page.FavIconChanged_Params',
@@ -333,7 +334,7 @@ bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = {
 };
 
 // ParamsSpec for Show
-bookmark_bar.mojom.Page_Show_ParamsSpec = {
+bookmark_bar.mojom.mojom.Page_Show_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.Page.Show_Params',
@@ -346,7 +347,7 @@ bookmark_bar.mojom.Page_Show_ParamsSpec = {
 };
 
 // ParamsSpec for Hide
-bookmark_bar.mojom.Page_Hide_ParamsSpec = {
+bookmark_bar.mojom.mojom.Page_Hide_ParamsSpec = {
   $: {
     structSpec: {
       name: 'bookmark_bar.mojom.Page.Hide_Params',
@@ -359,6 +360,6 @@ bookmark_bar.mojom.Page_Hide_ParamsSpec = {
 };
 
 // Legacy compatibility
-bookmark_bar.mojom.PagePtr = bookmark_bar.mojom.PageRemote;
-bookmark_bar.mojom.PageRequest = bookmark_bar.mojom.PagePendingReceiver;
+bookmark_bar.mojom.mojom.PagePtr = bookmark_bar.mojom.mojom.PageRemote;
+bookmark_bar.mojom.mojom.PageRequest = bookmark_bar.mojom.mojom.PagePendingReceiver;
 

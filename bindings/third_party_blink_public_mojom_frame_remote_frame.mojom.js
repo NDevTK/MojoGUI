@@ -7,10 +7,42 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
+var url = url || {};
 
 
 // Struct: RemoteMainFrameInterfaces
-blink.mojom.RemoteMainFrameInterfacesSpec = {
+blink.mojom.mojom.RemoteMainFrameInterfacesSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteMainFrameInterfaces',
@@ -25,7 +57,7 @@ blink.mojom.RemoteMainFrameInterfacesSpec = {
 };
 
 // Struct: RemoteFrameInterfacesFromRenderer
-blink.mojom.RemoteFrameInterfacesFromRendererSpec = {
+blink.mojom.mojom.RemoteFrameInterfacesFromRendererSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameInterfacesFromRenderer',
@@ -40,7 +72,7 @@ blink.mojom.RemoteFrameInterfacesFromRendererSpec = {
 };
 
 // Struct: RemoteFrameInterfacesFromBrowser
-blink.mojom.RemoteFrameInterfacesFromBrowserSpec = {
+blink.mojom.mojom.RemoteFrameInterfacesFromBrowserSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameInterfacesFromBrowser',
@@ -55,21 +87,21 @@ blink.mojom.RemoteFrameInterfacesFromBrowserSpec = {
 };
 
 // Struct: CreateRemoteChildParams
-blink.mojom.CreateRemoteChildParamsSpec = {
+blink.mojom.mojom.CreateRemoteChildParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.CreateRemoteChildParams',
       packedSize: 80,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'opener_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'tree_scope_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.TreeScopeTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'replication_state', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FrameReplicationStateSpec, nullable: false, minVersion: 0 },
-        { name: 'owner_properties', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.FrameOwnerPropertiesSpec, nullable: false, minVersion: 0 },
-        { name: 'is_loading', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'devtools_frame_token', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_interfaces', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.RemoteFrameInterfacesFromBrowserSpec, nullable: false, minVersion: 0 },
-        { name: 'child_params', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CreateRemoteChildParamsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'opener_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'tree_scope_type', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.TreeScopeTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'replication_state', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FrameReplicationStateSpec, nullable: false, minVersion: 0 },
+        { name: 'owner_properties', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FrameOwnerPropertiesSpec, nullable: false, minVersion: 0 },
+        { name: 'is_loading', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'devtools_frame_token', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_interfaces', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.RemoteFrameInterfacesFromBrowserSpec, nullable: false, minVersion: 0 },
+        { name: 'child_params', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CreateRemoteChildParamsSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }
@@ -77,7 +109,7 @@ blink.mojom.CreateRemoteChildParamsSpec = {
 };
 
 // Struct: OpenURLParams
-blink.mojom.OpenURLParamsSpec = {
+blink.mojom.mojom.OpenURLParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OpenURLParams',
@@ -91,22 +123,22 @@ blink.mojom.OpenURLParamsSpec = {
         { name: 'post_body', packedOffset: 40, packedBitOffset: 0, type: network.mojom.URLRequestBodySpec, nullable: true, minVersion: 0 },
         { name: 'extra_headers', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'referrer', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false, minVersion: 0 },
-        { name: 'is_form_submission', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'disposition', packedOffset: 68, packedBitOffset: 0, type: ui.mojom.WindowOpenDispositionSpec, nullable: false, minVersion: 0 },
-        { name: 'should_replace_current_entry', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 64, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_unfenced_top_navigation', packedOffset: 64, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'triggering_event_info', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.TriggeringEventInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'blob_url_token', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'href_translate', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'impression', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.ImpressionSpec, nullable: true, minVersion: 0 },
-        { name: 'download_policy', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.NavigationDownloadPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'source_location', packedOffset: 104, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
-        { name: 'initiator_navigation_state_keep_alive_handle', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'initiator_activation_and_ad_status', packedOffset: 116, packedBitOffset: 0, type: blink.mojom.NavigationInitiatorActivationAndAdStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'is_container_initiated', packedOffset: 64, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_rel_opener', packedOffset: 64, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'storage_access_api_status', packedOffset: 120, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'is_form_submission', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'disposition', packedOffset: 96, packedBitOffset: 0, type: ui.mojom.WindowOpenDispositionSpec, nullable: false, minVersion: 0 },
+        { name: 'should_replace_current_entry', packedOffset: 120, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'user_gesture', packedOffset: 120, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_unfenced_top_navigation', packedOffset: 120, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'triggering_event_info', packedOffset: 100, packedBitOffset: 0, type: blink.mojom.TriggeringEventInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'blob_url_token', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'href_translate', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'impression', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.ImpressionSpec, nullable: true, minVersion: 0 },
+        { name: 'download_policy', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.NavigationDownloadPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'source_location', packedOffset: 88, packedBitOffset: 0, type: network.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
+        { name: 'initiator_navigation_state_keep_alive_handle', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'initiator_activation_and_ad_status', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.NavigationInitiatorActivationAndAdStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'is_container_initiated', packedOffset: 120, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_rel_opener', packedOffset: 120, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'storage_access_api_status', packedOffset: 116, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 136}]
     }
@@ -114,24 +146,24 @@ blink.mojom.OpenURLParamsSpec = {
 };
 
 // Interface: NavigationStateKeepAliveHandle
-blink.mojom.NavigationStateKeepAliveHandle = {};
+blink.mojom.mojom.NavigationStateKeepAliveHandle = {};
 
-blink.mojom.NavigationStateKeepAliveHandlePendingReceiver = class {
+blink.mojom.mojom.NavigationStateKeepAliveHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.NavigationStateKeepAliveHandleRemote = class {
+blink.mojom.mojom.NavigationStateKeepAliveHandleRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.NavigationStateKeepAliveHandle';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.NavigationStateKeepAliveHandlePendingReceiver,
+      blink.mojom.mojom.NavigationStateKeepAliveHandlePendingReceiver,
       handle);
-    this.$ = new blink.mojom.NavigationStateKeepAliveHandleRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.NavigationStateKeepAliveHandleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -143,15 +175,15 @@ blink.mojom.NavigationStateKeepAliveHandleRemote = class {
   }
 };
 
-blink.mojom.NavigationStateKeepAliveHandleRemoteCallHandler = class {
+blink.mojom.mojom.NavigationStateKeepAliveHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-blink.mojom.NavigationStateKeepAliveHandle.getRemote = function() {
-  let remote = new blink.mojom.NavigationStateKeepAliveHandleRemote();
+blink.mojom.mojom.NavigationStateKeepAliveHandle.getRemote = function() {
+  let remote = new blink.mojom.mojom.NavigationStateKeepAliveHandleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -161,29 +193,29 @@ blink.mojom.NavigationStateKeepAliveHandle.getRemote = function() {
 };
 
 // Legacy compatibility
-blink.mojom.NavigationStateKeepAliveHandlePtr = blink.mojom.NavigationStateKeepAliveHandleRemote;
-blink.mojom.NavigationStateKeepAliveHandleRequest = blink.mojom.NavigationStateKeepAliveHandlePendingReceiver;
+blink.mojom.mojom.NavigationStateKeepAliveHandlePtr = blink.mojom.mojom.NavigationStateKeepAliveHandleRemote;
+blink.mojom.mojom.NavigationStateKeepAliveHandleRequest = blink.mojom.mojom.NavigationStateKeepAliveHandlePendingReceiver;
 
 
 // Interface: RemoteFrameHost
-blink.mojom.RemoteFrameHost = {};
+blink.mojom.mojom.RemoteFrameHost = {};
 
-blink.mojom.RemoteFrameHostPendingReceiver = class {
+blink.mojom.mojom.RemoteFrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.RemoteFrameHostRemote = class {
+blink.mojom.mojom.RemoteFrameHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RemoteFrameHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.RemoteFrameHostPendingReceiver,
+      blink.mojom.mojom.RemoteFrameHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.RemoteFrameHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.RemoteFrameHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -195,7 +227,7 @@ blink.mojom.RemoteFrameHostRemote = class {
   }
 };
 
-blink.mojom.RemoteFrameHostRemoteCallHandler = class {
+blink.mojom.mojom.RemoteFrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -204,7 +236,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec,
       null,
       [touch_action]);
   }
@@ -213,7 +245,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec,
       null,
       [is_throttled, subtree_throttled, display_locked]);
   }
@@ -222,7 +254,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec,
       null,
       [visibility]);
   }
@@ -231,7 +263,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec,
       null,
       []);
   }
@@ -240,7 +272,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec,
       null,
       []);
   }
@@ -249,7 +281,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec,
       null,
       [clip_rect, guid]);
   }
@@ -258,7 +290,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_SetIsInert_ParamsSpec,
       null,
       [inert]);
   }
@@ -267,7 +299,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec,
       null,
       [opener_frame]);
   }
@@ -276,7 +308,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec,
       null,
       [focus_type, source_frame_token]);
   }
@@ -285,7 +317,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec,
       null,
       [source_frame_token, source_origin, target_origin, message]);
   }
@@ -294,7 +326,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec,
       null,
       [frame_content_rect, document_cookie]);
   }
@@ -303,7 +335,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.RemoteFrameHost_Detach_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_Detach_ParamsSpec,
       null,
       []);
   }
@@ -312,7 +344,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec,
       null,
       [intersection_state, visual_properties]);
   }
@@ -321,7 +353,7 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec,
       null,
       [properties]);
   }
@@ -330,15 +362,15 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec,
+      blink.mojom.mojom.RemoteFrameHost_OpenURL_ParamsSpec,
       null,
       [params]);
   }
 
 };
 
-blink.mojom.RemoteFrameHost.getRemote = function() {
-  let remote = new blink.mojom.RemoteFrameHostRemote();
+blink.mojom.mojom.RemoteFrameHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.RemoteFrameHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -348,7 +380,7 @@ blink.mojom.RemoteFrameHost.getRemote = function() {
 };
 
 // ParamsSpec for SetInheritedEffectiveTouchAction
-blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.SetInheritedEffectiveTouchAction_Params',
@@ -362,7 +394,7 @@ blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateRenderThrottlingStatus
-blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.UpdateRenderThrottlingStatus_Params',
@@ -378,7 +410,7 @@ blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec = {
 };
 
 // ParamsSpec for VisibilityChanged
-blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.VisibilityChanged_Params',
@@ -392,7 +424,7 @@ blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec = {
 };
 
 // ParamsSpec for DidFocusFrame
-blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.DidFocusFrame_Params',
@@ -405,7 +437,7 @@ blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec = {
 };
 
 // ParamsSpec for CheckCompleted
-blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.CheckCompleted_Params',
@@ -418,7 +450,7 @@ blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec = {
 };
 
 // ParamsSpec for CapturePaintPreviewOfCrossProcessSubframe
-blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.CapturePaintPreviewOfCrossProcessSubframe_Params',
@@ -433,7 +465,7 @@ blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec
 };
 
 // ParamsSpec for SetIsInert
-blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_SetIsInert_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.SetIsInert_Params',
@@ -447,7 +479,7 @@ blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec = {
 };
 
 // ParamsSpec for DidChangeOpener
-blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.DidChangeOpener_Params',
@@ -461,14 +493,14 @@ blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec = {
 };
 
 // ParamsSpec for AdvanceFocus
-blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.AdvanceFocus_Params',
       packedSize: 24,
       fields: [
-        { name: 'focus_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FocusTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'source_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'focus_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FocusTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'source_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -476,7 +508,7 @@ blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec = {
 };
 
 // ParamsSpec for RouteMessageEvent
-blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.RouteMessageEvent_Params',
@@ -493,7 +525,7 @@ blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec = {
 };
 
 // ParamsSpec for PrintCrossProcessSubframe
-blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.PrintCrossProcessSubframe_Params',
@@ -508,7 +540,7 @@ blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec = {
 };
 
 // ParamsSpec for Detach
-blink.mojom.RemoteFrameHost_Detach_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_Detach_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.Detach_Params',
@@ -521,7 +553,7 @@ blink.mojom.RemoteFrameHost_Detach_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateViewportIntersection
-blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.UpdateViewportIntersection_Params',
@@ -536,7 +568,7 @@ blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec = {
 };
 
 // ParamsSpec for SynchronizeVisualProperties
-blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.SynchronizeVisualProperties_Params',
@@ -550,7 +582,7 @@ blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec = {
 };
 
 // ParamsSpec for OpenURL
-blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec = {
+blink.mojom.mojom.RemoteFrameHost_OpenURL_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrameHost.OpenURL_Params',
@@ -564,29 +596,29 @@ blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.RemoteFrameHostPtr = blink.mojom.RemoteFrameHostRemote;
-blink.mojom.RemoteFrameHostRequest = blink.mojom.RemoteFrameHostPendingReceiver;
+blink.mojom.mojom.RemoteFrameHostPtr = blink.mojom.mojom.RemoteFrameHostRemote;
+blink.mojom.mojom.RemoteFrameHostRequest = blink.mojom.mojom.RemoteFrameHostPendingReceiver;
 
 
 // Interface: RemoteFrame
-blink.mojom.RemoteFrame = {};
+blink.mojom.mojom.RemoteFrame = {};
 
-blink.mojom.RemoteFramePendingReceiver = class {
+blink.mojom.mojom.RemoteFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.RemoteFrameRemote = class {
+blink.mojom.mojom.RemoteFrameRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RemoteFrame';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.RemoteFramePendingReceiver,
+      blink.mojom.mojom.RemoteFramePendingReceiver,
       handle);
-    this.$ = new blink.mojom.RemoteFrameRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.RemoteFrameRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -598,7 +630,7 @@ blink.mojom.RemoteFrameRemote = class {
   }
 };
 
-blink.mojom.RemoteFrameRemoteCallHandler = class {
+blink.mojom.mojom.RemoteFrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -607,7 +639,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec,
       null,
       [options]);
   }
@@ -616,7 +648,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec,
       null,
       [set]);
   }
@@ -625,7 +657,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec,
       null,
       [properties]);
   }
@@ -634,7 +666,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec,
       null,
       [policy]);
   }
@@ -643,7 +675,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec,
       null,
       [origin, is_potentially_trustworthy_unique_origin]);
   }
@@ -652,7 +684,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec,
       null,
       [is_ad_frame]);
   }
@@ -661,7 +693,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_SetReplicatedName_ParamsSpec,
       null,
       [name, unique_name]);
   }
@@ -670,7 +702,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec,
       null,
       []);
   }
@@ -679,7 +711,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec,
       null,
       [needs_tracking]);
   }
@@ -688,7 +720,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.RemoteFrame_Collapse_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_Collapse_ParamsSpec,
       null,
       [collapsed]);
   }
@@ -697,7 +729,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.RemoteFrame_Focus_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_Focus_ParamsSpec,
       null,
       []);
   }
@@ -706,7 +738,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec,
       null,
       [has_gesture]);
   }
@@ -715,7 +747,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec,
       null,
       [direction, granularity]);
   }
@@ -724,7 +756,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec,
       null,
       [state_update_type, notification_type]);
   }
@@ -733,7 +765,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 14
     return this.proxy.sendMessage(
       14,  // ordinal
-      blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec,
       null,
       [embedding_token]);
   }
@@ -742,7 +774,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 15
     return this.proxy.sendMessage(
       15,  // ordinal
-      blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_SetPageFocus_ParamsSpec,
       null,
       [is_focused]);
   }
@@ -751,7 +783,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 16
     return this.proxy.sendMessage(
       16,  // ordinal
-      blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec,
       null,
       []);
   }
@@ -760,7 +792,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 17
     return this.proxy.sendMessage(
       17,  // ordinal
-      blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec,
       null,
       [timing]);
   }
@@ -769,7 +801,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 18
     return this.proxy.sendMessage(
       18,  // ordinal
-      blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec,
       null,
       [rect, params]);
   }
@@ -778,7 +810,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 19
     return this.proxy.sendMessage(
       19,  // ordinal
-      blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_DidStartLoading_ParamsSpec,
       null,
       []);
   }
@@ -787,7 +819,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 20
     return this.proxy.sendMessage(
       20,  // ordinal
-      blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_DidStopLoading_ParamsSpec,
       null,
       []);
   }
@@ -796,7 +828,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 21
     return this.proxy.sendMessage(
       21,  // ordinal
-      blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec,
       null,
       [sizing_info]);
   }
@@ -805,7 +837,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 22
     return this.proxy.sendMessage(
       22,  // ordinal
-      blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec,
       null,
       [sandbox_flags, parsed_permissions_policy]);
   }
@@ -814,7 +846,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 23
     return this.proxy.sendMessage(
       23,  // ordinal
-      blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec,
       null,
       [frame_policy]);
   }
@@ -823,7 +855,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 24
     return this.proxy.sendMessage(
       24,  // ordinal
-      blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_UpdateOpener_ParamsSpec,
       null,
       [opener_frame_token]);
   }
@@ -832,7 +864,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 25
     return this.proxy.sendMessage(
       25,  // ordinal
-      blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_DetachAndDispose_ParamsSpec,
       null,
       []);
   }
@@ -841,7 +873,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 26
     return this.proxy.sendMessage(
       26,  // ordinal
-      blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_EnableAutoResize_ParamsSpec,
       null,
       [min_size, max_size]);
   }
@@ -850,7 +882,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 27
     return this.proxy.sendMessage(
       27,  // ordinal
-      blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_DisableAutoResize_ParamsSpec,
       null,
       []);
   }
@@ -859,7 +891,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 28
     return this.proxy.sendMessage(
       28,  // ordinal
-      blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec,
       null,
       [metadata]);
   }
@@ -868,7 +900,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 29
     return this.proxy.sendMessage(
       29,  // ordinal
-      blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec,
       null,
       [frame_sink_id, allow_paint_holding]);
   }
@@ -877,7 +909,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 30
     return this.proxy.sendMessage(
       30,  // ordinal
-      blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_ChildProcessGone_ParamsSpec,
       null,
       []);
   }
@@ -886,7 +918,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 31
     return this.proxy.sendMessage(
       31,  // ordinal
-      blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec,
       null,
       [token, opener_frame_token, tree_scope_type, replication_state, owner_properties, is_loading, devtools_frame_token, remote_frame_interfaces]);
   }
@@ -895,7 +927,7 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 32
     return this.proxy.sendMessage(
       32,  // ordinal
-      blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec,
       null,
       [params, navigation_metrics_token]);
   }
@@ -904,15 +936,15 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
     // Ordinal: 33
     return this.proxy.sendMessage(
       33,  // ordinal
-      blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec,
+      blink.mojom.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec,
       null,
       [event_type]);
   }
 
 };
 
-blink.mojom.RemoteFrame.getRemote = function() {
-  let remote = new blink.mojom.RemoteFrameRemote();
+blink.mojom.mojom.RemoteFrame.getRemote = function() {
+  let remote = new blink.mojom.mojom.RemoteFrameRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -922,7 +954,7 @@ blink.mojom.RemoteFrame.getRemote = function() {
 };
 
 // ParamsSpec for WillEnterFullscreen
-blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.WillEnterFullscreen_Params',
@@ -936,7 +968,7 @@ blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec = {
 };
 
 // ParamsSpec for EnforceInsecureNavigationsSet
-blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.EnforceInsecureNavigationsSet_Params',
@@ -950,7 +982,7 @@ blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec = {
 };
 
 // ParamsSpec for SetFrameOwnerProperties
-blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.SetFrameOwnerProperties_Params',
@@ -964,7 +996,7 @@ blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec = {
 };
 
 // ParamsSpec for EnforceInsecureRequestPolicy
-blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.EnforceInsecureRequestPolicy_Params',
@@ -978,7 +1010,7 @@ blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec = {
 };
 
 // ParamsSpec for SetReplicatedOrigin
-blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.SetReplicatedOrigin_Params',
@@ -993,7 +1025,7 @@ blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec = {
 };
 
 // ParamsSpec for SetReplicatedIsAdFrame
-blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.SetReplicatedIsAdFrame_Params',
@@ -1007,7 +1039,7 @@ blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec = {
 };
 
 // ParamsSpec for SetReplicatedName
-blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_SetReplicatedName_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.SetReplicatedName_Params',
@@ -1022,7 +1054,7 @@ blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec = {
 };
 
 // ParamsSpec for DispatchLoadEventForFrameOwner
-blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.DispatchLoadEventForFrameOwner_Params',
@@ -1035,7 +1067,7 @@ blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec = {
 };
 
 // ParamsSpec for SetNeedsOcclusionTracking
-blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.SetNeedsOcclusionTracking_Params',
@@ -1049,7 +1081,7 @@ blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec = {
 };
 
 // ParamsSpec for Collapse
-blink.mojom.RemoteFrame_Collapse_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_Collapse_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.Collapse_Params',
@@ -1063,7 +1095,7 @@ blink.mojom.RemoteFrame_Collapse_ParamsSpec = {
 };
 
 // ParamsSpec for Focus
-blink.mojom.RemoteFrame_Focus_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_Focus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.Focus_Params',
@@ -1076,7 +1108,7 @@ blink.mojom.RemoteFrame_Focus_ParamsSpec = {
 };
 
 // ParamsSpec for SetHadStickyUserActivationBeforeNavigation
-blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.SetHadStickyUserActivationBeforeNavigation_Params',
@@ -1090,14 +1122,14 @@ blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec = 
 };
 
 // ParamsSpec for BubbleLogicalScroll
-blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.BubbleLogicalScroll_Params',
       packedSize: 24,
       fields: [
-        { name: 'direction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ScrollDirectionSpec, nullable: false, minVersion: 0 },
-        { name: 'granularity', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ScrollGranularitySpec, nullable: false, minVersion: 0 },
+        { name: 'direction', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScrollDirectionSpec, nullable: false, minVersion: 0 },
+        { name: 'granularity', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.ScrollGranularitySpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1105,7 +1137,7 @@ blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateUserActivationState
-blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.UpdateUserActivationState_Params',
@@ -1120,7 +1152,7 @@ blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec = {
 };
 
 // ParamsSpec for SetEmbeddingToken
-blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.SetEmbeddingToken_Params',
@@ -1134,7 +1166,7 @@ blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec = {
 };
 
 // ParamsSpec for SetPageFocus
-blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_SetPageFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.SetPageFocus_Params',
@@ -1148,7 +1180,7 @@ blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec = {
 };
 
 // ParamsSpec for RenderFallbackContent
-blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.RenderFallbackContent_Params',
@@ -1161,7 +1193,7 @@ blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec = {
 };
 
 // ParamsSpec for AddResourceTimingFromChild
-blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.AddResourceTimingFromChild_Params',
@@ -1175,7 +1207,7 @@ blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec = {
 };
 
 // ParamsSpec for ScrollRectToVisible
-blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.ScrollRectToVisible_Params',
@@ -1190,7 +1222,7 @@ blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec = {
 };
 
 // ParamsSpec for DidStartLoading
-blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_DidStartLoading_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.DidStartLoading_Params',
@@ -1203,7 +1235,7 @@ blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec = {
 };
 
 // ParamsSpec for DidStopLoading
-blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_DidStopLoading_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.DidStopLoading_Params',
@@ -1216,7 +1248,7 @@ blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec = {
 };
 
 // ParamsSpec for IntrinsicSizingInfoOfChildChanged
-blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.IntrinsicSizingInfoOfChildChanged_Params',
@@ -1230,14 +1262,14 @@ blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec = {
 };
 
 // ParamsSpec for DidSetFramePolicyHeaders
-blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.DidSetFramePolicyHeaders_Params',
       packedSize: 24,
       fields: [
-        { name: 'sandbox_flags', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSandboxFlagsSpec, nullable: false, minVersion: 0 },
-        { name: 'parsed_permissions_policy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: false, minVersion: 0 },
+        { name: 'sandbox_flags', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebSandboxFlagsSpec, nullable: false, minVersion: 0 },
+        { name: 'parsed_permissions_policy', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1245,7 +1277,7 @@ blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec = {
 };
 
 // ParamsSpec for DidUpdateFramePolicy
-blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.DidUpdateFramePolicy_Params',
@@ -1259,7 +1291,7 @@ blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateOpener
-blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_UpdateOpener_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.UpdateOpener_Params',
@@ -1273,7 +1305,7 @@ blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec = {
 };
 
 // ParamsSpec for DetachAndDispose
-blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_DetachAndDispose_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.DetachAndDispose_Params',
@@ -1286,7 +1318,7 @@ blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec = {
 };
 
 // ParamsSpec for EnableAutoResize
-blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_EnableAutoResize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.EnableAutoResize_Params',
@@ -1301,7 +1333,7 @@ blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec = {
 };
 
 // ParamsSpec for DisableAutoResize
-blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_DisableAutoResize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.DisableAutoResize_Params',
@@ -1314,7 +1346,7 @@ blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec = {
 };
 
 // ParamsSpec for DidUpdateVisualProperties
-blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.DidUpdateVisualProperties_Params',
@@ -1328,7 +1360,7 @@ blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec = {
 };
 
 // ParamsSpec for SetFrameSinkId
-blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.SetFrameSinkId_Params',
@@ -1343,7 +1375,7 @@ blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec = {
 };
 
 // ParamsSpec for ChildProcessGone
-blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_ChildProcessGone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.ChildProcessGone_Params',
@@ -1356,20 +1388,20 @@ blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec = {
 };
 
 // ParamsSpec for CreateRemoteChild
-blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.CreateRemoteChild_Params',
       packedSize: 72,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'opener_frame_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'tree_scope_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.TreeScopeTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'replication_state', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FrameReplicationStateSpec, nullable: false, minVersion: 0 },
-        { name: 'owner_properties', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.FrameOwnerPropertiesSpec, nullable: false, minVersion: 0 },
-        { name: 'is_loading', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'devtools_frame_token', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'remote_frame_interfaces', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.RemoteFrameInterfacesFromBrowserSpec, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.RemoteFrameTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'opener_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'tree_scope_type', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.TreeScopeTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'replication_state', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.FrameReplicationStateSpec, nullable: false, minVersion: 0 },
+        { name: 'owner_properties', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FrameOwnerPropertiesSpec, nullable: false, minVersion: 0 },
+        { name: 'is_loading', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'devtools_frame_token', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'remote_frame_interfaces', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.RemoteFrameInterfacesFromBrowserSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -1377,7 +1409,7 @@ blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec = {
 };
 
 // ParamsSpec for CreateRemoteChildren
-blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.CreateRemoteChildren_Params',
@@ -1392,7 +1424,7 @@ blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec = {
 };
 
 // ParamsSpec for ForwardFencedFrameEventToEmbedder
-blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec = {
+blink.mojom.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteFrame.ForwardFencedFrameEventToEmbedder_Params',
@@ -1406,29 +1438,29 @@ blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.RemoteFramePtr = blink.mojom.RemoteFrameRemote;
-blink.mojom.RemoteFrameRequest = blink.mojom.RemoteFramePendingReceiver;
+blink.mojom.mojom.RemoteFramePtr = blink.mojom.mojom.RemoteFrameRemote;
+blink.mojom.mojom.RemoteFrameRequest = blink.mojom.mojom.RemoteFramePendingReceiver;
 
 
 // Interface: RemoteMainFrame
-blink.mojom.RemoteMainFrame = {};
+blink.mojom.mojom.RemoteMainFrame = {};
 
-blink.mojom.RemoteMainFramePendingReceiver = class {
+blink.mojom.mojom.RemoteMainFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.RemoteMainFrameRemote = class {
+blink.mojom.mojom.RemoteMainFrameRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RemoteMainFrame';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.RemoteMainFramePendingReceiver,
+      blink.mojom.mojom.RemoteMainFramePendingReceiver,
       handle);
-    this.$ = new blink.mojom.RemoteMainFrameRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.RemoteMainFrameRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1440,7 +1472,7 @@ blink.mojom.RemoteMainFrameRemote = class {
   }
 };
 
-blink.mojom.RemoteMainFrameRemoteCallHandler = class {
+blink.mojom.mojom.RemoteMainFrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1449,15 +1481,15 @@ blink.mojom.RemoteMainFrameRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec,
+      blink.mojom.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec,
       null,
       [page_info]);
   }
 
 };
 
-blink.mojom.RemoteMainFrame.getRemote = function() {
-  let remote = new blink.mojom.RemoteMainFrameRemote();
+blink.mojom.mojom.RemoteMainFrame.getRemote = function() {
+  let remote = new blink.mojom.mojom.RemoteMainFrameRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1467,7 +1499,7 @@ blink.mojom.RemoteMainFrame.getRemote = function() {
 };
 
 // ParamsSpec for UpdateTextAutosizerPageInfo
-blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec = {
+blink.mojom.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteMainFrame.UpdateTextAutosizerPageInfo_Params',
@@ -1481,29 +1513,29 @@ blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.RemoteMainFramePtr = blink.mojom.RemoteMainFrameRemote;
-blink.mojom.RemoteMainFrameRequest = blink.mojom.RemoteMainFramePendingReceiver;
+blink.mojom.mojom.RemoteMainFramePtr = blink.mojom.mojom.RemoteMainFrameRemote;
+blink.mojom.mojom.RemoteMainFrameRequest = blink.mojom.mojom.RemoteMainFramePendingReceiver;
 
 
 // Interface: RemoteMainFrameHost
-blink.mojom.RemoteMainFrameHost = {};
+blink.mojom.mojom.RemoteMainFrameHost = {};
 
-blink.mojom.RemoteMainFrameHostPendingReceiver = class {
+blink.mojom.mojom.RemoteMainFrameHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.RemoteMainFrameHostRemote = class {
+blink.mojom.mojom.RemoteMainFrameHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.RemoteMainFrameHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.RemoteMainFrameHostPendingReceiver,
+      blink.mojom.mojom.RemoteMainFrameHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.RemoteMainFrameHostRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.RemoteMainFrameHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1515,7 +1547,7 @@ blink.mojom.RemoteMainFrameHostRemote = class {
   }
 };
 
-blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
+blink.mojom.mojom.RemoteMainFrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1524,7 +1556,7 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec,
+      blink.mojom.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec,
       null,
       []);
   }
@@ -1533,7 +1565,7 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec,
+      blink.mojom.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec,
       null,
       [reverse]);
   }
@@ -1542,7 +1574,7 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec,
+      blink.mojom.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec,
       null,
       [url]);
   }
@@ -1551,15 +1583,15 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec,
+      blink.mojom.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.RemoteMainFrameHost.getRemote = function() {
-  let remote = new blink.mojom.RemoteMainFrameHostRemote();
+blink.mojom.mojom.RemoteMainFrameHost.getRemote = function() {
+  let remote = new blink.mojom.mojom.RemoteMainFrameHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1569,7 +1601,7 @@ blink.mojom.RemoteMainFrameHost.getRemote = function() {
 };
 
 // ParamsSpec for FocusPage
-blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec = {
+blink.mojom.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteMainFrameHost.FocusPage_Params',
@@ -1582,7 +1614,7 @@ blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec = {
 };
 
 // ParamsSpec for TakeFocus
-blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec = {
+blink.mojom.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteMainFrameHost.TakeFocus_Params',
@@ -1596,7 +1628,7 @@ blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateTargetURL
-blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec = {
+blink.mojom.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteMainFrameHost.UpdateTargetURL_Params',
@@ -1610,7 +1642,7 @@ blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec = {
 };
 
 // ParamsSpec for RouteCloseEvent
-blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec = {
+blink.mojom.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RemoteMainFrameHost.RouteCloseEvent_Params',
@@ -1623,6 +1655,6 @@ blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.RemoteMainFrameHostPtr = blink.mojom.RemoteMainFrameHostRemote;
-blink.mojom.RemoteMainFrameHostRequest = blink.mojom.RemoteMainFrameHostPendingReceiver;
+blink.mojom.mojom.RemoteMainFrameHostPtr = blink.mojom.mojom.RemoteMainFrameHostRemote;
+blink.mojom.mojom.RemoteMainFrameHostRequest = blink.mojom.mojom.RemoteMainFrameHostPendingReceiver;
 

@@ -10,7 +10,7 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Struct: NsdServiceInfo
-sharing.mojom.NsdServiceInfoSpec = {
+sharing.mojom.mojom.NsdServiceInfoSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.NsdServiceInfo',
@@ -20,8 +20,8 @@ sharing.mojom.NsdServiceInfoSpec = {
         { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'txt_records', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 0 },
         { name: 'ip_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'port_$flag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'port_$value', originalFieldName: 'port' } },
-        { name: 'port_$value', packedOffset: 34, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'port_$flag', originalFieldName: 'port' } },
+        { name: 'port_$flag', packedOffset: 34, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'port_$value', originalFieldName: 'port' } },
+        { name: 'port_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'port_$flag', originalFieldName: 'port' } },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -29,24 +29,24 @@ sharing.mojom.NsdServiceInfoSpec = {
 };
 
 // Interface: MdnsObserver
-sharing.mojom.MdnsObserver = {};
+sharing.mojom.mojom.MdnsObserver = {};
 
-sharing.mojom.MdnsObserverPendingReceiver = class {
+sharing.mojom.mojom.MdnsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.MdnsObserverRemote = class {
+sharing.mojom.mojom.MdnsObserverRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.MdnsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.MdnsObserverPendingReceiver,
+      sharing.mojom.mojom.MdnsObserverPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.MdnsObserverRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.mojom.MdnsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -58,7 +58,7 @@ sharing.mojom.MdnsObserverRemote = class {
   }
 };
 
-sharing.mojom.MdnsObserverRemoteCallHandler = class {
+sharing.mojom.mojom.MdnsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -67,7 +67,7 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec,
+      sharing.mojom.mojom.MdnsObserver_ServiceFound_ParamsSpec,
       null,
       [service_info]);
   }
@@ -76,15 +76,15 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec,
+      sharing.mojom.mojom.MdnsObserver_ServiceLost_ParamsSpec,
       null,
       [service_info]);
   }
 
 };
 
-sharing.mojom.MdnsObserver.getRemote = function() {
-  let remote = new sharing.mojom.MdnsObserverRemote();
+sharing.mojom.mojom.MdnsObserver.getRemote = function() {
+  let remote = new sharing.mojom.mojom.MdnsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -94,7 +94,7 @@ sharing.mojom.MdnsObserver.getRemote = function() {
 };
 
 // ParamsSpec for ServiceFound
-sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
+sharing.mojom.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.MdnsObserver.ServiceFound_Params',
@@ -108,7 +108,7 @@ sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
 };
 
 // ParamsSpec for ServiceLost
-sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
+sharing.mojom.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.MdnsObserver.ServiceLost_Params',
@@ -122,29 +122,29 @@ sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
 };
 
 // Legacy compatibility
-sharing.mojom.MdnsObserverPtr = sharing.mojom.MdnsObserverRemote;
-sharing.mojom.MdnsObserverRequest = sharing.mojom.MdnsObserverPendingReceiver;
+sharing.mojom.mojom.MdnsObserverPtr = sharing.mojom.mojom.MdnsObserverRemote;
+sharing.mojom.mojom.MdnsObserverRequest = sharing.mojom.mojom.MdnsObserverPendingReceiver;
 
 
 // Interface: MdnsManager
-sharing.mojom.MdnsManager = {};
+sharing.mojom.mojom.MdnsManager = {};
 
-sharing.mojom.MdnsManagerPendingReceiver = class {
+sharing.mojom.mojom.MdnsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.MdnsManagerRemote = class {
+sharing.mojom.mojom.MdnsManagerRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.MdnsManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.MdnsManagerPendingReceiver,
+      sharing.mojom.mojom.MdnsManagerPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.MdnsManagerRemoteCallHandler(this.proxy);
+    this.$ = new sharing.mojom.mojom.MdnsManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -156,7 +156,7 @@ sharing.mojom.MdnsManagerRemote = class {
   }
 };
 
-sharing.mojom.MdnsManagerRemoteCallHandler = class {
+sharing.mojom.mojom.MdnsManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -165,7 +165,7 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sharing.mojom.MdnsManager_AddObserver_ParamsSpec,
+      sharing.mojom.mojom.MdnsManager_AddObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -174,8 +174,8 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec,
-      sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec,
+      sharing.mojom.mojom.MdnsManager_StartDiscoverySession_ParamsSpec,
+      sharing.mojom.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec,
       [service_type]);
   }
 
@@ -183,15 +183,15 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec,
-      sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec,
+      sharing.mojom.mojom.MdnsManager_StopDiscoverySession_ParamsSpec,
+      sharing.mojom.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec,
       [service_type]);
   }
 
 };
 
-sharing.mojom.MdnsManager.getRemote = function() {
-  let remote = new sharing.mojom.MdnsManagerRemote();
+sharing.mojom.mojom.MdnsManager.getRemote = function() {
+  let remote = new sharing.mojom.mojom.MdnsManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -201,7 +201,7 @@ sharing.mojom.MdnsManager.getRemote = function() {
 };
 
 // ParamsSpec for AddObserver
-sharing.mojom.MdnsManager_AddObserver_ParamsSpec = {
+sharing.mojom.mojom.MdnsManager_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.MdnsManager.AddObserver_Params',
@@ -215,7 +215,7 @@ sharing.mojom.MdnsManager_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for StartDiscoverySession
-sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
+sharing.mojom.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.MdnsManager.StartDiscoverySession_Params',
@@ -228,7 +228,7 @@ sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
   }
 };
 
-sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = {
+sharing.mojom.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.MdnsManager.StartDiscoverySession_ResponseParams',
@@ -242,7 +242,7 @@ sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StopDiscoverySession
-sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
+sharing.mojom.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.MdnsManager.StopDiscoverySession_Params',
@@ -255,7 +255,7 @@ sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
   }
 };
 
-sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = {
+sharing.mojom.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.MdnsManager.StopDiscoverySession_ResponseParams',
@@ -269,6 +269,6 @@ sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-sharing.mojom.MdnsManagerPtr = sharing.mojom.MdnsManagerRemote;
-sharing.mojom.MdnsManagerRequest = sharing.mojom.MdnsManagerPendingReceiver;
+sharing.mojom.mojom.MdnsManagerPtr = sharing.mojom.mojom.MdnsManagerRemote;
+sharing.mojom.mojom.MdnsManagerRequest = sharing.mojom.mojom.MdnsManagerPendingReceiver;
 

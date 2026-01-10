@@ -10,9 +10,9 @@ cc.mojom = cc.mojom || {};
 
 
 // Enum: HitTestOpaqueness
-cc.mojom.HitTestOpaqueness = {
+cc.mojom.mojom.HitTestOpaqueness = {
   kTransparent: 0,
   kMixed: 1,
   kOpaque: 2,
 };
-cc.mojom.HitTestOpaquenessSpec = { $: mojo.internal.Enum() };
+cc.mojom.mojom.HitTestOpaquenessSpec = { $: mojo.internal.Enum() };

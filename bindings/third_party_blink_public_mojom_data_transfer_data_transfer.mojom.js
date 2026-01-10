@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Struct: DataTransferFile
-blink.mojom.DataTransferFileSpec = {
+blink.mojom.mojom.DataTransferFileSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.DataTransferFile',

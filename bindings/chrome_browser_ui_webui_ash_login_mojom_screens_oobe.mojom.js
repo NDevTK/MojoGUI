@@ -7,38 +7,38 @@
 // Module namespace
 var ash = ash || {};
 ash.screens_oobe = ash.screens_oobe || {};
-ash.screens_oobe.mojom = ash.screens_oobe.mojom || {};
+ash.screens_oobe.screens_oobe.mojom = ash.screens_oobe.screens_oobe.mojom || {};
 
 
 // Enum: ConsumerUpdateStep
-ash.screens_oobe.mojom.ConsumerUpdateStep = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdateStep = {
   kCheckingForUpdate: 0,
   kUpdateInProgress: 1,
   kRestartInProgress: 2,
   kManualReboot: 3,
   kCellularPermission: 4,
 };
-ash.screens_oobe.mojom.ConsumerUpdateStepSpec = { $: mojo.internal.Enum() };
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdateStepSpec = { $: mojo.internal.Enum() };
 
 // Interface: ConsumerUpdatePageHandler
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler = {};
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler = {};
 
-ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPendingReceiver = class {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote = class {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPendingReceiver,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -50,7 +50,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote = class {
   }
 };
 
-ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -59,7 +59,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec,
       null,
       []);
   }
@@ -68,7 +68,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec,
       null,
       []);
   }
@@ -77,7 +77,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec,
       null,
       []);
   }
@@ -86,15 +86,15 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler.getRemote = function() {
-  let remote = new ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote();
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler.getRemote = function() {
+  let remote = new ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -104,7 +104,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnDeclineCellularClicked
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler.OnDeclineCellularClicked_Params',
@@ -117,7 +117,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_Params
 };
 
 // ParamsSpec for OnAcceptCellularClicked
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler.OnAcceptCellularClicked_Params',
@@ -130,7 +130,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsS
 };
 
 // ParamsSpec for OnSkipClicked
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler.OnSkipClicked_Params',
@@ -143,7 +143,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = {
 };
 
 // ParamsSpec for OnBackClicked
-ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler.OnBackClicked_Params',
@@ -156,29 +156,29 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPtr = ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote;
-ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRequest = ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPendingReceiver;
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerPtr = ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerRemote;
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerRequest = ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageHandlerPendingReceiver;
 
 
 // Interface: ConsumerUpdatePage
-ash.screens_oobe.mojom.ConsumerUpdatePage = {};
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage = {};
 
-ash.screens_oobe.mojom.ConsumerUpdatePagePendingReceiver = class {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.screens_oobe.mojom.ConsumerUpdatePageRemote = class {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageRemote = class {
   static get $interfaceName() {
     return 'ash.screens_oobe.mojom.ConsumerUpdatePage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.screens_oobe.mojom.ConsumerUpdatePagePendingReceiver,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePagePendingReceiver,
       handle);
-    this.$ = new ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler(this.proxy);
+    this.$ = new ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -190,7 +190,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemote = class {
   }
 };
 
-ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -199,7 +199,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec,
       null,
       []);
   }
@@ -208,7 +208,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec,
       null,
       [visible]);
   }
@@ -217,7 +217,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec,
       null,
       [step]);
   }
@@ -226,7 +226,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec,
       null,
       [percent, percent_message, time_left_message]);
   }
@@ -235,15 +235,15 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-ash.screens_oobe.mojom.ConsumerUpdatePage.getRemote = function() {
-  let remote = new ash.screens_oobe.mojom.ConsumerUpdatePageRemote();
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage.getRemote = function() {
+  let remote = new ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -253,7 +253,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage.getRemote = function() {
 };
 
 // ParamsSpec for ShowSkipButton
-ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.ShowSkipButton_Params',
@@ -266,7 +266,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = {
 };
 
 // ParamsSpec for SetLowBatteryWarningVisible
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetLowBatteryWarningVisible_Params',
@@ -280,7 +280,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec
 };
 
 // ParamsSpec for SetScreenStep
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetScreenStep_Params',
@@ -294,7 +294,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = {
 };
 
 // ParamsSpec for SetUpdateStatusMessage
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetUpdateStatusMessage_Params',
@@ -310,7 +310,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = {
 };
 
 // ParamsSpec for SetAutoTransition
-ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.ConsumerUpdatePage.SetAutoTransition_Params',
@@ -324,29 +324,29 @@ ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.screens_oobe.mojom.ConsumerUpdatePagePtr = ash.screens_oobe.mojom.ConsumerUpdatePageRemote;
-ash.screens_oobe.mojom.ConsumerUpdatePageRequest = ash.screens_oobe.mojom.ConsumerUpdatePagePendingReceiver;
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePagePtr = ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageRemote;
+ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePageRequest = ash.screens_oobe.screens_oobe.mojom.mojom.ConsumerUpdatePagePendingReceiver;
 
 
 // Interface: PackagedLicensePageHandler
-ash.screens_oobe.mojom.PackagedLicensePageHandler = {};
+ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandler = {};
 
-ash.screens_oobe.mojom.PackagedLicensePageHandlerPendingReceiver = class {
+ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote = class {
+ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.screens_oobe.mojom.PackagedLicensePageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.screens_oobe.mojom.PackagedLicensePageHandlerPendingReceiver,
+      ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -358,7 +358,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote = class {
   }
 };
 
-ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
+ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -367,7 +367,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec,
       null,
       []);
   }
@@ -376,15 +376,15 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec,
+      ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec,
       null,
       []);
   }
 
 };
 
-ash.screens_oobe.mojom.PackagedLicensePageHandler.getRemote = function() {
-  let remote = new ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote();
+ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandler.getRemote = function() {
+  let remote = new ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -394,7 +394,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnDontEnrollClicked
-ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.PackagedLicensePageHandler.OnDontEnrollClicked_Params',
@@ -407,7 +407,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec
 };
 
 // ParamsSpec for OnEnrollClicked
-ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = {
+ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.screens_oobe.mojom.PackagedLicensePageHandler.OnEnrollClicked_Params',
@@ -420,6 +420,6 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.screens_oobe.mojom.PackagedLicensePageHandlerPtr = ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote;
-ash.screens_oobe.mojom.PackagedLicensePageHandlerRequest = ash.screens_oobe.mojom.PackagedLicensePageHandlerPendingReceiver;
+ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerPtr = ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerRemote;
+ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerRequest = ash.screens_oobe.screens_oobe.mojom.mojom.PackagedLicensePageHandlerPendingReceiver;
 

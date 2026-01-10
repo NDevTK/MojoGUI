@@ -7,11 +7,14 @@
 // Module namespace
 var actor = actor || {};
 actor.ui = actor.ui || {};
-actor.ui.mojom = actor.ui.mojom || {};
+actor.ui.ui.mojom = actor.ui.ui.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: Theme
-actor.ui.mojom.ThemeSpec = {
+actor.ui.ui.mojom.mojom.ThemeSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.Theme',
@@ -28,24 +31,24 @@ actor.ui.mojom.ThemeSpec = {
 };
 
 // Interface: ActorOverlayPageHandlerFactory
-actor.ui.mojom.ActorOverlayPageHandlerFactory = {};
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactory = {};
 
-actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver = class {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote = class {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'actor.ui.mojom.ActorOverlayPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver,
+      actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +60,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote = class {
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,15 +69,15 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec,
+      actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page, receiver]);
   }
 
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
-  let remote = new actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote();
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
+  let remote = new actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +87,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.ActorOverlayPageHandlerFactory.CreatePageHandler_Params',
@@ -99,29 +102,29 @@ actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-actor.ui.mojom.ActorOverlayPageHandlerFactoryPtr = actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote;
-actor.ui.mojom.ActorOverlayPageHandlerFactoryRequest = actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver;
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryPtr = actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryRemote;
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryRequest = actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerFactoryPendingReceiver;
 
 
 // Interface: ActorOverlayPageHandler
-actor.ui.mojom.ActorOverlayPageHandler = {};
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandler = {};
 
-actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver = class {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerRemote = class {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerRemote = class {
   static get $interfaceName() {
     return 'actor.ui.mojom.ActorOverlayPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver,
+      actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerPendingReceiver,
       handle);
-    this.$ = new actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -133,7 +136,7 @@ actor.ui.mojom.ActorOverlayPageHandlerRemote = class {
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -142,7 +145,7 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec,
+      actor.ui.ui.mojom.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec,
       null,
       [is_hovering]);
   }
@@ -151,15 +154,15 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec,
-      actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec,
+      actor.ui.ui.mojom.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec,
+      actor.ui.ui.mojom.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec,
       []);
   }
 
 };
 
-actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
-  let remote = new actor.ui.mojom.ActorOverlayPageHandlerRemote();
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandler.getRemote = function() {
+  let remote = new actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -169,7 +172,7 @@ actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnHoverStatusChanged
-actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.ActorOverlayPageHandler.OnHoverStatusChanged_Params',
@@ -183,7 +186,7 @@ actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = {
 };
 
 // ParamsSpec for GetCurrentBorderGlowVisibility
-actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.ActorOverlayPageHandler.GetCurrentBorderGlowVisibility_Params',
@@ -195,7 +198,7 @@ actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec = {
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.ActorOverlayPageHandler.GetCurrentBorderGlowVisibility_ResponseParams',
@@ -209,29 +212,29 @@ actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponsePa
 };
 
 // Legacy compatibility
-actor.ui.mojom.ActorOverlayPageHandlerPtr = actor.ui.mojom.ActorOverlayPageHandlerRemote;
-actor.ui.mojom.ActorOverlayPageHandlerRequest = actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver;
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerPtr = actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerRemote;
+actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerRequest = actor.ui.ui.mojom.mojom.ActorOverlayPageHandlerPendingReceiver;
 
 
 // Interface: ActorOverlayPage
-actor.ui.mojom.ActorOverlayPage = {};
+actor.ui.ui.mojom.mojom.ActorOverlayPage = {};
 
-actor.ui.mojom.ActorOverlayPagePendingReceiver = class {
+actor.ui.ui.mojom.mojom.ActorOverlayPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-actor.ui.mojom.ActorOverlayPageRemote = class {
+actor.ui.ui.mojom.mojom.ActorOverlayPageRemote = class {
   static get $interfaceName() {
     return 'actor.ui.mojom.ActorOverlayPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      actor.ui.mojom.ActorOverlayPagePendingReceiver,
+      actor.ui.ui.mojom.mojom.ActorOverlayPagePendingReceiver,
       handle);
-    this.$ = new actor.ui.mojom.ActorOverlayPageRemoteCallHandler(this.proxy);
+    this.$ = new actor.ui.ui.mojom.mojom.ActorOverlayPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -243,7 +246,7 @@ actor.ui.mojom.ActorOverlayPageRemote = class {
   }
 };
 
-actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
+actor.ui.ui.mojom.mojom.ActorOverlayPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -252,7 +255,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec,
+      actor.ui.ui.mojom.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec,
       null,
       [is_visible]);
   }
@@ -261,7 +264,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec,
+      actor.ui.ui.mojom.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec,
       null,
       [is_visible]);
   }
@@ -270,7 +273,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec,
+      actor.ui.ui.mojom.mojom.ActorOverlayPage_SetTheme_ParamsSpec,
       null,
       [theme]);
   }
@@ -279,7 +282,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec,
+      actor.ui.ui.mojom.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec,
       null,
       [point]);
   }
@@ -288,15 +291,15 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec,
+      actor.ui.ui.mojom.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec,
       null,
       []);
   }
 
 };
 
-actor.ui.mojom.ActorOverlayPage.getRemote = function() {
-  let remote = new actor.ui.mojom.ActorOverlayPageRemote();
+actor.ui.ui.mojom.mojom.ActorOverlayPage.getRemote = function() {
+  let remote = new actor.ui.ui.mojom.mojom.ActorOverlayPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -306,7 +309,7 @@ actor.ui.mojom.ActorOverlayPage.getRemote = function() {
 };
 
 // ParamsSpec for SetScrimBackground
-actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = {
+actor.ui.ui.mojom.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.ActorOverlayPage.SetScrimBackground_Params',
@@ -320,7 +323,7 @@ actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = {
 };
 
 // ParamsSpec for SetBorderGlowVisibility
-actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = {
+actor.ui.ui.mojom.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.ActorOverlayPage.SetBorderGlowVisibility_Params',
@@ -334,7 +337,7 @@ actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = {
 };
 
 // ParamsSpec for SetTheme
-actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
+actor.ui.ui.mojom.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.ActorOverlayPage.SetTheme_Params',
@@ -348,7 +351,7 @@ actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
 };
 
 // ParamsSpec for MoveCursorTo
-actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
+actor.ui.ui.mojom.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.ActorOverlayPage.MoveCursorTo_Params',
@@ -362,7 +365,7 @@ actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
 };
 
 // ParamsSpec for TriggerClickAnimation
-actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = {
+actor.ui.ui.mojom.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'actor.ui.mojom.ActorOverlayPage.TriggerClickAnimation_Params',
@@ -375,6 +378,6 @@ actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = {
 };
 
 // Legacy compatibility
-actor.ui.mojom.ActorOverlayPagePtr = actor.ui.mojom.ActorOverlayPageRemote;
-actor.ui.mojom.ActorOverlayPageRequest = actor.ui.mojom.ActorOverlayPagePendingReceiver;
+actor.ui.ui.mojom.mojom.ActorOverlayPagePtr = actor.ui.ui.mojom.mojom.ActorOverlayPageRemote;
+actor.ui.ui.mojom.mojom.ActorOverlayPageRequest = actor.ui.ui.mojom.mojom.ActorOverlayPagePendingReceiver;
 

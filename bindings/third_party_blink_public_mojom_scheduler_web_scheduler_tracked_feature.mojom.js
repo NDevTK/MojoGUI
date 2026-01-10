@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: WebSchedulerTrackedFeature
-blink.mojom.WebSchedulerTrackedFeature = {
+blink.mojom.mojom.WebSchedulerTrackedFeature = {
   kWebSocket: 0,
   kWebRTC: 1,
   kMainResourceHasCacheControlNoCache: 2,
@@ -62,4 +62,4 @@ blink.mojom.WebSchedulerTrackedFeature = {
   kWebAuthentication: 48,
   kSharedWorkerMessage: 49,
 };
-blink.mojom.WebSchedulerTrackedFeatureSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.WebSchedulerTrackedFeatureSpec = { $: mojo.internal.Enum() };

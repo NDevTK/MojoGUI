@@ -10,29 +10,29 @@ webnn.mojom = webnn.mojom || {};
 
 
 // Enum: InputOperandLayout
-webnn.mojom.InputOperandLayout = {
+webnn.mojom.mojom.InputOperandLayout = {
   kChannelsFirst: 0,
   kChannelsLast: 1,
 };
-webnn.mojom.InputOperandLayoutSpec = { $: mojo.internal.Enum() };
+webnn.mojom.mojom.InputOperandLayoutSpec = { $: mojo.internal.Enum() };
 
 // Enum: Resample2DAxes
-webnn.mojom.Resample2DAxes = {
+webnn.mojom.mojom.Resample2DAxes = {
   kAny: 0,
   kChannelsFirst: 1,
   kChannelsLast: 2,
 };
-webnn.mojom.Resample2DAxesSpec = { $: mojo.internal.Enum() };
+webnn.mojom.mojom.Resample2DAxesSpec = { $: mojo.internal.Enum() };
 
 // Enum: BatchNormalizationAxis
-webnn.mojom.BatchNormalizationAxis = {
+webnn.mojom.mojom.BatchNormalizationAxis = {
   kAny: 0,
   kChannelsFirst: 1,
 };
-webnn.mojom.BatchNormalizationAxisSpec = { $: mojo.internal.Enum() };
+webnn.mojom.mojom.BatchNormalizationAxisSpec = { $: mojo.internal.Enum() };
 
 // Struct: SupportedDataTypes
-webnn.mojom.SupportedDataTypesSpec = {
+webnn.mojom.mojom.SupportedDataTypesSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.SupportedDataTypes',
@@ -55,7 +55,7 @@ webnn.mojom.SupportedDataTypesSpec = {
 };
 
 // Struct: SupportedRanks
-webnn.mojom.SupportedRanksSpec = {
+webnn.mojom.mojom.SupportedRanksSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.SupportedRanks',
@@ -70,7 +70,7 @@ webnn.mojom.SupportedRanksSpec = {
 };
 
 // Struct: SupportedTensors
-webnn.mojom.SupportedTensorsSpec = {
+webnn.mojom.mojom.SupportedTensorsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.SupportedTensors',
@@ -85,7 +85,7 @@ webnn.mojom.SupportedTensorsSpec = {
 };
 
 // Struct: DataTypeLimits
-webnn.mojom.DataTypeLimitsSpec = {
+webnn.mojom.mojom.DataTypeLimitsSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.DataTypeLimits',
@@ -217,17 +217,17 @@ webnn.mojom.DataTypeLimitsSpec = {
 };
 
 // Struct: ContextProperties
-webnn.mojom.ContextPropertiesSpec = {
+webnn.mojom.mojom.ContextPropertiesSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.ContextProperties',
       packedSize: 40,
       fields: [
-        { name: 'input_operand_layout', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.InputOperandLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'resample_2d_axes', packedOffset: 4, packedBitOffset: 0, type: webnn.mojom.Resample2DAxesSpec, nullable: false, minVersion: 0 },
-        { name: 'batch_normalization_axis', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.BatchNormalizationAxisSpec, nullable: false, minVersion: 0 },
-        { name: 'tensor_byte_length_limit', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'data_type_limits', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.DataTypeLimitsSpec, nullable: false, minVersion: 0 },
+        { name: 'input_operand_layout', packedOffset: 16, packedBitOffset: 0, type: webnn.mojom.InputOperandLayoutSpec, nullable: false, minVersion: 0 },
+        { name: 'resample_2d_axes', packedOffset: 20, packedBitOffset: 0, type: webnn.mojom.Resample2DAxesSpec, nullable: false, minVersion: 0 },
+        { name: 'batch_normalization_axis', packedOffset: 24, packedBitOffset: 0, type: webnn.mojom.BatchNormalizationAxisSpec, nullable: false, minVersion: 0 },
+        { name: 'tensor_byte_length_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'data_type_limits', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.DataTypeLimitsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }

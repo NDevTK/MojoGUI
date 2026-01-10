@@ -7,19 +7,20 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Enum: WebSocketMessageType
-network.mojom.WebSocketMessageType = {
+network.mojom.mojom.WebSocketMessageType = {
   CONTINUATION: 0,
   TEXT: 1,
   BINARY: 2,
   LAST: 3,
 };
-network.mojom.WebSocketMessageTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.WebSocketMessageTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HttpHeader
-network.mojom.HttpHeaderSpec = {
+network.mojom.mojom.HttpHeaderSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HttpHeader',
@@ -34,7 +35,7 @@ network.mojom.HttpHeaderSpec = {
 };
 
 // Struct: WebSocketHandshakeRequest
-network.mojom.WebSocketHandshakeRequestSpec = {
+network.mojom.mojom.WebSocketHandshakeRequestSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketHandshakeRequest',
@@ -50,7 +51,7 @@ network.mojom.WebSocketHandshakeRequestSpec = {
 };
 
 // Struct: WebSocketHandshakeResponse
-network.mojom.WebSocketHandshakeResponseSpec = {
+network.mojom.mojom.WebSocketHandshakeResponseSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketHandshakeResponse',
@@ -58,13 +59,13 @@ network.mojom.WebSocketHandshakeResponseSpec = {
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
         { name: 'http_version', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'status_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_endpoint', packedOffset: 32, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpHeaderSpec, false), nullable: false, minVersion: 0 },
-        { name: 'headers_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selected_protocol', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'extensions', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'status_code', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'status_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'remote_endpoint', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpHeaderSpec, false), nullable: false, minVersion: 0 },
+        { name: 'headers_text', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'selected_protocol', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'extensions', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }
@@ -72,24 +73,24 @@ network.mojom.WebSocketHandshakeResponseSpec = {
 };
 
 // Interface: WebSocketAuthenticationHandler
-network.mojom.WebSocketAuthenticationHandler = {};
+network.mojom.mojom.WebSocketAuthenticationHandler = {};
 
-network.mojom.WebSocketAuthenticationHandlerPendingReceiver = class {
+network.mojom.mojom.WebSocketAuthenticationHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.WebSocketAuthenticationHandlerRemote = class {
+network.mojom.mojom.WebSocketAuthenticationHandlerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.WebSocketAuthenticationHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.WebSocketAuthenticationHandlerPendingReceiver,
+      network.mojom.mojom.WebSocketAuthenticationHandlerPendingReceiver,
       handle);
-    this.$ = new network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.WebSocketAuthenticationHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -101,7 +102,7 @@ network.mojom.WebSocketAuthenticationHandlerRemote = class {
   }
 };
 
-network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
+network.mojom.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -110,15 +111,15 @@ network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec,
-      network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec,
+      network.mojom.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec,
+      network.mojom.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec,
       [info, headers, remote_endpoint]);
   }
 
 };
 
-network.mojom.WebSocketAuthenticationHandler.getRemote = function() {
-  let remote = new network.mojom.WebSocketAuthenticationHandlerRemote();
+network.mojom.mojom.WebSocketAuthenticationHandler.getRemote = function() {
+  let remote = new network.mojom.mojom.WebSocketAuthenticationHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -128,7 +129,7 @@ network.mojom.WebSocketAuthenticationHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnAuthRequired
-network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = {
+network.mojom.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketAuthenticationHandler.OnAuthRequired_Params',
@@ -143,7 +144,7 @@ network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = {
   }
 };
 
-network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec = {
+network.mojom.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketAuthenticationHandler.OnAuthRequired_ResponseParams',
@@ -157,29 +158,29 @@ network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-network.mojom.WebSocketAuthenticationHandlerPtr = network.mojom.WebSocketAuthenticationHandlerRemote;
-network.mojom.WebSocketAuthenticationHandlerRequest = network.mojom.WebSocketAuthenticationHandlerPendingReceiver;
+network.mojom.mojom.WebSocketAuthenticationHandlerPtr = network.mojom.mojom.WebSocketAuthenticationHandlerRemote;
+network.mojom.mojom.WebSocketAuthenticationHandlerRequest = network.mojom.mojom.WebSocketAuthenticationHandlerPendingReceiver;
 
 
 // Interface: WebSocketHandshakeClient
-network.mojom.WebSocketHandshakeClient = {};
+network.mojom.mojom.WebSocketHandshakeClient = {};
 
-network.mojom.WebSocketHandshakeClientPendingReceiver = class {
+network.mojom.mojom.WebSocketHandshakeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.WebSocketHandshakeClientRemote = class {
+network.mojom.mojom.WebSocketHandshakeClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.WebSocketHandshakeClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.WebSocketHandshakeClientPendingReceiver,
+      network.mojom.mojom.WebSocketHandshakeClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.WebSocketHandshakeClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.WebSocketHandshakeClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -191,7 +192,7 @@ network.mojom.WebSocketHandshakeClientRemote = class {
   }
 };
 
-network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
+network.mojom.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -200,7 +201,7 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec,
+      network.mojom.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec,
       null,
       [request]);
   }
@@ -209,7 +210,7 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec,
+      network.mojom.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec,
       null,
       [message, net_error, response_code]);
   }
@@ -218,15 +219,15 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec,
+      network.mojom.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
       [socket, client_receiver, response, readable, writable]);
   }
 
 };
 
-network.mojom.WebSocketHandshakeClient.getRemote = function() {
-  let remote = new network.mojom.WebSocketHandshakeClientRemote();
+network.mojom.mojom.WebSocketHandshakeClient.getRemote = function() {
+  let remote = new network.mojom.mojom.WebSocketHandshakeClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -236,7 +237,7 @@ network.mojom.WebSocketHandshakeClient.getRemote = function() {
 };
 
 // ParamsSpec for OnOpeningHandshakeStarted
-network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = {
+network.mojom.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketHandshakeClient.OnOpeningHandshakeStarted_Params',
@@ -250,7 +251,7 @@ network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = {
 };
 
 // ParamsSpec for OnFailure
-network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = {
+network.mojom.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketHandshakeClient.OnFailure_Params',
@@ -266,17 +267,17 @@ network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = {
 };
 
 // ParamsSpec for OnConnectionEstablished
-network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = {
+network.mojom.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketHandshakeClient.OnConnectionEstablished_Params',
       packedSize: 40,
       fields: [
-        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebSocketHandshakeResponseSpec, nullable: false, minVersion: 0 },
-        { name: 'readable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'writable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'socket', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSocketHandshakeResponseSpec, nullable: false, minVersion: 0 },
+        { name: 'readable', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'writable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -284,29 +285,29 @@ network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.WebSocketHandshakeClientPtr = network.mojom.WebSocketHandshakeClientRemote;
-network.mojom.WebSocketHandshakeClientRequest = network.mojom.WebSocketHandshakeClientPendingReceiver;
+network.mojom.mojom.WebSocketHandshakeClientPtr = network.mojom.mojom.WebSocketHandshakeClientRemote;
+network.mojom.mojom.WebSocketHandshakeClientRequest = network.mojom.mojom.WebSocketHandshakeClientPendingReceiver;
 
 
 // Interface: WebSocketClient
-network.mojom.WebSocketClient = {};
+network.mojom.mojom.WebSocketClient = {};
 
-network.mojom.WebSocketClientPendingReceiver = class {
+network.mojom.mojom.WebSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.WebSocketClientRemote = class {
+network.mojom.mojom.WebSocketClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.WebSocketClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.WebSocketClientPendingReceiver,
+      network.mojom.mojom.WebSocketClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.WebSocketClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.WebSocketClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -318,7 +319,7 @@ network.mojom.WebSocketClientRemote = class {
   }
 };
 
-network.mojom.WebSocketClientRemoteCallHandler = class {
+network.mojom.mojom.WebSocketClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -327,7 +328,7 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebSocketClient_OnDataFrame_ParamsSpec,
+      network.mojom.mojom.WebSocketClient_OnDataFrame_ParamsSpec,
       null,
       [fin, type, data_length]);
   }
@@ -336,7 +337,7 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebSocketClient_OnDropChannel_ParamsSpec,
+      network.mojom.mojom.WebSocketClient_OnDropChannel_ParamsSpec,
       null,
       [was_clean, code, reason]);
   }
@@ -345,15 +346,15 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec,
+      network.mojom.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.WebSocketClient.getRemote = function() {
-  let remote = new network.mojom.WebSocketClientRemote();
+network.mojom.mojom.WebSocketClient.getRemote = function() {
+  let remote = new network.mojom.mojom.WebSocketClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -363,15 +364,15 @@ network.mojom.WebSocketClient.getRemote = function() {
 };
 
 // ParamsSpec for OnDataFrame
-network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = {
+network.mojom.mojom.WebSocketClient_OnDataFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketClient.OnDataFrame_Params',
       packedSize: 24,
       fields: [
-        { name: 'fin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'fin', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'data_length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -379,15 +380,15 @@ network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = {
 };
 
 // ParamsSpec for OnDropChannel
-network.mojom.WebSocketClient_OnDropChannel_ParamsSpec = {
+network.mojom.mojom.WebSocketClient_OnDropChannel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketClient.OnDropChannel_Params',
       packedSize: 24,
       fields: [
-        { name: 'was_clean', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'code', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'was_clean', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -395,7 +396,7 @@ network.mojom.WebSocketClient_OnDropChannel_ParamsSpec = {
 };
 
 // ParamsSpec for OnClosingHandshake
-network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = {
+network.mojom.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocketClient.OnClosingHandshake_Params',
@@ -408,29 +409,29 @@ network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.WebSocketClientPtr = network.mojom.WebSocketClientRemote;
-network.mojom.WebSocketClientRequest = network.mojom.WebSocketClientPendingReceiver;
+network.mojom.mojom.WebSocketClientPtr = network.mojom.mojom.WebSocketClientRemote;
+network.mojom.mojom.WebSocketClientRequest = network.mojom.mojom.WebSocketClientPendingReceiver;
 
 
 // Interface: WebSocket
-network.mojom.WebSocket = {};
+network.mojom.mojom.WebSocket = {};
 
-network.mojom.WebSocketPendingReceiver = class {
+network.mojom.mojom.WebSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.WebSocketRemote = class {
+network.mojom.mojom.WebSocketRemote = class {
   static get $interfaceName() {
     return 'network.mojom.WebSocket';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.WebSocketPendingReceiver,
+      network.mojom.mojom.WebSocketPendingReceiver,
       handle);
-    this.$ = new network.mojom.WebSocketRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.WebSocketRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -442,7 +443,7 @@ network.mojom.WebSocketRemote = class {
   }
 };
 
-network.mojom.WebSocketRemoteCallHandler = class {
+network.mojom.mojom.WebSocketRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -451,7 +452,7 @@ network.mojom.WebSocketRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.WebSocket_SendMessage_ParamsSpec,
+      network.mojom.mojom.WebSocket_SendMessage_ParamsSpec,
       null,
       [type, data_length]);
   }
@@ -460,7 +461,7 @@ network.mojom.WebSocketRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.WebSocket_StartReceiving_ParamsSpec,
+      network.mojom.mojom.WebSocket_StartReceiving_ParamsSpec,
       null,
       []);
   }
@@ -469,15 +470,15 @@ network.mojom.WebSocketRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.WebSocket_StartClosingHandshake_ParamsSpec,
+      network.mojom.mojom.WebSocket_StartClosingHandshake_ParamsSpec,
       null,
       [code, reason]);
   }
 
 };
 
-network.mojom.WebSocket.getRemote = function() {
-  let remote = new network.mojom.WebSocketRemote();
+network.mojom.mojom.WebSocket.getRemote = function() {
+  let remote = new network.mojom.mojom.WebSocketRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -487,14 +488,14 @@ network.mojom.WebSocket.getRemote = function() {
 };
 
 // ParamsSpec for SendMessage
-network.mojom.WebSocket_SendMessage_ParamsSpec = {
+network.mojom.mojom.WebSocket_SendMessage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocket.SendMessage_Params',
       packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.WebSocketMessageTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'data_length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -502,7 +503,7 @@ network.mojom.WebSocket_SendMessage_ParamsSpec = {
 };
 
 // ParamsSpec for StartReceiving
-network.mojom.WebSocket_StartReceiving_ParamsSpec = {
+network.mojom.mojom.WebSocket_StartReceiving_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocket.StartReceiving_Params',
@@ -515,14 +516,14 @@ network.mojom.WebSocket_StartReceiving_ParamsSpec = {
 };
 
 // ParamsSpec for StartClosingHandshake
-network.mojom.WebSocket_StartClosingHandshake_ParamsSpec = {
+network.mojom.mojom.WebSocket_StartClosingHandshake_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.WebSocket.StartClosingHandshake_Params',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -530,6 +531,6 @@ network.mojom.WebSocket_StartClosingHandshake_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.WebSocketPtr = network.mojom.WebSocketRemote;
-network.mojom.WebSocketRequest = network.mojom.WebSocketPendingReceiver;
+network.mojom.mojom.WebSocketPtr = network.mojom.mojom.WebSocketRemote;
+network.mojom.mojom.WebSocketRequest = network.mojom.mojom.WebSocketPendingReceiver;
 

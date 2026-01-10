@@ -10,24 +10,24 @@ device.mojom = device.mojom || {};
 
 
 // Interface: VibrationManager
-device.mojom.VibrationManager = {};
+device.mojom.mojom.VibrationManager = {};
 
-device.mojom.VibrationManagerPendingReceiver = class {
+device.mojom.mojom.VibrationManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.VibrationManagerRemote = class {
+device.mojom.mojom.VibrationManagerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.VibrationManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.VibrationManagerPendingReceiver,
+      device.mojom.mojom.VibrationManagerPendingReceiver,
       handle);
-    this.$ = new device.mojom.VibrationManagerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.VibrationManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ device.mojom.VibrationManagerRemote = class {
   }
 };
 
-device.mojom.VibrationManagerRemoteCallHandler = class {
+device.mojom.mojom.VibrationManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.VibrationManager_Vibrate_ParamsSpec,
+      device.mojom.mojom.VibrationManager_Vibrate_ParamsSpec,
       null,
       [milliseconds]);
   }
@@ -57,15 +57,15 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.VibrationManager_Cancel_ParamsSpec,
+      device.mojom.mojom.VibrationManager_Cancel_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.VibrationManager.getRemote = function() {
-  let remote = new device.mojom.VibrationManagerRemote();
+device.mojom.mojom.VibrationManager.getRemote = function() {
+  let remote = new device.mojom.mojom.VibrationManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ device.mojom.VibrationManager.getRemote = function() {
 };
 
 // ParamsSpec for Vibrate
-device.mojom.VibrationManager_Vibrate_ParamsSpec = {
+device.mojom.mojom.VibrationManager_Vibrate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VibrationManager.Vibrate_Params',
@@ -89,7 +89,7 @@ device.mojom.VibrationManager_Vibrate_ParamsSpec = {
 };
 
 // ParamsSpec for Cancel
-device.mojom.VibrationManager_Cancel_ParamsSpec = {
+device.mojom.mojom.VibrationManager_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VibrationManager.Cancel_Params',
@@ -102,29 +102,29 @@ device.mojom.VibrationManager_Cancel_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.VibrationManagerPtr = device.mojom.VibrationManagerRemote;
-device.mojom.VibrationManagerRequest = device.mojom.VibrationManagerPendingReceiver;
+device.mojom.mojom.VibrationManagerPtr = device.mojom.mojom.VibrationManagerRemote;
+device.mojom.mojom.VibrationManagerRequest = device.mojom.mojom.VibrationManagerPendingReceiver;
 
 
 // Interface: VibrationManagerListener
-device.mojom.VibrationManagerListener = {};
+device.mojom.mojom.VibrationManagerListener = {};
 
-device.mojom.VibrationManagerListenerPendingReceiver = class {
+device.mojom.mojom.VibrationManagerListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.VibrationManagerListenerRemote = class {
+device.mojom.mojom.VibrationManagerListenerRemote = class {
   static get $interfaceName() {
     return 'device.mojom.VibrationManagerListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.VibrationManagerListenerPendingReceiver,
+      device.mojom.mojom.VibrationManagerListenerPendingReceiver,
       handle);
-    this.$ = new device.mojom.VibrationManagerListenerRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.VibrationManagerListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -136,7 +136,7 @@ device.mojom.VibrationManagerListenerRemote = class {
   }
 };
 
-device.mojom.VibrationManagerListenerRemoteCallHandler = class {
+device.mojom.mojom.VibrationManagerListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -145,15 +145,15 @@ device.mojom.VibrationManagerListenerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec,
+      device.mojom.mojom.VibrationManagerListener_OnVibrate_ParamsSpec,
       null,
       []);
   }
 
 };
 
-device.mojom.VibrationManagerListener.getRemote = function() {
-  let remote = new device.mojom.VibrationManagerListenerRemote();
+device.mojom.mojom.VibrationManagerListener.getRemote = function() {
+  let remote = new device.mojom.mojom.VibrationManagerListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -163,7 +163,7 @@ device.mojom.VibrationManagerListener.getRemote = function() {
 };
 
 // ParamsSpec for OnVibrate
-device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = {
+device.mojom.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.VibrationManagerListener.OnVibrate_Params',
@@ -176,6 +176,6 @@ device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.VibrationManagerListenerPtr = device.mojom.VibrationManagerListenerRemote;
-device.mojom.VibrationManagerListenerRequest = device.mojom.VibrationManagerListenerPendingReceiver;
+device.mojom.mojom.VibrationManagerListenerPtr = device.mojom.mojom.VibrationManagerListenerRemote;
+device.mojom.mojom.VibrationManagerListenerRequest = device.mojom.mojom.VibrationManagerListenerPendingReceiver;
 

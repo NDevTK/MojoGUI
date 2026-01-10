@@ -7,14 +7,17 @@
 // Module namespace
 var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
-pdf.mojom.kMaxWidthPixels = 512;
+pdf.mojom.mojom.kMaxWidthPixels = 512;
 
-pdf.mojom.kMaxHeightPixels = 512;
+pdf.mojom.mojom.kMaxHeightPixels = 512;
 
 // Struct: ThumbParams
-pdf.mojom.ThumbParamsSpec = {
+pdf.mojom.mojom.ThumbParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.ThumbParams',
@@ -31,24 +34,24 @@ pdf.mojom.ThumbParamsSpec = {
 };
 
 // Interface: PdfThumbnailer
-pdf.mojom.PdfThumbnailer = {};
+pdf.mojom.mojom.PdfThumbnailer = {};
 
-pdf.mojom.PdfThumbnailerPendingReceiver = class {
+pdf.mojom.mojom.PdfThumbnailerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-pdf.mojom.PdfThumbnailerRemote = class {
+pdf.mojom.mojom.PdfThumbnailerRemote = class {
   static get $interfaceName() {
     return 'pdf.mojom.PdfThumbnailer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      pdf.mojom.PdfThumbnailerPendingReceiver,
+      pdf.mojom.mojom.PdfThumbnailerPendingReceiver,
       handle);
-    this.$ = new pdf.mojom.PdfThumbnailerRemoteCallHandler(this.proxy);
+    this.$ = new pdf.mojom.mojom.PdfThumbnailerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -60,7 +63,7 @@ pdf.mojom.PdfThumbnailerRemote = class {
   }
 };
 
-pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
+pdf.mojom.mojom.PdfThumbnailerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -69,8 +72,8 @@ pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec,
-      pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec,
+      pdf.mojom.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec,
+      pdf.mojom.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec,
       [params, pdf_region]);
   }
 
@@ -78,15 +81,15 @@ pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec,
+      pdf.mojom.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }
 
 };
 
-pdf.mojom.PdfThumbnailer.getRemote = function() {
-  let remote = new pdf.mojom.PdfThumbnailerRemote();
+pdf.mojom.mojom.PdfThumbnailer.getRemote = function() {
+  let remote = new pdf.mojom.mojom.PdfThumbnailerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -96,7 +99,7 @@ pdf.mojom.PdfThumbnailer.getRemote = function() {
 };
 
 // ParamsSpec for GetThumbnail
-pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
+pdf.mojom.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_Params',
@@ -110,7 +113,7 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
   }
 };
 
-pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
+pdf.mojom.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_ResponseParams',
@@ -124,7 +127,7 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetUseSkiaRendererPolicy
-pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
+pdf.mojom.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfThumbnailer.SetUseSkiaRendererPolicy_Params',
@@ -138,6 +141,6 @@ pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec = {
 };
 
 // Legacy compatibility
-pdf.mojom.PdfThumbnailerPtr = pdf.mojom.PdfThumbnailerRemote;
-pdf.mojom.PdfThumbnailerRequest = pdf.mojom.PdfThumbnailerPendingReceiver;
+pdf.mojom.mojom.PdfThumbnailerPtr = pdf.mojom.mojom.PdfThumbnailerRemote;
+pdf.mojom.mojom.PdfThumbnailerRequest = pdf.mojom.mojom.PdfThumbnailerPendingReceiver;
 

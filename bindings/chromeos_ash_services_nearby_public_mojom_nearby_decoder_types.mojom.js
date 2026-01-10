@@ -10,36 +10,36 @@ sharing.mojom = sharing.mojom || {};
 
 
 // Enum: Type
-sharing.mojom.Type = {
+sharing.mojom.mojom.Type = {
   kUnknown: 0,
   kImage: 1,
   kVideo: 2,
   kApp: 3,
   kAudio: 4,
 };
-sharing.mojom.TypeSpec = { $: mojo.internal.Enum() };
+sharing.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-sharing.mojom.Type = {
+sharing.mojom.mojom.Type = {
   kUnknown: 0,
   kText: 1,
   kUrl: 2,
   kAddress: 3,
   kPhoneNumber: 4,
 };
-sharing.mojom.TypeSpec = { $: mojo.internal.Enum() };
+sharing.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecurityType
-sharing.mojom.SecurityType = {
+sharing.mojom.mojom.SecurityType = {
   kUnknownSecurityType: 0,
   kOpen: 1,
   kWpaPsk: 2,
   kWep: 3,
 };
-sharing.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
+sharing.mojom.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
-sharing.mojom.Status = {
+sharing.mojom.mojom.Status = {
   kUnknown: 0,
   kAccept: 1,
   kReject: 2,
@@ -47,19 +47,19 @@ sharing.mojom.Status = {
   kUnsupportedAttachmentType: 4,
   kTimedOut: 5,
 };
-sharing.mojom.StatusSpec = { $: mojo.internal.Enum() };
+sharing.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
-sharing.mojom.Status = {
+sharing.mojom.mojom.Status = {
   kUnknown: 0,
   kSuccess: 1,
   kFail: 2,
   kUnable: 3,
 };
-sharing.mojom.StatusSpec = { $: mojo.internal.Enum() };
+sharing.mojom.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Union: Frame
-sharing.mojom.FrameSpec = { $: mojo.internal.Union(
+sharing.mojom.mojom.FrameSpec = { $: mojo.internal.Union(
     'sharing.mojom.Frame', {
       'v1': {
         'ordinal': 0,
@@ -69,7 +69,7 @@ sharing.mojom.FrameSpec = { $: mojo.internal.Union(
 };
 
 // Union: V1Frame
-sharing.mojom.V1FrameSpec = { $: mojo.internal.Union(
+sharing.mojom.mojom.V1FrameSpec = { $: mojo.internal.Union(
     'sharing.mojom.V1Frame', {
       'introduction': {
         'ordinal': 0,
@@ -99,7 +99,7 @@ sharing.mojom.V1FrameSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Advertisement
-sharing.mojom.AdvertisementSpec = {
+sharing.mojom.mojom.AdvertisementSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.Advertisement',
@@ -107,8 +107,8 @@ sharing.mojom.AdvertisementSpec = {
       fields: [
         { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
         { name: 'encrypted_metadata_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'device_type', packedOffset: 16, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'device_type', packedOffset: 24, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -116,7 +116,7 @@ sharing.mojom.AdvertisementSpec = {
 };
 
 // Struct: IntroductionFrame
-sharing.mojom.IntroductionFrameSpec = {
+sharing.mojom.mojom.IntroductionFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.IntroductionFrame',
@@ -133,7 +133,7 @@ sharing.mojom.IntroductionFrameSpec = {
 };
 
 // Struct: FileMetadata
-sharing.mojom.FileMetadataSpec = {
+sharing.mojom.mojom.FileMetadataSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.FileMetadata',
@@ -147,7 +147,7 @@ sharing.mojom.FileMetadataSpec = {
 };
 
 // Struct: TextMetadata
-sharing.mojom.TextMetadataSpec = {
+sharing.mojom.mojom.TextMetadataSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.TextMetadata',
@@ -161,7 +161,7 @@ sharing.mojom.TextMetadataSpec = {
 };
 
 // Struct: WifiCredentialsMetadata
-sharing.mojom.WifiCredentialsMetadataSpec = {
+sharing.mojom.mojom.WifiCredentialsMetadataSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WifiCredentialsMetadata',
@@ -175,7 +175,7 @@ sharing.mojom.WifiCredentialsMetadataSpec = {
 };
 
 // Struct: ConnectionResponseFrame
-sharing.mojom.ConnectionResponseFrameSpec = {
+sharing.mojom.mojom.ConnectionResponseFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.ConnectionResponseFrame',
@@ -189,7 +189,7 @@ sharing.mojom.ConnectionResponseFrameSpec = {
 };
 
 // Struct: PairedKeyEncryptionFrame
-sharing.mojom.PairedKeyEncryptionFrameSpec = {
+sharing.mojom.mojom.PairedKeyEncryptionFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.PairedKeyEncryptionFrame',
@@ -205,7 +205,7 @@ sharing.mojom.PairedKeyEncryptionFrameSpec = {
 };
 
 // Struct: PairedKeyResultFrame
-sharing.mojom.PairedKeyResultFrameSpec = {
+sharing.mojom.mojom.PairedKeyResultFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.PairedKeyResultFrame',
@@ -219,7 +219,7 @@ sharing.mojom.PairedKeyResultFrameSpec = {
 };
 
 // Struct: CertificateInfoFrame
-sharing.mojom.CertificateInfoFrameSpec = {
+sharing.mojom.mojom.CertificateInfoFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.CertificateInfoFrame',
@@ -233,7 +233,7 @@ sharing.mojom.CertificateInfoFrameSpec = {
 };
 
 // Struct: PublicCertificate
-sharing.mojom.PublicCertificateSpec = {
+sharing.mojom.mojom.PublicCertificateSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.PublicCertificate',
@@ -253,7 +253,7 @@ sharing.mojom.PublicCertificateSpec = {
 };
 
 // Struct: CancelFrame
-sharing.mojom.CancelFrameSpec = {
+sharing.mojom.mojom.CancelFrameSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.CancelFrame',

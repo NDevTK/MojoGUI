@@ -7,27 +7,28 @@
 // Module namespace
 var search = search || {};
 search.mojom = search.mojom || {};
+var url = url || {};
 
 
 // Interface: EmbeddedSearchConnector
-search.mojom.EmbeddedSearchConnector = {};
+search.mojom.mojom.EmbeddedSearchConnector = {};
 
-search.mojom.EmbeddedSearchConnectorPendingReceiver = class {
+search.mojom.mojom.EmbeddedSearchConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-search.mojom.EmbeddedSearchConnectorRemote = class {
+search.mojom.mojom.EmbeddedSearchConnectorRemote = class {
   static get $interfaceName() {
     return 'search.mojom.EmbeddedSearchConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      search.mojom.EmbeddedSearchConnectorPendingReceiver,
+      search.mojom.mojom.EmbeddedSearchConnectorPendingReceiver,
       handle);
-    this.$ = new search.mojom.EmbeddedSearchConnectorRemoteCallHandler(this.proxy);
+    this.$ = new search.mojom.mojom.EmbeddedSearchConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ search.mojom.EmbeddedSearchConnectorRemote = class {
   }
 };
 
-search.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
+search.mojom.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ search.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearchConnector_Connect_ParamsSpec,
       null,
       [embedded_search, client]);
   }
 
 };
 
-search.mojom.EmbeddedSearchConnector.getRemote = function() {
-  let remote = new search.mojom.EmbeddedSearchConnectorRemote();
+search.mojom.mojom.EmbeddedSearchConnector.getRemote = function() {
+  let remote = new search.mojom.mojom.EmbeddedSearchConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ search.mojom.EmbeddedSearchConnector.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearchConnector.Connect_Params',
@@ -81,29 +82,29 @@ search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
 };
 
 // Legacy compatibility
-search.mojom.EmbeddedSearchConnectorPtr = search.mojom.EmbeddedSearchConnectorRemote;
-search.mojom.EmbeddedSearchConnectorRequest = search.mojom.EmbeddedSearchConnectorPendingReceiver;
+search.mojom.mojom.EmbeddedSearchConnectorPtr = search.mojom.mojom.EmbeddedSearchConnectorRemote;
+search.mojom.mojom.EmbeddedSearchConnectorRequest = search.mojom.mojom.EmbeddedSearchConnectorPendingReceiver;
 
 
 // Interface: EmbeddedSearch
-search.mojom.EmbeddedSearch = {};
+search.mojom.mojom.EmbeddedSearch = {};
 
-search.mojom.EmbeddedSearchPendingReceiver = class {
+search.mojom.mojom.EmbeddedSearchPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-search.mojom.EmbeddedSearchRemote = class {
+search.mojom.mojom.EmbeddedSearchRemote = class {
   static get $interfaceName() {
     return 'search.mojom.EmbeddedSearch';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      search.mojom.EmbeddedSearchPendingReceiver,
+      search.mojom.mojom.EmbeddedSearchPendingReceiver,
       handle);
-    this.$ = new search.mojom.EmbeddedSearchRemoteCallHandler(this.proxy);
+    this.$ = new search.mojom.mojom.EmbeddedSearchRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -115,7 +116,7 @@ search.mojom.EmbeddedSearchRemote = class {
   }
 };
 
-search.mojom.EmbeddedSearchRemoteCallHandler = class {
+search.mojom.mojom.EmbeddedSearchRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -124,7 +125,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec,
       null,
       [page_seq_no, focus]);
   }
@@ -133,7 +134,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec,
       null,
       [page_seq_no, url]);
   }
@@ -142,7 +143,7 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec,
       null,
       [page_seq_no]);
   }
@@ -151,15 +152,15 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec,
       null,
       [page_seq_no, url]);
   }
 
 };
 
-search.mojom.EmbeddedSearch.getRemote = function() {
-  let remote = new search.mojom.EmbeddedSearchRemote();
+search.mojom.mojom.EmbeddedSearch.getRemote = function() {
+  let remote = new search.mojom.mojom.EmbeddedSearchRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -169,7 +170,7 @@ search.mojom.EmbeddedSearch.getRemote = function() {
 };
 
 // ParamsSpec for FocusOmnibox
-search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearch.FocusOmnibox_Params',
@@ -184,14 +185,14 @@ search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
 };
 
 // ParamsSpec for DeleteMostVisitedItem
-search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearch.DeleteMostVisitedItem_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -199,7 +200,7 @@ search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
 };
 
 // ParamsSpec for UndoAllMostVisitedDeletions
-search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearch.UndoAllMostVisitedDeletions_Params',
@@ -213,14 +214,14 @@ search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = {
 };
 
 // ParamsSpec for UndoMostVisitedDeletion
-search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearch.UndoMostVisitedDeletion_Params',
       packedSize: 24,
       fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -228,29 +229,29 @@ search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
 };
 
 // Legacy compatibility
-search.mojom.EmbeddedSearchPtr = search.mojom.EmbeddedSearchRemote;
-search.mojom.EmbeddedSearchRequest = search.mojom.EmbeddedSearchPendingReceiver;
+search.mojom.mojom.EmbeddedSearchPtr = search.mojom.mojom.EmbeddedSearchRemote;
+search.mojom.mojom.EmbeddedSearchRequest = search.mojom.mojom.EmbeddedSearchPendingReceiver;
 
 
 // Interface: EmbeddedSearchClient
-search.mojom.EmbeddedSearchClient = {};
+search.mojom.mojom.EmbeddedSearchClient = {};
 
-search.mojom.EmbeddedSearchClientPendingReceiver = class {
+search.mojom.mojom.EmbeddedSearchClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-search.mojom.EmbeddedSearchClientRemote = class {
+search.mojom.mojom.EmbeddedSearchClientRemote = class {
   static get $interfaceName() {
     return 'search.mojom.EmbeddedSearchClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      search.mojom.EmbeddedSearchClientPendingReceiver,
+      search.mojom.mojom.EmbeddedSearchClientPendingReceiver,
       handle);
-    this.$ = new search.mojom.EmbeddedSearchClientRemoteCallHandler(this.proxy);
+    this.$ = new search.mojom.mojom.EmbeddedSearchClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -262,7 +263,7 @@ search.mojom.EmbeddedSearchClientRemote = class {
   }
 };
 
-search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
+search.mojom.mojom.EmbeddedSearchClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -271,7 +272,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec,
       null,
       [page_seq_no]);
   }
@@ -280,7 +281,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec,
       null,
       [new_focus_state, reason]);
   }
@@ -289,7 +290,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec,
       null,
       [most_visited_info]);
   }
@@ -298,7 +299,7 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec,
       null,
       [input_in_progress]);
   }
@@ -307,15 +308,15 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec,
+      search.mojom.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec,
       null,
       [theme]);
   }
 
 };
 
-search.mojom.EmbeddedSearchClient.getRemote = function() {
-  let remote = new search.mojom.EmbeddedSearchClientRemote();
+search.mojom.mojom.EmbeddedSearchClient.getRemote = function() {
+  let remote = new search.mojom.mojom.EmbeddedSearchClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -325,7 +326,7 @@ search.mojom.EmbeddedSearchClient.getRemote = function() {
 };
 
 // ParamsSpec for SetPageSequenceNumber
-search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearchClient.SetPageSequenceNumber_Params',
@@ -339,7 +340,7 @@ search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = {
 };
 
 // ParamsSpec for FocusChanged
-search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearchClient.FocusChanged_Params',
@@ -354,7 +355,7 @@ search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
 };
 
 // ParamsSpec for MostVisitedInfoChanged
-search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearchClient.MostVisitedInfoChanged_Params',
@@ -368,7 +369,7 @@ search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
 };
 
 // ParamsSpec for SetInputInProgress
-search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearchClient.SetInputInProgress_Params',
@@ -382,7 +383,7 @@ search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = {
 };
 
 // ParamsSpec for ThemeChanged
-search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
+search.mojom.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearchClient.ThemeChanged_Params',
@@ -396,6 +397,6 @@ search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-search.mojom.EmbeddedSearchClientPtr = search.mojom.EmbeddedSearchClientRemote;
-search.mojom.EmbeddedSearchClientRequest = search.mojom.EmbeddedSearchClientPendingReceiver;
+search.mojom.mojom.EmbeddedSearchClientPtr = search.mojom.mojom.EmbeddedSearchClientRemote;
+search.mojom.mojom.EmbeddedSearchClientRequest = search.mojom.mojom.EmbeddedSearchClientPendingReceiver;
 

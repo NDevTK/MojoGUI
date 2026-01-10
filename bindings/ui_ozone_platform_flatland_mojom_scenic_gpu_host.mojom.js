@@ -10,24 +10,24 @@ ui.mojom = ui.mojom || {};
 
 
 // Interface: ScenicGpuHost
-ui.mojom.ScenicGpuHost = {};
+ui.mojom.mojom.ScenicGpuHost = {};
 
-ui.mojom.ScenicGpuHostPendingReceiver = class {
+ui.mojom.mojom.ScenicGpuHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ui.mojom.ScenicGpuHostRemote = class {
+ui.mojom.mojom.ScenicGpuHostRemote = class {
   static get $interfaceName() {
     return 'ui.mojom.ScenicGpuHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ui.mojom.ScenicGpuHostPendingReceiver,
+      ui.mojom.mojom.ScenicGpuHostPendingReceiver,
       handle);
-    this.$ = new ui.mojom.ScenicGpuHostRemoteCallHandler(this.proxy);
+    this.$ = new ui.mojom.mojom.ScenicGpuHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ ui.mojom.ScenicGpuHostRemote = class {
   }
 };
 
-ui.mojom.ScenicGpuHostRemoteCallHandler = class {
+ui.mojom.mojom.ScenicGpuHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ ui.mojom.ScenicGpuHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec,
+      ui.mojom.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec,
       null,
       [window_id, view_holder_token]);
   }
 
 };
 
-ui.mojom.ScenicGpuHost.getRemote = function() {
-  let remote = new ui.mojom.ScenicGpuHostRemote();
+ui.mojom.mojom.ScenicGpuHost.getRemote = function() {
+  let remote = new ui.mojom.mojom.ScenicGpuHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,14 +66,14 @@ ui.mojom.ScenicGpuHost.getRemote = function() {
 };
 
 // ParamsSpec for AttachSurfaceToWindow
-ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = {
+ui.mojom.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.ScenicGpuHost.AttachSurfaceToWindow_Params',
       packedSize: 24,
       fields: [
-        { name: 'window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'view_holder_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'window_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'view_holder_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -81,6 +81,6 @@ ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = {
 };
 
 // Legacy compatibility
-ui.mojom.ScenicGpuHostPtr = ui.mojom.ScenicGpuHostRemote;
-ui.mojom.ScenicGpuHostRequest = ui.mojom.ScenicGpuHostPendingReceiver;
+ui.mojom.mojom.ScenicGpuHostPtr = ui.mojom.mojom.ScenicGpuHostRemote;
+ui.mojom.mojom.ScenicGpuHostRequest = ui.mojom.mojom.ScenicGpuHostPendingReceiver;
 

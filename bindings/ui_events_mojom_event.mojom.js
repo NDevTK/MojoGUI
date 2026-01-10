@@ -7,10 +7,15 @@
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
 
 
 // Union: GestureDataDetails
-ui.mojom.GestureDataDetailsSpec = { $: mojo.internal.Union(
+ui.mojom.mojom.GestureDataDetailsSpec = { $: mojo.internal.Union(
     'ui.mojom.GestureDataDetails', {
       'pinch': {
         'ordinal': 0,
@@ -24,7 +29,7 @@ ui.mojom.GestureDataDetailsSpec = { $: mojo.internal.Union(
 };
 
 // Struct: KeyData
-ui.mojom.KeyDataSpec = {
+ui.mojom.mojom.KeyDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.KeyData',
@@ -41,7 +46,7 @@ ui.mojom.KeyDataSpec = {
 };
 
 // Struct: LocationData
-ui.mojom.LocationDataSpec = {
+ui.mojom.mojom.LocationDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.LocationData',
@@ -56,7 +61,7 @@ ui.mojom.LocationDataSpec = {
 };
 
 // Struct: GesturePinchData
-ui.mojom.GesturePinchDataSpec = {
+ui.mojom.mojom.GesturePinchDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.GesturePinchData',
@@ -70,7 +75,7 @@ ui.mojom.GesturePinchDataSpec = {
 };
 
 // Struct: GestureSwipeData
-ui.mojom.GestureSwipeDataSpec = {
+ui.mojom.mojom.GestureSwipeDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.GestureSwipeData',
@@ -87,15 +92,15 @@ ui.mojom.GestureSwipeDataSpec = {
 };
 
 // Struct: GestureData
-ui.mojom.GestureDataSpec = {
+ui.mojom.mojom.GestureDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.GestureData',
       packedSize: 40,
       fields: [
-        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.LocationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'device_type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.GestureDeviceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.GestureDataDetailsSpec, nullable: true, minVersion: 0 },
+        { name: 'location', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.LocationDataSpec, nullable: false, minVersion: 0 },
+        { name: 'device_type', packedOffset: 24, packedBitOffset: 0, type: ui.mojom.GestureDeviceTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.GestureDataDetailsSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -103,7 +108,7 @@ ui.mojom.GestureDataSpec = {
 };
 
 // Struct: ScrollData
-ui.mojom.ScrollDataSpec = {
+ui.mojom.mojom.ScrollDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.ScrollData',
@@ -124,7 +129,7 @@ ui.mojom.ScrollDataSpec = {
 };
 
 // Struct: PointerDetails
-ui.mojom.PointerDetailsSpec = {
+ui.mojom.mojom.PointerDetailsSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.PointerDetails',
@@ -148,17 +153,17 @@ ui.mojom.PointerDetailsSpec = {
 };
 
 // Struct: MouseData
-ui.mojom.MouseDataSpec = {
+ui.mojom.mojom.MouseDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.MouseData',
       packedSize: 48,
       fields: [
-        { name: 'changed_button_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.LocationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'pointer_details', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.PointerDetailsSpec, nullable: false, minVersion: 0 },
-        { name: 'wheel_offset', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
-        { name: 'tick_120ths', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
+        { name: 'changed_button_flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.LocationDataSpec, nullable: false, minVersion: 0 },
+        { name: 'pointer_details', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.PointerDetailsSpec, nullable: false, minVersion: 0 },
+        { name: 'wheel_offset', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
+        { name: 'tick_120ths', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -166,16 +171,16 @@ ui.mojom.MouseDataSpec = {
 };
 
 // Struct: TouchData
-ui.mojom.TouchDataSpec = {
+ui.mojom.mojom.TouchDataSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.TouchData',
       packedSize: 32,
       fields: [
-        { name: 'may_cause_scrolling', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hovering', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.LocationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'pointer_details', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.PointerDetailsSpec, nullable: false, minVersion: 0 },
+        { name: 'may_cause_scrolling', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hovering', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.LocationDataSpec, nullable: false, minVersion: 0 },
+        { name: 'pointer_details', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.PointerDetailsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -183,22 +188,22 @@ ui.mojom.TouchDataSpec = {
 };
 
 // Struct: Event
-ui.mojom.EventSpec = {
+ui.mojom.mojom.EventSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.Event',
       packedSize: 80,
       fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'time_stamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'latency', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.LatencyInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'key_data', packedOffset: 24, packedBitOffset: 0, type: ui.mojom.KeyDataSpec, nullable: true, minVersion: 0 },
-        { name: 'gesture_data', packedOffset: 32, packedBitOffset: 0, type: ui.mojom.GestureDataSpec, nullable: true, minVersion: 0 },
-        { name: 'scroll_data', packedOffset: 40, packedBitOffset: 0, type: ui.mojom.ScrollDataSpec, nullable: true, minVersion: 0 },
-        { name: 'touch_data', packedOffset: 48, packedBitOffset: 0, type: ui.mojom.TouchDataSpec, nullable: true, minVersion: 0 },
-        { name: 'mouse_data', packedOffset: 56, packedBitOffset: 0, type: ui.mojom.MouseDataSpec, nullable: true, minVersion: 0 },
-        { name: 'properties', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: true, minVersion: 0 },
+        { name: 'action', packedOffset: 64, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'time_stamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'latency', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.LatencyInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'key_data', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.KeyDataSpec, nullable: true, minVersion: 0 },
+        { name: 'gesture_data', packedOffset: 24, packedBitOffset: 0, type: ui.mojom.GestureDataSpec, nullable: true, minVersion: 0 },
+        { name: 'scroll_data', packedOffset: 32, packedBitOffset: 0, type: ui.mojom.ScrollDataSpec, nullable: true, minVersion: 0 },
+        { name: 'touch_data', packedOffset: 40, packedBitOffset: 0, type: ui.mojom.TouchDataSpec, nullable: true, minVersion: 0 },
+        { name: 'mouse_data', packedOffset: 48, packedBitOffset: 0, type: ui.mojom.MouseDataSpec, nullable: true, minVersion: 0 },
+        { name: 'properties', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }

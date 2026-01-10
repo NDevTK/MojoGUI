@@ -7,18 +7,20 @@
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: FontAttribute
-ui.mojom.FontAttributeSpec = {
+ui.mojom.mojom.FontAttributeSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.FontAttribute',
       packedSize: 32,
       fields: [
         { name: 'font_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'font_point_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'effective_range', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
+        { name: 'font_point_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'effective_range', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -26,7 +28,7 @@ ui.mojom.FontAttributeSpec = {
 };
 
 // Struct: AttributedString
-ui.mojom.AttributedStringSpec = {
+ui.mojom.mojom.AttributedStringSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.AttributedString',

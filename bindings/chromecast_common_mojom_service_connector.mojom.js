@@ -10,24 +10,24 @@ chromecast.mojom = chromecast.mojom || {};
 
 
 // Interface: ServiceConnector
-chromecast.mojom.ServiceConnector = {};
+chromecast.mojom.mojom.ServiceConnector = {};
 
-chromecast.mojom.ServiceConnectorPendingReceiver = class {
+chromecast.mojom.mojom.ServiceConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.ServiceConnectorRemote = class {
+chromecast.mojom.mojom.ServiceConnectorRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.ServiceConnector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.ServiceConnectorPendingReceiver,
+      chromecast.mojom.mojom.ServiceConnectorPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.ServiceConnectorRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.mojom.mojom.ServiceConnectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ chromecast.mojom.ServiceConnectorRemote = class {
   }
 };
 
-chromecast.mojom.ServiceConnectorRemoteCallHandler = class {
+chromecast.mojom.mojom.ServiceConnectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ chromecast.mojom.ServiceConnectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.mojom.ServiceConnector_Connect_ParamsSpec,
+      chromecast.mojom.mojom.ServiceConnector_Connect_ParamsSpec,
       null,
       [service_name, receiver]);
   }
 
 };
 
-chromecast.mojom.ServiceConnector.getRemote = function() {
-  let remote = new chromecast.mojom.ServiceConnectorRemote();
+chromecast.mojom.mojom.ServiceConnector.getRemote = function() {
+  let remote = new chromecast.mojom.mojom.ServiceConnectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ chromecast.mojom.ServiceConnector.getRemote = function() {
 };
 
 // ParamsSpec for Connect
-chromecast.mojom.ServiceConnector_Connect_ParamsSpec = {
+chromecast.mojom.mojom.ServiceConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.ServiceConnector.Connect_Params',
@@ -81,6 +81,6 @@ chromecast.mojom.ServiceConnector_Connect_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.mojom.ServiceConnectorPtr = chromecast.mojom.ServiceConnectorRemote;
-chromecast.mojom.ServiceConnectorRequest = chromecast.mojom.ServiceConnectorPendingReceiver;
+chromecast.mojom.mojom.ServiceConnectorPtr = chromecast.mojom.mojom.ServiceConnectorRemote;
+chromecast.mojom.mojom.ServiceConnectorRequest = chromecast.mojom.mojom.ServiceConnectorPendingReceiver;
 

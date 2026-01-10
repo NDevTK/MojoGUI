@@ -7,25 +7,30 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
+var url = url || {};
+var url = url || {};
 
 
 // Enum: AuctionAdConfigField
-blink.mojom.AuctionAdConfigField = {
+blink.mojom.mojom.AuctionAdConfigField = {
   kAuctionSignals: 0,
   kSellerSignals: 1,
   kSellerTKVSignals: 2,
 };
-blink.mojom.AuctionAdConfigFieldSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.AuctionAdConfigFieldSpec = { $: mojo.internal.Enum() };
 
 // Enum: AuctionAdConfigBuyerTimeoutField
-blink.mojom.AuctionAdConfigBuyerTimeoutField = {
+blink.mojom.mojom.AuctionAdConfigBuyerTimeoutField = {
   kPerBuyerTimeouts: 0,
   kPerBuyerCumulativeTimeouts: 1,
 };
-blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.AuctionAdConfigBuyerTimeoutFieldSpec = { $: mojo.internal.Enum() };
 
 // Union: AuctionAdConfigAuctionId
-blink.mojom.AuctionAdConfigAuctionIdSpec = { $: mojo.internal.Union(
+blink.mojom.mojom.AuctionAdConfigAuctionIdSpec = { $: mojo.internal.Union(
     'blink.mojom.AuctionAdConfigAuctionId', {
       'main_auction': {
         'ordinal': 0,
@@ -39,24 +44,24 @@ blink.mojom.AuctionAdConfigAuctionIdSpec = { $: mojo.internal.Union(
 };
 
 // Interface: AbortableAdAuction
-blink.mojom.AbortableAdAuction = {};
+blink.mojom.mojom.AbortableAdAuction = {};
 
-blink.mojom.AbortableAdAuctionPendingReceiver = class {
+blink.mojom.mojom.AbortableAdAuctionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AbortableAdAuctionRemote = class {
+blink.mojom.mojom.AbortableAdAuctionRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AbortableAdAuction';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AbortableAdAuctionPendingReceiver,
+      blink.mojom.mojom.AbortableAdAuctionPendingReceiver,
       handle);
-    this.$ = new blink.mojom.AbortableAdAuctionRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.AbortableAdAuctionRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -68,7 +73,7 @@ blink.mojom.AbortableAdAuctionRemote = class {
   }
 };
 
-blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
+blink.mojom.mojom.AbortableAdAuctionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -77,7 +82,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec,
       null,
       [auction, field, json_value]);
   }
@@ -86,7 +91,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec,
       null,
       [auction, per_buyer_signals]);
   }
@@ -95,7 +100,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec,
       null,
       [auction, buyer, json_value]);
   }
@@ -104,7 +109,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec,
       null,
       [auction, field, buyer_timeouts]);
   }
@@ -113,7 +118,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec,
       null,
       [auction, per_buyer_currencies]);
   }
@@ -122,7 +127,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec,
       null,
       [auction, direct_from_seller_signals]);
   }
@@ -131,7 +136,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec,
       null,
       [auction, direct_from_seller_signals_header_ad_slot]);
   }
@@ -140,7 +145,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec,
       null,
       [auction, deprecated_render_url_replacements]);
   }
@@ -149,7 +154,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec,
       null,
       [auction, result]);
   }
@@ -158,7 +163,7 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec,
       null,
       [auction]);
   }
@@ -167,15 +172,15 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.AbortableAdAuction_Abort_ParamsSpec,
+      blink.mojom.mojom.AbortableAdAuction_Abort_ParamsSpec,
       null,
       []);
   }
 
 };
 
-blink.mojom.AbortableAdAuction.getRemote = function() {
-  let remote = new blink.mojom.AbortableAdAuctionRemote();
+blink.mojom.mojom.AbortableAdAuction.getRemote = function() {
+  let remote = new blink.mojom.mojom.AbortableAdAuctionRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -185,15 +190,15 @@ blink.mojom.AbortableAdAuction.getRemote = function() {
 };
 
 // ParamsSpec for ResolvedPromiseParam
-blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedPromiseParam_Params',
       packedSize: 40,
       fields: [
         { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false, minVersion: 0 },
-        { name: 'field', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigFieldSpec, nullable: false, minVersion: 0 },
-        { name: 'json_value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'field', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigFieldSpec, nullable: false, minVersion: 0 },
+        { name: 'json_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -201,7 +206,7 @@ blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec = {
 };
 
 // ParamsSpec for ResolvedPerBuyerSignalsPromise
-blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedPerBuyerSignalsPromise_Params',
@@ -216,7 +221,7 @@ blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec = {
 };
 
 // ParamsSpec for ResolvedBuyerTkvSignalsPromise
-blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedBuyerTkvSignalsPromise_Params',
@@ -232,15 +237,15 @@ blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec = {
 };
 
 // ParamsSpec for ResolvedBuyerTimeoutsPromise
-blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedBuyerTimeoutsPromise_Params',
       packedSize: 40,
       fields: [
         { name: 'auction', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigAuctionIdSpec, nullable: false, minVersion: 0 },
-        { name: 'field', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec, nullable: false, minVersion: 0 },
-        { name: 'buyer_timeouts', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigBuyerTimeoutsSpec, nullable: false, minVersion: 0 },
+        { name: 'field', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec, nullable: false, minVersion: 0 },
+        { name: 'buyer_timeouts', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigBuyerTimeoutsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -248,7 +253,7 @@ blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec = {
 };
 
 // ParamsSpec for ResolvedBuyerCurrenciesPromise
-blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedBuyerCurrenciesPromise_Params',
@@ -263,7 +268,7 @@ blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec = {
 };
 
 // ParamsSpec for ResolvedDirectFromSellerSignalsPromise
-blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedDirectFromSellerSignalsPromise_Params',
@@ -278,7 +283,7 @@ blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec
 };
 
 // ParamsSpec for ResolvedDirectFromSellerSignalsHeaderAdSlotPromise
-blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_Params',
@@ -293,7 +298,7 @@ blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromis
 };
 
 // ParamsSpec for ResolvedDeprecatedRenderURLReplacementsPromise
-blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedDeprecatedRenderURLReplacementsPromise_Params',
@@ -308,7 +313,7 @@ blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_Pa
 };
 
 // ParamsSpec for ResolvedAuctionAdResponsePromise
-blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedAuctionAdResponsePromise_Params',
@@ -323,7 +328,7 @@ blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec = {
 };
 
 // ParamsSpec for ResolvedAdditionalBids
-blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.ResolvedAdditionalBids_Params',
@@ -337,7 +342,7 @@ blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec = {
 };
 
 // ParamsSpec for Abort
-blink.mojom.AbortableAdAuction_Abort_ParamsSpec = {
+blink.mojom.mojom.AbortableAdAuction_Abort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AbortableAdAuction.Abort_Params',
@@ -350,29 +355,29 @@ blink.mojom.AbortableAdAuction_Abort_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.AbortableAdAuctionPtr = blink.mojom.AbortableAdAuctionRemote;
-blink.mojom.AbortableAdAuctionRequest = blink.mojom.AbortableAdAuctionPendingReceiver;
+blink.mojom.mojom.AbortableAdAuctionPtr = blink.mojom.mojom.AbortableAdAuctionRemote;
+blink.mojom.mojom.AbortableAdAuctionRequest = blink.mojom.mojom.AbortableAdAuctionPendingReceiver;
 
 
 // Interface: AdAuctionService
-blink.mojom.AdAuctionService = {};
+blink.mojom.mojom.AdAuctionService = {};
 
-blink.mojom.AdAuctionServicePendingReceiver = class {
+blink.mojom.mojom.AdAuctionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AdAuctionServiceRemote = class {
+blink.mojom.mojom.AdAuctionServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AdAuctionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AdAuctionServicePendingReceiver,
+      blink.mojom.mojom.AdAuctionServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.AdAuctionServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.AdAuctionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -384,7 +389,7 @@ blink.mojom.AdAuctionServiceRemote = class {
   }
 };
 
-blink.mojom.AdAuctionServiceRemoteCallHandler = class {
+blink.mojom.mojom.AdAuctionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -393,8 +398,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec,
-      blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec,
+      blink.mojom.mojom.AdAuctionService_CreateAdRequest_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec,
       [config]);
   }
 
@@ -402,8 +407,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec,
-      blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec,
+      blink.mojom.mojom.AdAuctionService_FinalizeAd_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec,
       [ads_guid, config]);
   }
 
@@ -411,8 +416,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec,
-      blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec,
+      blink.mojom.mojom.AdAuctionService_RunAdAuction_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec,
       [config, abort_receiver]);
   }
 
@@ -420,8 +425,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec,
-      blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec,
+      blink.mojom.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec,
       [group]);
   }
 
@@ -429,8 +434,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec,
-      blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec,
+      blink.mojom.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec,
       [owner, name]);
   }
 
@@ -438,7 +443,7 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec,
       null,
       []);
   }
@@ -447,8 +452,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec,
-      blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec,
+      blink.mojom.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec,
       [owner, interest_groups_to_keep]);
   }
 
@@ -456,7 +461,7 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec,
       null,
       []);
   }
@@ -465,8 +470,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec,
-      blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec,
+      blink.mojom.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec,
       [uuid_url, send_reports]);
   }
 
@@ -474,7 +479,7 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec,
       null,
       [uuid_url, replacements]);
   }
@@ -483,15 +488,15 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec,
-      blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec,
+      blink.mojom.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec,
+      blink.mojom.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec,
       [sellers, config]);
   }
 
 };
 
-blink.mojom.AdAuctionService.getRemote = function() {
-  let remote = new blink.mojom.AdAuctionServiceRemote();
+blink.mojom.mojom.AdAuctionService.getRemote = function() {
+  let remote = new blink.mojom.mojom.AdAuctionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -501,7 +506,7 @@ blink.mojom.AdAuctionService.getRemote = function() {
 };
 
 // ParamsSpec for CreateAdRequest
-blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_CreateAdRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.CreateAdRequest_Params',
@@ -514,7 +519,7 @@ blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec = {
   }
 };
 
-blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec = {
+blink.mojom.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.CreateAdRequest_ResponseParams',
@@ -528,7 +533,7 @@ blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec = {
 };
 
 // ParamsSpec for FinalizeAd
-blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_FinalizeAd_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.FinalizeAd_Params',
@@ -542,7 +547,7 @@ blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec = {
   }
 };
 
-blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec = {
+blink.mojom.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.FinalizeAd_ResponseParams',
@@ -556,7 +561,7 @@ blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec = {
 };
 
 // ParamsSpec for RunAdAuction
-blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_RunAdAuction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.RunAdAuction_Params',
@@ -570,14 +575,14 @@ blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec = {
   }
 };
 
-blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec = {
+blink.mojom.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.RunAdAuction_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'aborted_by_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'aborted_by_script', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -585,7 +590,7 @@ blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec = {
 };
 
 // ParamsSpec for JoinInterestGroup
-blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.JoinInterestGroup_Params',
@@ -598,7 +603,7 @@ blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec = {
   }
 };
 
-blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec = {
+blink.mojom.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.JoinInterestGroup_ResponseParams',
@@ -612,7 +617,7 @@ blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LeaveInterestGroup
-blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.LeaveInterestGroup_Params',
@@ -626,7 +631,7 @@ blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec = {
   }
 };
 
-blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec = {
+blink.mojom.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.LeaveInterestGroup_ResponseParams',
@@ -640,7 +645,7 @@ blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec = {
 };
 
 // ParamsSpec for LeaveInterestGroupForDocument
-blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.LeaveInterestGroupForDocument_Params',
@@ -653,7 +658,7 @@ blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec = {
 };
 
 // ParamsSpec for ClearOriginJoinedInterestGroups
-blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.ClearOriginJoinedInterestGroups_Params',
@@ -667,7 +672,7 @@ blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec = {
   }
 };
 
-blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec = {
+blink.mojom.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.ClearOriginJoinedInterestGroups_ResponseParams',
@@ -681,7 +686,7 @@ blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec 
 };
 
 // ParamsSpec for UpdateAdInterestGroups
-blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.UpdateAdInterestGroups_Params',
@@ -694,7 +699,7 @@ blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec = {
 };
 
 // ParamsSpec for DeprecatedGetURLFromURN
-blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.DeprecatedGetURLFromURN_Params',
@@ -708,7 +713,7 @@ blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec = {
   }
 };
 
-blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec = {
+blink.mojom.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.DeprecatedGetURLFromURN_ResponseParams',
@@ -722,7 +727,7 @@ blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeprecatedReplaceInURN
-blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.DeprecatedReplaceInURN_Params',
@@ -737,7 +742,7 @@ blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec = {
 };
 
 // ParamsSpec for GetInterestGroupAdAuctionData
-blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec = {
+blink.mojom.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.GetInterestGroupAdAuctionData_Params',
@@ -751,7 +756,7 @@ blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec = {
   }
 };
 
-blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec = {
+blink.mojom.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AdAuctionService.GetInterestGroupAdAuctionData_ResponseParams',
@@ -766,6 +771,6 @@ blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec = 
 };
 
 // Legacy compatibility
-blink.mojom.AdAuctionServicePtr = blink.mojom.AdAuctionServiceRemote;
-blink.mojom.AdAuctionServiceRequest = blink.mojom.AdAuctionServicePendingReceiver;
+blink.mojom.mojom.AdAuctionServicePtr = blink.mojom.mojom.AdAuctionServiceRemote;
+blink.mojom.mojom.AdAuctionServiceRequest = blink.mojom.mojom.AdAuctionServicePendingReceiver;
 

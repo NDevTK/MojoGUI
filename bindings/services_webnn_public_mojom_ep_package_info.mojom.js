@@ -10,7 +10,7 @@ webnn.mojom = webnn.mojom || {};
 
 
 // Struct: PackageVersion
-webnn.mojom.PackageVersionSpec = {
+webnn.mojom.mojom.PackageVersionSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.PackageVersion',
@@ -27,7 +27,7 @@ webnn.mojom.PackageVersionSpec = {
 };
 
 // Struct: EpPackageInfo
-webnn.mojom.EpPackageInfoSpec = {
+webnn.mojom.mojom.EpPackageInfoSpec = {
   $: {
     structSpec: {
       name: 'webnn.mojom.EpPackageInfo',

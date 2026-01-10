@@ -7,10 +7,11 @@
 // Module namespace
 var help_bubble = help_bubble || {};
 help_bubble.mojom = help_bubble.mojom || {};
+var ui = ui || {};
 
 
 // Enum: HelpBubbleArrowPosition
-help_bubble.mojom.HelpBubbleArrowPosition = {
+help_bubble.mojom.mojom.HelpBubbleArrowPosition = {
   TOP_LEFT: 0,
   TOP_CENTER: 1,
   TOP_RIGHT: 2,
@@ -24,18 +25,18 @@ help_bubble.mojom.HelpBubbleArrowPosition = {
   RIGHT_CENTER: 10,
   RIGHT_BOTTOM: 11,
 };
-help_bubble.mojom.HelpBubbleArrowPositionSpec = { $: mojo.internal.Enum() };
+help_bubble.mojom.mojom.HelpBubbleArrowPositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: HelpBubbleClosedReason
-help_bubble.mojom.HelpBubbleClosedReason = {
+help_bubble.mojom.mojom.HelpBubbleClosedReason = {
   kPageChanged: 0,
   kDismissedByUser: 1,
   kTimedOut: 2,
 };
-help_bubble.mojom.HelpBubbleClosedReasonSpec = { $: mojo.internal.Enum() };
+help_bubble.mojom.mojom.HelpBubbleClosedReasonSpec = { $: mojo.internal.Enum() };
 
 // Struct: HelpBubbleButtonParams
-help_bubble.mojom.HelpBubbleButtonParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleButtonParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleButtonParams',
@@ -50,7 +51,7 @@ help_bubble.mojom.HelpBubbleButtonParamsSpec = {
 };
 
 // Struct: Progress
-help_bubble.mojom.ProgressSpec = {
+help_bubble.mojom.mojom.ProgressSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.Progress',
@@ -65,24 +66,24 @@ help_bubble.mojom.ProgressSpec = {
 };
 
 // Struct: HelpBubbleParams
-help_bubble.mojom.HelpBubbleParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleParams',
       packedSize: 88,
       fields: [
         { name: 'native_identifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleArrowPositionSpec, nullable: false, minVersion: 0 },
-        { name: 'title_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'body_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'close_button_alt_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'body_icon_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'body_icon_alt_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'progress', packedOffset: 56, packedBitOffset: 0, type: help_bubble.mojom.ProgressSpec, nullable: true, minVersion: 0 },
-        { name: 'buttons', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(help_bubble.mojom.HelpBubbleButtonParamsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'focus_on_show_hint_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'focus_on_show_hint_$value', originalFieldName: 'focus_on_show_hint' } },
-        { name: 'focus_on_show_hint_$value', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'focus_on_show_hint_$flag', originalFieldName: 'focus_on_show_hint' } },
-        { name: 'timeout', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
+        { name: 'position', packedOffset: 72, packedBitOffset: 0, type: help_bubble.mojom.HelpBubbleArrowPositionSpec, nullable: false, minVersion: 0 },
+        { name: 'title_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'body_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'close_button_alt_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'body_icon_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'body_icon_alt_text', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'progress', packedOffset: 48, packedBitOffset: 0, type: help_bubble.mojom.ProgressSpec, nullable: true, minVersion: 0 },
+        { name: 'buttons', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(help_bubble.mojom.HelpBubbleButtonParamsSpec, false), nullable: false, minVersion: 0 },
+        { name: 'focus_on_show_hint_$flag', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'focus_on_show_hint_$value', originalFieldName: 'focus_on_show_hint' } },
+        { name: 'focus_on_show_hint_$value', packedOffset: 76, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'focus_on_show_hint_$flag', originalFieldName: 'focus_on_show_hint' } },
+        { name: 'timeout', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }
@@ -90,24 +91,24 @@ help_bubble.mojom.HelpBubbleParamsSpec = {
 };
 
 // Interface: HelpBubbleHandlerFactory
-help_bubble.mojom.HelpBubbleHandlerFactory = {};
+help_bubble.mojom.mojom.HelpBubbleHandlerFactory = {};
 
-help_bubble.mojom.HelpBubbleHandlerFactoryPendingReceiver = class {
+help_bubble.mojom.mojom.HelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-help_bubble.mojom.HelpBubbleHandlerFactoryRemote = class {
+help_bubble.mojom.mojom.HelpBubbleHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'help_bubble.mojom.HelpBubbleHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      help_bubble.mojom.HelpBubbleHandlerFactoryPendingReceiver,
+      help_bubble.mojom.mojom.HelpBubbleHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new help_bubble.mojom.mojom.HelpBubbleHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -119,7 +120,7 @@ help_bubble.mojom.HelpBubbleHandlerFactoryRemote = class {
   }
 };
 
-help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
+help_bubble.mojom.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -128,15 +129,15 @@ help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
+      help_bubble.mojom.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
       [client, handler]);
   }
 
 };
 
-help_bubble.mojom.HelpBubbleHandlerFactory.getRemote = function() {
-  let remote = new help_bubble.mojom.HelpBubbleHandlerFactoryRemote();
+help_bubble.mojom.mojom.HelpBubbleHandlerFactory.getRemote = function() {
+  let remote = new help_bubble.mojom.mojom.HelpBubbleHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -146,7 +147,7 @@ help_bubble.mojom.HelpBubbleHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateHelpBubbleHandler
-help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleHandlerFactory.CreateHelpBubbleHandler_Params',
@@ -161,29 +162,29 @@ help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = 
 };
 
 // Legacy compatibility
-help_bubble.mojom.HelpBubbleHandlerFactoryPtr = help_bubble.mojom.HelpBubbleHandlerFactoryRemote;
-help_bubble.mojom.HelpBubbleHandlerFactoryRequest = help_bubble.mojom.HelpBubbleHandlerFactoryPendingReceiver;
+help_bubble.mojom.mojom.HelpBubbleHandlerFactoryPtr = help_bubble.mojom.mojom.HelpBubbleHandlerFactoryRemote;
+help_bubble.mojom.mojom.HelpBubbleHandlerFactoryRequest = help_bubble.mojom.mojom.HelpBubbleHandlerFactoryPendingReceiver;
 
 
 // Interface: PdfHelpBubbleHandlerFactory
-help_bubble.mojom.PdfHelpBubbleHandlerFactory = {};
+help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactory = {};
 
-help_bubble.mojom.PdfHelpBubbleHandlerFactoryPendingReceiver = class {
+help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote = class {
+help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'help_bubble.mojom.PdfHelpBubbleHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      help_bubble.mojom.PdfHelpBubbleHandlerFactoryPendingReceiver,
+      help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -195,7 +196,7 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote = class {
   }
 };
 
-help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler = class {
+help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -204,15 +205,15 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
+      help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
       [client, handler]);
   }
 
 };
 
-help_bubble.mojom.PdfHelpBubbleHandlerFactory.getRemote = function() {
-  let remote = new help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote();
+help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactory.getRemote = function() {
+  let remote = new help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -222,7 +223,7 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateHelpBubbleHandler
-help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = {
+help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.PdfHelpBubbleHandlerFactory.CreateHelpBubbleHandler_Params',
@@ -237,29 +238,29 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec
 };
 
 // Legacy compatibility
-help_bubble.mojom.PdfHelpBubbleHandlerFactoryPtr = help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote;
-help_bubble.mojom.PdfHelpBubbleHandlerFactoryRequest = help_bubble.mojom.PdfHelpBubbleHandlerFactoryPendingReceiver;
+help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryPtr = help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryRemote;
+help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryRequest = help_bubble.mojom.mojom.PdfHelpBubbleHandlerFactoryPendingReceiver;
 
 
 // Interface: HelpBubbleHandler
-help_bubble.mojom.HelpBubbleHandler = {};
+help_bubble.mojom.mojom.HelpBubbleHandler = {};
 
-help_bubble.mojom.HelpBubbleHandlerPendingReceiver = class {
+help_bubble.mojom.mojom.HelpBubbleHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-help_bubble.mojom.HelpBubbleHandlerRemote = class {
+help_bubble.mojom.mojom.HelpBubbleHandlerRemote = class {
   static get $interfaceName() {
     return 'help_bubble.mojom.HelpBubbleHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      help_bubble.mojom.HelpBubbleHandlerPendingReceiver,
+      help_bubble.mojom.mojom.HelpBubbleHandlerPendingReceiver,
       handle);
-    this.$ = new help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler(this.proxy);
+    this.$ = new help_bubble.mojom.mojom.HelpBubbleHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -271,7 +272,7 @@ help_bubble.mojom.HelpBubbleHandlerRemote = class {
   }
 };
 
-help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
+help_bubble.mojom.mojom.HelpBubbleHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -280,7 +281,7 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec,
+      help_bubble.mojom.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec,
       null,
       [handler]);
   }
@@ -289,7 +290,7 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec,
+      help_bubble.mojom.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec,
       null,
       [native_identifier, button_index]);
   }
@@ -298,15 +299,15 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec,
+      help_bubble.mojom.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec,
       null,
       [native_identifier, reason]);
   }
 
 };
 
-help_bubble.mojom.HelpBubbleHandler.getRemote = function() {
-  let remote = new help_bubble.mojom.HelpBubbleHandlerRemote();
+help_bubble.mojom.mojom.HelpBubbleHandler.getRemote = function() {
+  let remote = new help_bubble.mojom.mojom.HelpBubbleHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -316,7 +317,7 @@ help_bubble.mojom.HelpBubbleHandler.getRemote = function() {
 };
 
 // ParamsSpec for BindTrackedElementHandler
-help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleHandler.BindTrackedElementHandler_Params',
@@ -330,7 +331,7 @@ help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = {
 };
 
 // ParamsSpec for HelpBubbleButtonPressed
-help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleHandler.HelpBubbleButtonPressed_Params',
@@ -345,7 +346,7 @@ help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = {
 };
 
 // ParamsSpec for HelpBubbleClosed
-help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleHandler.HelpBubbleClosed_Params',
@@ -360,29 +361,29 @@ help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = {
 };
 
 // Legacy compatibility
-help_bubble.mojom.HelpBubbleHandlerPtr = help_bubble.mojom.HelpBubbleHandlerRemote;
-help_bubble.mojom.HelpBubbleHandlerRequest = help_bubble.mojom.HelpBubbleHandlerPendingReceiver;
+help_bubble.mojom.mojom.HelpBubbleHandlerPtr = help_bubble.mojom.mojom.HelpBubbleHandlerRemote;
+help_bubble.mojom.mojom.HelpBubbleHandlerRequest = help_bubble.mojom.mojom.HelpBubbleHandlerPendingReceiver;
 
 
 // Interface: HelpBubbleClient
-help_bubble.mojom.HelpBubbleClient = {};
+help_bubble.mojom.mojom.HelpBubbleClient = {};
 
-help_bubble.mojom.HelpBubbleClientPendingReceiver = class {
+help_bubble.mojom.mojom.HelpBubbleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-help_bubble.mojom.HelpBubbleClientRemote = class {
+help_bubble.mojom.mojom.HelpBubbleClientRemote = class {
   static get $interfaceName() {
     return 'help_bubble.mojom.HelpBubbleClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      help_bubble.mojom.HelpBubbleClientPendingReceiver,
+      help_bubble.mojom.mojom.HelpBubbleClientPendingReceiver,
       handle);
-    this.$ = new help_bubble.mojom.HelpBubbleClientRemoteCallHandler(this.proxy);
+    this.$ = new help_bubble.mojom.mojom.HelpBubbleClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -394,7 +395,7 @@ help_bubble.mojom.HelpBubbleClientRemote = class {
   }
 };
 
-help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
+help_bubble.mojom.mojom.HelpBubbleClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -403,7 +404,7 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec,
+      help_bubble.mojom.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec,
       null,
       [params]);
   }
@@ -412,7 +413,7 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec,
+      help_bubble.mojom.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec,
       null,
       [native_identifier]);
   }
@@ -421,7 +422,7 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec,
+      help_bubble.mojom.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec,
       null,
       [native_identifier]);
   }
@@ -430,15 +431,15 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec,
+      help_bubble.mojom.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec,
       null,
       [native_identifier, shown]);
   }
 
 };
 
-help_bubble.mojom.HelpBubbleClient.getRemote = function() {
-  let remote = new help_bubble.mojom.HelpBubbleClientRemote();
+help_bubble.mojom.mojom.HelpBubbleClient.getRemote = function() {
+  let remote = new help_bubble.mojom.mojom.HelpBubbleClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -448,7 +449,7 @@ help_bubble.mojom.HelpBubbleClient.getRemote = function() {
 };
 
 // ParamsSpec for ShowHelpBubble
-help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleClient.ShowHelpBubble_Params',
@@ -462,7 +463,7 @@ help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = {
 };
 
 // ParamsSpec for ToggleFocusForAccessibility
-help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleClient.ToggleFocusForAccessibility_Params',
@@ -476,7 +477,7 @@ help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = {
 };
 
 // ParamsSpec for HideHelpBubble
-help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleClient.HideHelpBubble_Params',
@@ -490,7 +491,7 @@ help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec = {
 };
 
 // ParamsSpec for ExternalHelpBubbleUpdated
-help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec = {
+help_bubble.mojom.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'help_bubble.mojom.HelpBubbleClient.ExternalHelpBubbleUpdated_Params',
@@ -505,6 +506,6 @@ help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec = {
 };
 
 // Legacy compatibility
-help_bubble.mojom.HelpBubbleClientPtr = help_bubble.mojom.HelpBubbleClientRemote;
-help_bubble.mojom.HelpBubbleClientRequest = help_bubble.mojom.HelpBubbleClientPendingReceiver;
+help_bubble.mojom.mojom.HelpBubbleClientPtr = help_bubble.mojom.mojom.HelpBubbleClientRemote;
+help_bubble.mojom.mojom.HelpBubbleClientRequest = help_bubble.mojom.mojom.HelpBubbleClientPendingReceiver;
 

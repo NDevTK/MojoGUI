@@ -10,24 +10,24 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Interface: NetErrorPageSupport
-chrome.mojom.NetErrorPageSupport = {};
+chrome.mojom.mojom.NetErrorPageSupport = {};
 
-chrome.mojom.NetErrorPageSupportPendingReceiver = class {
+chrome.mojom.mojom.NetErrorPageSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.NetErrorPageSupportRemote = class {
+chrome.mojom.mojom.NetErrorPageSupportRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.NetErrorPageSupport';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.NetErrorPageSupportPendingReceiver,
+      chrome.mojom.mojom.NetErrorPageSupportPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.NetErrorPageSupportRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.NetErrorPageSupportRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ chrome.mojom.NetErrorPageSupportRemote = class {
   }
 };
 
-chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
+chrome.mojom.mojom.NetErrorPageSupportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec,
+      chrome.mojom.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec,
       null,
       []);
   }
@@ -57,7 +57,7 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec,
+      chrome.mojom.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec,
       null,
       [showing_download_button]);
   }
@@ -66,15 +66,15 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec,
+      chrome.mojom.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chrome.mojom.NetErrorPageSupport.getRemote = function() {
-  let remote = new chrome.mojom.NetErrorPageSupportRemote();
+chrome.mojom.mojom.NetErrorPageSupport.getRemote = function() {
+  let remote = new chrome.mojom.mojom.NetErrorPageSupportRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ chrome.mojom.NetErrorPageSupport.getRemote = function() {
 };
 
 // ParamsSpec for DownloadPageLater
-chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
+chrome.mojom.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.NetErrorPageSupport.DownloadPageLater_Params',
@@ -97,7 +97,7 @@ chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = {
 };
 
 // ParamsSpec for SetIsShowingDownloadButtonInErrorPage
-chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = {
+chrome.mojom.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.NetErrorPageSupport.SetIsShowingDownloadButtonInErrorPage_Params',
@@ -111,7 +111,7 @@ chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpe
 };
 
 // ParamsSpec for ShowPortalSignin
-chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
+chrome.mojom.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.NetErrorPageSupport.ShowPortalSignin_Params',
@@ -124,6 +124,6 @@ chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.NetErrorPageSupportPtr = chrome.mojom.NetErrorPageSupportRemote;
-chrome.mojom.NetErrorPageSupportRequest = chrome.mojom.NetErrorPageSupportPendingReceiver;
+chrome.mojom.mojom.NetErrorPageSupportPtr = chrome.mojom.mojom.NetErrorPageSupportRemote;
+chrome.mojom.mojom.NetErrorPageSupportRequest = chrome.mojom.mojom.NetErrorPageSupportPendingReceiver;
 

@@ -10,9 +10,9 @@ webnn.mojom = webnn.mojom || {};
 
 
 // Enum: Device
-webnn.mojom.Device = {
+webnn.mojom.mojom.Device = {
   kCpu: 0,
   kGpu: 1,
   kNpu: 2,
 };
-webnn.mojom.DeviceSpec = { $: mojo.internal.Enum() };
+webnn.mojom.mojom.DeviceSpec = { $: mojo.internal.Enum() };

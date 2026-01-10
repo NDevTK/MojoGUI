@@ -7,10 +7,13 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: DelegatedInkMetadata
-gfx.mojom.DelegatedInkMetadataSpec = {
+gfx.mojom.mojom.DelegatedInkMetadataSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DelegatedInkMetadata',

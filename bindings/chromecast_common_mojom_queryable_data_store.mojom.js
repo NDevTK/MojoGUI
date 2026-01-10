@@ -7,28 +7,28 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
-chromecast.shell.mojom = chromecast.shell.mojom || {};
+chromecast.shell.shell.mojom = chromecast.shell.shell.mojom || {};
 
 
 // Interface: QueryableDataStore
-chromecast.shell.mojom.QueryableDataStore = {};
+chromecast.shell.shell.mojom.mojom.QueryableDataStore = {};
 
-chromecast.shell.mojom.QueryableDataStorePendingReceiver = class {
+chromecast.shell.shell.mojom.mojom.QueryableDataStorePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.shell.mojom.QueryableDataStoreRemote = class {
+chromecast.shell.shell.mojom.mojom.QueryableDataStoreRemote = class {
   static get $interfaceName() {
     return 'chromecast.shell.mojom.QueryableDataStore';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.shell.mojom.QueryableDataStorePendingReceiver,
+      chromecast.shell.shell.mojom.mojom.QueryableDataStorePendingReceiver,
       handle);
-    this.$ = new chromecast.shell.mojom.QueryableDataStoreRemoteCallHandler(this.proxy);
+    this.$ = new chromecast.shell.shell.mojom.mojom.QueryableDataStoreRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ chromecast.shell.mojom.QueryableDataStoreRemote = class {
   }
 };
 
-chromecast.shell.mojom.QueryableDataStoreRemoteCallHandler = class {
+chromecast.shell.shell.mojom.mojom.QueryableDataStoreRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +49,15 @@ chromecast.shell.mojom.QueryableDataStoreRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec,
+      chromecast.shell.shell.mojom.mojom.QueryableDataStore_Set_ParamsSpec,
       null,
       [key, value]);
   }
 
 };
 
-chromecast.shell.mojom.QueryableDataStore.getRemote = function() {
-  let remote = new chromecast.shell.mojom.QueryableDataStoreRemote();
+chromecast.shell.shell.mojom.mojom.QueryableDataStore.getRemote = function() {
+  let remote = new chromecast.shell.shell.mojom.mojom.QueryableDataStoreRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,14 +67,14 @@ chromecast.shell.mojom.QueryableDataStore.getRemote = function() {
 };
 
 // ParamsSpec for Set
-chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = {
+chromecast.shell.shell.mojom.mojom.QueryableDataStore_Set_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.shell.mojom.QueryableDataStore.Set_Params',
       packedSize: 32,
       fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
+        { name: 'key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -82,6 +82,6 @@ chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec = {
 };
 
 // Legacy compatibility
-chromecast.shell.mojom.QueryableDataStorePtr = chromecast.shell.mojom.QueryableDataStoreRemote;
-chromecast.shell.mojom.QueryableDataStoreRequest = chromecast.shell.mojom.QueryableDataStorePendingReceiver;
+chromecast.shell.shell.mojom.mojom.QueryableDataStorePtr = chromecast.shell.shell.mojom.mojom.QueryableDataStoreRemote;
+chromecast.shell.shell.mojom.mojom.QueryableDataStoreRequest = chromecast.shell.shell.mojom.mojom.QueryableDataStorePendingReceiver;
 

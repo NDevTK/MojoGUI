@@ -7,10 +7,11 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var url = url || {};
 
 
 // Struct: CaptureHandle
-media.mojom.CaptureHandleSpec = {
+media.mojom.mojom.CaptureHandleSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CaptureHandle',

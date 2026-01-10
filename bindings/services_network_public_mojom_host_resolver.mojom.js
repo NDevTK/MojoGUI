@@ -7,42 +7,43 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Enum: OptionalSecureDnsMode
-network.mojom.OptionalSecureDnsMode = {
+network.mojom.mojom.OptionalSecureDnsMode = {
   NO_OVERRIDE: 0,
   OFF: 1,
   AUTOMATIC: 2,
   SECURE: 3,
 };
-network.mojom.OptionalSecureDnsModeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.OptionalSecureDnsModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecureDnsMode
-network.mojom.SecureDnsMode = {
+network.mojom.mojom.SecureDnsMode = {
   OFF: 0,
   AUTOMATIC: 1,
   SECURE: 2,
 };
-network.mojom.SecureDnsModeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.SecureDnsModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecureDnsPolicy
-network.mojom.SecureDnsPolicy = {
+network.mojom.mojom.SecureDnsPolicy = {
   ALLOW: 0,
   DISABLE: 1,
 };
-network.mojom.SecureDnsPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.SecureDnsPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: Tristate
-network.mojom.Tristate = {
+network.mojom.mojom.Tristate = {
   NO_OVERRIDE: 0,
   TRISTATE_TRUE: 1,
   TRISTATE_FALSE: 2,
 };
-network.mojom.TristateSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.TristateSpec = { $: mojo.internal.Enum() };
 
 // Enum: DnsQueryType
-network.mojom.DnsQueryType = {
+network.mojom.mojom.DnsQueryType = {
   UNSPECIFIED: 0,
   A: 1,
   AAAA: 2,
@@ -51,43 +52,43 @@ network.mojom.DnsQueryType = {
   SRV: 5,
   HTTPS: 6,
 };
-network.mojom.DnsQueryTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DnsQueryTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Source
-network.mojom.Source = {
+network.mojom.mojom.Source = {
   ANY: 0,
   SYSTEM: 1,
   DNS: 2,
   MULTICAST_DNS: 3,
   LOCAL_ONLY: 4,
 };
-network.mojom.SourceSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.SourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: CacheUsage
-network.mojom.CacheUsage = {
+network.mojom.mojom.CacheUsage = {
   ALLOWED: 0,
   STALE_ALLOWED: 1,
   DISALLOWED: 2,
 };
-network.mojom.CacheUsageSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.CacheUsageSpec = { $: mojo.internal.Enum() };
 
 // Enum: Purpose
-network.mojom.Purpose = {
+network.mojom.mojom.Purpose = {
   kUnspecified: 0,
   kPreconnect: 1,
 };
-network.mojom.PurposeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.PurposeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UpdateType
-network.mojom.UpdateType = {
+network.mojom.mojom.UpdateType = {
   ADDED: 0,
   CHANGED: 1,
   REMOVED: 2,
 };
-network.mojom.UpdateTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.UpdateTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: HostResolverHost
-network.mojom.HostResolverHostSpec = { $: mojo.internal.Union(
+network.mojom.mojom.HostResolverHostSpec = { $: mojo.internal.Union(
     'network.mojom.HostResolverHost', {
       'scheme_host_port': {
         'ordinal': 0,
@@ -101,7 +102,7 @@ network.mojom.HostResolverHostSpec = { $: mojo.internal.Union(
 };
 
 // Struct: DnsOverHttpsServerConfig
-network.mojom.DnsOverHttpsServerConfigSpec = {
+network.mojom.mojom.DnsOverHttpsServerConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DnsOverHttpsServerConfig',
@@ -116,7 +117,7 @@ network.mojom.DnsOverHttpsServerConfigSpec = {
 };
 
 // Struct: DnsOverHttpsConfig
-network.mojom.DnsOverHttpsConfigSpec = {
+network.mojom.mojom.DnsOverHttpsConfigSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DnsOverHttpsConfig',
@@ -130,7 +131,7 @@ network.mojom.DnsOverHttpsConfigSpec = {
 };
 
 // Struct: DnsConfigOverrides
-network.mojom.DnsConfigOverridesSpec = {
+network.mojom.mojom.DnsConfigOverridesSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DnsConfigOverrides',
@@ -144,15 +145,15 @@ network.mojom.DnsConfigOverridesSpec = {
 };
 
 // Struct: ResolveHostParameters
-network.mojom.ResolveHostParametersSpec = {
+network.mojom.mojom.ResolveHostParametersSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveHostParameters',
       packedSize: 24,
       fields: [
-        { name: 'dns_query_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'initial_priority', packedOffset: 4, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'ANY', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'dns_query_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'initial_priority', packedOffset: 12, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'ANY', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -160,24 +161,24 @@ network.mojom.ResolveHostParametersSpec = {
 };
 
 // Interface: ResolveHostHandle
-network.mojom.ResolveHostHandle = {};
+network.mojom.mojom.ResolveHostHandle = {};
 
-network.mojom.ResolveHostHandlePendingReceiver = class {
+network.mojom.mojom.ResolveHostHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.ResolveHostHandleRemote = class {
+network.mojom.mojom.ResolveHostHandleRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ResolveHostHandle';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.ResolveHostHandlePendingReceiver,
+      network.mojom.mojom.ResolveHostHandlePendingReceiver,
       handle);
-    this.$ = new network.mojom.ResolveHostHandleRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.ResolveHostHandleRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -189,7 +190,7 @@ network.mojom.ResolveHostHandleRemote = class {
   }
 };
 
-network.mojom.ResolveHostHandleRemoteCallHandler = class {
+network.mojom.mojom.ResolveHostHandleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -198,15 +199,15 @@ network.mojom.ResolveHostHandleRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ResolveHostHandle_Cancel_ParamsSpec,
+      network.mojom.mojom.ResolveHostHandle_Cancel_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-network.mojom.ResolveHostHandle.getRemote = function() {
-  let remote = new network.mojom.ResolveHostHandleRemote();
+network.mojom.mojom.ResolveHostHandle.getRemote = function() {
+  let remote = new network.mojom.mojom.ResolveHostHandleRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -216,7 +217,7 @@ network.mojom.ResolveHostHandle.getRemote = function() {
 };
 
 // ParamsSpec for Cancel
-network.mojom.ResolveHostHandle_Cancel_ParamsSpec = {
+network.mojom.mojom.ResolveHostHandle_Cancel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveHostHandle.Cancel_Params',
@@ -230,29 +231,29 @@ network.mojom.ResolveHostHandle_Cancel_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.ResolveHostHandlePtr = network.mojom.ResolveHostHandleRemote;
-network.mojom.ResolveHostHandleRequest = network.mojom.ResolveHostHandlePendingReceiver;
+network.mojom.mojom.ResolveHostHandlePtr = network.mojom.mojom.ResolveHostHandleRemote;
+network.mojom.mojom.ResolveHostHandleRequest = network.mojom.mojom.ResolveHostHandlePendingReceiver;
 
 
 // Interface: ResolveHostClient
-network.mojom.ResolveHostClient = {};
+network.mojom.mojom.ResolveHostClient = {};
 
-network.mojom.ResolveHostClientPendingReceiver = class {
+network.mojom.mojom.ResolveHostClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.ResolveHostClientRemote = class {
+network.mojom.mojom.ResolveHostClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ResolveHostClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.ResolveHostClientPendingReceiver,
+      network.mojom.mojom.ResolveHostClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.ResolveHostClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.ResolveHostClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -264,7 +265,7 @@ network.mojom.ResolveHostClientRemote = class {
   }
 };
 
-network.mojom.ResolveHostClientRemoteCallHandler = class {
+network.mojom.mojom.ResolveHostClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -273,7 +274,7 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ResolveHostClient_OnComplete_ParamsSpec,
+      network.mojom.mojom.ResolveHostClient_OnComplete_ParamsSpec,
       null,
       [result, resolve_error_info, resolved_addresses, alternative_endpoints]);
   }
@@ -282,7 +283,7 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.ResolveHostClient_OnTextResults_ParamsSpec,
+      network.mojom.mojom.ResolveHostClient_OnTextResults_ParamsSpec,
       null,
       [text_results]);
   }
@@ -291,15 +292,15 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec,
+      network.mojom.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec,
       null,
       [hosts]);
   }
 
 };
 
-network.mojom.ResolveHostClient.getRemote = function() {
-  let remote = new network.mojom.ResolveHostClientRemote();
+network.mojom.mojom.ResolveHostClient.getRemote = function() {
+  let remote = new network.mojom.mojom.ResolveHostClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -309,16 +310,16 @@ network.mojom.ResolveHostClient.getRemote = function() {
 };
 
 // ParamsSpec for OnComplete
-network.mojom.ResolveHostClient_OnComplete_ParamsSpec = {
+network.mojom.mojom.ResolveHostClient_OnComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveHostClient.OnComplete_Params',
       packedSize: 40,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'resolve_error_info', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ResolveErrorInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'resolved_addresses', packedOffset: 16, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
-        { name: 'alternative_endpoints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HostResolverEndpointResultSpec, false), nullable: false, minVersion: 0 },
+        { name: 'result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'resolve_error_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ResolveErrorInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'resolved_addresses', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
+        { name: 'alternative_endpoints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HostResolverEndpointResultSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -326,7 +327,7 @@ network.mojom.ResolveHostClient_OnComplete_ParamsSpec = {
 };
 
 // ParamsSpec for OnTextResults
-network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = {
+network.mojom.mojom.ResolveHostClient_OnTextResults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveHostClient.OnTextResults_Params',
@@ -340,7 +341,7 @@ network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostnameResults
-network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = {
+network.mojom.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ResolveHostClient.OnHostnameResults_Params',
@@ -354,29 +355,29 @@ network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.ResolveHostClientPtr = network.mojom.ResolveHostClientRemote;
-network.mojom.ResolveHostClientRequest = network.mojom.ResolveHostClientPendingReceiver;
+network.mojom.mojom.ResolveHostClientPtr = network.mojom.mojom.ResolveHostClientRemote;
+network.mojom.mojom.ResolveHostClientRequest = network.mojom.mojom.ResolveHostClientPendingReceiver;
 
 
 // Interface: MdnsListenClient
-network.mojom.MdnsListenClient = {};
+network.mojom.mojom.MdnsListenClient = {};
 
-network.mojom.MdnsListenClientPendingReceiver = class {
+network.mojom.mojom.MdnsListenClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.MdnsListenClientRemote = class {
+network.mojom.mojom.MdnsListenClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.MdnsListenClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.MdnsListenClientPendingReceiver,
+      network.mojom.mojom.MdnsListenClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.MdnsListenClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.MdnsListenClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -388,7 +389,7 @@ network.mojom.MdnsListenClientRemote = class {
   }
 };
 
-network.mojom.MdnsListenClientRemoteCallHandler = class {
+network.mojom.mojom.MdnsListenClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -397,7 +398,7 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec,
+      network.mojom.mojom.MdnsListenClient_OnAddressResult_ParamsSpec,
       null,
       [update_type, query_type, endpoint]);
   }
@@ -406,7 +407,7 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.MdnsListenClient_OnTextResult_ParamsSpec,
+      network.mojom.mojom.MdnsListenClient_OnTextResult_ParamsSpec,
       null,
       [update_type, query_type, text_records]);
   }
@@ -415,7 +416,7 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec,
+      network.mojom.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec,
       null,
       [update_type, query_type, host]);
   }
@@ -424,15 +425,15 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec,
+      network.mojom.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec,
       null,
       [update_type, query_type]);
   }
 
 };
 
-network.mojom.MdnsListenClient.getRemote = function() {
-  let remote = new network.mojom.MdnsListenClientRemote();
+network.mojom.mojom.MdnsListenClient.getRemote = function() {
+  let remote = new network.mojom.mojom.MdnsListenClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -442,15 +443,15 @@ network.mojom.MdnsListenClient.getRemote = function() {
 };
 
 // ParamsSpec for OnAddressResult
-network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = {
+network.mojom.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MdnsListenClient.OnAddressResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 4, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'endpoint', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
+        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'query_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'endpoint', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -458,15 +459,15 @@ network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = {
 };
 
 // ParamsSpec for OnTextResult
-network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = {
+network.mojom.mojom.MdnsListenClient_OnTextResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MdnsListenClient.OnTextResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 4, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'text_records', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'query_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'text_records', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -474,15 +475,15 @@ network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostnameResult
-network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = {
+network.mojom.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MdnsListenClient.OnHostnameResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 4, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
+        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'query_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -490,7 +491,7 @@ network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = {
 };
 
 // ParamsSpec for OnUnhandledResult
-network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = {
+network.mojom.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.MdnsListenClient.OnUnhandledResult_Params',
@@ -505,29 +506,29 @@ network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.MdnsListenClientPtr = network.mojom.MdnsListenClientRemote;
-network.mojom.MdnsListenClientRequest = network.mojom.MdnsListenClientPendingReceiver;
+network.mojom.mojom.MdnsListenClientPtr = network.mojom.mojom.MdnsListenClientRemote;
+network.mojom.mojom.MdnsListenClientRequest = network.mojom.mojom.MdnsListenClientPendingReceiver;
 
 
 // Interface: HostResolver
-network.mojom.HostResolver = {};
+network.mojom.mojom.HostResolver = {};
 
-network.mojom.HostResolverPendingReceiver = class {
+network.mojom.mojom.HostResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.HostResolverRemote = class {
+network.mojom.mojom.HostResolverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.HostResolver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.HostResolverPendingReceiver,
+      network.mojom.mojom.HostResolverPendingReceiver,
       handle);
-    this.$ = new network.mojom.HostResolverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.HostResolverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -539,7 +540,7 @@ network.mojom.HostResolverRemote = class {
   }
 };
 
-network.mojom.HostResolverRemoteCallHandler = class {
+network.mojom.mojom.HostResolverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -548,7 +549,7 @@ network.mojom.HostResolverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.HostResolver_ResolveHost_ParamsSpec,
+      network.mojom.mojom.HostResolver_ResolveHost_ParamsSpec,
       null,
       [host, network_anonymization_key, optional_parameters, response_client]);
   }
@@ -557,15 +558,15 @@ network.mojom.HostResolverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.HostResolver_MdnsListen_ParamsSpec,
-      network.mojom.HostResolver_MdnsListen_ResponseParamsSpec,
+      network.mojom.mojom.HostResolver_MdnsListen_ParamsSpec,
+      network.mojom.mojom.HostResolver_MdnsListen_ResponseParamsSpec,
       [host, query_type, response_client]);
   }
 
 };
 
-network.mojom.HostResolver.getRemote = function() {
-  let remote = new network.mojom.HostResolverRemote();
+network.mojom.mojom.HostResolver.getRemote = function() {
+  let remote = new network.mojom.mojom.HostResolverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -575,7 +576,7 @@ network.mojom.HostResolver.getRemote = function() {
 };
 
 // ParamsSpec for ResolveHost
-network.mojom.HostResolver_ResolveHost_ParamsSpec = {
+network.mojom.mojom.HostResolver_ResolveHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HostResolver.ResolveHost_Params',
@@ -592,7 +593,7 @@ network.mojom.HostResolver_ResolveHost_ParamsSpec = {
 };
 
 // ParamsSpec for MdnsListen
-network.mojom.HostResolver_MdnsListen_ParamsSpec = {
+network.mojom.mojom.HostResolver_MdnsListen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HostResolver.MdnsListen_Params',
@@ -607,7 +608,7 @@ network.mojom.HostResolver_MdnsListen_ParamsSpec = {
   }
 };
 
-network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = {
+network.mojom.mojom.HostResolver_MdnsListen_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.HostResolver.MdnsListen_ResponseParams',
@@ -621,29 +622,29 @@ network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.HostResolverPtr = network.mojom.HostResolverRemote;
-network.mojom.HostResolverRequest = network.mojom.HostResolverPendingReceiver;
+network.mojom.mojom.HostResolverPtr = network.mojom.mojom.HostResolverRemote;
+network.mojom.mojom.HostResolverRequest = network.mojom.mojom.HostResolverPendingReceiver;
 
 
 // Interface: DnsConfigChangeManagerClient
-network.mojom.DnsConfigChangeManagerClient = {};
+network.mojom.mojom.DnsConfigChangeManagerClient = {};
 
-network.mojom.DnsConfigChangeManagerClientPendingReceiver = class {
+network.mojom.mojom.DnsConfigChangeManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.DnsConfigChangeManagerClientRemote = class {
+network.mojom.mojom.DnsConfigChangeManagerClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.DnsConfigChangeManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.DnsConfigChangeManagerClientPendingReceiver,
+      network.mojom.mojom.DnsConfigChangeManagerClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.DnsConfigChangeManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.DnsConfigChangeManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -655,7 +656,7 @@ network.mojom.DnsConfigChangeManagerClientRemote = class {
   }
 };
 
-network.mojom.DnsConfigChangeManagerClientRemoteCallHandler = class {
+network.mojom.mojom.DnsConfigChangeManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -664,15 +665,15 @@ network.mojom.DnsConfigChangeManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec,
+      network.mojom.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec,
       null,
       []);
   }
 
 };
 
-network.mojom.DnsConfigChangeManagerClient.getRemote = function() {
-  let remote = new network.mojom.DnsConfigChangeManagerClientRemote();
+network.mojom.mojom.DnsConfigChangeManagerClient.getRemote = function() {
+  let remote = new network.mojom.mojom.DnsConfigChangeManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -682,7 +683,7 @@ network.mojom.DnsConfigChangeManagerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnDnsConfigChanged
-network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = {
+network.mojom.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DnsConfigChangeManagerClient.OnDnsConfigChanged_Params',
@@ -695,29 +696,29 @@ network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.DnsConfigChangeManagerClientPtr = network.mojom.DnsConfigChangeManagerClientRemote;
-network.mojom.DnsConfigChangeManagerClientRequest = network.mojom.DnsConfigChangeManagerClientPendingReceiver;
+network.mojom.mojom.DnsConfigChangeManagerClientPtr = network.mojom.mojom.DnsConfigChangeManagerClientRemote;
+network.mojom.mojom.DnsConfigChangeManagerClientRequest = network.mojom.mojom.DnsConfigChangeManagerClientPendingReceiver;
 
 
 // Interface: DnsConfigChangeManager
-network.mojom.DnsConfigChangeManager = {};
+network.mojom.mojom.DnsConfigChangeManager = {};
 
-network.mojom.DnsConfigChangeManagerPendingReceiver = class {
+network.mojom.mojom.DnsConfigChangeManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.DnsConfigChangeManagerRemote = class {
+network.mojom.mojom.DnsConfigChangeManagerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.DnsConfigChangeManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.DnsConfigChangeManagerPendingReceiver,
+      network.mojom.mojom.DnsConfigChangeManagerPendingReceiver,
       handle);
-    this.$ = new network.mojom.DnsConfigChangeManagerRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.DnsConfigChangeManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -729,7 +730,7 @@ network.mojom.DnsConfigChangeManagerRemote = class {
   }
 };
 
-network.mojom.DnsConfigChangeManagerRemoteCallHandler = class {
+network.mojom.mojom.DnsConfigChangeManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -738,15 +739,15 @@ network.mojom.DnsConfigChangeManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec,
+      network.mojom.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec,
       null,
       [client]);
   }
 
 };
 
-network.mojom.DnsConfigChangeManager.getRemote = function() {
-  let remote = new network.mojom.DnsConfigChangeManagerRemote();
+network.mojom.mojom.DnsConfigChangeManager.getRemote = function() {
+  let remote = new network.mojom.mojom.DnsConfigChangeManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -756,7 +757,7 @@ network.mojom.DnsConfigChangeManager.getRemote = function() {
 };
 
 // ParamsSpec for RequestNotifications
-network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = {
+network.mojom.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DnsConfigChangeManager.RequestNotifications_Params',
@@ -770,6 +771,6 @@ network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.DnsConfigChangeManagerPtr = network.mojom.DnsConfigChangeManagerRemote;
-network.mojom.DnsConfigChangeManagerRequest = network.mojom.DnsConfigChangeManagerPendingReceiver;
+network.mojom.mojom.DnsConfigChangeManagerPtr = network.mojom.mojom.DnsConfigChangeManagerRemote;
+network.mojom.mojom.DnsConfigChangeManagerRequest = network.mojom.mojom.DnsConfigChangeManagerPendingReceiver;
 

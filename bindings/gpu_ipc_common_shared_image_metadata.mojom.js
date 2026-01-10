@@ -7,10 +7,16 @@
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var skia = skia || {};
+var skia = skia || {};
 
 
 // Struct: SharedImageMetadata
-gpu.mojom.SharedImageMetadataSpec = {
+gpu.mojom.mojom.SharedImageMetadataSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.SharedImageMetadata',

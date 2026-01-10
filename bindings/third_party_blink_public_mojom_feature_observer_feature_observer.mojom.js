@@ -10,31 +10,31 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ObservedFeatureType
-blink.mojom.ObservedFeatureType = {
+blink.mojom.mojom.ObservedFeatureType = {
   kWebLock: 0,
   kBlockingIndexedDBLock: 1,
 };
-blink.mojom.ObservedFeatureTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ObservedFeatureTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: ObservedFeature
-blink.mojom.ObservedFeature = {};
+blink.mojom.mojom.ObservedFeature = {};
 
-blink.mojom.ObservedFeaturePendingReceiver = class {
+blink.mojom.mojom.ObservedFeaturePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ObservedFeatureRemote = class {
+blink.mojom.mojom.ObservedFeatureRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ObservedFeature';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ObservedFeaturePendingReceiver,
+      blink.mojom.mojom.ObservedFeaturePendingReceiver,
       handle);
-    this.$ = new blink.mojom.ObservedFeatureRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.ObservedFeatureRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -46,15 +46,15 @@ blink.mojom.ObservedFeatureRemote = class {
   }
 };
 
-blink.mojom.ObservedFeatureRemoteCallHandler = class {
+blink.mojom.mojom.ObservedFeatureRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
 
 };
 
-blink.mojom.ObservedFeature.getRemote = function() {
-  let remote = new blink.mojom.ObservedFeatureRemote();
+blink.mojom.mojom.ObservedFeature.getRemote = function() {
+  let remote = new blink.mojom.mojom.ObservedFeatureRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -64,29 +64,29 @@ blink.mojom.ObservedFeature.getRemote = function() {
 };
 
 // Legacy compatibility
-blink.mojom.ObservedFeaturePtr = blink.mojom.ObservedFeatureRemote;
-blink.mojom.ObservedFeatureRequest = blink.mojom.ObservedFeaturePendingReceiver;
+blink.mojom.mojom.ObservedFeaturePtr = blink.mojom.mojom.ObservedFeatureRemote;
+blink.mojom.mojom.ObservedFeatureRequest = blink.mojom.mojom.ObservedFeaturePendingReceiver;
 
 
 // Interface: FeatureObserver
-blink.mojom.FeatureObserver = {};
+blink.mojom.mojom.FeatureObserver = {};
 
-blink.mojom.FeatureObserverPendingReceiver = class {
+blink.mojom.mojom.FeatureObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FeatureObserverRemote = class {
+blink.mojom.mojom.FeatureObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FeatureObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FeatureObserverPendingReceiver,
+      blink.mojom.mojom.FeatureObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.FeatureObserverRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.FeatureObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -98,7 +98,7 @@ blink.mojom.FeatureObserverRemote = class {
   }
 };
 
-blink.mojom.FeatureObserverRemoteCallHandler = class {
+blink.mojom.mojom.FeatureObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -107,15 +107,15 @@ blink.mojom.FeatureObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.FeatureObserver_Register_ParamsSpec,
+      blink.mojom.mojom.FeatureObserver_Register_ParamsSpec,
       null,
       [feature, type]);
   }
 
 };
 
-blink.mojom.FeatureObserver.getRemote = function() {
-  let remote = new blink.mojom.FeatureObserverRemote();
+blink.mojom.mojom.FeatureObserver.getRemote = function() {
+  let remote = new blink.mojom.mojom.FeatureObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -125,7 +125,7 @@ blink.mojom.FeatureObserver.getRemote = function() {
 };
 
 // ParamsSpec for Register
-blink.mojom.FeatureObserver_Register_ParamsSpec = {
+blink.mojom.mojom.FeatureObserver_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FeatureObserver.Register_Params',
@@ -140,6 +140,6 @@ blink.mojom.FeatureObserver_Register_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.FeatureObserverPtr = blink.mojom.FeatureObserverRemote;
-blink.mojom.FeatureObserverRequest = blink.mojom.FeatureObserverPendingReceiver;
+blink.mojom.mojom.FeatureObserverPtr = blink.mojom.mojom.FeatureObserverRemote;
+blink.mojom.mojom.FeatureObserverRequest = blink.mojom.mojom.FeatureObserverPendingReceiver;
 

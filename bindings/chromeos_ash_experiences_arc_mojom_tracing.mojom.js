@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: TracingInstance
-arc.mojom.TracingInstance = {};
+arc.mojom.mojom.TracingInstance = {};
 
-arc.mojom.TracingInstancePendingReceiver = class {
+arc.mojom.mojom.TracingInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.TracingInstanceRemote = class {
+arc.mojom.mojom.TracingInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.TracingInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.TracingInstancePendingReceiver,
+      arc.mojom.mojom.TracingInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.TracingInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.TracingInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.TracingInstanceRemote = class {
   }
 };
 
-arc.mojom.TracingInstanceRemoteCallHandler = class {
+arc.mojom.mojom.TracingInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ arc.mojom.TracingInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec,
-      arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec,
+      arc.mojom.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec,
+      arc.mojom.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec,
       []);
   }
 
@@ -57,8 +57,8 @@ arc.mojom.TracingInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.TracingInstance_StartTracing_ParamsSpec,
-      arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec,
+      arc.mojom.mojom.TracingInstance_StartTracing_ParamsSpec,
+      arc.mojom.mojom.TracingInstance_StartTracing_ResponseParamsSpec,
       [categories, socket]);
   }
 
@@ -66,15 +66,15 @@ arc.mojom.TracingInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.TracingInstance_StopTracing_ParamsSpec,
-      arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec,
+      arc.mojom.mojom.TracingInstance_StopTracing_ParamsSpec,
+      arc.mojom.mojom.TracingInstance_StopTracing_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.TracingInstance.getRemote = function() {
-  let remote = new arc.mojom.TracingInstanceRemote();
+arc.mojom.mojom.TracingInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.TracingInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ arc.mojom.TracingInstance.getRemote = function() {
 };
 
 // ParamsSpec for QueryAvailableCategories
-arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec = {
+arc.mojom.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TracingInstance.QueryAvailableCategories_Params',
@@ -96,7 +96,7 @@ arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec = {
   }
 };
 
-arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec = {
+arc.mojom.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TracingInstance.QueryAvailableCategories_ResponseParams',
@@ -110,7 +110,7 @@ arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartTracing
-arc.mojom.TracingInstance_StartTracing_ParamsSpec = {
+arc.mojom.mojom.TracingInstance_StartTracing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TracingInstance.StartTracing_Params',
@@ -124,7 +124,7 @@ arc.mojom.TracingInstance_StartTracing_ParamsSpec = {
   }
 };
 
-arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec = {
+arc.mojom.mojom.TracingInstance_StartTracing_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TracingInstance.StartTracing_ResponseParams',
@@ -138,7 +138,7 @@ arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StopTracing
-arc.mojom.TracingInstance_StopTracing_ParamsSpec = {
+arc.mojom.mojom.TracingInstance_StopTracing_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TracingInstance.StopTracing_Params',
@@ -150,7 +150,7 @@ arc.mojom.TracingInstance_StopTracing_ParamsSpec = {
   }
 };
 
-arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec = {
+arc.mojom.mojom.TracingInstance_StopTracing_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TracingInstance.StopTracing_ResponseParams',
@@ -164,6 +164,6 @@ arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.TracingInstancePtr = arc.mojom.TracingInstanceRemote;
-arc.mojom.TracingInstanceRequest = arc.mojom.TracingInstancePendingReceiver;
+arc.mojom.mojom.TracingInstancePtr = arc.mojom.mojom.TracingInstanceRemote;
+arc.mojom.mojom.TracingInstanceRequest = arc.mojom.mojom.TracingInstancePendingReceiver;
 

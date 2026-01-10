@@ -7,18 +7,21 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
 
 
 // Enum: AppShimLaunchType
-chrome.mojom.AppShimLaunchType = {
+chrome.mojom.mojom.AppShimLaunchType = {
   kRegisterOnly: 0,
   kNormal: 1,
   kNotificationAction: 2,
 };
-chrome.mojom.AppShimLaunchTypeSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.AppShimLaunchTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppShimLaunchResult
-chrome.mojom.AppShimLaunchResult = {
+chrome.mojom.mojom.AppShimLaunchResult = {
   kSuccess: 0,
   kSuccessAndDisconnect: 1,
   kDuplicateHost: 2,
@@ -27,32 +30,32 @@ chrome.mojom.AppShimLaunchResult = {
   kProfileLocked: 5,
   kFailedValidation: 6,
 };
-chrome.mojom.AppShimLaunchResultSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.AppShimLaunchResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppShimAttentionType
-chrome.mojom.AppShimAttentionType = {
+chrome.mojom.mojom.AppShimAttentionType = {
   kCancel: 0,
   kCritical: 1,
 };
-chrome.mojom.AppShimAttentionTypeSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.AppShimAttentionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppShimLoginItemRestoreState
-chrome.mojom.AppShimLoginItemRestoreState = {
+chrome.mojom.mojom.AppShimLoginItemRestoreState = {
   kNone: 0,
   kWindowed: 1,
   kHidden: 2,
 };
-chrome.mojom.AppShimLoginItemRestoreStateSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.AppShimLoginItemRestoreStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppShimScreenReaderSupportMode
-chrome.mojom.AppShimScreenReaderSupportMode = {
+chrome.mojom.mojom.AppShimScreenReaderSupportMode = {
   kPartial: 0,
   kComplete: 1,
 };
-chrome.mojom.AppShimScreenReaderSupportModeSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.AppShimScreenReaderSupportModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProfileMenuItem
-chrome.mojom.ProfileMenuItemSpec = {
+chrome.mojom.mojom.ProfileMenuItemSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ProfileMenuItem',
@@ -60,9 +63,9 @@ chrome.mojom.ProfileMenuItemSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
         { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-        { name: 'menu_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'active', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'profile_path', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'menu_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'active', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'profile_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -70,7 +73,7 @@ chrome.mojom.ProfileMenuItemSpec = {
 };
 
 // Struct: ApplicationDockMenuItem
-chrome.mojom.ApplicationDockMenuItemSpec = {
+chrome.mojom.mojom.ApplicationDockMenuItemSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ApplicationDockMenuItem',
@@ -85,7 +88,7 @@ chrome.mojom.ApplicationDockMenuItemSpec = {
 };
 
 // Struct: AppShimInfo
-chrome.mojom.AppShimInfoSpec = {
+chrome.mojom.mojom.AppShimInfoSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimInfo',
@@ -94,10 +97,10 @@ chrome.mojom.AppShimInfoSpec = {
         { name: 'profile_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
         { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'app_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'launch_type', packedOffset: 24, packedBitOffset: 0, type: chrome.mojom.AppShimLaunchTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'files', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-        { name: 'login_item_restore_state', packedOffset: 28, packedBitOffset: 0, type: chrome.mojom.AppShimLoginItemRestoreStateSpec, nullable: false, minVersion: 0 },
-        { name: 'urls', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+        { name: 'launch_type', packedOffset: 40, packedBitOffset: 0, type: chrome.mojom.AppShimLaunchTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
+        { name: 'login_item_restore_state', packedOffset: 44, packedBitOffset: 0, type: chrome.mojom.AppShimLoginItemRestoreStateSpec, nullable: false, minVersion: 0 },
+        { name: 'urls', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
         { name: 'notification_action_handler', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
@@ -106,7 +109,7 @@ chrome.mojom.AppShimInfoSpec = {
 };
 
 // Struct: FeatureState
-chrome.mojom.FeatureStateSpec = {
+chrome.mojom.mojom.FeatureStateSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.FeatureState',
@@ -123,24 +126,24 @@ chrome.mojom.FeatureStateSpec = {
 };
 
 // Interface: AppShim
-chrome.mojom.AppShim = {};
+chrome.mojom.mojom.AppShim = {};
 
-chrome.mojom.AppShimPendingReceiver = class {
+chrome.mojom.mojom.AppShimPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.AppShimRemote = class {
+chrome.mojom.mojom.AppShimRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.AppShim';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.AppShimPendingReceiver,
+      chrome.mojom.mojom.AppShimPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.AppShimRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.AppShimRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -152,7 +155,7 @@ chrome.mojom.AppShimRemote = class {
   }
 };
 
-chrome.mojom.AppShimRemoteCallHandler = class {
+chrome.mojom.mojom.AppShimRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -161,7 +164,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec,
+      chrome.mojom.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec,
       null,
       [application]);
   }
@@ -170,7 +173,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec,
+      chrome.mojom.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec,
       null,
       [widget_id]);
   }
@@ -179,7 +182,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.AppShim_SetUserAttention_ParamsSpec,
+      chrome.mojom.mojom.AppShim_SetUserAttention_ParamsSpec,
       null,
       [attention_type]);
   }
@@ -188,7 +191,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec,
+      chrome.mojom.mojom.AppShim_SetBadgeLabel_ParamsSpec,
       null,
       [badge_label]);
   }
@@ -197,7 +200,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec,
+      chrome.mojom.mojom.AppShim_UpdateProfileMenu_ParamsSpec,
       null,
       [profile_menu_items]);
   }
@@ -206,7 +209,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec,
+      chrome.mojom.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec,
       null,
       [dock_menu_items]);
   }
@@ -215,7 +218,7 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec,
+      chrome.mojom.mojom.AppShim_BindNotificationProvider_ParamsSpec,
       null,
       [provider]);
   }
@@ -224,8 +227,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec,
-      chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec,
+      chrome.mojom.mojom.AppShim_RequestNotificationPermission_ParamsSpec,
+      chrome.mojom.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec,
       []);
   }
 
@@ -233,15 +236,15 @@ chrome.mojom.AppShimRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec,
+      chrome.mojom.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-chrome.mojom.AppShim.getRemote = function() {
-  let remote = new chrome.mojom.AppShimRemote();
+chrome.mojom.mojom.AppShim.getRemote = function() {
+  let remote = new chrome.mojom.mojom.AppShimRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -251,7 +254,7 @@ chrome.mojom.AppShim.getRemote = function() {
 };
 
 // ParamsSpec for CreateRemoteCocoaApplication
-chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec = {
+chrome.mojom.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.CreateRemoteCocoaApplication_Params',
@@ -265,7 +268,7 @@ chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec = {
 };
 
 // ParamsSpec for CreateCommandDispatcherForWidget
-chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec = {
+chrome.mojom.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.CreateCommandDispatcherForWidget_Params',
@@ -279,7 +282,7 @@ chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec = {
 };
 
 // ParamsSpec for SetUserAttention
-chrome.mojom.AppShim_SetUserAttention_ParamsSpec = {
+chrome.mojom.mojom.AppShim_SetUserAttention_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.SetUserAttention_Params',
@@ -293,7 +296,7 @@ chrome.mojom.AppShim_SetUserAttention_ParamsSpec = {
 };
 
 // ParamsSpec for SetBadgeLabel
-chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec = {
+chrome.mojom.mojom.AppShim_SetBadgeLabel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.SetBadgeLabel_Params',
@@ -307,7 +310,7 @@ chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateProfileMenu
-chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec = {
+chrome.mojom.mojom.AppShim_UpdateProfileMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.UpdateProfileMenu_Params',
@@ -321,7 +324,7 @@ chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateApplicationDockMenu
-chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec = {
+chrome.mojom.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.UpdateApplicationDockMenu_Params',
@@ -335,7 +338,7 @@ chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec = {
 };
 
 // ParamsSpec for BindNotificationProvider
-chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec = {
+chrome.mojom.mojom.AppShim_BindNotificationProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.BindNotificationProvider_Params',
@@ -349,7 +352,7 @@ chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec = {
 };
 
 // ParamsSpec for RequestNotificationPermission
-chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec = {
+chrome.mojom.mojom.AppShim_RequestNotificationPermission_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.RequestNotificationPermission_Params',
@@ -361,7 +364,7 @@ chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec = {
   }
 };
 
-chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = {
+chrome.mojom.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.RequestNotificationPermission_ResponseParams',
@@ -375,7 +378,7 @@ chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BindChildHistogramFetcherFactory
-chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = {
+chrome.mojom.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShim.BindChildHistogramFetcherFactory_Params',
@@ -389,29 +392,29 @@ chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.AppShimPtr = chrome.mojom.AppShimRemote;
-chrome.mojom.AppShimRequest = chrome.mojom.AppShimPendingReceiver;
+chrome.mojom.mojom.AppShimPtr = chrome.mojom.mojom.AppShimRemote;
+chrome.mojom.mojom.AppShimRequest = chrome.mojom.mojom.AppShimPendingReceiver;
 
 
 // Interface: AppShimHost
-chrome.mojom.AppShimHost = {};
+chrome.mojom.mojom.AppShimHost = {};
 
-chrome.mojom.AppShimHostPendingReceiver = class {
+chrome.mojom.mojom.AppShimHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.AppShimHostRemote = class {
+chrome.mojom.mojom.AppShimHostRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.AppShimHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.AppShimHostPendingReceiver,
+      chrome.mojom.mojom.AppShimHostPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.AppShimHostRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.AppShimHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -423,7 +426,7 @@ chrome.mojom.AppShimHostRemote = class {
   }
 };
 
-chrome.mojom.AppShimHostRemoteCallHandler = class {
+chrome.mojom.mojom.AppShimHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -432,7 +435,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.AppShimHost_FocusApp_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_FocusApp_ParamsSpec,
       null,
       []);
   }
@@ -441,7 +444,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.AppShimHost_ReopenApp_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_ReopenApp_ParamsSpec,
       null,
       []);
   }
@@ -450,7 +453,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      chrome.mojom.AppShimHost_FilesOpened_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_FilesOpened_ParamsSpec,
       null,
       [files]);
   }
@@ -459,7 +462,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec,
       null,
       [profile_path]);
   }
@@ -468,7 +471,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_OpenAppSettings_ParamsSpec,
       null,
       []);
   }
@@ -477,7 +480,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_UrlsOpened_ParamsSpec,
       null,
       [urls]);
   }
@@ -486,7 +489,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec,
       null,
       [override_url]);
   }
@@ -495,7 +498,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec,
       null,
       [mode]);
   }
@@ -504,7 +507,7 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec,
       null,
       []);
   }
@@ -513,15 +516,15 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec,
+      chrome.mojom.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec,
       null,
       [status]);
   }
 
 };
 
-chrome.mojom.AppShimHost.getRemote = function() {
-  let remote = new chrome.mojom.AppShimHostRemote();
+chrome.mojom.mojom.AppShimHost.getRemote = function() {
+  let remote = new chrome.mojom.mojom.AppShimHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -531,7 +534,7 @@ chrome.mojom.AppShimHost.getRemote = function() {
 };
 
 // ParamsSpec for FocusApp
-chrome.mojom.AppShimHost_FocusApp_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_FocusApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.FocusApp_Params',
@@ -544,7 +547,7 @@ chrome.mojom.AppShimHost_FocusApp_ParamsSpec = {
 };
 
 // ParamsSpec for ReopenApp
-chrome.mojom.AppShimHost_ReopenApp_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_ReopenApp_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.ReopenApp_Params',
@@ -557,7 +560,7 @@ chrome.mojom.AppShimHost_ReopenApp_ParamsSpec = {
 };
 
 // ParamsSpec for FilesOpened
-chrome.mojom.AppShimHost_FilesOpened_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_FilesOpened_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.FilesOpened_Params',
@@ -571,7 +574,7 @@ chrome.mojom.AppShimHost_FilesOpened_ParamsSpec = {
 };
 
 // ParamsSpec for ProfileSelectedFromMenu
-chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.ProfileSelectedFromMenu_Params',
@@ -585,7 +588,7 @@ chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec = {
 };
 
 // ParamsSpec for OpenAppSettings
-chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_OpenAppSettings_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.OpenAppSettings_Params',
@@ -598,7 +601,7 @@ chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec = {
 };
 
 // ParamsSpec for UrlsOpened
-chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_UrlsOpened_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.UrlsOpened_Params',
@@ -612,7 +615,7 @@ chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec = {
 };
 
 // ParamsSpec for OpenAppWithOverrideUrl
-chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.OpenAppWithOverrideUrl_Params',
@@ -626,7 +629,7 @@ chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec = {
 };
 
 // ParamsSpec for EnableAccessibilitySupport
-chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.EnableAccessibilitySupport_Params',
@@ -640,7 +643,7 @@ chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec = {
 };
 
 // ParamsSpec for ApplicationWillTerminate
-chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.ApplicationWillTerminate_Params',
@@ -653,7 +656,7 @@ chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec = {
 };
 
 // ParamsSpec for NotificationPermissionStatusChanged
-chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec = {
+chrome.mojom.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHost.NotificationPermissionStatusChanged_Params',
@@ -667,29 +670,29 @@ chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.AppShimHostPtr = chrome.mojom.AppShimHostRemote;
-chrome.mojom.AppShimHostRequest = chrome.mojom.AppShimHostPendingReceiver;
+chrome.mojom.mojom.AppShimHostPtr = chrome.mojom.mojom.AppShimHostRemote;
+chrome.mojom.mojom.AppShimHostRequest = chrome.mojom.mojom.AppShimHostPendingReceiver;
 
 
 // Interface: AppShimHostBootstrap
-chrome.mojom.AppShimHostBootstrap = {};
+chrome.mojom.mojom.AppShimHostBootstrap = {};
 
-chrome.mojom.AppShimHostBootstrapPendingReceiver = class {
+chrome.mojom.mojom.AppShimHostBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.AppShimHostBootstrapRemote = class {
+chrome.mojom.mojom.AppShimHostBootstrapRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.AppShimHostBootstrap';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.AppShimHostBootstrapPendingReceiver,
+      chrome.mojom.mojom.AppShimHostBootstrapPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.AppShimHostBootstrapRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.AppShimHostBootstrapRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -701,7 +704,7 @@ chrome.mojom.AppShimHostBootstrapRemote = class {
   }
 };
 
-chrome.mojom.AppShimHostBootstrapRemoteCallHandler = class {
+chrome.mojom.mojom.AppShimHostBootstrapRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -710,15 +713,15 @@ chrome.mojom.AppShimHostBootstrapRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec,
-      chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec,
+      chrome.mojom.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec,
+      chrome.mojom.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec,
       [host_receiver, app_shim_info]);
   }
 
 };
 
-chrome.mojom.AppShimHostBootstrap.getRemote = function() {
-  let remote = new chrome.mojom.AppShimHostBootstrapRemote();
+chrome.mojom.mojom.AppShimHostBootstrap.getRemote = function() {
+  let remote = new chrome.mojom.mojom.AppShimHostBootstrapRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -728,29 +731,29 @@ chrome.mojom.AppShimHostBootstrap.getRemote = function() {
 };
 
 // ParamsSpec for OnShimConnected
-chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = {
+chrome.mojom.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHostBootstrap.OnShimConnected_Params',
       packedSize: 24,
       fields: [
-        { name: 'host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'app_shim_info', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.AppShimInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'host_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'app_shim_info', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.AppShimInfoSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = {
+chrome.mojom.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHostBootstrap.OnShimConnected_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'launch_result', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.AppShimLaunchResultSpec, nullable: false, minVersion: 0 },
-        { name: 'feature_state', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.FeatureStateSpec, nullable: false, minVersion: 0 },
-        { name: 'app_shim_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'launch_result', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.AppShimLaunchResultSpec, nullable: false, minVersion: 0 },
+        { name: 'feature_state', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.FeatureStateSpec, nullable: false, minVersion: 0 },
+        { name: 'app_shim_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -758,6 +761,6 @@ chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.AppShimHostBootstrapPtr = chrome.mojom.AppShimHostBootstrapRemote;
-chrome.mojom.AppShimHostBootstrapRequest = chrome.mojom.AppShimHostBootstrapPendingReceiver;
+chrome.mojom.mojom.AppShimHostBootstrapPtr = chrome.mojom.mojom.AppShimHostBootstrapRemote;
+chrome.mojom.mojom.AppShimHostBootstrapRequest = chrome.mojom.mojom.AppShimHostBootstrapPendingReceiver;
 

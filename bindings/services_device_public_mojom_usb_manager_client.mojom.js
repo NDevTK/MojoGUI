@@ -10,24 +10,24 @@ device.mojom = device.mojom || {};
 
 
 // Interface: UsbDeviceManagerClient
-device.mojom.UsbDeviceManagerClient = {};
+device.mojom.mojom.UsbDeviceManagerClient = {};
 
-device.mojom.UsbDeviceManagerClientPendingReceiver = class {
+device.mojom.mojom.UsbDeviceManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.UsbDeviceManagerClientRemote = class {
+device.mojom.mojom.UsbDeviceManagerClientRemote = class {
   static get $interfaceName() {
     return 'device.mojom.UsbDeviceManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.UsbDeviceManagerClientPendingReceiver,
+      device.mojom.mojom.UsbDeviceManagerClientPendingReceiver,
       handle);
-    this.$ = new device.mojom.UsbDeviceManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new device.mojom.mojom.UsbDeviceManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ device.mojom.UsbDeviceManagerClientRemote = class {
   }
 };
 
-device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
+device.mojom.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec,
+      device.mojom.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec,
       null,
       [device_info]);
   }
@@ -57,15 +57,15 @@ device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec,
+      device.mojom.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec,
       null,
       [device_info]);
   }
 
 };
 
-device.mojom.UsbDeviceManagerClient.getRemote = function() {
-  let remote = new device.mojom.UsbDeviceManagerClientRemote();
+device.mojom.mojom.UsbDeviceManagerClient.getRemote = function() {
+  let remote = new device.mojom.mojom.UsbDeviceManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ device.mojom.UsbDeviceManagerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnDeviceAdded
-device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = {
+device.mojom.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManagerClient.OnDeviceAdded_Params',
@@ -89,7 +89,7 @@ device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = {
 };
 
 // ParamsSpec for OnDeviceRemoved
-device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = {
+device.mojom.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.UsbDeviceManagerClient.OnDeviceRemoved_Params',
@@ -103,6 +103,6 @@ device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = {
 };
 
 // Legacy compatibility
-device.mojom.UsbDeviceManagerClientPtr = device.mojom.UsbDeviceManagerClientRemote;
-device.mojom.UsbDeviceManagerClientRequest = device.mojom.UsbDeviceManagerClientPendingReceiver;
+device.mojom.mojom.UsbDeviceManagerClientPtr = device.mojom.mojom.UsbDeviceManagerClientRemote;
+device.mojom.mojom.UsbDeviceManagerClientRequest = device.mojom.mojom.UsbDeviceManagerClientPendingReceiver;
 

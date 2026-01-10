@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: ObbMounterHost
-arc.mojom.ObbMounterHost = {};
+arc.mojom.mojom.ObbMounterHost = {};
 
-arc.mojom.ObbMounterHostPendingReceiver = class {
+arc.mojom.mojom.ObbMounterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ObbMounterHostRemote = class {
+arc.mojom.mojom.ObbMounterHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ObbMounterHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ObbMounterHostPendingReceiver,
+      arc.mojom.mojom.ObbMounterHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.ObbMounterHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ObbMounterHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.ObbMounterHostRemote = class {
   }
 };
 
-arc.mojom.ObbMounterHostRemoteCallHandler = class {
+arc.mojom.mojom.ObbMounterHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ arc.mojom.ObbMounterHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.ObbMounterHost_MountObb_ParamsSpec,
-      arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec,
+      arc.mojom.mojom.ObbMounterHost_MountObb_ParamsSpec,
+      arc.mojom.mojom.ObbMounterHost_MountObb_ResponseParamsSpec,
       [obb_file, target_path, owner_gid]);
   }
 
@@ -57,15 +57,15 @@ arc.mojom.ObbMounterHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec,
-      arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec,
+      arc.mojom.mojom.ObbMounterHost_UnmountObb_ParamsSpec,
+      arc.mojom.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec,
       [target_path]);
   }
 
 };
 
-arc.mojom.ObbMounterHost.getRemote = function() {
-  let remote = new arc.mojom.ObbMounterHostRemote();
+arc.mojom.mojom.ObbMounterHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.ObbMounterHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ arc.mojom.ObbMounterHost.getRemote = function() {
 };
 
 // ParamsSpec for MountObb
-arc.mojom.ObbMounterHost_MountObb_ParamsSpec = {
+arc.mojom.mojom.ObbMounterHost_MountObb_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ObbMounterHost.MountObb_Params',
@@ -90,7 +90,7 @@ arc.mojom.ObbMounterHost_MountObb_ParamsSpec = {
   }
 };
 
-arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec = {
+arc.mojom.mojom.ObbMounterHost_MountObb_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ObbMounterHost.MountObb_ResponseParams',
@@ -104,7 +104,7 @@ arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec = {
 };
 
 // ParamsSpec for UnmountObb
-arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec = {
+arc.mojom.mojom.ObbMounterHost_UnmountObb_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ObbMounterHost.UnmountObb_Params',
@@ -117,7 +117,7 @@ arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec = {
   }
 };
 
-arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec = {
+arc.mojom.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ObbMounterHost.UnmountObb_ResponseParams',
@@ -131,29 +131,29 @@ arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ObbMounterHostPtr = arc.mojom.ObbMounterHostRemote;
-arc.mojom.ObbMounterHostRequest = arc.mojom.ObbMounterHostPendingReceiver;
+arc.mojom.mojom.ObbMounterHostPtr = arc.mojom.mojom.ObbMounterHostRemote;
+arc.mojom.mojom.ObbMounterHostRequest = arc.mojom.mojom.ObbMounterHostPendingReceiver;
 
 
 // Interface: ObbMounterInstance
-arc.mojom.ObbMounterInstance = {};
+arc.mojom.mojom.ObbMounterInstance = {};
 
-arc.mojom.ObbMounterInstancePendingReceiver = class {
+arc.mojom.mojom.ObbMounterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ObbMounterInstanceRemote = class {
+arc.mojom.mojom.ObbMounterInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ObbMounterInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ObbMounterInstancePendingReceiver,
+      arc.mojom.mojom.ObbMounterInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.ObbMounterInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ObbMounterInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -165,7 +165,7 @@ arc.mojom.ObbMounterInstanceRemote = class {
   }
 };
 
-arc.mojom.ObbMounterInstanceRemoteCallHandler = class {
+arc.mojom.mojom.ObbMounterInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -174,15 +174,15 @@ arc.mojom.ObbMounterInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.ObbMounterInstance_Init_ParamsSpec,
+      arc.mojom.mojom.ObbMounterInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.ObbMounterInstance.getRemote = function() {
-  let remote = new arc.mojom.ObbMounterInstanceRemote();
+arc.mojom.mojom.ObbMounterInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.ObbMounterInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -192,7 +192,7 @@ arc.mojom.ObbMounterInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.ObbMounterInstance_Init_ParamsSpec = {
+arc.mojom.mojom.ObbMounterInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ObbMounterInstance.Init_Params',
@@ -206,6 +206,6 @@ arc.mojom.ObbMounterInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ObbMounterInstancePtr = arc.mojom.ObbMounterInstanceRemote;
-arc.mojom.ObbMounterInstanceRequest = arc.mojom.ObbMounterInstancePendingReceiver;
+arc.mojom.mojom.ObbMounterInstancePtr = arc.mojom.mojom.ObbMounterInstanceRemote;
+arc.mojom.mojom.ObbMounterInstanceRequest = arc.mojom.mojom.ObbMounterInstancePendingReceiver;
 

@@ -9,47 +9,47 @@ var network = network || {};
 network.mojom = network.mojom || {};
 
 
-network.mojom.kURLLoadOptionNone = 0;
+network.mojom.mojom.kURLLoadOptionNone = 0;
 
-network.mojom.kURLLoadOptionSendSSLInfoWithResponse = 1;
+network.mojom.mojom.kURLLoadOptionSendSSLInfoWithResponse = 1;
 
-network.mojom.kURLLoadOptionSniffMimeType = 2;
+network.mojom.mojom.kURLLoadOptionSniffMimeType = 2;
 
-network.mojom.kURLLoadOptionSynchronous = 4;
+network.mojom.mojom.kURLLoadOptionSynchronous = 4;
 
-network.mojom.kURLLoadOptionSendSSLInfoForCertificateError = 8;
+network.mojom.mojom.kURLLoadOptionSendSSLInfoForCertificateError = 8;
 
-network.mojom.kURLLoadOptionUseHeaderClient = 16;
+network.mojom.mojom.kURLLoadOptionUseHeaderClient = 16;
 
-network.mojom.kURLLoadOptionBlockAllCookies = 32;
+network.mojom.mojom.kURLLoadOptionBlockAllCookies = 32;
 
-network.mojom.kURLLoadOptionBlockThirdPartyCookies = 64;
+network.mojom.mojom.kURLLoadOptionBlockThirdPartyCookies = 64;
 
-network.mojom.kURLLoadOptionAsCorsPreflight = 128;
+network.mojom.mojom.kURLLoadOptionAsCorsPreflight = 128;
 
-network.mojom.kURLLoadOptionBlockLocalRequest = 256;
+network.mojom.mojom.kURLLoadOptionBlockLocalRequest = 256;
 
-network.mojom.kURLLoadOptionReadAndDiscardBody = 512;
+network.mojom.mojom.kURLLoadOptionReadAndDiscardBody = 512;
 
 // Interface: URLLoaderFactory
-network.mojom.URLLoaderFactory = {};
+network.mojom.mojom.URLLoaderFactory = {};
 
-network.mojom.URLLoaderFactoryPendingReceiver = class {
+network.mojom.mojom.URLLoaderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.URLLoaderFactoryRemote = class {
+network.mojom.mojom.URLLoaderFactoryRemote = class {
   static get $interfaceName() {
     return 'network.mojom.URLLoaderFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.URLLoaderFactoryPendingReceiver,
+      network.mojom.mojom.URLLoaderFactoryPendingReceiver,
       handle);
-    this.$ = new network.mojom.URLLoaderFactoryRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.URLLoaderFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -61,7 +61,7 @@ network.mojom.URLLoaderFactoryRemote = class {
   }
 };
 
-network.mojom.URLLoaderFactoryRemoteCallHandler = class {
+network.mojom.mojom.URLLoaderFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -70,7 +70,7 @@ network.mojom.URLLoaderFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec,
+      network.mojom.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec,
       null,
       [loader, request_id, options, request, client, traffic_annotation]);
   }
@@ -79,15 +79,15 @@ network.mojom.URLLoaderFactoryRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.URLLoaderFactory_Clone_ParamsSpec,
+      network.mojom.mojom.URLLoaderFactory_Clone_ParamsSpec,
       null,
       [factory]);
   }
 
 };
 
-network.mojom.URLLoaderFactory.getRemote = function() {
-  let remote = new network.mojom.URLLoaderFactoryRemote();
+network.mojom.mojom.URLLoaderFactory.getRemote = function() {
+  let remote = new network.mojom.mojom.URLLoaderFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -97,18 +97,18 @@ network.mojom.URLLoaderFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateLoaderAndStart
-network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = {
+network.mojom.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderFactory.CreateLoaderAndStart_Params',
       packedSize: 40,
       fields: [
-        { name: 'loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'request_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 24, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
+        { name: 'loader', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'request_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -116,7 +116,7 @@ network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = {
 };
 
 // ParamsSpec for Clone
-network.mojom.URLLoaderFactory_Clone_ParamsSpec = {
+network.mojom.mojom.URLLoaderFactory_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderFactory.Clone_Params',
@@ -130,6 +130,6 @@ network.mojom.URLLoaderFactory_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.URLLoaderFactoryPtr = network.mojom.URLLoaderFactoryRemote;
-network.mojom.URLLoaderFactoryRequest = network.mojom.URLLoaderFactoryPendingReceiver;
+network.mojom.mojom.URLLoaderFactoryPtr = network.mojom.mojom.URLLoaderFactoryRemote;
+network.mojom.mojom.URLLoaderFactoryRequest = network.mojom.mojom.URLLoaderFactoryPendingReceiver;
 

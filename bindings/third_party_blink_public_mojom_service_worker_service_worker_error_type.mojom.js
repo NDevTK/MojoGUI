@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: ServiceWorkerErrorType
-blink.mojom.ServiceWorkerErrorType = {
+blink.mojom.mojom.ServiceWorkerErrorType = {
   kNone: 0,
   kAbort: 1,
   kActivate: 2,
@@ -26,10 +26,10 @@ blink.mojom.ServiceWorkerErrorType = {
   kType: 12,
   kUnknown: 13,
 };
-blink.mojom.ServiceWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ServiceWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerResponseError
-blink.mojom.ServiceWorkerResponseError = {
+blink.mojom.mojom.ServiceWorkerResponseError = {
   kUnknown: 0,
   kPromiseRejected: 1,
   kDefaultPrevented: 2,
@@ -48,4 +48,4 @@ blink.mojom.ServiceWorkerResponseError = {
   kDisallowedByCorp: 15,
   kRequestBodyUnusable: 16,
 };
-blink.mojom.ServiceWorkerResponseErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ServiceWorkerResponseErrorSpec = { $: mojo.internal.Enum() };

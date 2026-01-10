@@ -7,10 +7,12 @@
 // Module namespace
 var safe_browsing = safe_browsing || {};
 safe_browsing.mojom = safe_browsing.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Enum: PhishingDetectorResult
-safe_browsing.mojom.PhishingDetectorResult = {
+safe_browsing.mojom.mojom.PhishingDetectorResult = {
   SUCCESS: 0,
   CLASSIFIER_NOT_READY: 1,
   CANCELLED: 2,
@@ -23,10 +25,10 @@ safe_browsing.mojom.PhishingDetectorResult = {
   TERM_EXTRACTION_FAILED: 9,
   VISUAL_EXTRACTION_FAILED: 10,
 };
-safe_browsing.mojom.PhishingDetectorResultSpec = { $: mojo.internal.Enum() };
+safe_browsing.mojom.mojom.PhishingDetectorResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClientSideDetectionType
-safe_browsing.mojom.ClientSideDetectionType = {
+safe_browsing.mojom.mojom.ClientSideDetectionType = {
   kForceRequest: 0,
   kTriggerModels: 1,
   kNotificationPermissionPrompt: 2,
@@ -39,34 +41,34 @@ safe_browsing.mojom.ClientSideDetectionType = {
   kCreditCardForm: 9,
   kImageEmbeddingMatch: 10,
 };
-safe_browsing.mojom.ClientSideDetectionTypeSpec = { $: mojo.internal.Enum() };
+safe_browsing.mojom.mojom.ClientSideDetectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PhishingImageEmbeddingResult
-safe_browsing.mojom.PhishingImageEmbeddingResult = {
+safe_browsing.mojom.mojom.PhishingImageEmbeddingResult = {
   kSuccess: 0,
   kImageEmbedderNotReady: 1,
   kCancelled: 2,
   kForwardBackTransition: 3,
   kFailed: 4,
 };
-safe_browsing.mojom.PhishingImageEmbeddingResultSpec = { $: mojo.internal.Enum() };
+safe_browsing.mojom.mojom.PhishingImageEmbeddingResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebRequestProtocolType
-safe_browsing.mojom.WebRequestProtocolType = {
+safe_browsing.mojom.mojom.WebRequestProtocolType = {
   kHttpHttps: 0,
   kWebSocket: 1,
 };
-safe_browsing.mojom.WebRequestProtocolTypeSpec = { $: mojo.internal.Enum() };
+safe_browsing.mojom.mojom.WebRequestProtocolTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebRequestContactInitiatorType
-safe_browsing.mojom.WebRequestContactInitiatorType = {
+safe_browsing.mojom.mojom.WebRequestContactInitiatorType = {
   kExtension: 0,
   kContentScript: 1,
 };
-safe_browsing.mojom.WebRequestContactInitiatorTypeSpec = { $: mojo.internal.Enum() };
+safe_browsing.mojom.mojom.WebRequestContactInitiatorTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AttributeNameValue
-safe_browsing.mojom.AttributeNameValueSpec = {
+safe_browsing.mojom.mojom.AttributeNameValueSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.AttributeNameValue',
@@ -81,22 +83,22 @@ safe_browsing.mojom.AttributeNameValueSpec = {
 };
 
 // Struct: ThreatDOMDetailsNode
-safe_browsing.mojom.ThreatDOMDetailsNodeSpec = {
+safe_browsing.mojom.mojom.ThreatDOMDetailsNodeSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.ThreatDOMDetailsNode',
       packedSize: 88,
       fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'tag_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parent', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'parent_node_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'children', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'child_node_ids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'attributes', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(safe_browsing.mojom.AttributeNameValueSpec, false), nullable: false, minVersion: 0 },
-        { name: 'child_frame_token', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'inner_html', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'node_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'tag_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'parent', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'parent_node_id', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'children', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+        { name: 'child_node_ids', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
+        { name: 'attributes', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(safe_browsing.mojom.AttributeNameValueSpec, false), nullable: false, minVersion: 0 },
+        { name: 'child_frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FrameTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'inner_html', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }
@@ -104,24 +106,24 @@ safe_browsing.mojom.ThreatDOMDetailsNodeSpec = {
 };
 
 // Interface: SafeBrowsing
-safe_browsing.mojom.SafeBrowsing = {};
+safe_browsing.mojom.mojom.SafeBrowsing = {};
 
-safe_browsing.mojom.SafeBrowsingPendingReceiver = class {
+safe_browsing.mojom.mojom.SafeBrowsingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.SafeBrowsingRemote = class {
+safe_browsing.mojom.mojom.SafeBrowsingRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.SafeBrowsing';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.SafeBrowsingPendingReceiver,
+      safe_browsing.mojom.mojom.SafeBrowsingPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.SafeBrowsingRemoteCallHandler(this.proxy);
+    this.$ = new safe_browsing.mojom.mojom.SafeBrowsingRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -133,7 +135,7 @@ safe_browsing.mojom.SafeBrowsingRemote = class {
   }
 };
 
-safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
+safe_browsing.mojom.mojom.SafeBrowsingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -142,8 +144,8 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec,
-      safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec,
+      safe_browsing.mojom.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec,
+      safe_browsing.mojom.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec,
       [frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker]);
   }
 
@@ -151,15 +153,15 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec,
+      safe_browsing.mojom.mojom.SafeBrowsing_Clone_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-safe_browsing.mojom.SafeBrowsing.getRemote = function() {
-  let remote = new safe_browsing.mojom.SafeBrowsingRemote();
+safe_browsing.mojom.mojom.SafeBrowsing.getRemote = function() {
+  let remote = new safe_browsing.mojom.mojom.SafeBrowsingRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -169,18 +171,18 @@ safe_browsing.mojom.SafeBrowsing.getRemote = function() {
 };
 
 // ParamsSpec for CreateCheckerAndCheck
-safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = {
+safe_browsing.mojom.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.SafeBrowsing.CreateCheckerAndCheck_Params',
       packedSize: 56,
       fields: [
         { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'method', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 32, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'load_flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'method', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'load_flags', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'has_user_gesture', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'originated_from_service_worker', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
@@ -189,7 +191,7 @@ safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = {
   }
 };
 
-safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = {
+safe_browsing.mojom.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.SafeBrowsing.CreateCheckerAndCheck_ResponseParams',
@@ -204,7 +206,7 @@ safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Clone
-safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec = {
+safe_browsing.mojom.mojom.SafeBrowsing_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.SafeBrowsing.Clone_Params',
@@ -218,29 +220,29 @@ safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-safe_browsing.mojom.SafeBrowsingPtr = safe_browsing.mojom.SafeBrowsingRemote;
-safe_browsing.mojom.SafeBrowsingRequest = safe_browsing.mojom.SafeBrowsingPendingReceiver;
+safe_browsing.mojom.mojom.SafeBrowsingPtr = safe_browsing.mojom.mojom.SafeBrowsingRemote;
+safe_browsing.mojom.mojom.SafeBrowsingRequest = safe_browsing.mojom.mojom.SafeBrowsingPendingReceiver;
 
 
 // Interface: ThreatReporter
-safe_browsing.mojom.ThreatReporter = {};
+safe_browsing.mojom.mojom.ThreatReporter = {};
 
-safe_browsing.mojom.ThreatReporterPendingReceiver = class {
+safe_browsing.mojom.mojom.ThreatReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.ThreatReporterRemote = class {
+safe_browsing.mojom.mojom.ThreatReporterRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.ThreatReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.ThreatReporterPendingReceiver,
+      safe_browsing.mojom.mojom.ThreatReporterPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.ThreatReporterRemoteCallHandler(this.proxy);
+    this.$ = new safe_browsing.mojom.mojom.ThreatReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -252,7 +254,7 @@ safe_browsing.mojom.ThreatReporterRemote = class {
   }
 };
 
-safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
+safe_browsing.mojom.mojom.ThreatReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -261,15 +263,15 @@ safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec,
-      safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec,
+      safe_browsing.mojom.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec,
+      safe_browsing.mojom.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec,
       []);
   }
 
 };
 
-safe_browsing.mojom.ThreatReporter.getRemote = function() {
-  let remote = new safe_browsing.mojom.ThreatReporterRemote();
+safe_browsing.mojom.mojom.ThreatReporter.getRemote = function() {
+  let remote = new safe_browsing.mojom.mojom.ThreatReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -279,7 +281,7 @@ safe_browsing.mojom.ThreatReporter.getRemote = function() {
 };
 
 // ParamsSpec for GetThreatDOMDetails
-safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = {
+safe_browsing.mojom.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.ThreatReporter.GetThreatDOMDetails_Params',
@@ -291,7 +293,7 @@ safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = {
   }
 };
 
-safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = {
+safe_browsing.mojom.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.ThreatReporter.GetThreatDOMDetails_ResponseParams',
@@ -305,29 +307,29 @@ safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-safe_browsing.mojom.ThreatReporterPtr = safe_browsing.mojom.ThreatReporterRemote;
-safe_browsing.mojom.ThreatReporterRequest = safe_browsing.mojom.ThreatReporterPendingReceiver;
+safe_browsing.mojom.mojom.ThreatReporterPtr = safe_browsing.mojom.mojom.ThreatReporterRemote;
+safe_browsing.mojom.mojom.ThreatReporterRequest = safe_browsing.mojom.mojom.ThreatReporterPendingReceiver;
 
 
 // Interface: PhishingDetector
-safe_browsing.mojom.PhishingDetector = {};
+safe_browsing.mojom.mojom.PhishingDetector = {};
 
-safe_browsing.mojom.PhishingDetectorPendingReceiver = class {
+safe_browsing.mojom.mojom.PhishingDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.PhishingDetectorRemote = class {
+safe_browsing.mojom.mojom.PhishingDetectorRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.PhishingDetector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.PhishingDetectorPendingReceiver,
+      safe_browsing.mojom.mojom.PhishingDetectorPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.PhishingDetectorRemoteCallHandler(this.proxy);
+    this.$ = new safe_browsing.mojom.mojom.PhishingDetectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -339,7 +341,7 @@ safe_browsing.mojom.PhishingDetectorRemote = class {
   }
 };
 
-safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
+safe_browsing.mojom.mojom.PhishingDetectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -348,15 +350,15 @@ safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec,
-      safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec,
+      safe_browsing.mojom.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec,
+      safe_browsing.mojom.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec,
       [url, request_type]);
   }
 
 };
 
-safe_browsing.mojom.PhishingDetector.getRemote = function() {
-  let remote = new safe_browsing.mojom.PhishingDetectorRemote();
+safe_browsing.mojom.mojom.PhishingDetector.getRemote = function() {
+  let remote = new safe_browsing.mojom.mojom.PhishingDetectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -366,7 +368,7 @@ safe_browsing.mojom.PhishingDetector.getRemote = function() {
 };
 
 // ParamsSpec for StartPhishingDetection
-safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = {
+safe_browsing.mojom.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingDetector.StartPhishingDetection_Params',
@@ -380,14 +382,14 @@ safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = {
   }
 };
 
-safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec = {
+safe_browsing.mojom.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingDetector.StartPhishingDetection_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: safe_browsing.mojom.PhishingDetectorResultSpec, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: safe_browsing.mojom.PhishingDetectorResultSpec, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -395,29 +397,29 @@ safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-safe_browsing.mojom.PhishingDetectorPtr = safe_browsing.mojom.PhishingDetectorRemote;
-safe_browsing.mojom.PhishingDetectorRequest = safe_browsing.mojom.PhishingDetectorPendingReceiver;
+safe_browsing.mojom.mojom.PhishingDetectorPtr = safe_browsing.mojom.mojom.PhishingDetectorRemote;
+safe_browsing.mojom.mojom.PhishingDetectorRequest = safe_browsing.mojom.mojom.PhishingDetectorPendingReceiver;
 
 
 // Interface: PhishingModelSetter
-safe_browsing.mojom.PhishingModelSetter = {};
+safe_browsing.mojom.mojom.PhishingModelSetter = {};
 
-safe_browsing.mojom.PhishingModelSetterPendingReceiver = class {
+safe_browsing.mojom.mojom.PhishingModelSetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterRemote = class {
+safe_browsing.mojom.mojom.PhishingModelSetterRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.PhishingModelSetter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.PhishingModelSetterPendingReceiver,
+      safe_browsing.mojom.mojom.PhishingModelSetterPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.PhishingModelSetterRemoteCallHandler(this.proxy);
+    this.$ = new safe_browsing.mojom.mojom.PhishingModelSetterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -429,7 +431,7 @@ safe_browsing.mojom.PhishingModelSetterRemote = class {
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
+safe_browsing.mojom.mojom.PhishingModelSetterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -438,7 +440,7 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec,
+      safe_browsing.mojom.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec,
       null,
       [region, tflite_model, image_embedding_model]);
   }
@@ -447,7 +449,7 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
+      safe_browsing.mojom.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
       null,
       [image_embedding_model]);
   }
@@ -456,7 +458,7 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
+      safe_browsing.mojom.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
       null,
       [region, tflite_model]);
   }
@@ -465,7 +467,7 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
+      safe_browsing.mojom.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
       null,
       []);
   }
@@ -474,15 +476,15 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
+      safe_browsing.mojom.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-safe_browsing.mojom.PhishingModelSetter.getRemote = function() {
-  let remote = new safe_browsing.mojom.PhishingModelSetterRemote();
+safe_browsing.mojom.mojom.PhishingModelSetter.getRemote = function() {
+  let remote = new safe_browsing.mojom.mojom.PhishingModelSetterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -492,7 +494,7 @@ safe_browsing.mojom.PhishingModelSetter.getRemote = function() {
 };
 
 // ParamsSpec for SetImageEmbeddingAndPhishingFlatBufferModel
-safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec = {
+safe_browsing.mojom.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingModelSetter.SetImageEmbeddingAndPhishingFlatBufferModel_Params',
@@ -508,7 +510,7 @@ safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferMo
 };
 
 // ParamsSpec for AttachImageEmbeddingModel
-safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = {
+safe_browsing.mojom.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingModelSetter.AttachImageEmbeddingModel_Params',
@@ -522,7 +524,7 @@ safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = {
 };
 
 // ParamsSpec for SetPhishingFlatBufferModel
-safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = {
+safe_browsing.mojom.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingModelSetter.SetPhishingFlatBufferModel_Params',
@@ -537,7 +539,7 @@ safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = 
 };
 
 // ParamsSpec for ClearScorer
-safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = {
+safe_browsing.mojom.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingModelSetter.ClearScorer_Params',
@@ -550,7 +552,7 @@ safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = {
 };
 
 // ParamsSpec for SetTestObserver
-safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = {
+safe_browsing.mojom.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingModelSetter.SetTestObserver_Params',
@@ -564,29 +566,29 @@ safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = {
 };
 
 // Legacy compatibility
-safe_browsing.mojom.PhishingModelSetterPtr = safe_browsing.mojom.PhishingModelSetterRemote;
-safe_browsing.mojom.PhishingModelSetterRequest = safe_browsing.mojom.PhishingModelSetterPendingReceiver;
+safe_browsing.mojom.mojom.PhishingModelSetterPtr = safe_browsing.mojom.mojom.PhishingModelSetterRemote;
+safe_browsing.mojom.mojom.PhishingModelSetterRequest = safe_browsing.mojom.mojom.PhishingModelSetterPendingReceiver;
 
 
 // Interface: PhishingModelSetterTestObserver
-safe_browsing.mojom.PhishingModelSetterTestObserver = {};
+safe_browsing.mojom.mojom.PhishingModelSetterTestObserver = {};
 
-safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver = class {
+safe_browsing.mojom.mojom.PhishingModelSetterTestObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterTestObserverRemote = class {
+safe_browsing.mojom.mojom.PhishingModelSetterTestObserverRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.PhishingModelSetterTestObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver,
+      safe_browsing.mojom.mojom.PhishingModelSetterTestObserverPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler(this.proxy);
+    this.$ = new safe_browsing.mojom.mojom.PhishingModelSetterTestObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -598,7 +600,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemote = class {
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
+safe_browsing.mojom.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -607,15 +609,15 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec,
+      safe_browsing.mojom.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec,
       null,
       []);
   }
 
 };
 
-safe_browsing.mojom.PhishingModelSetterTestObserver.getRemote = function() {
-  let remote = new safe_browsing.mojom.PhishingModelSetterTestObserverRemote();
+safe_browsing.mojom.mojom.PhishingModelSetterTestObserver.getRemote = function() {
+  let remote = new safe_browsing.mojom.mojom.PhishingModelSetterTestObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -625,7 +627,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserver.getRemote = function() {
 };
 
 // ParamsSpec for PhishingModelUpdated
-safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec = {
+safe_browsing.mojom.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingModelSetterTestObserver.PhishingModelUpdated_Params',
@@ -638,29 +640,29 @@ safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsS
 };
 
 // Legacy compatibility
-safe_browsing.mojom.PhishingModelSetterTestObserverPtr = safe_browsing.mojom.PhishingModelSetterTestObserverRemote;
-safe_browsing.mojom.PhishingModelSetterTestObserverRequest = safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver;
+safe_browsing.mojom.mojom.PhishingModelSetterTestObserverPtr = safe_browsing.mojom.mojom.PhishingModelSetterTestObserverRemote;
+safe_browsing.mojom.mojom.PhishingModelSetterTestObserverRequest = safe_browsing.mojom.mojom.PhishingModelSetterTestObserverPendingReceiver;
 
 
 // Interface: PhishingImageEmbedderDetector
-safe_browsing.mojom.PhishingImageEmbedderDetector = {};
+safe_browsing.mojom.mojom.PhishingImageEmbedderDetector = {};
 
-safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver = class {
+safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.PhishingImageEmbedderDetectorRemote = class {
+safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.PhishingImageEmbedderDetector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver,
+      safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler(this.proxy);
+    this.$ = new safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -672,7 +674,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemote = class {
   }
 };
 
-safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
+safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -681,15 +683,15 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec,
-      safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec,
+      safe_browsing.mojom.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec,
+      safe_browsing.mojom.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec,
       [url]);
   }
 
 };
 
-safe_browsing.mojom.PhishingImageEmbedderDetector.getRemote = function() {
-  let remote = new safe_browsing.mojom.PhishingImageEmbedderDetectorRemote();
+safe_browsing.mojom.mojom.PhishingImageEmbedderDetector.getRemote = function() {
+  let remote = new safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -699,7 +701,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetector.getRemote = function() {
 };
 
 // ParamsSpec for StartImageEmbedding
-safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec = {
+safe_browsing.mojom.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingImageEmbedderDetector.StartImageEmbedding_Params',
@@ -712,14 +714,14 @@ safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec
   }
 };
 
-safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec = {
+safe_browsing.mojom.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.PhishingImageEmbedderDetector.StartImageEmbedding_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: safe_browsing.mojom.PhishingImageEmbeddingResultSpec, nullable: false, minVersion: 0 },
-        { name: 'image_embedding_request', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: safe_browsing.mojom.PhishingImageEmbeddingResultSpec, nullable: false, minVersion: 0 },
+        { name: 'image_embedding_request', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -727,29 +729,29 @@ safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponsePa
 };
 
 // Legacy compatibility
-safe_browsing.mojom.PhishingImageEmbedderDetectorPtr = safe_browsing.mojom.PhishingImageEmbedderDetectorRemote;
-safe_browsing.mojom.PhishingImageEmbedderDetectorRequest = safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver;
+safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorPtr = safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorRemote;
+safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorRequest = safe_browsing.mojom.mojom.PhishingImageEmbedderDetectorPendingReceiver;
 
 
 // Interface: ExtensionWebRequestReporter
-safe_browsing.mojom.ExtensionWebRequestReporter = {};
+safe_browsing.mojom.mojom.ExtensionWebRequestReporter = {};
 
-safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver = class {
+safe_browsing.mojom.mojom.ExtensionWebRequestReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.ExtensionWebRequestReporterRemote = class {
+safe_browsing.mojom.mojom.ExtensionWebRequestReporterRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.ExtensionWebRequestReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver,
+      safe_browsing.mojom.mojom.ExtensionWebRequestReporterPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler(this.proxy);
+    this.$ = new safe_browsing.mojom.mojom.ExtensionWebRequestReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -761,7 +763,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemote = class {
   }
 };
 
-safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
+safe_browsing.mojom.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -770,7 +772,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec,
+      safe_browsing.mojom.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec,
       null,
       [origin_extension_id, telemetry_url, protocol_type, contact_initiator_type]);
   }
@@ -779,15 +781,15 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec,
+      safe_browsing.mojom.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec,
       null,
       [receiver]);
   }
 
 };
 
-safe_browsing.mojom.ExtensionWebRequestReporter.getRemote = function() {
-  let remote = new safe_browsing.mojom.ExtensionWebRequestReporterRemote();
+safe_browsing.mojom.mojom.ExtensionWebRequestReporter.getRemote = function() {
+  let remote = new safe_browsing.mojom.mojom.ExtensionWebRequestReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -797,7 +799,7 @@ safe_browsing.mojom.ExtensionWebRequestReporter.getRemote = function() {
 };
 
 // ParamsSpec for SendWebRequestData
-safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = {
+safe_browsing.mojom.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.ExtensionWebRequestReporter.SendWebRequestData_Params',
@@ -814,7 +816,7 @@ safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = 
 };
 
 // ParamsSpec for Clone
-safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = {
+safe_browsing.mojom.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'safe_browsing.mojom.ExtensionWebRequestReporter.Clone_Params',
@@ -828,6 +830,6 @@ safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-safe_browsing.mojom.ExtensionWebRequestReporterPtr = safe_browsing.mojom.ExtensionWebRequestReporterRemote;
-safe_browsing.mojom.ExtensionWebRequestReporterRequest = safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver;
+safe_browsing.mojom.mojom.ExtensionWebRequestReporterPtr = safe_browsing.mojom.mojom.ExtensionWebRequestReporterRemote;
+safe_browsing.mojom.mojom.ExtensionWebRequestReporterRequest = safe_browsing.mojom.mojom.ExtensionWebRequestReporterPendingReceiver;
 

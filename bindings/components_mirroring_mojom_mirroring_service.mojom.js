@@ -7,33 +7,35 @@
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
-mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kMirroring;
+mirroring.mojom.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kMirroring;
 
-mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kHardwareVideoEncoding;
+mirroring.mojom.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kHardwareVideoEncoding;
 
-mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kService;
+mirroring.mojom.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kService;
 
 // Interface: MirroringService
-mirroring.mojom.MirroringService = {};
+mirroring.mojom.mojom.MirroringService = {};
 
-mirroring.mojom.MirroringServicePendingReceiver = class {
+mirroring.mojom.mojom.MirroringServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mirroring.mojom.MirroringServiceRemote = class {
+mirroring.mojom.mojom.MirroringServiceRemote = class {
   static get $interfaceName() {
     return 'mirroring.mojom.MirroringService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mirroring.mojom.MirroringServicePendingReceiver,
+      mirroring.mojom.mojom.MirroringServicePendingReceiver,
       handle);
-    this.$ = new mirroring.mojom.MirroringServiceRemoteCallHandler(this.proxy);
+    this.$ = new mirroring.mojom.mojom.MirroringServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -45,7 +47,7 @@ mirroring.mojom.MirroringServiceRemote = class {
   }
 };
 
-mirroring.mojom.MirroringServiceRemoteCallHandler = class {
+mirroring.mojom.mojom.MirroringServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -54,7 +56,7 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mirroring.mojom.MirroringService_Start_ParamsSpec,
+      mirroring.mojom.mojom.MirroringService_Start_ParamsSpec,
       null,
       [params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel]);
   }
@@ -63,7 +65,7 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec,
+      mirroring.mojom.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec,
       null,
       []);
   }
@@ -72,15 +74,15 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec,
-      mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
+      mirroring.mojom.mojom.MirroringService_GetMirroringStats_ParamsSpec,
+      mirroring.mojom.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
       []);
   }
 
 };
 
-mirroring.mojom.MirroringService.getRemote = function() {
-  let remote = new mirroring.mojom.MirroringServiceRemote();
+mirroring.mojom.mojom.MirroringService.getRemote = function() {
+  let remote = new mirroring.mojom.mojom.MirroringServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +92,7 @@ mirroring.mojom.MirroringService.getRemote = function() {
 };
 
 // ParamsSpec for Start
-mirroring.mojom.MirroringService_Start_ParamsSpec = {
+mirroring.mojom.mojom.MirroringService_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.MirroringService.Start_Params',
@@ -109,7 +111,7 @@ mirroring.mojom.MirroringService_Start_ParamsSpec = {
 };
 
 // ParamsSpec for SwitchMirroringSourceTab
-mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = {
+mirroring.mojom.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.MirroringService.SwitchMirroringSourceTab_Params',
@@ -122,7 +124,7 @@ mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = {
 };
 
 // ParamsSpec for GetMirroringStats
-mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
+mirroring.mojom.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.MirroringService.GetMirroringStats_Params',
@@ -134,7 +136,7 @@ mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
   }
 };
 
-mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
+mirroring.mojom.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.MirroringService.GetMirroringStats_ResponseParams',
@@ -148,6 +150,6 @@ mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-mirroring.mojom.MirroringServicePtr = mirroring.mojom.MirroringServiceRemote;
-mirroring.mojom.MirroringServiceRequest = mirroring.mojom.MirroringServicePendingReceiver;
+mirroring.mojom.mojom.MirroringServicePtr = mirroring.mojom.mojom.MirroringServiceRemote;
+mirroring.mojom.mojom.MirroringServiceRequest = mirroring.mojom.mojom.MirroringServicePendingReceiver;
 

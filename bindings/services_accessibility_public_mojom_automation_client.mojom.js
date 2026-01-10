@@ -7,27 +7,29 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var ui = ui || {};
+var ui = ui || {};
 
 
 // Interface: AutomationClient
-ax.mojom.AutomationClient = {};
+ax.mojom.mojom.AutomationClient = {};
 
-ax.mojom.AutomationClientPendingReceiver = class {
+ax.mojom.mojom.AutomationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ax.mojom.AutomationClientRemote = class {
+ax.mojom.mojom.AutomationClientRemote = class {
   static get $interfaceName() {
     return 'ax.mojom.AutomationClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ax.mojom.AutomationClientPendingReceiver,
+      ax.mojom.mojom.AutomationClientPendingReceiver,
       handle);
-    this.$ = new ax.mojom.AutomationClientRemoteCallHandler(this.proxy);
+    this.$ = new ax.mojom.mojom.AutomationClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ ax.mojom.AutomationClientRemote = class {
   }
 };
 
-ax.mojom.AutomationClientRemoteCallHandler = class {
+ax.mojom.mojom.AutomationClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +50,8 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ax.mojom.AutomationClient_Enable_ParamsSpec,
-      ax.mojom.AutomationClient_Enable_ResponseParamsSpec,
+      ax.mojom.mojom.AutomationClient_Enable_ParamsSpec,
+      ax.mojom.mojom.AutomationClient_Enable_ResponseParamsSpec,
       []);
   }
 
@@ -57,7 +59,7 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      ax.mojom.AutomationClient_Disable_ParamsSpec,
+      ax.mojom.mojom.AutomationClient_Disable_ParamsSpec,
       null,
       []);
   }
@@ -66,7 +68,7 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      ax.mojom.AutomationClient_EnableChildTree_ParamsSpec,
+      ax.mojom.mojom.AutomationClient_EnableChildTree_ParamsSpec,
       null,
       [tree_id]);
   }
@@ -75,15 +77,15 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      ax.mojom.AutomationClient_PerformAction_ParamsSpec,
+      ax.mojom.mojom.AutomationClient_PerformAction_ParamsSpec,
       null,
       [action_data]);
   }
 
 };
 
-ax.mojom.AutomationClient.getRemote = function() {
-  let remote = new ax.mojom.AutomationClientRemote();
+ax.mojom.mojom.AutomationClient.getRemote = function() {
+  let remote = new ax.mojom.mojom.AutomationClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,7 +95,7 @@ ax.mojom.AutomationClient.getRemote = function() {
 };
 
 // ParamsSpec for Enable
-ax.mojom.AutomationClient_Enable_ParamsSpec = {
+ax.mojom.mojom.AutomationClient_Enable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AutomationClient.Enable_Params',
@@ -105,7 +107,7 @@ ax.mojom.AutomationClient_Enable_ParamsSpec = {
   }
 };
 
-ax.mojom.AutomationClient_Enable_ResponseParamsSpec = {
+ax.mojom.mojom.AutomationClient_Enable_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AutomationClient.Enable_ResponseParams',
@@ -119,7 +121,7 @@ ax.mojom.AutomationClient_Enable_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Disable
-ax.mojom.AutomationClient_Disable_ParamsSpec = {
+ax.mojom.mojom.AutomationClient_Disable_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AutomationClient.Disable_Params',
@@ -132,7 +134,7 @@ ax.mojom.AutomationClient_Disable_ParamsSpec = {
 };
 
 // ParamsSpec for EnableChildTree
-ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
+ax.mojom.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AutomationClient.EnableChildTree_Params',
@@ -146,7 +148,7 @@ ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = {
 };
 
 // ParamsSpec for PerformAction
-ax.mojom.AutomationClient_PerformAction_ParamsSpec = {
+ax.mojom.mojom.AutomationClient_PerformAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AutomationClient.PerformAction_Params',
@@ -160,6 +162,6 @@ ax.mojom.AutomationClient_PerformAction_ParamsSpec = {
 };
 
 // Legacy compatibility
-ax.mojom.AutomationClientPtr = ax.mojom.AutomationClientRemote;
-ax.mojom.AutomationClientRequest = ax.mojom.AutomationClientPendingReceiver;
+ax.mojom.mojom.AutomationClientPtr = ax.mojom.mojom.AutomationClientRemote;
+ax.mojom.mojom.AutomationClientRequest = ax.mojom.mojom.AutomationClientPendingReceiver;
 

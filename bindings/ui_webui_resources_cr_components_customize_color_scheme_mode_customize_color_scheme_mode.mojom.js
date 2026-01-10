@@ -10,32 +10,32 @@ customize_color_scheme_mode.mojom = customize_color_scheme_mode.mojom || {};
 
 
 // Enum: ColorSchemeMode
-customize_color_scheme_mode.mojom.ColorSchemeMode = {
+customize_color_scheme_mode.mojom.mojom.ColorSchemeMode = {
   kSystem: 0,
   kLight: 1,
   kDark: 2,
 };
-customize_color_scheme_mode.mojom.ColorSchemeModeSpec = { $: mojo.internal.Enum() };
+customize_color_scheme_mode.mojom.mojom.ColorSchemeModeSpec = { $: mojo.internal.Enum() };
 
 // Interface: CustomizeColorSchemeModeHandlerFactory
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory = {};
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactory = {};
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryPendingReceiver = class {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemote = class {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryPendingReceiver,
+      customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -47,7 +47,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemote =
   }
 };
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCallHandler = class {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -56,15 +56,15 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCa
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec,
+      customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec,
       null,
       [pending_client, pending_handler]);
   }
 
 };
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.getRemote = function() {
-  let remote = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemote();
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactory.getRemote = function() {
+  let remote = new customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -74,7 +74,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.getRemo
 };
 
 // ParamsSpec for CreateCustomizeColorSchemeModeHandler
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec = {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.CreateCustomizeColorSchemeModeHandler_Params',
@@ -89,29 +89,29 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateC
 };
 
 // Legacy compatibility
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryPtr = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemote;
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRequest = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryPendingReceiver;
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryPtr = customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryRemote;
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryRequest = customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactoryPendingReceiver;
 
 
 // Interface: CustomizeColorSchemeModeHandler
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler = {};
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandler = {};
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPendingReceiver = class {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote = class {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerRemote = class {
   static get $interfaceName() {
     return 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPendingReceiver,
+      customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerPendingReceiver,
       handle);
-    this.$ = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandler(this.proxy);
+    this.$ = new customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -123,7 +123,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote = class 
   }
 };
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandler = class {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -132,7 +132,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec,
+      customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec,
       null,
       [colorSchemeMode]);
   }
@@ -141,15 +141,15 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec,
+      customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec,
       null,
       []);
   }
 
 };
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.getRemote = function() {
-  let remote = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote();
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandler.getRemote = function() {
+  let remote = new customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -159,7 +159,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.getRemote = fu
 };
 
 // ParamsSpec for SetColorSchemeMode
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec = {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.SetColorSchemeMode_Params',
@@ -173,7 +173,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorScheme
 };
 
 // ParamsSpec for InitializeColorSchemeMode
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec = {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.InitializeColorSchemeMode_Params',
@@ -186,29 +186,29 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColo
 };
 
 // Legacy compatibility
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPtr = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote;
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRequest = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPendingReceiver;
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerPtr = customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerRemote;
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerRequest = customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerPendingReceiver;
 
 
 // Interface: CustomizeColorSchemeModeClient
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient = {};
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClient = {};
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPendingReceiver = class {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote = class {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientRemote = class {
   static get $interfaceName() {
     return 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPendingReceiver,
+      customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientPendingReceiver,
       handle);
-    this.$ = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemoteCallHandler(this.proxy);
+    this.$ = new customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -220,7 +220,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote = class {
   }
 };
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemoteCallHandler = class {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -229,15 +229,15 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemoteCallHandle
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec,
+      customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec,
       null,
       [colorSchemeMode]);
   }
 
 };
 
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.getRemote = function() {
-  let remote = new customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote();
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClient.getRemote = function() {
+  let remote = new customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -247,7 +247,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.getRemote = fun
 };
 
 // ParamsSpec for SetColorSchemeMode
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec = {
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.SetColorSchemeMode_Params',
@@ -261,6 +261,6 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeM
 };
 
 // Legacy compatibility
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPtr = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote;
-customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRequest = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPendingReceiver;
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientPtr = customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientRemote;
+customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientRequest = customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeClientPendingReceiver;
 

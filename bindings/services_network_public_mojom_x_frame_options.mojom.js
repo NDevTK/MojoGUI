@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Enum: XFrameOptionsValue
-network.mojom.XFrameOptionsValue = {
+network.mojom.mojom.XFrameOptionsValue = {
   kNone: 0,
   kDeny: 1,
   kSameOrigin: 2,
@@ -18,4 +18,4 @@ network.mojom.XFrameOptionsValue = {
   kInvalid: 4,
   kConflict: 5,
 };
-network.mojom.XFrameOptionsValueSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.XFrameOptionsValueSpec = { $: mojo.internal.Enum() };

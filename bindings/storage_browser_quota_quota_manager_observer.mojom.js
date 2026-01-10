@@ -10,24 +10,24 @@ storage.mojom = storage.mojom || {};
 
 
 // Interface: QuotaManagerObserver
-storage.mojom.QuotaManagerObserver = {};
+storage.mojom.mojom.QuotaManagerObserver = {};
 
-storage.mojom.QuotaManagerObserverPendingReceiver = class {
+storage.mojom.mojom.QuotaManagerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-storage.mojom.QuotaManagerObserverRemote = class {
+storage.mojom.mojom.QuotaManagerObserverRemote = class {
   static get $interfaceName() {
     return 'storage.mojom.QuotaManagerObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      storage.mojom.QuotaManagerObserverPendingReceiver,
+      storage.mojom.mojom.QuotaManagerObserverPendingReceiver,
       handle);
-    this.$ = new storage.mojom.QuotaManagerObserverRemoteCallHandler(this.proxy);
+    this.$ = new storage.mojom.mojom.QuotaManagerObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ storage.mojom.QuotaManagerObserverRemote = class {
   }
 };
 
-storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
+storage.mojom.mojom.QuotaManagerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec,
+      storage.mojom.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec,
       null,
       [bucket_info]);
   }
@@ -57,15 +57,15 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec,
+      storage.mojom.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec,
       null,
       [bucket_locator]);
   }
 
 };
 
-storage.mojom.QuotaManagerObserver.getRemote = function() {
-  let remote = new storage.mojom.QuotaManagerObserverRemote();
+storage.mojom.mojom.QuotaManagerObserver.getRemote = function() {
+  let remote = new storage.mojom.mojom.QuotaManagerObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ storage.mojom.QuotaManagerObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnCreateOrUpdateBucket
-storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = {
+storage.mojom.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaManagerObserver.OnCreateOrUpdateBucket_Params',
@@ -89,7 +89,7 @@ storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = {
 };
 
 // ParamsSpec for OnDeleteBucket
-storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = {
+storage.mojom.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'storage.mojom.QuotaManagerObserver.OnDeleteBucket_Params',
@@ -103,6 +103,6 @@ storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = {
 };
 
 // Legacy compatibility
-storage.mojom.QuotaManagerObserverPtr = storage.mojom.QuotaManagerObserverRemote;
-storage.mojom.QuotaManagerObserverRequest = storage.mojom.QuotaManagerObserverPendingReceiver;
+storage.mojom.mojom.QuotaManagerObserverPtr = storage.mojom.mojom.QuotaManagerObserverRemote;
+storage.mojom.mojom.QuotaManagerObserverRequest = storage.mojom.mojom.QuotaManagerObserverPendingReceiver;
 

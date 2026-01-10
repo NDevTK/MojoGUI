@@ -7,28 +7,28 @@
 // Module namespace
 var sandbox = sandbox || {};
 sandbox.mac = sandbox.mac || {};
-sandbox.mac.mojom = sandbox.mac.mojom || {};
+sandbox.mac.mac.mojom = sandbox.mac.mac.mojom || {};
 
 
 // Interface: TraitsTestService
-sandbox.mac.mojom.TraitsTestService = {};
+sandbox.mac.mac.mojom.mojom.TraitsTestService = {};
 
-sandbox.mac.mojom.TraitsTestServicePendingReceiver = class {
+sandbox.mac.mac.mojom.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sandbox.mac.mojom.TraitsTestServiceRemote = class {
+sandbox.mac.mac.mojom.mojom.TraitsTestServiceRemote = class {
   static get $interfaceName() {
     return 'sandbox.mac.mojom.TraitsTestService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sandbox.mac.mojom.TraitsTestServicePendingReceiver,
+      sandbox.mac.mac.mojom.mojom.TraitsTestServicePendingReceiver,
       handle);
-    this.$ = new sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler(this.proxy);
+    this.$ = new sandbox.mac.mac.mojom.mojom.TraitsTestServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ sandbox.mac.mojom.TraitsTestServiceRemote = class {
   }
 };
 
-sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler = class {
+sandbox.mac.mac.mojom.mojom.TraitsTestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +49,15 @@ sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec,
-      sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec,
+      sandbox.mac.mac.mojom.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec,
+      sandbox.mac.mac.mojom.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec,
       [in]);
   }
 
 };
 
-sandbox.mac.mojom.TraitsTestService.getRemote = function() {
-  let remote = new sandbox.mac.mojom.TraitsTestServiceRemote();
+sandbox.mac.mac.mojom.mojom.TraitsTestService.getRemote = function() {
+  let remote = new sandbox.mac.mac.mojom.mojom.TraitsTestServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +67,7 @@ sandbox.mac.mojom.TraitsTestService.getRemote = function() {
 };
 
 // ParamsSpec for EchoSeatbeltExtensionToken
-sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
+sandbox.mac.mac.mojom.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'sandbox.mac.mojom.TraitsTestService.EchoSeatbeltExtensionToken_Params',
@@ -80,7 +80,7 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = {
   }
 };
 
-sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec = {
+sandbox.mac.mac.mojom.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'sandbox.mac.mojom.TraitsTestService.EchoSeatbeltExtensionToken_ResponseParams',
@@ -94,6 +94,6 @@ sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpe
 };
 
 // Legacy compatibility
-sandbox.mac.mojom.TraitsTestServicePtr = sandbox.mac.mojom.TraitsTestServiceRemote;
-sandbox.mac.mojom.TraitsTestServiceRequest = sandbox.mac.mojom.TraitsTestServicePendingReceiver;
+sandbox.mac.mac.mojom.mojom.TraitsTestServicePtr = sandbox.mac.mac.mojom.mojom.TraitsTestServiceRemote;
+sandbox.mac.mac.mojom.mojom.TraitsTestServiceRequest = sandbox.mac.mac.mojom.mojom.TraitsTestServicePendingReceiver;
 

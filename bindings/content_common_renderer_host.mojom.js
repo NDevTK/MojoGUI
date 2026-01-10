@@ -10,24 +10,24 @@ content.mojom = content.mojom || {};
 
 
 // Interface: RendererHost
-content.mojom.RendererHost = {};
+content.mojom.mojom.RendererHost = {};
 
-content.mojom.RendererHostPendingReceiver = class {
+content.mojom.mojom.RendererHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.RendererHostRemote = class {
+content.mojom.mojom.RendererHostRemote = class {
   static get $interfaceName() {
     return 'content.mojom.RendererHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.RendererHostPendingReceiver,
+      content.mojom.mojom.RendererHostPendingReceiver,
       handle);
-    this.$ = new content.mojom.RendererHostRemoteCallHandler(this.proxy);
+    this.$ = new content.mojom.mojom.RendererHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ content.mojom.RendererHostRemote = class {
   }
 };
 
-content.mojom.RendererHostRemoteCallHandler = class {
+content.mojom.mojom.RendererHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,8 +48,8 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec,
-      content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
+      content.mojom.mojom.RendererHost_GetBrowserHistogram_ParamsSpec,
+      content.mojom.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
       [name]);
   }
 
@@ -57,7 +57,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec,
+      content.mojom.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec,
       null,
       [allowed]);
   }
@@ -66,7 +66,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec,
+      content.mojom.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec,
       null,
       [action]);
   }
@@ -75,7 +75,7 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec,
+      content.mojom.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec,
       null,
       [private_memory_footprint_bytes]);
   }
@@ -84,15 +84,15 @@ content.mojom.RendererHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      content.mojom.RendererHost_HasGpuProcess_ParamsSpec,
-      content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
+      content.mojom.mojom.RendererHost_HasGpuProcess_ParamsSpec,
+      content.mojom.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
       []);
   }
 
 };
 
-content.mojom.RendererHost.getRemote = function() {
-  let remote = new content.mojom.RendererHostRemote();
+content.mojom.mojom.RendererHost.getRemote = function() {
+  let remote = new content.mojom.mojom.RendererHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -102,7 +102,7 @@ content.mojom.RendererHost.getRemote = function() {
 };
 
 // ParamsSpec for GetBrowserHistogram
-content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
+content.mojom.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererHost.GetBrowserHistogram_Params',
@@ -115,7 +115,7 @@ content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
   }
 };
 
-content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = {
+content.mojom.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererHost.GetBrowserHistogram_ResponseParams',
@@ -129,7 +129,7 @@ content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SuddenTerminationAllowedChanged
-content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = {
+content.mojom.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererHost.SuddenTerminationAllowedChanged_Params',
@@ -143,7 +143,7 @@ content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = {
 };
 
 // ParamsSpec for RecordUserMetricsAction
-content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = {
+content.mojom.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererHost.RecordUserMetricsAction_Params',
@@ -157,7 +157,7 @@ content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = {
 };
 
 // ParamsSpec for SetPrivateMemoryFootprint
-content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = {
+content.mojom.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererHost.SetPrivateMemoryFootprint_Params',
@@ -171,7 +171,7 @@ content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = {
 };
 
 // ParamsSpec for HasGpuProcess
-content.mojom.RendererHost_HasGpuProcess_ParamsSpec = {
+content.mojom.mojom.RendererHost_HasGpuProcess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererHost.HasGpuProcess_Params',
@@ -183,7 +183,7 @@ content.mojom.RendererHost_HasGpuProcess_ParamsSpec = {
   }
 };
 
-content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = {
+content.mojom.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.RendererHost.HasGpuProcess_ResponseParams',
@@ -197,6 +197,6 @@ content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-content.mojom.RendererHostPtr = content.mojom.RendererHostRemote;
-content.mojom.RendererHostRequest = content.mojom.RendererHostPendingReceiver;
+content.mojom.mojom.RendererHostPtr = content.mojom.mojom.RendererHostRemote;
+content.mojom.mojom.RendererHostRequest = content.mojom.mojom.RendererHostPendingReceiver;
 

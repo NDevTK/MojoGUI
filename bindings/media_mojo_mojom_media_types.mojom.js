@@ -7,28 +7,36 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: VideoRotation
-media.mojom.VideoRotation = {
+media.mojom.mojom.VideoRotation = {
   kVideoRotation0: 0,
   kVideoRotation90: 1,
   kVideoRotation180: 2,
   kVideoRotation270: 3,
 };
-media.mojom.VideoRotationSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.VideoRotationSpec = { $: mojo.internal.Enum() };
 
 // Enum: EncryptionType
-media.mojom.EncryptionType = {
+media.mojom.mojom.EncryptionType = {
   kNone: 0,
   kClear: 1,
   kEncrypted: 2,
   kEncryptedWithClearLead: 3,
 };
-media.mojom.EncryptionTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.EncryptionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SVCScalabilityMode
-media.mojom.SVCScalabilityMode = {
+media.mojom.mojom.SVCScalabilityMode = {
   kL1T1: 0,
   kL1T2: 1,
   kL1T3: 2,
@@ -67,52 +75,52 @@ media.mojom.SVCScalabilityMode = {
   kL3T2h: 35,
   kL3T3h: 36,
 };
-media.mojom.SVCScalabilityModeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.SVCScalabilityModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SVCInterLayerPredMode
-media.mojom.SVCInterLayerPredMode = {
+media.mojom.mojom.SVCInterLayerPredMode = {
   kOff: 0,
   kOn: 1,
   kOnKeyPic: 2,
 };
-media.mojom.SVCInterLayerPredModeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.SVCInterLayerPredModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-media.mojom.Type = {
+media.mojom.mojom.Type = {
   kDisplay: 0,
   kPixel: 1,
 };
-media.mojom.TypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CdmEvent
-media.mojom.CdmEvent = {
+media.mojom.mojom.CdmEvent = {
   kSignificantPlayback: 0,
   kPlaybackError: 1,
   kCdmError: 2,
   kHardwareContextReset: 3,
 };
-media.mojom.CdmEventSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.CdmEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: CdmSessionClosedReason
-media.mojom.CdmSessionClosedReason = {
+media.mojom.mojom.CdmSessionClosedReason = {
   kInternalError: 0,
   kClose: 1,
   kReleaseAcknowledged: 2,
   kHardwareContextReset: 3,
   kResourceEvicted: 4,
 };
-media.mojom.CdmSessionClosedReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.CdmSessionClosedReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: EffectState
-media.mojom.EffectState = {
+media.mojom.mojom.EffectState = {
   kUnknown: 0,
   kDisabled: 1,
   kEnabled: 2,
 };
-media.mojom.EffectStateSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.EffectStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaStreamType
-media.mojom.MediaStreamType = {
+media.mojom.mojom.MediaStreamType = {
   kLocalElementCapture: 0,
   kLocalDeviceCapture: 1,
   kLocalTabCapture: 2,
@@ -121,19 +129,19 @@ media.mojom.MediaStreamType = {
   kRemote: 5,
   kNone: 6,
 };
-media.mojom.MediaStreamTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.MediaStreamTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputStreamErrorCode
-media.mojom.InputStreamErrorCode = {
+media.mojom.mojom.InputStreamErrorCode = {
   kUnknown: 0,
   kSystemPermissions: 1,
   kDeviceInUse: 2,
   kSocketError: 3,
 };
-media.mojom.InputStreamErrorCodeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.InputStreamErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RendererType
-media.mojom.RendererType = {
+media.mojom.mojom.RendererType = {
   kRendererImpl: 0,
   kMojo: 1,
   kCourier: 2,
@@ -145,10 +153,10 @@ media.mojom.RendererType = {
   kContentEmbedderDefined: 8,
   kTest: 9,
 };
-media.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DemuxerType
-media.mojom.DemuxerType = {
+media.mojom.mojom.DemuxerType = {
   kUnknownDemuxer: 0,
   kMockDemuxer: 1,
   kFFmpegDemuxer: 2,
@@ -157,10 +165,10 @@ media.mojom.DemuxerType = {
   kStreamProviderDemuxer: 5,
   kManifestDemuxer: 6,
 };
-media.mojom.DemuxerTypeSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.DemuxerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateCdmStatus
-media.mojom.CreateCdmStatus = {
+media.mojom.mojom.CreateCdmStatus = {
   kSuccess: 0,
   kUnknownError: 1,
   kCdmCreationAborted: 2,
@@ -190,19 +198,19 @@ media.mojom.CreateCdmStatus = {
   kAndroidFailedMediaCryptoCreate: 26,
   kAndroidUnsupportedMediaCryptoScheme: 27,
 };
-media.mojom.CreateCdmStatusSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.CreateCdmStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutoPipReason
-media.mojom.AutoPipReason = {
+media.mojom.mojom.AutoPipReason = {
   kUnknown: 0,
   kVideoConferencing: 1,
   kMediaPlayback: 2,
   kBrowserInitiated: 3,
 };
-media.mojom.AutoPipReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.AutoPipReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: DecoderBufferSideDataNextConfig
-media.mojom.DecoderBufferSideDataNextConfigSpec = { $: mojo.internal.Union(
+media.mojom.mojom.DecoderBufferSideDataNextConfigSpec = { $: mojo.internal.Union(
     'media.mojom.DecoderBufferSideDataNextConfig', {
       'next_audio_config': {
         'ordinal': 0,
@@ -216,7 +224,7 @@ media.mojom.DecoderBufferSideDataNextConfigSpec = { $: mojo.internal.Union(
 };
 
 // Union: DecoderBuffer
-media.mojom.DecoderBufferSpec = { $: mojo.internal.Union(
+media.mojom.mojom.DecoderBufferSpec = { $: mojo.internal.Union(
     'media.mojom.DecoderBuffer', {
       'eos': {
         'ordinal': 0,
@@ -230,7 +238,7 @@ media.mojom.DecoderBufferSpec = { $: mojo.internal.Union(
 };
 
 // Union: VideoFrameData
-media.mojom.VideoFrameDataSpec = { $: mojo.internal.Union(
+media.mojom.mojom.VideoFrameDataSpec = { $: mojo.internal.Union(
     'media.mojom.VideoFrameData', {
       'eos_data': {
         'ordinal': 0,
@@ -256,7 +264,7 @@ media.mojom.VideoFrameDataSpec = { $: mojo.internal.Union(
 };
 
 // Struct: VideoTransformation
-media.mojom.VideoTransformationSpec = {
+media.mojom.mojom.VideoTransformationSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoTransformation',
@@ -271,7 +279,7 @@ media.mojom.VideoTransformationSpec = {
 };
 
 // Struct: VideoAspectRatio
-media.mojom.VideoAspectRatioSpec = {
+media.mojom.mojom.VideoAspectRatioSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoAspectRatio',
@@ -285,7 +293,7 @@ media.mojom.VideoAspectRatioSpec = {
 };
 
 // Struct: VideoColorSpace
-media.mojom.VideoColorSpaceSpec = {
+media.mojom.mojom.VideoColorSpaceSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoColorSpace',
@@ -306,7 +314,7 @@ media.mojom.VideoColorSpaceSpec = {
 };
 
 // Struct: AudioDecoderConfig
-media.mojom.AudioDecoderConfigSpec = {
+media.mojom.mojom.AudioDecoderConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioDecoderConfig',
@@ -315,14 +323,14 @@ media.mojom.AudioDecoderConfigSpec = {
         { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioCodecSpec, nullable: false, minVersion: 0 },
         { name: 'sample_format', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SampleFormatSpec, nullable: false, minVersion: 0 },
         { name: 'channel_layout', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ChannelLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'samples_per_second', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'extra_data', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'encryption_scheme', packedOffset: 40, packedBitOffset: 0, type: media.mojom.EncryptionSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'seek_preroll', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'codec_delay', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 56, packedBitOffset: 0, type: media.mojom.AudioCodecProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'target_output_channel_layout', packedOffset: 64, packedBitOffset: 0, type: media.mojom.ChannelLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'target_output_sample_format', packedOffset: 72, packedBitOffset: 0, type: media.mojom.SampleFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'samples_per_second', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'extra_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'encryption_scheme', packedOffset: 32, packedBitOffset: 0, type: media.mojom.EncryptionSchemeSpec, nullable: false, minVersion: 0 },
+        { name: 'seek_preroll', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'codec_delay', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'profile', packedOffset: 48, packedBitOffset: 0, type: media.mojom.AudioCodecProfileSpec, nullable: false, minVersion: 0 },
+        { name: 'target_output_channel_layout', packedOffset: 56, packedBitOffset: 0, type: media.mojom.ChannelLayoutSpec, nullable: false, minVersion: 0 },
+        { name: 'target_output_sample_format', packedOffset: 64, packedBitOffset: 0, type: media.mojom.SampleFormatSpec, nullable: false, minVersion: 0 },
         { name: 'should_discard_decoder_delay', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 96}]
@@ -331,7 +339,7 @@ media.mojom.AudioDecoderConfigSpec = {
 };
 
 // Struct: VideoDecoderConfig
-media.mojom.VideoDecoderConfigSpec = {
+media.mojom.mojom.VideoDecoderConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoDecoderConfig',
@@ -339,17 +347,17 @@ media.mojom.VideoDecoderConfigSpec = {
       fields: [
         { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCodecSpec, nullable: false, minVersion: 0 },
         { name: 'profile', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'has_alpha', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'transformation', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoTransformationSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_rect', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'natural_size', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'aspect_ratio', packedOffset: 56, packedBitOffset: 0, type: media.mojom.VideoAspectRatioSpec, nullable: false, minVersion: 0 },
-        { name: 'extra_data', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'encryption_scheme', packedOffset: 72, packedBitOffset: 0, type: media.mojom.EncryptionSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'color_space_info', packedOffset: 80, packedBitOffset: 0, type: media.mojom.VideoColorSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'hdr_metadata', packedOffset: 88, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false, minVersion: 0 },
+        { name: 'level', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'has_alpha', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'transformation', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoTransformationSpec, nullable: false, minVersion: 0 },
+        { name: 'coded_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'visible_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'natural_size', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'aspect_ratio', packedOffset: 48, packedBitOffset: 0, type: media.mojom.VideoAspectRatioSpec, nullable: false, minVersion: 0 },
+        { name: 'extra_data', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'encryption_scheme', packedOffset: 64, packedBitOffset: 0, type: media.mojom.EncryptionSchemeSpec, nullable: false, minVersion: 0 },
+        { name: 'color_space_info', packedOffset: 72, packedBitOffset: 0, type: media.mojom.VideoColorSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'hdr_metadata', packedOffset: 80, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 104}]
     }
@@ -357,7 +365,7 @@ media.mojom.VideoDecoderConfigSpec = {
 };
 
 // Struct: DecryptConfig
-media.mojom.DecryptConfigSpec = {
+media.mojom.mojom.DecryptConfigSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DecryptConfig',
@@ -375,7 +383,7 @@ media.mojom.DecryptConfigSpec = {
 };
 
 // Struct: DecoderBufferSideData
-media.mojom.DecoderBufferSideDataSpec = {
+media.mojom.mojom.DecoderBufferSideDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DecoderBufferSideData',
@@ -393,7 +401,7 @@ media.mojom.DecoderBufferSideDataSpec = {
 };
 
 // Struct: DataDecoderBuffer
-media.mojom.DataDecoderBufferSpec = {
+media.mojom.mojom.DataDecoderBufferSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DataDecoderBuffer',
@@ -401,10 +409,10 @@ media.mojom.DataDecoderBufferSpec = {
       fields: [
         { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
         { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'data_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'is_key_frame', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'decrypt_config', packedOffset: 24, packedBitOffset: 0, type: media.mojom.DecryptConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'side_data', packedOffset: 32, packedBitOffset: 0, type: media.mojom.DecoderBufferSideDataSpec, nullable: true, minVersion: 0 },
+        { name: 'data_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'is_key_frame', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'decrypt_config', packedOffset: 16, packedBitOffset: 0, type: media.mojom.DecryptConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'side_data', packedOffset: 24, packedBitOffset: 0, type: media.mojom.DecoderBufferSideDataSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -412,7 +420,7 @@ media.mojom.DataDecoderBufferSpec = {
 };
 
 // Struct: EosDecoderBuffer
-media.mojom.EosDecoderBufferSpec = {
+media.mojom.mojom.EosDecoderBufferSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.EosDecoderBuffer',
@@ -426,7 +434,7 @@ media.mojom.EosDecoderBufferSpec = {
 };
 
 // Struct: AudioBuffer
-media.mojom.AudioBufferSpec = {
+media.mojom.mojom.AudioBufferSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioBuffer',
@@ -434,12 +442,12 @@ media.mojom.AudioBufferSpec = {
       fields: [
         { name: 'sample_format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SampleFormatSpec, nullable: false, minVersion: 0 },
         { name: 'channel_layout', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ChannelLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'sample_rate', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'frame_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end_of_stream', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
+        { name: 'channel_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sample_rate', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'end_of_stream', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -447,7 +455,7 @@ media.mojom.AudioBufferSpec = {
 };
 
 // Struct: CaptureVersion
-media.mojom.CaptureVersionSpec = {
+media.mojom.mojom.CaptureVersionSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CaptureVersion',
@@ -462,60 +470,60 @@ media.mojom.CaptureVersionSpec = {
 };
 
 // Struct: VideoFrameMetadata
-media.mojom.VideoFrameMetadataSpec = {
+media.mojom.mojom.VideoFrameMetadataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoFrameMetadata',
       packedSize: 216,
       fields: [
-        { name: 'allow_overlay', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'capture_begin_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
-        { name: 'capture_end_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
-        { name: 'has_capture_counter', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'capture_counter', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'capture_update_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
-        { name: 'source_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
-        { name: 'region_capture_rect', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
-        { name: 'capture_version', packedOffset: 48, packedBitOffset: 0, type: media.mojom.CaptureVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'copy_required', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'end_of_stream', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'frame_duration', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'has_frame_rate', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'frame_rate', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'interactive_content', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reference_time', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
-        { name: 'read_lock_fences_enabled', packedOffset: 0, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'transformation', packedOffset: 80, packedBitOffset: 0, type: media.mojom.VideoTransformationSpec, nullable: true, minVersion: 0 },
-        { name: 'in_surface_view', packedOffset: 0, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'wants_promotion_hint', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'protected_video', packedOffset: 1, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hw_protected', packedOffset: 1, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'needs_detiling', packedOffset: 1, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_webgpu_compatible', packedOffset: 1, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'tracking_token', packedOffset: 88, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'power_efficient', packedOffset: 1, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_device_scale_factor', packedOffset: 1, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'has_page_scale_factor', packedOffset: 1, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'page_scale_factor', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'has_root_scroll_offset_x', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'root_scroll_offset_x', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'has_root_scroll_offset_y', packedOffset: 2, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'root_scroll_offset_y', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'has_top_controls_visible_height', packedOffset: 2, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'top_controls_visible_height', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'decode_begin_time', packedOffset: 136, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
-        { name: 'decode_end_time', packedOffset: 144, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
-        { name: 'processing_time', packedOffset: 152, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'has_rtp_timestamp', packedOffset: 2, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'rtp_timestamp', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'receive_time', packedOffset: 168, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
-        { name: 'wallclock_frame_duration', packedOffset: 176, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'frame_sequence_$flag', packedOffset: 2, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'frame_sequence_$value', originalFieldName: 'frame_sequence' } },
-        { name: 'frame_sequence_$value', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'frame_sequence_$flag', originalFieldName: 'frame_sequence' } },
-        { name: 'source_id_$flag', packedOffset: 2, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'source_id_$value', originalFieldName: 'source_id' } },
-        { name: 'source_id_$value', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'source_id_$flag', originalFieldName: 'source_id' } },
-        { name: 'background_blur', packedOffset: 200, packedBitOffset: 0, type: media.mojom.EffectStateSpec, nullable: false, minVersion: 0 },
+        { name: 'allow_overlay', packedOffset: 200, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'capture_begin_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
+        { name: 'capture_end_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
+        { name: 'has_capture_counter', packedOffset: 200, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'capture_counter', packedOffset: 192, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'capture_update_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
+        { name: 'source_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
+        { name: 'region_capture_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
+        { name: 'capture_version', packedOffset: 40, packedBitOffset: 0, type: media.mojom.CaptureVersionSpec, nullable: false, minVersion: 0 },
+        { name: 'copy_required', packedOffset: 200, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'end_of_stream', packedOffset: 200, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'frame_duration', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
+        { name: 'has_frame_rate', packedOffset: 200, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'frame_rate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'interactive_content', packedOffset: 200, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reference_time', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
+        { name: 'read_lock_fences_enabled', packedOffset: 200, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'transformation', packedOffset: 72, packedBitOffset: 0, type: media.mojom.VideoTransformationSpec, nullable: true, minVersion: 0 },
+        { name: 'in_surface_view', packedOffset: 200, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'wants_promotion_hint', packedOffset: 201, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'protected_video', packedOffset: 201, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'hw_protected', packedOffset: 201, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'needs_detiling', packedOffset: 201, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_webgpu_compatible', packedOffset: 201, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'tracking_token', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
+        { name: 'power_efficient', packedOffset: 201, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_device_scale_factor', packedOffset: 201, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_page_scale_factor', packedOffset: 201, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'page_scale_factor', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_root_scroll_offset_x', packedOffset: 202, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'root_scroll_offset_x', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_root_scroll_offset_y', packedOffset: 202, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'root_scroll_offset_y', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'has_top_controls_visible_height', packedOffset: 202, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'top_controls_visible_height', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'decode_begin_time', packedOffset: 128, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
+        { name: 'decode_end_time', packedOffset: 136, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
+        { name: 'processing_time', packedOffset: 144, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
+        { name: 'has_rtp_timestamp', packedOffset: 202, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'rtp_timestamp', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'receive_time', packedOffset: 160, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: true, minVersion: 0 },
+        { name: 'wallclock_frame_duration', packedOffset: 168, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
+        { name: 'frame_sequence_$flag', packedOffset: 202, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'frame_sequence_$value', originalFieldName: 'frame_sequence' } },
+        { name: 'frame_sequence_$value', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'frame_sequence_$flag', originalFieldName: 'frame_sequence' } },
+        { name: 'source_id_$flag', packedOffset: 202, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'source_id_$value', originalFieldName: 'source_id' } },
+        { name: 'source_id_$value', packedOffset: 184, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'source_id_$flag', originalFieldName: 'source_id' } },
+        { name: 'background_blur', packedOffset: 196, packedBitOffset: 0, type: media.mojom.EffectStateSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 216}]
     }
@@ -523,18 +531,18 @@ media.mojom.VideoFrameMetadataSpec = {
 };
 
 // Struct: VideoFrame
-media.mojom.VideoFrameSpec = {
+media.mojom.mojom.VideoFrameSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoFrame',
       packedSize: 88,
       fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_rect', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'natural_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 40, packedBitOffset: 0, type: media.mojom.VideoFrameDataSpec, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'coded_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'visible_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'natural_size', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoFrameDataSpec, nullable: false, minVersion: 0 },
         { name: 'metadata', packedOffset: 56, packedBitOffset: 0, type: media.mojom.VideoFrameMetadataSpec, nullable: false, minVersion: 0 },
         { name: 'color_space', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false, minVersion: 0 },
         { name: 'hdr_metadata', packedOffset: 72, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false, minVersion: 0 },
@@ -545,7 +553,7 @@ media.mojom.VideoFrameSpec = {
 };
 
 // Struct: EosVideoFrameData
-media.mojom.EosVideoFrameDataSpec = {
+media.mojom.mojom.EosVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.EosVideoFrameData',
@@ -558,7 +566,7 @@ media.mojom.EosVideoFrameDataSpec = {
 };
 
 // Struct: SharedMemoryVideoFrameData
-media.mojom.SharedMemoryVideoFrameDataSpec = {
+media.mojom.mojom.SharedMemoryVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SharedMemoryVideoFrameData',
@@ -574,7 +582,7 @@ media.mojom.SharedMemoryVideoFrameDataSpec = {
 };
 
 // Struct: SharedImageVideoFrameData
-media.mojom.SharedImageVideoFrameDataSpec = {
+media.mojom.mojom.SharedImageVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SharedImageVideoFrameData',
@@ -582,8 +590,8 @@ media.mojom.SharedImageVideoFrameDataSpec = {
       fields: [
         { name: 'shared_image', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ExportedSharedImageSpec, nullable: false, minVersion: 0 },
         { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'is_mappable', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ycbcr_data', packedOffset: 24, packedBitOffset: 0, type: gpu.mojom.VulkanYCbCrInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'is_mappable', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ycbcr_data', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.VulkanYCbCrInfoSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -591,7 +599,7 @@ media.mojom.SharedImageVideoFrameDataSpec = {
 };
 
 // Struct: OpaqueVideoFrameData
-media.mojom.OpaqueVideoFrameDataSpec = {
+media.mojom.mojom.OpaqueVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.OpaqueVideoFrameData',
@@ -604,7 +612,7 @@ media.mojom.OpaqueVideoFrameDataSpec = {
 };
 
 // Struct: ColorPlaneLayout
-media.mojom.ColorPlaneLayoutSpec = {
+media.mojom.mojom.ColorPlaneLayoutSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.ColorPlaneLayout',
@@ -620,17 +628,17 @@ media.mojom.ColorPlaneLayoutSpec = {
 };
 
 // Struct: DmabufVideoFrameData
-media.mojom.DmabufVideoFrameDataSpec = {
+media.mojom.mojom.DmabufVideoFrameDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DmabufVideoFrameData',
       packedSize: 48,
       fields: [
         { name: 'planes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.ColorPlaneLayoutSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_multi_planar', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'buffer_addr_align', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'modifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'fds', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
+        { name: 'is_multi_planar', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'buffer_addr_align', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'modifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'fds', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -638,7 +646,7 @@ media.mojom.DmabufVideoFrameDataSpec = {
 };
 
 // Struct: PipelineStatistics
-media.mojom.PipelineStatisticsSpec = {
+media.mojom.mojom.PipelineStatisticsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PipelineStatistics',
@@ -646,10 +654,10 @@ media.mojom.PipelineStatisticsSpec = {
       fields: [
         { name: 'audio_bytes_decoded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'video_bytes_decoded', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'video_frames_decoded', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'video_frames_dropped', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'audio_memory_usage', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'video_memory_usage', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'video_frames_decoded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'video_frames_dropped', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'audio_memory_usage', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'video_memory_usage', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -657,7 +665,7 @@ media.mojom.PipelineStatisticsSpec = {
 };
 
 // Struct: PredictionFeatures
-media.mojom.PredictionFeaturesSpec = {
+media.mojom.mojom.PredictionFeaturesSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PredictionFeatures',
@@ -675,7 +683,7 @@ media.mojom.PredictionFeaturesSpec = {
 };
 
 // Struct: PredictionTargets
-media.mojom.PredictionTargetsSpec = {
+media.mojom.mojom.PredictionTargetsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PredictionTargets',
@@ -691,16 +699,16 @@ media.mojom.PredictionTargetsSpec = {
 };
 
 // Struct: AudioPipelineInfo
-media.mojom.AudioPipelineInfoSpec = {
+media.mojom.mojom.AudioPipelineInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AudioPipelineInfo',
       packedSize: 24,
       fields: [
         { name: 'decoder_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDecoderTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_platform_decoder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_decrypting_demuxer_stream', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'encryption_type', packedOffset: 12, packedBitOffset: 0, type: media.mojom.EncryptionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_platform_decoder', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_decrypting_demuxer_stream', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'encryption_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EncryptionTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -708,16 +716,16 @@ media.mojom.AudioPipelineInfoSpec = {
 };
 
 // Struct: VideoPipelineInfo
-media.mojom.VideoPipelineInfoSpec = {
+media.mojom.mojom.VideoPipelineInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoPipelineInfo',
       packedSize: 24,
       fields: [
         { name: 'decoder_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoDecoderTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_platform_decoder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_decrypting_demuxer_stream', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'encryption_type', packedOffset: 12, packedBitOffset: 0, type: media.mojom.EncryptionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_platform_decoder', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_decrypting_demuxer_stream', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'encryption_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EncryptionTypeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -725,18 +733,18 @@ media.mojom.VideoPipelineInfoSpec = {
 };
 
 // Struct: StatusData
-media.mojom.StatusDataSpec = {
+media.mojom.mojom.StatusDataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.StatusData',
       packedSize: 64,
       fields: [
-        { name: 'group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'frames', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-        { name: 'cause', packedOffset: 32, packedBitOffset: 0, type: media.mojom.StatusDataSpec, nullable: true, minVersion: 0 },
-        { name: 'data', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
+        { name: 'group', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'frames', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
+        { name: 'cause', packedOffset: 40, packedBitOffset: 0, type: media.mojom.StatusDataSpec, nullable: true, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -744,7 +752,7 @@ media.mojom.StatusDataSpec = {
 };
 
 // Struct: EncoderStatus
-media.mojom.EncoderStatusSpec = {
+media.mojom.mojom.EncoderStatusSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.EncoderStatus',
@@ -758,7 +766,7 @@ media.mojom.EncoderStatusSpec = {
 };
 
 // Struct: DecoderStatus
-media.mojom.DecoderStatusSpec = {
+media.mojom.mojom.DecoderStatusSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.DecoderStatus',
@@ -772,7 +780,7 @@ media.mojom.DecoderStatusSpec = {
 };
 
 // Struct: PipelineStatus
-media.mojom.PipelineStatusSpec = {
+media.mojom.mojom.PipelineStatusSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.PipelineStatus',
@@ -786,7 +794,7 @@ media.mojom.PipelineStatusSpec = {
 };
 
 // Struct: AutoPipInfo
-media.mojom.AutoPipInfoSpec = {
+media.mojom.mojom.AutoPipInfoSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.AutoPipInfo',

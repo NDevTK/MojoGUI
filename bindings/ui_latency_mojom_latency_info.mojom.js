@@ -10,7 +10,7 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: LatencyComponentType
-ui.mojom.LatencyComponentType = {
+ui.mojom.mojom.LatencyComponentType = {
   INPUT_EVENT_LATENCY_BEGIN_RWH_COMPONENT: 0,
   INPUT_EVENT_LATENCY_SCROLL_UPDATE_ORIGINAL_COMPONENT: 1,
   INPUT_EVENT_LATENCY_FIRST_SCROLL_UPDATE_ORIGINAL_COMPONENT: 2,
@@ -24,10 +24,10 @@ ui.mojom.LatencyComponentType = {
   INPUT_EVENT_GPU_SWAP_BUFFER_COMPONENT: 10,
   INPUT_EVENT_LATENCY_FRAME_SWAP_COMPONENT: 11,
 };
-ui.mojom.LatencyComponentTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.LatencyComponentTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LatencyInfo
-ui.mojom.LatencyInfoSpec = {
+ui.mojom.mojom.LatencyInfoSpec = {
   $: {
     structSpec: {
       name: 'ui.mojom.LatencyInfo',
@@ -35,11 +35,11 @@ ui.mojom.LatencyInfoSpec = {
       fields: [
         { name: 'latency_components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ui.mojom.LatencyComponentTypeSpec, mojo_base.mojom.TimeTicksSpec, false), nullable: false, minVersion: 0 },
         { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'coalesced', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'began', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'terminated', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'gesture_scroll_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'touch_trace_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'coalesced', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'began', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'terminated', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'gesture_scroll_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'touch_trace_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }

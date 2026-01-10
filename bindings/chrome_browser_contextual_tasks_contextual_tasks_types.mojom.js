@@ -10,8 +10,8 @@ contextual_tasks.mojom = contextual_tasks.mojom || {};
 
 
 // Enum: TabSelectionMode
-contextual_tasks.mojom.TabSelectionMode = {
+contextual_tasks.mojom.mojom.TabSelectionMode = {
   kEmbeddingsMatch: 0,
   kMultiSignalScoring: 1,
 };
-contextual_tasks.mojom.TabSelectionModeSpec = { $: mojo.internal.Enum() };
+contextual_tasks.mojom.mojom.TabSelectionModeSpec = { $: mojo.internal.Enum() };

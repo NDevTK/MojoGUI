@@ -7,26 +7,27 @@
 // Module namespace
 var history_sync_optin = history_sync_optin || {};
 history_sync_optin.mojom = history_sync_optin.mojom || {};
+var url = url || {};
 
 
 // Enum: LaunchContext
-history_sync_optin.mojom.LaunchContext = {
+history_sync_optin.mojom.mojom.LaunchContext = {
   kWindow: 0,
   kModal: 1,
 };
-history_sync_optin.mojom.LaunchContextSpec = { $: mojo.internal.Enum() };
+history_sync_optin.mojom.mojom.LaunchContextSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScreenMode
-history_sync_optin.mojom.ScreenMode = {
+history_sync_optin.mojom.mojom.ScreenMode = {
   kPending: 0,
   kRestricted: 1,
   kUnrestricted: 2,
   kDeadlined: 3,
 };
-history_sync_optin.mojom.ScreenModeSpec = { $: mojo.internal.Enum() };
+history_sync_optin.mojom.mojom.ScreenModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AccountInfo
-history_sync_optin.mojom.AccountInfoSpec = {
+history_sync_optin.mojom.mojom.AccountInfoSpec = {
   $: {
     structSpec: {
       name: 'history_sync_optin.mojom.AccountInfo',
@@ -40,24 +41,24 @@ history_sync_optin.mojom.AccountInfoSpec = {
 };
 
 // Interface: PageHandlerFactory
-history_sync_optin.mojom.PageHandlerFactory = {};
+history_sync_optin.mojom.mojom.PageHandlerFactory = {};
 
-history_sync_optin.mojom.PageHandlerFactoryPendingReceiver = class {
+history_sync_optin.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-history_sync_optin.mojom.PageHandlerFactoryRemote = class {
+history_sync_optin.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'history_sync_optin.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      history_sync_optin.mojom.PageHandlerFactoryPendingReceiver,
+      history_sync_optin.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new history_sync_optin.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -69,7 +70,7 @@ history_sync_optin.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler = class {
+history_sync_optin.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -78,15 +79,15 @@ history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec,
+      history_sync_optin.mojom.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec,
       null,
       [page, handler]);
   }
 
 };
 
-history_sync_optin.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new history_sync_optin.mojom.PageHandlerFactoryRemote();
+history_sync_optin.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new history_sync_optin.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -96,7 +97,7 @@ history_sync_optin.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreateHistorySyncOptinHandler
-history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec = {
+history_sync_optin.mojom.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_sync_optin.mojom.PageHandlerFactory.CreateHistorySyncOptinHandler_Params',
@@ -111,29 +112,29 @@ history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params
 };
 
 // Legacy compatibility
-history_sync_optin.mojom.PageHandlerFactoryPtr = history_sync_optin.mojom.PageHandlerFactoryRemote;
-history_sync_optin.mojom.PageHandlerFactoryRequest = history_sync_optin.mojom.PageHandlerFactoryPendingReceiver;
+history_sync_optin.mojom.mojom.PageHandlerFactoryPtr = history_sync_optin.mojom.mojom.PageHandlerFactoryRemote;
+history_sync_optin.mojom.mojom.PageHandlerFactoryRequest = history_sync_optin.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-history_sync_optin.mojom.PageHandler = {};
+history_sync_optin.mojom.mojom.PageHandler = {};
 
-history_sync_optin.mojom.PageHandlerPendingReceiver = class {
+history_sync_optin.mojom.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-history_sync_optin.mojom.PageHandlerRemote = class {
+history_sync_optin.mojom.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'history_sync_optin.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      history_sync_optin.mojom.PageHandlerPendingReceiver,
+      history_sync_optin.mojom.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new history_sync_optin.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new history_sync_optin.mojom.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -145,7 +146,7 @@ history_sync_optin.mojom.PageHandlerRemote = class {
   }
 };
 
-history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
+history_sync_optin.mojom.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -154,7 +155,7 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_sync_optin.mojom.PageHandler_Accept_ParamsSpec,
+      history_sync_optin.mojom.mojom.PageHandler_Accept_ParamsSpec,
       null,
       []);
   }
@@ -163,7 +164,7 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      history_sync_optin.mojom.PageHandler_Reject_ParamsSpec,
+      history_sync_optin.mojom.mojom.PageHandler_Reject_ParamsSpec,
       null,
       []);
   }
@@ -172,7 +173,7 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
+      history_sync_optin.mojom.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
       null,
       []);
   }
@@ -181,15 +182,15 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec,
+      history_sync_optin.mojom.mojom.PageHandler_UpdateDialogHeight_ParamsSpec,
       null,
       [height]);
   }
 
 };
 
-history_sync_optin.mojom.PageHandler.getRemote = function() {
-  let remote = new history_sync_optin.mojom.PageHandlerRemote();
+history_sync_optin.mojom.mojom.PageHandler.getRemote = function() {
+  let remote = new history_sync_optin.mojom.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -199,7 +200,7 @@ history_sync_optin.mojom.PageHandler.getRemote = function() {
 };
 
 // ParamsSpec for Accept
-history_sync_optin.mojom.PageHandler_Accept_ParamsSpec = {
+history_sync_optin.mojom.mojom.PageHandler_Accept_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_sync_optin.mojom.PageHandler.Accept_Params',
@@ -212,7 +213,7 @@ history_sync_optin.mojom.PageHandler_Accept_ParamsSpec = {
 };
 
 // ParamsSpec for Reject
-history_sync_optin.mojom.PageHandler_Reject_ParamsSpec = {
+history_sync_optin.mojom.mojom.PageHandler_Reject_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_sync_optin.mojom.PageHandler.Reject_Params',
@@ -225,7 +226,7 @@ history_sync_optin.mojom.PageHandler_Reject_ParamsSpec = {
 };
 
 // ParamsSpec for RequestAccountInfo
-history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
+history_sync_optin.mojom.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_sync_optin.mojom.PageHandler.RequestAccountInfo_Params',
@@ -238,7 +239,7 @@ history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
 };
 
 // ParamsSpec for UpdateDialogHeight
-history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = {
+history_sync_optin.mojom.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_sync_optin.mojom.PageHandler.UpdateDialogHeight_Params',
@@ -252,29 +253,29 @@ history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = {
 };
 
 // Legacy compatibility
-history_sync_optin.mojom.PageHandlerPtr = history_sync_optin.mojom.PageHandlerRemote;
-history_sync_optin.mojom.PageHandlerRequest = history_sync_optin.mojom.PageHandlerPendingReceiver;
+history_sync_optin.mojom.mojom.PageHandlerPtr = history_sync_optin.mojom.mojom.PageHandlerRemote;
+history_sync_optin.mojom.mojom.PageHandlerRequest = history_sync_optin.mojom.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-history_sync_optin.mojom.Page = {};
+history_sync_optin.mojom.mojom.Page = {};
 
-history_sync_optin.mojom.PagePendingReceiver = class {
+history_sync_optin.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-history_sync_optin.mojom.PageRemote = class {
+history_sync_optin.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'history_sync_optin.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      history_sync_optin.mojom.PagePendingReceiver,
+      history_sync_optin.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new history_sync_optin.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new history_sync_optin.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -286,7 +287,7 @@ history_sync_optin.mojom.PageRemote = class {
   }
 };
 
-history_sync_optin.mojom.PageRemoteCallHandler = class {
+history_sync_optin.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -295,7 +296,7 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec,
+      history_sync_optin.mojom.mojom.Page_SendAccountInfo_ParamsSpec,
       null,
       [account_info]);
   }
@@ -304,15 +305,15 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec,
+      history_sync_optin.mojom.mojom.Page_SendScreenMode_ParamsSpec,
       null,
       [screen_mode]);
   }
 
 };
 
-history_sync_optin.mojom.Page.getRemote = function() {
-  let remote = new history_sync_optin.mojom.PageRemote();
+history_sync_optin.mojom.mojom.Page.getRemote = function() {
+  let remote = new history_sync_optin.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -322,7 +323,7 @@ history_sync_optin.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for SendAccountInfo
-history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = {
+history_sync_optin.mojom.mojom.Page_SendAccountInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_sync_optin.mojom.Page.SendAccountInfo_Params',
@@ -336,7 +337,7 @@ history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = {
 };
 
 // ParamsSpec for SendScreenMode
-history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = {
+history_sync_optin.mojom.mojom.Page_SendScreenMode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'history_sync_optin.mojom.Page.SendScreenMode_Params',
@@ -350,6 +351,6 @@ history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = {
 };
 
 // Legacy compatibility
-history_sync_optin.mojom.PagePtr = history_sync_optin.mojom.PageRemote;
-history_sync_optin.mojom.PageRequest = history_sync_optin.mojom.PagePendingReceiver;
+history_sync_optin.mojom.mojom.PagePtr = history_sync_optin.mojom.mojom.PageRemote;
+history_sync_optin.mojom.mojom.PageRequest = history_sync_optin.mojom.mojom.PagePendingReceiver;
 

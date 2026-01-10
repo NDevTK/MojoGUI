@@ -10,33 +10,33 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Enum: OfflinePageAutoFetcherScheduleResult
-chrome.mojom.OfflinePageAutoFetcherScheduleResult = {
+chrome.mojom.mojom.OfflinePageAutoFetcherScheduleResult = {
   kNotEnoughQuota: 0,
   kOtherError: 1,
   kAlreadyScheduled: 2,
   kScheduled: 3,
 };
-chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec = { $: mojo.internal.Enum() };
+chrome.mojom.mojom.OfflinePageAutoFetcherScheduleResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: OfflinePageAutoFetcher
-chrome.mojom.OfflinePageAutoFetcher = {};
+chrome.mojom.mojom.OfflinePageAutoFetcher = {};
 
-chrome.mojom.OfflinePageAutoFetcherPendingReceiver = class {
+chrome.mojom.mojom.OfflinePageAutoFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.OfflinePageAutoFetcherRemote = class {
+chrome.mojom.mojom.OfflinePageAutoFetcherRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.OfflinePageAutoFetcher';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.OfflinePageAutoFetcherPendingReceiver,
+      chrome.mojom.mojom.OfflinePageAutoFetcherPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.OfflinePageAutoFetcherRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -48,7 +48,7 @@ chrome.mojom.OfflinePageAutoFetcherRemote = class {
   }
 };
 
-chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
+chrome.mojom.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -57,8 +57,8 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec,
-      chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec,
+      chrome.mojom.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec,
+      chrome.mojom.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec,
       [user_requested]);
   }
 
@@ -66,15 +66,15 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec,
+      chrome.mojom.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chrome.mojom.OfflinePageAutoFetcher.getRemote = function() {
-  let remote = new chrome.mojom.OfflinePageAutoFetcherRemote();
+chrome.mojom.mojom.OfflinePageAutoFetcher.getRemote = function() {
+  let remote = new chrome.mojom.mojom.OfflinePageAutoFetcherRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -84,7 +84,7 @@ chrome.mojom.OfflinePageAutoFetcher.getRemote = function() {
 };
 
 // ParamsSpec for TrySchedule
-chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = {
+chrome.mojom.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.OfflinePageAutoFetcher.TrySchedule_Params',
@@ -97,7 +97,7 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = {
   }
 };
 
-chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = {
+chrome.mojom.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.OfflinePageAutoFetcher.TrySchedule_ResponseParams',
@@ -111,7 +111,7 @@ chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CancelSchedule
-chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec = {
+chrome.mojom.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.OfflinePageAutoFetcher.CancelSchedule_Params',
@@ -124,6 +124,6 @@ chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.OfflinePageAutoFetcherPtr = chrome.mojom.OfflinePageAutoFetcherRemote;
-chrome.mojom.OfflinePageAutoFetcherRequest = chrome.mojom.OfflinePageAutoFetcherPendingReceiver;
+chrome.mojom.mojom.OfflinePageAutoFetcherPtr = chrome.mojom.mojom.OfflinePageAutoFetcherRemote;
+chrome.mojom.mojom.OfflinePageAutoFetcherRequest = chrome.mojom.mojom.OfflinePageAutoFetcherPendingReceiver;
 

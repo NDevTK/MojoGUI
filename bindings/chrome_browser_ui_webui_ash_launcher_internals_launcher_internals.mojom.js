@@ -10,7 +10,7 @@ launcher_internals.mojom = launcher_internals.mojom || {};
 
 
 // Struct: Result
-launcher_internals.mojom.ResultSpec = {
+launcher_internals.mojom.mojom.ResultSpec = {
   $: {
     structSpec: {
       name: 'launcher_internals.mojom.Result',
@@ -31,24 +31,24 @@ launcher_internals.mojom.ResultSpec = {
 };
 
 // Interface: PageHandlerFactory
-launcher_internals.mojom.PageHandlerFactory = {};
+launcher_internals.mojom.mojom.PageHandlerFactory = {};
 
-launcher_internals.mojom.PageHandlerFactoryPendingReceiver = class {
+launcher_internals.mojom.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-launcher_internals.mojom.PageHandlerFactoryRemote = class {
+launcher_internals.mojom.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'launcher_internals.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      launcher_internals.mojom.PageHandlerFactoryPendingReceiver,
+      launcher_internals.mojom.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new launcher_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new launcher_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -60,7 +60,7 @@ launcher_internals.mojom.PageHandlerFactoryRemote = class {
   }
 };
 
-launcher_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
+launcher_internals.mojom.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -69,15 +69,15 @@ launcher_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      launcher_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [page]);
   }
 
 };
 
-launcher_internals.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new launcher_internals.mojom.PageHandlerFactoryRemote();
+launcher_internals.mojom.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new launcher_internals.mojom.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -87,7 +87,7 @@ launcher_internals.mojom.PageHandlerFactory.getRemote = function() {
 };
 
 // ParamsSpec for CreatePageHandler
-launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
+launcher_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'launcher_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
@@ -101,29 +101,29 @@ launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
 };
 
 // Legacy compatibility
-launcher_internals.mojom.PageHandlerFactoryPtr = launcher_internals.mojom.PageHandlerFactoryRemote;
-launcher_internals.mojom.PageHandlerFactoryRequest = launcher_internals.mojom.PageHandlerFactoryPendingReceiver;
+launcher_internals.mojom.mojom.PageHandlerFactoryPtr = launcher_internals.mojom.mojom.PageHandlerFactoryRemote;
+launcher_internals.mojom.mojom.PageHandlerFactoryRequest = launcher_internals.mojom.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: Page
-launcher_internals.mojom.Page = {};
+launcher_internals.mojom.mojom.Page = {};
 
-launcher_internals.mojom.PagePendingReceiver = class {
+launcher_internals.mojom.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-launcher_internals.mojom.PageRemote = class {
+launcher_internals.mojom.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'launcher_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      launcher_internals.mojom.PagePendingReceiver,
+      launcher_internals.mojom.mojom.PagePendingReceiver,
       handle);
-    this.$ = new launcher_internals.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new launcher_internals.mojom.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -135,7 +135,7 @@ launcher_internals.mojom.PageRemote = class {
   }
 };
 
-launcher_internals.mojom.PageRemoteCallHandler = class {
+launcher_internals.mojom.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -144,15 +144,15 @@ launcher_internals.mojom.PageRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      launcher_internals.mojom.Page_UpdateResults_ParamsSpec,
+      launcher_internals.mojom.mojom.Page_UpdateResults_ParamsSpec,
       null,
       [query, keywords, results]);
   }
 
 };
 
-launcher_internals.mojom.Page.getRemote = function() {
-  let remote = new launcher_internals.mojom.PageRemote();
+launcher_internals.mojom.mojom.Page.getRemote = function() {
+  let remote = new launcher_internals.mojom.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -162,7 +162,7 @@ launcher_internals.mojom.Page.getRemote = function() {
 };
 
 // ParamsSpec for UpdateResults
-launcher_internals.mojom.Page_UpdateResults_ParamsSpec = {
+launcher_internals.mojom.mojom.Page_UpdateResults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'launcher_internals.mojom.Page.UpdateResults_Params',
@@ -178,6 +178,6 @@ launcher_internals.mojom.Page_UpdateResults_ParamsSpec = {
 };
 
 // Legacy compatibility
-launcher_internals.mojom.PagePtr = launcher_internals.mojom.PageRemote;
-launcher_internals.mojom.PageRequest = launcher_internals.mojom.PagePendingReceiver;
+launcher_internals.mojom.mojom.PagePtr = launcher_internals.mojom.mojom.PageRemote;
+launcher_internals.mojom.mojom.PageRequest = launcher_internals.mojom.mojom.PagePendingReceiver;
 

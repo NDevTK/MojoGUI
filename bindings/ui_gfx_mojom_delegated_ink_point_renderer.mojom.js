@@ -7,27 +7,29 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Interface: DelegatedInkPointRenderer
-gfx.mojom.DelegatedInkPointRenderer = {};
+gfx.mojom.mojom.DelegatedInkPointRenderer = {};
 
-gfx.mojom.DelegatedInkPointRendererPendingReceiver = class {
+gfx.mojom.mojom.DelegatedInkPointRendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-gfx.mojom.DelegatedInkPointRendererRemote = class {
+gfx.mojom.mojom.DelegatedInkPointRendererRemote = class {
   static get $interfaceName() {
     return 'gfx.mojom.DelegatedInkPointRenderer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      gfx.mojom.DelegatedInkPointRendererPendingReceiver,
+      gfx.mojom.mojom.DelegatedInkPointRendererPendingReceiver,
       handle);
-    this.$ = new gfx.mojom.DelegatedInkPointRendererRemoteCallHandler(this.proxy);
+    this.$ = new gfx.mojom.mojom.DelegatedInkPointRendererRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +41,7 @@ gfx.mojom.DelegatedInkPointRendererRemote = class {
   }
 };
 
-gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
+gfx.mojom.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +50,7 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec,
+      gfx.mojom.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec,
       null,
       [point]);
   }
@@ -57,15 +59,15 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec,
+      gfx.mojom.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec,
       null,
       []);
   }
 
 };
 
-gfx.mojom.DelegatedInkPointRenderer.getRemote = function() {
-  let remote = new gfx.mojom.DelegatedInkPointRendererRemote();
+gfx.mojom.mojom.DelegatedInkPointRenderer.getRemote = function() {
+  let remote = new gfx.mojom.mojom.DelegatedInkPointRendererRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +77,7 @@ gfx.mojom.DelegatedInkPointRenderer.getRemote = function() {
 };
 
 // ParamsSpec for StoreDelegatedInkPoint
-gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
+gfx.mojom.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DelegatedInkPointRenderer.StoreDelegatedInkPoint_Params',
@@ -89,7 +91,7 @@ gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = {
 };
 
 // ParamsSpec for ResetPrediction
-gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
+gfx.mojom.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gfx.mojom.DelegatedInkPointRenderer.ResetPrediction_Params',
@@ -102,6 +104,6 @@ gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = {
 };
 
 // Legacy compatibility
-gfx.mojom.DelegatedInkPointRendererPtr = gfx.mojom.DelegatedInkPointRendererRemote;
-gfx.mojom.DelegatedInkPointRendererRequest = gfx.mojom.DelegatedInkPointRendererPendingReceiver;
+gfx.mojom.mojom.DelegatedInkPointRendererPtr = gfx.mojom.mojom.DelegatedInkPointRendererRemote;
+gfx.mojom.mojom.DelegatedInkPointRendererRequest = gfx.mojom.mojom.DelegatedInkPointRendererPendingReceiver;
 

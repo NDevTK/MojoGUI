@@ -10,7 +10,7 @@ sandbox.mojom = sandbox.mojom || {};
 
 
 // Enum: Sandbox
-sandbox.mojom.Sandbox = {
+sandbox.mojom.mojom.Sandbox = {
   kService: 0,
   kServiceWithJit: 1,
   kUtility: 2,
@@ -24,4 +24,4 @@ sandbox.mojom.Sandbox = {
   kRenderer: 10,
   kSpeechRecognition: 11,
 };
-sandbox.mojom.SandboxSpec = { $: mojo.internal.Enum() };
+sandbox.mojom.mojom.SandboxSpec = { $: mojo.internal.Enum() };

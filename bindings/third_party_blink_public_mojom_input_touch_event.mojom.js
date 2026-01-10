@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: TouchState
-blink.mojom.TouchState = {
+blink.mojom.mojom.TouchState = {
   kStateUndefined: 0,
   kStateReleased: 1,
   kStatePressed: 2,
@@ -18,10 +18,10 @@ blink.mojom.TouchState = {
   kStateStationary: 4,
   kStateCancelled: 5,
 };
-blink.mojom.TouchStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.TouchStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: TouchEventConsumers
-blink.mojom.TouchEventConsumersSpec = {
+blink.mojom.mojom.TouchEventConsumersSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.TouchEventConsumers',

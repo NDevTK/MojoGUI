@@ -7,28 +7,28 @@
 // Module namespace
 var ash = ash || {};
 ash.common = ash.common || {};
-ash.common.mojom = ash.common.mojom || {};
+ash.common.common.mojom = ash.common.common.mojom || {};
 
 
 // Interface: WebUiSyslogEmitter
-ash.common.mojom.WebUiSyslogEmitter = {};
+ash.common.common.mojom.mojom.WebUiSyslogEmitter = {};
 
-ash.common.mojom.WebUiSyslogEmitterPendingReceiver = class {
+ash.common.common.mojom.mojom.WebUiSyslogEmitterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.common.mojom.WebUiSyslogEmitterRemote = class {
+ash.common.common.mojom.mojom.WebUiSyslogEmitterRemote = class {
   static get $interfaceName() {
     return 'ash.common.mojom.WebUiSyslogEmitter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.common.mojom.WebUiSyslogEmitterPendingReceiver,
+      ash.common.common.mojom.mojom.WebUiSyslogEmitterPendingReceiver,
       handle);
-    this.$ = new ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler(this.proxy);
+    this.$ = new ash.common.common.mojom.mojom.WebUiSyslogEmitterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ ash.common.mojom.WebUiSyslogEmitterRemote = class {
   }
 };
 
-ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler = class {
+ash.common.common.mojom.mojom.WebUiSyslogEmitterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +49,15 @@ ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec,
+      ash.common.common.mojom.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec,
       null,
       [prefix, message]);
   }
 
 };
 
-ash.common.mojom.WebUiSyslogEmitter.getRemote = function() {
-  let remote = new ash.common.mojom.WebUiSyslogEmitterRemote();
+ash.common.common.mojom.mojom.WebUiSyslogEmitter.getRemote = function() {
+  let remote = new ash.common.common.mojom.mojom.WebUiSyslogEmitterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +67,7 @@ ash.common.mojom.WebUiSyslogEmitter.getRemote = function() {
 };
 
 // ParamsSpec for EmitSyslog
-ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = {
+ash.common.common.mojom.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.common.mojom.WebUiSyslogEmitter.EmitSyslog_Params',
@@ -82,6 +82,6 @@ ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = {
 };
 
 // Legacy compatibility
-ash.common.mojom.WebUiSyslogEmitterPtr = ash.common.mojom.WebUiSyslogEmitterRemote;
-ash.common.mojom.WebUiSyslogEmitterRequest = ash.common.mojom.WebUiSyslogEmitterPendingReceiver;
+ash.common.common.mojom.mojom.WebUiSyslogEmitterPtr = ash.common.common.mojom.mojom.WebUiSyslogEmitterRemote;
+ash.common.common.mojom.mojom.WebUiSyslogEmitterRequest = ash.common.common.mojom.mojom.WebUiSyslogEmitterPendingReceiver;
 

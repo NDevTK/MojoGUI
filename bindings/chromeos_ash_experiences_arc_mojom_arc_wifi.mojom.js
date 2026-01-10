@@ -10,7 +10,7 @@ arc.mojom = arc.mojom || {};
 
 
 // Struct: WifiScanResult
-arc.mojom.WifiScanResultSpec = {
+arc.mojom.mojom.WifiScanResultSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.WifiScanResult',
@@ -28,24 +28,24 @@ arc.mojom.WifiScanResultSpec = {
 };
 
 // Interface: ArcWifiHost
-arc.mojom.ArcWifiHost = {};
+arc.mojom.mojom.ArcWifiHost = {};
 
-arc.mojom.ArcWifiHostPendingReceiver = class {
+arc.mojom.mojom.ArcWifiHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ArcWifiHostRemote = class {
+arc.mojom.mojom.ArcWifiHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ArcWifiHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ArcWifiHostPendingReceiver,
+      arc.mojom.mojom.ArcWifiHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.ArcWifiHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ArcWifiHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +57,7 @@ arc.mojom.ArcWifiHostRemote = class {
   }
 };
 
-arc.mojom.ArcWifiHostRemoteCallHandler = class {
+arc.mojom.mojom.ArcWifiHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,8 +66,8 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec,
-      arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec,
+      arc.mojom.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec,
+      arc.mojom.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec,
       []);
   }
 
@@ -75,8 +75,8 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec,
-      arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec,
+      arc.mojom.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec,
+      arc.mojom.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec,
       [enabled]);
   }
 
@@ -84,7 +84,7 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.ArcWifiHost_StartScan_ParamsSpec,
+      arc.mojom.mojom.ArcWifiHost_StartScan_ParamsSpec,
       null,
       []);
   }
@@ -93,15 +93,15 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec,
-      arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec,
+      arc.mojom.mojom.ArcWifiHost_GetScanResults_ParamsSpec,
+      arc.mojom.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec,
       []);
   }
 
 };
 
-arc.mojom.ArcWifiHost.getRemote = function() {
-  let remote = new arc.mojom.ArcWifiHostRemote();
+arc.mojom.mojom.ArcWifiHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.ArcWifiHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -111,7 +111,7 @@ arc.mojom.ArcWifiHost.getRemote = function() {
 };
 
 // ParamsSpec for GetWifiEnabledState
-arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = {
+arc.mojom.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiHost.GetWifiEnabledState_Params',
@@ -123,7 +123,7 @@ arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = {
   }
 };
 
-arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec = {
+arc.mojom.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiHost.GetWifiEnabledState_ResponseParams',
@@ -137,7 +137,7 @@ arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetWifiEnabledState
-arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec = {
+arc.mojom.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiHost.SetWifiEnabledState_Params',
@@ -150,7 +150,7 @@ arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec = {
   }
 };
 
-arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec = {
+arc.mojom.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiHost.SetWifiEnabledState_ResponseParams',
@@ -164,7 +164,7 @@ arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartScan
-arc.mojom.ArcWifiHost_StartScan_ParamsSpec = {
+arc.mojom.mojom.ArcWifiHost_StartScan_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiHost.StartScan_Params',
@@ -177,7 +177,7 @@ arc.mojom.ArcWifiHost_StartScan_ParamsSpec = {
 };
 
 // ParamsSpec for GetScanResults
-arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec = {
+arc.mojom.mojom.ArcWifiHost_GetScanResults_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiHost.GetScanResults_Params',
@@ -189,7 +189,7 @@ arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec = {
   }
 };
 
-arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec = {
+arc.mojom.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiHost.GetScanResults_ResponseParams',
@@ -203,29 +203,29 @@ arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ArcWifiHostPtr = arc.mojom.ArcWifiHostRemote;
-arc.mojom.ArcWifiHostRequest = arc.mojom.ArcWifiHostPendingReceiver;
+arc.mojom.mojom.ArcWifiHostPtr = arc.mojom.mojom.ArcWifiHostRemote;
+arc.mojom.mojom.ArcWifiHostRequest = arc.mojom.mojom.ArcWifiHostPendingReceiver;
 
 
 // Interface: ArcWifiInstance
-arc.mojom.ArcWifiInstance = {};
+arc.mojom.mojom.ArcWifiInstance = {};
 
-arc.mojom.ArcWifiInstancePendingReceiver = class {
+arc.mojom.mojom.ArcWifiInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ArcWifiInstanceRemote = class {
+arc.mojom.mojom.ArcWifiInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ArcWifiInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ArcWifiInstancePendingReceiver,
+      arc.mojom.mojom.ArcWifiInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.ArcWifiInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.ArcWifiInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -237,7 +237,7 @@ arc.mojom.ArcWifiInstanceRemote = class {
   }
 };
 
-arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
+arc.mojom.mojom.ArcWifiInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -246,7 +246,7 @@ arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.ArcWifiInstance_Init_ParamsSpec,
+      arc.mojom.mojom.ArcWifiInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
@@ -255,7 +255,7 @@ arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec,
+      arc.mojom.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec,
       null,
       [enabled]);
   }
@@ -264,15 +264,15 @@ arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec,
+      arc.mojom.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.ArcWifiInstance.getRemote = function() {
-  let remote = new arc.mojom.ArcWifiInstanceRemote();
+arc.mojom.mojom.ArcWifiInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.ArcWifiInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -282,7 +282,7 @@ arc.mojom.ArcWifiInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.ArcWifiInstance_Init_ParamsSpec = {
+arc.mojom.mojom.ArcWifiInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiInstance.Init_Params',
@@ -296,7 +296,7 @@ arc.mojom.ArcWifiInstance_Init_ParamsSpec = {
 };
 
 // ParamsSpec for WifiEnabledStateChanged
-arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec = {
+arc.mojom.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiInstance.WifiEnabledStateChanged_Params',
@@ -310,7 +310,7 @@ arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec = {
 };
 
 // ParamsSpec for ScanCompleted
-arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec = {
+arc.mojom.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ArcWifiInstance.ScanCompleted_Params',
@@ -323,6 +323,6 @@ arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.ArcWifiInstancePtr = arc.mojom.ArcWifiInstanceRemote;
-arc.mojom.ArcWifiInstanceRequest = arc.mojom.ArcWifiInstancePendingReceiver;
+arc.mojom.mojom.ArcWifiInstancePtr = arc.mojom.mojom.ArcWifiInstanceRemote;
+arc.mojom.mojom.ArcWifiInstanceRequest = arc.mojom.mojom.ArcWifiInstancePendingReceiver;
 

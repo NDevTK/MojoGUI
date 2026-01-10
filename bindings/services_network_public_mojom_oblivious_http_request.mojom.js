@@ -7,10 +7,11 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Union: ObliviousHttpCompletionResult
-network.mojom.ObliviousHttpCompletionResultSpec = { $: mojo.internal.Union(
+network.mojom.mojom.ObliviousHttpCompletionResultSpec = { $: mojo.internal.Union(
     'network.mojom.ObliviousHttpCompletionResult', {
       'net_error': {
         'ordinal': 0,
@@ -28,7 +29,7 @@ network.mojom.ObliviousHttpCompletionResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: ObliviousHttpRequestBody
-network.mojom.ObliviousHttpRequestBodySpec = {
+network.mojom.mojom.ObliviousHttpRequestBodySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpRequestBody',
@@ -43,15 +44,15 @@ network.mojom.ObliviousHttpRequestBodySpec = {
 };
 
 // Struct: ObliviousHttpResponse
-network.mojom.ObliviousHttpResponseSpec = {
+network.mojom.mojom.ObliviousHttpResponseSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpResponse',
       packedSize: 32,
       fields: [
-        { name: 'response_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'response_body', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
+        { name: 'response_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'response_body', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -59,15 +60,15 @@ network.mojom.ObliviousHttpResponseSpec = {
 };
 
 // Struct: ObliviousHttpPaddingParameters
-network.mojom.ObliviousHttpPaddingParametersSpec = {
+network.mojom.mojom.ObliviousHttpPaddingParametersSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpPaddingParameters',
       packedSize: 16,
       fields: [
-        { name: 'add_exponential_pad', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'exponential_mean', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'pad_to_next_power_of_two', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'add_exponential_pad', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'exponential_mean', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'pad_to_next_power_of_two', packedOffset: 2, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -75,7 +76,7 @@ network.mojom.ObliviousHttpPaddingParametersSpec = {
 };
 
 // Struct: ObliviousHttpRequest
-network.mojom.ObliviousHttpRequestSpec = {
+network.mojom.mojom.ObliviousHttpRequestSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpRequest',
@@ -97,24 +98,24 @@ network.mojom.ObliviousHttpRequestSpec = {
 };
 
 // Interface: ObliviousHttpClient
-network.mojom.ObliviousHttpClient = {};
+network.mojom.mojom.ObliviousHttpClient = {};
 
-network.mojom.ObliviousHttpClientPendingReceiver = class {
+network.mojom.mojom.ObliviousHttpClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.ObliviousHttpClientRemote = class {
+network.mojom.mojom.ObliviousHttpClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ObliviousHttpClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.ObliviousHttpClientPendingReceiver,
+      network.mojom.mojom.ObliviousHttpClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.ObliviousHttpClientRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.ObliviousHttpClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -126,7 +127,7 @@ network.mojom.ObliviousHttpClientRemote = class {
   }
 };
 
-network.mojom.ObliviousHttpClientRemoteCallHandler = class {
+network.mojom.mojom.ObliviousHttpClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -135,15 +136,15 @@ network.mojom.ObliviousHttpClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec,
+      network.mojom.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec,
       null,
       [response]);
   }
 
 };
 
-network.mojom.ObliviousHttpClient.getRemote = function() {
-  let remote = new network.mojom.ObliviousHttpClientRemote();
+network.mojom.mojom.ObliviousHttpClient.getRemote = function() {
+  let remote = new network.mojom.mojom.ObliviousHttpClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -153,7 +154,7 @@ network.mojom.ObliviousHttpClient.getRemote = function() {
 };
 
 // ParamsSpec for OnCompleted
-network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
+network.mojom.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.ObliviousHttpClient.OnCompleted_Params',
@@ -167,6 +168,6 @@ network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.ObliviousHttpClientPtr = network.mojom.ObliviousHttpClientRemote;
-network.mojom.ObliviousHttpClientRequest = network.mojom.ObliviousHttpClientPendingReceiver;
+network.mojom.mojom.ObliviousHttpClientPtr = network.mojom.mojom.ObliviousHttpClientRemote;
+network.mojom.mojom.ObliviousHttpClientRequest = network.mojom.mojom.ObliviousHttpClientPendingReceiver;
 

@@ -7,27 +7,30 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var blink = blink || {};
+var blink = blink || {};
 
 
 // Interface: SharedWorkerClient
-blink.mojom.SharedWorkerClient = {};
+blink.mojom.mojom.SharedWorkerClient = {};
 
-blink.mojom.SharedWorkerClientPendingReceiver = class {
+blink.mojom.mojom.SharedWorkerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SharedWorkerClientRemote = class {
+blink.mojom.mojom.SharedWorkerClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SharedWorkerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SharedWorkerClientPendingReceiver,
+      blink.mojom.mojom.SharedWorkerClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SharedWorkerClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SharedWorkerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +42,7 @@ blink.mojom.SharedWorkerClientRemote = class {
   }
 };
 
-blink.mojom.SharedWorkerClientRemoteCallHandler = class {
+blink.mojom.mojom.SharedWorkerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +51,7 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec,
+      blink.mojom.mojom.SharedWorkerClient_OnCreated_ParamsSpec,
       null,
       [creation_context_type]);
   }
@@ -57,7 +60,7 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec,
+      blink.mojom.mojom.SharedWorkerClient_OnConnected_ParamsSpec,
       null,
       [features_used]);
   }
@@ -66,7 +69,7 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec,
+      blink.mojom.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec,
       null,
       [error_message]);
   }
@@ -75,7 +78,7 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec,
+      blink.mojom.mojom.SharedWorkerClient_OnReportException_ParamsSpec,
       null,
       [details]);
   }
@@ -84,15 +87,15 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec,
+      blink.mojom.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec,
       null,
       [feature]);
   }
 
 };
 
-blink.mojom.SharedWorkerClient.getRemote = function() {
-  let remote = new blink.mojom.SharedWorkerClientRemote();
+blink.mojom.mojom.SharedWorkerClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.SharedWorkerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -102,7 +105,7 @@ blink.mojom.SharedWorkerClient.getRemote = function() {
 };
 
 // ParamsSpec for OnCreated
-blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec = {
+blink.mojom.mojom.SharedWorkerClient_OnCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerClient.OnCreated_Params',
@@ -116,7 +119,7 @@ blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec = {
 };
 
 // ParamsSpec for OnConnected
-blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec = {
+blink.mojom.mojom.SharedWorkerClient_OnConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerClient.OnConnected_Params',
@@ -130,7 +133,7 @@ blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec = {
 };
 
 // ParamsSpec for OnScriptLoadFailed
-blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec = {
+blink.mojom.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerClient.OnScriptLoadFailed_Params',
@@ -144,7 +147,7 @@ blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec = {
 };
 
 // ParamsSpec for OnReportException
-blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec = {
+blink.mojom.mojom.SharedWorkerClient_OnReportException_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerClient.OnReportException_Params',
@@ -158,7 +161,7 @@ blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec = {
 };
 
 // ParamsSpec for OnFeatureUsed
-blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec = {
+blink.mojom.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedWorkerClient.OnFeatureUsed_Params',
@@ -172,6 +175,6 @@ blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SharedWorkerClientPtr = blink.mojom.SharedWorkerClientRemote;
-blink.mojom.SharedWorkerClientRequest = blink.mojom.SharedWorkerClientPendingReceiver;
+blink.mojom.mojom.SharedWorkerClientPtr = blink.mojom.mojom.SharedWorkerClientRemote;
+blink.mojom.mojom.SharedWorkerClientRequest = blink.mojom.mojom.SharedWorkerClientPendingReceiver;
 

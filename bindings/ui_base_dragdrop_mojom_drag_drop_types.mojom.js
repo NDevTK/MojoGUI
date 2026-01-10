@@ -10,17 +10,17 @@ ui.mojom = ui.mojom || {};
 
 
 // Enum: DragEventSource
-ui.mojom.DragEventSource = {
+ui.mojom.mojom.DragEventSource = {
   kMouse: 0,
   kTouch: 1,
 };
-ui.mojom.DragEventSourceSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.DragEventSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: DragOperation
-ui.mojom.DragOperation = {
+ui.mojom.mojom.DragOperation = {
   kNone: 0,
   kCopy: 1,
   kLink: 2,
   kMove: 3,
 };
-ui.mojom.DragOperationSpec = { $: mojo.internal.Enum() };
+ui.mojom.mojom.DragOperationSpec = { $: mojo.internal.Enum() };

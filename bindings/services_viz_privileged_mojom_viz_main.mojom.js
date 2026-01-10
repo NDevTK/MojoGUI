@@ -7,21 +7,23 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Struct: FrameSinkManagerParams
-viz.mojom.FrameSinkManagerParamsSpec = {
+viz.mojom.mojom.FrameSinkManagerParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkManagerParams',
       packedSize: 40,
       fields: [
-        { name: 'restart_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'use_activation_deadline', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'activation_deadline_in_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_manager', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_manager_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'debug_renderer_settings', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.DebugRendererSettingsSpec, nullable: false, minVersion: 0 },
+        { name: 'restart_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'use_activation_deadline', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'activation_deadline_in_frames', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_manager', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_manager_client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'debug_renderer_settings', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.DebugRendererSettingsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -29,7 +31,7 @@ viz.mojom.FrameSinkManagerParamsSpec = {
 };
 
 // Struct: GpuServiceCreationParams
-viz.mojom.GpuServiceCreationParamsSpec = {
+viz.mojom.mojom.GpuServiceCreationParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.GpuServiceCreationParams',
@@ -43,24 +45,24 @@ viz.mojom.GpuServiceCreationParamsSpec = {
 };
 
 // Interface: VizMain
-viz.mojom.VizMain = {};
+viz.mojom.mojom.VizMain = {};
 
-viz.mojom.VizMainPendingReceiver = class {
+viz.mojom.mojom.VizMainPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.VizMainRemote = class {
+viz.mojom.mojom.VizMainRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.VizMain';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.VizMainPendingReceiver,
+      viz.mojom.mojom.VizMainPendingReceiver,
       handle);
-    this.$ = new viz.mojom.VizMainRemoteCallHandler(this.proxy);
+    this.$ = new viz.mojom.mojom.VizMainRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -72,7 +74,7 @@ viz.mojom.VizMainRemote = class {
   }
 };
 
-viz.mojom.VizMainRemoteCallHandler = class {
+viz.mojom.mojom.VizMainRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -81,7 +83,7 @@ viz.mojom.VizMainRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec,
+      viz.mojom.mojom.VizMain_CreateFrameSinkManager_ParamsSpec,
       null,
       [params]);
   }
@@ -90,7 +92,7 @@ viz.mojom.VizMainRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      viz.mojom.VizMain_CreateGpuService_ParamsSpec,
+      viz.mojom.mojom.VizMain_CreateGpuService_ParamsSpec,
       null,
       [gpu_service, gpu_host, gpu_logging, discardable_memory_manager, use_shader_cache_shm_count, params]);
   }
@@ -99,7 +101,7 @@ viz.mojom.VizMainRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      viz.mojom.VizMain_SetRenderParams_ParamsSpec,
+      viz.mojom.mojom.VizMain_SetRenderParams_ParamsSpec,
       null,
       [subpixel_rendering, text_contrast, text_gamma]);
   }
@@ -108,7 +110,7 @@ viz.mojom.VizMainRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec,
+      viz.mojom.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec,
       null,
       [info_collection_gpu_service]);
   }
@@ -117,7 +119,7 @@ viz.mojom.VizMainRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      viz.mojom.VizMain_SetHostProcessId_ParamsSpec,
+      viz.mojom.mojom.VizMain_SetHostProcessId_ParamsSpec,
       null,
       [pid]);
   }
@@ -126,7 +128,7 @@ viz.mojom.VizMainRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec,
+      viz.mojom.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec,
       null,
       []);
   }
@@ -135,7 +137,7 @@ viz.mojom.VizMainRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      viz.mojom.VizMain_StartDebugStream_ParamsSpec,
+      viz.mojom.mojom.VizMain_StartDebugStream_ParamsSpec,
       null,
       [viz_debug]);
   }
@@ -144,7 +146,7 @@ viz.mojom.VizMainRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      viz.mojom.VizMain_FilterDebugStream_ParamsSpec,
+      viz.mojom.mojom.VizMain_FilterDebugStream_ParamsSpec,
       null,
       [filterData]);
   }
@@ -153,15 +155,15 @@ viz.mojom.VizMainRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      viz.mojom.VizMain_StopDebugStream_ParamsSpec,
+      viz.mojom.mojom.VizMain_StopDebugStream_ParamsSpec,
       null,
       []);
   }
 
 };
 
-viz.mojom.VizMain.getRemote = function() {
-  let remote = new viz.mojom.VizMainRemote();
+viz.mojom.mojom.VizMain.getRemote = function() {
+  let remote = new viz.mojom.mojom.VizMainRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -171,7 +173,7 @@ viz.mojom.VizMain.getRemote = function() {
 };
 
 // ParamsSpec for CreateFrameSinkManager
-viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = {
+viz.mojom.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizMain.CreateFrameSinkManager_Params',
@@ -185,18 +187,18 @@ viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = {
 };
 
 // ParamsSpec for CreateGpuService
-viz.mojom.VizMain_CreateGpuService_ParamsSpec = {
+viz.mojom.mojom.VizMain_CreateGpuService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizMain.CreateGpuService_Params',
       packedSize: 40,
       fields: [
-        { name: 'gpu_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'gpu_host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'gpu_logging', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'discardable_memory_manager', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'use_shader_cache_shm_count', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.GpuServiceCreationParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'gpu_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'gpu_host', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'gpu_logging', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'discardable_memory_manager', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'use_shader_cache_shm_count', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.GpuServiceCreationParamsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -204,7 +206,7 @@ viz.mojom.VizMain_CreateGpuService_ParamsSpec = {
 };
 
 // ParamsSpec for SetRenderParams
-viz.mojom.VizMain_SetRenderParams_ParamsSpec = {
+viz.mojom.mojom.VizMain_SetRenderParams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizMain.SetRenderParams_Params',
@@ -220,7 +222,7 @@ viz.mojom.VizMain_SetRenderParams_ParamsSpec = {
 };
 
 // ParamsSpec for CreateInfoCollectionGpuService
-viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = {
+viz.mojom.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizMain.CreateInfoCollectionGpuService_Params',
@@ -234,7 +236,7 @@ viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = {
 };
 
 // ParamsSpec for SetHostProcessId
-viz.mojom.VizMain_SetHostProcessId_ParamsSpec = {
+viz.mojom.mojom.VizMain_SetHostProcessId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizMain.SetHostProcessId_Params',
@@ -248,7 +250,7 @@ viz.mojom.VizMain_SetHostProcessId_ParamsSpec = {
 };
 
 // ParamsSpec for NotifyWorkloadIncrease
-viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec = {
+viz.mojom.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizMain.NotifyWorkloadIncrease_Params',
@@ -261,7 +263,7 @@ viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec = {
 };
 
 // ParamsSpec for StartDebugStream
-viz.mojom.VizMain_StartDebugStream_ParamsSpec = {
+viz.mojom.mojom.VizMain_StartDebugStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizMain.StartDebugStream_Params',
@@ -275,7 +277,7 @@ viz.mojom.VizMain_StartDebugStream_ParamsSpec = {
 };
 
 // ParamsSpec for FilterDebugStream
-viz.mojom.VizMain_FilterDebugStream_ParamsSpec = {
+viz.mojom.mojom.VizMain_FilterDebugStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizMain.FilterDebugStream_Params',
@@ -289,7 +291,7 @@ viz.mojom.VizMain_FilterDebugStream_ParamsSpec = {
 };
 
 // ParamsSpec for StopDebugStream
-viz.mojom.VizMain_StopDebugStream_ParamsSpec = {
+viz.mojom.mojom.VizMain_StopDebugStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.VizMain.StopDebugStream_Params',
@@ -302,6 +304,6 @@ viz.mojom.VizMain_StopDebugStream_ParamsSpec = {
 };
 
 // Legacy compatibility
-viz.mojom.VizMainPtr = viz.mojom.VizMainRemote;
-viz.mojom.VizMainRequest = viz.mojom.VizMainPendingReceiver;
+viz.mojom.mojom.VizMainPtr = viz.mojom.mojom.VizMainRemote;
+viz.mojom.mojom.VizMainRequest = viz.mojom.mojom.VizMainPendingReceiver;
 

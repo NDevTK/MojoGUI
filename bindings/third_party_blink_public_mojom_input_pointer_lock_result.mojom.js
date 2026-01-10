@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: PointerLockResult
-blink.mojom.PointerLockResult = {
+blink.mojom.mojom.PointerLockResult = {
   kSuccess: 0,
   kUnsupportedOptions: 1,
   kRequiresUserGesture: 2,
@@ -21,4 +21,4 @@ blink.mojom.PointerLockResult = {
   kElementDestroyed: 7,
   kUnknownError: 8,
 };
-blink.mojom.PointerLockResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.PointerLockResultSpec = { $: mojo.internal.Enum() };

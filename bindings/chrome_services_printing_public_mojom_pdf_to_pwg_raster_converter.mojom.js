@@ -10,24 +10,24 @@ printing.mojom = printing.mojom || {};
 
 
 // Enum: TransformType
-printing.mojom.TransformType = {
+printing.mojom.mojom.TransformType = {
   TRANSFORM_NORMAL: 0,
   TRANSFORM_ROTATE_180: 1,
   TRANSFORM_FLIP_HORIZONTAL: 2,
   TRANSFORM_FLIP_VERTICAL: 3,
 };
-printing.mojom.TransformTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.mojom.TransformTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DuplexMode
-printing.mojom.DuplexMode = {
+printing.mojom.mojom.DuplexMode = {
   SIMPLEX: 0,
   LONG_EDGE: 1,
   SHORT_EDGE: 2,
 };
-printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
+printing.mojom.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PwgRasterSettings
-printing.mojom.PwgRasterSettingsSpec = {
+printing.mojom.mojom.PwgRasterSettingsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PwgRasterSettings',
@@ -41,24 +41,24 @@ printing.mojom.PwgRasterSettingsSpec = {
 };
 
 // Interface: PdfToPwgRasterConverter
-printing.mojom.PdfToPwgRasterConverter = {};
+printing.mojom.mojom.PdfToPwgRasterConverter = {};
 
-printing.mojom.PdfToPwgRasterConverterPendingReceiver = class {
+printing.mojom.mojom.PdfToPwgRasterConverterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PdfToPwgRasterConverterRemote = class {
+printing.mojom.mojom.PdfToPwgRasterConverterRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PdfToPwgRasterConverter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PdfToPwgRasterConverterPendingReceiver,
+      printing.mojom.mojom.PdfToPwgRasterConverterPendingReceiver,
       handle);
-    this.$ = new printing.mojom.PdfToPwgRasterConverterRemoteCallHandler(this.proxy);
+    this.$ = new printing.mojom.mojom.PdfToPwgRasterConverterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -70,7 +70,7 @@ printing.mojom.PdfToPwgRasterConverterRemote = class {
   }
 };
 
-printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
+printing.mojom.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -79,8 +79,8 @@ printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec,
-      printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec,
+      printing.mojom.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec,
+      printing.mojom.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec,
       [pdf_region, pdf_settings, pwg_raster_settings]);
   }
 
@@ -88,15 +88,15 @@ printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec,
+      printing.mojom.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
       [use_skia]);
   }
 
 };
 
-printing.mojom.PdfToPwgRasterConverter.getRemote = function() {
-  let remote = new printing.mojom.PdfToPwgRasterConverterRemote();
+printing.mojom.mojom.PdfToPwgRasterConverter.getRemote = function() {
+  let remote = new printing.mojom.mojom.PdfToPwgRasterConverterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -106,7 +106,7 @@ printing.mojom.PdfToPwgRasterConverter.getRemote = function() {
 };
 
 // ParamsSpec for Convert
-printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
+printing.mojom.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToPwgRasterConverter.Convert_Params',
@@ -121,7 +121,7 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
   }
 };
 
-printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
+printing.mojom.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToPwgRasterConverter.Convert_ResponseParams',
@@ -136,7 +136,7 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetUseSkiaRendererPolicy
-printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
+printing.mojom.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PdfToPwgRasterConverter.SetUseSkiaRendererPolicy_Params',
@@ -150,6 +150,6 @@ printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
 };
 
 // Legacy compatibility
-printing.mojom.PdfToPwgRasterConverterPtr = printing.mojom.PdfToPwgRasterConverterRemote;
-printing.mojom.PdfToPwgRasterConverterRequest = printing.mojom.PdfToPwgRasterConverterPendingReceiver;
+printing.mojom.mojom.PdfToPwgRasterConverterPtr = printing.mojom.mojom.PdfToPwgRasterConverterRemote;
+printing.mojom.mojom.PdfToPwgRasterConverterRequest = printing.mojom.mojom.PdfToPwgRasterConverterPendingReceiver;
 

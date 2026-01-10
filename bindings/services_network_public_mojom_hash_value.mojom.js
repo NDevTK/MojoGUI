@@ -10,7 +10,7 @@ network.mojom = network.mojom || {};
 
 
 // Struct: SHA256HashValue
-network.mojom.SHA256HashValueSpec = {
+network.mojom.mojom.SHA256HashValueSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.SHA256HashValue',

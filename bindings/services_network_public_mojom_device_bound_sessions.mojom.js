@@ -7,27 +7,28 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var url = url || {};
 
 
 // Enum: DeviceBoundSessionAccessType
-network.mojom.DeviceBoundSessionAccessType = {
+network.mojom.mojom.DeviceBoundSessionAccessType = {
   kCreation: 0,
   kUpdate: 1,
   kTermination: 2,
 };
-network.mojom.DeviceBoundSessionAccessTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DeviceBoundSessionAccessTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceBoundSessionUsage
-network.mojom.DeviceBoundSessionUsage = {
+network.mojom.mojom.DeviceBoundSessionUsage = {
   kUnknown: 0,
   kNoUsage: 1,
   kInScopeNotDeferred: 2,
   kDeferred: 3,
 };
-network.mojom.DeviceBoundSessionUsageSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DeviceBoundSessionUsageSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceBoundSessionDeletionReason
-network.mojom.DeviceBoundSessionDeletionReason = {
+network.mojom.mojom.DeviceBoundSessionDeletionReason = {
   kExpired: 0,
   kFailedToRestoreKey: 1,
   kFailedToUnwrapKey: 2,
@@ -37,17 +38,17 @@ network.mojom.DeviceBoundSessionDeletionReason = {
   kInvalidSessionParams: 6,
   kRefreshFatalError: 7,
 };
-network.mojom.DeviceBoundSessionDeletionReasonSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DeviceBoundSessionDeletionReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceBoundSessionScopeSpecificationType
-network.mojom.DeviceBoundSessionScopeSpecificationType = {
+network.mojom.mojom.DeviceBoundSessionScopeSpecificationType = {
   kExclude: 0,
   kInclude: 1,
 };
-network.mojom.DeviceBoundSessionScopeSpecificationTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DeviceBoundSessionScopeSpecificationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceBoundSessionError
-network.mojom.DeviceBoundSessionError = {
+network.mojom.mojom.DeviceBoundSessionError = {
   kSuccess: 0,
   kKeyError: 1,
   kSigningError: 2,
@@ -117,10 +118,10 @@ network.mojom.DeviceBoundSessionError = {
   kFailedToUnwrapKey: 66,
   kSessionDeletedDuringRefresh: 67,
 };
-network.mojom.DeviceBoundSessionErrorSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DeviceBoundSessionErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceBoundSessionRefreshResult
-network.mojom.DeviceBoundSessionRefreshResult = {
+network.mojom.mojom.DeviceBoundSessionRefreshResult = {
   kRefreshed: 0,
   kInitializedService: 1,
   kUnreachable: 2,
@@ -129,26 +130,26 @@ network.mojom.DeviceBoundSessionRefreshResult = {
   kFatalError: 5,
   kSigningQuotaExceeded: 6,
 };
-network.mojom.DeviceBoundSessionRefreshResultSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DeviceBoundSessionRefreshResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceBoundSessionChallengeResult
-network.mojom.DeviceBoundSessionChallengeResult = {
+network.mojom.mojom.DeviceBoundSessionChallengeResult = {
   kSuccess: 0,
   kNoSessionId: 1,
   kNoSessionMatch: 2,
   kCantSetBoundCookie: 3,
 };
-network.mojom.DeviceBoundSessionChallengeResultSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DeviceBoundSessionChallengeResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceBoundSessionInclusionResult
-network.mojom.DeviceBoundSessionInclusionResult = {
+network.mojom.mojom.DeviceBoundSessionInclusionResult = {
   kExclude: 0,
   kInclude: 1,
 };
-network.mojom.DeviceBoundSessionInclusionResultSpec = { $: mojo.internal.Enum() };
+network.mojom.mojom.DeviceBoundSessionInclusionResultSpec = { $: mojo.internal.Enum() };
 
 // Union: DeviceBoundSessionEventTypeDetails
-network.mojom.DeviceBoundSessionEventTypeDetailsSpec = { $: mojo.internal.Union(
+network.mojom.mojom.DeviceBoundSessionEventTypeDetailsSpec = { $: mojo.internal.Union(
     'network.mojom.DeviceBoundSessionEventTypeDetails', {
       'creation': {
         'ordinal': 0,
@@ -170,7 +171,7 @@ network.mojom.DeviceBoundSessionEventTypeDetailsSpec = { $: mojo.internal.Union(
 };
 
 // Struct: DeviceBoundSessionKey
-network.mojom.DeviceBoundSessionKeySpec = {
+network.mojom.mojom.DeviceBoundSessionKeySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionKey',
@@ -185,15 +186,15 @@ network.mojom.DeviceBoundSessionKeySpec = {
 };
 
 // Struct: DeviceBoundSessionAccess
-network.mojom.DeviceBoundSessionAccessSpec = {
+network.mojom.mojom.DeviceBoundSessionAccessSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionAccess',
       packedSize: 32,
       fields: [
-        { name: 'access_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionAccessTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'session_key', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionKeySpec, nullable: false, minVersion: 0 },
-        { name: 'cookies', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'access_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionAccessTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'session_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionKeySpec, nullable: false, minVersion: 0 },
+        { name: 'cookies', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -201,7 +202,7 @@ network.mojom.DeviceBoundSessionAccessSpec = {
 };
 
 // Struct: DeviceBoundSessionScopeSpecification
-network.mojom.DeviceBoundSessionScopeSpecificationSpec = {
+network.mojom.mojom.DeviceBoundSessionScopeSpecificationSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionScopeSpecification',
@@ -217,15 +218,15 @@ network.mojom.DeviceBoundSessionScopeSpecificationSpec = {
 };
 
 // Struct: DeviceBoundSessionScope
-network.mojom.DeviceBoundSessionScopeSpec = {
+network.mojom.mojom.DeviceBoundSessionScopeSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionScope',
       packedSize: 32,
       fields: [
-        { name: 'include_site', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'specifications', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DeviceBoundSessionScopeSpecificationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'include_site', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'specifications', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DeviceBoundSessionScopeSpecificationSpec, false), nullable: false, minVersion: 0 },
+        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -233,7 +234,7 @@ network.mojom.DeviceBoundSessionScopeSpec = {
 };
 
 // Struct: DeviceBoundSessionCredential
-network.mojom.DeviceBoundSessionCredentialSpec = {
+network.mojom.mojom.DeviceBoundSessionCredentialSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionCredential',
@@ -248,7 +249,7 @@ network.mojom.DeviceBoundSessionCredentialSpec = {
 };
 
 // Struct: DeviceBoundSessionParams
-network.mojom.DeviceBoundSessionParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionParams',
@@ -267,7 +268,7 @@ network.mojom.DeviceBoundSessionParamsSpec = {
 };
 
 // Struct: DeviceBoundSessionCookieCravingDisplay
-network.mojom.DeviceBoundSessionCookieCravingDisplaySpec = {
+network.mojom.mojom.DeviceBoundSessionCookieCravingDisplaySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionCookieCravingDisplay',
@@ -276,9 +277,9 @@ network.mojom.DeviceBoundSessionCookieCravingDisplaySpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'domain', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'secure', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'http_only', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'same_site', packedOffset: 28, packedBitOffset: 0, type: network.mojom.CookieSameSiteSpec, nullable: false, minVersion: 0 },
+        { name: 'secure', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'http_only', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'same_site', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CookieSameSiteSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -286,15 +287,15 @@ network.mojom.DeviceBoundSessionCookieCravingDisplaySpec = {
 };
 
 // Struct: DeviceBoundSessionUrlRuleDisplay
-network.mojom.DeviceBoundSessionUrlRuleDisplaySpec = {
+network.mojom.mojom.DeviceBoundSessionUrlRuleDisplaySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionUrlRuleDisplay',
       packedSize: 32,
       fields: [
-        { name: 'rule_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionInclusionResultSpec, nullable: false, minVersion: 0 },
-        { name: 'host_pattern', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'path_prefix', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'rule_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionInclusionResultSpec, nullable: false, minVersion: 0 },
+        { name: 'host_pattern', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'path_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -302,15 +303,15 @@ network.mojom.DeviceBoundSessionUrlRuleDisplaySpec = {
 };
 
 // Struct: DeviceBoundSessionInclusionRulesDisplay
-network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec = {
+network.mojom.mojom.DeviceBoundSessionInclusionRulesDisplaySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionInclusionRulesDisplay',
       packedSize: 32,
       fields: [
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'include_site', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'url_rules', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, false), nullable: false, minVersion: 0 },
+        { name: 'include_site', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'url_rules', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -318,7 +319,7 @@ network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec = {
 };
 
 // Struct: DeviceBoundSessionDisplay
-network.mojom.DeviceBoundSessionDisplaySpec = {
+network.mojom.mojom.DeviceBoundSessionDisplaySpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionDisplay',
@@ -338,14 +339,14 @@ network.mojom.DeviceBoundSessionDisplaySpec = {
 };
 
 // Struct: DeviceBoundSessionCreationDetails
-network.mojom.DeviceBoundSessionCreationDetailsSpec = {
+network.mojom.mojom.DeviceBoundSessionCreationDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionCreationDetails',
       packedSize: 24,
       fields: [
-        { name: 'fetch_error', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'new_session_display', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionDisplaySpec, nullable: true, minVersion: 0 },
+        { name: 'fetch_error', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'new_session_display', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionDisplaySpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -353,15 +354,15 @@ network.mojom.DeviceBoundSessionCreationDetailsSpec = {
 };
 
 // Struct: DeviceBoundSessionRefreshDetails
-network.mojom.DeviceBoundSessionRefreshDetailsSpec = {
+network.mojom.mojom.DeviceBoundSessionRefreshDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionRefreshDetails',
       packedSize: 32,
       fields: [
-        { name: 'refresh_result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionRefreshResultSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_error', packedOffset: 4, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionErrorSpec, nullable: true, minVersion: 0 },
-        { name: 'new_session_display', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionDisplaySpec, nullable: true, minVersion: 0 },
+        { name: 'refresh_result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionRefreshResultSpec, nullable: false, minVersion: 0 },
+        { name: 'fetch_error', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionErrorSpec, nullable: true, minVersion: 0 },
+        { name: 'new_session_display', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionDisplaySpec, nullable: true, minVersion: 0 },
         { name: 'was_fully_proactive_refresh', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
@@ -370,7 +371,7 @@ network.mojom.DeviceBoundSessionRefreshDetailsSpec = {
 };
 
 // Struct: DeviceBoundSessionTerminationDetails
-network.mojom.DeviceBoundSessionTerminationDetailsSpec = {
+network.mojom.mojom.DeviceBoundSessionTerminationDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionTerminationDetails',
@@ -384,14 +385,14 @@ network.mojom.DeviceBoundSessionTerminationDetailsSpec = {
 };
 
 // Struct: DeviceBoundSessionChallengeDetails
-network.mojom.DeviceBoundSessionChallengeDetailsSpec = {
+network.mojom.mojom.DeviceBoundSessionChallengeDetailsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionChallengeDetails',
       packedSize: 24,
       fields: [
-        { name: 'challenge_result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionChallengeResultSpec, nullable: false, minVersion: 0 },
-        { name: 'challenge', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'challenge_result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionChallengeResultSpec, nullable: false, minVersion: 0 },
+        { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -399,17 +400,17 @@ network.mojom.DeviceBoundSessionChallengeDetailsSpec = {
 };
 
 // Struct: DeviceBoundSessionEvent
-network.mojom.DeviceBoundSessionEventSpec = {
+network.mojom.mojom.DeviceBoundSessionEventSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionEvent',
       packedSize: 56,
       fields: [
-        { name: 'event_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'site', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'succeeded', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'event_type_details', packedOffset: 32, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionEventTypeDetailsSpec, nullable: false, minVersion: 0 },
+        { name: 'event_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'site', packedOffset: 24, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
+        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'succeeded', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'event_type_details', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionEventTypeDetailsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 56}]
     }
@@ -417,24 +418,24 @@ network.mojom.DeviceBoundSessionEventSpec = {
 };
 
 // Interface: DeviceBoundSessionManager
-network.mojom.DeviceBoundSessionManager = {};
+network.mojom.mojom.DeviceBoundSessionManager = {};
 
-network.mojom.DeviceBoundSessionManagerPendingReceiver = class {
+network.mojom.mojom.DeviceBoundSessionManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.DeviceBoundSessionManagerRemote = class {
+network.mojom.mojom.DeviceBoundSessionManagerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.DeviceBoundSessionManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.DeviceBoundSessionManagerPendingReceiver,
+      network.mojom.mojom.DeviceBoundSessionManagerPendingReceiver,
       handle);
-    this.$ = new network.mojom.DeviceBoundSessionManagerRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.DeviceBoundSessionManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -446,7 +447,7 @@ network.mojom.DeviceBoundSessionManagerRemote = class {
   }
 };
 
-network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
+network.mojom.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -455,8 +456,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec,
-      network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec,
       []);
   }
 
@@ -464,7 +465,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec,
       null,
       [reason, session]);
   }
@@ -473,7 +474,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec,
       null,
       [reason, created_after_time, created_before_time, filter]);
   }
@@ -482,7 +483,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec,
       null,
       [url, observer]);
   }
@@ -491,7 +492,7 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec,
       null,
       [observer]);
   }
@@ -500,15 +501,15 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec,
-      network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec,
       [params, wrapped_key, cookies_to_set, cookie_options]);
   }
 
 };
 
-network.mojom.DeviceBoundSessionManager.getRemote = function() {
-  let remote = new network.mojom.DeviceBoundSessionManagerRemote();
+network.mojom.mojom.DeviceBoundSessionManager.getRemote = function() {
+  let remote = new network.mojom.mojom.DeviceBoundSessionManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -518,7 +519,7 @@ network.mojom.DeviceBoundSessionManager.getRemote = function() {
 };
 
 // ParamsSpec for GetAllSessions
-network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionManager.GetAllSessions_Params',
@@ -530,7 +531,7 @@ network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec = {
   }
 };
 
-network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionManager.GetAllSessions_ResponseParams',
@@ -544,14 +545,14 @@ network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec = {
 };
 
 // ParamsSpec for DeleteSession
-network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionManager.DeleteSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionDeletionReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionKeySpec, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionDeletionReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionKeySpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -559,16 +560,16 @@ network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec = {
 };
 
 // ParamsSpec for DeleteAllSessions
-network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionManager.DeleteAllSessions_Params',
       packedSize: 40,
       fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionDeletionReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'created_after_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-        { name: 'created_before_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
+        { name: 'reason', packedOffset: 24, packedBitOffset: 0, type: network.mojom.DeviceBoundSessionDeletionReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'created_after_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+        { name: 'created_before_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
+        { name: 'filter', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ClearDataFilterSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -576,7 +577,7 @@ network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec = {
 };
 
 // ParamsSpec for AddObserver
-network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionManager.AddObserver_Params',
@@ -591,7 +592,7 @@ network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec = {
 };
 
 // ParamsSpec for AddEventObserver
-network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionManager.AddEventObserver_Params',
@@ -605,7 +606,7 @@ network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec = {
 };
 
 // ParamsSpec for CreateBoundSessions
-network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionManager.CreateBoundSessions_Params',
@@ -621,7 +622,7 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = {
   }
 };
 
-network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionManager.CreateBoundSessions_ResponseParams',
@@ -636,29 +637,29 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec =
 };
 
 // Legacy compatibility
-network.mojom.DeviceBoundSessionManagerPtr = network.mojom.DeviceBoundSessionManagerRemote;
-network.mojom.DeviceBoundSessionManagerRequest = network.mojom.DeviceBoundSessionManagerPendingReceiver;
+network.mojom.mojom.DeviceBoundSessionManagerPtr = network.mojom.mojom.DeviceBoundSessionManagerRemote;
+network.mojom.mojom.DeviceBoundSessionManagerRequest = network.mojom.mojom.DeviceBoundSessionManagerPendingReceiver;
 
 
 // Interface: DeviceBoundSessionAccessObserver
-network.mojom.DeviceBoundSessionAccessObserver = {};
+network.mojom.mojom.DeviceBoundSessionAccessObserver = {};
 
-network.mojom.DeviceBoundSessionAccessObserverPendingReceiver = class {
+network.mojom.mojom.DeviceBoundSessionAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.DeviceBoundSessionAccessObserverRemote = class {
+network.mojom.mojom.DeviceBoundSessionAccessObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.DeviceBoundSessionAccessObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.DeviceBoundSessionAccessObserverPendingReceiver,
+      network.mojom.mojom.DeviceBoundSessionAccessObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -670,7 +671,7 @@ network.mojom.DeviceBoundSessionAccessObserverRemote = class {
   }
 };
 
-network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
+network.mojom.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -679,7 +680,7 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec,
       null,
       [access]);
   }
@@ -688,15 +689,15 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec,
       null,
       [observer]);
   }
 
 };
 
-network.mojom.DeviceBoundSessionAccessObserver.getRemote = function() {
-  let remote = new network.mojom.DeviceBoundSessionAccessObserverRemote();
+network.mojom.mojom.DeviceBoundSessionAccessObserver.getRemote = function() {
+  let remote = new network.mojom.mojom.DeviceBoundSessionAccessObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -706,7 +707,7 @@ network.mojom.DeviceBoundSessionAccessObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnDeviceBoundSessionAccessed
-network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionAccessObserver.OnDeviceBoundSessionAccessed_Params',
@@ -720,7 +721,7 @@ network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_Para
 };
 
 // ParamsSpec for Clone
-network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionAccessObserver.Clone_Params',
@@ -734,29 +735,29 @@ network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec = {
 };
 
 // Legacy compatibility
-network.mojom.DeviceBoundSessionAccessObserverPtr = network.mojom.DeviceBoundSessionAccessObserverRemote;
-network.mojom.DeviceBoundSessionAccessObserverRequest = network.mojom.DeviceBoundSessionAccessObserverPendingReceiver;
+network.mojom.mojom.DeviceBoundSessionAccessObserverPtr = network.mojom.mojom.DeviceBoundSessionAccessObserverRemote;
+network.mojom.mojom.DeviceBoundSessionAccessObserverRequest = network.mojom.mojom.DeviceBoundSessionAccessObserverPendingReceiver;
 
 
 // Interface: DeviceBoundSessionEventObserver
-network.mojom.DeviceBoundSessionEventObserver = {};
+network.mojom.mojom.DeviceBoundSessionEventObserver = {};
 
-network.mojom.DeviceBoundSessionEventObserverPendingReceiver = class {
+network.mojom.mojom.DeviceBoundSessionEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.DeviceBoundSessionEventObserverRemote = class {
+network.mojom.mojom.DeviceBoundSessionEventObserverRemote = class {
   static get $interfaceName() {
     return 'network.mojom.DeviceBoundSessionEventObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.DeviceBoundSessionEventObserverPendingReceiver,
+      network.mojom.mojom.DeviceBoundSessionEventObserverPendingReceiver,
       handle);
-    this.$ = new network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler(this.proxy);
+    this.$ = new network.mojom.mojom.DeviceBoundSessionEventObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -768,7 +769,7 @@ network.mojom.DeviceBoundSessionEventObserverRemote = class {
   }
 };
 
-network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
+network.mojom.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -777,7 +778,7 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec,
       null,
       [event]);
   }
@@ -786,15 +787,15 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec,
+      network.mojom.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec,
       null,
       [session_displays]);
   }
 
 };
 
-network.mojom.DeviceBoundSessionEventObserver.getRemote = function() {
-  let remote = new network.mojom.DeviceBoundSessionEventObserverRemote();
+network.mojom.mojom.DeviceBoundSessionEventObserver.getRemote = function() {
+  let remote = new network.mojom.mojom.DeviceBoundSessionEventObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -804,7 +805,7 @@ network.mojom.DeviceBoundSessionEventObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnDeviceBoundSessionEventReceived
-network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionEventObserver.OnDeviceBoundSessionEventReceived_Params',
@@ -818,7 +819,7 @@ network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_
 };
 
 // ParamsSpec for AddDeviceBoundSessionDisplays
-network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec = {
+network.mojom.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.DeviceBoundSessionEventObserver.AddDeviceBoundSessionDisplays_Params',
@@ -832,6 +833,6 @@ network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_Para
 };
 
 // Legacy compatibility
-network.mojom.DeviceBoundSessionEventObserverPtr = network.mojom.DeviceBoundSessionEventObserverRemote;
-network.mojom.DeviceBoundSessionEventObserverRequest = network.mojom.DeviceBoundSessionEventObserverPendingReceiver;
+network.mojom.mojom.DeviceBoundSessionEventObserverPtr = network.mojom.mojom.DeviceBoundSessionEventObserverRemote;
+network.mojom.mojom.DeviceBoundSessionEventObserverRequest = network.mojom.mojom.DeviceBoundSessionEventObserverPendingReceiver;
 

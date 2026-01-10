@@ -10,17 +10,17 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ActionType
-arc.mojom.ActionType = {
+arc.mojom.mojom.ActionType = {
   VIEW: 0,
   SEND: 1,
   SEND_MULTIPLE: 2,
   CREATE_NOTE: 3,
   EDIT: 4,
 };
-arc.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ActivityName
-arc.mojom.ActivityNameSpec = {
+arc.mojom.mojom.ActivityNameSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.ActivityName',

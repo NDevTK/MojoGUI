@@ -7,10 +7,13 @@
 // Module namespace
 var lobster = lobster || {};
 lobster.mojom = lobster.mojom || {};
+var url = url || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: StatusCode
-lobster.mojom.StatusCode = {
+lobster.mojom.mojom.StatusCode = {
   kOk: 0,
   kBlockedOutputs: 1,
   kNoInternetConnection: 2,
@@ -20,10 +23,10 @@ lobster.mojom.StatusCode = {
   kUnsupportedLanguage: 6,
   kRestrictedRegion: 7,
 };
-lobster.mojom.StatusCodeSpec = { $: mojo.internal.Enum() };
+lobster.mojom.mojom.StatusCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebUIMetricEvent
-lobster.mojom.WebUIMetricEvent = {
+lobster.mojom.mojom.WebUIMetricEvent = {
   kQueryPageImpression: 0,
   kRequestInitialCandidates: 1,
   kRequestInitialCandidatesSuccess: 2,
@@ -36,10 +39,10 @@ lobster.mojom.WebUIMetricEvent = {
   kFeedbackThumbsUp: 9,
   kFeedbackThumbsDown: 10,
 };
-lobster.mojom.WebUIMetricEventSpec = { $: mojo.internal.Enum() };
+lobster.mojom.mojom.WebUIMetricEventSpec = { $: mojo.internal.Enum() };
 
 // Union: Response
-lobster.mojom.ResponseSpec = { $: mojo.internal.Union(
+lobster.mojom.mojom.ResponseSpec = { $: mojo.internal.Union(
     'lobster.mojom.Response', {
       'candidates': {
         'ordinal': 0,
@@ -53,14 +56,14 @@ lobster.mojom.ResponseSpec = { $: mojo.internal.Union(
 };
 
 // Struct: Candidate
-lobster.mojom.CandidateSpec = {
+lobster.mojom.mojom.CandidateSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.Candidate',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -68,14 +71,14 @@ lobster.mojom.CandidateSpec = {
 };
 
 // Struct: Error
-lobster.mojom.ErrorSpec = {
+lobster.mojom.mojom.ErrorSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.Error',
       packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: lobster.mojom.StatusCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: lobster.mojom.StatusCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -83,7 +86,7 @@ lobster.mojom.ErrorSpec = {
 };
 
 // Struct: FeedbackPreview
-lobster.mojom.FeedbackPreviewSpec = {
+lobster.mojom.mojom.FeedbackPreviewSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.FeedbackPreview',
@@ -98,24 +101,24 @@ lobster.mojom.FeedbackPreviewSpec = {
 };
 
 // Interface: UntrustedLobsterPageHandler
-lobster.mojom.UntrustedLobsterPageHandler = {};
+lobster.mojom.mojom.UntrustedLobsterPageHandler = {};
 
-lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver = class {
+lobster.mojom.mojom.UntrustedLobsterPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-lobster.mojom.UntrustedLobsterPageHandlerRemote = class {
+lobster.mojom.mojom.UntrustedLobsterPageHandlerRemote = class {
   static get $interfaceName() {
     return 'lobster.mojom.UntrustedLobsterPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver,
+      lobster.mojom.mojom.UntrustedLobsterPageHandlerPendingReceiver,
       handle);
-    this.$ = new lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new lobster.mojom.mojom.UntrustedLobsterPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -127,7 +130,7 @@ lobster.mojom.UntrustedLobsterPageHandlerRemote = class {
   }
 };
 
-lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
+lobster.mojom.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -136,8 +139,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec,
-      lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec,
       [query, num_candidates]);
   }
 
@@ -145,8 +148,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec,
-      lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec,
       [candidate_id]);
   }
 
@@ -154,8 +157,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec,
-      lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec,
       [candidate_id]);
   }
 
@@ -163,8 +166,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec,
-      lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec,
       [candidate_id]);
   }
 
@@ -172,8 +175,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec,
-      lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec,
       [candidate_id]);
   }
 
@@ -181,8 +184,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec,
-      lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec,
       [candidate_id, description]);
   }
 
@@ -190,7 +193,7 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec,
       null,
       []);
   }
@@ -199,7 +202,7 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec,
       null,
       []);
   }
@@ -208,7 +211,7 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec,
       null,
       [metric_event]);
   }
@@ -217,15 +220,15 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec,
+      lobster.mojom.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec,
       null,
       [url]);
   }
 
 };
 
-lobster.mojom.UntrustedLobsterPageHandler.getRemote = function() {
-  let remote = new lobster.mojom.UntrustedLobsterPageHandlerRemote();
+lobster.mojom.mojom.UntrustedLobsterPageHandler.getRemote = function() {
+  let remote = new lobster.mojom.mojom.UntrustedLobsterPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -235,7 +238,7 @@ lobster.mojom.UntrustedLobsterPageHandler.getRemote = function() {
 };
 
 // ParamsSpec for RequestCandidates
-lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.RequestCandidates_Params',
@@ -249,7 +252,7 @@ lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = {
   }
 };
 
-lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.RequestCandidates_ResponseParams',
@@ -263,7 +266,7 @@ lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec =
 };
 
 // ParamsSpec for DownloadCandidate
-lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.DownloadCandidate_Params',
@@ -276,7 +279,7 @@ lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec = {
   }
 };
 
-lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.DownloadCandidate_ResponseParams',
@@ -290,7 +293,7 @@ lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec =
 };
 
 // ParamsSpec for CommitAsInsert
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsInsert_Params',
@@ -303,7 +306,7 @@ lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec = {
   }
 };
 
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsInsert_ResponseParams',
@@ -317,7 +320,7 @@ lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CommitAsDownload
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsDownload_Params',
@@ -330,7 +333,7 @@ lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec = {
   }
 };
 
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsDownload_ResponseParams',
@@ -344,7 +347,7 @@ lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec = 
 };
 
 // ParamsSpec for PreviewFeedback
-lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.PreviewFeedback_Params',
@@ -357,7 +360,7 @@ lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec = {
   }
 };
 
-lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.PreviewFeedback_ResponseParams',
@@ -371,21 +374,21 @@ lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SubmitFeedback
-lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.SubmitFeedback_Params',
       packedSize: 24,
       fields: [
-        { name: 'candidate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'candidate_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.SubmitFeedback_ResponseParams',
@@ -399,7 +402,7 @@ lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec = {
 };
 
 // ParamsSpec for ShowUI
-lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.ShowUI_Params',
@@ -412,7 +415,7 @@ lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec = {
 };
 
 // ParamsSpec for CloseUI
-lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.CloseUI_Params',
@@ -425,7 +428,7 @@ lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec = {
 };
 
 // ParamsSpec for EmitMetricEvent
-lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.EmitMetricEvent_Params',
@@ -439,7 +442,7 @@ lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec = {
 };
 
 // ParamsSpec for OpenUrlInNewWindow
-lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec = {
+lobster.mojom.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'lobster.mojom.UntrustedLobsterPageHandler.OpenUrlInNewWindow_Params',
@@ -453,6 +456,6 @@ lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec = {
 };
 
 // Legacy compatibility
-lobster.mojom.UntrustedLobsterPageHandlerPtr = lobster.mojom.UntrustedLobsterPageHandlerRemote;
-lobster.mojom.UntrustedLobsterPageHandlerRequest = lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver;
+lobster.mojom.mojom.UntrustedLobsterPageHandlerPtr = lobster.mojom.mojom.UntrustedLobsterPageHandlerRemote;
+lobster.mojom.mojom.UntrustedLobsterPageHandlerRequest = lobster.mojom.mojom.UntrustedLobsterPageHandlerPendingReceiver;
 

@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: BlobReaderClient
-blink.mojom.BlobReaderClient = {};
+blink.mojom.mojom.BlobReaderClient = {};
 
-blink.mojom.BlobReaderClientPendingReceiver = class {
+blink.mojom.mojom.BlobReaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BlobReaderClientRemote = class {
+blink.mojom.mojom.BlobReaderClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.BlobReaderClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BlobReaderClientPendingReceiver,
+      blink.mojom.mojom.BlobReaderClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.BlobReaderClientRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BlobReaderClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.BlobReaderClientRemote = class {
   }
 };
 
-blink.mojom.BlobReaderClientRemoteCallHandler = class {
+blink.mojom.mojom.BlobReaderClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec,
+      blink.mojom.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec,
       null,
       [total_size, expected_content_size]);
   }
@@ -57,15 +57,15 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.BlobReaderClient_OnComplete_ParamsSpec,
+      blink.mojom.mojom.BlobReaderClient_OnComplete_ParamsSpec,
       null,
       [status, data_length]);
   }
 
 };
 
-blink.mojom.BlobReaderClient.getRemote = function() {
-  let remote = new blink.mojom.BlobReaderClientRemote();
+blink.mojom.mojom.BlobReaderClient.getRemote = function() {
+  let remote = new blink.mojom.mojom.BlobReaderClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ blink.mojom.BlobReaderClient.getRemote = function() {
 };
 
 // ParamsSpec for OnCalculatedSize
-blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = {
+blink.mojom.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlobReaderClient.OnCalculatedSize_Params',
@@ -90,14 +90,14 @@ blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = {
 };
 
 // ParamsSpec for OnComplete
-blink.mojom.BlobReaderClient_OnComplete_ParamsSpec = {
+blink.mojom.mojom.BlobReaderClient_OnComplete_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.BlobReaderClient.OnComplete_Params',
       packedSize: 24,
       fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'data_length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -105,29 +105,29 @@ blink.mojom.BlobReaderClient_OnComplete_ParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.BlobReaderClientPtr = blink.mojom.BlobReaderClientRemote;
-blink.mojom.BlobReaderClientRequest = blink.mojom.BlobReaderClientPendingReceiver;
+blink.mojom.mojom.BlobReaderClientPtr = blink.mojom.mojom.BlobReaderClientRemote;
+blink.mojom.mojom.BlobReaderClientRequest = blink.mojom.mojom.BlobReaderClientPendingReceiver;
 
 
 // Interface: Blob
-blink.mojom.Blob = {};
+blink.mojom.mojom.Blob = {};
 
-blink.mojom.BlobPendingReceiver = class {
+blink.mojom.mojom.BlobPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.BlobRemote = class {
+blink.mojom.mojom.BlobRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.Blob';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.BlobPendingReceiver,
+      blink.mojom.mojom.BlobPendingReceiver,
       handle);
-    this.$ = new blink.mojom.BlobRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.BlobRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -139,7 +139,7 @@ blink.mojom.BlobRemote = class {
   }
 };
 
-blink.mojom.BlobRemoteCallHandler = class {
+blink.mojom.mojom.BlobRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -148,7 +148,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.Blob_Clone_ParamsSpec,
+      blink.mojom.mojom.Blob_Clone_ParamsSpec,
       null,
       [blob]);
   }
@@ -157,7 +157,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.Blob_AsDataPipeGetter_ParamsSpec,
+      blink.mojom.mojom.Blob_AsDataPipeGetter_ParamsSpec,
       null,
       [data_pipe_getter]);
   }
@@ -166,7 +166,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.Blob_ReadAll_ParamsSpec,
+      blink.mojom.mojom.Blob_ReadAll_ParamsSpec,
       null,
       [pipe, client]);
   }
@@ -175,7 +175,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      blink.mojom.Blob_ReadRange_ParamsSpec,
+      blink.mojom.mojom.Blob_ReadRange_ParamsSpec,
       null,
       [offset, length, pipe, client]);
   }
@@ -184,7 +184,7 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      blink.mojom.Blob_Load_ParamsSpec,
+      blink.mojom.mojom.Blob_Load_ParamsSpec,
       null,
       [loader, request_method, headers, client]);
   }
@@ -193,8 +193,8 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      blink.mojom.Blob_ReadSideData_ParamsSpec,
-      blink.mojom.Blob_ReadSideData_ResponseParamsSpec,
+      blink.mojom.mojom.Blob_ReadSideData_ParamsSpec,
+      blink.mojom.mojom.Blob_ReadSideData_ResponseParamsSpec,
       []);
   }
 
@@ -202,8 +202,8 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      blink.mojom.Blob_CaptureSnapshot_ParamsSpec,
-      blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec,
+      blink.mojom.mojom.Blob_CaptureSnapshot_ParamsSpec,
+      blink.mojom.mojom.Blob_CaptureSnapshot_ResponseParamsSpec,
       []);
   }
 
@@ -211,15 +211,15 @@ blink.mojom.BlobRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      blink.mojom.Blob_GetInternalUUID_ParamsSpec,
-      blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec,
+      blink.mojom.mojom.Blob_GetInternalUUID_ParamsSpec,
+      blink.mojom.mojom.Blob_GetInternalUUID_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.Blob.getRemote = function() {
-  let remote = new blink.mojom.BlobRemote();
+blink.mojom.mojom.Blob.getRemote = function() {
+  let remote = new blink.mojom.mojom.BlobRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -229,7 +229,7 @@ blink.mojom.Blob.getRemote = function() {
 };
 
 // ParamsSpec for Clone
-blink.mojom.Blob_Clone_ParamsSpec = {
+blink.mojom.mojom.Blob_Clone_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.Clone_Params',
@@ -243,7 +243,7 @@ blink.mojom.Blob_Clone_ParamsSpec = {
 };
 
 // ParamsSpec for AsDataPipeGetter
-blink.mojom.Blob_AsDataPipeGetter_ParamsSpec = {
+blink.mojom.mojom.Blob_AsDataPipeGetter_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.AsDataPipeGetter_Params',
@@ -257,7 +257,7 @@ blink.mojom.Blob_AsDataPipeGetter_ParamsSpec = {
 };
 
 // ParamsSpec for ReadAll
-blink.mojom.Blob_ReadAll_ParamsSpec = {
+blink.mojom.mojom.Blob_ReadAll_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.ReadAll_Params',
@@ -272,7 +272,7 @@ blink.mojom.Blob_ReadAll_ParamsSpec = {
 };
 
 // ParamsSpec for ReadRange
-blink.mojom.Blob_ReadRange_ParamsSpec = {
+blink.mojom.mojom.Blob_ReadRange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.ReadRange_Params',
@@ -289,16 +289,16 @@ blink.mojom.Blob_ReadRange_ParamsSpec = {
 };
 
 // ParamsSpec for Load
-blink.mojom.Blob_Load_ParamsSpec = {
+blink.mojom.mojom.Blob_Load_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.Load_Params',
       packedSize: 32,
       fields: [
-        { name: 'loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'request_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'loader', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'request_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -306,7 +306,7 @@ blink.mojom.Blob_Load_ParamsSpec = {
 };
 
 // ParamsSpec for ReadSideData
-blink.mojom.Blob_ReadSideData_ParamsSpec = {
+blink.mojom.mojom.Blob_ReadSideData_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.ReadSideData_Params',
@@ -318,7 +318,7 @@ blink.mojom.Blob_ReadSideData_ParamsSpec = {
   }
 };
 
-blink.mojom.Blob_ReadSideData_ResponseParamsSpec = {
+blink.mojom.mojom.Blob_ReadSideData_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.ReadSideData_ResponseParams',
@@ -332,7 +332,7 @@ blink.mojom.Blob_ReadSideData_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CaptureSnapshot
-blink.mojom.Blob_CaptureSnapshot_ParamsSpec = {
+blink.mojom.mojom.Blob_CaptureSnapshot_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.CaptureSnapshot_Params',
@@ -344,7 +344,7 @@ blink.mojom.Blob_CaptureSnapshot_ParamsSpec = {
   }
 };
 
-blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = {
+blink.mojom.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.CaptureSnapshot_ResponseParams',
@@ -359,7 +359,7 @@ blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = {
 };
 
 // ParamsSpec for GetInternalUUID
-blink.mojom.Blob_GetInternalUUID_ParamsSpec = {
+blink.mojom.mojom.Blob_GetInternalUUID_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.GetInternalUUID_Params',
@@ -371,7 +371,7 @@ blink.mojom.Blob_GetInternalUUID_ParamsSpec = {
   }
 };
 
-blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec = {
+blink.mojom.mojom.Blob_GetInternalUUID_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.Blob.GetInternalUUID_ResponseParams',
@@ -385,6 +385,6 @@ blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.BlobPtr = blink.mojom.BlobRemote;
-blink.mojom.BlobRequest = blink.mojom.BlobPendingReceiver;
+blink.mojom.mojom.BlobPtr = blink.mojom.mojom.BlobRemote;
+blink.mojom.mojom.BlobRequest = blink.mojom.mojom.BlobPendingReceiver;
 

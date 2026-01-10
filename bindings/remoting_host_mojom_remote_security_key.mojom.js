@@ -10,24 +10,24 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Interface: SecurityKeyForwarder
-remoting.mojom.SecurityKeyForwarder = {};
+remoting.mojom.mojom.SecurityKeyForwarder = {};
 
-remoting.mojom.SecurityKeyForwarderPendingReceiver = class {
+remoting.mojom.mojom.SecurityKeyForwarderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.SecurityKeyForwarderRemote = class {
+remoting.mojom.mojom.SecurityKeyForwarderRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.SecurityKeyForwarder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.SecurityKeyForwarderPendingReceiver,
+      remoting.mojom.mojom.SecurityKeyForwarderPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.SecurityKeyForwarderRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.SecurityKeyForwarderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ remoting.mojom.SecurityKeyForwarderRemote = class {
   }
 };
 
-remoting.mojom.SecurityKeyForwarderRemoteCallHandler = class {
+remoting.mojom.mojom.SecurityKeyForwarderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ remoting.mojom.SecurityKeyForwarderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec,
-      remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec,
+      remoting.mojom.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec,
+      remoting.mojom.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec,
       [request_data]);
   }
 
 };
 
-remoting.mojom.SecurityKeyForwarder.getRemote = function() {
-  let remote = new remoting.mojom.SecurityKeyForwarderRemote();
+remoting.mojom.mojom.SecurityKeyForwarder.getRemote = function() {
+  let remote = new remoting.mojom.mojom.SecurityKeyForwarderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ remoting.mojom.SecurityKeyForwarder.getRemote = function() {
 };
 
 // ParamsSpec for OnSecurityKeyRequest
-remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
+remoting.mojom.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SecurityKeyForwarder.OnSecurityKeyRequest_Params',
@@ -79,7 +79,7 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
   }
 };
 
-remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = {
+remoting.mojom.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SecurityKeyForwarder.OnSecurityKeyRequest_ResponseParams',
@@ -93,6 +93,6 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.SecurityKeyForwarderPtr = remoting.mojom.SecurityKeyForwarderRemote;
-remoting.mojom.SecurityKeyForwarderRequest = remoting.mojom.SecurityKeyForwarderPendingReceiver;
+remoting.mojom.mojom.SecurityKeyForwarderPtr = remoting.mojom.mojom.SecurityKeyForwarderRemote;
+remoting.mojom.mojom.SecurityKeyForwarderRequest = remoting.mojom.mojom.SecurityKeyForwarderPendingReceiver;
 

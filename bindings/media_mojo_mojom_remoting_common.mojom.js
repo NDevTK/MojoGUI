@@ -10,7 +10,7 @@ media.mojom = media.mojom || {};
 
 
 // Enum: RemotingStopReason
-media.mojom.RemotingStopReason = {
+media.mojom.mojom.RemotingStopReason = {
   ROUTE_TERMINATED: 0,
   LOCAL_PLAYBACK: 1,
   SOURCE_GONE: 2,
@@ -20,34 +20,34 @@ media.mojom.RemotingStopReason = {
   SERVICE_GONE: 6,
   USER_DISABLED: 7,
 };
-media.mojom.RemotingStopReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.RemotingStopReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: RemotingStartFailReason
-media.mojom.RemotingStartFailReason = {
+media.mojom.mojom.RemotingStartFailReason = {
   CANNOT_START_MULTIPLE: 0,
   ROUTE_TERMINATED: 1,
   INVALID_ANSWER_MESSAGE: 2,
   REMOTING_NOT_PERMITTED: 3,
 };
-media.mojom.RemotingStartFailReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.RemotingStartFailReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: RemotingSinkFeature
-media.mojom.RemotingSinkFeature = {
+media.mojom.mojom.RemotingSinkFeature = {
   RENDERING: 0,
   CONTENT_DECRYPTION: 1,
 };
-media.mojom.RemotingSinkFeatureSpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.RemotingSinkFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: RemotingSinkAudioCapability
-media.mojom.RemotingSinkAudioCapability = {
+media.mojom.mojom.RemotingSinkAudioCapability = {
   CODEC_BASELINE_SET: 0,
   CODEC_AAC: 1,
   CODEC_OPUS: 2,
 };
-media.mojom.RemotingSinkAudioCapabilitySpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.RemotingSinkAudioCapabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: RemotingSinkVideoCapability
-media.mojom.RemotingSinkVideoCapability = {
+media.mojom.mojom.RemotingSinkVideoCapability = {
   SUPPORT_4K: 0,
   CODEC_BASELINE_SET: 1,
   CODEC_H264: 2,
@@ -56,10 +56,10 @@ media.mojom.RemotingSinkVideoCapability = {
   CODEC_HEVC: 5,
   CODEC_AV1: 6,
 };
-media.mojom.RemotingSinkVideoCapabilitySpec = { $: mojo.internal.Enum() };
+media.mojom.mojom.RemotingSinkVideoCapabilitySpec = { $: mojo.internal.Enum() };
 
 // Struct: RemotingSinkMetadata
-media.mojom.RemotingSinkMetadataSpec = {
+media.mojom.mojom.RemotingSinkMetadataSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.RemotingSinkMetadata',

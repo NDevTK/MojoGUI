@@ -10,8 +10,8 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: TreeScopeType
-blink.mojom.TreeScopeType = {
+blink.mojom.mojom.TreeScopeType = {
   kDocument: 0,
   kShadow: 1,
 };
-blink.mojom.TreeScopeTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.TreeScopeTypeSpec = { $: mojo.internal.Enum() };

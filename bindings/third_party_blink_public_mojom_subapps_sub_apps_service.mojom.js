@@ -10,14 +10,14 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: SubAppsServiceResultCode
-blink.mojom.SubAppsServiceResultCode = {
+blink.mojom.mojom.SubAppsServiceResultCode = {
   kSuccess: 0,
   kFailure: 1,
 };
-blink.mojom.SubAppsServiceResultCodeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.SubAppsServiceResultCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SubAppsServiceAddParameters
-blink.mojom.SubAppsServiceAddParametersSpec = {
+blink.mojom.mojom.SubAppsServiceAddParametersSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsServiceAddParameters',
@@ -32,7 +32,7 @@ blink.mojom.SubAppsServiceAddParametersSpec = {
 };
 
 // Struct: SubAppsServiceAddResult
-blink.mojom.SubAppsServiceAddResultSpec = {
+blink.mojom.mojom.SubAppsServiceAddResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsServiceAddResult',
@@ -47,14 +47,14 @@ blink.mojom.SubAppsServiceAddResultSpec = {
 };
 
 // Struct: SubAppsServiceListResult
-blink.mojom.SubAppsServiceListResultSpec = {
+blink.mojom.mojom.SubAppsServiceListResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsServiceListResult',
       packedSize: 24,
       fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'sub_apps_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SubAppsServiceListResultEntrySpec, false), nullable: false, minVersion: 0 },
+        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SubAppsServiceResultCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'sub_apps_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SubAppsServiceListResultEntrySpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -62,7 +62,7 @@ blink.mojom.SubAppsServiceListResultSpec = {
 };
 
 // Struct: SubAppsServiceListResultEntry
-blink.mojom.SubAppsServiceListResultEntrySpec = {
+blink.mojom.mojom.SubAppsServiceListResultEntrySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsServiceListResultEntry',
@@ -77,7 +77,7 @@ blink.mojom.SubAppsServiceListResultEntrySpec = {
 };
 
 // Struct: SubAppsServiceRemoveResult
-blink.mojom.SubAppsServiceRemoveResultSpec = {
+blink.mojom.mojom.SubAppsServiceRemoveResultSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsServiceRemoveResult',
@@ -92,24 +92,24 @@ blink.mojom.SubAppsServiceRemoveResultSpec = {
 };
 
 // Interface: SubAppsService
-blink.mojom.SubAppsService = {};
+blink.mojom.mojom.SubAppsService = {};
 
-blink.mojom.SubAppsServicePendingReceiver = class {
+blink.mojom.mojom.SubAppsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SubAppsServiceRemote = class {
+blink.mojom.mojom.SubAppsServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SubAppsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SubAppsServicePendingReceiver,
+      blink.mojom.mojom.SubAppsServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.SubAppsServiceRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.SubAppsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -121,7 +121,7 @@ blink.mojom.SubAppsServiceRemote = class {
   }
 };
 
-blink.mojom.SubAppsServiceRemoteCallHandler = class {
+blink.mojom.mojom.SubAppsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -130,8 +130,8 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.SubAppsService_Add_ParamsSpec,
-      blink.mojom.SubAppsService_Add_ResponseParamsSpec,
+      blink.mojom.mojom.SubAppsService_Add_ParamsSpec,
+      blink.mojom.mojom.SubAppsService_Add_ResponseParamsSpec,
       [sub_apps_to_add]);
   }
 
@@ -139,8 +139,8 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      blink.mojom.SubAppsService_List_ParamsSpec,
-      blink.mojom.SubAppsService_List_ResponseParamsSpec,
+      blink.mojom.mojom.SubAppsService_List_ParamsSpec,
+      blink.mojom.mojom.SubAppsService_List_ResponseParamsSpec,
       []);
   }
 
@@ -148,15 +148,15 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      blink.mojom.SubAppsService_Remove_ParamsSpec,
-      blink.mojom.SubAppsService_Remove_ResponseParamsSpec,
+      blink.mojom.mojom.SubAppsService_Remove_ParamsSpec,
+      blink.mojom.mojom.SubAppsService_Remove_ResponseParamsSpec,
       [manifest_id_paths]);
   }
 
 };
 
-blink.mojom.SubAppsService.getRemote = function() {
-  let remote = new blink.mojom.SubAppsServiceRemote();
+blink.mojom.mojom.SubAppsService.getRemote = function() {
+  let remote = new blink.mojom.mojom.SubAppsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -166,7 +166,7 @@ blink.mojom.SubAppsService.getRemote = function() {
 };
 
 // ParamsSpec for Add
-blink.mojom.SubAppsService_Add_ParamsSpec = {
+blink.mojom.mojom.SubAppsService_Add_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsService.Add_Params',
@@ -179,7 +179,7 @@ blink.mojom.SubAppsService_Add_ParamsSpec = {
   }
 };
 
-blink.mojom.SubAppsService_Add_ResponseParamsSpec = {
+blink.mojom.mojom.SubAppsService_Add_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsService.Add_ResponseParams',
@@ -193,7 +193,7 @@ blink.mojom.SubAppsService_Add_ResponseParamsSpec = {
 };
 
 // ParamsSpec for List
-blink.mojom.SubAppsService_List_ParamsSpec = {
+blink.mojom.mojom.SubAppsService_List_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsService.List_Params',
@@ -205,7 +205,7 @@ blink.mojom.SubAppsService_List_ParamsSpec = {
   }
 };
 
-blink.mojom.SubAppsService_List_ResponseParamsSpec = {
+blink.mojom.mojom.SubAppsService_List_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsService.List_ResponseParams',
@@ -219,7 +219,7 @@ blink.mojom.SubAppsService_List_ResponseParamsSpec = {
 };
 
 // ParamsSpec for Remove
-blink.mojom.SubAppsService_Remove_ParamsSpec = {
+blink.mojom.mojom.SubAppsService_Remove_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsService.Remove_Params',
@@ -232,7 +232,7 @@ blink.mojom.SubAppsService_Remove_ParamsSpec = {
   }
 };
 
-blink.mojom.SubAppsService_Remove_ResponseParamsSpec = {
+blink.mojom.mojom.SubAppsService_Remove_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SubAppsService.Remove_ResponseParams',
@@ -246,6 +246,6 @@ blink.mojom.SubAppsService_Remove_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.SubAppsServicePtr = blink.mojom.SubAppsServiceRemote;
-blink.mojom.SubAppsServiceRequest = blink.mojom.SubAppsServicePendingReceiver;
+blink.mojom.mojom.SubAppsServicePtr = blink.mojom.mojom.SubAppsServiceRemote;
+blink.mojom.mojom.SubAppsServiceRequest = blink.mojom.mojom.SubAppsServicePendingReceiver;
 

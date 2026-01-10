@@ -7,10 +7,15 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var ui = ui || {};
+var gfx = gfx || {};
+var url = url || {};
 
 
 // Struct: AssistantTree
-ax.mojom.AssistantTreeSpec = {
+ax.mojom.mojom.AssistantTreeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantTree',
@@ -24,7 +29,7 @@ ax.mojom.AssistantTreeSpec = {
 };
 
 // Struct: AssistantNode
-ax.mojom.AssistantNodeSpec = {
+ax.mojom.mojom.AssistantNodeSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantNode',
@@ -33,16 +38,16 @@ ax.mojom.AssistantNodeSpec = {
         { name: 'children_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
         { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
         { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'text_size', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bgcolor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bold', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'italic', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'underline', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'line_through', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'selection', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: true, minVersion: 0 },
-        { name: 'class_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'role', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'text_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bgcolor', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'bold', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'italic', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'underline', packedOffset: 60, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'line_through', packedOffset: 60, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'selection', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: true, minVersion: 0 },
+        { name: 'class_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'role', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -50,7 +55,7 @@ ax.mojom.AssistantNodeSpec = {
 };
 
 // Struct: AssistantExtra
-ax.mojom.AssistantExtraSpec = {
+ax.mojom.mojom.AssistantExtraSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantExtra',
@@ -66,7 +71,7 @@ ax.mojom.AssistantExtraSpec = {
 };
 
 // Struct: AssistantStructure
-ax.mojom.AssistantStructureSpec = {
+ax.mojom.mojom.AssistantStructureSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.AssistantStructure',

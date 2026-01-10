@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Enum: UseCounterFeatureType
-blink.mojom.UseCounterFeatureType = {
+blink.mojom.mojom.UseCounterFeatureType = {
   kWebFeature: 0,
   kCssProperty: 1,
   kAnimatedCssProperty: 2,
@@ -20,10 +20,10 @@ blink.mojom.UseCounterFeatureType = {
   kWebDXFeature: 6,
   kPermissionsPolicyEnabledPrivacySensitive: 7,
 };
-blink.mojom.UseCounterFeatureTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.UseCounterFeatureTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: UseCounterFeature
-blink.mojom.UseCounterFeatureSpec = {
+blink.mojom.mojom.UseCounterFeatureSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.UseCounterFeature',

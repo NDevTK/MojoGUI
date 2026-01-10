@@ -10,7 +10,7 @@ mojom.app_service_internals = mojom.app_service_internals || {};
 
 
 // Struct: AppInfo
-mojom.app_service_internals.AppInfoSpec = {
+mojom.app_service_internals.app_service_internals.AppInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.AppInfo',
@@ -26,7 +26,7 @@ mojom.app_service_internals.AppInfoSpec = {
 };
 
 // Struct: PreferredAppInfo
-mojom.app_service_internals.PreferredAppInfoSpec = {
+mojom.app_service_internals.app_service_internals.PreferredAppInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.PreferredAppInfo',
@@ -42,7 +42,7 @@ mojom.app_service_internals.PreferredAppInfoSpec = {
 };
 
 // Struct: PromiseAppInfo
-mojom.app_service_internals.PromiseAppInfoSpec = {
+mojom.app_service_internals.app_service_internals.PromiseAppInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.PromiseAppInfo',
@@ -57,7 +57,7 @@ mojom.app_service_internals.PromiseAppInfoSpec = {
 };
 
 // Struct: AppCapabilityInfo
-mojom.app_service_internals.AppCapabilityInfoSpec = {
+mojom.app_service_internals.app_service_internals.AppCapabilityInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.AppCapabilityInfo',
@@ -72,7 +72,7 @@ mojom.app_service_internals.AppCapabilityInfoSpec = {
 };
 
 // Struct: DebugInfo
-mojom.app_service_internals.DebugInfoSpec = {
+mojom.app_service_internals.app_service_internals.DebugInfoSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.DebugInfo',
@@ -89,24 +89,24 @@ mojom.app_service_internals.DebugInfoSpec = {
 };
 
 // Interface: AppServiceInternalsPageHandler
-mojom.app_service_internals.AppServiceInternalsPageHandler = {};
+mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandler = {};
 
-mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver = class {
+mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mojom.app_service_internals.AppServiceInternalsPageHandlerRemote = class {
+mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerRemote = class {
   static get $interfaceName() {
     return 'mojom.app_service_internals.AppServiceInternalsPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver,
+      mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver,
       handle);
-    this.$ = new mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -118,7 +118,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerRemote = class {
   }
 };
 
-mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = class {
+mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -127,15 +127,15 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = cl
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec,
-      mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec,
+      mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec,
+      mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec,
       []);
   }
 
 };
 
-mojom.app_service_internals.AppServiceInternalsPageHandler.getRemote = function() {
-  let remote = new mojom.app_service_internals.AppServiceInternalsPageHandlerRemote();
+mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandler.getRemote = function() {
+  let remote = new mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -145,7 +145,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler.getRemote = function(
 };
 
 // ParamsSpec for GetDebugInfo
-mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec = {
+mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.AppServiceInternalsPageHandler.GetDebugInfo_Params',
@@ -157,7 +157,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSp
   }
 };
 
-mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = {
+mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.app_service_internals.AppServiceInternalsPageHandler.GetDebugInfo_ResponseParams',
@@ -171,6 +171,6 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_Response
 };
 
 // Legacy compatibility
-mojom.app_service_internals.AppServiceInternalsPageHandlerPtr = mojom.app_service_internals.AppServiceInternalsPageHandlerRemote;
-mojom.app_service_internals.AppServiceInternalsPageHandlerRequest = mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver;
+mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerPtr = mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerRemote;
+mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerRequest = mojom.app_service_internals.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver;
 

@@ -7,18 +7,20 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
+var url = url || {};
 
 
 // Enum: ServiceWorkerUpdateViaCache
-blink.mojom.ServiceWorkerUpdateViaCache = {
+blink.mojom.mojom.ServiceWorkerUpdateViaCache = {
   kImports: 0,
   kAll: 1,
   kNone: 2,
 };
-blink.mojom.ServiceWorkerUpdateViaCacheSpec = { $: mojo.internal.Enum() };
+blink.mojom.mojom.ServiceWorkerUpdateViaCacheSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServiceWorkerRegistrationOptions
-blink.mojom.ServiceWorkerRegistrationOptionsSpec = {
+blink.mojom.mojom.ServiceWorkerRegistrationOptionsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerRegistrationOptions',

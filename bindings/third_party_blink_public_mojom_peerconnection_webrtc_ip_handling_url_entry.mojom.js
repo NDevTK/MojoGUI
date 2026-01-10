@@ -7,10 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var blink = blink || {};
 
 
 // Struct: WebRtcIpHandlingUrlEntry
-blink.mojom.WebRtcIpHandlingUrlEntrySpec = {
+blink.mojom.mojom.WebRtcIpHandlingUrlEntrySpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WebRtcIpHandlingUrlEntry',

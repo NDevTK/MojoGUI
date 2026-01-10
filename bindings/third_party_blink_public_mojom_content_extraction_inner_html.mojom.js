@@ -10,24 +10,24 @@ blink.mojom = blink.mojom || {};
 
 
 // Interface: InnerHtmlAgent
-blink.mojom.InnerHtmlAgent = {};
+blink.mojom.mojom.InnerHtmlAgent = {};
 
-blink.mojom.InnerHtmlAgentPendingReceiver = class {
+blink.mojom.mojom.InnerHtmlAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.InnerHtmlAgentRemote = class {
+blink.mojom.mojom.InnerHtmlAgentRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.InnerHtmlAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.InnerHtmlAgentPendingReceiver,
+      blink.mojom.mojom.InnerHtmlAgentPendingReceiver,
       handle);
-    this.$ = new blink.mojom.InnerHtmlAgentRemoteCallHandler(this.proxy);
+    this.$ = new blink.mojom.mojom.InnerHtmlAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ blink.mojom.InnerHtmlAgentRemote = class {
   }
 };
 
-blink.mojom.InnerHtmlAgentRemoteCallHandler = class {
+blink.mojom.mojom.InnerHtmlAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +48,15 @@ blink.mojom.InnerHtmlAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec,
-      blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec,
+      blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec,
+      blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec,
       []);
   }
 
 };
 
-blink.mojom.InnerHtmlAgent.getRemote = function() {
-  let remote = new blink.mojom.InnerHtmlAgentRemote();
+blink.mojom.mojom.InnerHtmlAgent.getRemote = function() {
+  let remote = new blink.mojom.mojom.InnerHtmlAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +66,7 @@ blink.mojom.InnerHtmlAgent.getRemote = function() {
 };
 
 // ParamsSpec for GetInnerHtml
-blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
+blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerHtmlAgent.GetInnerHtml_Params',
@@ -78,7 +78,7 @@ blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
   }
 };
 
-blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
+blink.mojom.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.InnerHtmlAgent.GetInnerHtml_ResponseParams',
@@ -92,6 +92,6 @@ blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-blink.mojom.InnerHtmlAgentPtr = blink.mojom.InnerHtmlAgentRemote;
-blink.mojom.InnerHtmlAgentRequest = blink.mojom.InnerHtmlAgentPendingReceiver;
+blink.mojom.mojom.InnerHtmlAgentPtr = blink.mojom.mojom.InnerHtmlAgentRemote;
+blink.mojom.mojom.InnerHtmlAgentRequest = blink.mojom.mojom.InnerHtmlAgentPendingReceiver;
 

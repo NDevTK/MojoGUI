@@ -10,21 +10,21 @@ arc.mojom = arc.mojom || {};
 
 
 // Enum: ArcTimerResult
-arc.mojom.ArcTimerResult = {
+arc.mojom.mojom.ArcTimerResult = {
   SUCCESS: 0,
   FAILURE: 1,
 };
-arc.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClockId
-arc.mojom.ClockId = {
+arc.mojom.mojom.ClockId = {
   REALTIME_ALARM: 0,
   BOOTTIME_ALARM: 1,
 };
-arc.mojom.ClockIdSpec = { $: mojo.internal.Enum() };
+arc.mojom.mojom.ClockIdSpec = { $: mojo.internal.Enum() };
 
 // Struct: CreateTimerRequest
-arc.mojom.CreateTimerRequestSpec = {
+arc.mojom.mojom.CreateTimerRequestSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.CreateTimerRequest',
@@ -39,24 +39,24 @@ arc.mojom.CreateTimerRequestSpec = {
 };
 
 // Interface: TimerHost
-arc.mojom.TimerHost = {};
+arc.mojom.mojom.TimerHost = {};
 
-arc.mojom.TimerHostPendingReceiver = class {
+arc.mojom.mojom.TimerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.TimerHostRemote = class {
+arc.mojom.mojom.TimerHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.TimerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.TimerHostPendingReceiver,
+      arc.mojom.mojom.TimerHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.TimerHostRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.TimerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -68,7 +68,7 @@ arc.mojom.TimerHostRemote = class {
   }
 };
 
-arc.mojom.TimerHostRemoteCallHandler = class {
+arc.mojom.mojom.TimerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -77,8 +77,8 @@ arc.mojom.TimerHostRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.TimerHost_CreateTimers_ParamsSpec,
-      arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec,
+      arc.mojom.mojom.TimerHost_CreateTimers_ParamsSpec,
+      arc.mojom.mojom.TimerHost_CreateTimers_ResponseParamsSpec,
       [timer_requests]);
   }
 
@@ -86,8 +86,8 @@ arc.mojom.TimerHostRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.TimerHost_StartTimer_ParamsSpec,
-      arc.mojom.TimerHost_StartTimer_ResponseParamsSpec,
+      arc.mojom.mojom.TimerHost_StartTimer_ParamsSpec,
+      arc.mojom.mojom.TimerHost_StartTimer_ResponseParamsSpec,
       [clock_id, absolute_expiration_time]);
   }
 
@@ -95,15 +95,15 @@ arc.mojom.TimerHostRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.TimerHost_SetTime_ParamsSpec,
-      arc.mojom.TimerHost_SetTime_ResponseParamsSpec,
+      arc.mojom.mojom.TimerHost_SetTime_ParamsSpec,
+      arc.mojom.mojom.TimerHost_SetTime_ResponseParamsSpec,
       [time]);
   }
 
 };
 
-arc.mojom.TimerHost.getRemote = function() {
-  let remote = new arc.mojom.TimerHostRemote();
+arc.mojom.mojom.TimerHost.getRemote = function() {
+  let remote = new arc.mojom.mojom.TimerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -113,7 +113,7 @@ arc.mojom.TimerHost.getRemote = function() {
 };
 
 // ParamsSpec for CreateTimers
-arc.mojom.TimerHost_CreateTimers_ParamsSpec = {
+arc.mojom.mojom.TimerHost_CreateTimers_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TimerHost.CreateTimers_Params',
@@ -126,7 +126,7 @@ arc.mojom.TimerHost_CreateTimers_ParamsSpec = {
   }
 };
 
-arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec = {
+arc.mojom.mojom.TimerHost_CreateTimers_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TimerHost.CreateTimers_ResponseParams',
@@ -140,21 +140,21 @@ arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec = {
 };
 
 // ParamsSpec for StartTimer
-arc.mojom.TimerHost_StartTimer_ParamsSpec = {
+arc.mojom.mojom.TimerHost_StartTimer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TimerHost.StartTimer_Params',
       packedSize: 24,
       fields: [
-        { name: 'clock_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ClockIdSpec, nullable: false, minVersion: 0 },
-        { name: 'absolute_expiration_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
+        { name: 'clock_id', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ClockIdSpec, nullable: false, minVersion: 0 },
+        { name: 'absolute_expiration_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
   }
 };
 
-arc.mojom.TimerHost_StartTimer_ResponseParamsSpec = {
+arc.mojom.mojom.TimerHost_StartTimer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TimerHost.StartTimer_ResponseParams',
@@ -168,7 +168,7 @@ arc.mojom.TimerHost_StartTimer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetTime
-arc.mojom.TimerHost_SetTime_ParamsSpec = {
+arc.mojom.mojom.TimerHost_SetTime_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TimerHost.SetTime_Params',
@@ -181,7 +181,7 @@ arc.mojom.TimerHost_SetTime_ParamsSpec = {
   }
 };
 
-arc.mojom.TimerHost_SetTime_ResponseParamsSpec = {
+arc.mojom.mojom.TimerHost_SetTime_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TimerHost.SetTime_ResponseParams',
@@ -195,29 +195,29 @@ arc.mojom.TimerHost_SetTime_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.TimerHostPtr = arc.mojom.TimerHostRemote;
-arc.mojom.TimerHostRequest = arc.mojom.TimerHostPendingReceiver;
+arc.mojom.mojom.TimerHostPtr = arc.mojom.mojom.TimerHostRemote;
+arc.mojom.mojom.TimerHostRequest = arc.mojom.mojom.TimerHostPendingReceiver;
 
 
 // Interface: TimerInstance
-arc.mojom.TimerInstance = {};
+arc.mojom.mojom.TimerInstance = {};
 
-arc.mojom.TimerInstancePendingReceiver = class {
+arc.mojom.mojom.TimerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.TimerInstanceRemote = class {
+arc.mojom.mojom.TimerInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.TimerInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.TimerInstancePendingReceiver,
+      arc.mojom.mojom.TimerInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.TimerInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.TimerInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -229,7 +229,7 @@ arc.mojom.TimerInstanceRemote = class {
   }
 };
 
-arc.mojom.TimerInstanceRemoteCallHandler = class {
+arc.mojom.mojom.TimerInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -238,15 +238,15 @@ arc.mojom.TimerInstanceRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      arc.mojom.TimerInstance_Init_ParamsSpec,
+      arc.mojom.mojom.TimerInstance_Init_ParamsSpec,
       null,
       [host_remote]);
   }
 
 };
 
-arc.mojom.TimerInstance.getRemote = function() {
-  let remote = new arc.mojom.TimerInstanceRemote();
+arc.mojom.mojom.TimerInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.TimerInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -256,7 +256,7 @@ arc.mojom.TimerInstance.getRemote = function() {
 };
 
 // ParamsSpec for Init
-arc.mojom.TimerInstance_Init_ParamsSpec = {
+arc.mojom.mojom.TimerInstance_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.TimerInstance.Init_Params',
@@ -270,6 +270,6 @@ arc.mojom.TimerInstance_Init_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.TimerInstancePtr = arc.mojom.TimerInstanceRemote;
-arc.mojom.TimerInstanceRequest = arc.mojom.TimerInstancePendingReceiver;
+arc.mojom.mojom.TimerInstancePtr = arc.mojom.mojom.TimerInstanceRemote;
+arc.mojom.mojom.TimerInstanceRequest = arc.mojom.mojom.TimerInstancePendingReceiver;
 

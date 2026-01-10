@@ -7,33 +7,35 @@
 // Module namespace
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
+var ui = ui || {};
+var gfx = gfx || {};
 
 
 // Enum: Encoding
-remoting.mojom.Encoding = {
+remoting.mojom.mojom.Encoding = {
   kInvalid: 0,
   kRaw: 1,
   kOpus: 2,
 };
-remoting.mojom.EncodingSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.EncodingSpec = { $: mojo.internal.Enum() };
 
 // Enum: SamplingRate
-remoting.mojom.SamplingRate = {
+remoting.mojom.mojom.SamplingRate = {
   kInvalid: 0,
   kRate_44100: 1,
   kRate_48000: 2,
 };
-remoting.mojom.SamplingRateSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.SamplingRateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BytesPerSample
-remoting.mojom.BytesPerSample = {
+remoting.mojom.mojom.BytesPerSample = {
   kInvalid: 0,
   kBytesPerSample_2: 1,
 };
-remoting.mojom.BytesPerSampleSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.BytesPerSampleSpec = { $: mojo.internal.Enum() };
 
 // Enum: Channels
-remoting.mojom.Channels = {
+remoting.mojom.mojom.Channels = {
   kInvalid: 0,
   kMono: 1,
   kStereo: 2,
@@ -44,10 +46,10 @@ remoting.mojom.Channels = {
   kChannel_6_1: 7,
   kChannel_7_1: 8,
 };
-remoting.mojom.ChannelsSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.ChannelsSpec = { $: mojo.internal.Enum() };
 
 // Enum: MouseButton
-remoting.mojom.MouseButton = {
+remoting.mojom.mojom.MouseButton = {
   kUndefined: 0,
   kLeft: 1,
   kMiddle: 2,
@@ -55,30 +57,30 @@ remoting.mojom.MouseButton = {
   kBack: 4,
   kForward: 5,
 };
-remoting.mojom.MouseButtonSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.MouseButtonSpec = { $: mojo.internal.Enum() };
 
 // Enum: TouchEventType
-remoting.mojom.TouchEventType = {
+remoting.mojom.mojom.TouchEventType = {
   kUndefined: 0,
   kStart: 1,
   kMove: 2,
   kEnd: 3,
   kCancel: 4,
 };
-remoting.mojom.TouchEventTypeSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.TouchEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UrlForwarderState
-remoting.mojom.UrlForwarderState = {
+remoting.mojom.mojom.UrlForwarderState = {
   kUnknown: 0,
   kSetUp: 1,
   kNotSetUp: 2,
   kFailed: 3,
   kSetupPendingUserIntervention: 4,
 };
-remoting.mojom.UrlForwarderStateSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.UrlForwarderStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
-remoting.mojom.Type = {
+remoting.mojom.mojom.Type = {
   kUnknown: 0,
   kCanceled: 1,
   kUnexpectedError: 2,
@@ -88,10 +90,10 @@ remoting.mojom.Type = {
   kIoError: 6,
   kNotLoggedIn: 7,
 };
-remoting.mojom.TypeSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProtocolErrorCode
-remoting.mojom.ProtocolErrorCode = {
+remoting.mojom.mojom.ProtocolErrorCode = {
   kOk: 0,
   kPeerIsOffline: 1,
   kSessionRejected: 2,
@@ -123,10 +125,10 @@ remoting.mojom.ProtocolErrorCode = {
   kNetworkFailure: 28,
   kOperationTimeout: 29,
 };
-remoting.mojom.ProtocolErrorCodeSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.ProtocolErrorCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: ReadChunkResult
-remoting.mojom.ReadChunkResultSpec = { $: mojo.internal.Union(
+remoting.mojom.mojom.ReadChunkResultSpec = { $: mojo.internal.Union(
     'remoting.mojom.ReadChunkResult', {
       'data': {
         'ordinal': 0,
@@ -140,7 +142,7 @@ remoting.mojom.ReadChunkResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: FileChooserResult
-remoting.mojom.FileChooserResultSpec = { $: mojo.internal.Union(
+remoting.mojom.mojom.FileChooserResultSpec = { $: mojo.internal.Union(
     'remoting.mojom.FileChooserResult', {
       'filepath': {
         'ordinal': 0,
@@ -154,7 +156,7 @@ remoting.mojom.FileChooserResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: BeginFileReadResult
-remoting.mojom.BeginFileReadResultSpec = { $: mojo.internal.Union(
+remoting.mojom.mojom.BeginFileReadResultSpec = { $: mojo.internal.Union(
     'remoting.mojom.BeginFileReadResult', {
       'success': {
         'ordinal': 0,
@@ -168,7 +170,7 @@ remoting.mojom.BeginFileReadResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: BeginFileWriteResult
-remoting.mojom.BeginFileWriteResultSpec = { $: mojo.internal.Union(
+remoting.mojom.mojom.BeginFileWriteResultSpec = { $: mojo.internal.Union(
     'remoting.mojom.BeginFileWriteResult', {
       'success': {
         'ordinal': 0,
@@ -182,7 +184,7 @@ remoting.mojom.BeginFileWriteResultSpec = { $: mojo.internal.Union(
 };
 
 // Union: CaptureResult
-remoting.mojom.CaptureResultSpec = { $: mojo.internal.Union(
+remoting.mojom.mojom.CaptureResultSpec = { $: mojo.internal.Union(
     'remoting.mojom.CaptureResult', {
       'desktop_frame': {
         'ordinal': 0,
@@ -196,15 +198,15 @@ remoting.mojom.CaptureResultSpec = { $: mojo.internal.Union(
 };
 
 // Struct: AudioPacket
-remoting.mojom.AudioPacketSpec = {
+remoting.mojom.mojom.AudioPacketSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.AudioPacket',
       packedSize: 32,
       fields: [
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
-        { name: 'kInvalid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },
+        { name: 'kInvalid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -212,7 +214,7 @@ remoting.mojom.AudioPacketSpec = {
 };
 
 // Struct: ClipboardEvent
-remoting.mojom.ClipboardEventSpec = {
+remoting.mojom.mojom.ClipboardEventSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.ClipboardEvent',
@@ -227,17 +229,17 @@ remoting.mojom.ClipboardEventSpec = {
 };
 
 // Struct: KeyEvent
-remoting.mojom.KeyEventSpec = {
+remoting.mojom.mojom.KeyEventSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.KeyEvent',
       packedSize: 40,
       fields: [
-        { name: 'pressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'usb_keycode', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'lock_states', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'caps_lock_state', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true, minVersion: 0 },
-        { name: 'num_lock_state', packedOffset: 24, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true, minVersion: 0 },
+        { name: 'pressed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'usb_keycode', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'lock_states', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'caps_lock_state', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true, minVersion: 0 },
+        { name: 'num_lock_state', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -245,7 +247,7 @@ remoting.mojom.KeyEventSpec = {
 };
 
 // Struct: MouseEvent
-remoting.mojom.MouseEventSpec = {
+remoting.mojom.mojom.MouseEventSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.MouseEvent',
@@ -253,14 +255,14 @@ remoting.mojom.MouseEventSpec = {
       fields: [
         { name: 'x', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
         { name: 'y', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
-        { name: 'button', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.MouseButtonSpec, nullable: false, minVersion: 0 },
-        { name: 'button_down', packedOffset: 24, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true, minVersion: 0 },
-        { name: 'wheel_delta_x', packedOffset: 32, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
-        { name: 'wheel_delta_y', packedOffset: 40, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
-        { name: 'wheel_ticks_x', packedOffset: 48, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
-        { name: 'wheel_ticks_y', packedOffset: 56, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
-        { name: 'delta_x', packedOffset: 64, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
-        { name: 'delta_y', packedOffset: 72, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
+        { name: 'button', packedOffset: 72, packedBitOffset: 0, type: remoting.mojom.MouseButtonSpec, nullable: false, minVersion: 0 },
+        { name: 'button_down', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.BoolSpec, nullable: true, minVersion: 0 },
+        { name: 'wheel_delta_x', packedOffset: 24, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
+        { name: 'wheel_delta_y', packedOffset: 32, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
+        { name: 'wheel_ticks_x', packedOffset: 40, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
+        { name: 'wheel_ticks_y', packedOffset: 48, packedBitOffset: 0, type: remoting.mojom.FloatSpec, nullable: true, minVersion: 0 },
+        { name: 'delta_x', packedOffset: 56, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
+        { name: 'delta_y', packedOffset: 64, packedBitOffset: 0, type: remoting.mojom.Int32Spec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }
@@ -268,7 +270,7 @@ remoting.mojom.MouseEventSpec = {
 };
 
 // Struct: TextEvent
-remoting.mojom.TextEventSpec = {
+remoting.mojom.mojom.TextEventSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.TextEvent',
@@ -282,16 +284,16 @@ remoting.mojom.TextEventSpec = {
 };
 
 // Struct: TouchEventPoint
-remoting.mojom.TouchEventPointSpec = {
+remoting.mojom.mojom.TouchEventPointSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.TouchEventPoint',
       packedSize: 40,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'radius', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'angle', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'radius', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
+        { name: 'angle', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
         { name: 'pressure', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
@@ -300,14 +302,14 @@ remoting.mojom.TouchEventPointSpec = {
 };
 
 // Struct: TouchEvent
-remoting.mojom.TouchEventSpec = {
+remoting.mojom.mojom.TouchEventSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.TouchEvent',
       packedSize: 24,
       fields: [
-        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.TouchEventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'touch_points', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(remoting.mojom.TouchEventPointSpec, false), nullable: false, minVersion: 0 },
+        { name: 'event_type', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.TouchEventTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'touch_points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(remoting.mojom.TouchEventPointSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -315,15 +317,15 @@ remoting.mojom.TouchEventSpec = {
 };
 
 // Struct: FractionalCoordinate
-remoting.mojom.FractionalCoordinateSpec = {
+remoting.mojom.mojom.FractionalCoordinateSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FractionalCoordinate',
       packedSize: 24,
       fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'screen_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'x', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'y', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'screen_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -331,18 +333,18 @@ remoting.mojom.FractionalCoordinateSpec = {
 };
 
 // Struct: DesktopEnvironmentOptions
-remoting.mojom.DesktopEnvironmentOptionsSpec = {
+remoting.mojom.mojom.DesktopEnvironmentOptionsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopEnvironmentOptions',
       packedSize: 24,
       fields: [
-        { name: 'enable_curtaining', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_user_interface', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_notifications', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'terminate_upon_input', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_remote_webauthn', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'desktop_capture_options', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.DesktopCaptureOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'enable_curtaining', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_user_interface', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_notifications', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'terminate_upon_input', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'enable_remote_webauthn', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'desktop_capture_options', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopCaptureOptionsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -350,7 +352,7 @@ remoting.mojom.DesktopEnvironmentOptionsSpec = {
 };
 
 // Struct: ScreenResolution
-remoting.mojom.ScreenResolutionSpec = {
+remoting.mojom.mojom.ScreenResolutionSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.ScreenResolution',
@@ -365,7 +367,7 @@ remoting.mojom.ScreenResolutionSpec = {
 };
 
 // Struct: FileTransferError
-remoting.mojom.FileTransferErrorSpec = {
+remoting.mojom.mojom.FileTransferErrorSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FileTransferError',
@@ -379,15 +381,15 @@ remoting.mojom.FileTransferErrorSpec = {
 };
 
 // Struct: BeginFileReadSuccess
-remoting.mojom.BeginFileReadSuccessSpec = {
+remoting.mojom.mojom.BeginFileReadSuccessSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.BeginFileReadSuccess',
       packedSize: 32,
       fields: [
-        { name: 'file_reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'filename', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'file_reader', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'filename', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -395,7 +397,7 @@ remoting.mojom.BeginFileReadSuccessSpec = {
 };
 
 // Struct: BeginFileWriteSuccess
-remoting.mojom.BeginFileWriteSuccessSpec = {
+remoting.mojom.mojom.BeginFileWriteSuccessSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.BeginFileWriteSuccess',
@@ -409,7 +411,7 @@ remoting.mojom.BeginFileWriteSuccessSpec = {
 };
 
 // Struct: CreateVideoCapturerResult
-remoting.mojom.CreateVideoCapturerResultSpec = {
+remoting.mojom.mojom.CreateVideoCapturerResultSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.CreateVideoCapturerResult',
@@ -424,7 +426,7 @@ remoting.mojom.CreateVideoCapturerResultSpec = {
 };
 
 // Struct: VideoTrackLayout
-remoting.mojom.VideoTrackLayoutSpec = {
+remoting.mojom.mojom.VideoTrackLayoutSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoTrackLayout',
@@ -443,15 +445,15 @@ remoting.mojom.VideoTrackLayoutSpec = {
 };
 
 // Struct: VideoLayout
-remoting.mojom.VideoLayoutSpec = {
+remoting.mojom.mojom.VideoLayoutSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoLayout',
       packedSize: 32,
       fields: [
         { name: 'tracks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(remoting.mojom.VideoTrackLayoutSpec, false), nullable: false, minVersion: 0 },
-        { name: 'supports_full_desktop_capture', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'primary_screen_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
+        { name: 'supports_full_desktop_capture', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'primary_screen_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -459,7 +461,7 @@ remoting.mojom.VideoLayoutSpec = {
 };
 
 // Struct: SourceLocation
-remoting.mojom.SourceLocationSpec = {
+remoting.mojom.mojom.SourceLocationSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SourceLocation',
@@ -475,24 +477,24 @@ remoting.mojom.SourceLocationSpec = {
 };
 
 // Interface: DesktopSessionRequestHandler
-remoting.mojom.DesktopSessionRequestHandler = {};
+remoting.mojom.mojom.DesktopSessionRequestHandler = {};
 
-remoting.mojom.DesktopSessionRequestHandlerPendingReceiver = class {
+remoting.mojom.mojom.DesktopSessionRequestHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.DesktopSessionRequestHandlerRemote = class {
+remoting.mojom.mojom.DesktopSessionRequestHandlerRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.DesktopSessionRequestHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.DesktopSessionRequestHandlerPendingReceiver,
+      remoting.mojom.mojom.DesktopSessionRequestHandlerPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.DesktopSessionRequestHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -504,7 +506,7 @@ remoting.mojom.DesktopSessionRequestHandlerRemote = class {
   }
 };
 
-remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
+remoting.mojom.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -513,7 +515,7 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec,
       null,
       [desktop_pipe]);
   }
@@ -522,7 +524,7 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec,
       null,
       []);
   }
@@ -531,15 +533,15 @@ remoting.mojom.DesktopSessionRequestHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec,
       null,
       []);
   }
 
 };
 
-remoting.mojom.DesktopSessionRequestHandler.getRemote = function() {
-  let remote = new remoting.mojom.DesktopSessionRequestHandlerRemote();
+remoting.mojom.mojom.DesktopSessionRequestHandler.getRemote = function() {
+  let remote = new remoting.mojom.mojom.DesktopSessionRequestHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -549,7 +551,7 @@ remoting.mojom.DesktopSessionRequestHandler.getRemote = function() {
 };
 
 // ParamsSpec for ConnectDesktopChannel
-remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionRequestHandler.ConnectDesktopChannel_Params',
@@ -563,7 +565,7 @@ remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec = {
 };
 
 // ParamsSpec for InjectSecureAttentionSequence
-remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionRequestHandler.InjectSecureAttentionSequence_Params',
@@ -576,7 +578,7 @@ remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_Params
 };
 
 // ParamsSpec for CrashNetworkProcess
-remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionRequestHandler.CrashNetworkProcess_Params',
@@ -589,29 +591,29 @@ remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.DesktopSessionRequestHandlerPtr = remoting.mojom.DesktopSessionRequestHandlerRemote;
-remoting.mojom.DesktopSessionRequestHandlerRequest = remoting.mojom.DesktopSessionRequestHandlerPendingReceiver;
+remoting.mojom.mojom.DesktopSessionRequestHandlerPtr = remoting.mojom.mojom.DesktopSessionRequestHandlerRemote;
+remoting.mojom.mojom.DesktopSessionRequestHandlerRequest = remoting.mojom.mojom.DesktopSessionRequestHandlerPendingReceiver;
 
 
 // Interface: DesktopSessionManager
-remoting.mojom.DesktopSessionManager = {};
+remoting.mojom.mojom.DesktopSessionManager = {};
 
-remoting.mojom.DesktopSessionManagerPendingReceiver = class {
+remoting.mojom.mojom.DesktopSessionManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.DesktopSessionManagerRemote = class {
+remoting.mojom.mojom.DesktopSessionManagerRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.DesktopSessionManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.DesktopSessionManagerPendingReceiver,
+      remoting.mojom.mojom.DesktopSessionManagerPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.DesktopSessionManagerRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.DesktopSessionManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -623,7 +625,7 @@ remoting.mojom.DesktopSessionManagerRemote = class {
   }
 };
 
-remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
+remoting.mojom.mojom.DesktopSessionManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -632,7 +634,7 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec,
       null,
       [terminal_id, screen_resolution, is_virtual_terminal]);
   }
@@ -641,7 +643,7 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec,
       null,
       [terminal_id]);
   }
@@ -650,15 +652,15 @@ remoting.mojom.DesktopSessionManagerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec,
       null,
       [terminal_id, screen_resolution]);
   }
 
 };
 
-remoting.mojom.DesktopSessionManager.getRemote = function() {
-  let remote = new remoting.mojom.DesktopSessionManagerRemote();
+remoting.mojom.mojom.DesktopSessionManager.getRemote = function() {
+  let remote = new remoting.mojom.mojom.DesktopSessionManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -668,15 +670,15 @@ remoting.mojom.DesktopSessionManager.getRemote = function() {
 };
 
 // ParamsSpec for CreateDesktopSession
-remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionManager.CreateDesktopSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'screen_resolution', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
-        { name: 'is_virtual_terminal', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
+        { name: 'is_virtual_terminal', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -684,7 +686,7 @@ remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec = {
 };
 
 // ParamsSpec for CloseDesktopSession
-remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionManager.CloseDesktopSession_Params',
@@ -698,14 +700,14 @@ remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec = {
 };
 
 // ParamsSpec for SetScreenResolution
-remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionManager.SetScreenResolution_Params',
       packedSize: 24,
       fields: [
-        { name: 'terminal_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'screen_resolution', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
+        { name: 'terminal_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'screen_resolution', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ScreenResolutionSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -713,29 +715,29 @@ remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.DesktopSessionManagerPtr = remoting.mojom.DesktopSessionManagerRemote;
-remoting.mojom.DesktopSessionManagerRequest = remoting.mojom.DesktopSessionManagerPendingReceiver;
+remoting.mojom.mojom.DesktopSessionManagerPtr = remoting.mojom.mojom.DesktopSessionManagerRemote;
+remoting.mojom.mojom.DesktopSessionManagerRequest = remoting.mojom.mojom.DesktopSessionManagerPendingReceiver;
 
 
 // Interface: DesktopSessionAgent
-remoting.mojom.DesktopSessionAgent = {};
+remoting.mojom.mojom.DesktopSessionAgent = {};
 
-remoting.mojom.DesktopSessionAgentPendingReceiver = class {
+remoting.mojom.mojom.DesktopSessionAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.DesktopSessionAgentRemote = class {
+remoting.mojom.mojom.DesktopSessionAgentRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.DesktopSessionAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.DesktopSessionAgentPendingReceiver,
+      remoting.mojom.mojom.DesktopSessionAgentPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.DesktopSessionAgentRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.DesktopSessionAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -747,7 +749,7 @@ remoting.mojom.DesktopSessionAgentRemote = class {
   }
 };
 
-remoting.mojom.DesktopSessionAgentRemoteCallHandler = class {
+remoting.mojom.mojom.DesktopSessionAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -756,15 +758,15 @@ remoting.mojom.DesktopSessionAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionAgent_Start_ParamsSpec,
-      remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec,
+      remoting.mojom.mojom.DesktopSessionAgent_Start_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionAgent_Start_ResponseParamsSpec,
       [authenticated_jid, resolution, options]);
   }
 
 };
 
-remoting.mojom.DesktopSessionAgent.getRemote = function() {
-  let remote = new remoting.mojom.DesktopSessionAgentRemote();
+remoting.mojom.mojom.DesktopSessionAgent.getRemote = function() {
+  let remote = new remoting.mojom.mojom.DesktopSessionAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -774,7 +776,7 @@ remoting.mojom.DesktopSessionAgent.getRemote = function() {
 };
 
 // ParamsSpec for Start
-remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionAgent_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionAgent.Start_Params',
@@ -789,7 +791,7 @@ remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
   }
 };
 
-remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
+remoting.mojom.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionAgent.Start_ResponseParams',
@@ -803,29 +805,29 @@ remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.DesktopSessionAgentPtr = remoting.mojom.DesktopSessionAgentRemote;
-remoting.mojom.DesktopSessionAgentRequest = remoting.mojom.DesktopSessionAgentPendingReceiver;
+remoting.mojom.mojom.DesktopSessionAgentPtr = remoting.mojom.mojom.DesktopSessionAgentRemote;
+remoting.mojom.mojom.DesktopSessionAgentRequest = remoting.mojom.mojom.DesktopSessionAgentPendingReceiver;
 
 
 // Interface: FileWriter
-remoting.mojom.FileWriter = {};
+remoting.mojom.mojom.FileWriter = {};
 
-remoting.mojom.FileWriterPendingReceiver = class {
+remoting.mojom.mojom.FileWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.FileWriterRemote = class {
+remoting.mojom.mojom.FileWriterRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.FileWriter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.FileWriterPendingReceiver,
+      remoting.mojom.mojom.FileWriterPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.FileWriterRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.FileWriterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -837,7 +839,7 @@ remoting.mojom.FileWriterRemote = class {
   }
 };
 
-remoting.mojom.FileWriterRemoteCallHandler = class {
+remoting.mojom.mojom.FileWriterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -846,8 +848,8 @@ remoting.mojom.FileWriterRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.FileWriter_WriteChunk_ParamsSpec,
-      remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec,
+      remoting.mojom.mojom.FileWriter_WriteChunk_ParamsSpec,
+      remoting.mojom.mojom.FileWriter_WriteChunk_ResponseParamsSpec,
       [data]);
   }
 
@@ -855,15 +857,15 @@ remoting.mojom.FileWriterRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.FileWriter_CloseFile_ParamsSpec,
-      remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec,
+      remoting.mojom.mojom.FileWriter_CloseFile_ParamsSpec,
+      remoting.mojom.mojom.FileWriter_CloseFile_ResponseParamsSpec,
       []);
   }
 
 };
 
-remoting.mojom.FileWriter.getRemote = function() {
-  let remote = new remoting.mojom.FileWriterRemote();
+remoting.mojom.mojom.FileWriter.getRemote = function() {
+  let remote = new remoting.mojom.mojom.FileWriterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -873,7 +875,7 @@ remoting.mojom.FileWriter.getRemote = function() {
 };
 
 // ParamsSpec for WriteChunk
-remoting.mojom.FileWriter_WriteChunk_ParamsSpec = {
+remoting.mojom.mojom.FileWriter_WriteChunk_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FileWriter.WriteChunk_Params',
@@ -886,7 +888,7 @@ remoting.mojom.FileWriter_WriteChunk_ParamsSpec = {
   }
 };
 
-remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
+remoting.mojom.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FileWriter.WriteChunk_ResponseParams',
@@ -900,7 +902,7 @@ remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
 };
 
 // ParamsSpec for CloseFile
-remoting.mojom.FileWriter_CloseFile_ParamsSpec = {
+remoting.mojom.mojom.FileWriter_CloseFile_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FileWriter.CloseFile_Params',
@@ -912,7 +914,7 @@ remoting.mojom.FileWriter_CloseFile_ParamsSpec = {
   }
 };
 
-remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
+remoting.mojom.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FileWriter.CloseFile_ResponseParams',
@@ -926,29 +928,29 @@ remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.FileWriterPtr = remoting.mojom.FileWriterRemote;
-remoting.mojom.FileWriterRequest = remoting.mojom.FileWriterPendingReceiver;
+remoting.mojom.mojom.FileWriterPtr = remoting.mojom.mojom.FileWriterRemote;
+remoting.mojom.mojom.FileWriterRequest = remoting.mojom.mojom.FileWriterPendingReceiver;
 
 
 // Interface: FileReader
-remoting.mojom.FileReader = {};
+remoting.mojom.mojom.FileReader = {};
 
-remoting.mojom.FileReaderPendingReceiver = class {
+remoting.mojom.mojom.FileReaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.FileReaderRemote = class {
+remoting.mojom.mojom.FileReaderRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.FileReader';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.FileReaderPendingReceiver,
+      remoting.mojom.mojom.FileReaderPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.FileReaderRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.FileReaderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -960,7 +962,7 @@ remoting.mojom.FileReaderRemote = class {
   }
 };
 
-remoting.mojom.FileReaderRemoteCallHandler = class {
+remoting.mojom.mojom.FileReaderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -969,15 +971,15 @@ remoting.mojom.FileReaderRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.FileReader_ReadChunk_ParamsSpec,
-      remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec,
+      remoting.mojom.mojom.FileReader_ReadChunk_ParamsSpec,
+      remoting.mojom.mojom.FileReader_ReadChunk_ResponseParamsSpec,
       [bytes_to_read]);
   }
 
 };
 
-remoting.mojom.FileReader.getRemote = function() {
-  let remote = new remoting.mojom.FileReaderRemote();
+remoting.mojom.mojom.FileReader.getRemote = function() {
+  let remote = new remoting.mojom.mojom.FileReaderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -987,7 +989,7 @@ remoting.mojom.FileReader.getRemote = function() {
 };
 
 // ParamsSpec for ReadChunk
-remoting.mojom.FileReader_ReadChunk_ParamsSpec = {
+remoting.mojom.mojom.FileReader_ReadChunk_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FileReader.ReadChunk_Params',
@@ -1000,7 +1002,7 @@ remoting.mojom.FileReader_ReadChunk_ParamsSpec = {
   }
 };
 
-remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = {
+remoting.mojom.mojom.FileReader_ReadChunk_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.FileReader.ReadChunk_ResponseParams',
@@ -1014,29 +1016,29 @@ remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.FileReaderPtr = remoting.mojom.FileReaderRemote;
-remoting.mojom.FileReaderRequest = remoting.mojom.FileReaderPendingReceiver;
+remoting.mojom.mojom.FileReaderPtr = remoting.mojom.mojom.FileReaderRemote;
+remoting.mojom.mojom.FileReaderRequest = remoting.mojom.mojom.FileReaderPendingReceiver;
 
 
 // Interface: DesktopSessionControl
-remoting.mojom.DesktopSessionControl = {};
+remoting.mojom.mojom.DesktopSessionControl = {};
 
-remoting.mojom.DesktopSessionControlPendingReceiver = class {
+remoting.mojom.mojom.DesktopSessionControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.DesktopSessionControlRemote = class {
+remoting.mojom.mojom.DesktopSessionControlRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.DesktopSessionControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.DesktopSessionControlPendingReceiver,
+      remoting.mojom.mojom.DesktopSessionControlPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.DesktopSessionControlRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.DesktopSessionControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1048,7 +1050,7 @@ remoting.mojom.DesktopSessionControlRemote = class {
   }
 };
 
-remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
+remoting.mojom.mojom.DesktopSessionControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1057,8 +1059,8 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec,
-      remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec,
       [desktop_display_id]);
   }
 
@@ -1066,7 +1068,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec,
       null,
       [new_resolution]);
   }
@@ -1075,7 +1077,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec,
       null,
       []);
   }
@@ -1084,7 +1086,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec,
       null,
       []);
   }
@@ -1093,7 +1095,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -1102,7 +1104,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -1111,7 +1113,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -1120,7 +1122,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -1129,7 +1131,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -1138,7 +1140,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec,
       null,
       []);
   }
@@ -1147,7 +1149,7 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec,
       null,
       []);
   }
@@ -1156,8 +1158,8 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 11
     return this.proxy.sendMessage(
       11,  // ordinal
-      remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec,
-      remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec,
       []);
   }
 
@@ -1165,8 +1167,8 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 12
     return this.proxy.sendMessage(
       12,  // ordinal
-      remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec,
-      remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec,
       [file_path]);
   }
 
@@ -1174,15 +1176,15 @@ remoting.mojom.DesktopSessionControlRemoteCallHandler = class {
     // Ordinal: 13
     return this.proxy.sendMessage(
       13,  // ordinal
-      remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec,
       null,
       []);
   }
 
 };
 
-remoting.mojom.DesktopSessionControl.getRemote = function() {
-  let remote = new remoting.mojom.DesktopSessionControlRemote();
+remoting.mojom.mojom.DesktopSessionControl.getRemote = function() {
+  let remote = new remoting.mojom.mojom.DesktopSessionControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1192,7 +1194,7 @@ remoting.mojom.DesktopSessionControl.getRemote = function() {
 };
 
 // ParamsSpec for CreateVideoCapturer
-remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.CreateVideoCapturer_Params',
@@ -1205,7 +1207,7 @@ remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
   }
 };
 
-remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.CreateVideoCapturer_ResponseParams',
@@ -1219,7 +1221,7 @@ remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetScreenResolution
-remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.SetScreenResolution_Params',
@@ -1233,7 +1235,7 @@ remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec = {
 };
 
 // ParamsSpec for LockWorkstation
-remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.LockWorkstation_Params',
@@ -1246,7 +1248,7 @@ remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec = {
 };
 
 // ParamsSpec for InjectSendAttentionSequence
-remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.InjectSendAttentionSequence_Params',
@@ -1259,7 +1261,7 @@ remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec = {
 };
 
 // ParamsSpec for InjectClipboardEvent
-remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.InjectClipboardEvent_Params',
@@ -1273,7 +1275,7 @@ remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec = {
 };
 
 // ParamsSpec for InjectKeyEvent
-remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.InjectKeyEvent_Params',
@@ -1287,7 +1289,7 @@ remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec = {
 };
 
 // ParamsSpec for InjectMouseEvent
-remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.InjectMouseEvent_Params',
@@ -1301,7 +1303,7 @@ remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec = {
 };
 
 // ParamsSpec for InjectTextEvent
-remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.InjectTextEvent_Params',
@@ -1315,7 +1317,7 @@ remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec = {
 };
 
 // ParamsSpec for InjectTouchEvent
-remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.InjectTouchEvent_Params',
@@ -1329,7 +1331,7 @@ remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec = {
 };
 
 // ParamsSpec for SetUpUrlForwarder
-remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.SetUpUrlForwarder_Params',
@@ -1342,7 +1344,7 @@ remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec = {
 };
 
 // ParamsSpec for SignalWebAuthnExtension
-remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.SignalWebAuthnExtension_Params',
@@ -1355,7 +1357,7 @@ remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec = {
 };
 
 // ParamsSpec for BeginFileRead
-remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.BeginFileRead_Params',
@@ -1367,7 +1369,7 @@ remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
   }
 };
 
-remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.BeginFileRead_ResponseParams',
@@ -1381,7 +1383,7 @@ remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = {
 };
 
 // ParamsSpec for BeginFileWrite
-remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.BeginFileWrite_Params',
@@ -1394,7 +1396,7 @@ remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
   }
 };
 
-remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.BeginFileWrite_ResponseParams',
@@ -1408,7 +1410,7 @@ remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = {
 };
 
 // ParamsSpec for SetHostCursorRenderedByClient
-remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionControl.SetHostCursorRenderedByClient_Params',
@@ -1421,29 +1423,29 @@ remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec = 
 };
 
 // Legacy compatibility
-remoting.mojom.DesktopSessionControlPtr = remoting.mojom.DesktopSessionControlRemote;
-remoting.mojom.DesktopSessionControlRequest = remoting.mojom.DesktopSessionControlPendingReceiver;
+remoting.mojom.mojom.DesktopSessionControlPtr = remoting.mojom.mojom.DesktopSessionControlRemote;
+remoting.mojom.mojom.DesktopSessionControlRequest = remoting.mojom.mojom.DesktopSessionControlPendingReceiver;
 
 
 // Interface: VideoCapturer
-remoting.mojom.VideoCapturer = {};
+remoting.mojom.mojom.VideoCapturer = {};
 
-remoting.mojom.VideoCapturerPendingReceiver = class {
+remoting.mojom.mojom.VideoCapturerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.VideoCapturerRemote = class {
+remoting.mojom.mojom.VideoCapturerRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.VideoCapturer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.VideoCapturerPendingReceiver,
+      remoting.mojom.mojom.VideoCapturerPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.VideoCapturerRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.VideoCapturerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1455,7 +1457,7 @@ remoting.mojom.VideoCapturerRemote = class {
   }
 };
 
-remoting.mojom.VideoCapturerRemoteCallHandler = class {
+remoting.mojom.mojom.VideoCapturerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1464,7 +1466,7 @@ remoting.mojom.VideoCapturerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec,
+      remoting.mojom.mojom.VideoCapturer_CaptureFrame_ParamsSpec,
       null,
       []);
   }
@@ -1473,15 +1475,15 @@ remoting.mojom.VideoCapturerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec,
+      remoting.mojom.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec,
       null,
       [enabled]);
   }
 
 };
 
-remoting.mojom.VideoCapturer.getRemote = function() {
-  let remote = new remoting.mojom.VideoCapturerRemote();
+remoting.mojom.mojom.VideoCapturer.getRemote = function() {
+  let remote = new remoting.mojom.mojom.VideoCapturerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1491,7 +1493,7 @@ remoting.mojom.VideoCapturer.getRemote = function() {
 };
 
 // ParamsSpec for CaptureFrame
-remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = {
+remoting.mojom.mojom.VideoCapturer_CaptureFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoCapturer.CaptureFrame_Params',
@@ -1504,7 +1506,7 @@ remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec = {
 };
 
 // ParamsSpec for SetComposeEnabled
-remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = {
+remoting.mojom.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoCapturer.SetComposeEnabled_Params',
@@ -1518,29 +1520,29 @@ remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.VideoCapturerPtr = remoting.mojom.VideoCapturerRemote;
-remoting.mojom.VideoCapturerRequest = remoting.mojom.VideoCapturerPendingReceiver;
+remoting.mojom.mojom.VideoCapturerPtr = remoting.mojom.mojom.VideoCapturerRemote;
+remoting.mojom.mojom.VideoCapturerRequest = remoting.mojom.mojom.VideoCapturerPendingReceiver;
 
 
 // Interface: VideoCapturerEventHandler
-remoting.mojom.VideoCapturerEventHandler = {};
+remoting.mojom.mojom.VideoCapturerEventHandler = {};
 
-remoting.mojom.VideoCapturerEventHandlerPendingReceiver = class {
+remoting.mojom.mojom.VideoCapturerEventHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.VideoCapturerEventHandlerRemote = class {
+remoting.mojom.mojom.VideoCapturerEventHandlerRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.VideoCapturerEventHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.VideoCapturerEventHandlerPendingReceiver,
+      remoting.mojom.mojom.VideoCapturerEventHandlerPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.VideoCapturerEventHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1552,7 +1554,7 @@ remoting.mojom.VideoCapturerEventHandlerRemote = class {
   }
 };
 
-remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
+remoting.mojom.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1561,7 +1563,7 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec,
+      remoting.mojom.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec,
       null,
       [id, region, size]);
   }
@@ -1570,7 +1572,7 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec,
+      remoting.mojom.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec,
       null,
       [id]);
   }
@@ -1579,15 +1581,15 @@ remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec,
+      remoting.mojom.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec,
       null,
       [result]);
   }
 
 };
 
-remoting.mojom.VideoCapturerEventHandler.getRemote = function() {
-  let remote = new remoting.mojom.VideoCapturerEventHandlerRemote();
+remoting.mojom.mojom.VideoCapturerEventHandler.getRemote = function() {
+  let remote = new remoting.mojom.mojom.VideoCapturerEventHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1597,15 +1599,15 @@ remoting.mojom.VideoCapturerEventHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnSharedMemoryRegionCreated
-remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec = {
+remoting.mojom.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoCapturerEventHandler.OnSharedMemoryRegionCreated_Params',
       packedSize: 24,
       fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1613,7 +1615,7 @@ remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec 
 };
 
 // ParamsSpec for OnSharedMemoryRegionReleased
-remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec = {
+remoting.mojom.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoCapturerEventHandler.OnSharedMemoryRegionReleased_Params',
@@ -1627,7 +1629,7 @@ remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec
 };
 
 // ParamsSpec for OnCaptureResult
-remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = {
+remoting.mojom.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.VideoCapturerEventHandler.OnCaptureResult_Params',
@@ -1641,29 +1643,29 @@ remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.VideoCapturerEventHandlerPtr = remoting.mojom.VideoCapturerEventHandlerRemote;
-remoting.mojom.VideoCapturerEventHandlerRequest = remoting.mojom.VideoCapturerEventHandlerPendingReceiver;
+remoting.mojom.mojom.VideoCapturerEventHandlerPtr = remoting.mojom.mojom.VideoCapturerEventHandlerRemote;
+remoting.mojom.mojom.VideoCapturerEventHandlerRequest = remoting.mojom.mojom.VideoCapturerEventHandlerPendingReceiver;
 
 
 // Interface: DesktopSessionEventHandler
-remoting.mojom.DesktopSessionEventHandler = {};
+remoting.mojom.mojom.DesktopSessionEventHandler = {};
 
-remoting.mojom.DesktopSessionEventHandlerPendingReceiver = class {
+remoting.mojom.mojom.DesktopSessionEventHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.DesktopSessionEventHandlerRemote = class {
+remoting.mojom.mojom.DesktopSessionEventHandlerRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.DesktopSessionEventHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.DesktopSessionEventHandlerPendingReceiver,
+      remoting.mojom.mojom.DesktopSessionEventHandlerPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.DesktopSessionEventHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1675,7 +1677,7 @@ remoting.mojom.DesktopSessionEventHandlerRemote = class {
   }
 };
 
-remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
+remoting.mojom.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1684,7 +1686,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec,
       null,
       [event]);
   }
@@ -1693,7 +1695,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec,
       null,
       [state]);
   }
@@ -1702,7 +1704,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec,
       null,
       [audio_packet]);
   }
@@ -1711,7 +1713,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec,
       null,
       [layout]);
   }
@@ -1720,7 +1722,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec,
       null,
       [mouse_cursor]);
   }
@@ -1729,7 +1731,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 5
     return this.proxy.sendMessage(
       5,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec,
       null,
       [position]);
   }
@@ -1738,7 +1740,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec,
       null,
       [keyboard_layout]);
   }
@@ -1747,7 +1749,7 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec,
       null,
       [new_position]);
   }
@@ -1756,15 +1758,15 @@ remoting.mojom.DesktopSessionEventHandlerRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec,
       null,
       [usb_keycode]);
   }
 
 };
 
-remoting.mojom.DesktopSessionEventHandler.getRemote = function() {
-  let remote = new remoting.mojom.DesktopSessionEventHandlerRemote();
+remoting.mojom.mojom.DesktopSessionEventHandler.getRemote = function() {
+  let remote = new remoting.mojom.mojom.DesktopSessionEventHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1774,7 +1776,7 @@ remoting.mojom.DesktopSessionEventHandler.getRemote = function() {
 };
 
 // ParamsSpec for OnClipboardEvent
-remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnClipboardEvent_Params',
@@ -1788,7 +1790,7 @@ remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec = {
 };
 
 // ParamsSpec for OnUrlForwarderStateChange
-remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnUrlForwarderStateChange_Params',
@@ -1802,7 +1804,7 @@ remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec =
 };
 
 // ParamsSpec for OnAudioPacket
-remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnAudioPacket_Params',
@@ -1816,7 +1818,7 @@ remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec = {
 };
 
 // ParamsSpec for OnDesktopDisplayChanged
-remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnDesktopDisplayChanged_Params',
@@ -1830,7 +1832,7 @@ remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnMouseCursorChanged
-remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnMouseCursorChanged_Params',
@@ -1844,7 +1846,7 @@ remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnMouseCursorFractionalPositionChanged
-remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnMouseCursorFractionalPositionChanged_Params',
@@ -1858,7 +1860,7 @@ remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged
 };
 
 // ParamsSpec for OnKeyboardLayoutChanged
-remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnKeyboardLayoutChanged_Params',
@@ -1872,7 +1874,7 @@ remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnLocalMouseMoveDetected
-remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnLocalMouseMoveDetected_Params',
@@ -1886,7 +1888,7 @@ remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec = 
 };
 
 // ParamsSpec for OnLocalKeyboardInputDetected
-remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionEventHandler.OnLocalKeyboardInputDetected_Params',
@@ -1900,29 +1902,29 @@ remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpe
 };
 
 // Legacy compatibility
-remoting.mojom.DesktopSessionEventHandlerPtr = remoting.mojom.DesktopSessionEventHandlerRemote;
-remoting.mojom.DesktopSessionEventHandlerRequest = remoting.mojom.DesktopSessionEventHandlerPendingReceiver;
+remoting.mojom.mojom.DesktopSessionEventHandlerPtr = remoting.mojom.mojom.DesktopSessionEventHandlerRemote;
+remoting.mojom.mojom.DesktopSessionEventHandlerRequest = remoting.mojom.mojom.DesktopSessionEventHandlerPendingReceiver;
 
 
 // Interface: DesktopSessionStateHandler
-remoting.mojom.DesktopSessionStateHandler = {};
+remoting.mojom.mojom.DesktopSessionStateHandler = {};
 
-remoting.mojom.DesktopSessionStateHandlerPendingReceiver = class {
+remoting.mojom.mojom.DesktopSessionStateHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.DesktopSessionStateHandlerRemote = class {
+remoting.mojom.mojom.DesktopSessionStateHandlerRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.DesktopSessionStateHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.DesktopSessionStateHandlerPendingReceiver,
+      remoting.mojom.mojom.DesktopSessionStateHandlerPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.DesktopSessionStateHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1934,7 +1936,7 @@ remoting.mojom.DesktopSessionStateHandlerRemote = class {
   }
 };
 
-remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler = class {
+remoting.mojom.mojom.DesktopSessionStateHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -1943,15 +1945,15 @@ remoting.mojom.DesktopSessionStateHandlerRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec,
+      remoting.mojom.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec,
       null,
       [error_code, error_details, error_location]);
   }
 
 };
 
-remoting.mojom.DesktopSessionStateHandler.getRemote = function() {
-  let remote = new remoting.mojom.DesktopSessionStateHandlerRemote();
+remoting.mojom.mojom.DesktopSessionStateHandler.getRemote = function() {
+  let remote = new remoting.mojom.mojom.DesktopSessionStateHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1961,15 +1963,15 @@ remoting.mojom.DesktopSessionStateHandler.getRemote = function() {
 };
 
 // ParamsSpec for DisconnectSession
-remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
+remoting.mojom.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.DesktopSessionStateHandler.DisconnectSession_Params',
       packedSize: 32,
       fields: [
-        { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ProtocolErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'error_details', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_location', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
+        { name: 'error_code', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.ProtocolErrorCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'error_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'error_location', packedOffset: 8, packedBitOffset: 0, type: remoting.mojom.SourceLocationSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -1977,29 +1979,29 @@ remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.DesktopSessionStateHandlerPtr = remoting.mojom.DesktopSessionStateHandlerRemote;
-remoting.mojom.DesktopSessionStateHandlerRequest = remoting.mojom.DesktopSessionStateHandlerPendingReceiver;
+remoting.mojom.mojom.DesktopSessionStateHandlerPtr = remoting.mojom.mojom.DesktopSessionStateHandlerRemote;
+remoting.mojom.mojom.DesktopSessionStateHandlerRequest = remoting.mojom.mojom.DesktopSessionStateHandlerPendingReceiver;
 
 
 // Interface: WorkerProcessControl
-remoting.mojom.WorkerProcessControl = {};
+remoting.mojom.mojom.WorkerProcessControl = {};
 
-remoting.mojom.WorkerProcessControlPendingReceiver = class {
+remoting.mojom.mojom.WorkerProcessControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.WorkerProcessControlRemote = class {
+remoting.mojom.mojom.WorkerProcessControlRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.WorkerProcessControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.WorkerProcessControlPendingReceiver,
+      remoting.mojom.mojom.WorkerProcessControlPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.WorkerProcessControlRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.WorkerProcessControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2011,7 +2013,7 @@ remoting.mojom.WorkerProcessControlRemote = class {
   }
 };
 
-remoting.mojom.WorkerProcessControlRemoteCallHandler = class {
+remoting.mojom.mojom.WorkerProcessControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -2020,15 +2022,15 @@ remoting.mojom.WorkerProcessControlRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec,
+      remoting.mojom.mojom.WorkerProcessControl_CrashProcess_ParamsSpec,
       null,
       [function_name, file_name, line_number]);
   }
 
 };
 
-remoting.mojom.WorkerProcessControl.getRemote = function() {
-  let remote = new remoting.mojom.WorkerProcessControlRemote();
+remoting.mojom.mojom.WorkerProcessControl.getRemote = function() {
+  let remote = new remoting.mojom.mojom.WorkerProcessControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2038,7 +2040,7 @@ remoting.mojom.WorkerProcessControl.getRemote = function() {
 };
 
 // ParamsSpec for CrashProcess
-remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = {
+remoting.mojom.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.WorkerProcessControl.CrashProcess_Params',
@@ -2054,6 +2056,6 @@ remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.WorkerProcessControlPtr = remoting.mojom.WorkerProcessControlRemote;
-remoting.mojom.WorkerProcessControlRequest = remoting.mojom.WorkerProcessControlPendingReceiver;
+remoting.mojom.mojom.WorkerProcessControlPtr = remoting.mojom.mojom.WorkerProcessControlRemote;
+remoting.mojom.mojom.WorkerProcessControlRequest = remoting.mojom.mojom.WorkerProcessControlPendingReceiver;
 

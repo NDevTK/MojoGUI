@@ -7,27 +7,28 @@
 // Module namespace
 var new_window_proxy = new_window_proxy || {};
 new_window_proxy.mojom = new_window_proxy.mojom || {};
+var url = url || {};
 
 
 // Interface: NewWindowProxy
-new_window_proxy.mojom.NewWindowProxy = {};
+new_window_proxy.mojom.mojom.NewWindowProxy = {};
 
-new_window_proxy.mojom.NewWindowProxyPendingReceiver = class {
+new_window_proxy.mojom.mojom.NewWindowProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-new_window_proxy.mojom.NewWindowProxyRemote = class {
+new_window_proxy.mojom.mojom.NewWindowProxyRemote = class {
   static get $interfaceName() {
     return 'new_window_proxy.mojom.NewWindowProxy';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      new_window_proxy.mojom.NewWindowProxyPendingReceiver,
+      new_window_proxy.mojom.mojom.NewWindowProxyPendingReceiver,
       handle);
-    this.$ = new new_window_proxy.mojom.NewWindowProxyRemoteCallHandler(this.proxy);
+    this.$ = new new_window_proxy.mojom.mojom.NewWindowProxyRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +40,7 @@ new_window_proxy.mojom.NewWindowProxyRemote = class {
   }
 };
 
-new_window_proxy.mojom.NewWindowProxyRemoteCallHandler = class {
+new_window_proxy.mojom.mojom.NewWindowProxyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,15 +49,15 @@ new_window_proxy.mojom.NewWindowProxyRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec,
+      new_window_proxy.mojom.mojom.NewWindowProxy_OpenUrl_ParamsSpec,
       null,
       [url]);
   }
 
 };
 
-new_window_proxy.mojom.NewWindowProxy.getRemote = function() {
-  let remote = new new_window_proxy.mojom.NewWindowProxyRemote();
+new_window_proxy.mojom.mojom.NewWindowProxy.getRemote = function() {
+  let remote = new new_window_proxy.mojom.mojom.NewWindowProxyRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -66,7 +67,7 @@ new_window_proxy.mojom.NewWindowProxy.getRemote = function() {
 };
 
 // ParamsSpec for OpenUrl
-new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = {
+new_window_proxy.mojom.mojom.NewWindowProxy_OpenUrl_ParamsSpec = {
   $: {
     structSpec: {
       name: 'new_window_proxy.mojom.NewWindowProxy.OpenUrl_Params',
@@ -80,6 +81,6 @@ new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec = {
 };
 
 // Legacy compatibility
-new_window_proxy.mojom.NewWindowProxyPtr = new_window_proxy.mojom.NewWindowProxyRemote;
-new_window_proxy.mojom.NewWindowProxyRequest = new_window_proxy.mojom.NewWindowProxyPendingReceiver;
+new_window_proxy.mojom.mojom.NewWindowProxyPtr = new_window_proxy.mojom.mojom.NewWindowProxyRemote;
+new_window_proxy.mojom.mojom.NewWindowProxyRequest = new_window_proxy.mojom.mojom.NewWindowProxyPendingReceiver;
 

@@ -10,7 +10,7 @@ chrome.mojom = chrome.mojom || {};
 
 
 // Struct: WebRtcLoggingMessage
-chrome.mojom.WebRtcLoggingMessageSpec = {
+chrome.mojom.mojom.WebRtcLoggingMessageSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.WebRtcLoggingMessage',
@@ -25,24 +25,24 @@ chrome.mojom.WebRtcLoggingMessageSpec = {
 };
 
 // Interface: WebRtcLoggingClient
-chrome.mojom.WebRtcLoggingClient = {};
+chrome.mojom.mojom.WebRtcLoggingClient = {};
 
-chrome.mojom.WebRtcLoggingClientPendingReceiver = class {
+chrome.mojom.mojom.WebRtcLoggingClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.WebRtcLoggingClientRemote = class {
+chrome.mojom.mojom.WebRtcLoggingClientRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.WebRtcLoggingClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.WebRtcLoggingClientPendingReceiver,
+      chrome.mojom.mojom.WebRtcLoggingClientPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.WebRtcLoggingClientRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.WebRtcLoggingClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -54,7 +54,7 @@ chrome.mojom.WebRtcLoggingClientRemote = class {
   }
 };
 
-chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
+chrome.mojom.mojom.WebRtcLoggingClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -63,7 +63,7 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec,
+      chrome.mojom.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec,
       null,
       [messages]);
   }
@@ -72,15 +72,15 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec,
+      chrome.mojom.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chrome.mojom.WebRtcLoggingClient.getRemote = function() {
-  let remote = new chrome.mojom.WebRtcLoggingClientRemote();
+chrome.mojom.mojom.WebRtcLoggingClient.getRemote = function() {
+  let remote = new chrome.mojom.mojom.WebRtcLoggingClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -90,7 +90,7 @@ chrome.mojom.WebRtcLoggingClient.getRemote = function() {
 };
 
 // ParamsSpec for OnAddMessages
-chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = {
+chrome.mojom.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.WebRtcLoggingClient.OnAddMessages_Params',
@@ -104,7 +104,7 @@ chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = {
 };
 
 // ParamsSpec for OnStopped
-chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec = {
+chrome.mojom.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.WebRtcLoggingClient.OnStopped_Params',
@@ -117,29 +117,29 @@ chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.WebRtcLoggingClientPtr = chrome.mojom.WebRtcLoggingClientRemote;
-chrome.mojom.WebRtcLoggingClientRequest = chrome.mojom.WebRtcLoggingClientPendingReceiver;
+chrome.mojom.mojom.WebRtcLoggingClientPtr = chrome.mojom.mojom.WebRtcLoggingClientRemote;
+chrome.mojom.mojom.WebRtcLoggingClientRequest = chrome.mojom.mojom.WebRtcLoggingClientPendingReceiver;
 
 
 // Interface: WebRtcLoggingAgent
-chrome.mojom.WebRtcLoggingAgent = {};
+chrome.mojom.mojom.WebRtcLoggingAgent = {};
 
-chrome.mojom.WebRtcLoggingAgentPendingReceiver = class {
+chrome.mojom.mojom.WebRtcLoggingAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.WebRtcLoggingAgentRemote = class {
+chrome.mojom.mojom.WebRtcLoggingAgentRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.WebRtcLoggingAgent';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.WebRtcLoggingAgentPendingReceiver,
+      chrome.mojom.mojom.WebRtcLoggingAgentPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.WebRtcLoggingAgentRemoteCallHandler(this.proxy);
+    this.$ = new chrome.mojom.mojom.WebRtcLoggingAgentRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -151,7 +151,7 @@ chrome.mojom.WebRtcLoggingAgentRemote = class {
   }
 };
 
-chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
+chrome.mojom.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -160,7 +160,7 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec,
+      chrome.mojom.mojom.WebRtcLoggingAgent_Start_ParamsSpec,
       null,
       [client]);
   }
@@ -169,15 +169,15 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec,
+      chrome.mojom.mojom.WebRtcLoggingAgent_Stop_ParamsSpec,
       null,
       []);
   }
 
 };
 
-chrome.mojom.WebRtcLoggingAgent.getRemote = function() {
-  let remote = new chrome.mojom.WebRtcLoggingAgentRemote();
+chrome.mojom.mojom.WebRtcLoggingAgent.getRemote = function() {
+  let remote = new chrome.mojom.mojom.WebRtcLoggingAgentRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -187,7 +187,7 @@ chrome.mojom.WebRtcLoggingAgent.getRemote = function() {
 };
 
 // ParamsSpec for Start
-chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec = {
+chrome.mojom.mojom.WebRtcLoggingAgent_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.WebRtcLoggingAgent.Start_Params',
@@ -201,7 +201,7 @@ chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec = {
 };
 
 // ParamsSpec for Stop
-chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = {
+chrome.mojom.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.WebRtcLoggingAgent.Stop_Params',
@@ -214,6 +214,6 @@ chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = {
 };
 
 // Legacy compatibility
-chrome.mojom.WebRtcLoggingAgentPtr = chrome.mojom.WebRtcLoggingAgentRemote;
-chrome.mojom.WebRtcLoggingAgentRequest = chrome.mojom.WebRtcLoggingAgentPendingReceiver;
+chrome.mojom.mojom.WebRtcLoggingAgentPtr = chrome.mojom.mojom.WebRtcLoggingAgentRemote;
+chrome.mojom.mojom.WebRtcLoggingAgentRequest = chrome.mojom.mojom.WebRtcLoggingAgentPendingReceiver;
 

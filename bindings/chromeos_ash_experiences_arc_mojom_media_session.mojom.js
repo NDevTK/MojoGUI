@@ -10,24 +10,24 @@ arc.mojom = arc.mojom || {};
 
 
 // Interface: MediaSessionInstance
-arc.mojom.MediaSessionInstance = {};
+arc.mojom.mojom.MediaSessionInstance = {};
 
-arc.mojom.MediaSessionInstancePendingReceiver = class {
+arc.mojom.mojom.MediaSessionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.MediaSessionInstanceRemote = class {
+arc.mojom.mojom.MediaSessionInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.MediaSessionInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.MediaSessionInstancePendingReceiver,
+      arc.mojom.mojom.MediaSessionInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.MediaSessionInstanceRemoteCallHandler(this.proxy);
+    this.$ = new arc.mojom.mojom.MediaSessionInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -39,7 +39,7 @@ arc.mojom.MediaSessionInstanceRemote = class {
   }
 };
 
-arc.mojom.MediaSessionInstanceRemoteCallHandler = class {
+arc.mojom.mojom.MediaSessionInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -48,7 +48,7 @@ arc.mojom.MediaSessionInstanceRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec,
+      arc.mojom.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec,
       null,
       [service]);
   }
@@ -57,15 +57,15 @@ arc.mojom.MediaSessionInstanceRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec,
+      arc.mojom.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec,
       null,
       []);
   }
 
 };
 
-arc.mojom.MediaSessionInstance.getRemote = function() {
-  let remote = new arc.mojom.MediaSessionInstanceRemote();
+arc.mojom.mojom.MediaSessionInstance.getRemote = function() {
+  let remote = new arc.mojom.mojom.MediaSessionInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -75,7 +75,7 @@ arc.mojom.MediaSessionInstance.getRemote = function() {
 };
 
 // ParamsSpec for EnableAudioFocus
-arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec = {
+arc.mojom.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MediaSessionInstance.EnableAudioFocus_Params',
@@ -89,7 +89,7 @@ arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec = {
 };
 
 // ParamsSpec for DisableAudioFocus
-arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec = {
+arc.mojom.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.MediaSessionInstance.DisableAudioFocus_Params',
@@ -102,6 +102,6 @@ arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec = {
 };
 
 // Legacy compatibility
-arc.mojom.MediaSessionInstancePtr = arc.mojom.MediaSessionInstanceRemote;
-arc.mojom.MediaSessionInstanceRequest = arc.mojom.MediaSessionInstancePendingReceiver;
+arc.mojom.mojom.MediaSessionInstancePtr = arc.mojom.mojom.MediaSessionInstanceRemote;
+arc.mojom.mojom.MediaSessionInstanceRequest = arc.mojom.mojom.MediaSessionInstancePendingReceiver;
 

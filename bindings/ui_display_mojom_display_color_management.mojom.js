@@ -7,10 +7,12 @@
 // Module namespace
 var display = display || {};
 display.mojom = display.mojom || {};
+var skia = skia || {};
+var ui = ui || {};
 
 
 // Struct: GammaCurve
-display.mojom.GammaCurveSpec = {
+display.mojom.mojom.GammaCurveSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.GammaCurve',
@@ -24,7 +26,7 @@ display.mojom.GammaCurveSpec = {
 };
 
 // Struct: ColorCalibration
-display.mojom.ColorCalibrationSpec = {
+display.mojom.mojom.ColorCalibrationSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.ColorCalibration',
@@ -40,7 +42,7 @@ display.mojom.ColorCalibrationSpec = {
 };
 
 // Struct: ColorTemperatureAdjustment
-display.mojom.ColorTemperatureAdjustmentSpec = {
+display.mojom.mojom.ColorTemperatureAdjustmentSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.ColorTemperatureAdjustment',
@@ -54,7 +56,7 @@ display.mojom.ColorTemperatureAdjustmentSpec = {
 };
 
 // Struct: GammaAdjustment
-display.mojom.GammaAdjustmentSpec = {
+display.mojom.mojom.GammaAdjustmentSpec = {
   $: {
     structSpec: {
       name: 'display.mojom.GammaAdjustment',

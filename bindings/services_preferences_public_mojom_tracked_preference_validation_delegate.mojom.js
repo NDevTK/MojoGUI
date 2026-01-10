@@ -10,7 +10,7 @@ prefs.mojom = prefs.mojom || {};
 
 
 // Enum: ValueState
-prefs.mojom.ValueState = {
+prefs.mojom.mojom.ValueState = {
   UNCHANGED: 0,
   CLEARED: 1,
   CHANGED: 2,
@@ -25,27 +25,27 @@ prefs.mojom.ValueState = {
   CHANGED_VIA_HMAC_FALLBACK: 11,
   CLEARED_VIA_HMAC_FALLBACK: 12,
 };
-prefs.mojom.ValueStateSpec = { $: mojo.internal.Enum() };
+prefs.mojom.mojom.ValueStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: TrackedPreferenceValidationDelegate
-prefs.mojom.TrackedPreferenceValidationDelegate = {};
+prefs.mojom.mojom.TrackedPreferenceValidationDelegate = {};
 
-prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver = class {
+prefs.mojom.mojom.TrackedPreferenceValidationDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-prefs.mojom.TrackedPreferenceValidationDelegateRemote = class {
+prefs.mojom.mojom.TrackedPreferenceValidationDelegateRemote = class {
   static get $interfaceName() {
     return 'prefs.mojom.TrackedPreferenceValidationDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver,
+      prefs.mojom.mojom.TrackedPreferenceValidationDelegatePendingReceiver,
       handle);
-    this.$ = new prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler(this.proxy);
+    this.$ = new prefs.mojom.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -57,7 +57,7 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemote = class {
   }
 };
 
-prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
+prefs.mojom.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -66,7 +66,7 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec,
+      prefs.mojom.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec,
       null,
       [pref_path, value, value_state, external_validation_value_state, is_personal]);
   }
@@ -75,15 +75,15 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec,
+      prefs.mojom.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec,
       null,
       [pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal]);
   }
 
 };
 
-prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
-  let remote = new prefs.mojom.TrackedPreferenceValidationDelegateRemote();
+prefs.mojom.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
+  let remote = new prefs.mojom.mojom.TrackedPreferenceValidationDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -93,14 +93,14 @@ prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
 };
 
 // ParamsSpec for OnAtomicPreferenceValidation
-prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec = {
+prefs.mojom.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'prefs.mojom.TrackedPreferenceValidationDelegate.OnAtomicPreferenceValidation_Params',
       packedSize: 48,
       fields: [
-        { name: 'pref_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
+        { name: 'pref_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
         { name: 'value_state', packedOffset: 24, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
         { name: 'external_validation_value_state', packedOffset: 28, packedBitOffset: 0, type: prefs.mojom.ValueStateSpec, nullable: false, minVersion: 0 },
         { name: 'is_personal', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -111,7 +111,7 @@ prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Par
 };
 
 // ParamsSpec for OnSplitPreferenceValidation
-prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec = {
+prefs.mojom.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'prefs.mojom.TrackedPreferenceValidationDelegate.OnSplitPreferenceValidation_Params',
@@ -130,6 +130,6 @@ prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Para
 };
 
 // Legacy compatibility
-prefs.mojom.TrackedPreferenceValidationDelegatePtr = prefs.mojom.TrackedPreferenceValidationDelegateRemote;
-prefs.mojom.TrackedPreferenceValidationDelegateRequest = prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver;
+prefs.mojom.mojom.TrackedPreferenceValidationDelegatePtr = prefs.mojom.mojom.TrackedPreferenceValidationDelegateRemote;
+prefs.mojom.mojom.TrackedPreferenceValidationDelegateRequest = prefs.mojom.mojom.TrackedPreferenceValidationDelegatePendingReceiver;
 

@@ -7,48 +7,48 @@
 // Module namespace
 var ash = ash || {};
 ash.printing = ash.printing || {};
-ash.printing.print_preview = ash.printing.print_preview || {};
-ash.printing.print_preview.mojom = ash.printing.print_preview.mojom || {};
+ash.printing.printing.print_preview = ash.printing.printing.print_preview || {};
+ash.printing.printing.print_preview.print_preview.mojom = ash.printing.printing.print_preview.print_preview.mojom || {};
 
 
 // Enum: ColorType
-ash.printing.print_preview.mojom.ColorType = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorType = {
   kStandardColor: 0,
   kStandardMonochrome: 1,
   kCustomColor: 2,
   kCustomMonochrome: 3,
   kAutoColor: 4,
 };
-ash.printing.print_preview.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
+ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DuplexType
-ash.printing.print_preview.mojom.DuplexType = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexType = {
   kNoDuplex: 0,
   kLongEdge: 1,
   kShortEdge: 2,
 };
-ash.printing.print_preview.mojom.DuplexTypeSpec = { $: mojo.internal.Enum() };
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageOrientation
-ash.printing.print_preview.mojom.PageOrientation = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientation = {
   kPortrait: 0,
   kLandscape: 1,
   kAuto: 2,
 };
-ash.printing.print_preview.mojom.PageOrientationSpec = { $: mojo.internal.Enum() };
+ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientationSpec = { $: mojo.internal.Enum() };
 
 // Struct: ColorOption
-ash.printing.print_preview.mojom.ColorOptionSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.ColorOption',
       packedSize: 32,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.printing.print_preview.mojom.ColorTypeSpec, nullable: true, minVersion: 0 },
-        { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'custom_display_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_default_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_default_$value', originalFieldName: 'is_default' } },
-        { name: 'is_default_$value', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_default_$flag', originalFieldName: 'is_default' } },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.printing.print_preview.mojom.ColorTypeSpec, nullable: true, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'custom_display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'is_default_$flag', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_default_$value', originalFieldName: 'is_default' } },
+        { name: 'is_default_$value', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_default_$flag', originalFieldName: 'is_default' } },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -56,7 +56,7 @@ ash.printing.print_preview.mojom.ColorOptionSpec = {
 };
 
 // Struct: ColorCapability
-ash.printing.print_preview.mojom.ColorCapabilitySpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.ColorCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.ColorCapability',
@@ -72,7 +72,7 @@ ash.printing.print_preview.mojom.ColorCapabilitySpec = {
 };
 
 // Struct: CollateCapability
-ash.printing.print_preview.mojom.CollateCapabilitySpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.CollateCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.CollateCapability',
@@ -86,7 +86,7 @@ ash.printing.print_preview.mojom.CollateCapabilitySpec = {
 };
 
 // Struct: CopiesCapability
-ash.printing.print_preview.mojom.CopiesCapabilitySpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.CopiesCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.CopiesCapability',
@@ -101,7 +101,7 @@ ash.printing.print_preview.mojom.CopiesCapabilitySpec = {
 };
 
 // Struct: DuplexOption
-ash.printing.print_preview.mojom.DuplexOptionSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DuplexOption',
@@ -117,7 +117,7 @@ ash.printing.print_preview.mojom.DuplexOptionSpec = {
 };
 
 // Struct: DuplexCapability
-ash.printing.print_preview.mojom.DuplexCapabilitySpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DuplexCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DuplexCapability',
@@ -131,7 +131,7 @@ ash.printing.print_preview.mojom.DuplexCapabilitySpec = {
 };
 
 // Struct: PageOrientationOption
-ash.printing.print_preview.mojom.PageOrientationOptionSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientationOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.PageOrientationOption',
@@ -147,7 +147,7 @@ ash.printing.print_preview.mojom.PageOrientationOptionSpec = {
 };
 
 // Struct: PageOrientationCapability
-ash.printing.print_preview.mojom.PageOrientationCapabilitySpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.PageOrientationCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.PageOrientationCapability',
@@ -163,7 +163,7 @@ ash.printing.print_preview.mojom.PageOrientationCapabilitySpec = {
 };
 
 // Struct: LocalizedString
-ash.printing.print_preview.mojom.LocalizedStringSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.LocalizedStringSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.LocalizedString',
@@ -178,30 +178,30 @@ ash.printing.print_preview.mojom.LocalizedStringSpec = {
 };
 
 // Struct: MediaSizeOption
-ash.printing.print_preview.mojom.MediaSizeOptionSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaSizeOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaSizeOption',
       packedSize: 72,
       fields: [
         { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'height_microns', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'width_microns', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'imageable_area_left_microns_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'imageable_area_left_microns_$value', originalFieldName: 'imageable_area_left_microns' } },
-        { name: 'imageable_area_left_microns_$value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'imageable_area_left_microns_$flag', originalFieldName: 'imageable_area_left_microns' } },
-        { name: 'imageable_area_bottom_microns_$flag', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'imageable_area_bottom_microns_$value', originalFieldName: 'imageable_area_bottom_microns' } },
-        { name: 'imageable_area_bottom_microns_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'imageable_area_bottom_microns_$flag', originalFieldName: 'imageable_area_bottom_microns' } },
-        { name: 'imageable_area_right_microns_$flag', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'imageable_area_right_microns_$value', originalFieldName: 'imageable_area_right_microns' } },
-        { name: 'imageable_area_right_microns_$value', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'imageable_area_right_microns_$flag', originalFieldName: 'imageable_area_right_microns' } },
-        { name: 'imageable_area_top_microns_$flag', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'imageable_area_top_microns_$value', originalFieldName: 'imageable_area_top_microns' } },
-        { name: 'imageable_area_top_microns_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'imageable_area_top_microns_$flag', originalFieldName: 'imageable_area_top_microns' } },
-        { name: 'has_borderless_variant_$flag', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'has_borderless_variant_$value', originalFieldName: 'has_borderless_variant' } },
-        { name: 'has_borderless_variant_$value', packedOffset: 16, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'has_borderless_variant_$flag', originalFieldName: 'has_borderless_variant' } },
-        { name: 'custom_display_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'custom_display_name_localized', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(ash.printing.print_preview.mojom.LocalizedStringSpec, false), nullable: true, minVersion: 0 },
-        { name: 'name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_default_$flag', packedOffset: 16, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_default_$value', originalFieldName: 'is_default' } },
-        { name: 'is_default_$value', packedOffset: 16, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_default_$flag', originalFieldName: 'is_default' } },
+        { name: 'height_microns', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'width_microns', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'imageable_area_left_microns_$flag', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'imageable_area_left_microns_$value', originalFieldName: 'imageable_area_left_microns' } },
+        { name: 'imageable_area_left_microns_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'imageable_area_left_microns_$flag', originalFieldName: 'imageable_area_left_microns' } },
+        { name: 'imageable_area_bottom_microns_$flag', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'imageable_area_bottom_microns_$value', originalFieldName: 'imageable_area_bottom_microns' } },
+        { name: 'imageable_area_bottom_microns_$value', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'imageable_area_bottom_microns_$flag', originalFieldName: 'imageable_area_bottom_microns' } },
+        { name: 'imageable_area_right_microns_$flag', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'imageable_area_right_microns_$value', originalFieldName: 'imageable_area_right_microns' } },
+        { name: 'imageable_area_right_microns_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'imageable_area_right_microns_$flag', originalFieldName: 'imageable_area_right_microns' } },
+        { name: 'imageable_area_top_microns_$flag', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'imageable_area_top_microns_$value', originalFieldName: 'imageable_area_top_microns' } },
+        { name: 'imageable_area_top_microns_$value', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'imageable_area_top_microns_$flag', originalFieldName: 'imageable_area_top_microns' } },
+        { name: 'has_borderless_variant_$flag', packedOffset: 56, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'has_borderless_variant_$value', originalFieldName: 'has_borderless_variant' } },
+        { name: 'has_borderless_variant_$value', packedOffset: 56, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'has_borderless_variant_$flag', originalFieldName: 'has_borderless_variant' } },
+        { name: 'custom_display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'custom_display_name_localized', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.printing.print_preview.mojom.LocalizedStringSpec, false), nullable: true, minVersion: 0 },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'is_default_$flag', packedOffset: 56, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_default_$value', originalFieldName: 'is_default' } },
+        { name: 'is_default_$value', packedOffset: 56, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_default_$flag', originalFieldName: 'is_default' } },
       ],
       versions: [{version: 0, packedSize: 72}]
     }
@@ -209,7 +209,7 @@ ash.printing.print_preview.mojom.MediaSizeOptionSpec = {
 };
 
 // Struct: MediaSizeCapability
-ash.printing.print_preview.mojom.MediaSizeCapabilitySpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaSizeCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaSizeCapability',
@@ -225,7 +225,7 @@ ash.printing.print_preview.mojom.MediaSizeCapabilitySpec = {
 };
 
 // Struct: MediaTypeOption
-ash.printing.print_preview.mojom.MediaTypeOptionSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaTypeOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaTypeOption',
@@ -244,7 +244,7 @@ ash.printing.print_preview.mojom.MediaTypeOptionSpec = {
 };
 
 // Struct: MediaTypeCapability
-ash.printing.print_preview.mojom.MediaTypeCapabilitySpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.MediaTypeCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.MediaTypeCapability',
@@ -260,7 +260,7 @@ ash.printing.print_preview.mojom.MediaTypeCapabilitySpec = {
 };
 
 // Struct: DpiOption
-ash.printing.print_preview.mojom.DpiOptionSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DpiOptionSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DpiOption',
@@ -278,7 +278,7 @@ ash.printing.print_preview.mojom.DpiOptionSpec = {
 };
 
 // Struct: DpiCapability
-ash.printing.print_preview.mojom.DpiCapabilitySpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.DpiCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.DpiCapability',
@@ -294,7 +294,7 @@ ash.printing.print_preview.mojom.DpiCapabilitySpec = {
 };
 
 // Struct: PinCapability
-ash.printing.print_preview.mojom.PinCapabilitySpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.PinCapabilitySpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.PinCapability',
@@ -309,7 +309,7 @@ ash.printing.print_preview.mojom.PinCapabilitySpec = {
 };
 
 // Struct: Capabilities
-ash.printing.print_preview.mojom.CapabilitiesSpec = {
+ash.printing.printing.print_preview.print_preview.mojom.mojom.CapabilitiesSpec = {
   $: {
     structSpec: {
       name: 'ash.printing.print_preview.mojom.Capabilities',

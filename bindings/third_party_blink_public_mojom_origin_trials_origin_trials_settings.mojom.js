@@ -10,7 +10,7 @@ blink.mojom = blink.mojom || {};
 
 
 // Struct: OriginTrialsSettings
-blink.mojom.OriginTrialsSettingsSpec = {
+blink.mojom.mojom.OriginTrialsSettingsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OriginTrialsSettings',

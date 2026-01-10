@@ -10,13 +10,13 @@ remoting.mojom = remoting.mojom || {};
 
 
 // Enum: StartSupportSessionError
-remoting.mojom.StartSupportSessionError = {
+remoting.mojom.mojom.StartSupportSessionError = {
   kExistingAdminSession: 0,
 };
-remoting.mojom.StartSupportSessionErrorSpec = { $: mojo.internal.Enum() };
+remoting.mojom.mojom.StartSupportSessionErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: StartSupportSessionResponse
-remoting.mojom.StartSupportSessionResponseSpec = { $: mojo.internal.Union(
+remoting.mojom.mojom.StartSupportSessionResponseSpec = { $: mojo.internal.Union(
     'remoting.mojom.StartSupportSessionResponse', {
       'observer': {
         'ordinal': 0,
@@ -30,7 +30,7 @@ remoting.mojom.StartSupportSessionResponseSpec = { $: mojo.internal.Union(
 };
 
 // Struct: SupportHostDetails
-remoting.mojom.SupportHostDetailsSpec = {
+remoting.mojom.mojom.SupportHostDetailsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostDetails',
@@ -45,7 +45,7 @@ remoting.mojom.SupportHostDetailsSpec = {
 };
 
 // Struct: SupportSessionParams
-remoting.mojom.SupportSessionParamsSpec = {
+remoting.mojom.mojom.SupportSessionParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportSessionParams',
@@ -53,19 +53,19 @@ remoting.mojom.SupportSessionParamsSpec = {
       fields: [
         { name: 'user_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'oauth_access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'suppress_user_dialogs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'suppress_notifications', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'terminate_upon_input', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'curtain_local_user_session', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'authorized_helper', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'suppress_user_dialogs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'suppress_notifications', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'terminate_upon_input', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'curtain_local_user_session', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'authorized_helper', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 40}]
+      versions: [{version: 0, packedSize: 40}, {version: 2, packedSize: 40}]
     }
   }
 };
 
 // Struct: NatPolicyState
-remoting.mojom.NatPolicyStateSpec = {
+remoting.mojom.mojom.NatPolicyStateSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.NatPolicyState',
@@ -80,24 +80,24 @@ remoting.mojom.NatPolicyStateSpec = {
 };
 
 // Interface: SupportHostObserver
-remoting.mojom.SupportHostObserver = {};
+remoting.mojom.mojom.SupportHostObserver = {};
 
-remoting.mojom.SupportHostObserverPendingReceiver = class {
+remoting.mojom.mojom.SupportHostObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.SupportHostObserverRemote = class {
+remoting.mojom.mojom.SupportHostObserverRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.SupportHostObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.SupportHostObserverPendingReceiver,
+      remoting.mojom.mojom.SupportHostObserverPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.SupportHostObserverRemoteCallHandler(this.proxy);
+    this.$ = new remoting.mojom.mojom.SupportHostObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -109,7 +109,7 @@ remoting.mojom.SupportHostObserverRemote = class {
   }
 };
 
-remoting.mojom.SupportHostObserverRemoteCallHandler = class {
+remoting.mojom.mojom.SupportHostObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -118,7 +118,7 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec,
       null,
       []);
   }
@@ -127,7 +127,7 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 1
     return this.proxy.sendMessage(
       1,  // ordinal
-      remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec,
       null,
       []);
   }
@@ -136,7 +136,7 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 2
     return this.proxy.sendMessage(
       2,  // ordinal
-      remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec,
       null,
       [access_code, lifetime]);
   }
@@ -145,7 +145,7 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 3
     return this.proxy.sendMessage(
       3,  // ordinal
-      remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec,
       null,
       []);
   }
@@ -154,7 +154,7 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 4
     return this.proxy.sendMessage(
       4,  // ordinal
-      remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec,
       null,
       [remote_username]);
   }
@@ -163,7 +163,7 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 6
     return this.proxy.sendMessage(
       6,  // ordinal
-      remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec,
       null,
       [disconnect_reason]);
   }
@@ -172,7 +172,7 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 7
     return this.proxy.sendMessage(
       7,  // ordinal
-      remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec,
       null,
       [nat_policy_state]);
   }
@@ -181,7 +181,7 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 8
     return this.proxy.sendMessage(
       8,  // ordinal
-      remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnHostStateError_ParamsSpec,
       null,
       [error_code]);
   }
@@ -190,7 +190,7 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 9
     return this.proxy.sendMessage(
       9,  // ordinal
-      remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnPolicyError_ParamsSpec,
       null,
       []);
   }
@@ -199,15 +199,15 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
     // Ordinal: 10
     return this.proxy.sendMessage(
       10,  // ordinal
-      remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec,
+      remoting.mojom.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec,
       null,
       []);
   }
 
 };
 
-remoting.mojom.SupportHostObserver.getRemote = function() {
-  let remote = new remoting.mojom.SupportHostObserverRemote();
+remoting.mojom.mojom.SupportHostObserver.getRemote = function() {
+  let remote = new remoting.mojom.mojom.SupportHostObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -217,7 +217,7 @@ remoting.mojom.SupportHostObserver.getRemote = function() {
 };
 
 // ParamsSpec for OnHostStateStarting
-remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnHostStateStarting_Params',
@@ -230,7 +230,7 @@ remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostStateRequestedAccessCode
-remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnHostStateRequestedAccessCode_Params',
@@ -243,7 +243,7 @@ remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostStateReceivedAccessCode
-remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnHostStateReceivedAccessCode_Params',
@@ -258,7 +258,7 @@ remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostStateConnecting
-remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnHostStateConnecting_Params',
@@ -271,7 +271,7 @@ remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostStateConnected
-remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnHostStateConnected_Params',
@@ -285,7 +285,7 @@ remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostStateDisconnected
-remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnHostStateDisconnected_Params',
@@ -299,7 +299,7 @@ remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec = {
 };
 
 // ParamsSpec for OnNatPolicyChanged
-remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnNatPolicyChanged_Params',
@@ -313,7 +313,7 @@ remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec = {
 };
 
 // ParamsSpec for OnHostStateError
-remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnHostStateError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnHostStateError_Params',
@@ -327,7 +327,7 @@ remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec = {
 };
 
 // ParamsSpec for OnPolicyError
-remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnPolicyError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnPolicyError_Params',
@@ -340,7 +340,7 @@ remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec = {
 };
 
 // ParamsSpec for OnInvalidDomainError
-remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec = {
+remoting.mojom.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.SupportHostObserver.OnInvalidDomainError_Params',
@@ -353,6 +353,6 @@ remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec = {
 };
 
 // Legacy compatibility
-remoting.mojom.SupportHostObserverPtr = remoting.mojom.SupportHostObserverRemote;
-remoting.mojom.SupportHostObserverRequest = remoting.mojom.SupportHostObserverPendingReceiver;
+remoting.mojom.mojom.SupportHostObserverPtr = remoting.mojom.mojom.SupportHostObserverRemote;
+remoting.mojom.mojom.SupportHostObserverRequest = remoting.mojom.mojom.SupportHostObserverPendingReceiver;
 

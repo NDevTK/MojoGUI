@@ -7,28 +7,28 @@
 // Module namespace
 var ash = ash || {};
 ash.cfm = ash.cfm || {};
-ash.cfm.mojom = ash.cfm.mojom || {};
+ash.cfm.cfm.mojom = ash.cfm.cfm.mojom || {};
 
 
 // Interface: MeetBrowser
-ash.cfm.mojom.MeetBrowser = {};
+ash.cfm.cfm.mojom.mojom.MeetBrowser = {};
 
-ash.cfm.mojom.MeetBrowserPendingReceiver = class {
+ash.cfm.cfm.mojom.mojom.MeetBrowserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cfm.mojom.MeetBrowserRemote = class {
+ash.cfm.cfm.mojom.mojom.MeetBrowserRemote = class {
   static get $interfaceName() {
     return 'ash.cfm.mojom.MeetBrowser';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cfm.mojom.MeetBrowserPendingReceiver,
+      ash.cfm.cfm.mojom.mojom.MeetBrowserPendingReceiver,
       handle);
-    this.$ = new ash.cfm.mojom.MeetBrowserRemoteCallHandler(this.proxy);
+    this.$ = new ash.cfm.cfm.mojom.mojom.MeetBrowserRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -40,7 +40,7 @@ ash.cfm.mojom.MeetBrowserRemote = class {
   }
 };
 
-ash.cfm.mojom.MeetBrowserRemoteCallHandler = class {
+ash.cfm.cfm.mojom.mojom.MeetBrowserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
   }
@@ -49,15 +49,15 @@ ash.cfm.mojom.MeetBrowserRemoteCallHandler = class {
     // Ordinal: 0
     return this.proxy.sendMessage(
       0,  // ordinal
-      ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec,
-      ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec,
+      ash.cfm.cfm.mojom.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec,
+      ash.cfm.cfm.mojom.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec,
       [hashed_device_id]);
   }
 
 };
 
-ash.cfm.mojom.MeetBrowser.getRemote = function() {
-  let remote = new ash.cfm.mojom.MeetBrowserRemote();
+ash.cfm.cfm.mojom.mojom.MeetBrowser.getRemote = function() {
+  let remote = new ash.cfm.cfm.mojom.mojom.MeetBrowserRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -67,7 +67,7 @@ ash.cfm.mojom.MeetBrowser.getRemote = function() {
 };
 
 // ParamsSpec for TranslateVideoDeviceId
-ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = {
+ash.cfm.cfm.mojom.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.MeetBrowser.TranslateVideoDeviceId_Params',
@@ -80,7 +80,7 @@ ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = {
   }
 };
 
-ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = {
+ash.cfm.cfm.mojom.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.cfm.mojom.MeetBrowser.TranslateVideoDeviceId_ResponseParams',
@@ -94,6 +94,6 @@ ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = {
 };
 
 // Legacy compatibility
-ash.cfm.mojom.MeetBrowserPtr = ash.cfm.mojom.MeetBrowserRemote;
-ash.cfm.mojom.MeetBrowserRequest = ash.cfm.mojom.MeetBrowserPendingReceiver;
+ash.cfm.cfm.mojom.mojom.MeetBrowserPtr = ash.cfm.cfm.mojom.mojom.MeetBrowserRemote;
+ash.cfm.cfm.mojom.mojom.MeetBrowserRequest = ash.cfm.cfm.mojom.mojom.MeetBrowserPendingReceiver;
 
