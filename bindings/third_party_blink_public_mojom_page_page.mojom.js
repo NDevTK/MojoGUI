@@ -387,7 +387,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageLifecycleState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: AudioStateChanged
         if (dispatchId === undefined) {
@@ -396,7 +398,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AudioStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: ActivatePrerenderedPage
         if (dispatchId === undefined) {
@@ -405,7 +409,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivatePrerenderedPage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: UpdateWebPreferences
         if (dispatchId === undefined) {
@@ -414,7 +420,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateWebPreferences (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: UpdateRendererPreferences
         if (dispatchId === undefined) {
@@ -423,7 +431,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRendererPreferences (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: SetHistoryIndexAndLength
         if (dispatchId === undefined) {
@@ -432,7 +442,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHistoryIndexAndLength (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         // Try Method 6: SetPageBaseBackgroundColor
         if (dispatchId === undefined) {
@@ -441,7 +453,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageBaseBackgroundColor (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
         // Try Method 7: CreateRemoteMainFrame
         if (dispatchId === undefined) {
@@ -450,7 +464,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRemoteMainFrame (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
         // Try Method 8: UpdatePageBrowsingContextGroup
         if (dispatchId === undefined) {
@@ -459,7 +475,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePageBrowsingContextGroup (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
         // Try Method 9: SetPageAttributionSupport
         if (dispatchId === undefined) {
@@ -468,7 +486,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageAttributionSupport (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
         // Try Method 10: UpdateColorProviders
         if (dispatchId === undefined) {
@@ -477,7 +497,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateColorProviders (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
         // Try Method 11: SetSupportsDraggableRegions
         if (dispatchId === undefined) {
@@ -486,7 +508,9 @@ blink.mojom.PageBroadcastReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSupportsDraggableRegions (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

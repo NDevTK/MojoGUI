@@ -461,7 +461,9 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceStopped (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: OnDeviceChanged
         if (dispatchId === undefined) {
@@ -470,7 +472,9 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: OnDeviceRequestStateChange
         if (dispatchId === undefined) {
@@ -479,7 +483,9 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRequestStateChange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: OnDeviceCaptureConfigurationChange
         if (dispatchId === undefined) {
@@ -488,7 +494,9 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceCaptureConfigurationChange (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: OnDeviceCaptureHandleChange
         if (dispatchId === undefined) {
@@ -497,7 +505,9 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceCaptureHandleChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: OnZoomLevelChange
         if (dispatchId === undefined) {
@@ -506,7 +516,9 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnZoomLevelChange (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -941,7 +953,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateStreams (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: FocusCapturedSurface
         if (dispatchId === undefined) {
@@ -950,7 +964,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusCapturedSurface (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: CancelRequest
         if (dispatchId === undefined) {
@@ -959,7 +975,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelRequest (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: StopStreamDevice
         if (dispatchId === undefined) {
@@ -968,7 +986,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopStreamDevice (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: OpenDevice
         if (dispatchId === undefined) {
@@ -977,7 +997,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDevice (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: CloseDevice
         if (dispatchId === undefined) {
@@ -986,7 +1008,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseDevice (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         // Try Method 6: SetCapturingLinkSecured
         if (dispatchId === undefined) {
@@ -995,7 +1019,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCapturingLinkSecured (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
         // Try Method 7: ApplySubCaptureTarget
         if (dispatchId === undefined) {
@@ -1004,7 +1030,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplySubCaptureTarget (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
         // Try Method 8: SendWheel
         if (dispatchId === undefined) {
@@ -1013,7 +1041,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendWheel (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
         // Try Method 9: UpdateZoomLevel
         if (dispatchId === undefined) {
@@ -1022,7 +1052,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateZoomLevel (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
         // Try Method 10: RequestCapturedSurfaceControlPermission
         if (dispatchId === undefined) {
@@ -1031,7 +1063,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestCapturedSurfaceControlPermission (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
         // Try Method 11: GetOpenDevice
         if (dispatchId === undefined) {
@@ -1040,7 +1074,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOpenDevice (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
         // Try Method 12: KeepDeviceAliveForTransfer
         if (dispatchId === undefined) {
@@ -1049,7 +1085,9 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> KeepDeviceAliveForTransfer (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1325,7 +1363,9 @@ blink.mojom.MediaStreamTrackMetricsHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddTrack (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: RemoveTrack
         if (dispatchId === undefined) {
@@ -1334,7 +1374,9 @@ blink.mojom.MediaStreamTrackMetricsHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveTrack (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

@@ -124,7 +124,9 @@ codelabs.mojom.ObjectAReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoA (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -254,7 +256,9 @@ codelabs.mojom.ObjectBReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoB (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -385,7 +389,9 @@ codelabs.mojom.AssociatedProcessReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProcess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -631,7 +637,9 @@ codelabs.mojom.ProcessReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SayHello (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: GetAssociatedInterface
         if (dispatchId === undefined) {
@@ -640,7 +648,9 @@ codelabs.mojom.ProcessReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAssociatedInterface (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

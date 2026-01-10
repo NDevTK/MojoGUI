@@ -490,7 +490,9 @@ device.mojom.HidManagerClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: DeviceRemoved
         if (dispatchId === undefined) {
@@ -499,7 +501,9 @@ device.mojom.HidManagerClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: DeviceChanged
         if (dispatchId === undefined) {
@@ -508,7 +512,9 @@ device.mojom.HidManagerClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeviceChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -725,7 +731,9 @@ device.mojom.HidManagerReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevicesAndSetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: GetDevices
         if (dispatchId === undefined) {
@@ -734,7 +742,9 @@ device.mojom.HidManagerReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevices (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: Connect
         if (dispatchId === undefined) {
@@ -743,7 +753,9 @@ device.mojom.HidManagerReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: AddReceiver
         if (dispatchId === undefined) {
@@ -752,7 +764,9 @@ device.mojom.HidManagerReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddReceiver (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1001,7 +1015,9 @@ device.mojom.HidConnectionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: Write
         if (dispatchId === undefined) {
@@ -1010,7 +1026,9 @@ device.mojom.HidConnectionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: GetFeatureReport
         if (dispatchId === undefined) {
@@ -1019,7 +1037,9 @@ device.mojom.HidConnectionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeatureReport (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: SendFeatureReport
         if (dispatchId === undefined) {
@@ -1028,7 +1048,9 @@ device.mojom.HidConnectionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendFeatureReport (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1205,7 +1227,9 @@ device.mojom.HidConnectionClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInputReport (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

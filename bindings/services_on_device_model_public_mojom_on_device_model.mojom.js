@@ -414,7 +414,9 @@ on_device_model.mojom.StreamingResponderReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponse (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: OnComplete
         if (dispatchId === undefined) {
@@ -423,7 +425,9 @@ on_device_model.mojom.StreamingResponderReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -561,7 +565,9 @@ on_device_model.mojom.ContextClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -833,7 +839,9 @@ on_device_model.mojom.SessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Append (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: Generate
         if (dispatchId === undefined) {
@@ -842,7 +850,9 @@ on_device_model.mojom.SessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Generate (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: GetSizeInTokens
         if (dispatchId === undefined) {
@@ -851,7 +861,9 @@ on_device_model.mojom.SessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSizeInTokens (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: Score
         if (dispatchId === undefined) {
@@ -860,7 +872,9 @@ on_device_model.mojom.SessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Score (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: Clone
         if (dispatchId === undefined) {
@@ -869,7 +883,9 @@ on_device_model.mojom.SessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: GetProbabilitiesBlocking
         if (dispatchId === undefined) {
@@ -878,7 +894,9 @@ on_device_model.mojom.SessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProbabilitiesBlocking (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         // Try Method 6: SetPriority
         if (dispatchId === undefined) {
@@ -887,7 +905,9 @@ on_device_model.mojom.SessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPriority (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
         // Try Method 7: AsrStream
         if (dispatchId === undefined) {
@@ -896,7 +916,9 @@ on_device_model.mojom.SessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AsrStream (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1165,7 +1187,9 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: ClassifyTextSafety
         if (dispatchId === undefined) {
@@ -1174,7 +1198,9 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyTextSafety (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: DetectLanguage
         if (dispatchId === undefined) {
@@ -1183,7 +1209,9 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetectLanguage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: LoadAdaptation
         if (dispatchId === undefined) {
@@ -1192,7 +1220,9 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadAdaptation (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1408,7 +1438,9 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClassifyTextSafety (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: DetectLanguage
         if (dispatchId === undefined) {
@@ -1417,7 +1449,9 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DetectLanguage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: Clone
         if (dispatchId === undefined) {
@@ -1426,7 +1460,9 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1583,7 +1619,9 @@ on_device_model.mojom.TextSafetyModelReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartSession (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1714,7 +1752,9 @@ on_device_model.mojom.AsrStreamResponderReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnResponse (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1845,7 +1885,9 @@ on_device_model.mojom.AsrStreamInputReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAudioChunk (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

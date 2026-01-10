@@ -216,7 +216,9 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcceleratorsUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -346,7 +348,9 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCustomizationPolicyUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -888,7 +892,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsMutable (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: IsCustomizationAllowedByPolicy
         if (dispatchId === undefined) {
@@ -897,7 +903,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsCustomizationAllowedByPolicy (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: GetMetaKeyToDisplay
         if (dispatchId === undefined) {
@@ -906,7 +914,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMetaKeyToDisplay (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: GetConflictAccelerator
         if (dispatchId === undefined) {
@@ -915,7 +925,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetConflictAccelerator (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: GetDefaultAcceleratorsForId
         if (dispatchId === undefined) {
@@ -924,7 +936,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultAcceleratorsForId (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: GetAccelerators
         if (dispatchId === undefined) {
@@ -933,7 +947,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAccelerators (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         // Try Method 6: AddObserver
         if (dispatchId === undefined) {
@@ -942,7 +958,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
         // Try Method 7: AddPolicyObserver
         if (dispatchId === undefined) {
@@ -951,7 +969,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPolicyObserver (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
         // Try Method 8: GetAcceleratorLayoutInfos
         if (dispatchId === undefined) {
@@ -960,7 +980,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAcceleratorLayoutInfos (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
         // Try Method 9: PreventProcessingAccelerators
         if (dispatchId === undefined) {
@@ -969,7 +991,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreventProcessingAccelerators (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
         // Try Method 10: AddAccelerator
         if (dispatchId === undefined) {
@@ -978,7 +1002,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAccelerator (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
         // Try Method 11: RemoveAccelerator
         if (dispatchId === undefined) {
@@ -987,7 +1013,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveAccelerator (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
         // Try Method 12: ReplaceAccelerator
         if (dispatchId === undefined) {
@@ -996,7 +1024,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReplaceAccelerator (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
         // Try Method 13: RestoreDefault
         if (dispatchId === undefined) {
@@ -1005,7 +1035,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreDefault (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
+           }
         }
         // Try Method 14: RestoreAllDefaults
         if (dispatchId === undefined) {
@@ -1014,7 +1046,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestoreAllDefaults (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
+           }
         }
         // Try Method 15: RecordUserAction
         if (dispatchId === undefined) {
@@ -1023,7 +1057,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordUserAction (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
+           }
         }
         // Try Method 16: RecordMainCategoryNavigation
         if (dispatchId === undefined) {
@@ -1032,7 +1068,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordMainCategoryNavigation (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
+           }
         }
         // Try Method 17: RecordEditDialogCompletedActions
         if (dispatchId === undefined) {
@@ -1041,7 +1079,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordEditDialogCompletedActions (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
+           }
         }
         // Try Method 18: RecordAddOrEditSubactions
         if (dispatchId === undefined) {
@@ -1050,7 +1090,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordAddOrEditSubactions (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
+           }
         }
         // Try Method 19: HasCustomAccelerators
         if (dispatchId === undefined) {
@@ -1059,7 +1101,9 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasCustomAccelerators (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 19 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

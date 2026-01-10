@@ -452,7 +452,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DontProceed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: Proceed
         if (dispatchId === undefined) {
@@ -461,7 +463,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Proceed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: ShowMoreSection
         if (dispatchId === undefined) {
@@ -470,7 +474,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowMoreSection (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: OpenHelpCenter
         if (dispatchId === undefined) {
@@ -479,7 +485,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHelpCenter (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: OpenDiagnostic
         if (dispatchId === undefined) {
@@ -488,7 +496,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDiagnostic (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: Reload
         if (dispatchId === undefined) {
@@ -497,7 +507,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reload (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         // Try Method 6: OpenDateSettings
         if (dispatchId === undefined) {
@@ -506,7 +518,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDateSettings (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
         // Try Method 7: OpenLogin
         if (dispatchId === undefined) {
@@ -515,7 +529,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLogin (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
         // Try Method 8: DoReport
         if (dispatchId === undefined) {
@@ -524,7 +540,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoReport (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
         // Try Method 9: DontReport
         if (dispatchId === undefined) {
@@ -533,7 +551,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DontReport (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
         // Try Method 10: OpenReportingPrivacy
         if (dispatchId === undefined) {
@@ -542,7 +562,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenReportingPrivacy (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
         // Try Method 11: OpenWhitepaper
         if (dispatchId === undefined) {
@@ -551,7 +573,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenWhitepaper (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
         // Try Method 12: OpenHelpCenterInNewTab
         if (dispatchId === undefined) {
@@ -560,7 +584,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHelpCenterInNewTab (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
         // Try Method 13: OpenDiagnosticInNewTab
         if (dispatchId === undefined) {
@@ -569,7 +595,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDiagnosticInNewTab (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
+           }
         }
         // Try Method 14: OpenReportingPrivacyInNewTab
         if (dispatchId === undefined) {
@@ -578,7 +606,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenReportingPrivacyInNewTab (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
+           }
         }
         // Try Method 15: OpenWhitepaperInNewTab
         if (dispatchId === undefined) {
@@ -587,7 +617,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenWhitepaperInNewTab (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
+           }
         }
         // Try Method 16: ReportPhishingErrorInNewTab
         if (dispatchId === undefined) {
@@ -596,7 +628,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPhishingErrorInNewTab (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
+           }
         }
         // Try Method 17: ReportPhishingError
         if (dispatchId === undefined) {
@@ -605,7 +639,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportPhishingError (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
+           }
         }
         // Try Method 18: OpenEnhancedProtectionSettings
         if (dispatchId === undefined) {
@@ -614,7 +650,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenEnhancedProtectionSettings (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
+           }
         }
         // Try Method 19: ShowCertificateViewer
         if (dispatchId === undefined) {
@@ -623,7 +661,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowCertificateViewer (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 19 failed:', e);
+           }
         }
         // Try Method 20: OpenAndroidAdvancedProtectionSettings
         if (dispatchId === undefined) {
@@ -632,7 +672,9 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAndroidAdvancedProtectionSettings (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 20 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

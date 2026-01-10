@@ -2419,7 +2419,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: Initialize
         if (dispatchId === undefined) {
@@ -2428,7 +2430,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: Terminate
         if (dispatchId === undefined) {
@@ -2437,7 +2441,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Terminate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: OpenSession
         if (dispatchId === undefined) {
@@ -2446,7 +2452,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSession (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: CloseSession
         if (dispatchId === undefined) {
@@ -2455,7 +2463,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseSession (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: GenerateDerivedKeys
         if (dispatchId === undefined) {
@@ -2464,7 +2474,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateDerivedKeys (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         // Try Method 6: GenerateNonce
         if (dispatchId === undefined) {
@@ -2473,7 +2485,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateNonce (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
         // Try Method 7: GenerateSignature
         if (dispatchId === undefined) {
@@ -2482,7 +2496,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateSignature (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
         // Try Method 8: LoadKeysV11OrV12
         if (dispatchId === undefined) {
@@ -2491,7 +2507,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadKeysV11OrV12 (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
         // Try Method 9: RefreshKeysV14
         if (dispatchId === undefined) {
@@ -2500,7 +2518,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshKeysV14 (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
         // Try Method 10: QueryKeyControl
         if (dispatchId === undefined) {
@@ -2509,7 +2529,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryKeyControl (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
         // Try Method 11: SelectKeyV13
         if (dispatchId === undefined) {
@@ -2518,7 +2540,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectKeyV13 (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
         // Try Method 12: DecryptCencV15
         if (dispatchId === undefined) {
@@ -2527,7 +2551,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptCencV15 (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
         // Try Method 13: GenericEncrypt
         if (dispatchId === undefined) {
@@ -2536,7 +2562,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericEncrypt (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
+           }
         }
         // Try Method 14: GenericDecrypt
         if (dispatchId === undefined) {
@@ -2545,7 +2573,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericDecrypt (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
+           }
         }
         // Try Method 15: GenericSign
         if (dispatchId === undefined) {
@@ -2554,7 +2584,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericSign (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
+           }
         }
         // Try Method 16: GenericVerify
         if (dispatchId === undefined) {
@@ -2563,7 +2595,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericVerify (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
+           }
         }
         // Try Method 17: CopyBufferV14
         if (dispatchId === undefined) {
@@ -2572,7 +2606,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyBufferV14 (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
+           }
         }
         // Try Method 18: LoadTestKeyboxV13
         if (dispatchId === undefined) {
@@ -2581,7 +2617,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTestKeyboxV13 (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
+           }
         }
         // Try Method 19: IsRootKeyCertificateValid
         if (dispatchId === undefined) {
@@ -2590,7 +2628,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRootKeyCertificateValid (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 19 failed:', e);
+           }
         }
         // Try Method 20: GetDeviceId
         if (dispatchId === undefined) {
@@ -2599,7 +2639,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceId (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 20 failed:', e);
+           }
         }
         // Try Method 21: GetKeyData
         if (dispatchId === undefined) {
@@ -2608,7 +2650,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeyData (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 21 failed:', e);
+           }
         }
         // Try Method 22: GetRandom
         if (dispatchId === undefined) {
@@ -2617,7 +2661,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRandom (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 22 failed:', e);
+           }
         }
         // Try Method 23: GetNumberOfOpenSessions
         if (dispatchId === undefined) {
@@ -2626,7 +2672,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNumberOfOpenSessions (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 23 failed:', e);
+           }
         }
         // Try Method 24: GetMaxNumberOfSessions
         if (dispatchId === undefined) {
@@ -2635,7 +2683,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMaxNumberOfSessions (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 24 failed:', e);
+           }
         }
         // Try Method 25: RewrapDeviceRsaKey
         if (dispatchId === undefined) {
@@ -2644,7 +2694,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RewrapDeviceRsaKey (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 25 failed:', e);
+           }
         }
         // Try Method 26: LoadDeviceRsaKey
         if (dispatchId === undefined) {
@@ -2653,7 +2705,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadDeviceRsaKey (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 26 failed:', e);
+           }
         }
         // Try Method 27: GenerateRsaSignature
         if (dispatchId === undefined) {
@@ -2662,7 +2716,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateRsaSignature (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 27 failed:', e);
+           }
         }
         // Try Method 28: DeriveKeysFromSessionKey
         if (dispatchId === undefined) {
@@ -2671,7 +2727,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeriveKeysFromSessionKey (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 28 failed:', e);
+           }
         }
         // Try Method 29: SecurityPatchLevel
         if (dispatchId === undefined) {
@@ -2680,7 +2738,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SecurityPatchLevel (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 29 failed:', e);
+           }
         }
         // Try Method 30: GetHdcpCapability
         if (dispatchId === undefined) {
@@ -2689,7 +2749,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHdcpCapability (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 30 failed:', e);
+           }
         }
         // Try Method 31: UpdateUsageTable
         if (dispatchId === undefined) {
@@ -2698,7 +2760,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUsageTable (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 31 failed:', e);
+           }
         }
         // Try Method 32: DeactivateUsageEntryV12
         if (dispatchId === undefined) {
@@ -2707,7 +2771,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeactivateUsageEntryV12 (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 32 failed:', e);
+           }
         }
         // Try Method 33: ReportUsage
         if (dispatchId === undefined) {
@@ -2716,7 +2782,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportUsage (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 33 failed:', e);
+           }
         }
         // Try Method 34: DeleteUsageEntry
         if (dispatchId === undefined) {
@@ -2725,7 +2793,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteUsageEntry (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 34 failed:', e);
+           }
         }
         // Try Method 35: ForceDeleteUsageEntry
         if (dispatchId === undefined) {
@@ -2734,7 +2804,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceDeleteUsageEntry (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 35 failed:', e);
+           }
         }
         // Try Method 36: DeleteOldUsageTable
         if (dispatchId === undefined) {
@@ -2743,7 +2815,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteOldUsageTable (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 36 failed:', e);
+           }
         }
         // Try Method 37: GetProvisioningMethod
         if (dispatchId === undefined) {
@@ -2752,7 +2826,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProvisioningMethod (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 37 failed:', e);
+           }
         }
         // Try Method 38: SupportedCertificates
         if (dispatchId === undefined) {
@@ -2761,7 +2837,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SupportedCertificates (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 38 failed:', e);
+           }
         }
         // Try Method 39: IsSrmUpdateSupported
         if (dispatchId === undefined) {
@@ -2770,7 +2848,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSrmUpdateSupported (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 39 failed:', e);
+           }
         }
         // Try Method 40: GetCurrentSrmVersion
         if (dispatchId === undefined) {
@@ -2779,7 +2859,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCurrentSrmVersion (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 40 failed:', e);
+           }
         }
         // Try Method 41: LoadSrm
         if (dispatchId === undefined) {
@@ -2788,7 +2870,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSrm (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 41 failed:', e);
+           }
         }
         // Try Method 42: RemoveSrm
         if (dispatchId === undefined) {
@@ -2797,7 +2881,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveSrm (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 42 failed:', e);
+           }
         }
         // Try Method 43: CreateUsageTableHeader
         if (dispatchId === undefined) {
@@ -2806,7 +2892,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUsageTableHeader (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 43 failed:', e);
+           }
         }
         // Try Method 44: LoadUsageTableHeader
         if (dispatchId === undefined) {
@@ -2815,7 +2903,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadUsageTableHeader (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 44 failed:', e);
+           }
         }
         // Try Method 45: CreateNewUsageEntry
         if (dispatchId === undefined) {
@@ -2824,7 +2914,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNewUsageEntry (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 45 failed:', e);
+           }
         }
         // Try Method 46: LoadUsageEntry
         if (dispatchId === undefined) {
@@ -2833,7 +2925,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadUsageEntry (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 46 failed:', e);
+           }
         }
         // Try Method 47: UpdateUsageEntry
         if (dispatchId === undefined) {
@@ -2842,7 +2936,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUsageEntry (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 47 failed:', e);
+           }
         }
         // Try Method 48: DeactivateUsageEntry
         if (dispatchId === undefined) {
@@ -2851,7 +2947,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeactivateUsageEntry (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 48 failed:', e);
+           }
         }
         // Try Method 49: ShrinkUsageTableHeader
         if (dispatchId === undefined) {
@@ -2860,7 +2958,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShrinkUsageTableHeader (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 49 failed:', e);
+           }
         }
         // Try Method 50: MoveEntry
         if (dispatchId === undefined) {
@@ -2869,7 +2969,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveEntry (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 50 failed:', e);
+           }
         }
         // Try Method 51: CopyOldUsageEntry
         if (dispatchId === undefined) {
@@ -2878,7 +2980,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyOldUsageEntry (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 51 failed:', e);
+           }
         }
         // Try Method 52: CreateOldUsageEntry
         if (dispatchId === undefined) {
@@ -2887,7 +2991,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOldUsageEntry (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 52 failed:', e);
+           }
         }
         // Try Method 53: GetAnalogOutputFlags
         if (dispatchId === undefined) {
@@ -2896,7 +3002,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnalogOutputFlags (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 53 failed:', e);
+           }
         }
         // Try Method 54: LoadTestKeybox
         if (dispatchId === undefined) {
@@ -2905,7 +3013,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTestKeybox (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 54 failed:', e);
+           }
         }
         // Try Method 55: LoadEntitledContentKeysV14
         if (dispatchId === undefined) {
@@ -2914,7 +3024,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadEntitledContentKeysV14 (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 55 failed:', e);
+           }
         }
         // Try Method 56: SelectKey
         if (dispatchId === undefined) {
@@ -2923,7 +3035,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectKey (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 56 failed:', e);
+           }
         }
         // Try Method 57: LoadKeysV14
         if (dispatchId === undefined) {
@@ -2932,7 +3046,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadKeysV14 (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 57 failed:', e);
+           }
         }
         // Try Method 58: LoadKeys
         if (dispatchId === undefined) {
@@ -2941,7 +3057,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadKeys (58)');
              this.mapOrdinal(header.ordinal, 58);
              dispatchId = 58;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 58 failed:', e);
+           }
         }
         // Try Method 59: ResourceRatingTier
         if (dispatchId === undefined) {
@@ -2950,7 +3068,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResourceRatingTier (59)');
              this.mapOrdinal(header.ordinal, 59);
              dispatchId = 59;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 59 failed:', e);
+           }
         }
         // Try Method 60: BuildInformation
         if (dispatchId === undefined) {
@@ -2959,7 +3079,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BuildInformation (60)');
              this.mapOrdinal(header.ordinal, 60);
              dispatchId = 60;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 60 failed:', e);
+           }
         }
         // Try Method 61: RefreshKeys
         if (dispatchId === undefined) {
@@ -2968,7 +3090,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshKeys (61)');
              this.mapOrdinal(header.ordinal, 61);
              dispatchId = 61;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 61 failed:', e);
+           }
         }
         // Try Method 62: LoadEntitledContentKeys
         if (dispatchId === undefined) {
@@ -2977,7 +3101,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadEntitledContentKeys (62)');
              this.mapOrdinal(header.ordinal, 62);
              dispatchId = 62;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 62 failed:', e);
+           }
         }
         // Try Method 63: GetOemPublicCertificate
         if (dispatchId === undefined) {
@@ -2986,7 +3112,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOemPublicCertificate (63)');
              this.mapOrdinal(header.ordinal, 63);
              dispatchId = 63;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 63 failed:', e);
+           }
         }
         // Try Method 64: MaximumUsageTableHeaderSize
         if (dispatchId === undefined) {
@@ -2995,7 +3123,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaximumUsageTableHeaderSize (64)');
              this.mapOrdinal(header.ordinal, 64);
              dispatchId = 64;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 64 failed:', e);
+           }
         }
         // Try Method 65: IsAntiRollbackHwPresent
         if (dispatchId === undefined) {
@@ -3004,7 +3134,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAntiRollbackHwPresent (65)');
              this.mapOrdinal(header.ordinal, 65);
              dispatchId = 65;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 65 failed:', e);
+           }
         }
         // Try Method 66: MinorApiVersion
         if (dispatchId === undefined) {
@@ -3013,7 +3145,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MinorApiVersion (66)');
              this.mapOrdinal(header.ordinal, 66);
              dispatchId = 66;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 66 failed:', e);
+           }
         }
         // Try Method 67: PrepAndSignLicenseRequest
         if (dispatchId === undefined) {
@@ -3022,7 +3156,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepAndSignLicenseRequest (67)');
              this.mapOrdinal(header.ordinal, 67);
              dispatchId = 67;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 67 failed:', e);
+           }
         }
         // Try Method 68: PrepAndSignRenewalRequest
         if (dispatchId === undefined) {
@@ -3031,7 +3167,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepAndSignRenewalRequest (68)');
              this.mapOrdinal(header.ordinal, 68);
              dispatchId = 68;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 68 failed:', e);
+           }
         }
         // Try Method 69: PrepAndSignProvisioningRequest
         if (dispatchId === undefined) {
@@ -3040,7 +3178,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepAndSignProvisioningRequest (69)');
              this.mapOrdinal(header.ordinal, 69);
              dispatchId = 69;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 69 failed:', e);
+           }
         }
         // Try Method 70: LoadLicense
         if (dispatchId === undefined) {
@@ -3049,7 +3189,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadLicense (70)');
              this.mapOrdinal(header.ordinal, 70);
              dispatchId = 70;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 70 failed:', e);
+           }
         }
         // Try Method 71: LoadRenewal
         if (dispatchId === undefined) {
@@ -3058,7 +3200,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadRenewal (71)');
              this.mapOrdinal(header.ordinal, 71);
              dispatchId = 71;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 71 failed:', e);
+           }
         }
         // Try Method 72: LoadProvisioning
         if (dispatchId === undefined) {
@@ -3067,7 +3211,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadProvisioning (72)');
              this.mapOrdinal(header.ordinal, 72);
              dispatchId = 72;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 72 failed:', e);
+           }
         }
         // Try Method 73: LoadOemPrivateKey
         if (dispatchId === undefined) {
@@ -3076,7 +3222,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadOemPrivateKey (73)');
              this.mapOrdinal(header.ordinal, 73);
              dispatchId = 73;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 73 failed:', e);
+           }
         }
         // Try Method 74: LoadDrmPrivateKey
         if (dispatchId === undefined) {
@@ -3085,7 +3233,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadDrmPrivateKey (74)');
              this.mapOrdinal(header.ordinal, 74);
              dispatchId = 74;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 74 failed:', e);
+           }
         }
         // Try Method 75: DecryptCenc
         if (dispatchId === undefined) {
@@ -3094,7 +3244,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptCenc (75)');
              this.mapOrdinal(header.ordinal, 75);
              dispatchId = 75;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 75 failed:', e);
+           }
         }
         // Try Method 76: CopyBuffer
         if (dispatchId === undefined) {
@@ -3103,7 +3255,9 @@ arc.mojom.OemCryptoServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyBuffer (76)');
              this.mapOrdinal(header.ordinal, 76);
              dispatchId = 76;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 76 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -4228,7 +4382,9 @@ arc.mojom.OemCryptoHostReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -4364,7 +4520,9 @@ arc.mojom.OemCryptoInstanceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

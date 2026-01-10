@@ -599,7 +599,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTutorials (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: StartTutorial
         if (dispatchId === undefined) {
@@ -608,7 +610,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartTutorial (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: GetSessionData
         if (dispatchId === undefined) {
@@ -617,7 +621,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSessionData (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: GetFeaturePromos
         if (dispatchId === undefined) {
@@ -626,7 +632,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeaturePromos (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: ShowFeaturePromo
         if (dispatchId === undefined) {
@@ -635,7 +643,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowFeaturePromo (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: ClearFeaturePromoData
         if (dispatchId === undefined) {
@@ -644,7 +654,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearFeaturePromoData (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         // Try Method 6: ClearSessionData
         if (dispatchId === undefined) {
@@ -653,7 +665,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSessionData (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
         // Try Method 7: ForceNewSession
         if (dispatchId === undefined) {
@@ -662,7 +676,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceNewSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
         // Try Method 8: RemoveGracePeriods
         if (dispatchId === undefined) {
@@ -671,7 +687,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveGracePeriods (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
         // Try Method 9: GetNewBadges
         if (dispatchId === undefined) {
@@ -680,7 +698,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewBadges (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
         // Try Method 10: GetWhatsNewModules
         if (dispatchId === undefined) {
@@ -689,7 +709,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWhatsNewModules (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
         // Try Method 11: GetWhatsNewEditions
         if (dispatchId === undefined) {
@@ -698,7 +720,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWhatsNewEditions (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
         // Try Method 12: GetNtpPromos
         if (dispatchId === undefined) {
@@ -707,7 +731,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNtpPromos (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
         // Try Method 13: GetNtpPromoPreferences
         if (dispatchId === undefined) {
@@ -716,7 +742,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNtpPromoPreferences (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
+           }
         }
         // Try Method 14: ClearNewBadgeData
         if (dispatchId === undefined) {
@@ -725,7 +753,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNewBadgeData (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
+           }
         }
         // Try Method 15: ClearWhatsNewData
         if (dispatchId === undefined) {
@@ -734,7 +764,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearWhatsNewData (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
+           }
         }
         // Try Method 16: ClearNtpPromoData
         if (dispatchId === undefined) {
@@ -743,7 +775,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNtpPromoData (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
+           }
         }
         // Try Method 17: ClearNtpPromoPreferences
         if (dispatchId === undefined) {
@@ -752,7 +786,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNtpPromoPreferences (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
+           }
         }
         // Try Method 18: LaunchWhatsNewStaging
         if (dispatchId === undefined) {
@@ -761,7 +797,9 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchWhatsNewStaging (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

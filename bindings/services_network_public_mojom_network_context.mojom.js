@@ -576,7 +576,9 @@ network.mojom.CustomProxyConnectionObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFallback (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: OnTunnelHeadersReceived
         if (dispatchId === undefined) {
@@ -585,7 +587,9 @@ network.mojom.CustomProxyConnectionObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTunnelHeadersReceived (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -728,7 +732,9 @@ network.mojom.CustomProxyConfigClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCustomProxyConfigUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -899,7 +905,9 @@ network.mojom.TrustedHeaderClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeforeSendHeaders (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: OnHeadersReceived
         if (dispatchId === undefined) {
@@ -908,7 +916,9 @@ network.mojom.TrustedHeaderClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHeadersReceived (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1077,7 +1087,9 @@ network.mojom.TrustedURLLoaderHeaderClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLoaderCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: OnLoaderForCorsPreflightCreated
         if (dispatchId === undefined) {
@@ -1086,7 +1098,9 @@ network.mojom.TrustedURLLoaderHeaderClientReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLoaderForCorsPreflightCreated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -3267,7 +3281,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: CreateURLLoaderFactory
         if (dispatchId === undefined) {
@@ -3276,7 +3292,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateURLLoaderFactory (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: ResetURLLoaderFactories
         if (dispatchId === undefined) {
@@ -3285,7 +3303,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetURLLoaderFactories (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: GetViaObliviousHttp
         if (dispatchId === undefined) {
@@ -3294,7 +3314,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetViaObliviousHttp (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: GetCookieManager
         if (dispatchId === undefined) {
@@ -3303,7 +3325,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCookieManager (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: GetRestrictedCookieManager
         if (dispatchId === undefined) {
@@ -3312,7 +3336,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRestrictedCookieManager (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         // Try Method 6: GetTrustTokenQueryAnswerer
         if (dispatchId === undefined) {
@@ -3321,7 +3347,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrustTokenQueryAnswerer (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
         // Try Method 7: ClearTrustTokenData
         if (dispatchId === undefined) {
@@ -3330,7 +3358,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTrustTokenData (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
         // Try Method 8: ClearTrustTokenSessionOnlyData
         if (dispatchId === undefined) {
@@ -3339,7 +3369,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTrustTokenSessionOnlyData (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
         // Try Method 9: GetStoredTrustTokenCounts
         if (dispatchId === undefined) {
@@ -3348,7 +3380,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStoredTrustTokenCounts (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
         // Try Method 10: GetPrivateStateTokenRedemptionRecords
         if (dispatchId === undefined) {
@@ -3357,7 +3391,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrivateStateTokenRedemptionRecords (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
         // Try Method 11: DeleteStoredTrustTokens
         if (dispatchId === undefined) {
@@ -3366,7 +3402,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteStoredTrustTokens (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
         // Try Method 12: SetBlockTrustTokens
         if (dispatchId === undefined) {
@@ -3375,7 +3413,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBlockTrustTokens (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
         // Try Method 13: ClearNetworkingHistoryBetween
         if (dispatchId === undefined) {
@@ -3384,7 +3424,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNetworkingHistoryBetween (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
+           }
         }
         // Try Method 14: ClearHttpCache
         if (dispatchId === undefined) {
@@ -3393,7 +3435,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHttpCache (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
+           }
         }
         // Try Method 15: ComputeHttpCacheSize
         if (dispatchId === undefined) {
@@ -3402,7 +3446,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ComputeHttpCacheSize (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
+           }
         }
         // Try Method 16: NotifyBrowserIdle
         if (dispatchId === undefined) {
@@ -3411,7 +3457,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyBrowserIdle (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
+           }
         }
         // Try Method 17: NotifyExternalCacheHit
         if (dispatchId === undefined) {
@@ -3420,7 +3468,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyExternalCacheHit (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
+           }
         }
         // Try Method 18: ClearHostCache
         if (dispatchId === undefined) {
@@ -3429,7 +3479,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHostCache (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
+           }
         }
         // Try Method 19: ClearHttpAuthCache
         if (dispatchId === undefined) {
@@ -3438,7 +3490,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHttpAuthCache (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 19 failed:', e);
+           }
         }
         // Try Method 20: ClearCorsPreflightCache
         if (dispatchId === undefined) {
@@ -3447,7 +3501,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCorsPreflightCache (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 20 failed:', e);
+           }
         }
         // Try Method 21: ClearReportingCacheReports
         if (dispatchId === undefined) {
@@ -3456,7 +3512,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearReportingCacheReports (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 21 failed:', e);
+           }
         }
         // Try Method 22: ClearReportingCacheClients
         if (dispatchId === undefined) {
@@ -3465,7 +3523,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearReportingCacheClients (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 22 failed:', e);
+           }
         }
         // Try Method 23: ClearNetworkErrorLogging
         if (dispatchId === undefined) {
@@ -3474,7 +3534,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNetworkErrorLogging (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 23 failed:', e);
+           }
         }
         // Try Method 24: ClearDomainReliability
         if (dispatchId === undefined) {
@@ -3483,7 +3545,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearDomainReliability (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 24 failed:', e);
+           }
         }
         // Try Method 25: ClearSharedDictionaryCache
         if (dispatchId === undefined) {
@@ -3492,7 +3556,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSharedDictionaryCache (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 25 failed:', e);
+           }
         }
         // Try Method 26: ClearSharedDictionaryCacheForIsolationKey
         if (dispatchId === undefined) {
@@ -3501,7 +3567,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSharedDictionaryCacheForIsolationKey (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 26 failed:', e);
+           }
         }
         // Try Method 27: SetDocumentReportingEndpoints
         if (dispatchId === undefined) {
@@ -3510,7 +3578,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDocumentReportingEndpoints (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 27 failed:', e);
+           }
         }
         // Try Method 28: SetEnterpriseReportingEndpoints
         if (dispatchId === undefined) {
@@ -3519,7 +3589,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnterpriseReportingEndpoints (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 28 failed:', e);
+           }
         }
         // Try Method 29: SendReportsAndRemoveSource
         if (dispatchId === undefined) {
@@ -3528,7 +3600,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendReportsAndRemoveSource (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 29 failed:', e);
+           }
         }
         // Try Method 30: QueueReport
         if (dispatchId === undefined) {
@@ -3537,7 +3611,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueReport (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 30 failed:', e);
+           }
         }
         // Try Method 31: QueueEnterpriseReport
         if (dispatchId === undefined) {
@@ -3546,7 +3622,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueEnterpriseReport (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 31 failed:', e);
+           }
         }
         // Try Method 32: QueueSignedExchangeReport
         if (dispatchId === undefined) {
@@ -3555,7 +3633,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueSignedExchangeReport (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 32 failed:', e);
+           }
         }
         // Try Method 33: CloseAllConnections
         if (dispatchId === undefined) {
@@ -3564,7 +3644,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseAllConnections (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 33 failed:', e);
+           }
         }
         // Try Method 34: CloseIdleConnections
         if (dispatchId === undefined) {
@@ -3573,7 +3655,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseIdleConnections (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 34 failed:', e);
+           }
         }
         // Try Method 35: SetNetworkConditions
         if (dispatchId === undefined) {
@@ -3582,7 +3666,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNetworkConditions (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 35 failed:', e);
+           }
         }
         // Try Method 36: SetAcceptLanguage
         if (dispatchId === undefined) {
@@ -3591,7 +3677,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAcceptLanguage (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 36 failed:', e);
+           }
         }
         // Try Method 37: SetEnableReferrers
         if (dispatchId === undefined) {
@@ -3600,7 +3688,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnableReferrers (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 37 failed:', e);
+           }
         }
         // Try Method 38: SetCTPolicy
         if (dispatchId === undefined) {
@@ -3609,7 +3699,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCTPolicy (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 38 failed:', e);
+           }
         }
         // Try Method 39: CreateUDPSocket
         if (dispatchId === undefined) {
@@ -3618,7 +3710,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUDPSocket (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 39 failed:', e);
+           }
         }
         // Try Method 40: CreateRestrictedUDPSocket
         if (dispatchId === undefined) {
@@ -3627,7 +3721,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRestrictedUDPSocket (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 40 failed:', e);
+           }
         }
         // Try Method 41: CreateTCPServerSocket
         if (dispatchId === undefined) {
@@ -3636,7 +3732,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPServerSocket (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 41 failed:', e);
+           }
         }
         // Try Method 42: CreateTCPConnectedSocket
         if (dispatchId === undefined) {
@@ -3645,7 +3743,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPConnectedSocket (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 42 failed:', e);
+           }
         }
         // Try Method 43: CreateTCPBoundSocket
         if (dispatchId === undefined) {
@@ -3654,7 +3754,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPBoundSocket (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 43 failed:', e);
+           }
         }
         // Try Method 44: CreateProxyResolvingSocketFactory
         if (dispatchId === undefined) {
@@ -3663,7 +3765,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProxyResolvingSocketFactory (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 44 failed:', e);
+           }
         }
         // Try Method 45: LookUpProxyForURL
         if (dispatchId === undefined) {
@@ -3672,7 +3776,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LookUpProxyForURL (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 45 failed:', e);
+           }
         }
         // Try Method 46: ForceReloadProxyConfig
         if (dispatchId === undefined) {
@@ -3681,7 +3787,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceReloadProxyConfig (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 46 failed:', e);
+           }
         }
         // Try Method 47: ClearBadProxiesCache
         if (dispatchId === undefined) {
@@ -3690,7 +3798,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearBadProxiesCache (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 47 failed:', e);
+           }
         }
         // Try Method 48: CreateWebSocket
         if (dispatchId === undefined) {
@@ -3699,7 +3809,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebSocket (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 48 failed:', e);
+           }
         }
         // Try Method 49: CreateWebTransport
         if (dispatchId === undefined) {
@@ -3708,7 +3820,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebTransport (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 49 failed:', e);
+           }
         }
         // Try Method 50: CreateNetLogExporter
         if (dispatchId === undefined) {
@@ -3717,7 +3831,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNetLogExporter (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 50 failed:', e);
+           }
         }
         // Try Method 51: PreconnectSockets
         if (dispatchId === undefined) {
@@ -3726,7 +3842,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreconnectSockets (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 51 failed:', e);
+           }
         }
         // Try Method 52: CreateP2PSocketManager
         if (dispatchId === undefined) {
@@ -3735,7 +3853,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateP2PSocketManager (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 52 failed:', e);
+           }
         }
         // Try Method 53: CreateMdnsResponder
         if (dispatchId === undefined) {
@@ -3744,7 +3864,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMdnsResponder (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 53 failed:', e);
+           }
         }
         // Try Method 54: ResolveHost
         if (dispatchId === undefined) {
@@ -3753,7 +3875,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveHost (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 54 failed:', e);
+           }
         }
         // Try Method 55: CreateHostResolver
         if (dispatchId === undefined) {
@@ -3762,7 +3886,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHostResolver (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 55 failed:', e);
+           }
         }
         // Try Method 56: VerifyCert
         if (dispatchId === undefined) {
@@ -3771,7 +3897,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyCert (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 56 failed:', e);
+           }
         }
         // Try Method 57: VerifyCertForSignedExchange
         if (dispatchId === undefined) {
@@ -3780,7 +3908,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyCertForSignedExchange (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 57 failed:', e);
+           }
         }
         // Try Method 58: Verify2QwacCertBinding
         if (dispatchId === undefined) {
@@ -3789,7 +3919,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify2QwacCertBinding (58)');
              this.mapOrdinal(header.ordinal, 58);
              dispatchId = 58;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 58 failed:', e);
+           }
         }
         // Try Method 59: AddHSTS
         if (dispatchId === undefined) {
@@ -3798,7 +3930,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddHSTS (59)');
              this.mapOrdinal(header.ordinal, 59);
              dispatchId = 59;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 59 failed:', e);
+           }
         }
         // Try Method 60: IsHSTSActiveForHost
         if (dispatchId === undefined) {
@@ -3807,7 +3941,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsHSTSActiveForHost (60)');
              this.mapOrdinal(header.ordinal, 60);
              dispatchId = 60;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 60 failed:', e);
+           }
         }
         // Try Method 61: GetHSTSState
         if (dispatchId === undefined) {
@@ -3816,7 +3952,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHSTSState (61)');
              this.mapOrdinal(header.ordinal, 61);
              dispatchId = 61;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 61 failed:', e);
+           }
         }
         // Try Method 62: SetCorsOriginAccessListsForOrigin
         if (dispatchId === undefined) {
@@ -3825,7 +3963,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCorsOriginAccessListsForOrigin (62)');
              this.mapOrdinal(header.ordinal, 62);
              dispatchId = 62;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 62 failed:', e);
+           }
         }
         // Try Method 63: DeleteDynamicDataForHost
         if (dispatchId === undefined) {
@@ -3834,7 +3974,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteDynamicDataForHost (63)');
              this.mapOrdinal(header.ordinal, 63);
              dispatchId = 63;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 63 failed:', e);
+           }
         }
         // Try Method 64: SetSplitAuthCacheByNetworkAnonymizationKey
         if (dispatchId === undefined) {
@@ -3843,7 +3985,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSplitAuthCacheByNetworkAnonymizationKey (64)');
              this.mapOrdinal(header.ordinal, 64);
              dispatchId = 64;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 64 failed:', e);
+           }
         }
         // Try Method 65: SaveHttpAuthCacheProxyEntries
         if (dispatchId === undefined) {
@@ -3852,7 +3996,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveHttpAuthCacheProxyEntries (65)');
              this.mapOrdinal(header.ordinal, 65);
              dispatchId = 65;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 65 failed:', e);
+           }
         }
         // Try Method 66: LoadHttpAuthCacheProxyEntries
         if (dispatchId === undefined) {
@@ -3861,7 +4007,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadHttpAuthCacheProxyEntries (66)');
              this.mapOrdinal(header.ordinal, 66);
              dispatchId = 66;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 66 failed:', e);
+           }
         }
         // Try Method 67: AddAuthCacheEntry
         if (dispatchId === undefined) {
@@ -3870,7 +4018,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAuthCacheEntry (67)');
              this.mapOrdinal(header.ordinal, 67);
              dispatchId = 67;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 67 failed:', e);
+           }
         }
         // Try Method 68: SetCorsNonWildcardRequestHeadersSupport
         if (dispatchId === undefined) {
@@ -3879,7 +4029,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCorsNonWildcardRequestHeadersSupport (68)');
              this.mapOrdinal(header.ordinal, 68);
              dispatchId = 68;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 68 failed:', e);
+           }
         }
         // Try Method 69: LookupProxyAuthCredentials
         if (dispatchId === undefined) {
@@ -3888,7 +4040,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LookupProxyAuthCredentials (69)');
              this.mapOrdinal(header.ordinal, 69);
              dispatchId = 69;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 69 failed:', e);
+           }
         }
         // Try Method 70: EnableStaticKeyPinningForTesting
         if (dispatchId === undefined) {
@@ -3897,7 +4051,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableStaticKeyPinningForTesting (70)');
              this.mapOrdinal(header.ordinal, 70);
              dispatchId = 70;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 70 failed:', e);
+           }
         }
         // Try Method 71: VerifyCertificateForTesting
         if (dispatchId === undefined) {
@@ -3906,7 +4062,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyCertificateForTesting (71)');
              this.mapOrdinal(header.ordinal, 71);
              dispatchId = 71;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 71 failed:', e);
+           }
         }
         // Try Method 72: GetTrustAnchorIDsForTesting
         if (dispatchId === undefined) {
@@ -3915,7 +4073,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrustAnchorIDsForTesting (72)');
              this.mapOrdinal(header.ordinal, 72);
              dispatchId = 72;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 72 failed:', e);
+           }
         }
         // Try Method 73: AddDomainReliabilityContextForTesting
         if (dispatchId === undefined) {
@@ -3924,7 +4084,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDomainReliabilityContextForTesting (73)');
              this.mapOrdinal(header.ordinal, 73);
              dispatchId = 73;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 73 failed:', e);
+           }
         }
         // Try Method 74: ForceDomainReliabilityUploadsForTesting
         if (dispatchId === undefined) {
@@ -3933,7 +4095,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceDomainReliabilityUploadsForTesting (74)');
              this.mapOrdinal(header.ordinal, 74);
              dispatchId = 74;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 74 failed:', e);
+           }
         }
         // Try Method 75: SetSCTAuditingMode
         if (dispatchId === undefined) {
@@ -3942,7 +4106,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSCTAuditingMode (75)');
              this.mapOrdinal(header.ordinal, 75);
              dispatchId = 75;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 75 failed:', e);
+           }
         }
         // Try Method 76: AddReportingApiObserver
         if (dispatchId === undefined) {
@@ -3951,7 +4117,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddReportingApiObserver (76)');
              this.mapOrdinal(header.ordinal, 76);
              dispatchId = 76;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 76 failed:', e);
+           }
         }
         // Try Method 77: GetSharedDictionaryUsageInfo
         if (dispatchId === undefined) {
@@ -3960,7 +4128,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedDictionaryUsageInfo (77)');
              this.mapOrdinal(header.ordinal, 77);
              dispatchId = 77;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 77 failed:', e);
+           }
         }
         // Try Method 78: GetSharedDictionaryInfo
         if (dispatchId === undefined) {
@@ -3969,7 +4139,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedDictionaryInfo (78)');
              this.mapOrdinal(header.ordinal, 78);
              dispatchId = 78;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 78 failed:', e);
+           }
         }
         // Try Method 79: GetSharedDictionaryOriginsBetween
         if (dispatchId === undefined) {
@@ -3978,7 +4150,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedDictionaryOriginsBetween (79)');
              this.mapOrdinal(header.ordinal, 79);
              dispatchId = 79;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 79 failed:', e);
+           }
         }
         // Try Method 80: SetSharedDictionaryCacheMaxSize
         if (dispatchId === undefined) {
@@ -3987,7 +4161,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSharedDictionaryCacheMaxSize (80)');
              this.mapOrdinal(header.ordinal, 80);
              dispatchId = 80;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 80 failed:', e);
+           }
         }
         // Try Method 81: PreloadSharedDictionaryInfoForDocument
         if (dispatchId === undefined) {
@@ -3996,7 +4172,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreloadSharedDictionaryInfoForDocument (81)');
              this.mapOrdinal(header.ordinal, 81);
              dispatchId = 81;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 81 failed:', e);
+           }
         }
         // Try Method 82: HasPreloadedSharedDictionaryInfoForTesting
         if (dispatchId === undefined) {
@@ -4005,7 +4183,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasPreloadedSharedDictionaryInfoForTesting (82)');
              this.mapOrdinal(header.ordinal, 82);
              dispatchId = 82;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 82 failed:', e);
+           }
         }
         // Try Method 83: FlushCachedClientCertIfNeeded
         if (dispatchId === undefined) {
@@ -4014,7 +4194,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushCachedClientCertIfNeeded (83)');
              this.mapOrdinal(header.ordinal, 83);
              dispatchId = 83;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 83 failed:', e);
+           }
         }
         // Try Method 84: FlushMatchingCachedClientCert
         if (dispatchId === undefined) {
@@ -4023,7 +4205,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushMatchingCachedClientCert (84)');
              this.mapOrdinal(header.ordinal, 84);
              dispatchId = 84;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 84 failed:', e);
+           }
         }
         // Try Method 85: FlushClientCertCache
         if (dispatchId === undefined) {
@@ -4032,7 +4216,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushClientCertCache (85)');
              this.mapOrdinal(header.ordinal, 85);
              dispatchId = 85;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 85 failed:', e);
+           }
         }
         // Try Method 86: RevokeNetworkForNonces
         if (dispatchId === undefined) {
@@ -4041,7 +4227,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RevokeNetworkForNonces (86)');
              this.mapOrdinal(header.ordinal, 86);
              dispatchId = 86;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 86 failed:', e);
+           }
         }
         // Try Method 87: ClearNonces
         if (dispatchId === undefined) {
@@ -4050,7 +4238,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNonces (87)');
              this.mapOrdinal(header.ordinal, 87);
              dispatchId = 87;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 87 failed:', e);
+           }
         }
         // Try Method 88: ExemptUrlFromNetworkRevocationForNonce
         if (dispatchId === undefined) {
@@ -4059,7 +4249,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExemptUrlFromNetworkRevocationForNonce (88)');
              this.mapOrdinal(header.ordinal, 88);
              dispatchId = 88;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 88 failed:', e);
+           }
         }
         // Try Method 89: Prefetch
         if (dispatchId === undefined) {
@@ -4068,7 +4260,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Prefetch (89)');
              this.mapOrdinal(header.ordinal, 89);
              dispatchId = 89;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 89 failed:', e);
+           }
         }
         // Try Method 90: GetBoundNetworkForTesting
         if (dispatchId === undefined) {
@@ -4077,7 +4271,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBoundNetworkForTesting (90)');
              this.mapOrdinal(header.ordinal, 90);
              dispatchId = 90;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 90 failed:', e);
+           }
         }
         // Try Method 91: GetDeviceBoundSessionManager
         if (dispatchId === undefined) {
@@ -4086,7 +4282,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceBoundSessionManager (91)');
              this.mapOrdinal(header.ordinal, 91);
              dispatchId = 91;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 91 failed:', e);
+           }
         }
         // Try Method 92: AddQuicHints
         if (dispatchId === undefined) {
@@ -4095,7 +4293,9 @@ network.mojom.NetworkContextReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddQuicHints (92)');
              this.mapOrdinal(header.ordinal, 92);
              dispatchId = 92;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 92 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

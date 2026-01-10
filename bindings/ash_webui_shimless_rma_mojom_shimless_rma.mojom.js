@@ -682,7 +682,9 @@ ash.shimless_rma.mojom.ErrorObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -815,7 +817,9 @@ ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOsUpdateProgressUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -963,7 +967,9 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCalibrationUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: OnCalibrationStepComplete
         if (dispatchId === undefined) {
@@ -972,7 +978,9 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCalibrationStepComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1112,7 +1120,9 @@ ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProvisioningUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1243,7 +1253,9 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHardwareWriteProtectionStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1374,7 +1386,9 @@ ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPowerCableStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1505,7 +1519,9 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnExternalDiskStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1636,7 +1652,9 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHardwareVerificationResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1769,7 +1787,9 @@ ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFinalizationUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1900,7 +1920,9 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUpdateRoFirmwareStatusChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -3589,7 +3611,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCurrentState (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
         // Try Method 1: GetStateProperties
         if (dispatchId === undefined) {
@@ -3598,7 +3622,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStateProperties (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
         // Try Method 2: TransitionPreviousState
         if (dispatchId === undefined) {
@@ -3607,7 +3633,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TransitionPreviousState (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
         // Try Method 3: AbortRma
         if (dispatchId === undefined) {
@@ -3616,7 +3644,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AbortRma (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
         // Try Method 4: BeginFinalization
         if (dispatchId === undefined) {
@@ -3625,7 +3655,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFinalization (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
         // Try Method 5: TrackConfiguredNetworks
         if (dispatchId === undefined) {
@@ -3634,7 +3666,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TrackConfiguredNetworks (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
         // Try Method 6: NetworkSelectionComplete
         if (dispatchId === undefined) {
@@ -3643,7 +3677,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NetworkSelectionComplete (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
         // Try Method 7: GetCurrentOsVersion
         if (dispatchId === undefined) {
@@ -3652,7 +3688,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCurrentOsVersion (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
         // Try Method 8: CheckForOsUpdates
         if (dispatchId === undefined) {
@@ -3661,7 +3699,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckForOsUpdates (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
         // Try Method 9: UpdateOs
         if (dispatchId === undefined) {
@@ -3670,7 +3710,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOs (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
         // Try Method 10: UpdateOsSkipped
         if (dispatchId === undefined) {
@@ -3679,7 +3721,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateOsSkipped (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
         // Try Method 11: SetSameOwner
         if (dispatchId === undefined) {
@@ -3688,7 +3732,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSameOwner (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
         // Try Method 12: SetDifferentOwner
         if (dispatchId === undefined) {
@@ -3697,7 +3743,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDifferentOwner (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
         // Try Method 13: SetWipeDevice
         if (dispatchId === undefined) {
@@ -3706,7 +3754,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWipeDevice (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
+           }
         }
         // Try Method 14: SetManuallyDisableWriteProtect
         if (dispatchId === undefined) {
@@ -3715,7 +3765,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetManuallyDisableWriteProtect (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
+           }
         }
         // Try Method 15: SetRsuDisableWriteProtect
         if (dispatchId === undefined) {
@@ -3724,7 +3776,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRsuDisableWriteProtect (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
+           }
         }
         // Try Method 16: GetRsuDisableWriteProtectChallenge
         if (dispatchId === undefined) {
@@ -3733,7 +3787,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRsuDisableWriteProtectChallenge (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
+           }
         }
         // Try Method 17: GetRsuDisableWriteProtectHwid
         if (dispatchId === undefined) {
@@ -3742,7 +3798,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRsuDisableWriteProtectHwid (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
+           }
         }
         // Try Method 18: GetRsuDisableWriteProtectChallengeQrCode
         if (dispatchId === undefined) {
@@ -3751,7 +3809,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRsuDisableWriteProtectChallengeQrCode (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
+           }
         }
         // Try Method 19: SetRsuDisableWriteProtectCode
         if (dispatchId === undefined) {
@@ -3760,7 +3820,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRsuDisableWriteProtectCode (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 19 failed:', e);
+           }
         }
         // Try Method 20: WriteProtectManuallyDisabled
         if (dispatchId === undefined) {
@@ -3769,7 +3831,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteProtectManuallyDisabled (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 20 failed:', e);
+           }
         }
         // Try Method 21: GetWriteProtectDisableCompleteAction
         if (dispatchId === undefined) {
@@ -3778,7 +3842,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWriteProtectDisableCompleteAction (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 21 failed:', e);
+           }
         }
         // Try Method 22: ConfirmManualWpDisableComplete
         if (dispatchId === undefined) {
@@ -3787,7 +3853,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfirmManualWpDisableComplete (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 22 failed:', e);
+           }
         }
         // Try Method 23: GetComponentList
         if (dispatchId === undefined) {
@@ -3796,7 +3864,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetComponentList (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 23 failed:', e);
+           }
         }
         // Try Method 24: SetComponentList
         if (dispatchId === undefined) {
@@ -3805,7 +3875,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetComponentList (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 24 failed:', e);
+           }
         }
         // Try Method 25: ReworkMainboard
         if (dispatchId === undefined) {
@@ -3814,7 +3886,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReworkMainboard (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 25 failed:', e);
+           }
         }
         // Try Method 26: RoFirmwareUpdateComplete
         if (dispatchId === undefined) {
@@ -3823,7 +3897,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RoFirmwareUpdateComplete (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 26 failed:', e);
+           }
         }
         // Try Method 27: ShutdownForRestock
         if (dispatchId === undefined) {
@@ -3832,7 +3908,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutdownForRestock (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 27 failed:', e);
+           }
         }
         // Try Method 28: ContinueFinalizationAfterRestock
         if (dispatchId === undefined) {
@@ -3841,7 +3919,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContinueFinalizationAfterRestock (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 28 failed:', e);
+           }
         }
         // Try Method 29: GetRegionList
         if (dispatchId === undefined) {
@@ -3850,7 +3930,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRegionList (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 29 failed:', e);
+           }
         }
         // Try Method 30: GetSkuList
         if (dispatchId === undefined) {
@@ -3859,7 +3941,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSkuList (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 30 failed:', e);
+           }
         }
         // Try Method 31: GetCustomLabelList
         if (dispatchId === undefined) {
@@ -3868,7 +3952,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCustomLabelList (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 31 failed:', e);
+           }
         }
         // Try Method 32: GetSkuDescriptionList
         if (dispatchId === undefined) {
@@ -3877,7 +3963,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSkuDescriptionList (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 32 failed:', e);
+           }
         }
         // Try Method 33: GetOriginalSerialNumber
         if (dispatchId === undefined) {
@@ -3886,7 +3974,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalSerialNumber (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 33 failed:', e);
+           }
         }
         // Try Method 34: GetOriginalRegion
         if (dispatchId === undefined) {
@@ -3895,7 +3985,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalRegion (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 34 failed:', e);
+           }
         }
         // Try Method 35: GetOriginalSku
         if (dispatchId === undefined) {
@@ -3904,7 +3996,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalSku (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 35 failed:', e);
+           }
         }
         // Try Method 36: GetOriginalCustomLabel
         if (dispatchId === undefined) {
@@ -3913,7 +4007,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalCustomLabel (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 36 failed:', e);
+           }
         }
         // Try Method 37: GetOriginalDramPartNumber
         if (dispatchId === undefined) {
@@ -3922,7 +4018,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalDramPartNumber (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 37 failed:', e);
+           }
         }
         // Try Method 38: GetOriginalFeatureLevel
         if (dispatchId === undefined) {
@@ -3931,7 +4029,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOriginalFeatureLevel (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 38 failed:', e);
+           }
         }
         // Try Method 39: SetDeviceInformation
         if (dispatchId === undefined) {
@@ -3940,7 +4040,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDeviceInformation (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 39 failed:', e);
+           }
         }
         // Try Method 40: GetCalibrationComponentList
         if (dispatchId === undefined) {
@@ -3949,7 +4051,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCalibrationComponentList (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 40 failed:', e);
+           }
         }
         // Try Method 41: GetCalibrationSetupInstructions
         if (dispatchId === undefined) {
@@ -3958,7 +4062,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCalibrationSetupInstructions (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 41 failed:', e);
+           }
         }
         // Try Method 42: StartCalibration
         if (dispatchId === undefined) {
@@ -3967,7 +4073,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartCalibration (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 42 failed:', e);
+           }
         }
         // Try Method 43: RunCalibrationStep
         if (dispatchId === undefined) {
@@ -3976,7 +4084,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCalibrationStep (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 43 failed:', e);
+           }
         }
         // Try Method 44: ContinueCalibration
         if (dispatchId === undefined) {
@@ -3985,7 +4095,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContinueCalibration (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 44 failed:', e);
+           }
         }
         // Try Method 45: CalibrationComplete
         if (dispatchId === undefined) {
@@ -3994,7 +4106,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CalibrationComplete (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 45 failed:', e);
+           }
         }
         // Try Method 46: RetryProvisioning
         if (dispatchId === undefined) {
@@ -4003,7 +4117,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RetryProvisioning (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 46 failed:', e);
+           }
         }
         // Try Method 47: ProvisioningComplete
         if (dispatchId === undefined) {
@@ -4012,7 +4128,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProvisioningComplete (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 47 failed:', e);
+           }
         }
         // Try Method 48: RetryFinalization
         if (dispatchId === undefined) {
@@ -4021,7 +4139,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RetryFinalization (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 48 failed:', e);
+           }
         }
         // Try Method 49: FinalizationComplete
         if (dispatchId === undefined) {
@@ -4030,7 +4150,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinalizationComplete (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 49 failed:', e);
+           }
         }
         // Try Method 50: WriteProtectManuallyEnabled
         if (dispatchId === undefined) {
@@ -4039,7 +4161,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteProtectManuallyEnabled (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 50 failed:', e);
+           }
         }
         // Try Method 51: GetLog
         if (dispatchId === undefined) {
@@ -4048,7 +4172,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLog (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 51 failed:', e);
+           }
         }
         // Try Method 52: SaveLog
         if (dispatchId === undefined) {
@@ -4057,7 +4183,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveLog (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 52 failed:', e);
+           }
         }
         // Try Method 53: GetPowerwashRequired
         if (dispatchId === undefined) {
@@ -4066,7 +4194,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPowerwashRequired (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 53 failed:', e);
+           }
         }
         // Try Method 54: LaunchDiagnostics
         if (dispatchId === undefined) {
@@ -4075,7 +4205,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchDiagnostics (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 54 failed:', e);
+           }
         }
         // Try Method 55: EndRma
         if (dispatchId === undefined) {
@@ -4084,7 +4216,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EndRma (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 55 failed:', e);
+           }
         }
         // Try Method 56: ShutDownAfterHardwareError
         if (dispatchId === undefined) {
@@ -4093,7 +4227,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutDownAfterHardwareError (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 56 failed:', e);
+           }
         }
         // Try Method 57: CriticalErrorExitToLogin
         if (dispatchId === undefined) {
@@ -4102,7 +4238,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CriticalErrorExitToLogin (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 57 failed:', e);
+           }
         }
         // Try Method 58: CriticalErrorReboot
         if (dispatchId === undefined) {
@@ -4111,7 +4249,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CriticalErrorReboot (58)');
              this.mapOrdinal(header.ordinal, 58);
              dispatchId = 58;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 58 failed:', e);
+           }
         }
         // Try Method 59: Get3pDiagnosticsProvider
         if (dispatchId === undefined) {
@@ -4120,7 +4260,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Get3pDiagnosticsProvider (59)');
              this.mapOrdinal(header.ordinal, 59);
              dispatchId = 59;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 59 failed:', e);
+           }
         }
         // Try Method 60: GetInstallable3pDiagnosticsAppPath
         if (dispatchId === undefined) {
@@ -4129,7 +4271,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInstallable3pDiagnosticsAppPath (60)');
              this.mapOrdinal(header.ordinal, 60);
              dispatchId = 60;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 60 failed:', e);
+           }
         }
         // Try Method 61: InstallLastFound3pDiagnosticsApp
         if (dispatchId === undefined) {
@@ -4138,7 +4282,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallLastFound3pDiagnosticsApp (61)');
              this.mapOrdinal(header.ordinal, 61);
              dispatchId = 61;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 61 failed:', e);
+           }
         }
         // Try Method 62: CompleteLast3pDiagnosticsInstallation
         if (dispatchId === undefined) {
@@ -4147,7 +4293,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompleteLast3pDiagnosticsInstallation (62)');
              this.mapOrdinal(header.ordinal, 62);
              dispatchId = 62;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 62 failed:', e);
+           }
         }
         // Try Method 63: Show3pDiagnosticsApp
         if (dispatchId === undefined) {
@@ -4156,7 +4304,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Show3pDiagnosticsApp (63)');
              this.mapOrdinal(header.ordinal, 63);
              dispatchId = 63;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 63 failed:', e);
+           }
         }
         // Try Method 64: ObserveError
         if (dispatchId === undefined) {
@@ -4165,7 +4315,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveError (64)');
              this.mapOrdinal(header.ordinal, 64);
              dispatchId = 64;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 64 failed:', e);
+           }
         }
         // Try Method 65: ObserveOsUpdateProgress
         if (dispatchId === undefined) {
@@ -4174,7 +4326,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveOsUpdateProgress (65)');
              this.mapOrdinal(header.ordinal, 65);
              dispatchId = 65;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 65 failed:', e);
+           }
         }
         // Try Method 66: ObserveCalibrationProgress
         if (dispatchId === undefined) {
@@ -4183,7 +4337,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveCalibrationProgress (66)');
              this.mapOrdinal(header.ordinal, 66);
              dispatchId = 66;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 66 failed:', e);
+           }
         }
         // Try Method 67: ObserveProvisioningProgress
         if (dispatchId === undefined) {
@@ -4192,7 +4348,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveProvisioningProgress (67)');
              this.mapOrdinal(header.ordinal, 67);
              dispatchId = 67;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 67 failed:', e);
+           }
         }
         // Try Method 68: ObserveHardwareWriteProtectionState
         if (dispatchId === undefined) {
@@ -4201,7 +4359,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveHardwareWriteProtectionState (68)');
              this.mapOrdinal(header.ordinal, 68);
              dispatchId = 68;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 68 failed:', e);
+           }
         }
         // Try Method 69: ObservePowerCableState
         if (dispatchId === undefined) {
@@ -4210,7 +4370,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObservePowerCableState (69)');
              this.mapOrdinal(header.ordinal, 69);
              dispatchId = 69;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 69 failed:', e);
+           }
         }
         // Try Method 70: ObserveExternalDiskState
         if (dispatchId === undefined) {
@@ -4219,7 +4381,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveExternalDiskState (70)');
              this.mapOrdinal(header.ordinal, 70);
              dispatchId = 70;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 70 failed:', e);
+           }
         }
         // Try Method 71: ObserveHardwareVerificationStatus
         if (dispatchId === undefined) {
@@ -4228,7 +4392,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveHardwareVerificationStatus (71)');
              this.mapOrdinal(header.ordinal, 71);
              dispatchId = 71;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 71 failed:', e);
+           }
         }
         // Try Method 72: ObserveFinalizationStatus
         if (dispatchId === undefined) {
@@ -4237,7 +4403,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveFinalizationStatus (72)');
              this.mapOrdinal(header.ordinal, 72);
              dispatchId = 72;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 72 failed:', e);
+           }
         }
         // Try Method 73: ObserveRoFirmwareUpdateProgress
         if (dispatchId === undefined) {
@@ -4246,7 +4414,9 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ObserveRoFirmwareUpdateProgress (73)');
              this.mapOrdinal(header.ordinal, 73);
              dispatchId = 73;
-           } catch (e) { /* Ignore mismatch */ }
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 73 failed:', e);
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
