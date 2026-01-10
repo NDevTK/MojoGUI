@@ -472,7 +472,7 @@ jobs:
                               'nullable': is_nullable
                           })
                   
-                  # 2. Sort by Ordinal
+                  # 2. Sort by Ordinal (Temporary, will resort by size for packing)
                   expanded_params.sort(key=lambda x: (x['ordinal'], x['sub_ordinal']))
                   
                   # 3. Best Fit Algorithm
@@ -515,6 +515,10 @@ jobs:
                       p['alignment'] = align
                       p['offset'] = None
                       p['bit'] = 0
+                  
+                  # CRITICAL: Sort by Size (Descending) for Best Fit Algorithm
+                  # This ensures Doubles (8 bytes) are placed first, matching pack.py behavior.
+                  expanded_params.sort(key=lambda x: (-x['size'], x['ordinal'], x['sub_ordinal']))
                   
                   if not expanded_params:
                       return [], 8, "[{version: 0, packedSize: 8}]"
@@ -685,6 +689,20 @@ jobs:
               for part in module_parts[1:]:
                   js_code += f"{current_ns}.{part} = {current_ns}.{part} || {{}};\n"
                   current_ns += f".{part}"
+              
+                  current_ns += f".{part}"
+              
+              # Declare external namespaces from imports (heuristic)
+              # e.g., import "third_party/blink/..." -> var blink = blink || {};
+              for imp in parsed.get('imports', []):
+                  parts = imp.split('/')
+                  # Common roots: blink, ui, gfx, skia, url
+                  if 'blink' in parts: js_code += "var blink = blink || {};\n"
+                  if 'ui' in parts: js_code += "var ui = ui || {};\n"
+                  if 'gfx' in parts: js_code += "var gfx = gfx || {};\n"
+                  if 'skia' in parts: js_code += "var skia = skia || {};\n"
+                  if 'url' in parts: js_code += "var url = url || {};\n"
+                  if 'content' in parts: js_code += "var content = content || {};\n"
               
               js_code += "\n"
               
